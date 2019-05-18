@@ -39,24 +39,24 @@
 #define DEBUGGING                  true     // triggers additional logging over the serial line
 #define DEBUGGING_JOYSTICK         false
 
-volatile int iPrevTime_steering = 0;
-volatile int iIdxSteering = 0;
-int aiTimesSteering[RC_BUFFER_LIMIT];
-volatile int iPrevTime_Throttle = 0;
-volatile int iIdxThrottle = 0;
-int aiTimesThrottle[RC_BUFFER_LIMIT];
-bool bInPulseSteering = false;
-bool bInPulseThrottle = false;
+volatile int prevTime_steering = 0;
+volatile int idxSteering = 0;
+int timesSteering[RC_BUFFER_LIMIT];
+volatile int prevTime_Throttle = 0;
+volatile int idxThrottle = 0;
+int timesThrottle[RC_BUFFER_LIMIT];
+bool inPulseSteering = false;
+bool inPulseThrottle = false;
 int rcSteeringPositionPWM = RC_IDLE;
 float rcSteeringPositionPercent = 0.5;      // 50% represents center, 0% is full left and 100% is full right
-int iLastPulseThrottle = RC_IDLE;
-int iSameIdxCount = 0;
-int iLastIdx = 0;
-bool bRCrecvd = false;
-unsigned long ulTimeSinceOverride = OVERRIDE_TIMEOUT;
-unsigned int iPasses = 0;
-float fLastYpwm = RC_IDLE;
-int iThrottleSignal = 185;
+int lastPulseThrottle = RC_IDLE;
+int sameIdxCount = 0;
+int lastIdx = 0;
+bool RCrecvd = false;
+unsigned long timeSinceOverride = OVERRIDE_TIMEOUT;
+unsigned int passes = 0;
+float lastYpwm = RC_IDLE;
+int throttleSignal = 185;
 
 int joystickSteering = 512;                 // Reading from X axis of joystick 0 - 1024
 float joystickSteeringPercent = 0.5;        // 50% represents center, 0% is full left and 100% is full right
@@ -67,11 +67,11 @@ bool isSteering = false;
 void resetTimeArrays() {
   // initialize the time arrays, in case there's no RC receiver hooked up
   for (int i = 0; i < RC_BUFFER_LIMIT; i++) {
-    aiTimesSteering[i] = RC_IDLE;
-    aiTimesThrottle[i] = RC_IDLE;
+    timesSteering[i] = RC_IDLE;
+    timesThrottle[i] = RC_IDLE;
   }
 
-  bRCrecvd = false;
+  RCrecvd = false;
 }
 
 /**
@@ -91,23 +91,23 @@ void handleSteeringInterrupt(){
 
 void risingSteering()
 {
-  if (!bInPulseSteering) {
-    bRCrecvd = true;
-    iPrevTime_steering = micros();
-    bInPulseSteering = true;
+  if (!inPulseSteering) {
+    RCrecvd = true;
+    prevTime_steering = micros();
+    inPulseSteering = true;
   }
 }
  
 void fallingSteering() {
-  if (bInPulseSteering) {
-    bRCrecvd = true;
-    int lastTime = micros()-iPrevTime_steering;
+  if (inPulseSteering) {
+    RCrecvd = true;
+    int lastTime = micros()-prevTime_steering;
     if ((lastTime > 0) && (lastTime < RC_LIMIT)) {
-      iIdxSteering = ++iIdxSteering;
-      iIdxSteering = iIdxSteering % RC_BUFFER_LIMIT;
-      aiTimesSteering[iIdxSteering] = lastTime;
+      idxSteering = ++idxSteering;
+      idxSteering = idxSteering % RC_BUFFER_LIMIT;
+      timesSteering[idxSteering] = lastTime;
     }
-    bInPulseSteering = false;
+    inPulseSteering = false;
   }
 }
 
@@ -128,23 +128,23 @@ void handleThrottleInterrupt(){
 
 void risingThrottle()
 {
-  if (!bInPulseThrottle) {
-    bRCrecvd = true;
-    iPrevTime_Throttle = micros();
-    bInPulseThrottle = true;
+  if (!inPulseThrottle) {
+    RCrecvd = true;
+    prevTime_Throttle = micros();
+    inPulseThrottle = true;
   }
 }
  
 void fallingThrottle() {
-  if (bInPulseThrottle) {
-    bRCrecvd = true;
-    int lastTime = micros()-iPrevTime_Throttle;
+  if (inPulseThrottle) {
+    RCrecvd = true;
+    int lastTime = micros()-prevTime_Throttle;
     if ((lastTime > 0) && (lastTime < RC_LIMIT)) {
-      iIdxThrottle = ++iIdxThrottle;
-      iIdxThrottle = iIdxThrottle % RC_BUFFER_LIMIT;
-      aiTimesThrottle[iIdxThrottle] = lastTime;
+      idxThrottle = ++idxThrottle;
+      idxThrottle = idxThrottle % RC_BUFFER_LIMIT;
+      timesThrottle[idxThrottle] = lastTime;
     }
-    bInPulseThrottle = false;
+    inPulseThrottle = false;
   }
 }
 
@@ -172,7 +172,7 @@ void setup() {
  */
 void loop() {
 
-  iPasses = iPasses + 1;
+  passes = passes + 1;
   
   int iX_J = 0;
   int iY_J = 0;
@@ -186,44 +186,44 @@ void loop() {
   //
   //  NOTE: THIS IS PROBABLY A BIT INCORRECT.  THE INDEX COUNTING METHOD USED HERE IS VERY DEPENDENT UPON CPU SPEED.  SHOULD PROBABLY BE TIME BASED!
   //
-  int iCurIdxSteering = iIdxSteering;
-  if (iCurIdxSteering == iLastIdx) { 
-    iSameIdxCount++;
+  int iCurIdxSteering = idxSteering;
+  if (iCurIdxSteering == lastIdx) { 
+    sameIdxCount++;
   }
   else {
-    iSameIdxCount = 0;
-    iLastIdx = iCurIdxSteering;
+    sameIdxCount = 0;
+    lastIdx = iCurIdxSteering;
   }
 
   // it's been too long, reset the RC arrays to idle.
   //
   //   NOTE: SEE THE PREVIOUS NOTE ABOUT THE INDEX COUNTING
   //
-  if ((iSameIdxCount > 2000) && bRCrecvd) { 
+  if ((sameIdxCount > 2000) && RCrecvd) { 
     resetTimeArrays();  
-    iSameIdxCount = 0;
+    sameIdxCount = 0;
   }
   
   // confirm that the input is good (within bounds) and beyond the OVERRIDE_THRESHOLD
-  if (abs(aiTimesSteering[iCurIdxSteering] - RC_IDLE) > OVERRIDE_THRESHOLD) {
-    if (rcSteeringPositionPWM != aiTimesSteering[iCurIdxSteering]) {
+  if (abs(timesSteering[iCurIdxSteering] - RC_IDLE) > OVERRIDE_THRESHOLD) {
+    if (rcSteeringPositionPWM != timesSteering[iCurIdxSteering]) {
       if (DEBUGGING) {
-        Serial.print("iIdxSteering: ");
+        Serial.print("idxSteering: ");
         Serial.print(iCurIdxSteering);
         Serial.print(" (");
-        Serial.print(aiTimesSteering[iCurIdxSteering]);
+        Serial.print(timesSteering[iCurIdxSteering]);
         Serial.println(")");
         
         Serial.print("overriding X with ");
         Serial.println(iX_PWM);  
       }
-      rcSteeringPositionPWM = aiTimesSteering[iCurIdxSteering];
+      rcSteeringPositionPWM = timesSteering[iCurIdxSteering];
       calculateRCSteeringPercent();
     }
     
     // the parent has taking over the steering
     override = true;
-      ulTimeSinceOverride = millis();
+      timeSinceOverride = millis();
     
     
     iX_PWM = rcSteeringPositionPWM;
@@ -232,55 +232,55 @@ void loop() {
   }
   else rcSteeringPositionPWM = RC_IDLE;
 
-  int iCurIdxThrottle = iIdxThrottle;
+  int iCurIdxThrottle = idxThrottle;
   // confirm that the input is good (within bounds) and beyond the OVERRIDE_THRESHOLD
-  if (abs(aiTimesThrottle[iCurIdxThrottle] - RC_IDLE) > OVERRIDE_THRESHOLD) {
-    if (iLastPulseThrottle != aiTimesThrottle[iCurIdxThrottle]) {
+  if (abs(timesThrottle[iCurIdxThrottle] - RC_IDLE) > OVERRIDE_THRESHOLD) {
+    if (lastPulseThrottle != timesThrottle[iCurIdxThrottle]) {
       if (DEBUGGING) {
-        Serial.print("iIdxThrottle: ");
+        Serial.print("idxThrottle: ");
         Serial.print(iCurIdxThrottle);
         Serial.print(" (");
-        Serial.print(aiTimesThrottle[iCurIdxThrottle]);
+        Serial.print(timesThrottle[iCurIdxThrottle]);
         Serial.print(") ");
       }
-      iLastPulseThrottle = aiTimesThrottle[iCurIdxThrottle];
+      lastPulseThrottle = timesThrottle[iCurIdxThrottle];
     }
     // the parent has taken over the throttle
     override = true;
-    ulTimeSinceOverride = millis();
-    iY_PWM = iLastPulseThrottle;
+    timeSinceOverride = millis();
+    iY_PWM = lastPulseThrottle;
     if (DEBUGGING) {
       Serial.print("overriding Y with ");
       Serial.println(iY_PWM);  
     }
   }
-  else iLastPulseThrottle = RC_IDLE;
+  else lastPulseThrottle = RC_IDLE;
 
   // is the override still in effect?
-  if ((millis() - ulTimeSinceOverride) < OVERRIDE_TIMEOUT) override = true;
+  if ((millis() - timeSinceOverride) < OVERRIDE_TIMEOUT) override = true;
 
   readInputs();
   calculateJoystickSteeringPercent();
   calculateSteeringTarget(override);
   applySteering();
 /*
-  if (abs(iY_PWM - fLastYpwm) < VELOCITY_INCR) fLastYpwm = iY_PWM;
-  if (iY_PWM > fLastYpwm) 
-    fLastYpwm += VELOCITY_INCR;
-  else if (iY_PWM < fLastYpwm)
-    fLastYpwm -= (VELOCITY_INCR);
-  if (DEBUGGING) Serial.println(fLastYpwm);
+  if (abs(iY_PWM - lastYpwm) < VELOCITY_INCR) lastYpwm = iY_PWM;
+  if (iY_PWM > lastYpwm) 
+    lastYpwm += VELOCITY_INCR;
+  else if (iY_PWM < lastYpwm)
+    lastYpwm -= (VELOCITY_INCR);
+  if (DEBUGGING) Serial.println(lastYpwm);
 */
 /*
-  //escThrottle.writeMicroseconds(int(fLastYpwm));
+  //escThrottle.writeMicroseconds(int(lastYpwm));
   //escThrottle.write(75);
   // Do we need the servo library? Teensy can write PWM signal natively.
-  iThrottleSignal = map(int(fLastYpwm), 850, 2100, 130, 250);
+  throttleSignal = map(int(lastYpwm), 850, 2100, 130, 250);
       if (DEBUGGING) {
-      Serial.print("iThrottleSignal: ");
-      Serial.println(iThrottleSignal);  
+      Serial.print("throttleSignal: ");
+      Serial.println(throttleSignal);  
     }
-  analogWrite(PIN_ESC_THROTTLE, iThrottleSignal);
+  analogWrite(PIN_ESC_THROTTLE, throttleSignal);
 */
 }
 
