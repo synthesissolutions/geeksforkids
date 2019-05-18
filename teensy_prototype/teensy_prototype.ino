@@ -17,6 +17,10 @@
 #define PIN_STEERING_ENABLE        7
 #define PIN_JOYSTICK_STEERING      A9
 #define PIN_STEERING_POSITION      A8
+#define PIN_JOYSTICK_THROTTLE      A7
+#define PIN_THROTTLE_FORWARD       10
+#define PIN_THROTTLE_REVERSE       11
+#define PIN_THROTTLE_SPEED         9
 
 #define STEERING_MIN               200   // These numbers need to be tuned to maximum wheel turn amount
 #define STEERING_MAX               800
@@ -39,6 +43,9 @@
 #define DEBUGGING                  true     // triggers additional logging over the serial line
 #define DEBUGGING_JOYSTICK         false
 
+#define ACCELERATION_RATE          0.00133  //amount of power change per milisecond in acceleration
+#define DECELERATION_RATE          0.00267  //amount of power change per milisecond in deceleration
+
 volatile int prevTime_steering = 0;
 volatile int idxSteering = 0;
 int timesSteering[RC_BUFFER_LIMIT];
@@ -60,8 +67,13 @@ int throttleSignal = 185;
 
 int joystickSteering = 512;                 // Reading from X axis of joystick 0 - 1024
 float joystickSteeringPercent = 0.5;        // 50% represents center, 0% is full left and 100% is full right
+int joystickThrottle = 512;                 // Reading from Y axis of joystick 0 - 1024
+float joystickThrottlePercent = 0.5;        // 50% represents center, 0% is full left and 100% is full right
 int steeringPosition = 0;                   // Reading from the Linear Actuator
 int steeringTarget = 500;
+float currentThrottlePercent = 0.5;    
+float throttleTargetPercent = 0.5;
+unsigned long throttleLastMillis = 0;
 bool isSteering = false;
 
 void resetTimeArrays() {
@@ -261,8 +273,10 @@ void loop() {
 
   readInputs();
   calculateJoystickSteeringPercent();
+  calculateJoystickThrottlePercent();
   calculateSteeringTarget(override);
   applySteering();
+  applyThrottle();
 /*
   if (abs(iY_PWM - lastYpwm) < VELOCITY_INCR) lastYpwm = iY_PWM;
   if (iY_PWM > lastYpwm) 
@@ -286,7 +300,8 @@ void loop() {
 
 void readInputs() {
   joystickSteering = analogRead(PIN_JOYSTICK_STEERING);
-  steeringPosition = analogRead(PIN_STEERING_POSITION);  
+  steeringPosition = analogRead(PIN_STEERING_POSITION); 
+  joystickThrottle = analogRead(PIN_JOYSTICK_THROTTLE);  
 
   if (DEBUGGING_JOYSTICK) {
     Serial.print("Joystick X: ");
@@ -304,6 +319,36 @@ void calculateSteeringTarget(byte override) {
     targetPercent = int(joystickSteeringPercent * 100);
   }
   steeringTarget = constrain(map(targetPercent, 0, 100, STEERING_MIN, STEERING_MAX), STEERING_MIN, STEERING_MAX);
+}
+
+void applyThrottle() {
+  int speed;
+  if(joystickThrottlePercent>0.575 || joystickThrottlePercent<0.425){
+    if(abs(joystickThrottlePercent-throttleTargetPercent)>0.05){
+      throttleTargetPercent = joystickThrottlePercent;
+    }
+    if(throttleTargetPercent>currentThrottlePercent){
+      speed = (currentThrottlePercent + ((millis()-throttleLastMillis)*ACCELERATION_RATE)*100);
+      digitalWrite(PIN_THROTTLE_FORWARD, HIGH);
+      digitalWrite(PIN_THROTTLE_REVERSE, LOW);
+      analogWrite(PIN_THROTTLE_SPEED, speed);
+    } else if (throttleTargetPercent<currentThrottlePercent) {
+      speed = (currentThrottlePercent - ((millis()-throttleLastMillis)*ACCELERATION_RATE)*100);
+      digitalWrite(PIN_THROTTLE_FORWARD, LOW);
+      digitalWrite(PIN_THROTTLE_REVERSE, HIGH);
+      analogWrite(PIN_THROTTLE_SPEED, speed);
+    } else {
+      throttleLastMillis = millis();
+    }
+  } else {
+    speed = 0;
+    digitalWrite(PIN_THROTTLE_FORWARD, LOW);
+    digitalWrite(PIN_THROTTLE_REVERSE, LOW);
+    analogWrite(PIN_THROTTLE_SPEED, speed);
+    throttleLastMillis = millis();
+  }
+  Serial.print("speed ::");
+  Serial.println(speed);
 }
 
 void applySteering() {
@@ -380,3 +425,8 @@ void calculateJoystickSteeringPercent() {
   }
 }
 
+void calculateJoystickThrottlePercent() {
+  joystickThrottlePercent = constrain(float(joystickThrottle) / 1024.0, 0.0, 1.0);
+  Serial.print("joystickThrottlePercent ");
+  Serial.println(joystickThrottlePercent);
+}
