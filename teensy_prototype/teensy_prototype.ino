@@ -175,6 +175,12 @@ void setup() {
   pinMode(PIN_STEERING_RIGHT, OUTPUT);
   pinMode(PIN_STEERING_ENABLE, OUTPUT);
   analogWrite(PIN_STEERING_ENABLE, STEERING_SPEED);
+
+  pinMode(PIN_THROTTLE_FORWARD, OUTPUT);
+  pinMode(PIN_THROTTLE_REVERSE, OUTPUT);
+  pinMode(PIN_THROTTLE_SPEED, OUTPUT);
+  analogWrite(PIN_THROTTLE_SPEED, 0);
+
 }
 
 
@@ -322,18 +328,20 @@ void calculateSteeringTarget(byte override) {
 }
 
 void applyThrottle() {
-  int speed;
+  int speed = 200;
   if(joystickThrottlePercent>0.575 || joystickThrottlePercent<0.425){
     if(abs(joystickThrottlePercent-throttleTargetPercent)>0.05){
       throttleTargetPercent = joystickThrottlePercent;
     }
     if(throttleTargetPercent>currentThrottlePercent){
-      speed = (currentThrottlePercent + ((millis()-throttleLastMillis)*ACCELERATION_RATE)*100);
+      //speed = (currentThrottlePercent + ((millis()-throttleLastMillis)*ACCELERATION_RATE)*100);
+      //speed=joystickThrottlePercent;
       digitalWrite(PIN_THROTTLE_FORWARD, HIGH);
       digitalWrite(PIN_THROTTLE_REVERSE, LOW);
       analogWrite(PIN_THROTTLE_SPEED, speed);
     } else if (throttleTargetPercent<currentThrottlePercent) {
-      speed = (currentThrottlePercent - ((millis()-throttleLastMillis)*ACCELERATION_RATE)*100);
+      //speed = (currentThrottlePercent - ((millis()-throttleLastMillis)*ACCELERATION_RATE)*100);
+      //speed=currentThrottlePercent;
       digitalWrite(PIN_THROTTLE_FORWARD, LOW);
       digitalWrite(PIN_THROTTLE_REVERSE, HIGH);
       analogWrite(PIN_THROTTLE_SPEED, speed);
