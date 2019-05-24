@@ -26,17 +26,17 @@ const int           LOOP_DELAY_MILLIS       = 10;   // 10ms delay = ~ 100 Hz.  P
 
 // Joystick parms - these are based on the range 0-1023
 const int           X_AXIS_CENTER           = 512;
-const int           X_AXIS_MIN              = 200;
-const int           X_AXIS_MAX              = 800;
+const int           X_AXIS_MIN              = 100;
+const int           X_AXIS_MAX              = 900;
 const int           Y_AXIS_CENTER           = 512;
-const int           Y_AXIS_MIN              = 200;
-const int           Y_AXIS_MAX              = 800;
+const int           Y_AXIS_MIN              = 100;
+const int           Y_AXIS_MAX              = 900;
 
 // Joystick parms - these are in scaled units (-100 to 100)
-const int           X_AXIS_DEADZONE_LOW     = -10;
-const int           X_AXIS_DEADZONE_HIGH    = 10;
-const int           Y_AXIS_DEADZONE_LOW     = -10;
-const int           Y_AXIS_DEADZONE_HIGH    = 10;
+const int           X_AXIS_DEADZONE_LOW     = -50;
+const int           X_AXIS_DEADZONE_HIGH    = 50;
+const int           Y_AXIS_DEADZONE_LOW     = -50;
+const int           Y_AXIS_DEADZONE_HIGH    = 50;
 
 
 // Throttle parms ... tunes the throttle changes and updates
@@ -49,8 +49,8 @@ const int           THROTTLE_PWM_MAX        = 250;        //    limit the thrott
 const int           STEERING_MIN            = 200;        // tuned to maximum wheel turn amount
 const int           STEERING_MAX            = 800;        // tuned to maximum wheel turn amount
 const int           STEERING_CENTER         = 512;
-const int           STEERING_STOP_DELTA     = 1;          // How close to target before stopping so we don't oscillate between 2 numbers.  IN SCALED UNITS: -100 to 100
-const int           STEERING_START_DELTA    = 3;          // How close to target before starting so we don't oscillate between 2 numbers   IN SCALED UNITS: -100 to 100
+const int           STEERING_STOP_DELTA     = 10;          // How close to target before stopping so we don't oscillate between 2 numbers.  IN SCALED UNITS: -100 to 100
+const int           STEERING_START_DELTA    = 30;          // How close to target before starting so we don't oscillate between 2 numbers   IN SCALED UNITS: -100 to 100
 const int           STEERING_SPEED          = 255;        // PWM Value from 0 - 255 with 255 = max speed
 
 // Remote control PWM parms ... probably best to leave these alone!
@@ -71,19 +71,28 @@ const int           RC_THROTTLE_DEADZONE_HIGH = 10;
  */
 //   ... joystick
 const int           PIN_JOYSTICK_THROTTLE   = A1;
-const int           PIN_JOYSTICK_STEERING   = A9;
+const int           PIN_JOYSTICK_STEERING   = A0;
 
 //   ... throttle ... aka the controller for the car's drive motor   
-const int           PIN_THROTTLE_FORWARD    = 10;
-const int           PIN_THROTTLE_REVERSE    = 11;
-const int           PIN_THROTTLE_SPEED      = 9;
+const int           PIN_THROTTLE_FORWARD    = 4;
+const int           PIN_THROTTLE_REVERSE    = 5;
+const int           PIN_THROTTLE_SPEED      = 3;
 
 //   ... steering ... aka the controller for the car's steering servo
-const int           PIN_STEERING_LEFT       = 6;
+const int           PIN_STEERING_LEFT       = 7;
 const int           PIN_STEERING_RIGHT      = 8;
-const int           PIN_STEERING_ENABLE     = 7;
-const int           PIN_STEERING_POSITION   = A8;
+const int           PIN_STEERING_ENABLE     = 6;
+const int           PIN_STEERING_POSITION   = A9;
 
 //   ... RC ... aka the parent remote control inputs
 const int           PIN_RC_STEERING         = 36;   
 const int           PIN_RC_THROTTLE         = 37;     
+
+
+//   ... DIPs ... 
+const int           DIP_SWITCH_1            = 29;
+const int           DIP_SWITCH_2            = 28;
+const int           DIP_SWITCH_3            = 27;
+const int           DIP_SWITCH_4            = 26;
+const int           DIP_SWITCH_5            = 25;
+const int           DIP_SWITCH_6            = 24;

@@ -50,7 +50,7 @@ void setup() {
   remoteControl.init(PIN_RC_STEERING, PIN_RC_THROTTLE); 
   logger.addLogLine("remote control initialized"); 
 
-  dips.init();
+  dips.init(DIP_SWITCH_1, DIP_SWITCH_2, DIP_SWITCH_3, DIP_SWITCH_4, DIP_SWITCH_5, DIP_SWITCH_6);
   logger.addLogLine("dips initialized"); 
 
   // set up the interrupt handlers

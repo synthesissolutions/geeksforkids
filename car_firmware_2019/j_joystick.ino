@@ -102,7 +102,7 @@ class Joystick {
       int val = getXAxisRaw();
 
       // constrain to be between min and max, and then scale to -100 to 100
-      map(constrain(val,xAxisMin,xAxisMax),xAxisMin,xAxisMax,-100,100);
+      val = map(constrain(val,xAxisMin,xAxisMax),xAxisMin,xAxisMax,-100,100);
 
       // apply the deadzone
       if (xAxisDZLow < val && val<xAxisDZHigh) val=0;
@@ -118,7 +118,7 @@ class Joystick {
       int val = getYAxisRaw();
 
       // constrain to be between min and max, and then scale to -100 to 100
-      map(constrain(val,yAxisMin,yAxisMax),yAxisMin,yAxisMax,-100,100);
+      val = map(constrain(val,yAxisMin,yAxisMax),yAxisMin,yAxisMax,-100,100);
       
       // apply the deadzone
       if (yAxisDZLow < val && val<yAxisDZHigh) val=0;

@@ -68,13 +68,12 @@ class Logger {
       if (millis()-lastUpdateTime >= updateDeltaT) {
         Serial.print("Log Time:");Serial.println(millis());
         
-        Serial.print(dips->getStatus());
-        Serial.print(joystick->getStatus());
-        Serial.print(rc->getStatus());
-        Serial.print(steering->getStatus());
-        Serial.print(throttle->getStatus());
-        
-        Serial.println();
+        Serial.print(dips->getStatus());Serial.println();
+        Serial.print(joystick->getStatus());Serial.println();
+        Serial.print(rc->getStatus());Serial.println();
+        Serial.print(steering->getStatus());Serial.println();
+        Serial.print(throttle->getStatus());Serial.println();
+
         for (int i=0; i<20; i++) {
           Serial.println(lines[i]);     
           lines[i]=String("");   

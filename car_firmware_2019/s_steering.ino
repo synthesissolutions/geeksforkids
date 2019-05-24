@@ -112,7 +112,8 @@ class Steering {
      */
     void updateSteering() {
       // figure out the current steering servo position and how far we are from the target
-      steeringPositionScaled = float(analogRead(pinSteeringPosition))*100./1023.;              // We're always going to work in scaled units
+      //steeringPositionScaled = float(analogRead(pinSteeringPosition))*100./1023.;              // We're always going to work in scaled units
+      steeringPositionScaled = constrain(map(analogRead(pinSteeringPosition),0,1023,-100,100),-100,100);              // We're always going to work in scaled units
       targetDeltaScaled = abs(steeringPositionScaled - steeringTargetScaled);
 
       // Are we moving already?
