@@ -90,16 +90,9 @@ class Steering {
     /*
      * Sets the new target for the steering position.  Expects the new target to be in scaled units: -100 to 100, 0=center. 
      */
-    void setSteeringPosition(int target, boolean invert) {
+    void setSteeringPosition(int target) {
       // constrain and set the steering target (in scaled units)
-      target = constrain(target,-100,100);
-
-      // should the steering be inverted?
-      if (invert) {
-        target = map(target,-100,100,100,-100);  
-      }
-      
-      steeringTargetScaled = target;
+      steeringTargetScaled = constrain(target,-100,100);
 
       // now call update
       updateSteering();

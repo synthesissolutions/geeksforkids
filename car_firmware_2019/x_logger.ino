@@ -17,6 +17,8 @@ class Logger {
     unsigned int txSpeed = SERIAL_BAUD_RATE;
 
     String lines[20];
+
+    // Yeah... don't like that the logger has to have these explicity defined.  But it's good enough for now.
     DIPSwitches *dips;
     Joystick *joystick;
     RemoteControl *rc;
@@ -46,12 +48,13 @@ class Logger {
       Serial.println("Logging started ...");
     }
 
-    // provides a way to add an ad-hoc line to the logging output.  Not very elegant
+    // provides a way to add an ad-hoc line to the logging output.  Not sure this is super userful, but eh.
     void addLogLine(String line) {
 
       // is logging turned on?
       if (updateDeltaT==0) return;
-      
+
+      // as long as we don't already have 20 lines, add the line to the array
       if (currentLine<20) {
         lines[currentLine] = line;
         currentLine++;
@@ -65,24 +68,36 @@ class Logger {
       // is logging turned on?
       if (updateDeltaT==0) return;
 
+      // is it time yet to do another log (we don't want to log too much)
       if (millis()-lastUpdateTime >= updateDeltaT) {
+
+        // Yep ... it's time.
         Serial.print("Log Time:");Serial.println(millis());
-        
+
+        // Go through the known instances (they'd better all be here).  Would be better to have an interface and a 
+        //   vector of these to iterate over. 
         Serial.print(dips->getStatus());Serial.println();
         Serial.print(joystick->getStatus());Serial.println();
         Serial.print(rc->getStatus());Serial.println();
         Serial.print(steering->getStatus());Serial.println();
         Serial.print(throttle->getStatus());Serial.println();
 
+        // now the ad-hoc lines... this also helps space everythig out so the log is a bit easier to read
         for (int i=0; i<20; i++) {
-          Serial.println(lines[i]);     
+          Serial.println(lines[i]);   
+          // the line has been printed... clear it for the next time  
           lines[i]=String("");   
         }
-        
+        // reset the current line for ad-hoc logging to start again at the top
         currentLine=0;
+
+        // couple of extra spaces
+        Serial.println();
+        Serial.println();
+
+        // and set up for the next time writeLog is called
         lastUpdateTime = millis();
-        Serial.println();
-        Serial.println();
+
       }
     }
 

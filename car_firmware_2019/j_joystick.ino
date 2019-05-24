@@ -31,6 +31,10 @@ class Joystick {
     int yAxisDZLow = Y_AXIS_DEADZONE_LOW;
     int yAxisDZHigh = Y_AXIS_DEADZONE_HIGH;
 
+    // direction inversion if necessary
+    boolean invertXAxis = JOYSTICK_INVERT_X_AXIS;
+    boolean invertYAxis = JOYSTICK_INVERT_Y_AXIS;
+
     boolean hasCentered=false;
  
   public:
@@ -104,6 +108,11 @@ class Joystick {
       // constrain to be between min and max, and then scale to -100 to 100
       val = map(constrain(val,xAxisMin,xAxisMax),xAxisMin,xAxisMax,-100,100);
 
+      // invert if necessary
+      if (invertXAxis) {
+        val = -val;
+      }
+
       // apply the deadzone
       if (xAxisDZLow < val && val<xAxisDZHigh) val=0;
       
@@ -119,6 +128,11 @@ class Joystick {
 
       // constrain to be between min and max, and then scale to -100 to 100
       val = map(constrain(val,yAxisMin,yAxisMax),yAxisMin,yAxisMax,-100,100);
+
+      // invert if necessary
+      if (invertYAxis) {
+        val = -val;
+      }
       
       // apply the deadzone
       if (yAxisDZLow < val && val<yAxisDZHigh) val=0;
@@ -159,9 +173,10 @@ class Joystick {
     String getStatus() {
       String ret = String("[Joystick] ");
       ret.concat(String("x:"));ret.concat(getXAxisRaw());
-      ret.concat(String(" xscaled:"));ret.concat(getXAxisScaled());
+      ret.concat(String(" xscaled:"));ret.concat(getXAxisScaled());if (invertXAxis) ret.concat("(inverted)");
       ret.concat(String(" y:"));ret.concat(getYAxisRaw());
-      ret.concat(String(" yscaled:"));ret.concat(getYAxisScaled());
+      ret.concat(String(" yscaled:"));ret.concat(getYAxisScaled());if (invertYAxis) ret.concat("(inverted)");
+      ret.concat(String(" isActive:"));ret.concat(isActive());
       return ret;
     }
 

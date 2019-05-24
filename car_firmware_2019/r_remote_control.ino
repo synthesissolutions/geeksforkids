@@ -15,10 +15,10 @@ class RemoteControl {
 
     boolean steeringSignalHigh;
     unsigned long steeringPulseStart;
-    unsigned long steeringElapsedTime;
+    unsigned long steeringPWM;
     boolean throttleSignalHigh;
     unsigned long throttlePulseStart;
-    unsigned long throttleElapsedTime;
+    unsigned long throttlePWM;
 
     unsigned long lastSignificantInputMillis = 0;
 
@@ -31,6 +31,10 @@ class RemoteControl {
     int steeringDeadzoneHigh = RC_STEERING_DEADZONE_HIGH;
     int throttleDeadzoneLow = RC_THROTTLE_DEADZONE_LOW;
     int throttleDeadzoneHigh = RC_THROTTLE_DEADZONE_HIGH; 
+
+    // direction inversion if necessary
+    boolean  invertSteering = RC_INVERT_STEERING;
+    boolean  invertThrottle = RC_INVERT_THROTTLE;
 
     boolean hasCentered = false;
   
@@ -101,8 +105,10 @@ class RemoteControl {
 
     String getStatus() {
       String ret = String("[RemoteControl] ");
-      ret.concat(String("throttleScaled:"));ret.concat(throttleScaled);
-      ret.concat(String(" steeringScaled:"));ret.concat(steeringScaled);
+      ret.concat(String("throttlePWM:"));ret.concat(throttlePWM);
+      ret.concat(String(" throttleScaled:"));ret.concat(throttleScaled);if (invertThrottle) ret.concat("(inverted)");
+      ret.concat(String(" steeringPWM:"));ret.concat(steeringPWM);
+      ret.concat(String(" steeringScaled:"));ret.concat(steeringScaled);if (invertSteering) ret.concat("(inverted)");
       ret.concat(String(" isActive:"));ret.concat(isActive());
       return ret;
     }
@@ -131,17 +137,24 @@ class RemoteControl {
         
       } else {
 
+        // falling signal
         if (steeringSignalHigh) {
+          // and we haven't seen this pulse drop previously
 
           // calculate the pulse width in microseconds
-          steeringElapsedTime = micros()-steeringPulseStart;
+          steeringPWM = micros()-steeringPulseStart;
 
           // is the pulse width in the expected range?
-          if ((steeringElapsedTime > 0) && (steeringElapsedTime < rcLimit)) {
+          if ((steeringPWM > 0) && (steeringPWM < rcLimit)) {
             
             // we have a complete pulse ... calculate the signal
             // just a linear scaling of 1000micros-2000micros to -100 - 100
-            steeringScaled = constrain(map(steeringElapsedTime,1000,2000,-100,100),-100,100);
+            steeringScaled = constrain(map(steeringPWM,1000,2000,-100,100),-100,100);
+            
+            // invert if necessary
+            if (invertSteering) {
+              steeringScaled = -steeringScaled;
+            }
 
             // are we in the deadzone?
             if (steeringScaled > steeringDeadzoneLow && steeringScaled < steeringDeadzoneHigh) {
@@ -184,17 +197,24 @@ class RemoteControl {
         
       } else {
 
+        // falling signal
         if (throttleSignalHigh) {
+          // and we haven't seen this pulse drop previously
 
           // calculate the pulse width in microseconds
-          throttleElapsedTime = micros()-throttlePulseStart;
+          throttlePWM = micros()-throttlePulseStart;
 
           // is the pulse width in the expected range?
-          if ((throttleElapsedTime > 0) && (throttleElapsedTime < rcLimit)) {
+          if ((throttlePWM > 0) && (throttlePWM < rcLimit)) {
             
             // we have a good and complete pulse ... calculate the signal
             // just a linear scaling of 1000micros-2000micros to -100 - 100
-            throttleScaled = constrain(map(throttleElapsedTime,1000,2000,-100,100),-100,100);
+            throttleScaled = constrain(map(throttlePWM,1000,2000,-100,100),-100,100);
+
+            // invert if necessary
+            if (invertThrottle) {
+              throttleScaled = -throttleScaled;
+            }
             
             // are we in the deadzone?
             if (throttleScaled > throttleDeadzoneLow && throttleScaled < throttleDeadzoneHigh) {

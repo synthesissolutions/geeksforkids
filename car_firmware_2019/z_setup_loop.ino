@@ -76,7 +76,7 @@ void loop() {
     }
 
     // set the inputs from the RC
-    steering.setSteeringPosition(remoteControl.getSteeringScaled(), dips.getPin5());
+    steering.setSteeringPosition(remoteControl.getSteeringScaled());
     throttle.setThrottle(remoteControl.getThrottleScaled());
 
   } else {
@@ -93,7 +93,7 @@ void loop() {
       }
 
       // set the inputs from the Joystick
-      steering.setSteeringPosition(joystick.getXAxisScaled(), dips.getPin5());
+      steering.setSteeringPosition(joystick.getXAxisScaled());
       throttle.setThrottle(joystick.getYAxisScaled());
 
 

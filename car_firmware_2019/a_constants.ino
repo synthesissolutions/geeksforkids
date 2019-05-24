@@ -38,6 +38,9 @@ const int           X_AXIS_DEADZONE_HIGH    = 50;
 const int           Y_AXIS_DEADZONE_LOW     = -50;
 const int           Y_AXIS_DEADZONE_HIGH    = 50;
 
+// Joystick parms - get the direction correct
+const boolean       JOYSTICK_INVERT_X_AXIS  = true;
+const boolean       JOYSTICK_INVERT_Y_AXIS  = false;
 
 // Throttle parms ... tunes the throttle changes and updates
 const unsigned long THROTTLE_UPDATE_MILLIS  = 10;         // 10 = ~ 100Hz.  How often the throttle position is updated.
@@ -58,11 +61,16 @@ const int           RC_MIN                  = 1000;
 const int           RC_MAX                  = 2000;
 const int           RC_LIMIT                = 2500;
 
+// Remote control parm ... tuning
 const int           RC_OVERRIDE_TIMEOUT     = 4000;     // The time required for the parent RC input to be at idle before returning control back to the kid, in millis
-const int           RC_STEERING_DEADZONE_LOW = -10;
-const int           RC_STEERING_DEADZONE_HIGH = 10;
-const int           RC_THROTTLE_DEADZONE_LOW = -10;
-const int           RC_THROTTLE_DEADZONE_HIGH = 10; 
+const int           RC_STEERING_DEADZONE_LOW = -10;     // scaled units
+const int           RC_STEERING_DEADZONE_HIGH = 10;     // scaled units
+const int           RC_THROTTLE_DEADZONE_LOW = -10;     // scaled units
+const int           RC_THROTTLE_DEADZONE_HIGH = 10;     // scaled units 
+
+// Remote control parms - get the direction correct
+const boolean       RC_INVERT_STEERING      = false;
+const boolean       RC_INVERT_THROTTLE      = false;
 
 
 /*****************************************************************************************
@@ -87,7 +95,6 @@ const int           PIN_STEERING_POSITION   = A9;
 //   ... RC ... aka the parent remote control inputs
 const int           PIN_RC_STEERING         = 36;   
 const int           PIN_RC_THROTTLE         = 37;     
-
 
 //   ... DIPs ... 
 const int           DIP_SWITCH_1            = 29;
