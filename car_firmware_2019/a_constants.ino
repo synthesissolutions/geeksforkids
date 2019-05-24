@@ -79,8 +79,8 @@ const int           PIN_THROTTLE_REVERSE    = 5;
 const int           PIN_THROTTLE_SPEED      = 3;
 
 //   ... steering ... aka the controller for the car's steering servo
-const int           PIN_STEERING_LEFT       = 7;
-const int           PIN_STEERING_RIGHT      = 8;
+const int           PIN_STEERING_LEFT       = 8;
+const int           PIN_STEERING_RIGHT      = 7;
 const int           PIN_STEERING_ENABLE     = 6;
 const int           PIN_STEERING_POSITION   = A9;
 
