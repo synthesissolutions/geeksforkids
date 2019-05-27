@@ -81,8 +81,6 @@ void loop() {
       logger.addLogLine("RC has gone active, taking over from Joystick");
       joystickInControl=false;
       rcInControl=true;
-    } else {
-      logger.addLogLine("RC still in control");
     }
 
     // set the inputs from the RC
@@ -94,8 +92,6 @@ void loop() {
         logger.addLogLine("Steering Potentiometer and Go Button are now in control, taking over from RC");
         joystickInControl=true;
         rcInControl=false;
-      } else {
-        logger.addLogLine("Steering Potentiometer and Go Button still in control");
       }
 
       // set the inputs from the steering potentiometer and go button
@@ -106,14 +102,14 @@ void loop() {
     // Nope... the parent isn't controlling
     // check to see if the joystick active (e.g. has it centered at least once?)
     if (joystick.isActive()) {
+      joystick.setInvertXAxis(configuration.getInvertJoystickX());
+      joystick.setInvertYAxis(configuration.getInvertJoystickY());
 
       // Yeah!  The kid is in control!
       if (rcInControl) {
         logger.addLogLine("Joystick is now in control, taking over from RC");
         joystickInControl=true;
         rcInControl=false;
-      } else {
-        logger.addLogLine("Joystick still in control");
       }
 
       // set the inputs from the Joystick

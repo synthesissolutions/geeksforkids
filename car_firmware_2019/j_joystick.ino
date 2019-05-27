@@ -98,6 +98,26 @@ class Joystick {
       return val;
     }
 
+    // return True/False is the X Axis Inverted
+    boolean getInvertXAxis() {
+      return invertXAxis;
+    }
+
+    // return True/False is the Y Axis Inverted
+    boolean getInvertYAxis() {
+      return invertYAxis;
+    }
+
+    // Set the X Axis inversion to True or False
+    void setInvertXAxis(boolean val) {
+      invertXAxis = val;
+    }
+
+    // Set the Y Axis inversion to True or False
+    void setInvertYAxis(boolean val) {
+      invertYAxis = val;
+    }
+    
     /* gets the x axis scaled 
      *  
      *  Algorithm is to simply do a linear scaling based on the range, and then apply the deadzone
