@@ -25,18 +25,27 @@ const unsigned int  SERIAL_BAUD_RATE        =57600;     // Baud rate for the ser
 const int           LOOP_DELAY_MILLIS       = 10;   // 10ms delay = ~ 100 Hz.  Plenty fast.
 
 // Joystick parms - these are based on the range 0-1023
-const int           X_AXIS_CENTER           = 512;
-const int           X_AXIS_MIN              = 100;
-const int           X_AXIS_MAX              = 900;
-const int           Y_AXIS_CENTER           = 512;
-const int           Y_AXIS_MIN              = 100;
-const int           Y_AXIS_MAX              = 900;
+const int           JOYSTICK_X_AXIS_CENTER           = 512;
+const int           JOYSTICK_X_AXIS_MIN              = 100;
+const int           JOYSTICK_X_AXIS_MAX              = 900;
+const int           JOYSTICK_Y_AXIS_CENTER           = 512;
+const int           JOYSTICK_Y_AXIS_MIN              = 100;
+const int           JOYSTICK_Y_AXIS_MAX              = 900;
 
 // Joystick parms - these are in scaled units (-100 to 100)
-const int           X_AXIS_DEADZONE_LOW     = -50;
-const int           X_AXIS_DEADZONE_HIGH    = 50;
-const int           Y_AXIS_DEADZONE_LOW     = -50;
-const int           Y_AXIS_DEADZONE_HIGH    = 50;
+const int           JOYSTICK_X_AXIS_DEADZONE_LOW     = -50;
+const int           JOYSTICK_X_AXIS_DEADZONE_HIGH    = 50;
+const int           JOYSTICK_Y_AXIS_DEADZONE_LOW     = -50;
+const int           JOYSTICK_Y_AXIS_DEADZONE_HIGH    = 50;
+
+// Steering Pot Go Button parms - these are based on the range 0-1023
+const int           STEERING_POT_X_AXIS_CENTER           = 512;
+const int           STEERING_POT_X_AXIS_MIN              = 100;
+const int           STEERING_POT_X_AXIS_MAX              = 900;
+
+// Steering Pot Go Button parms - these are in scaled units (-100 to 100)
+const int           STEERING_POT_X_AXIS_DEADZONE_LOW     = -50;
+const int           STEERING_POT_X_AXIS_DEADZONE_HIGH    = 50;
 
 // Joystick parms - get the direction correct
 const boolean       JOYSTICK_INVERT_X_AXIS  = true;
@@ -96,6 +105,11 @@ const int           PIN_STEERING_LEFT       = 8;
 const int           PIN_STEERING_RIGHT      = 7;
 const int           PIN_STEERING_ENABLE     = 6;
 const int           PIN_STEERING_POSITION   = A9;
+
+//  ... steering by potentiometer and drive by Go button
+const int           PIN_STEERING_POTENTIONMETER = A8;
+const int           PIN_GO_BUTTON           = 21;
+const int           PIN_REVERSE_SWITCH      = 20;
 
 //   ... RC ... aka the parent remote control inputs
 const int           PIN_RC_STEERING         = 10;   

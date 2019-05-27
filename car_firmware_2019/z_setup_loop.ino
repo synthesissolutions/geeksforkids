@@ -12,6 +12,7 @@
 DIPSwitches dips;
 Configuration configuration;
 Joystick joystick;
+SteeringPotGoButton potGo;
 Steering steering;
 Throttle throttle;
 RemoteControl remoteControl;
@@ -36,12 +37,15 @@ boolean joystickInControl = false;
  */
 void setup() {
   // set up the logger
-  logger.init(LOGGER_UPDATE_TIME, &dips, &configuration, &joystick, &remoteControl, &steering, &throttle);
+  logger.init(LOGGER_UPDATE_TIME, &dips, &configuration, &joystick, &potGo, &remoteControl, &steering, &throttle);
 
   // initialize everything with the correct pins
   joystick.init(PIN_JOYSTICK_STEERING, PIN_JOYSTICK_THROTTLE);
   logger.addLogLine("joystick initialized");
-  
+
+  potGo.init(PIN_STEERING_POTENTIONMETER, PIN_GO_BUTTON, PIN_REVERSE_SWITCH);
+  logger.addLogLine("steering potentiometer and go button initialized");
+
   throttle.init(PIN_THROTTLE_FORWARD, PIN_THROTTLE_REVERSE, PIN_THROTTLE_SPEED);
   logger.addLogLine("throttle initialized");
   
@@ -85,6 +89,18 @@ void loop() {
     steering.setSteeringPosition(remoteControl.getSteeringScaled());
     throttle.setThrottle(remoteControl.getThrottleScaled());
 
+  } else if (configuration.useSteeringPotentiometerAndGoButton()) {
+      if (rcInControl) {
+        logger.addLogLine("Steering Potentiometer and Go Button are now in control, taking over from RC");
+        joystickInControl=true;
+        rcInControl=false;
+      } else {
+        logger.addLogLine("Steering Potentiometer and Go Button still in control");
+      }
+
+      // set the inputs from the steering potentiometer and go button
+      steering.setSteeringPosition(potGo.getXAxisScaled());
+      throttle.setThrottle(potGo.getYAxisScaled()*configuration.getSpeedMultiplier());
   } else {
     
     // Nope... the parent isn't controlling

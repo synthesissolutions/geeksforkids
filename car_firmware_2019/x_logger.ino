@@ -22,6 +22,7 @@ class Logger {
     DIPSwitches *dips;
     Configuration *configuration;
     Joystick *joystick;
+    SteeringPotGoButton *potGo;
     RemoteControl *rc;
     Steering *steering;
     Throttle *throttle;
@@ -34,13 +35,14 @@ class Logger {
     /*
      * Set up the logging.  An updateTime of 0 will turn logging off.  Very much tied to knowing what objects we're going to log status for!!!
      */
-    void init(int updateTime, DIPSwitches *d, Configuration *c, Joystick *j, RemoteControl *r, Steering *s, Throttle *t) {
+    void init(int updateTime, DIPSwitches *d, Configuration *c, Joystick *j, SteeringPotGoButton *pg, RemoteControl *r, Steering *s, Throttle *t) {
 
       Serial.begin(txSpeed);
   
       dips = d;
       configuration = c;
       joystick = j;
+      potGo = pg;
       rc = r;
       steering = s;
       throttle = t;
@@ -81,6 +83,7 @@ class Logger {
         Serial.print(dips->getStatus());Serial.println();
         Serial.print(configuration->getStatus());Serial.println();
         Serial.print(joystick->getStatus());Serial.println();
+        Serial.print(potGo->getStatus());Serial.println();
         Serial.print(rc->getStatus());Serial.println();
         Serial.print(steering->getStatus());Serial.println();
         Serial.print(throttle->getStatus());Serial.println();

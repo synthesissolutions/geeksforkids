@@ -15,9 +15,7 @@ add better logging!
 add in options for
   - invert joystick axes
   - throttle accelleration rate
-  - max speed
-  - ??
-
-implement dip switches for options ... lay groundwork
+  
+tune the max and min steering potentiometer values
 
  */

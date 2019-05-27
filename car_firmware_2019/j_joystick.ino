@@ -16,20 +16,20 @@ class Joystick {
     // settting default values here ... being a little lazy by defaulting from constants.  
 
     // these are in raw pin read units (0 to 1024)
-    int xAxisCenter = X_AXIS_CENTER;
-    int xAxisMin = X_AXIS_MIN;
-    int xAxisMax = X_AXIS_MAX;
+    int xAxisCenter = JOYSTICK_X_AXIS_CENTER;
+    int xAxisMin = JOYSTICK_X_AXIS_MIN;
+    int xAxisMax = JOYSTICK_X_AXIS_MAX;
 
     // these are in raw pin read units (0 to 1024)
-    int yAxisCenter = Y_AXIS_CENTER;
-    int yAxisMin = Y_AXIS_MIN;
-    int yAxisMax = Y_AXIS_MAX;
+    int yAxisCenter = JOYSTICK_Y_AXIS_CENTER;
+    int yAxisMin = JOYSTICK_Y_AXIS_MIN;
+    int yAxisMax = JOYSTICK_Y_AXIS_MAX;
 
     // these are in scaled units (-100 to 100)
-    int xAxisDZLow = X_AXIS_DEADZONE_LOW;
-    int xAxisDZHigh = X_AXIS_DEADZONE_HIGH;
-    int yAxisDZLow = Y_AXIS_DEADZONE_LOW;
-    int yAxisDZHigh = Y_AXIS_DEADZONE_HIGH;
+    int xAxisDZLow = JOYSTICK_X_AXIS_DEADZONE_LOW;
+    int xAxisDZHigh = JOYSTICK_X_AXIS_DEADZONE_HIGH;
+    int yAxisDZLow = JOYSTICK_Y_AXIS_DEADZONE_LOW;
+    int yAxisDZHigh = JOYSTICK_Y_AXIS_DEADZONE_HIGH;
 
     // direction inversion if necessary
     boolean invertXAxis = JOYSTICK_INVERT_X_AXIS;
@@ -62,7 +62,7 @@ class Joystick {
     }
 
     /*
-     * setXAxisRange - sets the range for converting the xAxis to scaled units
+     * setYAxisRange - sets the range for converting the yAxis to scaled units
      */
     void setYAxisRange(int minv, int centerv, int maxv) {     
       this->yAxisCenter = centerv;

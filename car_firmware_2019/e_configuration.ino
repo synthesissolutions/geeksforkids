@@ -9,8 +9,6 @@ class Configuration {
 
   DIPSwitches *dips;
     
-
-
   public: 
     // Default constructor ... does nothing.  This allows us to delay setting the pins until we want to (via the init method).  
     Configuration() {  
@@ -31,6 +29,9 @@ class Configuration {
     float getSpeedMultiplier() {
       int index = dips->getPin1() * 2 + dips->getPin2(); // read 2 bit integer (0-3) to use as an index into the speed multiplier array
       return THROTTLE_SPEED_MULTIPLIER[index];
+    }
+    boolean useSteeringPotentiometerAndGoButton() {
+      return dips->getPin5();
     }
   
     String getStatus() {
