@@ -10,6 +10,7 @@
  * Objects that we'll need.  They'll auto construct, but the pattern we're using will require them to have their init() method called.
  */
 DIPSwitches dips;
+Configuration configuration;
 Joystick joystick;
 Steering steering;
 Throttle throttle;
@@ -35,7 +36,7 @@ boolean joystickInControl = false;
  */
 void setup() {
   // set up the logger
-  logger.init(LOGGER_UPDATE_TIME, &dips, &joystick, &remoteControl, &steering, &throttle);
+  logger.init(LOGGER_UPDATE_TIME, &dips, &configuration, &joystick, &remoteControl, &steering, &throttle);
 
   // initialize everything with the correct pins
   joystick.init(PIN_JOYSTICK_STEERING, PIN_JOYSTICK_THROTTLE);
@@ -52,6 +53,9 @@ void setup() {
 
   dips.init(DIP_SWITCH_1, DIP_SWITCH_2, DIP_SWITCH_3, DIP_SWITCH_4, DIP_SWITCH_5, DIP_SWITCH_6);
   logger.addLogLine("dips initialized"); 
+
+  configuration.init(&dips);
+  logger.addLogLine("configuration initialized");
 
   // set up the interrupt handlers
   attachInterrupt(digitalPinToInterrupt(PIN_RC_STEERING), &handleRCSteeringInterrupt, CHANGE);
@@ -73,6 +77,8 @@ void loop() {
       logger.addLogLine("RC has gone active, taking over from Joystick");
       joystickInControl=false;
       rcInControl=true;
+    } else {
+      logger.addLogLine("RC still in control");
     }
 
     // set the inputs from the RC
@@ -90,21 +96,18 @@ void loop() {
         logger.addLogLine("Joystick is now in control, taking over from RC");
         joystickInControl=true;
         rcInControl=false;
+      } else {
+        logger.addLogLine("Joystick still in control");
       }
 
       // set the inputs from the Joystick
       steering.setSteeringPosition(joystick.getXAxisScaled());
-      throttle.setThrottle(joystick.getYAxisScaled());
-
-
-      
+      throttle.setThrottle(joystick.getYAxisScaled()*configuration.getSpeedMultiplier());
     } else {
 
       // Whoops ... we got here becuase neither control is active.  Nobody is going anywhere until that changes.
       logger.addLogLine("RC in not active, Joystick is not active");
-      
     }
-    
   }  
 
   // OK, now let's see if it's time to write out the log

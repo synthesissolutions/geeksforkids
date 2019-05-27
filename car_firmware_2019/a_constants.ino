@@ -47,7 +47,7 @@ const unsigned long THROTTLE_UPDATE_MILLIS  = 10;         // 10 = ~ 100Hz.  How 
 const float         THROTTLE_CHANGE_RATE    = 100.0;      // Units are scaledUnits/sec.  100.0 means that we can go from full forward to full reverse in 0.5 second. 
 const int           THROTTLE_PWM_MIN        = 0;
 const int           THROTTLE_PWM_MAX        = 240;        //    limit the throttle PWM ... the controller can't handle 255
-const float[]       THROTTLE_SPEED_MULTIPLIER = { 1.0, 0.8, 0.6, 0.4 };  // array of speed reductions to use with dip switchs to control the maximum speed
+const float         THROTTLE_SPEED_MULTIPLIER[] = { 1.0, 0.8, 0.6, 0.4 };  // array of speed reductions to use with dip switchs to control the maximum speed
 
 // Steering parms ... controls the steering changes
 const int           STEERING_MIN            = 200;        // tuned to maximum wheel turn amount
