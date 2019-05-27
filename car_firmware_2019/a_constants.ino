@@ -46,7 +46,8 @@ const boolean       JOYSTICK_INVERT_Y_AXIS  = false;
 const unsigned long THROTTLE_UPDATE_MILLIS  = 10;         // 10 = ~ 100Hz.  How often the throttle position is updated.
 const float         THROTTLE_CHANGE_RATE    = 100.0;      // Units are scaledUnits/sec.  100.0 means that we can go from full forward to full reverse in 0.5 second. 
 const int           THROTTLE_PWM_MIN        = 0;
-const int           THROTTLE_PWM_MAX        = 250;        //    limit the throttle PWM ... the controller can't handle 255
+const int           THROTTLE_PWM_MAX        = 240;        //    limit the throttle PWM ... the controller can't handle 255
+const float[]       THROTTLE_SPEED_MULTIPLIER = { 1.0, 0.8, 0.6, 0.4 };  // array of speed reductions to use with dip switchs to control the maximum speed
 
 // Steering parms ... controls the steering changes
 const int           STEERING_MIN            = 200;        // tuned to maximum wheel turn amount
@@ -54,11 +55,15 @@ const int           STEERING_MAX            = 800;        // tuned to maximum wh
 const int           STEERING_CENTER         = 512;
 const int           STEERING_STOP_DELTA     = 10;          // How close to target before stopping so we don't oscillate between 2 numbers.  IN SCALED UNITS: -100 to 100
 const int           STEERING_START_DELTA    = 30;          // How close to target before starting so we don't oscillate between 2 numbers   IN SCALED UNITS: -100 to 100
-const int           STEERING_SPEED          = 255;        // PWM Value from 0 - 255 with 255 = max speed
+const int           STEERING_SPEED          = 240;        // PWM Value from 0 - 255 with 255 = max speed
 
 // Remote control PWM parms ... probably best to leave these alone!
-const int           RC_MIN                  = 1000;
-const int           RC_MAX                  = 2000;
+const int           STEERING_RC_MIN         = 1000;
+const int           STEERING_RC_CENTER      = 1500;
+const int           STEERING_RC_MAX         = 2000;
+const int           THROTTLE_RC_MIN         = 1200;
+const int           THROTTLE_RC_CENTER      = 1500;
+const int           THROTTLE_RC_MAX         = 2000;
 const int           RC_LIMIT                = 2500;
 
 // Remote control parm ... tuning
@@ -93,8 +98,8 @@ const int           PIN_STEERING_ENABLE     = 6;
 const int           PIN_STEERING_POSITION   = A9;
 
 //   ... RC ... aka the parent remote control inputs
-const int           PIN_RC_STEERING         = 36;   
-const int           PIN_RC_THROTTLE         = 37;     
+const int           PIN_RC_STEERING         = 10;   
+const int           PIN_RC_THROTTLE         = 9;     
 
 //   ... DIPs ... 
 const int           DIP_SWITCH_1            = 29;

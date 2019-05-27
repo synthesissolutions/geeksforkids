@@ -23,8 +23,12 @@ class RemoteControl {
     unsigned long lastSignificantInputMillis = 0;
 
     // settting default values here ... being a little lazy by defaulting from constants.  
-    unsigned int rcMin = RC_MIN;
-    unsigned int rcMax = RC_MAX;
+    unsigned int throttleRcMin = THROTTLE_RC_MIN;
+    unsigned int throttleRcCenter = THROTTLE_RC_CENTER;
+    unsigned int throttleRcMax = THROTTLE_RC_MAX;
+    unsigned int steeringRcMin = STEERING_RC_MIN;
+    unsigned int steeringRcCenter = STEERING_RC_CENTER;
+    unsigned int steeringRcMax = STEERING_RC_MAX;
     unsigned int rcLimit = RC_LIMIT;
     unsigned int overrideTimeout = RC_OVERRIDE_TIMEOUT;        
     int steeringDeadzoneLow = RC_STEERING_DEADZONE_LOW;
@@ -148,8 +152,8 @@ class RemoteControl {
           if ((steeringPWM > 0) && (steeringPWM < rcLimit)) {
             
             // we have a complete pulse ... calculate the signal
-            // just a linear scaling of 1000micros-2000micros to -100 - 100
-            steeringScaled = constrain(map(steeringPWM,1000,2000,-100,100),-100,100);
+            // just a linear scaling of PWM min/max to -100 - 100
+            steeringScaled = constrain(map(steeringPWM,steeringRcMin,steeringRcMax,-100,100),-100,100);
             
             // invert if necessary
             if (invertSteering) {
@@ -208,8 +212,13 @@ class RemoteControl {
           if ((throttlePWM > 0) && (throttlePWM < rcLimit)) {
             
             // we have a good and complete pulse ... calculate the signal
-            // just a linear scaling of 1000micros-2000micros to -100 - 100
-            throttleScaled = constrain(map(throttlePWM,1000,2000,-100,100),-100,100);
+            // the throttle is not symmetrical with a min 1200 and a max of 2000, but a center of 1500
+            // so we need to calculate the throttle in each direction indpendently
+            if (throttlePWM < throttleRcCenter) {
+              throttleScaled = constrain(map(throttleRcCenter-throttlePWM,0,throttleRcCenter-throttleRcMin,0,-100),-100,0);
+            } else {
+              throttleScaled = constrain(map(throttlePWM-throttleRcCenter,0,throttleRcMax-throttleRcCenter,0,100),0,100);
+            }
 
             // invert if necessary
             if (invertThrottle) {
