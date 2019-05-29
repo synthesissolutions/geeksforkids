@@ -24,7 +24,7 @@ class Configuration {
     /*
      * getters ... translate dip switch settings into car configuration
      */
-    boolean getInvertJoystickX() {return dips->getPin3();}
+    boolean getInvertJoystickX() {return !dips->getPin3();}
     boolean getInvertJoystickY() {return dips->getPin4();}
     float getSpeedMultiplier() {
       int index = dips->getPin1() * 2 + dips->getPin2(); // read 2 bit integer (0-3) to use as an index into the speed multiplier array

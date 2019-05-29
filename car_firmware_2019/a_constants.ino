@@ -84,7 +84,7 @@ const int           RC_THROTTLE_DEADZONE_HIGH = 10;     // scaled units
 
 // Remote control parms - get the direction correct
 const boolean       RC_INVERT_STEERING      = false;
-const boolean       RC_INVERT_THROTTLE      = false;
+const boolean       RC_INVERT_THROTTLE      = true;
 
 
 /*****************************************************************************************

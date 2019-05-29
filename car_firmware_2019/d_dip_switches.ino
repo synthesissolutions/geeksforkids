@@ -41,13 +41,16 @@ class DIPSwitches {
 
     /*
      * getters ... just doing digital reads
+     * 
+     *  We are using INPUT_PULLUP so the Off Position on the dip switch reads as 1 and On as 0
+     *  So we hide this detail by negating the reading from the pin.
      */
-    boolean getPin1() {return digitalRead(dipPin1);}
-    boolean getPin2() {return digitalRead(dipPin2);}
-    boolean getPin3() {return digitalRead(dipPin3);}
-    boolean getPin4() {return digitalRead(dipPin4);}
-    boolean getPin5() {return digitalRead(dipPin5);}
-    boolean getPin6() {return digitalRead(dipPin6);}
+    boolean getPin1() {return !digitalRead(dipPin1);}
+    boolean getPin2() {return !digitalRead(dipPin2);}
+    boolean getPin3() {return !digitalRead(dipPin3);}
+    boolean getPin4() {return !digitalRead(dipPin4);}
+    boolean getPin5() {return !digitalRead(dipPin5);}
+    boolean getPin6() {return !digitalRead(dipPin6);}
   
     String getStatus() {
       String ret = String("[DIPs] ");
