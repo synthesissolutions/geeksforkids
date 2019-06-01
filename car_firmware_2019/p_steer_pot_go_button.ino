@@ -88,8 +88,9 @@ class SteeringPotGoButton {
 
       // apply the deadzone
       if (xAxisDZLow < val && val<xAxisDZHigh) val=0;
-      
-      return val;
+
+      // TODO Need to set an invert variable and use it instead of hard coding the inverse here
+      return -val;
     }
 
     /* gets the y axis scaled 
