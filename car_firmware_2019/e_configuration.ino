@@ -39,7 +39,8 @@ class Configuration {
       ret.concat(String("Invert Joystick X:"));ret.concat(getInvertJoystickX());
       ret.concat(String(" Invert Joystick Y:"));ret.concat(getInvertJoystickY());
       ret.concat(String(" Speed Multiplier:"));ret.concat(getSpeedMultiplier());
-
+      ret.concat(String(" User Steering Pot and Go Button:"));ret.concat(useSteeringPotentiometerAndGoButton());
+      
       return ret;
     }
 };
