@@ -39,13 +39,13 @@ const int           JOYSTICK_Y_AXIS_DEADZONE_LOW     = -50;
 const int           JOYSTICK_Y_AXIS_DEADZONE_HIGH    = 50;
 
 // Steering Pot Go Button parms - these are based on the range 0-1023
-const int           STEERING_POT_X_AXIS_CENTER           = 512;
-const int           STEERING_POT_X_AXIS_MIN              = 100;
-const int           STEERING_POT_X_AXIS_MAX              = 900;
+const int           STEERING_POT_X_AXIS_CENTER           = 470;
+const int           STEERING_POT_X_AXIS_MIN              = 150;
+const int           STEERING_POT_X_AXIS_MAX              = 800;
 
 // Steering Pot Go Button parms - these are in scaled units (-100 to 100)
-const int           STEERING_POT_X_AXIS_DEADZONE_LOW     = -50;
-const int           STEERING_POT_X_AXIS_DEADZONE_HIGH    = 50;
+const int           STEERING_POT_X_AXIS_DEADZONE_LOW     = -10;
+const int           STEERING_POT_X_AXIS_DEADZONE_HIGH    = 10;
 
 // Joystick parms - get the direction correct
 const boolean       JOYSTICK_INVERT_X_AXIS  = true;
@@ -56,7 +56,7 @@ const unsigned long THROTTLE_UPDATE_MILLIS  = 10;         // 10 = ~ 100Hz.  How 
 const float         THROTTLE_CHANGE_RATE    = 100.0;      // Units are scaledUnits/sec.  100.0 means that we can go from full forward to full reverse in 0.5 second. 
 const int           THROTTLE_PWM_MIN        = 0;
 const int           THROTTLE_PWM_MAX        = 240;        //    limit the throttle PWM ... the controller can't handle 255
-const float         THROTTLE_SPEED_MULTIPLIER[] = { 1.0, 0.8, 0.6, 0.4 };  // array of speed reductions to use with dip switchs to control the maximum speed
+const float         THROTTLE_SPEED_MULTIPLIER[] = { 1.0, 0.7, 0.5, 0.3 };  // array of speed reductions to use with dip switchs to control the maximum speed
 
 // Steering parms ... controls the steering changes
 const int           STEERING_MIN            = 200;        // tuned to maximum wheel turn amount
