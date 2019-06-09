@@ -43,4 +43,14 @@ class Configuration {
       
       return ret;
     }
+
+    String getMinimalStatus() {
+      String ret = String("Cfg ");
+      ret.concat(String("Inv:"));ret.concat(getInvertJoystickX());
+      ret.concat(String(" "));ret.concat(getInvertJoystickY());
+      ret.concat(String(" Sp:"));ret.concat(getSpeedMultiplier());
+      ret.concat(String(" StPt:"));ret.concat(useSteeringPotentiometerAndGoButton());
+      
+      return ret;
+    }
 };

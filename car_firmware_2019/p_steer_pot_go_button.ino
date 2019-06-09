@@ -88,8 +88,7 @@ class SteeringPotGoButton {
 
       // apply the deadzone
       if (xAxisDZLow < val && val<xAxisDZHigh) val=0;
-
-      // TODO Need to set an invert variable and use it instead of hard coding the inverse here
+      
       return -val;
     }
 
@@ -147,5 +146,13 @@ class SteeringPotGoButton {
       return ret;
     }
 
- 
+    String getMinimalStatus() {
+      String ret = String("StP ");
+      ret.concat(String("x:"));ret.concat(getXAxisRaw());
+      ret.concat(String(" "));ret.concat(getXAxisScaled());
+      ret.concat(String(" y:"));ret.concat(getYAxisRaw());
+      ret.concat(String(" "));ret.concat(getYAxisScaled());
+      ret.concat(String(" IsR:"));ret.concat(isReverse());
+      return ret;
+    }
 };

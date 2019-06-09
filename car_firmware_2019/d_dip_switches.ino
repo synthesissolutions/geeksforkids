@@ -63,6 +63,17 @@ class DIPSwitches {
 
       return ret;
     }
+    
+    String getMinimalStatus() {
+      String ret = String("DIPs ");
+      ret.concat(String(""));ret.concat(getPin1());
+      ret.concat(String(" "));ret.concat(getPin2());
+      ret.concat(String(" "));ret.concat(getPin3());
+      ret.concat(String(" "));ret.concat(getPin4());
+      ret.concat(String(" "));ret.concat(getPin5());
+      ret.concat(String(" "));ret.concat(getPin6());
 
+      return ret;
+    }
   
 };

@@ -144,5 +144,11 @@ class Throttle {
       return ret;
     }
 
-  
+    String getMinimalStatus() {
+      String ret = String("Th ");
+      ret.concat(String("t:"));ret.concat(throttleTargetScaled);
+      ret.concat(String(" c:"));ret.concat(currentThrottleScaled);
+      ret.concat(String(" PWM:"));ret.concat(currentPwmOut);
+      return ret;
+    }
 };

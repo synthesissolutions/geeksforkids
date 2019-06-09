@@ -200,5 +200,13 @@ class Joystick {
       return ret;
     }
 
- 
+    String getMinimalStatus() {
+      String ret = String("J ");
+      ret.concat(String("x:"));ret.concat(getXAxisRaw());
+      ret.concat(String(" "));ret.concat(getXAxisScaled());if (invertXAxis) ret.concat("*");
+      ret.concat(String(" y:"));ret.concat(getYAxisRaw());
+      ret.concat(String(" "));ret.concat(getYAxisScaled());if (invertYAxis) ret.concat("*");
+      ret.concat(String(" Act:"));ret.concat(isActive());
+      return ret;
+    }
 };

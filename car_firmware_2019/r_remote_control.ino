@@ -144,6 +144,35 @@ class RemoteControl {
       return ret;
     }
 
+    String getMinimalStatus() {
+      String ret = String("Rc ");
+
+      if (badControlStart) {
+        ret.concat(String("*Bad Start** "));  
+        ret.concat(String(" Th: "));
+
+        for (int i = 0; i < 10; i++) {
+          ret.concat(throttlePWMStart[i]);
+          ret.concat(String(" ") );
+        }
+  
+        ret.concat(String(" St: "));
+  
+        for (int i = 0; i < 10; i++) {
+          ret.concat(steeringPWMStart[i]);
+          ret.concat(String(" ") );
+        }
+      } else {
+        ret.concat(String("x:"));ret.concat(steeringPWM);
+        ret.concat(String(" "));ret.concat(steeringScaled);if (invertSteering) ret.concat("*");
+        ret.concat(String(" y:"));ret.concat(throttlePWM);
+        ret.concat(String(" "));ret.concat(throttleScaled);if (invertThrottle) ret.concat("*");
+        ret.concat(String(" isA:"));ret.concat(isActive());    
+      }
+
+      return ret;
+    }
+    
     /* 
      * Handler for IRQ updates for steering.
      * 

@@ -154,5 +154,12 @@ class Steering {
       return ret;
     }
  
-  
+    String getMinimalStatus() {
+      String ret = String("St ");
+      ret.concat(String("c:"));ret.concat(steeringPositionScaled);
+      ret.concat(String(" t:"));ret.concat(steeringTargetScaled);
+      ret.concat(String(" isM:"));ret.concat(isMoving);
+      ret.concat(String(" Act:"));ret.concat(analogRead(pinSteeringPosition));
+      return ret;
+    }
 };
