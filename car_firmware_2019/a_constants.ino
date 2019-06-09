@@ -1,4 +1,4 @@
-/**
+ /**
  * CONSTANTS
  * 
  * These values are used throughout the code, but are static and should never be changed at runtime.  
@@ -122,3 +122,14 @@ const int           DIP_SWITCH_3            = 27;
 const int           DIP_SWITCH_4            = 26;
 const int           DIP_SWITCH_5            = 25;
 const int           DIP_SWITCH_6            = 24;
+
+//  ... TFT Display ...
+const int           PIN_TFT_CS              = 38;
+const int           PIN_TFT_RST             = 37;
+const int           PIN_TFT_DC              = 36;
+const int           PIN_TFT_MOSI            = 35;
+const int           PIN_TFT_CLK             = 34;
+const int           PIN_TFT_MISO            = 33;
+
+//  ... Control Panel ...
+const int           PIN_CONTROL_NEXT        = 16;

@@ -17,6 +17,7 @@ Steering steering;
 Throttle throttle;
 RemoteControl remoteControl;
 Logger logger;
+TFTDisplay tftDisplay;
 
 /*
  * Interrupt request handlers.  The Arduino environment appears to require these to be global methods with no parms, so defining them here.
@@ -37,7 +38,7 @@ boolean joystickInControl = false;
  */
 void setup() {
   // set up the logger
-  logger.init(LOGGER_UPDATE_TIME, &dips, &configuration, &joystick, &potGo, &remoteControl, &steering, &throttle);
+  logger.init(LOGGER_UPDATE_TIME, &dips, &configuration, &joystick, &potGo, &remoteControl, &steering, &throttle, &tftDisplay);
 
   // initialize everything with the correct pins
   joystick.init(PIN_JOYSTICK_STEERING, PIN_JOYSTICK_THROTTLE);
@@ -60,6 +61,9 @@ void setup() {
 
   configuration.init(&dips);
   logger.addLogLine("configuration initialized");
+
+  tftDisplay.init(PIN_TFT_CS, PIN_TFT_DC, PIN_TFT_MOSI, PIN_TFT_CLK, PIN_TFT_RST, PIN_TFT_MISO);
+  logger.addLogLine("TFT display initialized");
 
   // set up the interrupt handlers
   attachInterrupt(digitalPinToInterrupt(PIN_RC_STEERING), &handleRCSteeringInterrupt, CHANGE);
