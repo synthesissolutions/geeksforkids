@@ -33,10 +33,10 @@ const int           JOYSTICK_Y_AXIS_MIN              = 100;
 const int           JOYSTICK_Y_AXIS_MAX              = 900;
 
 // Joystick parms - these are in scaled units (-100 to 100)
-const int           JOYSTICK_X_AXIS_DEADZONE_LOW     = -50;
-const int           JOYSTICK_X_AXIS_DEADZONE_HIGH    = 50;
-const int           JOYSTICK_Y_AXIS_DEADZONE_LOW     = -50;
-const int           JOYSTICK_Y_AXIS_DEADZONE_HIGH    = 50;
+const int           JOYSTICK_X_AXIS_DEADZONE_LOW     = -15;
+const int           JOYSTICK_X_AXIS_DEADZONE_HIGH    = 15;
+const int           JOYSTICK_Y_AXIS_DEADZONE_LOW     = -35;
+const int           JOYSTICK_Y_AXIS_DEADZONE_HIGH    = 35;
 
 // Steering Pot Go Button parms - these are based on the range 0-1023
 const int           STEERING_POT_X_AXIS_CENTER           = 470;
