@@ -13,6 +13,14 @@ class RemoteControl {
     int steeringScaled = -1;
     int throttleScaled = -1;
 
+    // Track the first 10 PWM signal readings and mark a bad start if any of those readings
+    // are outside of a small dead zone
+    boolean badControlStart = false;
+    unsigned long throttlePWMStart[10];
+    int throttlePWMStartIndex = 0;
+    unsigned long steeringPWMStart[10];
+    int steeringPWMStartIndex = 0;
+
     boolean steeringSignalHigh;
     unsigned long steeringPulseStart;
     unsigned long steeringPWM;
@@ -74,11 +82,15 @@ class RemoteControl {
       return throttleScaled;
     }
 
+    boolean isBadRcStart() {
+      return badControlStart;
+    }
+    
     /*
      * Is the remote control "hot" ... meaning does the parent have control.  This also accounts for the timeout... e.g. has the parent had control recently.
      */
     boolean isActive() {
-
+       
       /*
        * If we've not yet centered the controls, then we're not active yet
        */
@@ -114,6 +126,21 @@ class RemoteControl {
       ret.concat(String(" steeringPWM:"));ret.concat(steeringPWM);
       ret.concat(String(" steeringScaled:"));ret.concat(steeringScaled);if (invertSteering) ret.concat("(inverted)");
       ret.concat(String(" isActive:"));ret.concat(isActive());
+      ret.concat(String(" Bad Start:"));ret.concat(badControlStart);
+      ret.concat(String(" PWM Th Start: "));
+
+      for (int i = 0; i < 10; i++) {
+        ret.concat(throttlePWMStart[i]);
+        ret.concat(String(" ") );
+      }
+
+      ret.concat(String(" PWM St Start: "));
+
+      for (int i = 0; i < 10; i++) {
+        ret.concat(steeringPWMStart[i]);
+        ret.concat(String(" ") );
+      }
+
       return ret;
     }
 
@@ -147,6 +174,21 @@ class RemoteControl {
 
           // calculate the pulse width in microseconds
           steeringPWM = micros()-steeringPulseStart;
+
+          if (steeringPWMStartIndex < 10) {
+            steeringPWMStart[steeringPWMStartIndex] = steeringPWM;
+            steeringPWMStartIndex++;
+
+            // CRITICAL NOTE: If the RC steering is not centered when it is turned on
+            // then when it is turned off it will return a non-centered result.
+            // !!!!! IMPORTANT !!!!! This means that when the RC remote is turned off in this
+            // case and the car is still it will turn the wheel in that direction
+            // and prevent the child from controlling via the joystick
+//            if (steeringPWM < throttleDeadzoneLow || steeringPWM > throttleDeadzoneHigh) {
+            if (steeringPWM < 1400 || steeringPWM > 1600) {
+              badControlStart = true;
+            }
+          }
 
           // is the pulse width in the expected range?
           if ((steeringPWM > 0) && (steeringPWM < rcLimit)) {
@@ -207,6 +249,21 @@ class RemoteControl {
 
           // calculate the pulse width in microseconds
           throttlePWM = micros()-throttlePulseStart;
+
+          if (throttlePWMStartIndex < 10) {
+            throttlePWMStart[throttlePWMStartIndex] = throttlePWM;
+            throttlePWMStartIndex++;
+
+            // CRITICAL NOTE: If the RC throttle is not centered when it is turned on
+            // then when it is turned off it will return a non-centered result.
+            // !!!!! IMPORTANT !!!!! This means that when the RC remote is turned off in this
+            // case and the car is still it will drive in that direction with the child having
+            // no control via the joystick.
+//            if (throttlePWM < throttleDeadzoneLow || throttlePWM > throttleDeadzoneHigh) {
+            if (throttlePWM < 1400 || throttlePWM > 1600) {
+              badControlStart = true;
+            }
+          }
 
           // is the pulse width in the expected range?
           if ((throttlePWM > 0) && (throttlePWM < rcLimit)) {

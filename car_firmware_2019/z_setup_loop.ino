@@ -73,54 +73,60 @@ void setup() {
  */
 void loop() {
 
-  // Is the parent overriding and taking control?
-  if (remoteControl.isActive()) {
-    
-    // Yep, the parent has taken over ... parent inputs only
-    if (joystickInControl) {
-      logger.addLogLine("RC has gone active, taking over from Joystick");
-      joystickInControl=false;
-      rcInControl=true;
-    }
-
-    // set the inputs from the RC
-    steering.setSteeringPosition(remoteControl.getSteeringScaled());
-    throttle.setThrottle(remoteControl.getThrottleScaled());
-
-  } else if (configuration.useSteeringPotentiometerAndGoButton()) {
-      if (rcInControl) {
-        logger.addLogLine("Steering Potentiometer and Go Button are now in control, taking over from RC");
-        joystickInControl=true;
-        rcInControl=false;
-      }
-
-      // set the inputs from the steering potentiometer and go button
-      steering.setSteeringPosition(potGo.getXAxisScaled());
-      throttle.setThrottle(potGo.getYAxisScaled()*configuration.getSpeedMultiplier());
+  if (remoteControl.isBadRcStart()) {
+    // TODO: Play a sound to indicate that the car did not start properly
+    logger.addLogLine("RC did not start up properly do NOT run the car");
+    throttle.setThrottle(0);
   } else {
-    
-    // Nope... the parent isn't controlling
-    // check to see if the joystick active (e.g. has it centered at least once?)
-    if (joystick.isActive()) {
-      joystick.setInvertXAxis(configuration.getInvertJoystickX());
-      joystick.setInvertYAxis(configuration.getInvertJoystickY());
-
-      // Yeah!  The kid is in control!
-      if (rcInControl) {
-        logger.addLogLine("Joystick is now in control, taking over from RC");
-        joystickInControl=true;
-        rcInControl=false;
+    // Is the parent overriding and taking control?
+    if (remoteControl.isActive()) {
+      
+      // Yep, the parent has taken over ... parent inputs only
+      if (joystickInControl) {
+        logger.addLogLine("RC has gone active, taking over from Joystick");
+        joystickInControl=false;
+        rcInControl=true;
       }
-
-      // set the inputs from the Joystick
-      steering.setSteeringPosition(joystick.getXAxisScaled());
-      throttle.setThrottle(joystick.getYAxisScaled()*configuration.getSpeedMultiplier());
+  
+      // set the inputs from the RC
+      steering.setSteeringPosition(remoteControl.getSteeringScaled());
+      throttle.setThrottle(remoteControl.getThrottleScaled());
+  
+    } else if (configuration.useSteeringPotentiometerAndGoButton()) {
+        if (rcInControl) {
+          logger.addLogLine("Steering Potentiometer and Go Button are now in control, taking over from RC");
+          joystickInControl=true;
+          rcInControl=false;
+        }
+  
+        // set the inputs from the steering potentiometer and go button
+        steering.setSteeringPosition(potGo.getXAxisScaled());
+        throttle.setThrottle(potGo.getYAxisScaled()*configuration.getSpeedMultiplier());
     } else {
-
-      // Whoops ... we got here becuase neither control is active.  Nobody is going anywhere until that changes.
-      logger.addLogLine("RC in not active, Joystick is not active");
-    }
-  }  
+      
+      // Nope... the parent isn't controlling
+      // check to see if the joystick active (e.g. has it centered at least once?)
+      if (joystick.isActive()) {
+        joystick.setInvertXAxis(configuration.getInvertJoystickX());
+        joystick.setInvertYAxis(configuration.getInvertJoystickY());
+  
+        // Yeah!  The kid is in control!
+        if (rcInControl) {
+          logger.addLogLine("Joystick is now in control, taking over from RC");
+          joystickInControl=true;
+          rcInControl=false;
+        }
+  
+        // set the inputs from the Joystick
+        steering.setSteeringPosition(joystick.getXAxisScaled());
+        throttle.setThrottle(joystick.getYAxisScaled()*configuration.getSpeedMultiplier());
+      } else {
+  
+        // Whoops ... we got here becuase neither control is active.  Nobody is going anywhere until that changes.
+        logger.addLogLine("RC in not active, Joystick is not active");
+      }
+    }      
+  }
 
   // OK, now let's see if it's time to write out the log
   logger.writeLog();
