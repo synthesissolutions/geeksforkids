@@ -113,7 +113,7 @@ class SteeringPotGoButton {
      *  
      */
     boolean isReverse() {
-      return digitalRead(reversePin);
+      return !digitalRead(reversePin);
     }
 
 
