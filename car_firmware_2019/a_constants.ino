@@ -8,7 +8,7 @@
  */
 
 /*****************************************************************************************
- *  Loger update time and baud rate.  Make sure the rate is set correctly in your serial monitor!
+ *  Logger update time and baud rate.  Make sure the rate is set correctly in your serial monitor!
  *  
  *  NOTE turn off logging by setting LOGGER_UPDATE_TIME to 0
  ***************************************************************************************** 
@@ -16,6 +16,12 @@
 const int           LOGGER_UPDATE_TIME      = 1000;     // How long between updates to the monitor, in milliseconds
 const unsigned int  SERIAL_BAUD_RATE        =57600;     // Baud rate for the serial monitor.  Make sure you set this correctly!
 
+/*****************************************************************************************
+ *  Admin update time
+ *  
+ ***************************************************************************************** 
+ */
+const int           ADMIN_UPDATE_TIME      = 2000;     // How long between updates to the admin screens, in milliseconds
 
 /*****************************************************************************************
  * Tuning constants

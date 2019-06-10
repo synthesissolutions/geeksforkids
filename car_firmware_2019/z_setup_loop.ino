@@ -18,6 +18,7 @@ Throttle throttle;
 RemoteControl remoteControl;
 Logger logger;
 TFTDisplay tftDisplay;
+AdminScreenManager admin;
 
 /*
  * Interrupt request handlers.  The Arduino environment appears to require these to be global methods with no parms, so defining them here.
@@ -64,6 +65,9 @@ void setup() {
 
   tftDisplay.init(PIN_TFT_CS, PIN_TFT_DC, PIN_TFT_MOSI, PIN_TFT_CLK, PIN_TFT_RST, PIN_TFT_MISO);
   logger.addLogLine("TFT display initialized");
+
+  admin.init(ADMIN_UPDATE_TIME, &dips, &configuration, &joystick, &potGo, &remoteControl, &steering, &throttle, &tftDisplay);
+  logger.addLogLine("Admin Manager initialized");
 
   // set up the interrupt handlers
   attachInterrupt(digitalPinToInterrupt(PIN_RC_STEERING), &handleRCSteeringInterrupt, CHANGE);
@@ -134,6 +138,8 @@ void loop() {
 
   // OK, now let's see if it's time to write out the log
   logger.writeLog();
+
+  admin.update();
   
   // now delay for the loop delay time... we really don't want to try and run this loop at full CPU speed
   delay(LOOP_DELAY_MILLIS);
