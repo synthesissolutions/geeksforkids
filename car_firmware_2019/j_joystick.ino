@@ -117,6 +117,14 @@ class Joystick {
     void setInvertYAxis(boolean val) {
       invertYAxis = val;
     }
+
+    int getXAxisCenter() {
+      return xAxisCenter;
+    }
+
+    int getYAxisCenter() {
+      return yAxisCenter;
+    }
     
     /* gets the x axis scaled 
      *  

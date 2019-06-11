@@ -18,7 +18,7 @@ class Steering {
     int steeringPositionScaled = 0;        // scaled units (-100 to 100)
     int targetDeltaScaled = 0;             // scaled units (-100 to 100)
 
-    boolean isMoving = false;
+    boolean moving = false;
     
     // settting default values here ... being a little lazy by defaulting from constants.  
     int steeringMin = STEERING_MIN;                     // encoder units (0 to 1023)
@@ -47,20 +47,20 @@ class Steering {
       analogWrite(pinSteeringEnable, steeringSpeed);
 
       // and make note that we're moving
-      isMoving = true;
+      moving = true;
     }
 
     /*
      * stop the motor
      */
     void stopMotor() {
-        isMoving = false;
+        moving = false;
         digitalWrite(pinSteeringLeft, LOW);
         digitalWrite(pinSteeringRight, LOW);  
         analogWrite(pinSteeringEnable, 0); 
 
         // and make note that we're not moving
-        isMoving = false;
+        moving = false;
     }
 
   public: 
@@ -83,10 +83,22 @@ class Steering {
       analogWrite(pinSteeringEnable, steeringSpeed);
     }
 
-    int getSteeringPosition() {
+    int getSteeringTargetScaled() {
       return steeringTargetScaled;
     }
 
+    int getSteeringPositionScaled() {
+      return steeringPositionScaled;
+    }
+
+    int getSteeringPositionRaw() {
+      return analogRead(pinSteeringPosition);
+    }
+
+    boolean isMoving() {
+      return moving;
+    }
+    
     /*
      * Sets the new target for the steering position.  Expects the new target to be in scaled units: -100 to 100, 0=center. 
      */
@@ -96,7 +108,6 @@ class Steering {
 
       // now call update
       updateSteering();
-      
     }
 
     /*
@@ -120,7 +131,7 @@ class Steering {
       targetDeltaScaled = abs(steeringPositionScaled - steeringTargetScaled);
 
       // Are we moving already?
-      if (isMoving) {
+      if (moving) {
         
         // we are moving already ... should we stop?
         if (targetDeltaScaled <= steeringStopDelta) {
@@ -149,7 +160,7 @@ class Steering {
       String ret = String("[Steering] ");
       ret.concat(String("current:"));ret.concat(steeringPositionScaled);
       ret.concat(String(" target:"));ret.concat(steeringTargetScaled);
-      ret.concat(String(" isMoving:"));ret.concat(isMoving);
+      ret.concat(String(" isMoving:"));ret.concat(moving);
       ret.concat(String(" Actuator Position Raw:"));ret.concat(analogRead(pinSteeringPosition));
       return ret;
     }
@@ -158,7 +169,7 @@ class Steering {
       String ret = String("St ");
       ret.concat(String("c:"));ret.concat(steeringPositionScaled);
       ret.concat(String(" t:"));ret.concat(steeringTargetScaled);
-      ret.concat(String(" isM:"));ret.concat(isMoving);
+      ret.concat(String(" isM:"));ret.concat(moving);
       ret.concat(String(" Act:"));ret.concat(analogRead(pinSteeringPosition));
       return ret;
     }

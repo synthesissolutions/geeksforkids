@@ -76,12 +76,26 @@ class RemoteControl {
     }
 
     /*
+     * get the current steering raw PWM
+     */
+    int getSteeringPWM() {
+      return steeringPWM;
+    }
+    
+    /*
      * get the current throttle position (scaled units -100 to 100)
      */
     int getThrottleScaled() {  
       return throttleScaled;
     }
 
+    /*
+     * get the current throttle raw PWM
+     */
+    int getThrottlePWM() {  
+      return throttlePWM;
+    }
+    
     boolean isBadRcStart() {
       return badControlStart;
     }

@@ -22,6 +22,8 @@ const unsigned int  SERIAL_BAUD_RATE        =57600;     // Baud rate for the ser
  ***************************************************************************************** 
  */
 const int           ADMIN_UPDATE_TIME      = 2000;     // How long between updates to the admin screens, in milliseconds
+const int           HEADING_TEXT_SIZE      = 3;
+const int           STANDARD_TEXT_SIZE     = 2;
 
 /*****************************************************************************************
  * Tuning constants

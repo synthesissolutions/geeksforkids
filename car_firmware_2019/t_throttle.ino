@@ -22,7 +22,7 @@ class Throttle {
     unsigned long targetThrottleUpdateMillis = THROTTLE_UPDATE_MILLIS;
     float throttleChangeRate = THROTTLE_CHANGE_RATE;
 
-    int throttleTargetScaled = 0;
+    int targetThrottleScaled = 0;
     float currentThrottleScaled = 0;
     int currentPwmOut = 0;
 
@@ -57,10 +57,9 @@ class Throttle {
       if (target < -100) target = -100;
       if (target > 100) target = 100;
       
-      this->throttleTargetScaled = target;
+      this->targetThrottleScaled = target;
 
       updateThrottle();
-      
     }
 
     /*
@@ -70,6 +69,20 @@ class Throttle {
       return this->currentThrottleScaled;
     }
 
+    /*
+     * gets the target throttle
+     */
+    int getTargetThrottleScaled() {
+      return this->targetThrottleScaled;
+    }
+
+    /*
+     * gets the target throttle
+     */
+    int getCurrentPWMOut() {
+      return this->currentPwmOut;
+    }
+    
     /* 
      * updateThrottle
      * 
@@ -79,7 +92,6 @@ class Throttle {
 
       // check to see if it's time yet to actually update.  If not, don't do anything.
       if (millis() - lastThrottleUpdateMillis < targetThrottleUpdateMillis) {
-        // Note ... abs was used just in case we had a rollover in the millis() timer
         return;
       }
 
@@ -89,7 +101,7 @@ class Throttle {
         currentThrottleScaled = 0;
         
       } else {
-        // Case 2: not staring up, so let's do some work
+        // Case 2: not starting up, so let's do some work
         
         // figure how how much to change the throttle based upon the rate and the amount of time that has elapsed
         int throttleDelta = float(millis() - lastThrottleUpdateMillis) * throttleChangeRate / 1000.;
@@ -99,10 +111,10 @@ class Throttle {
          * NOTE: This is the simplest application of a throttle rate change that is possible.  Nothing fancy, just decide in which direction to apply the 
          *        throttle change and apply it.  No special logic about stopping or anything.
          */
-        if (throttleTargetScaled < currentThrottleScaled) {
+        if (targetThrottleScaled < currentThrottleScaled) {
           // calling for the throttle to be reduced in value
           currentThrottleScaled -= throttleDelta;        
-        } else if (throttleTargetScaled > currentThrottleScaled) {
+        } else if (targetThrottleScaled > currentThrottleScaled) {
           // calling for the throttle to be increased in value
           currentThrottleScaled += throttleDelta;
         }
@@ -138,7 +150,7 @@ class Throttle {
 
     String getStatus() {
       String ret = String("[Throttle] ");
-      ret.concat(String("target:"));ret.concat(throttleTargetScaled);
+      ret.concat(String("target:"));ret.concat(targetThrottleScaled);
       ret.concat(String(" current:"));ret.concat(currentThrottleScaled);
       ret.concat(String(" PWM:"));ret.concat(currentPwmOut);
       return ret;
@@ -146,7 +158,7 @@ class Throttle {
 
     String getMinimalStatus() {
       String ret = String("Th ");
-      ret.concat(String("t:"));ret.concat(throttleTargetScaled);
+      ret.concat(String("t:"));ret.concat(targetThrottleScaled);
       ret.concat(String(" c:"));ret.concat(currentThrottleScaled);
       ret.concat(String(" PWM:"));ret.concat(currentPwmOut);
       return ret;

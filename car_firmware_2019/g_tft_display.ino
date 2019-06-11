@@ -38,6 +38,11 @@ class TFTDisplay {
         yield();
     }
 
+    void drawLine(int x1, int y1, int x2, int y2, int color) {
+        tft.drawLine(x1, y1, x2, y2, color);
+        yield();
+    }
+    
     void setCursor(int x, int y) {
       tft.setCursor(x, y);
     }
@@ -52,6 +57,11 @@ class TFTDisplay {
         tft.setTextColor(textColor);
         tft.setTextSize(textSize);
         tft.println(text);
+    }
+
+    void printBlankLine(int textSize) {
+      tft.setTextSize(textSize);
+      tft.println("");
     }
 
     String getStatus() {
@@ -70,7 +80,7 @@ class TFTDisplay {
       ret.concat(String(" Image Format: 0x"));ret.concat(String(x, HEX));
 
       x = tft.readcommand8(ILI9341_RDSELFDIAG);
-      ret.concat(String(" Self Diagnostic: 0x"));ret.concat(String(x, HEX)); 
+      ret.concat(String(" Self Diagnostic: 0x"));ret.concat(String(x, HEX));ret.concat(String(" "));ret.concat(x); 
 
       return ret;
     }
