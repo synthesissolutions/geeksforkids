@@ -32,8 +32,8 @@ class Button {
     /*
      * getters ... just doing digital reads
      * 
-     *  We are using INPUT_PULLUP so the Off Position on the dip switch reads as 1 and On as 0
-     *  So we hide this detail by negating the reading from the pin.
+     *  We are using INPUT_PULLUP so the Off Position on the button reads as 1 and On as 0
+     *  So we hide this detail by negating the reading from the button.
      */
 
     void updateButton() {
@@ -77,6 +77,10 @@ class Button {
     boolean isPressed() {return stableIsPushed;}
     boolean isReleased() {return !stableIsPushed;}
 
+    int getAnalogValue() {
+      return analogRead(buttonPin);
+    }
+    
     boolean clicked() {
       return wasClicked;
     }

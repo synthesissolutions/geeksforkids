@@ -445,6 +445,8 @@ class AdminScreenManager {
         tftDisplay->printBlankLine(1);
         tftDisplay->println(HEADING_TEXT_SIZE, ILI9341_PURPLE, currentScreen->getTitle());
         tftDisplay->printBlankLine(1);
+
+        tftDisplay->println(3, ILI9341_DARKGREY, nextButton.getAnalogValue());
       
         currentScreen->render();
 
