@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Geeks for Kids Configuration
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button fill="solid" expand="full" (click)="startScan()">Scan for BLE Devices</ion-button>
+  <ion-list padding>
+    <ion-item *ngFor="let device of devices" detail [routerLink]="['/detail', device.id]">
+      <ion-label>{{ device.name }} ({{ device.id }})</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

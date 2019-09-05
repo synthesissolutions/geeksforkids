@@ -1,0 +1,8 @@
+{
+  "name": "GeeksCarConfiguration",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}
