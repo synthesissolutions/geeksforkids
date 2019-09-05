@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name teensy)(type Legacy)(uri C:/Users/Kevin/Downloads/teensy_library-master/teensy.lib)(options "")(descr ""))
+  (lib (name teensy3.6_nomid)(type Legacy)(uri C:/Users/Kevin/Downloads/teensy_library-master/teensy3.6_nomid.lib)(options "")(descr ""))
+  (lib (name Useful_Modifications)(type Legacy)(uri "${KIPRJMOD}/Useful Modifications.lib")(options "")(descr ""))
+)
