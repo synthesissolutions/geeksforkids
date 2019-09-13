@@ -19,7 +19,6 @@ class Logger {
     String lines[20];
 
     // Yeah... don't like that the logger has to have these explicity defined.  But it's good enough for now.
-    DIPSwitches *dips;
     Configuration *configuration;
     Joystick *joystick;
     SteeringPotGoButton *potGo;
@@ -35,11 +34,10 @@ class Logger {
     /*
      * Set up the logging.  An updateTime of 0 will turn logging off.  Very much tied to knowing what objects we're going to log status for!!!
      */
-    void init(int updateTime, DIPSwitches *d, Configuration *c, Joystick *j, SteeringPotGoButton *pg, RemoteControl *r, Steering *s, Throttle *t) {
+    void init(int updateTime, Configuration *c, Joystick *j, SteeringPotGoButton *pg, RemoteControl *r, Steering *s, Throttle *t) {
 
       Serial.begin(txSpeed);
   
-      dips = d;
       configuration = c;
       joystick = j;
       potGo = pg;
@@ -80,7 +78,6 @@ class Logger {
 
         // Go through the known instances (they'd better all be here).  Would be better to have an interface and a 
         //   vector of these to iterate over. 
-        Serial.print(dips->getStatus());Serial.println();
         Serial.print(configuration->getStatus());Serial.println();
         Serial.print(joystick->getStatus());Serial.println();
         Serial.print(potGo->getStatus());Serial.println();

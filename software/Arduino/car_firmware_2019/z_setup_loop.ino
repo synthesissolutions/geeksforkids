@@ -9,7 +9,6 @@
 /*
  * Objects that we'll need.  They'll auto construct, but the pattern we're using will require them to have their init() method called.
  */
-DIPSwitches dips;
 Configuration configuration;
 Joystick joystick;
 SteeringPotGoButton potGo;
@@ -37,7 +36,7 @@ boolean joystickInControl = false;
  */
 void setup() {
   // set up the logger
-  logger.init(LOGGER_UPDATE_TIME, &dips, &configuration, &joystick, &potGo, &remoteControl, &steering, &throttle);
+  logger.init(LOGGER_UPDATE_TIME, &configuration, &joystick, &potGo, &remoteControl, &steering, &throttle);
 
   // initialize everything with the correct pins
   joystick.init(PIN_JOYSTICK_STEERING, PIN_JOYSTICK_THROTTLE);
@@ -53,12 +52,9 @@ void setup() {
   logger.addLogLine("steering initialized");
   
   remoteControl.init(PIN_RC_STEERING, PIN_RC_THROTTLE); 
-  logger.addLogLine("remote control initialized"); 
+  logger.addLogLine("remote control initialized");  
 
-  dips.init(DIP_SWITCH_1, DIP_SWITCH_2, DIP_SWITCH_3, DIP_SWITCH_4, DIP_SWITCH_5, DIP_SWITCH_6);
-  logger.addLogLine("dips initialized"); 
-
-  configuration.init(&dips);
+  configuration.init();
   logger.addLogLine("configuration initialized");
 
   // set up the interrupt handlers

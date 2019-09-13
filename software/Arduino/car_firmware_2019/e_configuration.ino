@@ -6,8 +6,6 @@
 
 class Configuration {
   private:
-
-  DIPSwitches *dips;
     
   public: 
     // Default constructor ... does nothing.  This allows us to delay setting the pins until we want to (via the init method).  
@@ -17,21 +15,20 @@ class Configuration {
     /*
      * init - initialize the dip switch pins
      */
-    void init(DIPSwitches *d) {
-      dips = d;
+    void init() {
     }
 
     /*
      * getters ... translate dip switch settings into car configuration
      */
-    boolean getInvertJoystickX() {return !dips->getPin3();}
-    boolean getInvertJoystickY() {return dips->getPin4();}
+    boolean getInvertJoystickX() {return false;}
+    boolean getInvertJoystickY() {return false;}
     float getSpeedMultiplier() {
-      int index = dips->getPin1() * 2 + dips->getPin2(); // read 2 bit integer (0-3) to use as an index into the speed multiplier array
+      int index = 0; // read 2 bit integer (0-3) to use as an index into the speed multiplier array
       return THROTTLE_SPEED_MULTIPLIER[index];
     }
     boolean useSteeringPotentiometerAndGoButton() {
-      return dips->getPin5();
+      return false;
     }
   
     String getStatus() {

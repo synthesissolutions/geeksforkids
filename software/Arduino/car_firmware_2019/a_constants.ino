@@ -108,17 +108,9 @@ const int           PIN_STEERING_POSITION   = A9;
 
 //  ... steering by potentiometer and drive by Go button
 const int           PIN_STEERING_POTENTIONMETER = A8;
-const int           PIN_GO_BUTTON           = 21;
-const int           PIN_REVERSE_SWITCH      = 20;
+const int           PIN_GO_BUTTON           = 19;
+const int           PIN_REVERSE_SWITCH      = 18;
 
 //   ... RC ... aka the parent remote control inputs
 const int           PIN_RC_STEERING         = 10;   
 const int           PIN_RC_THROTTLE         = 9;     
-
-//   ... DIPs ... 
-const int           DIP_SWITCH_1            = 29;
-const int           DIP_SWITCH_2            = 28;
-const int           DIP_SWITCH_3            = 27;
-const int           DIP_SWITCH_4            = 26;
-const int           DIP_SWITCH_5            = 25;
-const int           DIP_SWITCH_6            = 24;
