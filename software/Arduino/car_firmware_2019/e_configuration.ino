@@ -6,6 +6,7 @@
 
 class Configuration {
   private:
+    Eeprom *eeprom;
     
   public: 
     // Default constructor ... does nothing.  This allows us to delay setting the pins until we want to (via the init method).  
@@ -15,17 +16,23 @@ class Configuration {
     /*
      * init - initialize the dip switch pins
      */
-    void init() {
+    void init(Eeprom *e) {
+      eeprom = e;
     }
 
     /*
      * getters ... translate dip switch settings into car configuration
      */
-    boolean getInvertJoystickX() {return false;}
-    boolean getInvertJoystickY() {return false;}
+    // TODO Use constants instead of the hard coded setting name strings
+    boolean getInvertJoystickX() {return eeprom->getBooleanSetting("invertJoystickX");}
+    boolean getInvertJoystickY() {return eeprom->getBooleanSetting("invertJoystickY");}
     float getSpeedMultiplier() {
-      int index = 0; // read 2 bit integer (0-3) to use as an index into the speed multiplier array
-      return THROTTLE_SPEED_MULTIPLIER[index];
+      int eepromValue = eeprom->getIntegerSetting("maxSpeed");
+      return eepromValue / 100.0;
+    }
+    int getSpeedMultiplierInt() {
+      int eepromValue = eeprom->getIntegerSetting("maxSpeed");
+      return eepromValue;
     }
     boolean useSteeringPotentiometerAndGoButton() {
       return false;
@@ -36,6 +43,7 @@ class Configuration {
       ret.concat(String("Invert Joystick X:"));ret.concat(getInvertJoystickX());
       ret.concat(String(" Invert Joystick Y:"));ret.concat(getInvertJoystickY());
       ret.concat(String(" Speed Multiplier:"));ret.concat(getSpeedMultiplier());
+      ret.concat(String(" "));ret.concat(getSpeedMultiplierInt());
       ret.concat(String(" User Steering Pot and Go Button:"));ret.concat(useSteeringPotentiometerAndGoButton());
       
       return ret;

@@ -9,6 +9,8 @@
 /*
  * Objects that we'll need.  They'll auto construct, but the pattern we're using will require them to have their init() method called.
  */
+Eeprom eeprom;
+Bluetooth bluetooth;
 Configuration configuration;
 Joystick joystick;
 SteeringPotGoButton potGo;
@@ -29,14 +31,14 @@ Logger logger;
  */
 boolean rcInControl = false;
 boolean joystickInControl = false;
-
+boolean bluetoothInitialized = false;
 
 /*
  * Arduino defined setup function.  Automatically run once at restart of the device.
  */
 void setup() {
   // set up the logger
-  logger.init(LOGGER_UPDATE_TIME, &configuration, &joystick, &potGo, &remoteControl, &steering, &throttle);
+  logger.init(LOGGER_UPDATE_TIME, &eeprom, &bluetooth, &configuration, &joystick, &potGo, &remoteControl, &steering, &throttle);
 
   // initialize everything with the correct pins
   joystick.init(PIN_JOYSTICK_STEERING, PIN_JOYSTICK_THROTTLE);
@@ -54,7 +56,13 @@ void setup() {
   remoteControl.init(PIN_RC_STEERING, PIN_RC_THROTTLE); 
   logger.addLogLine("remote control initialized");  
 
-  configuration.init();
+  eeprom.init();
+  logger.addLogLine("eeprom initialized");
+
+  bluetooth.init(PIN_ENABLE_BLUETOOTH_BUTTON, &eeprom);
+  logger.addLogLine("bluetooth button initialized");
+  
+  configuration.init(&eeprom);
   logger.addLogLine("configuration initialized");
 
   // set up the interrupt handlers
@@ -69,7 +77,20 @@ void setup() {
  */
 void loop() {
 
-  if (remoteControl.isBadRcStart()) {
+  bluetooth.processEnableButton();
+
+  if (bluetooth.isActive()) {
+    // When Bluetooth is active, the car cannot be driven.
+    // The only way to deactivate Bluetooth is to turn off the power
+    throttle.setThrottle(0);
+
+    if (bluetoothInitialized) {
+      bluetooth.processBluetooth();
+    } else {
+      bluetooth.initBluetooth();
+      bluetoothInitialized = true;
+    }
+  } else if (remoteControl.isBadRcStart()) {
     // TODO: Play a sound to indicate that the car did not start properly
     logger.addLogLine("RC did not start up properly do NOT run the car");
     throttle.setThrottle(0);
@@ -124,9 +145,13 @@ void loop() {
     }      
   }
 
-  // OK, now let's see if it's time to write out the log
-  logger.writeLog();
-  
-  // now delay for the loop delay time... we really don't want to try and run this loop at full CPU speed
-  delay(LOOP_DELAY_MILLIS);
+  // When Bluetooth is active we use the Serial output for logging message directly from that module
+  // In addition, we need full speed processing so we don't miss any message fragments so the delay is eliminated.
+  if (!bluetooth.isActive()) {
+    // OK, now let's see if it's time to write out the log
+    logger.writeLog();
+
+    // now delay for the loop delay time... we really don't want to try and run this loop at full CPU speed
+    delay(LOOP_DELAY_MILLIS);
+  }
 }

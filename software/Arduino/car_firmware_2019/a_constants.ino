@@ -113,4 +113,7 @@ const int           PIN_REVERSE_SWITCH      = 18;
 
 //   ... RC ... aka the parent remote control inputs
 const int           PIN_RC_STEERING         = 10;   
-const int           PIN_RC_THROTTLE         = 9;     
+const int           PIN_RC_THROTTLE         = 9;   
+
+//   ... Bluetooth
+const int           PIN_ENABLE_BLUETOOTH_BUTTON = 12;
