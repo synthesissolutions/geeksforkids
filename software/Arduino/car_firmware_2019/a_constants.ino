@@ -92,25 +92,25 @@ const boolean       RC_INVERT_THROTTLE      = true;
  ***************************************************************************************** 
  */
 //   ... joystick
-const int           PIN_JOYSTICK_THROTTLE   = A1;
-const int           PIN_JOYSTICK_STEERING   = A0;
+const int           PIN_JOYSTICK_THROTTLE   = A6;
+const int           PIN_JOYSTICK_STEERING   = A7;
 
 //   ... throttle ... aka the controller for the car's drive motor   
-const int           PIN_THROTTLE_FORWARD    = 4;
-const int           PIN_THROTTLE_REVERSE    = 5;
-const int           PIN_THROTTLE_SPEED      = 3;
+const int           PIN_THROTTLE_FORWARD    = 1;
+const int           PIN_THROTTLE_REVERSE    = 2;
+const int           PIN_THROTTLE_SPEED      = 0;
 
 //   ... steering ... aka the controller for the car's steering servo
-const int           PIN_STEERING_LEFT       = 8;
-const int           PIN_STEERING_RIGHT      = 7;
-const int           PIN_STEERING_ENABLE     = 6;
-const int           PIN_STEERING_POSITION   = A9;
+const int           PIN_STEERING_LEFT       = 5;
+const int           PIN_STEERING_RIGHT      = 4;
+const int           PIN_STEERING_ENABLE     = 3;
+const int           PIN_STEERING_POSITION   = A5;
 
 //  ... steering by potentiometer and drive by Go button
-const int           PIN_STEERING_POTENTIONMETER = A8;
-const int           PIN_GO_BUTTON           = 19;
-const int           PIN_REVERSE_SWITCH      = 18;
+const int           PIN_STEERING_POTENTIONMETER = A4;
+const int           PIN_GO_BUTTON           = 17;
+const int           PIN_REVERSE_SWITCH      = 16;
 
 //   ... RC ... aka the parent remote control inputs
-const int           PIN_RC_STEERING         = 10;   
-const int           PIN_RC_THROTTLE         = 9;     
+const int           PIN_RC_STEERING         = 7;   
+const int           PIN_RC_THROTTLE         = 6;     
