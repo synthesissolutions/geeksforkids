@@ -1,4 +1,4 @@
-update=8/21/2019 10:07:15 PM
+update=9/15/2019 7:38:33 PM
 version=1
 last_client=kicad
 [general]
@@ -15,7 +15,7 @@ LibDir=
 [pcbnew]
 version=1
 PageLayoutDescrFile=
-LastNetListRead=ControlBoardT4_Rev1.net
+LastNetListRead=ControlBoardT4.net
 CopperLayerCount=2
 BoardThickness=1.6
 AllowMicroVias=0
