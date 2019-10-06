@@ -19,6 +19,8 @@ class Logger {
     String lines[20];
 
     // Yeah... don't like that the logger has to have these explicity defined.  But it's good enough for now.
+    Eeprom *eeprom;
+    Bluetooth *bluetooth;
     Configuration *configuration;
     Joystick *joystick;
     SteeringPotGoButton *potGo;
@@ -34,10 +36,12 @@ class Logger {
     /*
      * Set up the logging.  An updateTime of 0 will turn logging off.  Very much tied to knowing what objects we're going to log status for!!!
      */
-    void init(int updateTime, Configuration *c, Joystick *j, SteeringPotGoButton *pg, RemoteControl *r, Steering *s, Throttle *t) {
+    void init(int updateTime, Eeprom *e, Bluetooth *b, Configuration *c, Joystick *j, SteeringPotGoButton *pg, RemoteControl *r, Steering *s, Throttle *t) {
 
       Serial.begin(txSpeed);
-  
+
+      eeprom = e;
+      bluetooth = b;
       configuration = c;
       joystick = j;
       potGo = pg;
@@ -84,6 +88,8 @@ class Logger {
         Serial.print(rc->getStatus());Serial.println();
         Serial.print(steering->getStatus());Serial.println();
         Serial.print(throttle->getStatus());Serial.println();
+        Serial.print(eeprom->getStatus());Serial.println();
+        Serial.print(bluetooth->getStatus());Serial.println();
 
         // now the ad-hoc lines... this also helps space everythig out so the log is a bit easier to read
         for (int i=0; i<20; i++) {
