@@ -1255,7 +1255,7 @@
     )
   )
 
-  (gr_text T4Rev0.3 (at 175.3235 81.2165 90) (layer F.SilkS)
+  (gr_text T4Rev0.2 (at 175.3235 81.2165 90) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
   )
   (gr_text "S\nRx\nTx\nGnd\n5v\nE" (at 161.0995 118.4275 90) (layer F.SilkS) (tstamp 5D5EF924)
