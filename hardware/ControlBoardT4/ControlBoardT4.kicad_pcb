@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 14)
+    (drawings 15)
     (tracks 359)
     (zones 0)
     (modules 23)
@@ -1252,13 +1252,16 @@
     )
   )
 
+  (gr_text A (at 159.385 111.506) (layer F.SilkS)
+    (effects (font (size 1.4986 1.4986) (thickness 0.29972)))
+  )
   (gr_text T4Rev0.4 (at 175.3235 81.2165 90) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
   )
   (gr_text "S\nRx\nTx\nGnd\n5v\nE" (at 161.0995 118.4275 90) (layer F.SilkS) (tstamp 5D5EF924)
     (effects (font (size 1.5 1.5) (thickness 0.3)) (justify right))
   )
-  (gr_text "S\nS\nS\nG\n5v" (at 153.4795 106.553) (layer F.SilkS) (tstamp 5D5EF924)
+  (gr_text "S\nS\nS\nG\n5v B" (at 153.4795 106.553) (layer F.SilkS) (tstamp 5DBE1581)
     (effects (font (size 1.5 1.5) (thickness 0.3)) (justify right))
   )
   (gr_text "S\nS\nG\n3v" (at 173.99 105.029) (layer F.SilkS)
