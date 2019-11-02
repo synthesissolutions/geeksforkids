@@ -738,17 +738,6 @@ Wire Wire Line
 Wire Wire Line
 	7750 3300 7750 4600
 $Comp
-L Connector:Conn_01x06_Male J12
-U 1 1 5D5D3F7C
-P 6750 4800
-F 0 "J12" H 6550 4800 50  0000 L CNN
-F 1 "BT" H 6600 4700 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 6750 4800 50  0001 C CNN
-F 3 "~" H 6750 4800 50  0001 C CNN
-	1    6750 4800
-	-1   0    0    1   
-$EndComp
-$Comp
 L power:GND #PWR031
 U 1 1 5D6BB016
 P 6550 4800
@@ -759,12 +748,7 @@ F 3 "" H 6550 4800 50  0001 C CNN
 	1    6550 4800
 	0    1    1    0   
 $EndComp
-Text Notes 6800 4450 3    59   ~ 0
-E 5 G T R S
-NoConn ~ 6550 5000
 NoConn ~ 6550 4500
-Wire Wire Line
-	6350 4950 6550 4900
 Wire Wire Line
 	7200 3300 7500 3300
 Wire Wire Line
@@ -971,7 +955,7 @@ U 1 1 5D9CA707
 P 9500 3900
 F 0 "J11" H 9170 3783 50  0000 R CNN
 F 1 "AudioJack4" H 9170 3874 50  0000 R CNN
-F 2 "Connector_Audio:Jack_3.5mm_PJ320E_Horizontal" H 9500 3900 50  0001 C CNN
+F 2 "Useful Modifications:Jack_3.5mm_PJ320A_Horizontal" H 9500 3900 50  0001 C CNN
 F 3 "~" H 9500 3900 50  0001 C CNN
 	1    9500 3900
 	-1   0    0    1   
@@ -989,4 +973,20 @@ Wire Wire Line
 Wire Wire Line
 	9200 3900 9300 4000
 NoConn ~ 9300 3900
+Wire Wire Line
+	6350 4950 6550 4900
+NoConn ~ 6550 5000
+Text Notes 6800 4450 3    59   ~ 0
+E 5 G T R S
+$Comp
+L Connector:Conn_01x06_Male J12
+U 1 1 5D5D3F7C
+P 6750 4800
+F 0 "J12" H 6550 4800 50  0000 L CNN
+F 1 "BT" H 6600 4700 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 6750 4800 50  0001 C CNN
+F 3 "~" H 6750 4800 50  0001 C CNN
+	1    6750 4800
+	-1   0    0    1   
+$EndComp
 $EndSCHEMATC
