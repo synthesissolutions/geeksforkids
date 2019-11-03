@@ -41,7 +41,7 @@ U 1 1 5D99545E
 P 5400 3900
 F 0 "J1" H 5318 3575 50  0000 C CNN
 F 1 "Screw_Terminal_01x02" H 5318 3666 50  0000 C CNN
-F 2 "digikey-footprints:Term_Block_1x2_P5mm" H 5400 3900 50  0001 C CNN
+F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 5400 3900 50  0001 C CNN
 F 3 "~" H 5400 3900 50  0001 C CNN
 	1    5400 3900
 	-1   0    0    1   
