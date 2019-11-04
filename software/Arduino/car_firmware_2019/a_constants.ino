@@ -96,14 +96,14 @@ const int           PIN_JOYSTICK_THROTTLE   = A6;
 const int           PIN_JOYSTICK_STEERING   = A7;
 
 //   ... throttle ... aka the controller for the car's drive motor   
-const int           PIN_THROTTLE_FORWARD    = 1;
-const int           PIN_THROTTLE_REVERSE    = 2;
-const int           PIN_THROTTLE_SPEED      = 0;
+const int           PIN_THROTTLE_FORWARD    = 4;
+const int           PIN_THROTTLE_REVERSE    = 3;
+const int           PIN_THROTTLE_SPEED      = 2;
 
 //   ... steering ... aka the controller for the car's steering servo
-const int           PIN_STEERING_LEFT       = 5;
-const int           PIN_STEERING_RIGHT      = 4;
-const int           PIN_STEERING_ENABLE     = 3;
+const int           PIN_STEERING_LEFT       = 7;
+const int           PIN_STEERING_RIGHT      = 6;
+const int           PIN_STEERING_ENABLE     = 5;
 const int           PIN_STEERING_POSITION   = A5;
 
 //  ... steering by potentiometer and drive by Go button
@@ -112,8 +112,8 @@ const int           PIN_GO_BUTTON           = 17;
 const int           PIN_REVERSE_SWITCH      = 16;
 
 //   ... RC ... aka the parent remote control inputs
-const int           PIN_RC_STEERING         = 7;   
-const int           PIN_RC_THROTTLE         = 6;     
+const int           PIN_RC_STEERING         = 11;   
+const int           PIN_RC_THROTTLE         = 10;     
 
 //   ... Bluetooth
-const int           PIN_ENABLE_BLUETOOTH_BUTTON = 12;
+const int           PIN_ENABLE_BLUETOOTH_BUTTON = 8;
