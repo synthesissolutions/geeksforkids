@@ -70,6 +70,8 @@ export class DetailPage implements OnInit {
             });
     }
 
+    // TODO: option 1 move this code to service and use a Subject that pushes the final value
+    // TODO: option 2 use the reduce function?
     processResponse(response: string) {
         if (this.isReceivingResponse) {
             console.log('Partial data received');
@@ -109,6 +111,9 @@ export class DetailPage implements OnInit {
     }
 
     onSubmit() {
+        // TODO: use JSON.stringify() on the object and loop through the text in 80 character chunks
+        // then use concatMap
+        // https://riptutorial.com/rxjs/example/28035/sending-multiple-sequential-http-requests
         console.log(this.configuration);
         console.log('Saving Configuration');
         const dataPart1 = {
