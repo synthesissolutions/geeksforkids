@@ -40,7 +40,7 @@ ConfigurationEntry configurationEntries[] = {
 class Eeprom {
   private:
     const unsigned int EE_ADDRESS = 0;
-    String loadingLogMessage = "loaded from Eeprom";
+    String loadingLogMessage = "Loaded from Eeprom";
     
     StaticJsonDocument<1024> currentSettingsJson;  
 
@@ -58,7 +58,7 @@ class Eeprom {
       if (getIntegerSetting("version") != CURRENT_SETTINGS_VERSION) {
         resetConfiguration();
         saveConfiguration();
-        loadingLogMessage = "loaded from defaults";
+        loadingLogMessage = "Loaded from defaults";
       }
     }
 
@@ -146,7 +146,7 @@ class Eeprom {
     String getStatus() {
       String ret = String("[EEprom] ");
       ret.concat(String("Version:"));ret.concat(getIntegerSetting("version"));
-      ret.concat(String(" Loading Message:"));ret.concat(loadingLogMessage);
+      ret.concat(String(" Configuration "));ret.concat(loadingLogMessage);
       
       return ret;
     }

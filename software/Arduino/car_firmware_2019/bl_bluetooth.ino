@@ -1,22 +1,5 @@
 #include <ArduinoJson.h>
 
-#include <AltSoftSerial.h>
-
-// AltSoftSerial always uses these pins:
-//
-// Board          Transmit  Receive   PWM Unusable
-// -----          --------  -------   ------------
-// Teensy 3.0 & 3.1  21        20         22
-// Teensy 2.0         9        10       (none)
-// Teensy++ 2.0      25         4       26, 27
-// Arduino Uno        9         8         10
-// Arduino Leonardo   5        13       (none)
-// Arduino Mega      46        48       44, 45
-// Wiring-S           5         6          4
-// Sanguino          13        14         12
-
-AltSoftSerial altSerial;
-
 /**
  * Bluetooth Class
  * 
@@ -37,7 +20,7 @@ class Bluetooth {
 
   public: 
     // Default constructor ... does nothing.  This allows us to delay setting the pins until we want to (via the init method).  
-    Configuration() {  
+    Bluetooth() {  
     }
 
     /*
@@ -53,7 +36,7 @@ class Bluetooth {
       Serial.println("");
       Serial.println("Bluetooth Initialized...");
       Serial.println("");
-      altSerial.begin(9600);
+      Serial3.begin(9600);
     }
 
     /*
@@ -160,10 +143,11 @@ class Bluetooth {
     
       if (Serial.available()) {
         c = Serial.read();
-        altSerial.print(c);
+        Serial3.print(c);
       }
-      if (altSerial.available()) {
-        c = altSerial.read();
+
+      if (Serial3.available()) {
+        c = Serial3.read();
         Serial.print(c);
     
         if (c == '{') {
@@ -180,7 +164,7 @@ class Bluetooth {
           String results = processJsonCommand(rawCommand);
           
           Serial.println(results);
-          altSerial.println(results);
+          Serial3.println(results);
           readingCommand = false;
         } else if (readingCommand) {
           rawCommand += c;

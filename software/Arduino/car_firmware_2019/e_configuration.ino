@@ -24,8 +24,10 @@ class Configuration {
      * getters ... translate dip switch settings into car configuration
      */
     // TODO Use constants instead of the hard coded setting name strings
-    boolean getInvertJoystickX() {return eeprom->getBooleanSetting("invertJoystickX");}
-    boolean getInvertJoystickY() {return eeprom->getBooleanSetting("invertJoystickY");}
+    boolean getInvertJoystickX() { return eeprom->getBooleanSetting("invertJoystickX"); }
+    boolean getInvertJoystickY() { return eeprom->getBooleanSetting("invertJoystickY"); }
+    boolean useSteeringPotentiometerAndGoButton() { return eeprom->getBooleanSetting("usePotGo"); }
+    boolean useRc() { return eeprom->getBooleanSetting("useRc"); }
     float getSpeedMultiplier() {
       int eepromValue = eeprom->getIntegerSetting("maxSpeed");
       return eepromValue / 100.0;
@@ -34,9 +36,7 @@ class Configuration {
       int eepromValue = eeprom->getIntegerSetting("maxSpeed");
       return eepromValue;
     }
-    boolean useSteeringPotentiometerAndGoButton() {
-      return false;
-    }
+
   
     String getStatus() {
       String ret = String("[Configuration] ");
@@ -44,7 +44,8 @@ class Configuration {
       ret.concat(String(" Invert Joystick Y:"));ret.concat(getInvertJoystickY());
       ret.concat(String(" Speed Multiplier:"));ret.concat(getSpeedMultiplier());
       ret.concat(String(" "));ret.concat(getSpeedMultiplierInt());
-      ret.concat(String(" User Steering Pot and Go Button:"));ret.concat(useSteeringPotentiometerAndGoButton());
+      ret.concat(String(" Use RC:"));ret.concat(useRc());
+      ret.concat(String(" Use Steering Pot/Go Button:"));ret.concat(useSteeringPotentiometerAndGoButton());
       
       return ret;
     }

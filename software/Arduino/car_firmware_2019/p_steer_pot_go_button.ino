@@ -146,6 +146,4 @@ class SteeringPotGoButton {
 
       return ret;
     }
-
- 
 };

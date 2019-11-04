@@ -90,13 +90,13 @@ void loop() {
       bluetooth.initBluetooth();
       bluetoothInitialized = true;
     }
-  } else if (remoteControl.isBadRcStart()) {
+  } else if (configuration.useRc() && remoteControl.isBadRcStart()) {
     // TODO: Play a sound to indicate that the car did not start properly
     logger.addLogLine("RC did not start up properly do NOT run the car");
     throttle.setThrottle(0);
   } else {
     // Is the parent overriding and taking control?
-    if (remoteControl.isActive()) {
+    if (configuration.useRc() && remoteControl.isActive()) {
       
       // Yep, the parent has taken over ... parent inputs only
       if (joystickInControl) {
