@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 8)
+    (drawings 9)
     (tracks 53)
     (zones 0)
     (modules 11)
@@ -572,6 +572,9 @@
       (net 2 +12V))
   )
 
+  (gr_text "SimpRev 1" (at 168.3385 51.2445) (layer F.SilkS)
+    (effects (font (size 0.999998 0.999998) (thickness 0.14986)))
+  )
   (gr_arc (start 137.4775 91.1225) (end 133.477 91.1225) (angle -90) (layer Edge.Cuts) (width 0.05) (tstamp 5DD8B461))
   (gr_arc (start 137.4775 52.07) (end 137.4775 48.0695) (angle -90) (layer Edge.Cuts) (width 0.05) (tstamp 5DD8B461))
   (gr_arc (start 197.9295 52.07) (end 201.93 52.07) (angle -90) (layer Edge.Cuts) (width 0.05) (tstamp 5DD8B461))
