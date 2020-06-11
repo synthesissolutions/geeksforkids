@@ -28,16 +28,32 @@ class Configuration {
     boolean getInvertJoystickY() { return eeprom->getBooleanSetting("invertJoystickY"); }
     boolean useSteeringPotentiometerAndGoButton() { return eeprom->getBooleanSetting("usePotGo"); }
     boolean useRc() { return eeprom->getBooleanSetting("useRc"); }
+    
     float getSpeedMultiplier() {
       int eepromValue = eeprom->getIntegerSetting("maxSpeed");
       return eepromValue / 100.0;
     }
+    
     int getSpeedMultiplierInt() {
       int eepromValue = eeprom->getIntegerSetting("maxSpeed");
       return eepromValue;
     }
-
-  
+    
+    int getSteeringCenter() {
+      int eepromValue = eeprom->getIntegerSetting("actuatorCenter");
+      return eepromValue;
+    }
+    
+    int getSteeringMin() {
+      int eepromValue = eeprom->getIntegerSetting("actuatorMin");
+      return eepromValue;
+    }
+    
+    int getSteeringMax() {
+      int eepromValue = eeprom->getIntegerSetting("actuatorMax");
+      return eepromValue;
+    }
+      
     String getStatus() {
       String ret = String("[Configuration] ");
       ret.concat(String("Invert Joystick X:"));ret.concat(getInvertJoystickX());
@@ -46,6 +62,7 @@ class Configuration {
       ret.concat(String(" "));ret.concat(getSpeedMultiplierInt());
       ret.concat(String(" Use RC:"));ret.concat(useRc());
       ret.concat(String(" Use Steering Pot/Go Button:"));ret.concat(useSteeringPotentiometerAndGoButton());
+      ret.concat(String(" Min/C/Max:"));ret.concat(getSteeringMin());ret.concat(" ");ret.concat(getSteeringCenter());ret.concat(" ");ret.concat(getSteeringMax());
       
       return ret;
     }

@@ -124,6 +124,7 @@ void loop() {
       // Nope... the parent isn't controlling
       // check to see if the joystick active (e.g. has it centered at least once?)
       if (joystick.isActive()) {
+        // TODO move configuration settings so they aren't in the main loop
         joystick.setInvertXAxis(configuration.getInvertJoystickX());
         joystick.setInvertYAxis(configuration.getInvertJoystickY());
   
@@ -135,6 +136,11 @@ void loop() {
         }
   
         // set the inputs from the Joystick
+        // Configuration settings need to be handled differenty, this is just temporary
+        // TODO move configuration settings so they aren't in the main loop
+        steering.setSteeringCenterScaled(configuration.getSteeringCenter());
+        steering.setSteeringMinScaled(configuration.getSteeringMin());
+        steering.setSteeringMaxScaled(configuration.getSteeringMax());
         steering.setSteeringPosition(joystick.getXAxisScaled());
         throttle.setThrottle(joystick.getYAxisScaled()*configuration.getSpeedMultiplier());
       } else {

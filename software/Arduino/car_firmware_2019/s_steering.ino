@@ -21,6 +21,10 @@ class Steering {
     boolean isMoving = false;
     
     // settting default values here ... being a little lazy by defaulting from constants.  
+    int steeringMinScaled = -100;
+    int steeringMaxScaled = 100;
+    int steeringCenterScaled = 0;
+    
     int steeringMin = STEERING_MIN;                     // encoder units (0 to 1023)
     int steeringMax = STEERING_MAX;                     // encoder units (0 to 1023)
     int steeringCenter = STEERING_CENTER;               // encoder units (0 to 1023)
@@ -92,13 +96,23 @@ class Steering {
      */
     void setSteeringPosition(int target) {
       // constrain and set the steering target (in scaled units)
-      steeringTargetScaled = constrain(target,-100,100);
+      steeringTargetScaled = constrain(target, steeringMinScaled, steeringMaxScaled);
 
-      // now call update
-      updateSteering();
-      
+      updateSteering();      
     }
 
+    void setSteeringCenterScaled(int newCenter) {
+      steeringCenterScaled = newCenter;
+    }
+
+    void setSteeringMinScaled(int newMin) {
+      steeringMinScaled = newMin;
+    }
+
+    void setSteeringMaxScaled(int newMax) {
+      steeringMaxScaled = newMax;
+    }
+    
     /*
      * Update the steering ... this is the actual method that handles moving of the servo
      * 
@@ -110,13 +124,13 @@ class Steering {
      * 
      */
     void updateSteering() {
-      // figure out the current steering servo position and how far we are from the target
-      //steeringPositionScaled = float(analogRead(pinSteeringPosition))*100./1023.;              // We're always going to work in scaled units
-      steeringPositionScaled = constrain(map(analogRead(pinSteeringPosition),STEERING_MIN,STEERING_MAX,-100,100),-100,100);              // We're always going to work in scaled units
+      // Convert analog read value to scaled units
+      steeringPositionScaled = map(analogRead(pinSteeringPosition), 0, 1023, -100, 100);
 
-      // Manual Adjustment for Carter
-      //steeringPositionScaled += 20;
-      
+      // Use steeringPositionScaled + steeringCenterScaled to account for configuration setting
+      // add instead of subtract because configuration use > 0 for adjustments to the right but the actuator has > vaues to the left
+      steeringPositionScaled = constrain(steeringPositionScaled + steeringCenterScaled, steeringMinScaled, steeringMaxScaled);
+
       targetDeltaScaled = abs(steeringPositionScaled - steeringTargetScaled);
 
       // Are we moving already?

@@ -24,9 +24,9 @@ struct ConfigurationEntry {
 ConfigurationEntry configurationEntries[] = {
   {"version", 0, "Integer", false, CURRENT_SETTINGS_VERSION, ""},
   {"maxSpeed", 4, "Integer", false, 50, ""},
-  {"actuatorCenter", 8, "Integer", false, 512, ""},
-  {"actuatorMin", 12, "Integer", false, 200, ""},
-  {"actuatorMax", 16, "Integer", false, 800, ""},
+  {"actuatorCenter", 8, "Integer", false, 0, ""},  // in scaled units from -100 to 100
+  {"actuatorMin", 12, "Integer", false, -50, ""},  // in scaled units from -100 to 100
+  {"actuatorMax", 16, "Integer", false, 50, ""},   // in scaled units from -100 to 100
   {"useJoystick", 20, "Boolean", true, 0, ""},
   {"invertJoystickX", 24, "Boolean", false, 0, ""},
   {"invertJoystickY", 28, "Boolean", false, 0, ""},
