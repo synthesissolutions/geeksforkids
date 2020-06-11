@@ -70,14 +70,11 @@ class Logger {
 
     // writes the log if it is time to do so.  just spits out the status from all objects, plus any other logging lines 
     void writeLog() {
-
       // is logging turned on?
       if (updateDeltaT==0) return;
 
       // is it time yet to do another log (we don't want to log too much)
       if (millis()-lastUpdateTime >= updateDeltaT) {
-
-        // Yep ... it's time.
         Serial.print("Log Time:");Serial.println(millis());
 
         // Go through the known instances (they'd better all be here).  Would be better to have an interface and a 
@@ -95,7 +92,7 @@ class Logger {
         for (int i=0; i<20; i++) {
           Serial.println(lines[i]);   
           // the line has been printed... clear it for the next time  
-          lines[i]=String("");   
+          lines[i] = "";   
         }
         // reset the current line for ad-hoc logging to start again at the top
         currentLine=0;
@@ -106,7 +103,6 @@ class Logger {
 
         // and set up for the next time writeLog is called
         lastUpdateTime = millis();
-
       }
     }
 
