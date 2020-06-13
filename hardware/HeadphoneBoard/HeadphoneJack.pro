@@ -1,6 +1,6 @@
-update=6/9/2020 10:31:46 PM
+update=6/10/2020 4:58:38 PM
 version=1
-last_client=kicad
+last_client=pcbnew
 [general]
 version=1
 RootSch=
@@ -12,20 +12,10 @@ NetIExt=net
 version=1
 LibDir=
 [eeschema/libraries]
-[schematic_editor]
-version=1
-PageLayoutDescrFile=
-PlotDirectoryName=
-SubpartIdSeparator=0
-SubpartFirstId=65
-NetFmtName=
-SpiceAjustPassiveValues=0
-LabSize=50
-ERC_TestSimilarLabels=1
 [pcbnew]
 version=1
 PageLayoutDescrFile=
-LastNetListRead=JoystickBoard.net
+LastNetListRead=HeadphoneJack.net
 CopperLayerCount=2
 BoardThickness=1.6
 AllowMicroVias=0

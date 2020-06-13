@@ -1,4 +1,4 @@
-update=6/9/2020 10:31:46 PM
+update=6/10/2020 12:19:43 AM
 version=1
 last_client=kicad
 [general]
@@ -25,7 +25,7 @@ ERC_TestSimilarLabels=1
 [pcbnew]
 version=1
 PageLayoutDescrFile=
-LastNetListRead=JoystickBoard.net
+LastNetListRead=ControlBoardT4_28PinSound_Power.net
 CopperLayerCount=2
 BoardThickness=1.6
 AllowMicroVias=0

@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:ControlBoardT4_28PinSound-cache
 EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
@@ -34,17 +33,6 @@ F 1 "sPOT" V 7700 5150 50  0000 R CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 7650 4800 50  0001 C CNN
 F 3 "~" H 7650 4800 50  0001 C CNN
 	1    7650 4800
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:Battery BT1
-U 1 1 5D6AC0F2
-P 3850 5350
-F 0 "BT1" V 4095 5350 50  0000 C CNN
-F 1 "5v+ -" V 4004 5350 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" V 3850 5410 50  0001 C CNN
-F 3 "~" V 3850 5410 50  0001 C CNN
-	1    3850 5350
 	0    -1   -1   0   
 $EndComp
 $Comp
@@ -98,17 +86,6 @@ F 3 "~" H 3300 3300 50  0001 C CNN
 	0    -1   1    0   
 $EndComp
 $Comp
-L Useful~Modifications:Teensy4.0_NoMid U1
-U 1 1 5D60B8C9
-P 5950 3050
-F 0 "U1" H 5975 3947 60  0000 C CNN
-F 1 "Teensy4.0_NoMid" H 5975 3841 60  0000 C CNN
-F 2 "Useful Modifications:Teensy40_NoMid" H 5900 2100 60  0001 C CNN
-F 3 "" H 5900 2100 60  0000 C CNN
-	1    5950 3050
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:+5V #PWR026
 U 1 1 5D691EA1
 P 7200 2400
@@ -118,17 +95,6 @@ F 2 "" H 7200 2400 50  0001 C CNN
 F 3 "" H 7200 2400 50  0001 C CNN
 	1    7200 2400
 	0    1    1    0   
-$EndComp
-$Comp
-L power:+5V #PWR024
-U 1 1 5D69412C
-P 3650 5350
-F 0 "#PWR024" H 3650 5200 50  0001 C CNN
-F 1 "+5V" V 3650 5450 50  0000 L CNN
-F 2 "" H 3650 5350 50  0001 C CNN
-F 3 "" H 3650 5350 50  0001 C CNN
-	1    3650 5350
-	0    -1   -1   0   
 $EndComp
 $Comp
 L power:+5V #PWR033
@@ -436,17 +402,6 @@ F 1 "+3.3V" V 8400 5350 50  0000 L CNN
 F 2 "" H 8400 5200 50  0001 C CNN
 F 3 "" H 8400 5200 50  0001 C CNN
 	1    8400 5200
-	0    -1   -1   0   
-$EndComp
-$Comp
-L power:GND #PWR025
-U 1 1 5D6DD149
-P 4050 5350
-F 0 "#PWR025" H 4050 5100 50  0001 C CNN
-F 1 "GND" V 4050 5250 50  0000 R CNN
-F 2 "" H 4050 5350 50  0001 C CNN
-F 3 "" H 4050 5350 50  0001 C CNN
-	1    4050 5350
 	0    -1   -1   0   
 $EndComp
 $Comp
@@ -1024,4 +979,126 @@ Wire Wire Line
 	7900 5650 8150 5300
 Wire Wire Line
 	8150 5300 8400 5300
+$Comp
+L Useful~Modifications:Teensy4.0_NoMid U1
+U 1 1 5EE1CA68
+P 5950 3050
+F 0 "U1" H 5975 3947 60  0000 C CNN
+F 1 "Teensy4.0_NoMid" H 5975 3841 60  0000 C CNN
+F 2 "Useful Modifications:Teensy40_NoMid" H 5900 2100 60  0001 C CNN
+F 3 "" H 5900 2100 60  0000 C CNN
+	1    5950 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Useful~Modifications:TMR_1-0511_mod U3
+U 1 1 5EE1E4FD
+P 3200 5300
+F 0 "U3" H 3200 5767 50  0000 C CNN
+F 1 "TMR_1-0511_mod" H 3200 5676 50  0000 C CNN
+F 2 "Converter_DCDC:Converter_DCDC_TRACO_TMR-1-xxxx_Single_THT" H 3200 4950 50  0001 C CNN
+F 3 "http://assets.tracopower.com/TMR1/documents/tmr1-datasheet.pdf" H 3200 4800 50  0001 C CNN
+	1    3200 5300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+12V #PWR0101
+U 1 1 5EE21F5B
+P 2700 5100
+F 0 "#PWR0101" H 2700 4950 50  0001 C CNN
+F 1 "+12V" V 2715 5228 50  0000 L CNN
+F 2 "" H 2700 5100 50  0001 C CNN
+F 3 "" H 2700 5100 50  0001 C CNN
+	1    2700 5100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:-12V #PWR0102
+U 1 1 5EE23676
+P 2700 5500
+F 0 "#PWR0102" H 2700 5600 50  0001 C CNN
+F 1 "-12V" V 2715 5628 50  0000 L CNN
+F 2 "" H 2700 5500 50  0001 C CNN
+F 3 "" H 2700 5500 50  0001 C CNN
+	1    2700 5500
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR0103
+U 1 1 5EE242AC
+P 3700 5500
+F 0 "#PWR0103" H 3700 5250 50  0001 C CNN
+F 1 "GND" V 3700 5400 50  0000 R CNN
+F 2 "" H 3700 5500 50  0001 C CNN
+F 3 "" H 3700 5500 50  0001 C CNN
+	1    3700 5500
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+5V #PWR0104
+U 1 1 5EE28E61
+P 3900 5100
+F 0 "#PWR0104" H 3900 4950 50  0001 C CNN
+F 1 "+5V" V 3900 5200 50  0000 L CNN
+F 2 "" H 3900 5100 50  0001 C CNN
+F 3 "" H 3900 5100 50  0001 C CNN
+	1    3900 5100
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:Jumper_NO_Small JP5
+U 1 1 5EE2E9C1
+P 3800 5100
+F 0 "JP5" H 3700 5200 50  0000 L CNN
+F 1 "5v Jumper" H 3750 5000 50  0000 L CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm" H 3800 5100 50  0001 C CNN
+F 3 "~" H 3800 5100 50  0001 C CNN
+	1    3800 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint TP1
+U 1 1 5EE709D2
+P 3700 5500
+F 0 "TP1" H 3758 5618 50  0000 L CNN
+F 1 "TestPoint" H 3650 5400 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_1.5x1.5mm" H 3900 5500 50  0001 C CNN
+F 3 "~" H 3900 5500 50  0001 C CNN
+	1    3700 5500
+	1    0    0    -1  
+$EndComp
+Connection ~ 3700 5500
+$Comp
+L Connector:Screw_Terminal_01x02 J13
+U 1 1 5EE8257A
+P 1750 5350
+F 0 "J13" H 1668 5025 50  0000 C CNN
+F 1 "Main Power" H 1668 5116 50  0000 C CNN
+F 2 "Useful Modifications:TerminalBlock_bornier-2_P5.08mm" H 1750 5350 50  0001 C CNN
+F 3 "~" H 1750 5350 50  0001 C CNN
+	1    1750 5350
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:+12V #PWR024
+U 1 1 5EE8644F
+P 1950 5250
+F 0 "#PWR024" H 1950 5100 50  0001 C CNN
+F 1 "+12V" V 1965 5378 50  0000 L CNN
+F 2 "" H 1950 5250 50  0001 C CNN
+F 3 "" H 1950 5250 50  0001 C CNN
+	1    1950 5250
+	0    1    1    0   
+$EndComp
+$Comp
+L power:-12V #PWR025
+U 1 1 5EE89125
+P 1950 5350
+F 0 "#PWR025" H 1950 5450 50  0001 C CNN
+F 1 "-12V" V 1965 5478 50  0000 L CNN
+F 2 "" H 1950 5350 50  0001 C CNN
+F 3 "" H 1950 5350 50  0001 C CNN
+	1    1950 5350
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC
