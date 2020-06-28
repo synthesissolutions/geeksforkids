@@ -75,6 +75,8 @@ class Logger {
 
       // is it time yet to do another log (we don't want to log too much)
       if (millis()-lastUpdateTime >= updateDeltaT) {
+        Serial.print("Version: ");Serial.println(RELEASE_VERSION);
+        
         Serial.print("Log Time:");Serial.println(millis());
 
         // Go through the known instances (they'd better all be here).  Would be better to have an interface and a 
