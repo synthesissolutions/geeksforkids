@@ -190,11 +190,11 @@ class Joystick {
 
     String getStatus() {
       String ret = String("[Joystick] ");
-      //ret.concat(String("x:"));ret.concat(getXAxisRaw());
-      //ret.concat(String(" xscaled:"));ret.concat(getXAxisScaled());if (invertXAxis) ret.concat("(inverted)");
-      //ret.concat(String(" y:"));ret.concat(getYAxisRaw());
-      //ret.concat(String(" yscaled:"));ret.concat(getYAxisScaled());if (invertYAxis) ret.concat("(inverted)");
-      //ret.concat(String(" isActive:"));ret.concat(isActive());
+      ret.concat(String("x:"));ret.concat(getXAxisRaw());
+      ret.concat(String(" xscaled:"));ret.concat(getXAxisScaled());if (invertXAxis) ret.concat("(inverted)");
+      ret.concat(String(" y:"));ret.concat(getYAxisRaw());
+      ret.concat(String(" yscaled:"));ret.concat(getYAxisScaled());if (invertYAxis) ret.concat("(inverted)");
+      ret.concat(String(" isActive:"));ret.concat(isActive());
       return ret;
     }
 
