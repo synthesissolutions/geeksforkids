@@ -13,6 +13,9 @@
  *  NOTE turn off logging by setting LOGGER_UPDATE_TIME to 0
  ***************************************************************************************** 
  */
+
+const String        RELEASE_VERSION         = "20.1";
+
 const int           LOGGER_UPDATE_TIME      = 1000;     // How long between updates to the monitor, in milliseconds
 const unsigned int  SERIAL_BAUD_RATE        = 57600;     // Baud rate for the serial monitor.  Make sure you set this correctly!
 
@@ -53,7 +56,7 @@ const boolean       JOYSTICK_INVERT_Y_AXIS  = false;
 
 // Throttle parms ... tunes the throttle changes and updates
 const unsigned long THROTTLE_UPDATE_MILLIS  = 10;         // 10 = ~ 100Hz.  How often the throttle position is updated.
-const float         THROTTLE_CHANGE_RATE    = 100.0;      // Units are scaledUnits/sec.  100.0 means that we can go from full forward to full reverse in 0.5 second. 
+const float         THROTTLE_CHANGE_RATE    = 200.0;      // Units are scaledUnits/sec.  100.0 means that we can go from full forward to full reverse in 0.5 second. 
 const int           THROTTLE_PWM_MIN        = 0;
 const int           THROTTLE_PWM_MAX        = 240;        //    limit the throttle PWM ... the controller can't handle 255
 const float         THROTTLE_SPEED_MULTIPLIER[] = { 1.0, 0.7, 0.5, 0.3 };  // array of speed reductions to use with dip switchs to control the maximum speed
