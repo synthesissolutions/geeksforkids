@@ -17,6 +17,7 @@ SteeringPotGoButton potGo;
 Steering steering;
 Throttle throttle;
 RemoteControl remoteControl;
+ButtonDrive buttonDrive;
 Logger logger;
 
 /*
@@ -38,23 +39,7 @@ boolean bluetoothInitialized = false;
  */
 void setup() {
   // set up the logger
-  logger.init(LOGGER_UPDATE_TIME, &eeprom, &bluetooth, &configuration, &joystick, &potGo, &remoteControl, &steering, &throttle);
-
-  // initialize everything with the correct pins
-  joystick.init(PIN_JOYSTICK_STEERING, PIN_JOYSTICK_THROTTLE);
-  logger.addLogLine("joystick initialized");
-
-  potGo.init(PIN_STEERING_POTENTIONMETER, PIN_GO_BUTTON, PIN_REVERSE_SWITCH);
-  logger.addLogLine("steering potentiometer and go button initialized");
-
-  throttle.init(PIN_THROTTLE_FORWARD, PIN_THROTTLE_REVERSE, PIN_THROTTLE_SPEED);
-  logger.addLogLine("throttle initialized");
-  
-  steering.init(PIN_STEERING_LEFT, PIN_STEERING_RIGHT, PIN_STEERING_ENABLE, PIN_STEERING_POSITION);
-  logger.addLogLine("steering initialized");
-  
-  remoteControl.init(PIN_RC_STEERING, PIN_RC_THROTTLE); 
-  logger.addLogLine("remote control initialized");  
+  logger.init(LOGGER_UPDATE_TIME, &eeprom, &bluetooth, &configuration, &joystick, &potGo, &remoteControl, &steering, &throttle, &buttonDrive);
 
   eeprom.init();
   logger.addLogLine("eeprom initialized");
@@ -64,12 +49,43 @@ void setup() {
   
   configuration.init(&eeprom);
   logger.addLogLine("configuration initialized");
+    
+  if (configuration.useSteeringPotentiometerAndGoButton()) {
+    joystick.init(PIN_JOYSTICK_STEERING, PIN_JOYSTICK_THROTTLE);
+    logger.addLogLine("joystick initialized");
+  }
+
+  if (configuration.useSteeringPotentiometerAndGoButton()) {
+    potGo.init(PIN_STEERING_POTENTIONMETER, PIN_GO_BUTTON, PIN_REVERSE_SWITCH);
+    logger.addLogLine("steering potentiometer and go button initialized");
+  }
+
+  if (configuration.useRc()) {
+    remoteControl.init(PIN_RC_STEERING, PIN_RC_THROTTLE);
+    logger.addLogLine("remote control initialized");
+  }
+
+  if (configuration.usePushButtonDrive()) {
+    buttonDrive.init(PIN_BUTTON_LEFT, PIN_BUTTON_RIGHT, PIN_BUTTON_STRAIGHT, PIN_REVERSE_SWITCH);
+    logger.addLogLine("drive buttons initialized");
+  }
+
+  throttle.init(PIN_THROTTLE_FORWARD, PIN_THROTTLE_REVERSE, PIN_THROTTLE_SPEED);
+  logger.addLogLine("throttle initialized");
+  
+  steering.init(PIN_STEERING_LEFT, PIN_STEERING_RIGHT, PIN_STEERING_ENABLE, PIN_STEERING_POSITION);
+  logger.addLogLine("steering initialized");
+
 
   // set up the interrupt handlers
   attachInterrupt(digitalPinToInterrupt(PIN_RC_STEERING), &handleRCSteeringInterrupt, CHANGE);
   attachInterrupt(digitalPinToInterrupt(PIN_RC_THROTTLE), &handleRCThrottleInterrupt, CHANGE);
   logger.addLogLine("interrupts attached");
-  
+
+  // Set steering limits from configuration
+  steering.setSteeringCenterScaled(configuration.getSteeringCenter());
+  steering.setSteeringMinScaled(configuration.getSteeringMin());
+  steering.setSteeringMaxScaled(configuration.getSteeringMax());
 }
 
 /*
@@ -119,6 +135,9 @@ void loop() {
         // set the inputs from the steering potentiometer and go button
         steering.setSteeringPosition(potGo.getXAxisScaled());
         throttle.setThrottle(potGo.getYAxisScaled()*configuration.getSpeedMultiplier());
+    } else if (configuration.usePushButtonDrive()) {
+      steering.setSteeringPosition(buttonDrive.getXAxisScaled());
+      throttle.setThrottle(buttonDrive.getYAxisScaled() * configuration.getSpeedMultiplier());
     } else {
       
       // Nope... the parent isn't controlling
@@ -136,11 +155,6 @@ void loop() {
         }
   
         // set the inputs from the Joystick
-        // Configuration settings need to be handled differenty, this is just temporary
-        // TODO move configuration settings so they aren't in the main loop
-        steering.setSteeringCenterScaled(configuration.getSteeringCenter());
-        steering.setSteeringMinScaled(configuration.getSteeringMin());
-        steering.setSteeringMaxScaled(configuration.getSteeringMax());
         steering.setSteeringPosition(joystick.getXAxisScaled());
         throttle.setThrottle(joystick.getYAxisScaled()*configuration.getSpeedMultiplier());
       } else {

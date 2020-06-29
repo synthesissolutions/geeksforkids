@@ -14,7 +14,7 @@
  ***************************************************************************************** 
  */
 
-const String        RELEASE_VERSION         = "20.1";
+const String        RELEASE_VERSION         = "20.2 Beta";
 
 const int           LOGGER_UPDATE_TIME      = 1000;     // How long between updates to the monitor, in milliseconds
 const unsigned int  SERIAL_BAUD_RATE        = 57600;     // Baud rate for the serial monitor.  Make sure you set this correctly!
@@ -112,11 +112,16 @@ const int           PIN_STEERING_POSITION   = A5;
 //  ... steering by potentiometer and drive by Go button
 const int           PIN_STEERING_POTENTIONMETER = A4;
 const int           PIN_GO_BUTTON           = 17;
-const int           PIN_REVERSE_SWITCH      = 16;
+const int           PIN_REVERSE_SWITCH      = 13;
 
 //   ... RC ... aka the parent remote control inputs
 const int           PIN_RC_STEERING         = 11;   
 const int           PIN_RC_THROTTLE         = 10;     
+
+//   ... Drive Buttons
+const int           PIN_BUTTON_STRAIGHT     = 20;
+const int           PIN_BUTTON_LEFT         = 21;
+const int           PIN_BUTTON_RIGHT        = 16;
 
 //   ... Bluetooth
 const int           PIN_ENABLE_BLUETOOTH_BUTTON = 8;

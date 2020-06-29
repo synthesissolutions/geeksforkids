@@ -27,6 +27,7 @@ class Logger {
     RemoteControl *rc;
     Steering *steering;
     Throttle *throttle;
+    ButtonDrive *buttonDrive;
 
   public: 
     // Default constructor ... does nothing.  This allows us to delay setting the pins until we want to (via the init method).
@@ -36,7 +37,7 @@ class Logger {
     /*
      * Set up the logging.  An updateTime of 0 will turn logging off.  Very much tied to knowing what objects we're going to log status for!!!
      */
-    void init(int updateTime, Eeprom *e, Bluetooth *b, Configuration *c, Joystick *j, SteeringPotGoButton *pg, RemoteControl *r, Steering *s, Throttle *t) {
+    void init(int updateTime, Eeprom *e, Bluetooth *b, Configuration *c, Joystick *j, SteeringPotGoButton *pg, RemoteControl *r, Steering *s, Throttle *t, ButtonDrive *bd) {
 
       Serial.begin(txSpeed);
 
@@ -48,6 +49,7 @@ class Logger {
       rc = r;
       steering = s;
       throttle = t;
+      buttonDrive = bd;
       
       updateDeltaT = updateTime;
       lastUpdateTime = millis();
@@ -82,9 +84,18 @@ class Logger {
         // Go through the known instances (they'd better all be here).  Would be better to have an interface and a 
         //   vector of these to iterate over. 
         Serial.print(configuration->getStatus());Serial.println();
-        Serial.print(joystick->getStatus());Serial.println();
-        Serial.print(potGo->getStatus());Serial.println();
-        Serial.print(rc->getStatus());Serial.println();
+        if (configuration->useJoystick()) {
+          Serial.print(joystick->getStatus());Serial.println();
+        }
+        if (configuration->useSteeringPotentiometerAndGoButton()) {
+          Serial.print(potGo->getStatus());Serial.println();
+        }
+        if (configuration->useRc()) {
+          Serial.print(rc->getStatus());Serial.println();
+        }
+        if (configuration->usePushButtonDrive()) {
+          Serial.print(buttonDrive->getStatus());Serial.println();
+        }
         Serial.print(steering->getStatus());Serial.println();
         Serial.print(throttle->getStatus());Serial.println();
         Serial.print(eeprom->getStatus());Serial.println();
