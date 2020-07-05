@@ -42,13 +42,18 @@ const int           JOYSTICK_Y_AXIS_DEADZONE_LOW     = -35;
 const int           JOYSTICK_Y_AXIS_DEADZONE_HIGH    = 35;
 
 // Steering Pot Go Button parms - these are based on the range 0-1023
+const int           STEERING_HALL_SENSOR_CENTER           = 1545;
+const int           STEERING_HALL_SENSOR_MIN              = 0;
+const int           STEERING_HALL_SENSOR_MAX              = 3600;
+const boolean       HALL_SENSOR_INVERT_STEERING           = false;
+
 const int           STEERING_POT_X_AXIS_CENTER           = 470;
 const int           STEERING_POT_X_AXIS_MIN              = 150;
 const int           STEERING_POT_X_AXIS_MAX              = 800;
 
-// Steering Pot Go Button parms - these are in scaled units (-100 to 100)
-const int           STEERING_POT_X_AXIS_DEADZONE_LOW     = -10;
-const int           STEERING_POT_X_AXIS_DEADZONE_HIGH    = 10;
+// Drive by wire and go button params - these are in scaled units (-100 to 100)
+const int           HALL_SENSOR_STEERING_DEADZONE_LOW     = -10;
+const int           HALL_SENSOR_STEERING_DEADZONE_HIGH    = 10;
 
 // Joystick parms - get the direction correct
 const boolean       JOYSTICK_INVERT_X_AXIS  = true;
@@ -109,8 +114,8 @@ const int           PIN_STEERING_RIGHT      = 6;
 const int           PIN_STEERING_ENABLE     = 5;
 const int           PIN_STEERING_POSITION   = A5;
 
-//  ... steering by potentiometer and drive by Go button
-const int           PIN_STEERING_POTENTIONMETER = A4;
+//  ... steering by hall sensor array and drive by Go button
+const int           PIN_HALL_SENSOR         = 18;
 const int           PIN_GO_BUTTON           = 17;
 const int           PIN_REVERSE_SWITCH      = 13;
 
