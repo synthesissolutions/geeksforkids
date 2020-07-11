@@ -47,10 +47,10 @@ void setup() {
   bluetooth.init(PIN_ENABLE_BLUETOOTH_BUTTON, &eeprom);
   logger.addLogLine("bluetooth button initialized");
   
-  configuration.init(&eeprom);
+  configuration.init(&eeprom, PIN_MAX_SPEED);
   logger.addLogLine("configuration initialized");
     
-  if (configuration.useSteeringPotentiometerAndGoButton()) {
+  if (configuration.useJoystick()) {
     joystick.init(PIN_JOYSTICK_STEERING, PIN_JOYSTICK_THROTTLE);
     logger.addLogLine("joystick initialized");
   }

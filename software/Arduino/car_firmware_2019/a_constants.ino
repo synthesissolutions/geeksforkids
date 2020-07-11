@@ -14,7 +14,7 @@
  ***************************************************************************************** 
  */
 
-const String        RELEASE_VERSION         = "20.2 Beta";
+const String        RELEASE_VERSION         = "20.2";
 
 const int           LOGGER_UPDATE_TIME      = 1000;     // How long between updates to the monitor, in milliseconds
 const unsigned int  SERIAL_BAUD_RATE        = 57600;     // Baud rate for the serial monitor.  Make sure you set this correctly!
@@ -102,6 +102,8 @@ const int           PIN_JOYSTICK_STEERING   = A7;
 const int           PIN_THROTTLE_FORWARD    = 4;
 const int           PIN_THROTTLE_REVERSE    = 3;
 const int           PIN_THROTTLE_SPEED      = 2;
+
+const int           PIN_MAX_SPEED           = A3;
 
 //   ... steering ... aka the controller for the car's steering servo
 const int           PIN_STEERING_LEFT       = 7;

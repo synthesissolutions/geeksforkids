@@ -7,6 +7,7 @@
 class Configuration {
   private:
     Eeprom *eeprom;
+    int maxSpeedPin;
     
   public: 
     // Default constructor ... does nothing.  This allows us to delay setting the pins until we want to (via the init method).  
@@ -16,14 +17,17 @@ class Configuration {
     /*
      * init - initialize the dip switch pins
      */
-    void init(Eeprom *e) {
+    void init(Eeprom *e, int s) {
       eeprom = e;
+
+      maxSpeedPin = s;
+      pinMode(maxSpeedPin, INPUT);
+
     }
 
     /*
      * getters ... translate dip switch settings into car configuration
      */
-    // TODO Use constants instead of the hard coded setting name strings
     int getConfigurationVersion() { return eeprom->getIntegerSetting(EEPROM_VERSION); }
     
     boolean getInvertJoystickX() { return eeprom->getBooleanSetting(EEPROM_INVERT_JOYSTICK_X); }
@@ -33,13 +37,16 @@ class Configuration {
     boolean useRc() { return eeprom->getBooleanSetting(EEPROM_USE_RC); }
     boolean useSteeringPotentiometerAndGoButton() { return eeprom->getBooleanSetting(EEPROM_USE_DRIVE_BY_WIRE); }
     boolean usePushButtonDrive() { return eeprom->getBooleanSetting(EEPROM_USE_PUSH_BUTTON_DRIVE); }
-    
-    float getSpeedMultiplier() {
-      int eepromValue = eeprom->getIntegerSetting(EEPROM_MAX_SPEED);
-      return eepromValue / 100.0;
+
+    int readMaxSpeedPot() {
+      return analogRead(maxSpeedPin);  
     }
     
-    int getSpeedMultiplierInt() {
+    float getSpeedMultiplier() {
+      return constrain(map(readMaxSpeedPot(), 0, 1023, 50, 100), 50, 100) / 100.0;
+    }
+    
+    int getSpeedMultiplierInt2() {
       int eepromValue = eeprom->getIntegerSetting(EEPROM_MAX_SPEED);
       return eepromValue;
     }
@@ -65,7 +72,7 @@ class Configuration {
       ret.concat(String(" Invert Joystick X:"));ret.concat(getInvertJoystickX());
       ret.concat(String(" Invert Joystick Y:"));ret.concat(getInvertJoystickY());
       ret.concat(String(" Speed Multiplier:"));ret.concat(getSpeedMultiplier());
-      ret.concat(String(" "));ret.concat(getSpeedMultiplierInt());
+      ret.concat(String(" Speed Pot:"));ret.concat(readMaxSpeedPot());
       ret.concat(String(" Joystick:"));ret.concat(useJoystick());
       ret.concat(String(" PushButton:"));ret.concat(usePushButtonDrive());
       ret.concat(String(" RC:"));ret.concat(useRc());
