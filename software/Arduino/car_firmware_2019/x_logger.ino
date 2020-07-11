@@ -23,7 +23,7 @@ class Logger {
     Bluetooth *bluetooth;
     Configuration *configuration;
     Joystick *joystick;
-    SteeringPotGoButton *potGo;
+    DriveByWireAndGoButton *driveByWire;
     RemoteControl *rc;
     Steering *steering;
     Throttle *throttle;
@@ -37,7 +37,7 @@ class Logger {
     /*
      * Set up the logging.  An updateTime of 0 will turn logging off.  Very much tied to knowing what objects we're going to log status for!!!
      */
-    void init(int updateTime, Eeprom *e, Bluetooth *b, Configuration *c, Joystick *j, SteeringPotGoButton *pg, RemoteControl *r, Steering *s, Throttle *t, ButtonDrive *bd) {
+    void init(int updateTime, Eeprom *e, Bluetooth *b, Configuration *c, Joystick *j, DriveByWireAndGoButton *dw, RemoteControl *r, Steering *s, Throttle *t, ButtonDrive *bd) {
 
       Serial.begin(txSpeed);
 
@@ -45,7 +45,7 @@ class Logger {
       bluetooth = b;
       configuration = c;
       joystick = j;
-      potGo = pg;
+      driveByWire = dw;
       rc = r;
       steering = s;
       throttle = t;
@@ -87,8 +87,8 @@ class Logger {
         if (configuration->useJoystick()) {
           Serial.print(joystick->getStatus());Serial.println();
         }
-        if (configuration->useSteeringPotentiometerAndGoButton()) {
-          Serial.print(potGo->getStatus());Serial.println();
+        if (configuration->useDriveByWireAndGoButton()) {
+          Serial.print(driveByWire->getStatus());Serial.println();
         }
         if (configuration->useRc()) {
           Serial.print(rc->getStatus());Serial.println();

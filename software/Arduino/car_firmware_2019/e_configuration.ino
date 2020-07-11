@@ -35,7 +35,7 @@ class Configuration {
 
     boolean useJoystick() { return eeprom->getBooleanSetting(EEPROM_USE_JOYSTICK); }
     boolean useRc() { return eeprom->getBooleanSetting(EEPROM_USE_RC); }
-    boolean useSteeringPotentiometerAndGoButton() { return eeprom->getBooleanSetting(EEPROM_USE_DRIVE_BY_WIRE); }
+    boolean useDriveByWireAndGoButton() { return eeprom->getBooleanSetting(EEPROM_USE_DRIVE_BY_WIRE); }
     boolean usePushButtonDrive() { return eeprom->getBooleanSetting(EEPROM_USE_PUSH_BUTTON_DRIVE); }
 
     int readMaxSpeedPot() {
@@ -76,7 +76,7 @@ class Configuration {
       ret.concat(String(" Joystick:"));ret.concat(useJoystick());
       ret.concat(String(" PushButton:"));ret.concat(usePushButtonDrive());
       ret.concat(String(" RC:"));ret.concat(useRc());
-      ret.concat(String(" DriveByWire:"));ret.concat(useSteeringPotentiometerAndGoButton());
+      ret.concat(String(" DriveByWire:"));ret.concat(useDriveByWireAndGoButton());
       ret.concat(String(" Min/C/Max:"));ret.concat(getSteeringMin());ret.concat(" ");ret.concat(getSteeringCenter());ret.concat(" ");ret.concat(getSteeringMax());
       
       return ret;
