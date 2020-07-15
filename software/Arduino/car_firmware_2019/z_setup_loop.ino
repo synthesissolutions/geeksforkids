@@ -47,7 +47,7 @@ void setup() {
   bluetooth.init(PIN_ENABLE_BLUETOOTH_BUTTON, &eeprom);
   logger.addLogLine("bluetooth button initialized");
   
-  configuration.init(&eeprom);
+  configuration.init(&eeprom, PIN_MAX_SPEED);
   logger.addLogLine("configuration initialized");
     
   if (configuration.useJoystick()) {
