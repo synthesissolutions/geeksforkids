@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name Project)(type KiCad)(uri C:/Users/dsher/Documents/geeksforkids/hardware/VL53L0XSensor/footprints.pretty)(options "")(descr ""))
+)

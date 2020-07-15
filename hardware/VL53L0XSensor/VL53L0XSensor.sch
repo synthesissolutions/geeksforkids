@@ -1,0 +1,412 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Connector:Conn_01x04_Female J2
+U 1 1 5F06934F
+P 6800 3330
+F 0 "J2" H 6828 3306 50  0000 L CNN
+F 1 "Conn_01x04_Female" H 6828 3215 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 6800 3330 50  0001 C CNN
+F 3 "~" H 6800 3330 50  0001 C CNN
+	1    6800 3330
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_POT RV1
+U 1 1 5F06ABC6
+P 6820 4790
+F 0 "RV1" H 6751 4836 50  0000 R CNN
+F 1 "R_POT" H 6751 4745 50  0000 R CNN
+F 2 "Project:Potentiometer_Small_Blue" H 6820 4790 50  0001 C CNN
+F 3 "~" H 6820 4790 50  0001 C CNN
+	1    6820 4790
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:LED D2
+U 1 1 5F06C9B2
+P 3550 4230
+F 0 "D2" H 3543 4446 50  0000 C CNN
+F 1 "Button LED" H 3543 4355 50  0000 C CNN
+F 2 "LED_SMD:LED_1206_3216Metric" H 3550 4230 50  0001 C CNN
+F 3 "~" H 3550 4230 50  0001 C CNN
+	1    3550 4230
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 5F06D11A
+P 3810 3900
+F 0 "R1" H 3880 3946 50  0000 L CNN
+F 1 "220" H 3880 3855 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 3740 3900 50  0001 C CNN
+F 3 "~" H 3810 3900 50  0001 C CNN
+	1    3810 3900
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+3V3 #PWR0101
+U 1 1 5F073021
+P 4840 3030
+F 0 "#PWR0101" H 4840 2880 50  0001 C CNN
+F 1 "+3V3" H 4855 3203 50  0000 C CNN
+F 2 "" H 4840 3030 50  0001 C CNN
+F 3 "" H 4840 3030 50  0001 C CNN
+	1    4840 3030
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR0102
+U 1 1 5F0747F3
+P 6740 3730
+F 0 "#PWR0102" H 6740 3580 50  0001 C CNN
+F 1 "+3V3" V 6755 3858 50  0000 L CNN
+F 2 "" H 6740 3730 50  0001 C CNN
+F 3 "" H 6740 3730 50  0001 C CNN
+	1    6740 3730
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR0103
+U 1 1 5F075460
+P 6740 3830
+F 0 "#PWR0103" H 6740 3580 50  0001 C CNN
+F 1 "GND" V 6745 3702 50  0000 R CNN
+F 2 "" H 6740 3830 50  0001 C CNN
+F 3 "" H 6740 3830 50  0001 C CNN
+	1    6740 3830
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0104
+U 1 1 5F075FB2
+P 4840 4830
+F 0 "#PWR0104" H 4840 4580 50  0001 C CNN
+F 1 "GND" H 4845 4657 50  0000 C CNN
+F 2 "" H 4840 4830 50  0001 C CNN
+F 3 "" H 4840 4830 50  0001 C CNN
+	1    4840 4830
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR0106
+U 1 1 5F0781D7
+P 6820 4640
+F 0 "#PWR0106" H 6820 4490 50  0001 C CNN
+F 1 "+3V3" H 6835 4813 50  0000 C CNN
+F 2 "" H 6820 4640 50  0001 C CNN
+F 3 "" H 6820 4640 50  0001 C CNN
+	1    6820 4640
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0107
+U 1 1 5F0790D4
+P 6820 4940
+F 0 "#PWR0107" H 6820 4690 50  0001 C CNN
+F 1 "GND" H 6825 4767 50  0000 C CNN
+F 2 "" H 6820 4940 50  0001 C CNN
+F 3 "" H 6820 4940 50  0001 C CNN
+	1    6820 4940
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0108
+U 1 1 5F079A8F
+P 6600 3330
+F 0 "#PWR0108" H 6600 3080 50  0001 C CNN
+F 1 "GND" V 6605 3202 50  0000 R CNN
+F 2 "" H 6600 3330 50  0001 C CNN
+F 3 "" H 6600 3330 50  0001 C CNN
+	1    6600 3330
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+3V3 #PWR0109
+U 1 1 5F07A3D9
+P 6600 3230
+F 0 "#PWR0109" H 6600 3080 50  0001 C CNN
+F 1 "+3V3" V 6615 3358 50  0000 L CNN
+F 2 "" H 6600 3230 50  0001 C CNN
+F 3 "" H 6600 3230 50  0001 C CNN
+	1    6600 3230
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:Conn_01x03_Male J4
+U 1 1 5F06E200
+P 6940 3830
+F 0 "J4" H 6912 3854 50  0000 R CNN
+F 1 "Conn_01x03_Male" H 6912 3763 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 6940 3830 50  0001 C CNN
+F 3 "~" H 6940 3830 50  0001 C CNN
+	1    6940 3830
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MCU_Microchip_ATtiny:ATtiny3216-S U1
+U 1 1 5F0E6AB8
+P 4840 3930
+F 0 "U1" H 4840 5011 50  0000 C CNN
+F 1 "ATtiny3216-S" H 4860 3950 50  0000 C CNN
+F 2 "Package_SO:SOIC-20W_7.5x12.8mm_P1.27mm" H 4840 3930 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/ATtiny3216_ATtiny1616-data-sheet-40001997B.pdf" H 4840 3930 50  0001 C CNN
+	1    4840 3930
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:LED D1
+U 1 1 5F0E7C07
+P 3510 3900
+F 0 "D1" H 3503 4116 50  0000 C CNN
+F 1 "Mode LED" H 3503 4025 50  0000 C CNN
+F 2 "LED_SMD:LED_1206_3216Metric" H 3510 3900 50  0001 C CNN
+F 3 "~" H 3510 3900 50  0001 C CNN
+	1    3510 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 5F0E91E8
+P 3850 4230
+F 0 "R2" V 3643 4230 50  0000 C CNN
+F 1 "220" V 3734 4230 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 3780 4230 50  0001 C CNN
+F 3 "~" H 3850 4230 50  0001 C CNN
+	1    3850 4230
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:Jumper_NO_Small JP1
+U 1 1 5F0ED243
+P 5740 2980
+F 0 "JP1" H 5740 3165 50  0000 C CNN
+F 1 "Jumper_NO_Small" H 5740 3074 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 5740 2980 50  0001 C CNN
+F 3 "~" H 5740 2980 50  0001 C CNN
+	1    5740 2980
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Jumper_NO_Small JP2
+U 1 1 5F0EE75E
+P 5740 3230
+F 0 "JP2" H 5740 3415 50  0000 C CNN
+F 1 "Jumper_NO_Small" H 5740 3324 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 5740 3230 50  0001 C CNN
+F 3 "~" H 5740 3230 50  0001 C CNN
+	1    5740 3230
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R3
+U 1 1 5F0EEFFE
+P 6310 3080
+F 0 "R3" V 6103 3080 50  0000 C CNN
+F 1 "4.7k" V 6194 3080 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 6240 3080 50  0001 C CNN
+F 3 "~" H 6310 3080 50  0001 C CNN
+	1    6310 3080
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+3.3V #PWR0110
+U 1 1 5F0F315D
+P 5840 2980
+F 0 "#PWR0110" H 5840 2830 50  0001 C CNN
+F 1 "+3.3V" V 5855 3108 50  0000 L CNN
+F 2 "" H 5840 2980 50  0001 C CNN
+F 3 "" H 5840 2980 50  0001 C CNN
+	1    5840 2980
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5440 3230 5540 3230
+Wire Wire Line
+	5640 2980 5540 2980
+Wire Wire Line
+	5540 2980 5540 3230
+Connection ~ 5540 3230
+Wire Wire Line
+	5540 3230 5640 3230
+$Comp
+L Connector:Conn_01x03_Male J1
+U 1 1 5F0F637A
+P 6800 2980
+F 0 "J1" H 6772 3004 50  0000 R CNN
+F 1 "Conn_01x03_Male" H 6772 2913 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 6800 2980 50  0001 C CNN
+F 3 "~" H 6800 2980 50  0001 C CNN
+	1    6800 2980
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR0111
+U 1 1 5F0F8406
+P 6600 2880
+F 0 "#PWR0111" H 6600 2730 50  0001 C CNN
+F 1 "+3.3V" V 6615 3008 50  0000 L CNN
+F 2 "" H 6600 2880 50  0001 C CNN
+F 3 "" H 6600 2880 50  0001 C CNN
+	1    6600 2880
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR0112
+U 1 1 5F0F8E2F
+P 6600 2980
+F 0 "#PWR0112" H 6600 2730 50  0001 C CNN
+F 1 "GND" V 6605 2852 50  0000 R CNN
+F 2 "" H 6600 2980 50  0001 C CNN
+F 3 "" H 6600 2980 50  0001 C CNN
+	1    6600 2980
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6600 3080 6460 3080
+Wire Wire Line
+	6160 3080 6160 3230
+Wire Wire Line
+	6160 3230 5840 3230
+Text Notes 7320 4380 0    50   ~ 0
+Enable/Disable Test Mode
+Text Notes 7330 4830 0    50   ~ 0
+Pot controls the sensitivity distance to detect a button "press"
+Text Notes 7310 3810 0    50   ~ 0
+Input power/ground and Output high/low for button "pressed" state
+Text Notes 7320 2920 0    50   ~ 0
+UPDI Programming Header - close jumper and connect to UPDI programmer
+Text Notes 7310 3340 0    50   ~ 0
+Female headers for VL53L0X sensor
+Wire Wire Line
+	5440 4230 6140 4230
+Wire Wire Line
+	6140 4230 6140 3530
+Wire Wire Line
+	6140 3530 6600 3530
+Wire Wire Line
+	5440 4130 6030 4130
+Wire Wire Line
+	6030 4130 6030 3430
+Wire Wire Line
+	6030 3430 6600 3430
+$Comp
+L Connector:Conn_01x02_Male J3
+U 1 1 5F105FA1
+P 6910 5370
+F 0 "J3" H 6882 5252 50  0000 R CNN
+F 1 "Conn_01x02_Male" H 6882 5343 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 6910 5370 50  0001 C CNN
+F 3 "~" H 6910 5370 50  0001 C CNN
+	1    6910 5370
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5440 4430 6230 4430
+Wire Wire Line
+	6230 4430 6230 5370
+Wire Wire Line
+	6230 5370 6710 5370
+Wire Wire Line
+	5440 4330 6290 4330
+Wire Wire Line
+	6290 4330 6290 5270
+Wire Wire Line
+	6290 5270 6710 5270
+Text Notes 7320 5260 0    50   ~ 0
+Serial communications for debug out
+Wire Wire Line
+	6670 4790 6390 4790
+Wire Wire Line
+	6390 4790 6390 4040
+Wire Wire Line
+	6390 4040 5930 4040
+Wire Wire Line
+	5930 4040 5930 3330
+Wire Wire Line
+	5930 3330 5440 3330
+$Comp
+L power:GND #PWR0113
+U 1 1 5F10C964
+P 7030 4240
+F 0 "#PWR0113" H 7030 3990 50  0001 C CNN
+F 1 "GND" V 7035 4112 50  0000 R CNN
+F 2 "" H 7030 4240 50  0001 C CNN
+F 3 "" H 7030 4240 50  0001 C CNN
+	1    7030 4240
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4240 4230 4000 4230
+Wire Wire Line
+	4240 4130 4090 4130
+Wire Wire Line
+	4090 4130 4090 3900
+Wire Wire Line
+	4090 3900 3960 3900
+$Comp
+L Switch:SW_SPDT SW1
+U 1 1 5F121D61
+P 6830 4340
+F 0 "SW1" H 6830 4625 50  0000 C CNN
+F 1 "SW_SPDT" H 6830 4534 50  0000 C CNN
+F 2 "Project:Switch_THT_SPDT" H 6830 4340 50  0001 C CNN
+F 3 "~" H 6830 4340 50  0001 C CNN
+	1    6830 4340
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR01
+U 1 1 5F12567B
+P 7030 4440
+F 0 "#PWR01" H 7030 4290 50  0001 C CNN
+F 1 "+3.3V" V 7045 4568 50  0000 L CNN
+F 2 "" H 7030 4440 50  0001 C CNN
+F 3 "" H 7030 4440 50  0001 C CNN
+	1    7030 4440
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0105
+U 1 1 5F127DA4
+P 3360 3900
+F 0 "#PWR0105" H 3360 3650 50  0001 C CNN
+F 1 "GND" V 3365 3772 50  0000 R CNN
+F 2 "" H 3360 3900 50  0001 C CNN
+F 3 "" H 3360 3900 50  0001 C CNN
+	1    3360 3900
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0114
+U 1 1 5F128BEF
+P 3400 4230
+F 0 "#PWR0114" H 3400 3980 50  0001 C CNN
+F 1 "GND" V 3405 4102 50  0000 R CNN
+F 2 "" H 3400 4230 50  0001 C CNN
+F 3 "" H 3400 4230 50  0001 C CNN
+	1    3400 4230
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5440 3930 6740 3930
+Wire Wire Line
+	5440 4540 6630 4540
+Wire Wire Line
+	6630 4540 6630 4340
+Wire Wire Line
+	5440 4540 5440 4530
+$EndSCHEMATC
