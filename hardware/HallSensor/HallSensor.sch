@@ -1,5 +1,5 @@
 EESchema Schematic File Version 4
-EELAYER 29 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -13,17 +13,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L MCU_Microchip_ATtiny:ATtiny841-SSU U1
-U 1 1 5EF2CCF3
-P 5450 3850
-F 0 "U1" H 4921 3896 50  0000 R CNN
-F 1 "ATtiny841-SSU" H 4921 3805 50  0000 R CNN
-F 2 "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm" H 5450 3850 50  0001 C CIN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-8495-8-bit-AVR-Microcontrollers-ATtiny441-ATtiny841_Datasheet.pdf" H 5450 3850 50  0001 C CNN
-	1    5450 3850
-	1    0    0    -1  
-$EndComp
 $Comp
 L 2020-06-24_03-37-49:SS49E U2
 U 1 1 5EF2DD3D
@@ -262,8 +251,6 @@ Wire Wire Line
 Wire Wire Line
 	6050 3650 6350 3650
 Wire Wire Line
-	6350 3650 6350 5200
-Wire Wire Line
 	6350 5200 7000 5200
 $Comp
 L Connector:Conn_01x03_Male J1
@@ -300,17 +287,6 @@ F 3 "" H 6250 5500 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	6050 3850 6200 3850
-$Comp
-L Connector:Conn_01x05_Male J2
-U 1 1 5EF4F89D
-P 5450 5650
-F 0 "J2" V 5604 5362 50  0000 R CNN
-F 1 "Breakout" V 5513 5362 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical" H 5450 5650 50  0001 C CNN
-F 3 "~" H 5450 5650 50  0001 C CNN
-	1    5450 5650
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	6200 5250 6350 5250
 Wire Wire Line
@@ -333,45 +309,73 @@ F 3 "" H 6050 4500 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	5250 5200 5250 5450
-Wire Wire Line
 	6050 4450 6050 4500
+$Comp
+L power:GND #PWR?
+U 1 1 5F021F71
+P 6050 3750
+F 0 "#PWR?" H 6050 3500 50  0001 C CNN
+F 1 "GND" V 6055 3622 50  0000 R CNN
+F 2 "" H 6050 3750 50  0001 C CNN
+F 3 "" H 6050 3750 50  0001 C CNN
+	1    6050 3750
+	0    -1   -1   0   
+$EndComp
 Wire Wire Line
-	6050 4350 6075 4350
-Wire Wire Line
-	6075 4350 6075 5050
-Wire Wire Line
-	6050 4250 6100 4250
-Wire Wire Line
-	6100 4250 6100 5100
-Wire Wire Line
-	6050 4150 6125 4150
-Wire Wire Line
-	6125 4150 6125 5200
-Wire Wire Line
-	5250 5200 6125 5200
-Wire Wire Line
-	5350 5450 5350 5100
-Wire Wire Line
-	5350 5100 6100 5100
-Wire Wire Line
-	5450 5050 5450 5450
-Wire Wire Line
-	5450 5050 6075 5050
-Wire Wire Line
-	6050 3950 6150 3950
-Wire Wire Line
-	6150 3950 6150 5250
-Wire Wire Line
-	6150 5250 5550 5250
-Wire Wire Line
-	5550 5250 5550 5450
-Wire Wire Line
-	6050 3750 6175 3750
-Wire Wire Line
-	6175 3750 6175 5300
-Wire Wire Line
-	6175 5300 5650 5300
-Wire Wire Line
-	5650 5300 5650 5450
+	6350 3650 6350 5200
+$Comp
+L MCU_Microchip_ATtiny:ATtiny841-SSU U1
+U 1 1 5EF2CCF3
+P 5450 3850
+F 0 "U1" H 4921 3896 50  0000 R CNN
+F 1 "ATtiny841-SSU" H 4921 3805 50  0000 R CNN
+F 2 "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm" H 5450 3850 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-8495-8-bit-AVR-Microcontrollers-ATtiny441-ATtiny841_Datasheet.pdf" H 5450 3850 50  0001 C CNN
+	1    5450 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F02380A
+P 6050 3950
+F 0 "#PWR?" H 6050 3700 50  0001 C CNN
+F 1 "GND" V 6055 3822 50  0000 R CNN
+F 2 "" H 6050 3950 50  0001 C CNN
+F 3 "" H 6050 3950 50  0001 C CNN
+	1    6050 3950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F024985
+P 6050 4150
+F 0 "#PWR?" H 6050 3900 50  0001 C CNN
+F 1 "GND" V 6055 4022 50  0000 R CNN
+F 2 "" H 6050 4150 50  0001 C CNN
+F 3 "" H 6050 4150 50  0001 C CNN
+	1    6050 4150
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F02563F
+P 6050 4250
+F 0 "#PWR?" H 6050 4000 50  0001 C CNN
+F 1 "GND" V 6055 4122 50  0000 R CNN
+F 2 "" H 6050 4250 50  0001 C CNN
+F 3 "" H 6050 4250 50  0001 C CNN
+	1    6050 4250
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F026236
+P 6050 4350
+F 0 "#PWR?" H 6050 4100 50  0001 C CNN
+F 1 "GND" V 6055 4222 50  0000 R CNN
+F 2 "" H 6050 4350 50  0001 C CNN
+F 3 "" H 6050 4350 50  0001 C CNN
+	1    6050 4350
+	0    -1   -1   0   
+$EndComp
 $EndSCHEMATC
