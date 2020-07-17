@@ -97,7 +97,7 @@ void setup() {
 void loop() {
 
   bluetooth.processEnableButton();
-
+  
   if (bluetooth.isActive()) {
     // When Bluetooth is active, the car cannot be driven.
     // The only way to deactivate Bluetooth is to turn off the power
@@ -127,7 +127,6 @@ void loop() {
       // set the inputs from the RC
       steering.setSteeringPosition(remoteControl.getSteeringScaled());
       throttle.setThrottle(remoteControl.getThrottleScaled());
-  
     } else if (configuration.useDriveByWireAndGoButton()) {
         if (rcInControl) {
           logger.addLogLine("Steering hall sensor and Go Button are now in control, taking over from RC");
@@ -172,7 +171,9 @@ void loop() {
   // In addition, we need full speed processing so we don't miss any message fragments so the delay is eliminated.
   if (!bluetooth.isActive()) {
     // OK, now let's see if it's time to write out the log
-    logger.writeLog();
+    if (Serial) {
+      logger.writeLog();
+    }
 
     // now delay for the loop delay time... we really don't want to try and run this loop at full CPU speed
     delay(LOOP_DELAY_MILLIS);
