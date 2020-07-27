@@ -14,7 +14,7 @@
  ***************************************************************************************** 
  */
 
-const String        RELEASE_VERSION         = "20.3";
+const String        RELEASE_VERSION         = "20.4";
 
 const int           LOGGER_UPDATE_TIME      = 1000;     // How long between updates to the monitor, in milliseconds
 const unsigned int  SERIAL_BAUD_RATE        = 57600;     // Baud rate for the serial monitor.  Make sure you set this correctly!
@@ -42,14 +42,10 @@ const int           JOYSTICK_Y_AXIS_DEADZONE_LOW     = -35;
 const int           JOYSTICK_Y_AXIS_DEADZONE_HIGH    = 35;
 
 // Steering Pot Go Button parms - these are based on the range 0-1023
-const int           STEERING_HALL_SENSOR_CENTER           = 1545;
-const int           STEERING_HALL_SENSOR_MIN              = 0;
-const int           STEERING_HALL_SENSOR_MAX              = 3600;
+const int           STEERING_HALL_SENSOR_CENTER           = 1500;
+const int           STEERING_HALL_SENSOR_MIN              = 500;
+const int           STEERING_HALL_SENSOR_MAX              = 3000;
 const boolean       HALL_SENSOR_INVERT_STEERING           = false;
-
-const int           STEERING_POT_X_AXIS_CENTER           = 470;
-const int           STEERING_POT_X_AXIS_MIN              = 150;
-const int           STEERING_POT_X_AXIS_MAX              = 800;
 
 // Drive by wire and go button params - these are in scaled units (-100 to 100)
 const int           HALL_SENSOR_STEERING_DEADZONE_LOW     = -10;
@@ -118,7 +114,7 @@ const int           PIN_STEERING_POSITION   = A5;
 
 //  ... steering by hall sensor array and drive by Go button
 const int           PIN_HALL_SENSOR         = 18;
-const int           PIN_GO_BUTTON           = 17;
+const int           PIN_GO_BUTTON           = 20;
 const int           PIN_REVERSE_SWITCH      = 13;
 
 //   ... RC ... aka the parent remote control inputs
@@ -126,8 +122,8 @@ const int           PIN_RC_STEERING         = 11;
 const int           PIN_RC_THROTTLE         = 10;     
 
 //   ... Drive Buttons
-const int           PIN_BUTTON_STRAIGHT     = 20;
-const int           PIN_BUTTON_LEFT         = 21;
+const int           PIN_BUTTON_STRAIGHT     = 21;
+const int           PIN_BUTTON_LEFT         = 20;
 const int           PIN_BUTTON_RIGHT        = 16;
 
 //   ... Bluetooth

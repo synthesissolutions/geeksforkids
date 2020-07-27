@@ -46,7 +46,7 @@ class ButtonDrive {
     }
 
     boolean isReverse() {
-      return !digitalRead(reversePin);
+      return digitalRead(reversePin);
     }
    
     /* gets the x axis scaled 
@@ -70,9 +70,9 @@ class ButtonDrive {
     int getYAxisScaled() {
       if (isLeftButtonPushed() || isRightButtonPushed() || isStraightButtonPushed()) {
         if (isReverse()) {
-          return -100;
-        } else {
           return 100;
+        } else {
+          return -100;
         }
       }
 

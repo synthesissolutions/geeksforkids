@@ -96,7 +96,7 @@ class Steering {
      */
     void setSteeringPosition(int target) {
       // constrain and set the steering target (in scaled units)
-      steeringTargetScaled = constrain(target, steeringMinScaled, steeringMaxScaled);
+      steeringTargetScaled = constrain(map(target, -100, 100, steeringMinScaled, steeringMaxScaled), steeringMinScaled, steeringMaxScaled);
 
       updateSteering();      
     }

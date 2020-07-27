@@ -26,13 +26,6 @@ class DriveByWireAndGoButton {
     int steeringDeadzoneLow = HALL_SENSOR_STEERING_DEADZONE_LOW;
     int steeringDeadzoneHigh = HALL_SENSOR_STEERING_DEADZONE_HIGH;
 
-    // settting default values here ... being a little lazy by defaulting from constants.  
-
-    // these are in raw pin read units (0 to 1024)
-    int xAxisCenter = STEERING_POT_X_AXIS_CENTER;
-    int xAxisMin = STEERING_POT_X_AXIS_MIN;
-    int xAxisMax = STEERING_POT_X_AXIS_MAX;
-
     unsigned long lastSignificantInputMillis = 0;
     boolean  invertSteering = HALL_SENSOR_INVERT_STEERING;
  
@@ -50,17 +43,8 @@ class DriveByWireAndGoButton {
       this->reversePin = reversePin;
       
       pinMode(steeringSensorPin, INPUT_PULLUP);
-      pinMode(throttleButtonPin,INPUT_PULLUP);
-      pinMode(reversePin,INPUT_PULLUP);
-    }
-
-    /*
-     * setXAxisRange - sets the range for converting the xAxis to scaled units
-     */
-    void setXAxisRange(int minv, int centerv, int maxv) {     
-      this->xAxisCenter = centerv;
-      this->xAxisMin = minv;
-      this->xAxisMax = maxv; 
+      pinMode(throttleButtonPin, INPUT_PULLDOWN);
+      pinMode(reversePin, INPUT);
     }
     
     /*
@@ -77,7 +61,7 @@ class DriveByWireAndGoButton {
 
     // raw value from the Y axis potentiometer
     int getYAxisRaw() {
-      boolean val = digitalRead(throttleButtonPin);
+      boolean val = !digitalRead(throttleButtonPin);
 
       // Logic is reversed, True indicates the button is not pushed and False that it is pushed
       if (val) 
@@ -95,9 +79,9 @@ class DriveByWireAndGoButton {
 
       if (val > 0) {
         if (isForward())
-          return 100;
-        else
           return -100;
+        else
+          return 100;
       } else
         return 0;
     }
