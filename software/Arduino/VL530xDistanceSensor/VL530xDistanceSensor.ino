@@ -2,11 +2,20 @@
 
 Adafruit_VL53L0X lox = Adafruit_VL53L0X();
 
+/* For Ardunio Nano
 int triggerLedPin = 3;
 int testModeLedPin = 2;
 int testModeSwitchPin = 5;
 int buttonSignalPin = 6;
 int potentiometer = A2;
+ */
+
+// For ATTiny 3216
+int triggerLedPin = 11;
+int testModeLedPin = 10;
+int testModeSwitchPin = 5;
+int buttonSignalPin = 3;
+int potentiometer = A1; // 14?
 
 int MAX_DISTANCE = 300; // mm
 int MIN_DISTANCE = 50; // mm
