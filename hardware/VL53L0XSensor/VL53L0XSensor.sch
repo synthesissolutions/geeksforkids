@@ -212,17 +212,6 @@ F 3 "~" H 5740 3230 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R3
-U 1 1 5F0EEFFE
-P 6310 3080
-F 0 "R3" V 6103 3080 50  0000 C CNN
-F 1 "4.7k" V 6194 3080 50  0000 C CNN
-F 2 "Resistor_SMD:R_1206_3216Metric" V 6240 3080 50  0001 C CNN
-F 3 "~" H 6310 3080 50  0001 C CNN
-	1    6310 3080
-	0    1    1    0   
-$EndComp
-$Comp
 L power:+3.3V #PWR0110
 U 1 1 5F0F315D
 P 5840 2980
@@ -275,8 +264,6 @@ F 3 "" H 6600 2980 50  0001 C CNN
 	1    6600 2980
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	6600 3080 6460 3080
 Wire Wire Line
 	6160 3080 6160 3230
 Wire Wire Line
@@ -409,4 +396,6 @@ Wire Wire Line
 	6630 4540 6630 4340
 Wire Wire Line
 	5440 4540 5440 4530
+Wire Wire Line
+	6160 3080 6600 3080
 $EndSCHEMATC
