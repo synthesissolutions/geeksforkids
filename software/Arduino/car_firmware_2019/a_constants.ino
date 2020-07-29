@@ -14,7 +14,7 @@
  ***************************************************************************************** 
  */
 
-const String        RELEASE_VERSION         = "20.4";
+const String        RELEASE_VERSION         = "20.5 Beta Rev";
 
 const int           LOGGER_UPDATE_TIME      = 1000;     // How long between updates to the monitor, in milliseconds
 const unsigned int  SERIAL_BAUD_RATE        = 57600;     // Baud rate for the serial monitor.  Make sure you set this correctly!
@@ -58,9 +58,8 @@ const boolean       JOYSTICK_INVERT_Y_AXIS  = false;
 // Throttle parms ... tunes the throttle changes and updates
 const unsigned long THROTTLE_UPDATE_MILLIS  = 10;         // 10 = ~ 100Hz.  How often the throttle position is updated.
 const float         THROTTLE_CHANGE_RATE    = 200.0;      // Units are scaledUnits/sec.  100.0 means that we can go from full forward to full reverse in 0.5 second. 
-const int           THROTTLE_PWM_MIN        = 0;
-const int           THROTTLE_PWM_MAX        = 240;        //    limit the throttle PWM ... the controller can't handle 255
-const float         THROTTLE_SPEED_MULTIPLIER[] = { 1.0, 0.7, 0.5, 0.3 };  // array of speed reductions to use with dip switchs to control the maximum speed
+const int           THROTTLE_PWM_MIN        = 1000;       // The Rev Spark motor controller uses the RC/Servo standard PWM configuration and the Servo.h library
+const int           THROTTLE_PWM_MAX        = 2000;       // with this library, 1000 = full reverse, 1500 = stop and 2000 = full forward
 
 // Steering parms ... controls the steering changes
 const int           STEERING_MIN            = 200;        // tuned to maximum wheel turn amount
@@ -68,7 +67,9 @@ const int           STEERING_MAX            = 800;        // tuned to maximum wh
 const int           STEERING_CENTER         = 512;
 const int           STEERING_STOP_DELTA     = 10;          // How close to target before stopping so we don't oscillate between 2 numbers.  IN SCALED UNITS: -100 to 100
 const int           STEERING_START_DELTA    = 30;          // How close to target before starting so we don't oscillate between 2 numbers   IN SCALED UNITS: -100 to 100
-const int           STEERING_SPEED          = 240;        // PWM Value from 0 - 255 with 255 = max speed
+const int           STEERING_LEFT_PWM       = 1000;        // RC/Servo style PWM Value from 1000 to 2000
+const int           STEERING_RIGHT_PWM      = 2000;        // RC/Servo style PWM Value from 1000 to 2000
+const int           STEERING_STOP_PWM       = 1500;        // RC/Servo style PWM Value from 1000 to 2000
 
 // Remote control PWM parms ... probably best to leave these alone!
 const int           STEERING_RC_MIN         = 1000;
@@ -100,16 +101,12 @@ const int           PIN_JOYSTICK_THROTTLE   = A6;
 const int           PIN_JOYSTICK_STEERING   = A7;
 
 //   ... throttle ... aka the controller for the car's drive motor   
-const int           PIN_THROTTLE_FORWARD    = 4;
-const int           PIN_THROTTLE_REVERSE    = 3;
-const int           PIN_THROTTLE_SPEED      = 2;
+const int           PIN_THROTTLE_PWM        = 4;
 
 const int           PIN_MAX_SPEED           = A3;
 
 //   ... steering ... aka the controller for the car's steering servo
-const int           PIN_STEERING_LEFT       = 7;
-const int           PIN_STEERING_RIGHT      = 6;
-const int           PIN_STEERING_ENABLE     = 5;
+const int           PIN_STEERING_PWM        = 7;
 const int           PIN_STEERING_POSITION   = A5;
 
 //  ... steering by hall sensor array and drive by Go button

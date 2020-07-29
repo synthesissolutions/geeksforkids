@@ -6,14 +6,16 @@
  *   changes to the steering as appropriate.
  */
 
+#include <Servo.h>
+ 
 class Steering {
   private:
 
-    int pinSteeringLeft;
-    int pinSteeringRight;
-    int pinSteeringEnable;
+    int pinSteeringPwm;
     int pinSteeringPosition;
 
+    Servo steeringMotorController;
+    
     int steeringTargetScaled = 0;          // scaled units (-100 to 100)
     int steeringPositionScaled = 0;        // scaled units (-100 to 100)
     int targetDeltaScaled = 0;             // scaled units (-100 to 100)
@@ -24,14 +26,16 @@ class Steering {
     int steeringMinScaled = -100;
     int steeringMaxScaled = 100;
     int steeringCenterScaled = 0;
-    
+
+    /*
     int steeringMin = STEERING_MIN;                     // encoder units (0 to 1023)
     int steeringMax = STEERING_MAX;                     // encoder units (0 to 1023)
     int steeringCenter = STEERING_CENTER;               // encoder units (0 to 1023)
     int steeringStopDelta = STEERING_STOP_DELTA;        // scaled units (-100 to 100)
     int steeringStartDelta = STEERING_START_DELTA;      // scaled units (-100 to 100)
     int steeringSpeed = STEERING_SPEED;                 // PWM (0 to 255)
-
+    */
+    
     /*
      * run the motor ... direction is based on the current position and the target
      */
@@ -39,16 +43,11 @@ class Steering {
       // How we set the pins is based on the direction we need to go
       if (steeringPositionScaled < steeringTargetScaled) {
         // turn left
-        digitalWrite(pinSteeringLeft, HIGH);
-        digitalWrite(pinSteeringRight, LOW);  
+        steeringMotorController.writeMicroseconds(STEERING_LEFT_PWM); 
       } else {
         // turn right
-        digitalWrite(pinSteeringLeft, LOW);
-        digitalWrite(pinSteeringRight, HIGH);  
+        steeringMotorController.writeMicroseconds(STEERING_RIGHT_PWM);
       }
-
-      // make sure the motor power is on
-      analogWrite(pinSteeringEnable, steeringSpeed);
 
       // and make note that we're moving
       isMoving = true;
@@ -59,9 +58,8 @@ class Steering {
      */
     void stopMotor() {
         isMoving = false;
-        digitalWrite(pinSteeringLeft, LOW);
-        digitalWrite(pinSteeringRight, LOW);  
-        analogWrite(pinSteeringEnable, 0); 
+        
+        steeringMotorController.writeMicroseconds(STEERING_STOP_PWM);
 
         // and make note that we're not moving
         isMoving = false;
@@ -73,18 +71,14 @@ class Steering {
     }
 
     // initial setup
-    void init(int pinLeft, int pinRight, int pinEnable, int pinPosition) {
+    void init(int pwmMotorControllerPin, int pinPosition) {
       // set the pins
-      pinSteeringLeft = pinLeft;
-      pinSteeringRight = pinRight;
-      pinSteeringEnable = pinEnable;
+      pinSteeringPwm = pwmMotorControllerPin;
       pinSteeringPosition = pinPosition;
 
-      // set the pins to be output and set the speed
-      pinMode(pinSteeringLeft, OUTPUT);
-      pinMode(pinSteeringRight, OUTPUT);
-      pinMode(pinSteeringEnable, OUTPUT);
-      analogWrite(pinSteeringEnable, steeringSpeed);
+      steeringMotorController.attach(pinSteeringPwm);
+
+      stopMotor();
     }
 
     int getSteeringPosition() {
@@ -137,7 +131,7 @@ class Steering {
       if (isMoving) {
         
         // we are moving already ... should we stop?
-        if (targetDeltaScaled <= steeringStopDelta) {
+        if (targetDeltaScaled <= STEERING_STOP_DELTA) {
            // yes we should
            stopMotor();  
         } else {
@@ -148,7 +142,7 @@ class Steering {
       } else {
 
         // we're not moving ... should we start?
-        if (targetDeltaScaled >= steeringStopDelta) {
+        if (targetDeltaScaled >= STEERING_STOP_DELTA) {
            // yes we should
            runMotor();  
         } else {
@@ -167,6 +161,4 @@ class Steering {
       ret.concat(String(" Actuator Position Raw:"));ret.concat(analogRead(pinSteeringPosition));
       return ret;
     }
- 
-  
 };

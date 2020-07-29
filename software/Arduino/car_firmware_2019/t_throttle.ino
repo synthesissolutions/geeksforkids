@@ -8,23 +8,22 @@
  *   A key feature of this class is the idea of moving the throttle to a new value over time (rather than an imeediate change), 
  *     to help minimize jerky behavior.  
  */
+ #include <Servo.h>
 
 class Throttle {
 
   private:
 
-    int forwardPin;
-    int reversePin;
-    int speedPin;
-
-    int throttleMin = THROTTLE_PWM_MIN;
-    int throttleMax = THROTTLE_PWM_MAX;
+    Servo throttleMotorController;
+    
+    int pwmPin;
+    
     unsigned long targetThrottleUpdateMillis = THROTTLE_UPDATE_MILLIS;
     float throttleChangeRate = THROTTLE_CHANGE_RATE;
 
     int throttleTargetScaled = 0;
     float currentThrottleScaled = 0;
-    int currentPwmOut = 0;
+    int currentPwmOut = 1500;
 
     unsigned long lastThrottleUpdateMillis = 0;
 
@@ -35,16 +34,10 @@ class Throttle {
     }
 
     // initial setup
-    void init(int fwdPin, int revPin, int spdPin) {
+    void init(int pwmMotorControllerPin) {
       // set the pins
-      forwardPin = fwdPin;
-      reversePin = revPin;
-      speedPin = spdPin;
-
-      // set the pin modes
-      pinMode(forwardPin, OUTPUT);
-      pinMode(reversePin, OUTPUT);
-      pinMode(speedPin, OUTPUT);
+      pwmPin = pwmMotorControllerPin;
+      throttleMotorController.attach(pwmPin);
 
       // and do an initial update to get the timer kicked off
       updateThrottle();
@@ -110,27 +103,9 @@ class Throttle {
       }
 
       // figure out the throttle pwm setting (ignoring the direction)
-      currentPwmOut = map(abs(currentThrottleScaled), 0.0, 100.0, THROTTLE_PWM_MIN, THROTTLE_PWM_MAX);
-
-      // now set the direction and the throttle
-      if (int(currentThrottleScaled)==0) {
-        // stop
-        digitalWrite(PIN_THROTTLE_FORWARD, LOW);
-        digitalWrite(PIN_THROTTLE_REVERSE, LOW);
-        analogWrite(PIN_THROTTLE_SPEED, THROTTLE_PWM_MIN); 
-               
-      } else if (currentThrottleScaled<0) {
-        //reverse
-        digitalWrite(PIN_THROTTLE_FORWARD, LOW);
-        digitalWrite(PIN_THROTTLE_REVERSE, HIGH);
-        analogWrite(PIN_THROTTLE_SPEED, currentPwmOut);   
-          
-      } else if (currentThrottleScaled>0) {
-        //forward
-        digitalWrite(PIN_THROTTLE_FORWARD, HIGH);
-        digitalWrite(PIN_THROTTLE_REVERSE, LOW);
-        analogWrite(PIN_THROTTLE_SPEED, currentPwmOut);       
-      }
+      currentPwmOut = map(currentThrottleScaled, -100.0, 100.0, THROTTLE_PWM_MIN, THROTTLE_PWM_MAX);
+      
+      throttleMotorController.writeMicroseconds(currentPwmOut);
 
       lastThrottleUpdateMillis = millis();
        
@@ -143,6 +118,4 @@ class Throttle {
       ret.concat(String(" PWM:"));ret.concat(currentPwmOut);
       return ret;
     }
-
-  
 };
