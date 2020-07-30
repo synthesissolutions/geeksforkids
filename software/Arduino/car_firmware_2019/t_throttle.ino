@@ -13,14 +13,8 @@ class Throttle {
 
   private:
 
-    int forwardPin;
-    int reversePin;
-    int speedPin;
-
-    int throttleMin = THROTTLE_PWM_MIN;
-    int throttleMax = THROTTLE_PWM_MAX;
-    unsigned long targetThrottleUpdateMillis = THROTTLE_UPDATE_MILLIS;
-    float throttleChangeRate = THROTTLE_CHANGE_RATE;
+    int directionPin;
+    int speedPwmPin;
 
     int throttleTargetScaled = 0;
     float currentThrottleScaled = 0;
@@ -35,16 +29,14 @@ class Throttle {
     }
 
     // initial setup
-    void init(int fwdPin, int revPin, int spdPin) {
+    void init(int dirPin, int pwmPin) {
       // set the pins
-      forwardPin = fwdPin;
-      reversePin = revPin;
-      speedPin = spdPin;
+      directionPin = dirPin;
+      speedPwmPin = pwmPin;
 
       // set the pin modes
-      pinMode(forwardPin, OUTPUT);
-      pinMode(reversePin, OUTPUT);
-      pinMode(speedPin, OUTPUT);
+      pinMode(directionPin, OUTPUT);
+      pinMode(speedPwmPin, OUTPUT);
 
       // and do an initial update to get the timer kicked off
       updateThrottle();
@@ -60,7 +52,6 @@ class Throttle {
       this->throttleTargetScaled = target;
 
       updateThrottle();
-      
     }
 
     /*
@@ -78,7 +69,7 @@ class Throttle {
     void updateThrottle() {
 
       // check to see if it's time yet to actually update.  If not, don't do anything.
-      if (millis() - lastThrottleUpdateMillis < targetThrottleUpdateMillis) {
+      if (millis() - lastThrottleUpdateMillis < THROTTLE_UPDATE_MILLIS) {
         // Note ... abs was used just in case we had a rollover in the millis() timer
         return;
       }
@@ -92,7 +83,7 @@ class Throttle {
         // Case 2: not staring up, so let's do some work
         
         // figure how how much to change the throttle based upon the rate and the amount of time that has elapsed
-        int throttleDelta = float(millis() - lastThrottleUpdateMillis) * throttleChangeRate / 1000.;
+        int throttleDelta = float(millis() - lastThrottleUpdateMillis) * THROTTLE_CHANGE_RATE / 1000.;
          
         // Figure out what to do with the current throttle (which direction do we apply the delta)
         /*
@@ -106,7 +97,6 @@ class Throttle {
           // calling for the throttle to be increased in value
           currentThrottleScaled += throttleDelta;
         }
-        
       }
 
       // figure out the throttle pwm setting (ignoring the direction)
@@ -115,25 +105,21 @@ class Throttle {
       // now set the direction and the throttle
       if (int(currentThrottleScaled)==0) {
         // stop
-        digitalWrite(PIN_THROTTLE_FORWARD, LOW);
-        digitalWrite(PIN_THROTTLE_REVERSE, LOW);
-        analogWrite(PIN_THROTTLE_SPEED, THROTTLE_PWM_MIN); 
+        digitalWrite(directionPin, HIGH);
+        analogWrite(speedPwmPin, THROTTLE_PWM_MIN); 
                
       } else if (currentThrottleScaled<0) {
         //reverse
-        digitalWrite(PIN_THROTTLE_FORWARD, LOW);
-        digitalWrite(PIN_THROTTLE_REVERSE, HIGH);
-        analogWrite(PIN_THROTTLE_SPEED, currentPwmOut);   
+        digitalWrite(directionPin, LOW);
+        analogWrite(speedPwmPin, currentPwmOut);   
           
       } else if (currentThrottleScaled>0) {
         //forward
-        digitalWrite(PIN_THROTTLE_FORWARD, HIGH);
-        digitalWrite(PIN_THROTTLE_REVERSE, LOW);
-        analogWrite(PIN_THROTTLE_SPEED, currentPwmOut);       
+        digitalWrite(directionPin, HIGH);
+        analogWrite(speedPwmPin, currentPwmOut);       
       }
 
       lastThrottleUpdateMillis = millis();
-       
     }
 
     String getStatus() {
@@ -143,6 +129,4 @@ class Throttle {
       ret.concat(String(" PWM:"));ret.concat(currentPwmOut);
       return ret;
     }
-
-  
 };

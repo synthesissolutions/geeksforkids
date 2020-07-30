@@ -58,9 +58,8 @@ const boolean       JOYSTICK_INVERT_Y_AXIS  = false;
 // Throttle parms ... tunes the throttle changes and updates
 const unsigned long THROTTLE_UPDATE_MILLIS  = 10;         // 10 = ~ 100Hz.  How often the throttle position is updated.
 const float         THROTTLE_CHANGE_RATE    = 200.0;      // Units are scaledUnits/sec.  100.0 means that we can go from full forward to full reverse in 0.5 second. 
-const int           THROTTLE_PWM_MIN        = 0;
-const int           THROTTLE_PWM_MAX        = 240;        //    limit the throttle PWM ... the controller can't handle 255
-const float         THROTTLE_SPEED_MULTIPLIER[] = { 1.0, 0.7, 0.5, 0.3 };  // array of speed reductions to use with dip switchs to control the maximum speed
+const int           THROTTLE_PWM_MIN        = 0;          // Throttle PWM is handled with analogWrite which expects a value from 0 to 255, 0 = stopped, 255 = full speed
+const int           THROTTLE_PWM_MAX        = 254;
 
 // Steering parms ... controls the steering changes
 const int           STEERING_MIN            = 200;        // tuned to maximum wheel turn amount
@@ -68,7 +67,7 @@ const int           STEERING_MAX            = 800;        // tuned to maximum wh
 const int           STEERING_CENTER         = 512;
 const int           STEERING_STOP_DELTA     = 10;          // How close to target before stopping so we don't oscillate between 2 numbers.  IN SCALED UNITS: -100 to 100
 const int           STEERING_START_DELTA    = 30;          // How close to target before starting so we don't oscillate between 2 numbers   IN SCALED UNITS: -100 to 100
-const int           STEERING_SPEED          = 240;        // PWM Value from 0 - 255 with 255 = max speed
+const int           STEERING_SPEED          = 240;        // PWM Value from 0 - 254 with 254 = max speed
 
 // Remote control PWM parms ... probably best to leave these alone!
 const int           STEERING_RC_MIN         = 1000;
@@ -100,16 +99,14 @@ const int           PIN_JOYSTICK_THROTTLE   = A6;
 const int           PIN_JOYSTICK_STEERING   = A7;
 
 //   ... throttle ... aka the controller for the car's drive motor   
-const int           PIN_THROTTLE_FORWARD    = 4;
-const int           PIN_THROTTLE_REVERSE    = 3;
-const int           PIN_THROTTLE_SPEED      = 2;
+const int           PIN_THROTTLE_DIRECTION  = 4;
+const int           PIN_THROTTLE_PWM        = 3;
 
 const int           PIN_MAX_SPEED           = A3;
 
 //   ... steering ... aka the controller for the car's steering servo
-const int           PIN_STEERING_LEFT       = 7;
-const int           PIN_STEERING_RIGHT      = 6;
-const int           PIN_STEERING_ENABLE     = 5;
+const int           PIN_STEERING_DIRECTION  = 7;
+const int           PIN_STEERING_PWM        = 6;
 const int           PIN_STEERING_POSITION   = A5;
 
 //  ... steering by hall sensor array and drive by Go button

@@ -70,10 +70,10 @@ void setup() {
     logger.addLogLine("drive buttons initialized");
   }
 
-  throttle.init(PIN_THROTTLE_FORWARD, PIN_THROTTLE_REVERSE, PIN_THROTTLE_SPEED);
+  throttle.init(PIN_THROTTLE_DIRECTION, PIN_THROTTLE_PWM);
   logger.addLogLine("throttle initialized");
   
-  steering.init(PIN_STEERING_LEFT, PIN_STEERING_RIGHT, PIN_STEERING_ENABLE, PIN_STEERING_POSITION);
+  steering.init(PIN_STEERING_DIRECTION, PIN_STEERING_PWM, PIN_STEERING_POSITION);
   logger.addLogLine("steering initialized");
 
 
