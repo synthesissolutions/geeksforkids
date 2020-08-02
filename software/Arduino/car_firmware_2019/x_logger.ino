@@ -16,8 +16,10 @@ class Logger {
 
     unsigned int txSpeed = SERIAL_BAUD_RATE;
 
-    String lines[20];
-
+//    String lines[20];
+    char lines[LOGGER_LINE_COUNT][LOGGER_LINE_LENGTH];
+    char statusLine[LOGGER_LINE_LENGTH];
+    
     // Yeah... don't like that the logger has to have these explicity defined.  But it's good enough for now.
     Eeprom *eeprom;
     Bluetooth *bluetooth;
@@ -57,14 +59,14 @@ class Logger {
     }
 
     // provides a way to add an ad-hoc line to the logging output.  Not sure this is super userful, but eh.
-    void addLogLine(String line) {
+    void addLogLine(const char * line) {
 
       // is logging turned on?
       if (updateDeltaT==0) return;
 
       // as long as we don't already have 20 lines, add the line to the array
-      if (currentLine<20) {
-        lines[currentLine] = line;
+      if (currentLine<LOGGER_LINE_COUNT) {
+        sprintf(lines[currentLine], "%s", line);
         currentLine++;
       }
       
@@ -83,30 +85,60 @@ class Logger {
 
         // Go through the known instances (they'd better all be here).  Would be better to have an interface and a 
         //   vector of these to iterate over. 
-        Serial.print(configuration->getStatus());Serial.println();
+        configuration->getStatus(statusLine);
+        Serial.write(statusLine, strlen(statusLine));
+        Serial.println();
+//        Serial.print(configuration->getStatus());Serial.println();
+
         if (configuration->useJoystick()) {
-          Serial.print(joystick->getStatus());Serial.println();
+          joystick->getStatus(statusLine);
+          Serial.write(statusLine, strlen(statusLine));
+          Serial.println();
+//          Serial.print(joystick->getStatus());Serial.println();
         }
         if (configuration->useDriveByWireAndGoButton()) {
-          Serial.print(driveByWire->getStatus());Serial.println();
+          driveByWire->getStatus(statusLine);
+          Serial.write(statusLine, strlen(statusLine));
+          Serial.println();
+//          Serial.print(driveByWire->getStatus());Serial.println();
         }
         if (configuration->useRc()) {
-          Serial.print(rc->getStatus());Serial.println();
+          rc->getStatus(statusLine);
+          Serial.write(statusLine, strlen(statusLine));
+          Serial.println();
+//          Serial.print(rc->getStatus());Serial.println();
         }
         if (configuration->usePushButtonDrive()) {
-          Serial.print(buttonDrive->getStatus());Serial.println();
+          buttonDrive->getStatus(statusLine);
+          Serial.write(statusLine, strlen(statusLine));
+          Serial.println();
+//          Serial.print(buttonDrive->getStatus());Serial.println();
         }
-        Serial.print(steering->getStatus());Serial.println();
-        Serial.print(throttle->getStatus());Serial.println();
-        Serial.print(eeprom->getStatus());Serial.println();
-        Serial.print(bluetooth->getStatus());Serial.println();
+        steering->getStatus(statusLine);
+        Serial.write(statusLine, strlen(statusLine));
+        Serial.println();
+//        Serial.print(steering->getStatus());Serial.println();
+        throttle->getStatus(statusLine);
+        Serial.write(statusLine, strlen(statusLine));
+        Serial.println();
+//        Serial.print(throttle->getStatus());Serial.println();
+        eeprom->getStatus(statusLine);
+        Serial.write(statusLine, strlen(statusLine));
+        Serial.println();
+        //Serial.print(eeprom->getStatus());Serial.println();
+        bluetooth->getStatus(statusLine);
+        Serial.write(statusLine, strlen(statusLine));
+        Serial.println();
+        //Serial.print(bluetooth->getStatus());Serial.println();
 
         // now the ad-hoc lines... this also helps space everythig out so the log is a bit easier to read
-        for (int i=0; i<20; i++) {
-          Serial.println(lines[i]);   
+        for (int i=0; i<currentLine; i++) {
+          Serial.write(lines[i], strlen(lines[i]));   
+          Serial.println();   // have to add this, as Serial.write doesn't include a CR
           // the line has been printed... clear it for the next time  
-          lines[i] = "";   
+          lines[i][0] = (char)0;
         }
+
         // reset the current line for ad-hoc logging to start again at the top
         currentLine=0;
 

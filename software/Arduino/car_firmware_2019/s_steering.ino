@@ -159,13 +159,19 @@ class Steering {
       }
     }
 
-    String getStatus() {
-      String ret = String("[Steering] ");
-      ret.concat(String("current:"));ret.concat(steeringPositionScaled);
-      ret.concat(String(" target:"));ret.concat(steeringTargetScaled);
-      ret.concat(String(" isMoving:"));ret.concat(isMoving);
-      ret.concat(String(" Actuator Position Raw:"));ret.concat(analogRead(pinSteeringPosition));
-      return ret;
+    void getStatus(char * status) {
+      sprintf(status, "[Steering] current:%i target:%i isMoving:%s Actuator Position Raw:%i",
+        steeringPositionScaled,
+        steeringTargetScaled,
+        isMoving ? "true" : "false",
+        analogRead(pinSteeringPosition));
+      
+//      String ret = String("[Steering] ");
+//      ret.concat(String("current:"));ret.concat(steeringPositionScaled);
+//      ret.concat(String(" target:"));ret.concat(steeringTargetScaled);
+//      ret.concat(String(" isMoving:"));ret.concat(isMoving);
+//      ret.concat(String(" Actuator Position Raw:"));ret.concat(analogRead(pinSteeringPosition));
+//      return ret;
     }
  
   

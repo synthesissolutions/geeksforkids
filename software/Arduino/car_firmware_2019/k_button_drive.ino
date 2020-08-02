@@ -79,16 +79,24 @@ class ButtonDrive {
       return 0;
     }
 
-    String getStatus() {
-      String ret = String("[Drive Buttons] ");
+    void getStatus(char * status) {
+      sprintf(status, "[Drive Buttons] Left:%s Right:%s Straight:%s Reverse:%s xscaled:%i yscaled%i",
+        isLeftButtonPushed() ? "true" : "false",
+        isRightButtonPushed() ? "true" : "false",
+        isStraightButtonPushed() ? "true" : "false",
+        isReverse() ? "true" : "false",
+        getXAxisScaled(),
+        getYAxisScaled());
       
-      ret.concat(String("Left: "));ret.concat(isLeftButtonPushed());
-      ret.concat(String(" Right: "));ret.concat(isRightButtonPushed());
-      ret.concat(String(" Straight: "));ret.concat(isStraightButtonPushed());
-      ret.concat(String(" Reverse: "));ret.concat(isReverse());
-      ret.concat(String(" xscaled:"));ret.concat(getXAxisScaled());
-      ret.concat(String(" yscaled:"));ret.concat(getYAxisScaled());
+//      String ret = String("[Drive Buttons] ");
+      
+//      ret.concat(String("Left: "));ret.concat(isLeftButtonPushed());
+//      ret.concat(String(" Right: "));ret.concat(isRightButtonPushed());
+//      ret.concat(String(" Straight: "));ret.concat(isStraightButtonPushed());
+//      ret.concat(String(" Reverse: "));ret.concat(isReverse());
+//      ret.concat(String(" xscaled:"));ret.concat(getXAxisScaled());
+//      ret.concat(String(" yscaled:"));ret.concat(getYAxisScaled());
 
-      return ret;
+//      return ret;
     }
 };

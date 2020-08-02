@@ -56,13 +56,15 @@ ConfigurationEntry configurationEntries[] = {
 class Eeprom {
   private:
     const unsigned int EE_ADDRESS = 0;
-    String loadingLogMessage = "Loaded from Eeprom";
+    char loadingLogMessage[30] = "Loaded from Eeprom";
+    char eepromStatus[100] = "";
     
     StaticJsonDocument<1024> currentSettingsJson;  
 
   public: 
     // Default constructor ... does nothing.  This allows us to delay setting the pins until we want to (via the init method).  
-    Configuration() {  
+    void Configuration() {  
+      return;
     }
 
     /*
@@ -74,7 +76,7 @@ class Eeprom {
       if (getIntegerSetting("version") != CURRENT_SETTINGS_VERSION) {
         resetConfiguration();
         saveConfiguration();
-        loadingLogMessage = "Loaded from defaults";
+        sprintf(loadingLogMessage, "%s", "Loaded from defaults");
       }
     }
 
@@ -102,7 +104,7 @@ class Eeprom {
       return currentSettingsJson;
     }
 
-    JsonDocument loadConfigurationSettingsAsJson() {
+    void loadConfigurationSettingsAsJson() {
       int intValue;
       boolean booleanValue;
       
@@ -159,11 +161,14 @@ class Eeprom {
       return "{\"Success\": true}";
     }
     
-    String getStatus() {
-      String ret = String("[EEprom] ");
-      ret.concat(String("Version:"));ret.concat(getIntegerSetting("version"));
-      ret.concat(String(" Configuration "));ret.concat(loadingLogMessage);
+    void getStatus(char * status) {
       
-      return ret;
+      sprintf(status, "[EEprom] Version: %i Configuration %s", getIntegerSetting("version"), loadingLogMessage);
+      //status = "[EEprom] ";
+      //String ret = String("[EEprom] ");
+      //ret.concat(String("Version:"));ret.concat(getIntegerSetting("version"));
+      //ret.concat(String(" Configuration "));ret.concat(loadingLogMessage);
+      
+      //return ret;
     }
 };

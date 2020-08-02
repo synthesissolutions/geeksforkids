@@ -66,19 +66,33 @@ class Configuration {
       return eepromValue;
     }
       
-    String getStatus() {
-      String ret = String("[Configuration] ");
-      ret.concat(String("Version: "));ret.concat(getConfigurationVersion());
-      ret.concat(String(" Invert Joystick X:"));ret.concat(getInvertJoystickX());
-      ret.concat(String(" Invert Joystick Y:"));ret.concat(getInvertJoystickY());
-      ret.concat(String(" Speed Multiplier:"));ret.concat(getSpeedMultiplier());
-      ret.concat(String(" Speed Pot:"));ret.concat(readMaxSpeedPot());
-      ret.concat(String(" Joystick:"));ret.concat(useJoystick());
-      ret.concat(String(" PushButton:"));ret.concat(usePushButtonDrive());
-      ret.concat(String(" RC:"));ret.concat(useRc());
-      ret.concat(String(" DriveByWire:"));ret.concat(useDriveByWireAndGoButton());
-      ret.concat(String(" Min/C/Max:"));ret.concat(getSteeringMin());ret.concat(" ");ret.concat(getSteeringCenter());ret.concat(" ");ret.concat(getSteeringMax());
+    void getStatus(char * status) {
+      sprintf(status, "[Configuration] Version: %i  Invert Joystick X:%s Invert Joystick Y:%s Speed Multiplier:%f Speed Pot:%i Joystick:%s PushButton:%s RC:%s DriveByWire:%s Min/C/Max:%i %i %i", 
+        getConfigurationVersion(),
+        getInvertJoystickX() ? "true" : "false",
+        getInvertJoystickY() ? "true" : "false",
+        getSpeedMultiplier(),
+        readMaxSpeedPot(),
+        useJoystick() ? "true" : "false",
+        usePushButtonDrive() ? "true" : "false",
+        useRc() ? "true" : "false",
+        useDriveByWireAndGoButton() ? "true" : "false",
+        getSteeringMin(),
+        getSteeringCenter(),
+        getSteeringMax());
+    
+//      String ret = String("[Configuration] ");
+//      ret.concat(String("Version: "));ret.concat(getConfigurationVersion());
+//      ret.concat(String(" Invert Joystick X:"));ret.concat(getInvertJoystickX());
+//      ret.concat(String(" Invert Joystick Y:"));ret.concat(getInvertJoystickY());
+//      ret.concat(String(" Speed Multiplier:"));ret.concat(getSpeedMultiplier());
+//      ret.concat(String(" Speed Pot:"));ret.concat(readMaxSpeedPot());
+//      ret.concat(String(" Joystick:"));ret.concat(useJoystick());
+//      ret.concat(String(" PushButton:"));ret.concat(usePushButtonDrive());
+//      ret.concat(String(" RC:"));ret.concat(useRc());
+//      ret.concat(String(" DriveByWire:"));ret.concat(useDriveByWireAndGoButton());
+//      ret.concat(String(" Min/C/Max:"));ret.concat(getSteeringMin());ret.concat(" ");ret.concat(getSteeringCenter());ret.concat(" ");ret.concat(getSteeringMax());
       
-      return ret;
+//      return ret;
     }
 };

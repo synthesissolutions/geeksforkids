@@ -171,10 +171,12 @@ class Bluetooth {
       }
     }
     
-    String getStatus() {
-      String ret = String("[Bluetooth] ");
-      ret.concat(String("Enabled: "));ret.concat(isBluetoothEnabled);
+    void getStatus(char * status) {
+      sprintf(status, "[Bluetooth] Enabled: %s", isBluetoothEnabled ? "true" : "false");
       
-      return ret;
+      //    String ret = String("[Bluetooth] ");
+      //    ret.concat(String("Enabled: "));ret.concat(isBluetoothEnabled);
+        
+      //    return ret;
     }
 };

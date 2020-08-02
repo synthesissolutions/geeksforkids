@@ -176,15 +176,23 @@ class DriveByWireAndGoButton {
       }
     }
 
-    String getStatus() {
-      String ret = String("[Steering Sensor and Go Button] ");
-      ret.concat(String("x PWM:"));ret.concat(steeringPWM);
-      ret.concat(String("xscaled:"));ret.concat(getSteeringScaled());
-      ret.concat(String(" yscaled (Go Button):"));ret.concat(getThrottleScaled());
-      ret.concat(String(" IsReverse:"));ret.concat(isReverse());
-      ret.concat(String(" IsForward:"));ret.concat(isForward());
-      ret.concat(String(" Map:"));ret.concat(map(steeringPWM, steeringCenterPWM, steeringMaxPWM, 0, 100));
+    void getStatus(char * status) {
+      sprintf(status, "[Steering Sensor and Go Button] x PWM:%lu xscaled:%i yscaled (Go Button):%i IsReverse:%s IsForward:%s Map:%li",
+        steeringPWM,
+        getSteeringScaled(),
+        getThrottleScaled(),
+        isReverse() ? "true" : "false",
+        isForward() ? "true" : "false",
+        map(steeringPWM, steeringCenterPWM, steeringMaxPWM, 0, 100));
+        
+//      String ret = String("[Steering Sensor and Go Button] ");
+//      ret.concat(String("x PWM:"));ret.concat(steeringPWM);
+//      ret.concat(String("xscaled:"));ret.concat(getSteeringScaled());
+//      ret.concat(String(" yscaled (Go Button):"));ret.concat(getThrottleScaled());
+//      ret.concat(String(" IsReverse:"));ret.concat(isReverse());
+//      ret.concat(String(" IsForward:"));ret.concat(isForward());
+//      ret.concat(String(" Map:"));ret.concat(map(steeringPWM, steeringCenterPWM, steeringMaxPWM, 0, 100));
 
-      return ret;
+//      return ret;
     }
 };
