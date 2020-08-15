@@ -14,7 +14,7 @@
  ***************************************************************************************** 
  */
 
-const String        RELEASE_VERSION         = "20.4.1";
+const String        RELEASE_VERSION         = "20.5 Beta";
 
 const int           LOGGER_UPDATE_TIME      = 1000;     // How long between updates to the monitor, in milliseconds
 const unsigned int  SERIAL_BAUD_RATE        = 57600;     // Baud rate for the serial monitor.  Make sure you set this correctly!
@@ -99,14 +99,16 @@ const int           PIN_JOYSTICK_THROTTLE   = A6;
 const int           PIN_JOYSTICK_STEERING   = A7;
 
 //   ... throttle ... aka the controller for the car's drive motor   
-const int           PIN_THROTTLE_DIRECTION  = 4;
-const int           PIN_THROTTLE_PWM        = 3;
+const int           PIN_THROTTLE_DIRECTION_LEFT  = 6;  // Channel 1 on motor controller
+const int           PIN_THROTTLE_PWM_LEFT        = 3;
+const int           PIN_THROTTLE_DIRECTION_RIGHT = 5; // Channel 2 on motor controller
+const int           PIN_THROTTLE_PWM_RIGHT       = 2;
 
 const int           PIN_MAX_SPEED           = A3;
 
 //   ... steering ... aka the controller for the car's steering servo
 const int           PIN_STEERING_DIRECTION  = 7;
-const int           PIN_STEERING_PWM        = 6;
+const int           PIN_STEERING_PWM        = 4;
 const int           PIN_STEERING_POSITION   = A5;
 
 //  ... steering by hall sensor array and drive by Go button

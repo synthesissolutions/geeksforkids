@@ -13,8 +13,10 @@ class Throttle {
 
   private:
 
-    int directionPin;
-    int speedPwmPin;
+    int directionLeftPin;
+    int speedPwmLeftPin;
+    int directionRightPin;
+    int speedPwmRightPin;
 
     int throttleTargetScaled = 0;
     float currentThrottleScaled = 0;
@@ -29,14 +31,18 @@ class Throttle {
     }
 
     // initial setup
-    void init(int dirPin, int pwmPin) {
+    void init(int dirLeftPin, int pwmLeftPin, int dirRightPin, int pwmRightPin) {
       // set the pins
-      directionPin = dirPin;
-      speedPwmPin = pwmPin;
+      directionLeftPin = dirLeftPin;
+      speedPwmLeftPin = pwmLeftPin;
+      directionRightPin = dirRightPin;
+      speedPwmRightPin = pwmRightPin;
 
       // set the pin modes
-      pinMode(directionPin, OUTPUT);
-      pinMode(speedPwmPin, OUTPUT);
+      pinMode(directionLeftPin, OUTPUT);
+      pinMode(speedPwmLeftPin, OUTPUT);
+      pinMode(directionRightPin, OUTPUT);
+      pinMode(speedPwmRightPin, OUTPUT);
 
       // and do an initial update to get the timer kicked off
       updateThrottle();
@@ -105,18 +111,22 @@ class Throttle {
       // now set the direction and the throttle
       if (int(currentThrottleScaled)==0) {
         // stop
-        digitalWrite(directionPin, HIGH);
-        analogWrite(speedPwmPin, THROTTLE_PWM_MIN); 
-               
+        digitalWrite(directionLeftPin, HIGH);
+        analogWrite(speedPwmLeftPin, THROTTLE_PWM_MIN); 
+        digitalWrite(directionRightPin, HIGH);
+        analogWrite(speedPwmRightPin, THROTTLE_PWM_MIN);                
       } else if (currentThrottleScaled<0) {
         //reverse
-        digitalWrite(directionPin, LOW);
-        analogWrite(speedPwmPin, currentPwmOut);   
-          
+        digitalWrite(directionLeftPin, LOW);
+        analogWrite(speedPwmLeftPin, currentPwmOut);   
+        digitalWrite(directionRightPin, LOW);
+        analogWrite(speedPwmRightPin, currentPwmOut);             
       } else if (currentThrottleScaled>0) {
         //forward
-        digitalWrite(directionPin, HIGH);
-        analogWrite(speedPwmPin, currentPwmOut);       
+        digitalWrite(directionLeftPin, HIGH);
+        analogWrite(speedPwmLeftPin, currentPwmOut);       
+        digitalWrite(directionRightPin, HIGH);
+        analogWrite(speedPwmRightPin, currentPwmOut);       
       }
 
       lastThrottleUpdateMillis = millis();
