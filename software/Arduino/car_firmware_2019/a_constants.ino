@@ -61,6 +61,10 @@ const float         THROTTLE_CHANGE_RATE    = 200.0;      // Units are scaledUni
 const int           THROTTLE_PWM_MIN        = 0;          // Throttle PWM is handled with analogWrite which expects a value from 0 to 255, 0 = stopped, 255 = full speed
 const int           THROTTLE_PWM_MAX        = 254;
 
+// Min/Max Speed Configuration
+const int           SPEED_CONFIGURATION_MIN_SPEED = 15;   // The min/max settings here control what the min/max speed percentages controlled by the speed potentiometer
+const int           SPEED_CONFIGURATION_MAX_SPEED = 100;
+
 // Steering parms ... controls the steering changes
 const int           STEERING_MIN            = 200;        // tuned to maximum wheel turn amount
 const int           STEERING_MAX            = 800;        // tuned to maximum wheel turn amount

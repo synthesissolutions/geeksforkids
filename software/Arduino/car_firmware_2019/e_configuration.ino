@@ -43,7 +43,7 @@ class Configuration {
     }
     
     float getSpeedMultiplier() {
-      return constrain(map(readMaxSpeedPot(), 0, 1023, 50, 100), 50, 100) / 100.0;
+      return constrain(map(readMaxSpeedPot(), 0, 1023, SPEED_CONFIGURATION_MIN_SPEED, SPEED_CONFIGURATION_MAX_SPEED), SPEED_CONFIGURATION_MIN_SPEED, SPEED_CONFIGURATION_MAX_SPEED) / 100.0;
     }
     
     int getSpeedMultiplierInt2() {
