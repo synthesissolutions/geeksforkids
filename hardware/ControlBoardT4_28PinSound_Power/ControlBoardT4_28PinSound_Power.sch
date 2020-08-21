@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:ControlBoardT4_28PinSound_Power-cache
-EELAYER 29 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -527,7 +526,7 @@ $EndComp
 Wire Wire Line
 	8250 3200 8150 3200
 $Comp
-L Timer:NA555 U2
+L ControlBoardT4_28PinSound_Power-rescue:NA555-Timer U2
 U 1 1 5D833001
 P 5850 5150
 F 0 "U2" H 5850 5150 50  0000 C CNN
