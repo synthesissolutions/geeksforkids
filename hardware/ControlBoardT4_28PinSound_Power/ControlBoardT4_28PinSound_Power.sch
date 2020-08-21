@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:ControlBoardT4_28PinSound_Power-cache
 EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
@@ -40,21 +41,10 @@ L Connector_Generic:Conn_02x03_Odd_Even J4
 U 1 1 5D94A27B
 P 7200 4200
 F 0 "J4" H 7300 4150 50  0000 R CNN
-F 1 "Other 1 & 2" V 7205 4012 50  0001 R CNN
+F 1 "1 2" V 7205 4012 50  0001 R CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical" H 7200 4200 50  0001 C CNN
 F 3 "~" H 7200 4200 50  0001 C CNN
 	1    7200 4200
-	-1   0    0    1   
-$EndComp
-$Comp
-L Connector_Generic:Conn_02x03_Odd_Even J5
-U 1 1 5D9598A7
-P 3350 4300
-F 0 "J5" H 3450 4300 50  0000 R CNN
-F 1 "[Other Connections 1-6]" H 3850 4500 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical" H 3350 4300 50  0001 C CNN
-F 3 "~" H 3350 4300 50  0001 C CNN
-	1    3350 4300
 	-1   0    0    1   
 $EndComp
 $Comp
@@ -62,7 +52,7 @@ L Connector_Generic:Conn_02x03_Odd_Even J6
 U 1 1 5D969CEB
 P 5750 4150
 F 0 "J6" V 5800 4200 50  0000 R CNN
-F 1 "Other 5 & 6" V 5755 3962 50  0001 R CNN
+F 1 "5 6" V 5755 3962 50  0001 R CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical" H 5750 4150 50  0001 C CNN
 F 3 "~" H 5750 4150 50  0001 C CNN
 	1    5750 4150
@@ -229,17 +219,6 @@ F 3 "" H 7400 4200 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L power:GND #PWR019
-U 1 1 5D6CC87B
-P 3050 4300
-F 0 "#PWR019" H 3050 4050 50  0001 C CNN
-F 1 "GND" V 3050 4100 50  0000 C CNN
-F 2 "" H 3050 4300 50  0001 C CNN
-F 3 "" H 3050 4300 50  0001 C CNN
-	1    3050 4300
-	0    1    1    0   
-$EndComp
-$Comp
 L power:GND #PWR020
 U 1 1 5D6CCAA0
 P 3550 4300
@@ -248,7 +227,7 @@ F 1 "GND" V 3550 4100 50  0000 C CNN
 F 2 "" H 3550 4300 50  0001 C CNN
 F 3 "" H 3550 4300 50  0001 C CNN
 	1    3550 4300
-	0    -1   -1   0   
+	0    1    1    0   
 $EndComp
 $Comp
 L power:GND #PWR021
@@ -358,17 +337,6 @@ F 1 "+3.3V" V 3550 4600 50  0000 C CNN
 F 2 "" H 3550 4400 50  0001 C CNN
 F 3 "" H 3550 4400 50  0001 C CNN
 	1    3550 4400
-	0    1    1    0   
-$EndComp
-$Comp
-L power:+3.3V #PWR08
-U 1 1 5D6D90D1
-P 3050 4400
-F 0 "#PWR08" H 3050 4250 50  0001 C CNN
-F 1 "+3.3V" V 3050 4650 50  0000 C CNN
-F 2 "" H 3050 4400 50  0001 C CNN
-F 3 "" H 3050 4400 50  0001 C CNN
-	1    3050 4400
 	0    -1   -1   0   
 $EndComp
 $Comp
@@ -828,8 +796,6 @@ Wire Wire Line
 Wire Wire Line
 	3450 3800 3050 4000
 Wire Wire Line
-	3050 4000 3050 4200
-Wire Wire Line
 	4750 2500 4300 2500
 Wire Wire Line
 	8950 2000 4300 2000
@@ -846,8 +812,6 @@ Wire Wire Line
 Wire Wire Line
 	8950 2000 9450 2300
 Wire Wire Line
-	8900 2050 4350 2050
-Wire Wire Line
 	4350 2050 4150 2200
 Wire Wire Line
 	4150 2200 4150 2400
@@ -859,7 +823,7 @@ U 1 1 5D83698E
 P 5350 4800
 F 0 "R1" V 5350 4750 50  0000 L CNN
 F 1 "R" V 5420 4755 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5280 4800 50  0001 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 5280 4800 50  0001 C CNN
 F 3 "~" H 5350 4800 50  0001 C CNN
 	1    5350 4800
 	-1   0    0    1   
@@ -883,7 +847,7 @@ U 1 1 5D627B3B
 P 8800 4900
 F 0 "J7" H 8750 5250 50  0000 L CNN
 F 1 "8P8C" H 8650 4700 50  0000 L CNN
-F 2 "Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal" V 8800 4925 50  0001 C CNN
+F 2 "Useful Modifications:RJ45_x08_Horizontal_tabs" V 8800 4925 50  0001 C CNN
 F 3 "~" V 8800 4925 50  0001 C CNN
 	1    8800 4900
 	-1   0    0    1   
@@ -980,6 +944,130 @@ Wire Wire Line
 Wire Wire Line
 	8150 5300 8400 5300
 $Comp
+L Useful~Modifications:TMR_1-0511_mod U3
+U 1 1 5EE1E4FD
+P 3150 5500
+F 0 "U3" H 3150 5967 50  0000 C CNN
+F 1 "TMR_1-0511_mod" H 3150 5876 50  0000 C CNN
+F 2 "Useful Modifications:Regulator_LM2596Adj" H 3150 5150 50  0001 C CNN
+F 3 "http://assets.tracopower.com/TMR1/documents/tmr1-datasheet.pdf" H 3150 5000 50  0001 C CNN
+	1    3150 5500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+12V #PWR0101
+U 1 1 5EE21F5B
+P 2650 5300
+F 0 "#PWR0101" H 2650 5150 50  0001 C CNN
+F 1 "+12V" V 2665 5428 50  0000 L CNN
+F 2 "" H 2650 5300 50  0001 C CNN
+F 3 "" H 2650 5300 50  0001 C CNN
+	1    2650 5300
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:-12V #PWR0102
+U 1 1 5EE23676
+P 2650 5700
+F 0 "#PWR0102" H 2650 5800 50  0001 C CNN
+F 1 "-12V" V 2665 5828 50  0000 L CNN
+F 2 "" H 2650 5700 50  0001 C CNN
+F 3 "" H 2650 5700 50  0001 C CNN
+	1    2650 5700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR0103
+U 1 1 5EE242AC
+P 3650 5700
+F 0 "#PWR0103" H 3650 5450 50  0001 C CNN
+F 1 "GND" V 3650 5600 50  0000 R CNN
+F 2 "" H 3650 5700 50  0001 C CNN
+F 3 "" H 3650 5700 50  0001 C CNN
+	1    3650 5700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+5V #PWR0104
+U 1 1 5EE28E61
+P 3850 5300
+F 0 "#PWR0104" H 3850 5150 50  0001 C CNN
+F 1 "+5V" V 3850 5400 50  0000 L CNN
+F 2 "" H 3850 5300 50  0001 C CNN
+F 3 "" H 3850 5300 50  0001 C CNN
+	1    3850 5300
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:Jumper_NO_Small JP5
+U 1 1 5EE2E9C1
+P 3750 5300
+F 0 "JP5" H 3650 5400 50  0000 L CNN
+F 1 "5v Jumper" H 3700 5200 50  0000 L CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm" H 3750 5300 50  0001 C CNN
+F 3 "~" H 3750 5300 50  0001 C CNN
+	1    3750 5300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint TP1
+U 1 1 5EE709D2
+P 3650 5700
+F 0 "TP1" H 3708 5818 50  0000 L CNN
+F 1 "TestPoint" H 3600 5600 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_1.5x1.5mm" H 3850 5700 50  0001 C CNN
+F 3 "~" H 3850 5700 50  0001 C CNN
+	1    3650 5700
+	1    0    0    -1  
+$EndComp
+Connection ~ 3650 5700
+$Comp
+L Connector:Screw_Terminal_01x02 J13
+U 1 1 5EE8257A
+P 1700 5550
+F 0 "J13" H 1618 5225 50  0000 C CNN
+F 1 "Main Power" H 1618 5316 50  0000 C CNN
+F 2 "Useful Modifications:TerminalBlock_bornier-2_P5.08mm" H 1700 5550 50  0001 C CNN
+F 3 "~" H 1700 5550 50  0001 C CNN
+	1    1700 5550
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:+12V #PWR024
+U 1 1 5EE8644F
+P 1900 5450
+F 0 "#PWR024" H 1900 5300 50  0001 C CNN
+F 1 "+12V" V 1915 5578 50  0000 L CNN
+F 2 "" H 1900 5450 50  0001 C CNN
+F 3 "" H 1900 5450 50  0001 C CNN
+	1    1900 5450
+	0    1    1    0   
+$EndComp
+$Comp
+L power:-12V #PWR025
+U 1 1 5EE89125
+P 1900 5550
+F 0 "#PWR025" H 1900 5650 50  0001 C CNN
+F 1 "-12V" V 1915 5678 50  0000 L CNN
+F 2 "" H 1900 5550 50  0001 C CNN
+F 3 "" H 1900 5550 50  0001 C CNN
+	1    1900 5550
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:Conn_01x03_Male J5
+U 1 1 5F3C531B
+P 3750 4300
+F 0 "J5" H 3858 4581 50  0000 C CNN
+F 1 "4" H 3858 4490 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 3750 4300 50  0001 C CNN
+F 3 "~" H 3750 4300 50  0001 C CNN
+	1    3750 4300
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	8900 2050 4350 2050
+$Comp
 L Useful~Modifications:Teensy4.0_NoMid U1
 U 1 1 5EE1CA68
 P 5950 3050
@@ -990,115 +1078,55 @@ F 3 "" H 5900 2100 60  0000 C CNN
 	1    5950 3050
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	3050 4400 3500 4650
+Wire Wire Line
+	4900 4650 5200 4400
+Wire Wire Line
+	5200 4400 6000 4400
+Wire Wire Line
+	6000 4400 6350 4650
+Wire Wire Line
+	6350 4650 6350 4950
+Wire Wire Line
+	3050 4000 3050 4400
+Connection ~ 6350 4950
 $Comp
-L Useful~Modifications:TMR_1-0511_mod U3
-U 1 1 5EE1E4FD
-P 3200 5300
-F 0 "U3" H 3200 5767 50  0000 C CNN
-F 1 "TMR_1-0511_mod" H 3200 5676 50  0000 C CNN
-F 2 "Converter_DCDC:Converter_DCDC_TRACO_TMR-1-xxxx_Single_THT" H 3200 4950 50  0001 C CNN
-F 3 "http://assets.tracopower.com/TMR1/documents/tmr1-datasheet.pdf" H 3200 4800 50  0001 C CNN
-	1    3200 5300
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+12V #PWR0101
-U 1 1 5EE21F5B
-P 2700 5100
-F 0 "#PWR0101" H 2700 4950 50  0001 C CNN
-F 1 "+12V" V 2715 5228 50  0000 L CNN
-F 2 "" H 2700 5100 50  0001 C CNN
-F 3 "" H 2700 5100 50  0001 C CNN
-	1    2700 5100
-	0    -1   -1   0   
-$EndComp
-$Comp
-L power:-12V #PWR0102
-U 1 1 5EE23676
-P 2700 5500
-F 0 "#PWR0102" H 2700 5600 50  0001 C CNN
-F 1 "-12V" V 2715 5628 50  0000 L CNN
-F 2 "" H 2700 5500 50  0001 C CNN
-F 3 "" H 2700 5500 50  0001 C CNN
-	1    2700 5500
-	0    -1   -1   0   
-$EndComp
-$Comp
-L power:GND #PWR0103
-U 1 1 5EE242AC
-P 3700 5500
-F 0 "#PWR0103" H 3700 5250 50  0001 C CNN
-F 1 "GND" V 3700 5400 50  0000 R CNN
-F 2 "" H 3700 5500 50  0001 C CNN
-F 3 "" H 3700 5500 50  0001 C CNN
-	1    3700 5500
-	0    -1   -1   0   
-$EndComp
-$Comp
-L power:+5V #PWR0104
-U 1 1 5EE28E61
-P 3900 5100
-F 0 "#PWR0104" H 3900 4950 50  0001 C CNN
-F 1 "+5V" V 3900 5200 50  0000 L CNN
-F 2 "" H 3900 5100 50  0001 C CNN
-F 3 "" H 3900 5100 50  0001 C CNN
-	1    3900 5100
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:Jumper_NO_Small JP5
-U 1 1 5EE2E9C1
-P 3800 5100
-F 0 "JP5" H 3700 5200 50  0000 L CNN
-F 1 "5v Jumper" H 3750 5000 50  0000 L CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm" H 3800 5100 50  0001 C CNN
-F 3 "~" H 3800 5100 50  0001 C CNN
-	1    3800 5100
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:TestPoint TP1
-U 1 1 5EE709D2
-P 3700 5500
-F 0 "TP1" H 3758 5618 50  0000 L CNN
-F 1 "TestPoint" H 3650 5400 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_1.5x1.5mm" H 3900 5500 50  0001 C CNN
-F 3 "~" H 3900 5500 50  0001 C CNN
-	1    3700 5500
-	1    0    0    -1  
-$EndComp
-Connection ~ 3700 5500
-$Comp
-L Connector:Screw_Terminal_01x02 J13
-U 1 1 5EE8257A
-P 1750 5350
-F 0 "J13" H 1668 5025 50  0000 C CNN
-F 1 "Main Power" H 1668 5116 50  0000 C CNN
-F 2 "Useful Modifications:TerminalBlock_bornier-2_P5.08mm" H 1750 5350 50  0001 C CNN
-F 3 "~" H 1750 5350 50  0001 C CNN
-	1    1750 5350
+L Device:R R3
+U 1 1 5F3DA1D5
+P 4150 4800
+F 0 "R3" V 4150 4800 50  0000 C CNN
+F 1 "R3" V 4050 4800 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 4080 4800 50  0001 C CNN
+F 3 "~" H 4150 4800 50  0001 C CNN
+	1    4150 4800
 	-1   0    0    1   
 $EndComp
 $Comp
-L power:+12V #PWR024
-U 1 1 5EE8644F
-P 1950 5250
-F 0 "#PWR024" H 1950 5100 50  0001 C CNN
-F 1 "+12V" V 1965 5378 50  0000 L CNN
-F 2 "" H 1950 5250 50  0001 C CNN
-F 3 "" H 1950 5250 50  0001 C CNN
-	1    1950 5250
-	0    1    1    0   
+L Device:R R2
+U 1 1 5F3DB732
+P 4300 4650
+F 0 "R2" V 4300 4650 50  0000 C CNN
+F 1 "R2" V 4400 4650 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 4230 4650 50  0001 C CNN
+F 3 "~" H 4300 4650 50  0001 C CNN
+	1    4300 4650
+	0    -1   -1   0   
 $EndComp
+Wire Wire Line
+	4900 4650 4450 4650
+Wire Wire Line
+	4150 4650 3500 4650
 $Comp
-L power:-12V #PWR025
-U 1 1 5EE89125
-P 1950 5350
-F 0 "#PWR025" H 1950 5450 50  0001 C CNN
-F 1 "-12V" V 1965 5478 50  0000 L CNN
-F 2 "" H 1950 5350 50  0001 C CNN
-F 3 "" H 1950 5350 50  0001 C CNN
-	1    1950 5350
-	0    1    1    0   
+L power:GND #PWR08
+U 1 1 5F3F37CA
+P 4150 4950
+F 0 "#PWR08" H 4150 4700 50  0001 C CNN
+F 1 "GND" V 4150 4750 50  0000 C CNN
+F 2 "" H 4150 4950 50  0001 C CNN
+F 3 "" H 4150 4950 50  0001 C CNN
+	1    4150 4950
+	1    0    0    -1  
 $EndComp
+Connection ~ 4150 4650
 $EndSCHEMATC
