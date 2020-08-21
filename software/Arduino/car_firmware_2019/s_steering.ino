@@ -9,10 +9,9 @@
 class Steering {
   private:
 
-    int pinSteeringLeft;
-    int pinSteeringRight;
-    int pinSteeringEnable;
-    int pinSteeringPosition;
+    int directionPin;
+    int speedPwmPin;
+    int currentPositionPin;
 
     int steeringTargetScaled = 0;          // scaled units (-100 to 100)
     int steeringPositionScaled = 0;        // scaled units (-100 to 100)
@@ -21,12 +20,9 @@ class Steering {
     boolean isMoving = false;
     
     // settting default values here ... being a little lazy by defaulting from constants.  
-    int steeringMin = STEERING_MIN;                     // encoder units (0 to 1023)
-    int steeringMax = STEERING_MAX;                     // encoder units (0 to 1023)
-    int steeringCenter = STEERING_CENTER;               // encoder units (0 to 1023)
-    int steeringStopDelta = STEERING_STOP_DELTA;        // scaled units (-100 to 100)
-    int steeringStartDelta = STEERING_START_DELTA;      // scaled units (-100 to 100)
-    int steeringSpeed = STEERING_SPEED;                 // PWM (0 to 255)
+    int steeringMinScaled = -100;
+    int steeringMaxScaled = 100;
+    int steeringCenterScaled = 0;
 
     /*
      * run the motor ... direction is based on the current position and the target
@@ -35,16 +31,14 @@ class Steering {
       // How we set the pins is based on the direction we need to go
       if (steeringPositionScaled < steeringTargetScaled) {
         // turn left
-        digitalWrite(pinSteeringLeft, HIGH);
-        digitalWrite(pinSteeringRight, LOW);  
+        digitalWrite(directionPin, HIGH);
       } else {
         // turn right
-        digitalWrite(pinSteeringLeft, LOW);
-        digitalWrite(pinSteeringRight, HIGH);  
+        digitalWrite(directionPin, LOW);
       }
 
       // make sure the motor power is on
-      analogWrite(pinSteeringEnable, steeringSpeed);
+      analogWrite(speedPwmPin, STEERING_SPEED);
 
       // and make note that we're moving
       isMoving = true;
@@ -55,9 +49,8 @@ class Steering {
      */
     void stopMotor() {
         isMoving = false;
-        digitalWrite(pinSteeringLeft, LOW);
-        digitalWrite(pinSteeringRight, LOW);  
-        analogWrite(pinSteeringEnable, 0); 
+        digitalWrite(directionPin, HIGH);
+        analogWrite(speedPwmPin, 0); 
 
         // and make note that we're not moving
         isMoving = false;
@@ -69,18 +62,17 @@ class Steering {
     }
 
     // initial setup
-    void init(int pinLeft, int pinRight, int pinEnable, int pinPosition) {
+    void init(int pinDir, int pinPwm, int pinPosition) {
       // set the pins
-      pinSteeringLeft = pinLeft;
-      pinSteeringRight = pinRight;
-      pinSteeringEnable = pinEnable;
-      pinSteeringPosition = pinPosition;
+      directionPin = pinDir;
+      speedPwmPin = pinPwm;
+      currentPositionPin = pinPosition;
 
       // set the pins to be output and set the speed
-      pinMode(pinSteeringLeft, OUTPUT);
-      pinMode(pinSteeringRight, OUTPUT);
-      pinMode(pinSteeringEnable, OUTPUT);
-      analogWrite(pinSteeringEnable, steeringSpeed);
+      pinMode(directionPin, OUTPUT);
+      pinMode(speedPwmPin, OUTPUT);
+
+      analogWrite(speedPwmPin, 0);
     }
 
     int getSteeringPosition() {
@@ -92,13 +84,23 @@ class Steering {
      */
     void setSteeringPosition(int target) {
       // constrain and set the steering target (in scaled units)
-      steeringTargetScaled = constrain(target,-100,100);
+      steeringTargetScaled = constrain(map(target, -100, 100, steeringMinScaled, steeringMaxScaled), steeringMinScaled, steeringMaxScaled);
 
-      // now call update
-      updateSteering();
-      
+      updateSteering();      
     }
 
+    void setSteeringCenterScaled(int newCenter) {
+      steeringCenterScaled = newCenter;
+    }
+
+    void setSteeringMinScaled(int newMin) {
+      steeringMinScaled = newMin;
+    }
+
+    void setSteeringMaxScaled(int newMax) {
+      steeringMaxScaled = newMax;
+    }
+    
     /*
      * Update the steering ... this is the actual method that handles moving of the servo
      * 
@@ -110,20 +112,20 @@ class Steering {
      * 
      */
     void updateSteering() {
-      // figure out the current steering servo position and how far we are from the target
-      //steeringPositionScaled = float(analogRead(pinSteeringPosition))*100./1023.;              // We're always going to work in scaled units
-      steeringPositionScaled = constrain(map(analogRead(pinSteeringPosition),STEERING_MIN,STEERING_MAX,-100,100),-100,100);              // We're always going to work in scaled units
+      // Convert analog read value to scaled units
+      steeringPositionScaled = map(analogRead(currentPositionPin), 0, 1023, -100, 100);
 
-      // Manual Adjustment for Carter
-      //steeringPositionScaled += 20;
-      
+      // Use steeringPositionScaled + steeringCenterScaled to account for configuration setting
+      // add instead of subtract because configuration use > 0 for adjustments to the right but the actuator has > vaues to the left
+      steeringPositionScaled = constrain(steeringPositionScaled + steeringCenterScaled, steeringMinScaled, steeringMaxScaled);
+
       targetDeltaScaled = abs(steeringPositionScaled - steeringTargetScaled);
 
       // Are we moving already?
       if (isMoving) {
         
         // we are moving already ... should we stop?
-        if (targetDeltaScaled <= steeringStopDelta) {
+        if (targetDeltaScaled <= STEERING_STOP_DELTA) {
            // yes we should
            stopMotor();  
         } else {
@@ -134,7 +136,7 @@ class Steering {
       } else {
 
         // we're not moving ... should we start?
-        if (targetDeltaScaled >= steeringStopDelta) {
+        if (targetDeltaScaled >= STEERING_STOP_DELTA) {
            // yes we should
            runMotor();  
         } else {
@@ -150,7 +152,7 @@ class Steering {
       ret.concat(String("current:"));ret.concat(steeringPositionScaled);
       ret.concat(String(" target:"));ret.concat(steeringTargetScaled);
       ret.concat(String(" isMoving:"));ret.concat(isMoving);
-      ret.concat(String(" Actuator Position Raw:"));ret.concat(analogRead(pinSteeringPosition));
+      ret.concat(String(" Actuator Position Raw:"));ret.concat(analogRead(currentPositionPin));
       return ret;
     }
  

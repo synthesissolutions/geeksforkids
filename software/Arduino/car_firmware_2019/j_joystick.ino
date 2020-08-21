@@ -180,9 +180,7 @@ class Joystick {
 
           // controls have not yet centered, we're not active!
           return false;
-          
         }
-        
       }
 
       // we got here because we've seen both axes center... so we're OK to be active!

@@ -29,7 +29,7 @@ class Bluetooth {
     void init(int enableBluetoothButtonPin, Eeprom *e) {  
       this->enableBluetoothButtonPin = enableBluetoothButtonPin;
       eeprom = e;
-      pinMode(enableBluetoothButtonPin, INPUT_PULLUP);
+      pinMode(enableBluetoothButtonPin, INPUT_PULLDOWN);
     }
 
     void initBluetooth() {
@@ -51,8 +51,7 @@ class Bluetooth {
       // Once Bluetooth is enabled it stays enabled until the car is turned off
       if (isBluetoothEnabled) return;
 
-      // Logic is reversed since it is connected to ground when pushed.
-      isBluetoothEnabled = !digitalRead(enableBluetoothButtonPin);
+      isBluetoothEnabled = digitalRead(enableBluetoothButtonPin);
     }
     
     /*
