@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 1
+Sheet 1 2
 Title ""
 Date ""
 Rev ""
@@ -526,17 +526,6 @@ $EndComp
 Wire Wire Line
 	8250 3200 8150 3200
 $Comp
-L ControlBoardT4_28PinSound_Power-rescue:NA555-Timer U2
-U 1 1 5D833001
-P 5850 5150
-F 0 "U2" H 5850 5150 50  0000 C CNN
-F 1 "NA555" H 5600 5500 50  0000 C CNN
-F 2 "Package_DIP:DIP-8_W7.62mm" H 5850 5150 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/ne555.pdf" H 5850 5150 50  0001 C CNN
-	1    5850 5150
-	1    0    0    -1  
-$EndComp
-$Comp
 L Connector:Conn_01x02_Male J10
 U 1 1 5D8359A2
 P 4500 4950
@@ -545,17 +534,6 @@ F 1 "BT Switch" H 4608 5040 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 4500 4950 50  0001 C CNN
 F 3 "~" H 4500 4950 50  0001 C CNN
 	1    4500 4950
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR040
-U 1 1 5D8395D8
-P 5850 5550
-F 0 "#PWR040" H 5850 5300 50  0001 C CNN
-F 1 "GND" H 5850 5400 50  0000 C CNN
-F 2 "" H 5850 5550 50  0001 C CNN
-F 3 "" H 5850 5550 50  0001 C CNN
-	1    5850 5550
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -628,26 +606,16 @@ Wire Wire Line
 	8000 3200 8000 2850
 Wire Wire Line
 	8000 2850 7800 2700
-Wire Wire Line
-	7800 2700 7200 2700
 Connection ~ 8000 3200
 Wire Wire Line
 	7950 3350 7950 2900
 Wire Wire Line
 	7950 2900 7800 2800
-Wire Wire Line
-	7800 2800 7200 2800
 Connection ~ 7950 3350
 Wire Wire Line
 	7900 3000 7750 2900
 Wire Wire Line
-	7750 2900 7200 2900
-Wire Wire Line
 	7850 3100 7650 3000
-Wire Wire Line
-	7650 3000 7200 3000
-Wire Wire Line
-	7200 3100 7600 3100
 Wire Wire Line
 	7600 3100 7800 3200
 Wire Wire Line
@@ -671,8 +639,6 @@ F 3 "" H 6550 4800 50  0001 C CNN
 $EndComp
 NoConn ~ 6550 4500
 Wire Wire Line
-	7200 3300 7500 3300
-Wire Wire Line
 	7500 3300 7700 3400
 Wire Wire Line
 	7700 3400 7700 4000
@@ -680,8 +646,6 @@ Wire Wire Line
 	7700 4000 7600 4100
 Wire Wire Line
 	7600 4100 7400 4100
-Wire Wire Line
-	7200 3400 7450 3400
 Wire Wire Line
 	7450 3400 7650 3500
 Wire Wire Line
@@ -695,8 +659,6 @@ Wire Wire Line
 Wire Wire Line
 	6950 4000 7550 4000
 Wire Wire Line
-	7200 3500 7400 3500
-Wire Wire Line
 	7400 3500 7600 3600
 Wire Wire Line
 	7600 3600 7600 3850
@@ -706,8 +668,6 @@ Wire Wire Line
 	7500 3950 6850 3950
 Wire Wire Line
 	6850 3950 6450 4100
-Wire Wire Line
-	6450 4100 6450 4650
 Wire Wire Line
 	6450 4650 6550 4700
 Wire Wire Line
@@ -797,8 +757,6 @@ Wire Wire Line
 Wire Wire Line
 	4750 2500 4300 2500
 Wire Wire Line
-	8950 2000 4300 2000
-Wire Wire Line
 	4300 2000 4050 2200
 Wire Wire Line
 	4050 2200 4050 2400
@@ -822,14 +780,13 @@ U 1 1 5D83698E
 P 5350 4800
 F 0 "R1" V 5350 4750 50  0000 L CNN
 F 1 "R" V 5420 4755 50  0000 L CNN
-F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 5280 4800 50  0001 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 5280 4800 50  0001 C CNN
 F 3 "~" H 5350 4800 50  0001 C CNN
 	1    5350 4800
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
 	4700 4950 5350 4950
-Connection ~ 5350 4950
 Wire Wire Line
 	9400 3250 9350 3300
 Wire Wire Line
@@ -851,30 +808,6 @@ F 3 "~" V 8800 4925 50  0001 C CNN
 	1    8800 4900
 	-1   0    0    1   
 $EndComp
-$Comp
-L Connector:AudioJack4 J11
-U 1 1 5D9CA707
-P 9500 4200
-F 0 "J11" H 9170 4083 50  0000 R CNN
-F 1 "AudioJack4" H 9170 4174 50  0000 R CNN
-F 2 "Useful Modifications:Jack_3.5mm_PJ320A_Horizontal" H 9500 4200 50  0001 C CNN
-F 3 "~" H 9500 4200 50  0001 C CNN
-	1    9500 4200
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	9050 4100 9200 4100
-Wire Wire Line
-	9200 4100 9300 4000
-Wire Wire Line
-	9050 4000 9200 4000
-Wire Wire Line
-	9200 4000 9300 4100
-Wire Wire Line
-	9050 4200 9200 4200
-Wire Wire Line
-	9200 4200 9300 4300
-NoConn ~ 9300 4200
 Wire Wire Line
 	6350 4950 6550 4900
 NoConn ~ 6550 5000
@@ -943,13 +876,13 @@ Wire Wire Line
 Wire Wire Line
 	8150 5300 8400 5300
 $Comp
-L Useful~Modifications:TMR_1-0511_mod U3
+L UsefulModifications:TMR_1-0511_mod U3
 U 1 1 5EE1E4FD
 P 3150 5500
 F 0 "U3" H 3150 5967 50  0000 C CNN
 F 1 "TMR_1-0511_mod" H 3150 5876 50  0000 C CNN
 F 2 "Useful Modifications:Regulator_LM2596Adj" H 3150 5150 50  0001 C CNN
-F 3 "http://assets.tracopower.com/TMR1/documents/tmr1-datasheet.pdf" H 3150 5000 50  0001 C CNN
+F 3 "" H 3150 5000 50  0001 C CNN
 	1    3150 5500
 	1    0    0    -1  
 $EndComp
@@ -962,17 +895,6 @@ F 1 "+12V" V 2665 5428 50  0000 L CNN
 F 2 "" H 2650 5300 50  0001 C CNN
 F 3 "" H 2650 5300 50  0001 C CNN
 	1    2650 5300
-	0    -1   -1   0   
-$EndComp
-$Comp
-L power:-12V #PWR0102
-U 1 1 5EE23676
-P 2650 5700
-F 0 "#PWR0102" H 2650 5800 50  0001 C CNN
-F 1 "-12V" V 2665 5828 50  0000 L CNN
-F 2 "" H 2650 5700 50  0001 C CNN
-F 3 "" H 2650 5700 50  0001 C CNN
-	1    2650 5700
 	0    -1   -1   0   
 $EndComp
 $Comp
@@ -1043,17 +965,6 @@ F 3 "" H 1900 5450 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L power:-12V #PWR025
-U 1 1 5EE89125
-P 1900 5550
-F 0 "#PWR025" H 1900 5650 50  0001 C CNN
-F 1 "-12V" V 1915 5678 50  0000 L CNN
-F 2 "" H 1900 5550 50  0001 C CNN
-F 3 "" H 1900 5550 50  0001 C CNN
-	1    1900 5550
-	0    1    1    0   
-$EndComp
-$Comp
 L Connector:Conn_01x03_Male J5
 U 1 1 5F3C531B
 P 3750 4300
@@ -1063,19 +974,6 @@ F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 3750 4300 50 
 F 3 "~" H 3750 4300 50  0001 C CNN
 	1    3750 4300
 	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	8900 2050 4350 2050
-$Comp
-L Useful~Modifications:Teensy4.0_NoMid U1
-U 1 1 5EE1CA68
-P 5950 3050
-F 0 "U1" H 5975 3947 60  0000 C CNN
-F 1 "Teensy4.0_NoMid" H 5975 3841 60  0000 C CNN
-F 2 "Useful Modifications:Teensy40_NoMid" H 5900 2100 60  0001 C CNN
-F 3 "" H 5900 2100 60  0000 C CNN
-	1    5950 3050
-	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	3050 4400 3500 4650
@@ -1089,15 +987,15 @@ Wire Wire Line
 	6350 4650 6350 4950
 Wire Wire Line
 	3050 4000 3050 4400
-Connection ~ 6350 4950
 $Comp
 L Device:R R3
 U 1 1 5F3DA1D5
 P 4150 4800
-F 0 "R3" V 4150 4800 50  0000 C CNN
-F 1 "R3" V 4050 4800 50  0000 C CNN
-F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 4080 4800 50  0001 C CNN
-F 3 "~" H 4150 4800 50  0001 C CNN
+F 0 "R3" V 4050 4800 50  0000 C CNN
+F 1 "10K" V 4150 4800 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 4080 4800 50  0001 C CNN
+F 3 "https://www.seielect.com/catalog/sei-rncp.pdf" H 4150 4800 50  0001 C CNN
+F 4 "RNCP0805FTD10K0CT-ND" H 4150 4800 50  0001 C CNN "DigiKey ID"
 	1    4150 4800
 	-1   0    0    1   
 $EndComp
@@ -1105,9 +1003,9 @@ $Comp
 L Device:R R2
 U 1 1 5F3DB732
 P 4300 4650
-F 0 "R2" V 4300 4650 50  0000 C CNN
-F 1 "R2" V 4400 4650 50  0000 C CNN
-F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 4230 4650 50  0001 C CNN
+F 0 "R2" V 4400 4650 50  0000 C CNN
+F 1 "1K" V 4300 4650 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 4230 4650 50  0001 C CNN
 F 3 "~" H 4300 4650 50  0001 C CNN
 	1    4300 4650
 	0    -1   -1   0   
@@ -1128,4 +1026,108 @@ F 3 "" H 4150 4950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Connection ~ 4150 4650
+$Sheet
+S 700  700  1250 950 
+U 5F4AD486
+F0 "MAX9744" 50
+F1 "MAX9744.sch" 50
+$EndSheet
+$Comp
+L power:GND #PWR040
+U 1 1 5D8395D8
+P 5850 5550
+F 0 "#PWR040" H 5850 5300 50  0001 C CNN
+F 1 "GND" H 5850 5400 50  0000 C CNN
+F 2 "" H 5850 5550 50  0001 C CNN
+F 3 "" H 5850 5550 50  0001 C CNN
+	1    5850 5550
+	1    0    0    -1  
+$EndComp
+$Comp
+L ControlBoardT4_28PinSound_PowerAmp-rescue:NA555-Timer-ControlBoardT4_28PinSound_Power-rescue U2
+U 1 1 5F4D0D86
+P 5850 5150
+F 0 "U2" H 5850 5200 50  0000 C CNN
+F 1 "NA555-Timer" H 5850 5100 50  0000 C CNN
+F 2 "Package_DIP:DIP-8_W7.62mm" H 5850 5150 50  0001 C CNN
+F 3 "" H 5850 5150 50  0001 C CNN
+	1    5850 5150
+	1    0    0    -1  
+$EndComp
+Connection ~ 5350 4950
+Connection ~ 6350 4950
+$Comp
+L power:GNDA #PWR019
+U 1 1 5F571777
+P 9050 4200
+F 0 "#PWR019" H 9050 3950 50  0001 C CNN
+F 1 "GNDA" V 9050 3950 50  0000 C CNN
+F 2 "" H 9050 4200 50  0001 C CNN
+F 3 "" H 9050 4200 50  0001 C CNN
+	1    9050 4200
+	0    -1   -1   0   
+$EndComp
+Text GLabel 9150 4100 2    50   Input ~ 0
+LeftIN
+Text GLabel 9150 4000 2    50   Input ~ 0
+RightIN
+$Comp
+L power:GND #PWR0102
+U 1 1 5F5C0DDE
+P 2650 5700
+F 0 "#PWR0102" H 2650 5450 50  0001 C CNN
+F 1 "GND" V 2650 5600 50  0000 R CNN
+F 2 "" H 2650 5700 50  0001 C CNN
+F 3 "" H 2650 5700 50  0001 C CNN
+	1    2650 5700
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0107
+U 1 1 5F5C3B2C
+P 1900 5550
+F 0 "#PWR0107" H 1900 5300 50  0001 C CNN
+F 1 "GND" V 1900 5450 50  0000 R CNN
+F 2 "" H 1900 5550 50  0001 C CNN
+F 3 "" H 1900 5550 50  0001 C CNN
+	1    1900 5550
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	9050 4000 9150 4000
+Wire Wire Line
+	9050 4100 9150 4100
+Wire Wire Line
+	8900 2050 4350 2050
+Wire Wire Line
+	7200 3100 7600 3100
+Wire Wire Line
+	7650 3000 7200 3000
+Wire Wire Line
+	7750 2900 7200 2900
+Wire Wire Line
+	8950 2000 4300 2000
+$Comp
+L UsefulModifications:Teensy4.0_NoMid U1
+U 1 1 5EE1CA68
+P 5950 3050
+F 0 "U1" H 5975 3947 60  0000 C CNN
+F 1 "Teensy4.0_NoMid" H 5975 3841 60  0000 C CNN
+F 2 "Useful Modifications:Teensy40_NoMid" H 5900 2100 60  0001 C CNN
+F 3 "" H 5900 2100 60  0000 C CNN
+	1    5950 3050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6450 4100 6450 4650
+Wire Wire Line
+	7800 2700 7200 2700
+Wire Wire Line
+	7800 2800 7200 2800
+Wire Wire Line
+	7200 3500 7400 3500
+Wire Wire Line
+	7200 3300 7500 3300
+Wire Wire Line
+	7200 3400 7450 3400
 $EndSCHEMATC
