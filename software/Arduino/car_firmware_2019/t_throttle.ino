@@ -132,11 +132,10 @@ class Throttle {
       lastThrottleUpdateMillis = millis();
     }
 
-    String getStatus() {
-      String ret = String("[Throttle] ");
-      ret.concat(String("target:"));ret.concat(throttleTargetScaled);
-      ret.concat(String(" current:"));ret.concat(currentThrottleScaled);
-      ret.concat(String(" PWM:"));ret.concat(currentPwmOut);
-      return ret;
+    void getStatus(char * status) {
+      sprintf(status, "[Throttle] target:%i current:%f PWM:%i",
+        throttleTargetScaled,
+        currentThrottleScaled,
+        currentPwmOut);
     }
 };

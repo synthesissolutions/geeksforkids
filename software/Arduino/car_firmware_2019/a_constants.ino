@@ -18,6 +18,8 @@ const String        RELEASE_VERSION         = "20.5 Beta";
 
 const int           LOGGER_UPDATE_TIME      = 1000;     // How long between updates to the monitor, in milliseconds
 const unsigned int  SERIAL_BAUD_RATE        = 57600;     // Baud rate for the serial monitor.  Make sure you set this correctly!
+const int           LOGGER_LINE_LENGTH      = 300;
+const int           LOGGER_LINE_COUNT       = 20;
 
 
 /*****************************************************************************************

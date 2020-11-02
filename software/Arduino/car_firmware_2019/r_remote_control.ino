@@ -63,9 +63,7 @@ class RemoteControl {
 
       // set the pins with pullup resistors enabled
       pinMode(pinRCSteering, INPUT_PULLUP); 
-      pinMode(pinRCThrottle, INPUT_PULLUP); 
-
-      
+      pinMode(pinRCThrottle, INPUT_PULLUP);       
     }
 
     /*
@@ -118,30 +116,34 @@ class RemoteControl {
       return false;
     }
 
+    void getStatus(char * status) {
+      sprintf(status, "[RemoteControl] throttlePWM:%lu throttleScaled:%i%s steeringPWM:%lu steeringScaled:%i%s isActive:%s Bad Start:%s PWM Th Start: ",
+        throttlePWM,
+        throttleScaled,
+        invertThrottle ? "true" : "false",
+        steeringPWM,
+        steeringScaled,
+        invertSteering ? "true" : "false",
+        isActive() ? "true" : "false",
+        badControlStart ? "true" : "false");
 
-    String getStatus() {
-      String ret = String("[RemoteControl] ");
-      ret.concat(String("throttlePWM:"));ret.concat(throttlePWM);
-      ret.concat(String(" throttleScaled:"));ret.concat(throttleScaled);if (invertThrottle) ret.concat("(inverted)");
-      ret.concat(String(" steeringPWM:"));ret.concat(steeringPWM);
-      ret.concat(String(" steeringScaled:"));ret.concat(steeringScaled);if (invertSteering) ret.concat("(inverted)");
-      ret.concat(String(" isActive:"));ret.concat(isActive());
-      ret.concat(String(" Bad Start:"));ret.concat(badControlStart);
-      ret.concat(String(" PWM Th Start: "));
+        //TODO!  Still need to convert the PWM array
 
-      for (int i = 0; i < 10; i++) {
-        ret.concat(throttlePWMStart[i]);
-        ret.concat(String(" ") );
-      }
-
-      ret.concat(String(" PWM St Start: "));
-
-      for (int i = 0; i < 10; i++) {
-        ret.concat(steeringPWMStart[i]);
-        ret.concat(String(" ") );
-      }
-
-      return ret;
+//      ret.concat(String(" PWM Th Start: "));
+//
+//      for (int i = 0; i < 10; i++) {
+//        ret.concat(throttlePWMStart[i]);
+//        ret.concat(String(" ") );
+//      }
+//
+//      ret.concat(String(" PWM St Start: "));
+//
+//      for (int i = 0; i < 10; i++) {
+//        ret.concat(steeringPWMStart[i]);
+//        ret.concat(String(" ") );
+//      }
+//
+//      return ret;
     }
 
     /* 

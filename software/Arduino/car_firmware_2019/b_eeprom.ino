@@ -24,7 +24,7 @@ const String EEPROM_USE_PUSH_BUTTON_DRIVE = "usePushButtonDrive";
  * This class serves to interpret the dip switch setting to define the configuration for this car
  */
 
-const int CURRENT_SETTINGS_VERSION = 2;
+const int CURRENT_SETTINGS_VERSION = 3;
 
 struct ConfigurationEntry {
   String name;
@@ -44,8 +44,8 @@ ConfigurationEntry configurationEntries[] = {
   {EEPROM_ACTUATOR_MAX, 16, "Integer", false, 50, ""},   // in scaled units from -100 to 100
   {EEPROM_USE_JOYSTICK, 20, "Boolean", true, 0, ""},
   {EEPROM_INVERT_JOYSTICK_X, 24, "Boolean", true, 0, ""},
-  {EEPROM_INVERT_JOYSTICK_Y, 28, "Boolean", false, 0, ""},
-  {EEPROM_USE_RC, 32, "Boolean", false, 0, ""},
+  {EEPROM_INVERT_JOYSTICK_Y, 28, "Boolean", true, 0, ""},
+  {EEPROM_USE_RC, 32, "Boolean", true, 0, ""},
   {EEPROM_USE_DRIVE_BY_WIRE, 36, "Boolean", false, 0, ""},
   {EEPROM_DRIVE_BY_WIRE_CENTER, 40, "Integer", false, 512, ""},
   {EEPROM_DRIVE_BY_WIRE_MIN, 44, "Integer", false, 300, ""},
@@ -158,12 +158,8 @@ class Eeprom {
       
       return "{\"Success\": true}";
     }
-    
-    String getStatus() {
-      String ret = String("[EEprom] ");
-      ret.concat(String("Version:"));ret.concat(getIntegerSetting("version"));
-      ret.concat(String(" Configuration "));ret.concat(loadingLogMessage);
-      
-      return ret;
+
+     void getStatus(char * status) {
+      sprintf(status, "[EEprom] Version: %i Configuration %s", getIntegerSetting("version"), loadingLogMessage);
     }
 };
