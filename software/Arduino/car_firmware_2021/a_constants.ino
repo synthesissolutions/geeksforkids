@@ -91,8 +91,8 @@ const boolean       RC_INVERT_THROTTLE      = true;
  ***************************************************************************************** 
  */
 //   ... joystick
-const int           PIN_JOYSTICK_THROTTLE         = A6;
-const int           PIN_JOYSTICK_STEERING         = A7;
+const int           PIN_JOYSTICK_THROTTLE         = A0;
+const int           PIN_JOYSTICK_STEERING         = A1;
 
 //   ... throttle ... aka the controller for the car's drive motor   
 const int           PIN_THROTTLE_DIRECTION_LEFT   = 12;  // Channel 1 on motor controller
