@@ -28,7 +28,7 @@ class Configuration {
     /*
      * getters ... translate dip switch settings into car configuration
      */
-    int getConfigurationVersion() { return spi->currentSettings.version; }
+    int getConfigurationVersion() { return spi->version; }
     
     boolean getInvertJoystickX() { return spi->currentSettings.invertJoystickX; }
     boolean getInvertJoystickY() { return spi->currentSettings.invertJoystickY; }

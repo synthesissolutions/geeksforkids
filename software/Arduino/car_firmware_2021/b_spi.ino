@@ -12,10 +12,12 @@ using namespace Adafruit_LittleFS_Namespace;
 
 #define FILENAME    "/geeks.dat"
 
+File file(InternalFS);
+
 const int CURRENT_SETTINGS_VERSION = 3;
 
 struct ConfigurationSettings {
-  unsigned int version;
+
   int actuatorCenter;
   int actuatorMin;
   int actuatorMax;
@@ -46,8 +48,7 @@ ConfigurationEntry configurationEntries[] = {
 
 class Spi {
   private:
-    const unsigned int EE_ADDRESS = 0;
-    String loadingLogMessage = "Loaded from SPI Flash memory";
+    char *loadingLogMessage = "Loaded from SPI Flash memory";
     
     StaticJsonDocument<1024> currentSettingsJson;  
 
@@ -57,23 +58,29 @@ class Spi {
     }
 
     ConfigurationSettings currentSettings;
-
+    unsigned int version;
+    
     /*
      * init - load configuration values
      */
     void init() {
-      if (loadFromSpiFlash() ||currentSettings.version != CURRENT_SETTINGS_VERSION) {
+       InternalFS.begin();
+
+      if (!loadFromSpiFlash() || version != CURRENT_SETTINGS_VERSION) {
         setDefaultValues();
         if (saveToSpiFlash()) {
           loadingLogMessage = "Loaded from defaults";
         } else {
           loadingLogMessage = "Loaded from defaults - Saved Failed!";
         }
+      } else {
+        loadingLogMessage = "Loaded from settings file";
       }
     }
 
     void setDefaultValues() {
-        currentSettings.version = CURRENT_SETTINGS_VERSION;
+        version = CURRENT_SETTINGS_VERSION;
+        
         currentSettings.actuatorCenter = 0;
         currentSettings.actuatorMin = -50;
         currentSettings.actuatorMax = 50;
@@ -84,10 +91,35 @@ class Spi {
     }
 
     bool loadFromSpiFlash() {
-      return false;
+      // Initialize Internal File System
+      version = 0;
+      uint32_t readlen;
+
+      if (file.open(FILENAME, FILE_O_READ)) {
+        readlen = file.read((uint8_t *)&version, sizeof(unsigned int));
+
+        if (version == CURRENT_SETTINGS_VERSION) {
+          readlen = file.read((uint8_t *)&currentSettings, sizeof(struct ConfigurationSettings));
+        }
+      }
+
+      file.close();
+      
+      return version == CURRENT_SETTINGS_VERSION;
     }
 
     bool saveToSpiFlash() {
+      if( file.open(FILENAME, FILE_O_WRITE) )
+      {
+        Serial.println("OK");
+        file.write((uint8_t *)&version, sizeof(unsigned int));
+        file.write((uint8_t *)&currentSettings, sizeof(struct ConfigurationSettings));
+        
+        file.close();
+
+        return true;
+      }
+  
       return false;
     }
 
@@ -151,6 +183,6 @@ class Spi {
     */
 
      void getStatus(char * status) {
-      sprintf(status, "[SPI Flash] Version: %i Configuration %s", currentSettings.version, loadingLogMessage);
+      sprintf(status, "[SPI Flash] Version: %i Configuration %s", version, loadingLogMessage);
     }
 };
