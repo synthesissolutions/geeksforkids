@@ -20,15 +20,13 @@ class Logger {
     char statusLine[LOGGER_LINE_LENGTH];
     
     // Yeah... don't like that the logger has to have these explicity defined.  But it's good enough for now.
-    Eeprom *eeprom;
+    Spi *spi;
     Bluetooth *bluetooth;
     Configuration *configuration;
     Joystick *joystick;
-    DriveByWireAndGoButton *driveByWire;
     RemoteControl *rc;
     Steering *steering;
     Throttle *throttle;
-    ButtonDrive *buttonDrive;
 
   public: 
     // Default constructor ... does nothing.  This allows us to delay setting the pins until we want to (via the init method).
@@ -38,19 +36,17 @@ class Logger {
     /*
      * Set up the logging.  An updateTime of 0 will turn logging off.  Very much tied to knowing what objects we're going to log status for!!!
      */
-    void init(int updateTime, Eeprom *e, Bluetooth *b, Configuration *c, Joystick *j, DriveByWireAndGoButton *dw, RemoteControl *r, Steering *s, Throttle *t, ButtonDrive *bd) {
+    void init(int updateTime, Spi *s, Bluetooth *b, Configuration *c, Joystick *j, RemoteControl *r, Steering *st, Throttle *t) {
 
       Serial.begin(txSpeed);
 
-      eeprom = e;
+      spi = s;
       bluetooth = b;
       configuration = c;
       joystick = j;
-      driveByWire = dw;
       rc = r;
-      steering = s;
+      steering = st;
       throttle = t;
-      buttonDrive = bd;
       
       updateDeltaT = updateTime;
       lastUpdateTime = millis();
@@ -94,20 +90,8 @@ class Logger {
           Serial.println();
         }
         
-        if (configuration->useDriveByWireAndGoButton()) {
-          driveByWire->getStatus(statusLine);
-          Serial.write(statusLine, strlen(statusLine));
-          Serial.println();
-        }
-        
         if (configuration->useRc()) {
           rc->getStatus(statusLine);
-          Serial.write(statusLine, strlen(statusLine));
-          Serial.println();
-        }
-        
-        if (configuration->usePushButtonDrive()) {
-          buttonDrive->getStatus(statusLine);
           Serial.write(statusLine, strlen(statusLine));
           Serial.println();
         }
@@ -120,7 +104,7 @@ class Logger {
         Serial.write(statusLine, strlen(statusLine));
         Serial.println();
 
-        eeprom->getStatus(statusLine);
+        spi->getStatus(statusLine);
         Serial.write(statusLine, strlen(statusLine));
         Serial.println();
 

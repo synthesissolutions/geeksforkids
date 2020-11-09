@@ -43,16 +43,6 @@ const int           JOYSTICK_X_AXIS_DEADZONE_HIGH    = 15;
 const int           JOYSTICK_Y_AXIS_DEADZONE_LOW     = -35;
 const int           JOYSTICK_Y_AXIS_DEADZONE_HIGH    = 35;
 
-// Steering Pot Go Button parms - these are based on the range 0-1023
-const int           STEERING_HALL_SENSOR_CENTER           = 1500;
-const int           STEERING_HALL_SENSOR_MIN              = 500;
-const int           STEERING_HALL_SENSOR_MAX              = 3000;
-const boolean       HALL_SENSOR_INVERT_STEERING           = false;
-
-// Drive by wire and go button params - these are in scaled units (-100 to 100)
-const int           HALL_SENSOR_STEERING_DEADZONE_LOW     = -10;
-const int           HALL_SENSOR_STEERING_DEADZONE_HIGH    = 10;
-
 // Joystick parms - get the direction correct
 const boolean       JOYSTICK_INVERT_X_AXIS  = true;
 const boolean       JOYSTICK_INVERT_Y_AXIS  = false;
@@ -101,35 +91,25 @@ const boolean       RC_INVERT_THROTTLE      = true;
  ***************************************************************************************** 
  */
 //   ... joystick
-const int           PIN_JOYSTICK_THROTTLE   = A6;
-const int           PIN_JOYSTICK_STEERING   = A7;
+const int           PIN_JOYSTICK_THROTTLE         = A6;
+const int           PIN_JOYSTICK_STEERING         = A7;
 
 //   ... throttle ... aka the controller for the car's drive motor   
-const int           PIN_THROTTLE_DIRECTION_LEFT  = 6;  // Channel 1 on motor controller
-const int           PIN_THROTTLE_PWM_LEFT        = 3;
-const int           PIN_THROTTLE_DIRECTION_RIGHT = 5; // Channel 2 on motor controller
-const int           PIN_THROTTLE_PWM_RIGHT       = 2;
+const int           PIN_THROTTLE_DIRECTION_LEFT   = 12;  // Channel 1 on motor controller
+const int           PIN_THROTTLE_PWM_LEFT         = 13;
+const int           PIN_THROTTLE_DIRECTION_RIGHT  = 10; // Channel 2 on motor controller
+const int           PIN_THROTTLE_PWM_RIGHT        = 11;
 
-const int           PIN_MAX_SPEED           = A3;
+const int           PIN_MAX_SPEED                 = A3;
 
 //   ... steering ... aka the controller for the car's steering servo
-const int           PIN_STEERING_DIRECTION  = 7;
-const int           PIN_STEERING_PWM        = 4;
-const int           PIN_STEERING_POSITION   = A5;
-
-//  ... steering by hall sensor array and drive by Go button
-const int           PIN_HALL_SENSOR         = 18;
-const int           PIN_GO_BUTTON           = 20;
-const int           PIN_REVERSE_SWITCH      = 13;
+const int           PIN_STEERING_DIRECTION        = 6;
+const int           PIN_STEERING_PWM              = 9;
+const int           PIN_STEERING_POSITION         = A2;
 
 //   ... RC ... aka the parent remote control inputs
-const int           PIN_RC_STEERING         = 11;   
-const int           PIN_RC_THROTTLE         = 10;     
-
-//   ... Drive Buttons
-const int           PIN_BUTTON_STRAIGHT     = 21;
-const int           PIN_BUTTON_LEFT         = 20;
-const int           PIN_BUTTON_RIGHT        = 16;
+const int           PIN_RC_STEERING               = 5;   
+const int           PIN_RC_THROTTLE               = 2;     
 
 //   ... Bluetooth
-const int           PIN_ENABLE_BLUETOOTH_BUTTON = 8;
+const int           PIN_ENABLE_BLUETOOTH_BUTTON   = A4;

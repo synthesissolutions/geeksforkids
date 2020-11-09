@@ -13,7 +13,7 @@ class Bluetooth {
     boolean readingCommand = false;
     int enableBluetoothButtonPin;
     boolean isBluetoothEnabled = false;
-    Eeprom *eeprom;
+    Spi *spi;
     
     StaticJsonDocument<1024> currentCommandJson;
   
@@ -26,9 +26,9 @@ class Bluetooth {
     /*
      * init - initialize the dip switch pins
      */
-    void init(int enableBluetoothButtonPin, Eeprom *e) {  
+    void init(int enableBluetoothButtonPin, Spi *s) {  
       this->enableBluetoothButtonPin = enableBluetoothButtonPin;
-      eeprom = e;
+      spi = s;
       pinMode(enableBluetoothButtonPin, INPUT_PULLDOWN);
     }
 
@@ -36,7 +36,7 @@ class Bluetooth {
       Serial.println("");
       Serial.println("Bluetooth Initialized...");
       Serial.println("");
-      Serial3.begin(9600);
+      //Serial3.begin(9600);
     }
 
     /*
@@ -83,7 +83,7 @@ class Bluetooth {
       Serial.println(command);
       if (command == "Get") {
         // TODO call method on EEprom to get JSON object
-        serializeJson(eeprom->getCurrentSettingsAsJson(), returnVal);
+        //serializeJson(eeprom->getCurrentSettingsAsJson(), returnVal);
       } else if (command == "Set") {
         returnVal = processSetCommand();
       } else if (command == "Reset") {
@@ -94,6 +94,7 @@ class Bluetooth {
     }
     
     String processSetCommand() {
+      /*
       // TODO call set method on the EEprom object
       for (int i = 0; i < NUMBER_OF_CONFIGURATION_ENTRIES; i++) {
         ConfigurationEntry entry = configurationEntries[i];
@@ -125,16 +126,20 @@ class Bluetooth {
           }
         }
       }
+      */
 
-      eeprom->saveConfiguration();
+      spi->saveToSpiFlash();
       
       return "{\"Success\": true}";
     }
     
     String processResetCommand() {
-      eeprom->resetConfiguration();
-      
-      return "{\"Success\": true}";
+      spi->setDefaultValues();
+      if (spi->saveToSpiFlash()) {
+        return "{\"Success\": true}";
+      } else {
+        return "{\"Success\": false}";
+      }
     }
 
     void processBluetooth() {
@@ -142,9 +147,10 @@ class Bluetooth {
     
       if (Serial.available()) {
         c = Serial.read();
-        Serial3.print(c);
+        //Serial3.print(c);
       }
 
+/*
       if (Serial3.available()) {
         c = Serial3.read();
         Serial.print(c);
@@ -169,6 +175,7 @@ class Bluetooth {
           rawCommand += c;
         }
       }
+      */
     }
     
     void getStatus(char * status) {

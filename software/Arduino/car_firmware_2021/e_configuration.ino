@@ -1,12 +1,12 @@
 /**
  * Configuration Class
  * 
- * This class serves to interpret the eeprom settings to define the configuration for this car
+ * This class serves to interpret the spi settings to define the configuration for this car
  */
 
 class Configuration {
   private:
-    Eeprom *eeprom;
+    Spi *spi;
     int maxSpeedPin;
     
   public: 
@@ -17,10 +17,10 @@ class Configuration {
     /*
      * init - initialize the dip switch pins
      */
-    void init(Eeprom *e, int s) {
-      eeprom = e;
+    void init(Spi *s, int sp) {
+      spi = s;
 
-      maxSpeedPin = s;
+      maxSpeedPin = sp;
       pinMode(maxSpeedPin, INPUT);
 
     }
@@ -28,15 +28,13 @@ class Configuration {
     /*
      * getters ... translate dip switch settings into car configuration
      */
-    int getConfigurationVersion() { return eeprom->getIntegerSetting(EEPROM_VERSION); }
+    int getConfigurationVersion() { return spi->currentSettings.version; }
     
-    boolean getInvertJoystickX() { return eeprom->getBooleanSetting(EEPROM_INVERT_JOYSTICK_X); }
-    boolean getInvertJoystickY() { return eeprom->getBooleanSetting(EEPROM_INVERT_JOYSTICK_Y); }
+    boolean getInvertJoystickX() { return spi->currentSettings.invertJoystickX; }
+    boolean getInvertJoystickY() { return spi->currentSettings.invertJoystickY; }
 
-    boolean useJoystick() { return eeprom->getBooleanSetting(EEPROM_USE_JOYSTICK); }
-    boolean useRc() { return eeprom->getBooleanSetting(EEPROM_USE_RC); }
-    boolean useDriveByWireAndGoButton() { return eeprom->getBooleanSetting(EEPROM_USE_DRIVE_BY_WIRE); }
-    boolean usePushButtonDrive() { return eeprom->getBooleanSetting(EEPROM_USE_PUSH_BUTTON_DRIVE); }
+    boolean useJoystick() { return spi->currentSettings.useJoystick; }
+    boolean useRc() { return spi->currentSettings.useRc; }
 
     int readMaxSpeedPot() {
       return analogRead(maxSpeedPin);  
@@ -46,37 +44,30 @@ class Configuration {
       return constrain(map(readMaxSpeedPot(), 0, 1023, SPEED_CONFIGURATION_MIN_SPEED, SPEED_CONFIGURATION_MAX_SPEED), SPEED_CONFIGURATION_MIN_SPEED, SPEED_CONFIGURATION_MAX_SPEED) / 100.0;
     }
     
-    int getSpeedMultiplierInt2() {
-      int eepromValue = eeprom->getIntegerSetting(EEPROM_MAX_SPEED);
-      return eepromValue;
-    }
-    
     int getSteeringCenter() {
-      int eepromValue = eeprom->getIntegerSetting(EEPROM_ACTUATOR_CENTER);
-      return eepromValue;
+      int spiValue = spi->currentSettings.actuatorCenter;
+      return spiValue;
     }
     
     int getSteeringMin() {
-      int eepromValue = eeprom->getIntegerSetting(EEPROM_ACTUATOR_MIN);
-      return eepromValue;
+      int spiValue = spi->currentSettings.actuatorMin;
+      return spiValue;
     }
     
     int getSteeringMax() {
-      int eepromValue = eeprom->getIntegerSetting(EEPROM_ACTUATOR_MAX);
-      return eepromValue;
+      int spiValue = spi->currentSettings.actuatorMax;
+      return spiValue;
     }
 
     void getStatus(char * status) {
-      sprintf(status, "[Configuration] Version: %i  Invert Joystick X:%s Invert Joystick Y:%s Speed Multiplier:%f Speed Pot:%i Joystick:%s PushButton:%s RC:%s DriveByWire:%s Min/C/Max:%i %i %i", 
+      sprintf(status, "[Configuration] Version: %i  Invert Joystick X:%s Invert Joystick Y:%s Speed Multiplier:%f Speed Pot:%i Joystick:%s RC:%s Min/C/Max:%i %i %i", 
         getConfigurationVersion(),
         getInvertJoystickX() ? "true" : "false",
         getInvertJoystickY() ? "true" : "false",
         getSpeedMultiplier(),
         readMaxSpeedPot(),
         useJoystick() ? "true" : "false",
-        usePushButtonDrive() ? "true" : "false",
         useRc() ? "true" : "false",
-        useDriveByWireAndGoButton() ? "true" : "false",
         getSteeringMin(),
         getSteeringCenter(),
         getSteeringMax());

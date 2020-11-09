@@ -9,15 +9,13 @@
 /*
  * Objects that we'll need.  They'll auto construct, but the pattern we're using will require them to have their init() method called.
  */
-Eeprom eeprom;
+Spi spi;
 Bluetooth bluetooth;
 Configuration configuration;
 Joystick joystick;
-DriveByWireAndGoButton driveByWire;
 Steering steering;
 Throttle throttle;
 RemoteControl remoteControl;
-ButtonDrive buttonDrive;
 Logger logger;
 
 /*
@@ -26,7 +24,6 @@ Logger logger;
  */
  void handleRCSteeringInterrupt() {remoteControl.steeringIRQHandler();}
  void handleRCThrottleInterrupt() {remoteControl.throttleIRQHandler();}
- void handleHallSensorSteeringInterrupt() {driveByWire.steeringIRQHandler();}
 /*
  * Now a couple of variables that help us do a bit of logging
  */
@@ -39,15 +36,15 @@ boolean bluetoothInitialized = false;
  */
 void setup() {
   // set up the logger
-  logger.init(LOGGER_UPDATE_TIME, &eeprom, &bluetooth, &configuration, &joystick, &driveByWire, &remoteControl, &steering, &throttle, &buttonDrive);
+  logger.init(LOGGER_UPDATE_TIME, &spi, &bluetooth, &configuration, &joystick, &remoteControl, &steering, &throttle);
 
-  eeprom.init();
-  logger.addLogLine("eeprom initialized");
+  spi.init();
+  logger.addLogLine("SPI Flash initialized");
 
-  bluetooth.init(PIN_ENABLE_BLUETOOTH_BUTTON, &eeprom);
+  bluetooth.init(PIN_ENABLE_BLUETOOTH_BUTTON, &spi);
   logger.addLogLine("bluetooth button initialized");
   
-  configuration.init(&eeprom, PIN_MAX_SPEED);
+  configuration.init(&spi, PIN_MAX_SPEED);
   logger.addLogLine("configuration initialized");
     
   if (configuration.useJoystick()) {
@@ -55,19 +52,9 @@ void setup() {
     logger.addLogLine("joystick initialized");
   }
 
-  if (configuration.useDriveByWireAndGoButton()) {
-    driveByWire.init(PIN_HALL_SENSOR, PIN_GO_BUTTON, PIN_REVERSE_SWITCH);
-    logger.addLogLine("steering hall sensor and go button initialized");
-  }
-
   if (configuration.useRc()) {
     remoteControl.init(PIN_RC_STEERING, PIN_RC_THROTTLE);
     logger.addLogLine("remote control initialized");
-  }
-
-  if (configuration.usePushButtonDrive()) {
-    buttonDrive.init(PIN_BUTTON_LEFT, PIN_BUTTON_RIGHT, PIN_BUTTON_STRAIGHT, PIN_REVERSE_SWITCH);
-    logger.addLogLine("drive buttons initialized");
   }
 
   throttle.init(PIN_THROTTLE_DIRECTION_LEFT, PIN_THROTTLE_PWM_LEFT, PIN_THROTTLE_DIRECTION_RIGHT, PIN_THROTTLE_PWM_RIGHT);
@@ -80,9 +67,6 @@ void setup() {
   // set up the interrupt handlers
   attachInterrupt(digitalPinToInterrupt(PIN_RC_STEERING), &handleRCSteeringInterrupt, CHANGE);
   attachInterrupt(digitalPinToInterrupt(PIN_RC_THROTTLE), &handleRCThrottleInterrupt, CHANGE);
-  if (configuration.useDriveByWireAndGoButton()) {
-    attachInterrupt(digitalPinToInterrupt(PIN_HALL_SENSOR), &handleHallSensorSteeringInterrupt, CHANGE);
-  }
   logger.addLogLine("interrupts attached");
 
   // Set steering limits from configuration
@@ -127,19 +111,6 @@ void loop() {
       // set the inputs from the RC
       steering.setSteeringPosition(remoteControl.getSteeringScaled());
       throttle.setThrottle(remoteControl.getThrottleScaled());
-    } else if (configuration.useDriveByWireAndGoButton()) {
-        if (rcInControl) {
-          logger.addLogLine("Steering hall sensor and Go Button are now in control, taking over from RC");
-          joystickInControl=true;
-          rcInControl=false;
-        }
-  
-        // set the inputs from the steering hall sensor and go button
-        steering.setSteeringPosition(driveByWire.getSteeringScaled());
-        throttle.setThrottle(driveByWire.getThrottleScaled()*configuration.getSpeedMultiplier());
-    } else if (configuration.usePushButtonDrive()) {
-      steering.setSteeringPosition(buttonDrive.getXAxisScaled());
-      throttle.setThrottle(buttonDrive.getYAxisScaled() * configuration.getSpeedMultiplier());
     } else {
       
       // Nope... the parent isn't controlling
