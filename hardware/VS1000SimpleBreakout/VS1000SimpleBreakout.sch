@@ -44,6 +44,7 @@ F 0 "Y1" V 7866 5181 50  0000 L CNN
 F 1 "Resonator" V 7775 5181 50  0000 L CNN
 F 2 "Project:Resonator" H 7795 5070 50  0001 C CNN
 F 3 "~" H 7795 5070 50  0001 C CNN
+F 4 "https://www.digikey.com/en/products/detail/AWSCR-12.00CELA-C33-T3/535-15066-1-ND/10232593?itemSeq=340296092" V 7820 5070 50  0001 C CNN "DigiKey"
 	1    7820 5070
 	0    -1   -1   0   
 $EndComp
