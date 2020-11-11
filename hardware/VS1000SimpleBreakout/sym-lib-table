@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name VS1000)(type Legacy)(uri ${KIPRJMOD}/VS1000.lib)(options "")(descr ""))
+  (lib (name ProjectMicoUsb)(type Legacy)(uri ${KIPRJMOD}/microusb.lib)(options "")(descr ""))
+)
