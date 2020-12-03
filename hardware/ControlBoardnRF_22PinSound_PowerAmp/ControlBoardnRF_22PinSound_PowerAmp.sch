@@ -16,17 +16,17 @@ $EndDescr
 $Comp
 L Connector:Conn_01x04_Male J1
 U 1 1 5D5BB7A8
-P 6700 3850
-F 0 "J1" H 6900 4100 50  0000 R CNN
-F 1 "RC" H 6750 4100 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 6700 3850 50  0001 C CNN
-F 3 "~" H 6700 3850 50  0001 C CNN
-	1    6700 3850
+P 6340 4100
+F 0 "J1" H 6540 4350 50  0000 R CNN
+F 1 "RC" H 6390 4350 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 6340 4100 50  0001 C CNN
+F 3 "~" H 6340 4100 50  0001 C CNN
+	1    6340 4100
 	1    0    0    -1  
 $EndComp
 Text Notes 8759 3700 3    59   ~ 0
 3 Y X 2 1 5 G
-Text Notes 6659 3700 3    59   ~ 0
+Text Notes 6299 3950 3    59   ~ 0
 S S G 3\n
 $Comp
 L power:+5V #PWR026
@@ -75,23 +75,23 @@ $EndComp
 $Comp
 L power:GND #PWR014
 U 1 1 5D6C064F
-P 6900 3850
-F 0 "#PWR014" H 6900 3600 50  0001 C CNN
-F 1 "GND" V 6900 3600 50  0000 C CNN
-F 2 "" H 6900 3850 50  0001 C CNN
-F 3 "" H 6900 3850 50  0001 C CNN
-	1    6900 3850
+P 6540 4100
+F 0 "#PWR014" H 6540 3850 50  0001 C CNN
+F 1 "GND" V 6540 3850 50  0000 C CNN
+F 2 "" H 6540 4100 50  0001 C CNN
+F 3 "" H 6540 4100 50  0001 C CNN
+	1    6540 4100
 	0    -1   -1   0   
 $EndComp
 $Comp
 L power:+3.3V #PWR03
 U 1 1 5D6D576D
-P 6900 3750
-F 0 "#PWR03" H 6900 3600 50  0001 C CNN
-F 1 "+3.3V" V 6900 4000 50  0000 C CNN
-F 2 "" H 6900 3750 50  0001 C CNN
-F 3 "" H 6900 3750 50  0001 C CNN
-	1    6900 3750
+P 6540 4000
+F 0 "#PWR03" H 6540 3850 50  0001 C CNN
+F 1 "+3.3V" V 6540 4250 50  0000 C CNN
+F 2 "" H 6540 4000 50  0001 C CNN
+F 3 "" H 6540 4000 50  0001 C CNN
+	1    6540 4000
 	0    1    1    0   
 $EndComp
 $Comp
@@ -177,91 +177,69 @@ $EndComp
 NoConn ~ 9050 2850
 NoConn ~ 9050 2450
 $Comp
-L UsefulModifications:TMR_1-0511_mod U3
-U 1 1 5EE1E4FD
-P 6250 5150
-F 0 "U3" H 6250 5617 50  0000 C CNN
-F 1 "TMR_1-0511_mod" H 6250 5526 50  0000 C CNN
-F 2 "Useful Modifications:Regulator_LM2596Adj" H 6250 4800 50  0001 C CNN
-F 3 "" H 6250 4650 50  0001 C CNN
-	1    6250 5150
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:+12V #PWR0101
 U 1 1 5EE21F5B
-P 5750 4950
-F 0 "#PWR0101" H 5750 4800 50  0001 C CNN
-F 1 "+12V" V 5765 5078 50  0000 L CNN
-F 2 "" H 5750 4950 50  0001 C CNN
-F 3 "" H 5750 4950 50  0001 C CNN
-	1    5750 4950
-	0    -1   -1   0   
+P 6800 5450
+F 0 "#PWR0101" H 6800 5300 50  0001 C CNN
+F 1 "+12V" V 6815 5578 50  0000 L CNN
+F 2 "" H 6800 5450 50  0001 C CNN
+F 3 "" H 6800 5450 50  0001 C CNN
+	1    6800 5450
+	0    1    1    0   
 $EndComp
 $Comp
 L power:GND #PWR0103
 U 1 1 5EE242AC
-P 6750 5350
-F 0 "#PWR0103" H 6750 5100 50  0001 C CNN
-F 1 "GND" V 6750 5250 50  0000 R CNN
-F 2 "" H 6750 5350 50  0001 C CNN
-F 3 "" H 6750 5350 50  0001 C CNN
-	1    6750 5350
+P 6800 5250
+F 0 "#PWR0103" H 6800 5000 50  0001 C CNN
+F 1 "GND" V 6800 5130 50  0000 R CNN
+F 2 "" H 6800 5250 50  0001 C CNN
+F 3 "" H 6800 5250 50  0001 C CNN
+	1    6800 5250
 	0    -1   -1   0   
 $EndComp
 $Comp
 L power:+5V #PWR0104
 U 1 1 5EE28E61
-P 6950 4950
-F 0 "#PWR0104" H 6950 4800 50  0001 C CNN
-F 1 "+5V" V 6950 5050 50  0000 L CNN
-F 2 "" H 6950 4950 50  0001 C CNN
-F 3 "" H 6950 4950 50  0001 C CNN
-	1    6950 4950
+P 7130 5350
+F 0 "#PWR0104" H 7130 5200 50  0001 C CNN
+F 1 "+5V" V 7130 5450 50  0000 L CNN
+F 2 "" H 7130 5350 50  0001 C CNN
+F 3 "" H 7130 5350 50  0001 C CNN
+	1    7130 5350
 	0    1    1    0   
-$EndComp
-$Comp
-L Device:Jumper_NO_Small JP5
-U 1 1 5EE2E9C1
-P 6850 4950
-F 0 "JP5" H 6750 5050 50  0000 L CNN
-F 1 "5v Jumper" H 6800 4850 50  0000 L CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm" H 6850 4950 50  0001 C CNN
-F 3 "~" H 6850 4950 50  0001 C CNN
-	1    6850 4950
-	1    0    0    -1  
 $EndComp
 $Comp
 L Connector:TestPoint TP1
 U 1 1 5EE709D2
-P 6750 5350
-F 0 "TP1" H 6808 5468 50  0000 L CNN
-F 1 "Gnd" H 6700 5250 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_1.5x1.5mm" H 6950 5350 50  0001 C CNN
-F 3 "~" H 6950 5350 50  0001 C CNN
-	1    6750 5350
+P 6800 5250
+F 0 "TP1" H 6750 5500 50  0000 L CNN
+F 1 "Gnd" H 6610 5370 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_1.5x1.5mm" H 7000 5250 50  0001 C CNN
+F 3 "~" H 7000 5250 50  0001 C CNN
+	1    6800 5250
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector:Screw_Terminal_01x02 J13
 U 1 1 5EE8257A
-P 4900 5250
-F 0 "J13" H 4818 4925 50  0000 C CNN
-F 1 "Main Power" H 4818 5016 50  0000 C CNN
-F 2 "Useful Modifications:TerminalBlock_bornier-2_P5.08mm" H 4900 5250 50  0001 C CNN
-F 3 "~" H 4900 5250 50  0001 C CNN
-	1    4900 5250
+P 5550 5050
+F 0 "J13" H 5468 4725 50  0000 C CNN
+F 1 "Main Power" H 5468 4816 50  0000 C CNN
+F 2 "Useful Modifications:TerminalBlock_bornier-2_P5.08mm" H 5550 5050 50  0001 C CNN
+F 3 "~" H 5550 5050 50  0001 C CNN
+	1    5550 5050
 	-1   0    0    1   
 $EndComp
 $Comp
 L power:+12V #PWR024
 U 1 1 5EE8644F
-P 5100 5150
-F 0 "#PWR024" H 5100 5000 50  0001 C CNN
-F 1 "+12V" V 5115 5278 50  0000 L CNN
-F 2 "" H 5100 5150 50  0001 C CNN
-F 3 "" H 5100 5150 50  0001 C CNN
-	1    5100 5150
+P 5750 4950
+F 0 "#PWR024" H 5750 4800 50  0001 C CNN
+F 1 "+12V" V 5765 5078 50  0000 L CNN
+F 2 "" H 5750 4950 50  0001 C CNN
+F 3 "" H 5750 4950 50  0001 C CNN
+	1    5750 4950
 	0    1    1    0   
 $EndComp
 $Sheet
@@ -286,25 +264,14 @@ LeftIN
 Text GLabel 9050 2950 2    50   Input ~ 0
 RightIN
 $Comp
-L power:GND #PWR0102
-U 1 1 5F5C0DDE
-P 5750 5350
-F 0 "#PWR0102" H 5750 5100 50  0001 C CNN
-F 1 "GND" V 5750 5250 50  0000 R CNN
-F 2 "" H 5750 5350 50  0001 C CNN
-F 3 "" H 5750 5350 50  0001 C CNN
-	1    5750 5350
-	0    1    1    0   
-$EndComp
-$Comp
 L power:GND #PWR0107
 U 1 1 5F5C3B2C
-P 5100 5250
-F 0 "#PWR0107" H 5100 5000 50  0001 C CNN
-F 1 "GND" V 5100 5150 50  0000 R CNN
-F 2 "" H 5100 5250 50  0001 C CNN
-F 3 "" H 5100 5250 50  0001 C CNN
-	1    5100 5250
+P 5750 5050
+F 0 "#PWR0107" H 5750 4800 50  0001 C CNN
+F 1 "GND" V 5750 4950 50  0000 R CNN
+F 2 "" H 5750 5050 50  0001 C CNN
+F 3 "" H 5750 5050 50  0001 C CNN
+	1    5750 5050
 	0    -1   -1   0   
 $EndComp
 Text GLabel 8550 2350 0    50   Input ~ 0
@@ -315,22 +282,10 @@ Text GLabel 8550 3950 0    50   Input ~ 0
 Sound1
 Text GLabel 8550 4050 0    50   Input ~ 0
 Sound2
-Text GLabel 8550 4150 0    50   Input ~ 0
+Text GLabel 7910 4710 0    50   Input ~ 0
 Throttle
-Text GLabel 8550 4250 0    50   Input ~ 0
+Text GLabel 7940 4130 0    50   Input ~ 0
 Steering
-Text GLabel 4900 2500 0    50   Input ~ 0
-Throttle
-Text GLabel 4900 2600 0    50   Input ~ 0
-Steering
-Text GLabel 6900 3950 2    50   Input ~ 0
-RC_Throttle
-Text GLabel 6900 4050 2    50   Input ~ 0
-RC_Steering
-Text GLabel 4900 3600 0    50   Input ~ 0
-RC_Throttle
-Text GLabel 5800 3400 2    50   Input ~ 0
-RC_Steering
 Text GLabel 4900 2700 0    50   Input ~ 0
 LinAct_Position
 NoConn ~ 9050 2550
@@ -340,7 +295,7 @@ Text Notes 9400 3100 0    50   ~ 0
 Connects to Amp\non other sheet.
 Text GLabel 3450 3750 2    50   Input ~ 0
 BT_Switch
-Text GLabel 4900 2900 0    50   Input ~ 0
+Text GLabel 5800 3400 2    50   Input ~ 0
 BT_Switch
 $Comp
 L power:GND #PWR02
@@ -371,7 +326,7 @@ L Connector:Conn_01x03_Male J3
 U 1 1 5FA4353E
 P 3300 3250
 F 0 "J3" H 3600 3500 50  0000 R CNN
-F 1 "Speed Ctrl" H 3450 3500 50  0000 R CNN
+F 1 "SpeedCtrl" H 3450 3500 50  0000 R CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 3300 3250 50  0001 C CNN
 F 3 "~" H 3300 3250 50  0001 C CNN
 	1    3300 3250
@@ -397,7 +352,7 @@ L Connector:Conn_01x03_Female J11
 U 1 1 5FA5BE7E
 P 6950 3200
 F 0 "J11" H 7050 3200 50  0000 C CNN
-F 1 "Motor3" H 7100 3100 50  0000 C CNN
+F 1 "LinAct_M3" H 7140 3090 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 6950 3200 50  0001 C CNN
 F 3 "~" H 6950 3200 50  0001 C CNN
 	1    6950 3200
@@ -408,35 +363,35 @@ L Connector:Conn_01x03_Female J8
 U 1 1 5FA5B276
 P 6950 2800
 F 0 "J8" H 7050 2800 50  0000 C CNN
-F 1 "Motor2" H 7100 2700 50  0000 C CNN
+F 1 "Right_M2" H 7130 2700 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 6950 2800 50  0001 C CNN
 F 3 "~" H 6950 2800 50  0001 C CNN
 	1    6950 2800
 	-1   0    0    1   
 $EndComp
 Text GLabel 7150 3100 2    50   Input ~ 0
-M3_PWM
+LinAct_PWM
 Text GLabel 7150 3200 2    50   Input ~ 0
-M3_DIR
+LinAct_DIR
 $Comp
 L Connector:Conn_01x03_Female J6
 U 1 1 5FA534CD
 P 6950 2350
 F 0 "J6" H 6978 2376 50  0000 L CNN
-F 1 "Motor1" H 6950 2250 50  0000 L CNN
+F 1 "Left_M1" H 6950 2250 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 6950 2350 50  0001 C CNN
 F 3 "~" H 6950 2350 50  0001 C CNN
 	1    6950 2350
 	-1   0    0    1   
 $EndComp
 Text GLabel 7150 2700 2    50   Input ~ 0
-M2_PWM
+Right_PWM
 Text GLabel 7150 2800 2    50   Input ~ 0
-M2_DIR
+Right_DIR
 Text GLabel 7150 2250 2    50   Input ~ 0
-M1_PWM
+Left_PWM
 Text GLabel 7150 2350 2    50   Input ~ 0
-M1_DIR
+Left_DIR
 Text GLabel 3400 2700 2    50   Input ~ 0
 LinAct_Position
 $Comp
@@ -497,17 +452,17 @@ F 3 "" H 7150 2450 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 Text GLabel 5800 2800 2    50   Input ~ 0
-M1_PWM
+Left_PWM
 Text GLabel 5800 2900 2    50   Input ~ 0
-M1_DIR
+Left_DIR
 Text GLabel 5800 3000 2    50   Input ~ 0
-M2_PWM
+Right_PWM
 Text GLabel 5800 3100 2    50   Input ~ 0
-M2_DIR
+Right_DIR
 Text GLabel 5800 3200 2    50   Input ~ 0
-M3_PWM
+LinAct_PWM
 Text GLabel 5800 3300 2    50   Input ~ 0
-M3_DIR
+LinAct_DIR
 $Comp
 L power:GND #PWR07
 U 1 1 5FA68CC8
@@ -533,7 +488,6 @@ $EndComp
 NoConn ~ 5800 2600
 NoConn ~ 5800 2500
 NoConn ~ 4900 3500
-NoConn ~ 4900 3400
 NoConn ~ 4900 3300
 NoConn ~ 4900 3200
 NoConn ~ 4900 3100
@@ -580,47 +534,8 @@ Text GLabel 5800 3600 2    50   Input ~ 0
 I2C_SDA
 Text GLabel 5800 3500 2    50   Input ~ 0
 I2C_SCL
-$Comp
-L power:GND #PWR06
-U 1 1 5FA9E27A
-P 3550 4500
-F 0 "#PWR06" H 3550 4250 50  0001 C CNN
-F 1 "GND" V 3550 4300 50  0000 C CNN
-F 2 "" H 3550 4500 50  0001 C CNN
-F 3 "" H 3550 4500 50  0001 C CNN
-	1    3550 4500
-	0    -1   -1   0   
-$EndComp
-$Comp
-L power:+3.3V #PWR05
-U 1 1 5FA9E280
-P 3550 4300
-F 0 "#PWR05" H 3550 4150 50  0001 C CNN
-F 1 "+3.3V" V 3550 4500 50  0000 C CNN
-F 2 "" H 3550 4300 50  0001 C CNN
-F 3 "" H 3550 4300 50  0001 C CNN
-	1    3550 4300
-	0    1    1    0   
-$EndComp
-Text Notes 3309 4250 3    59   ~ 0
-G S 3
-$Comp
-L Connector:Conn_01x03_Male J4
-U 1 1 5FA9E287
-P 3350 4400
-F 0 "J4" H 3650 4650 50  0000 R CNN
-F 1 "Aux A5" H 3500 4650 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 3350 4400 50  0001 C CNN
-F 3 "~" H 3350 4400 50  0001 C CNN
-	1    3350 4400
-	1    0    0    -1  
-$EndComp
-Text GLabel 3550 4400 2    50   Input ~ 0
-AuxA5
-Text GLabel 4900 3000 0    50   Input ~ 0
-AuxA5
 Text GLabel 8550 4450 0    50   Input ~ 0
-AuxA5
+ActiveSW
 $Comp
 L Connector_Generic:Conn_02x11_Odd_Even J9
 U 1 1 5FA2F68D
@@ -643,8 +558,214 @@ F 3 "~" H 5000 2200 50  0001 C CNN
 	1    4800 2200
 	1    0    0    -1  
 $EndComp
-Connection ~ 6750 5350
 Wire Wire Line
 	4800 2200 4900 2200
 Connection ~ 4800 2200
+$Comp
+L ltc2645:LTC2645CMS-L8-PBF U2
+U 1 1 5FB7335A
+P 1660 4520
+F 0 "U2" H 3060 4907 60  0000 C CNN
+F 1 "LTC2645CMS-L8-PBF" H 3060 4801 60  0000 C CNN
+F 2 "Useful Modifications:LTC2645CMS-L8-PBF" H 3060 4760 60  0001 C CNN
+F 3 "" H 1660 4520 60  0000 C CNN
+	1    1660 4520
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR020
+U 1 1 5FB77027
+P 3760 4520
+F 0 "#PWR020" H 3760 4270 50  0001 C CNN
+F 1 "GND" V 3760 4420 50  0000 R CNN
+F 2 "" H 3760 4520 50  0001 C CNN
+F 3 "" H 3760 4520 50  0001 C CNN
+	1    3760 4520
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+3.3V #PWR011
+U 1 1 5FB78432
+P 2260 4520
+F 0 "#PWR011" H 2260 4370 50  0001 C CNN
+F 1 "+3.3V" V 2260 4770 50  0000 C CNN
+F 2 "" H 2260 4520 50  0001 C CNN
+F 3 "" H 2260 4520 50  0001 C CNN
+	1    2260 4520
+	0    -1   -1   0   
+$EndComp
+Text GLabel 2260 4620 0    50   Input ~ 0
+RCAnalogThrottle
+Text GLabel 2260 4720 0    50   Input ~ 0
+RCAnalogSteering
+$Comp
+L power:GND #PWR018
+U 1 1 5FB7B9F0
+P 2260 5220
+F 0 "#PWR018" H 2260 4970 50  0001 C CNN
+F 1 "GND" V 2260 5120 50  0000 R CNN
+F 2 "" H 2260 5220 50  0001 C CNN
+F 3 "" H 2260 5220 50  0001 C CNN
+	1    2260 5220
+	0    1    1    0   
+$EndComp
+Text GLabel 4900 2600 0    50   Input ~ 0
+Steering
+Text GLabel 4900 2500 0    50   Input ~ 0
+Throttle
+Text GLabel 4470 4720 2    50   Input ~ 0
+Steering
+Text GLabel 4470 4620 2    50   Input ~ 0
+Throttle
+$Comp
+L power:+3.3V #PWR017
+U 1 1 5FB8588A
+P 2260 5120
+F 0 "#PWR017" H 2260 4970 50  0001 C CNN
+F 1 "+3.3V" V 2260 5370 50  0000 C CNN
+F 2 "" H 2260 5120 50  0001 C CNN
+F 3 "" H 2260 5120 50  0001 C CNN
+	1    2260 5120
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR016
+U 1 1 5FB85F34
+P 2260 4820
+F 0 "#PWR016" H 2260 4570 50  0001 C CNN
+F 1 "GND" V 2260 4720 50  0000 R CNN
+F 2 "" H 2260 4820 50  0001 C CNN
+F 3 "" H 2260 4820 50  0001 C CNN
+	1    2260 4820
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+3.3V #PWR022
+U 1 1 5FB868BE
+P 3760 5220
+F 0 "#PWR022" H 3760 5070 50  0001 C CNN
+F 1 "+3.3V" V 3760 5470 50  0000 C CNN
+F 2 "" H 3760 5220 50  0001 C CNN
+F 3 "" H 3760 5220 50  0001 C CNN
+	1    3760 5220
+	0    1    1    0   
+$EndComp
+$Comp
+L Jumper:SolderJumper_3_Open JP1
+U 1 1 5FB889CD
+P 7910 4510
+F 0 "JP1" V 7956 4577 50  0000 L CNN
+F 1 "Throttle Jumper" V 7865 4577 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 7910 4510 50  0001 C CNN
+F 3 "~" H 7910 4510 50  0001 C CNN
+	1    7910 4510
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Jumper:SolderJumper_3_Open JP2
+U 1 1 5FB8BA5A
+P 7940 3930
+F 0 "JP2" V 7986 3998 50  0000 L CNN
+F 1 "Steering Jumper" V 7895 3998 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 7940 3930 50  0001 C CNN
+F 3 "~" H 7940 3930 50  0001 C CNN
+	1    7940 3930
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	8090 3930 8090 4150
+Wire Wire Line
+	8090 4150 8550 4150
+Wire Wire Line
+	8060 4510 8060 4250
+Wire Wire Line
+	8060 4250 8550 4250
+Text GLabel 7940 3730 0    50   Input ~ 0
+PWMSteering
+Text GLabel 7910 4310 0    50   Input ~ 0
+PWMThrottle
+$Comp
+L power:GND #PWR021
+U 1 1 5FB909D6
+P 3760 4820
+F 0 "#PWR021" H 3760 4570 50  0001 C CNN
+F 1 "GND" V 3760 4720 50  0000 R CNN
+F 2 "" H 3760 4820 50  0001 C CNN
+F 3 "" H 3760 4820 50  0001 C CNN
+	1    3760 4820
+	0    -1   -1   0   
+$EndComp
+NoConn ~ 3760 4920
+Text GLabel 2260 4920 0    50   Input ~ 0
+RCPWMSteering
+Text GLabel 2260 5020 0    50   Input ~ 0
+RCPWMThrottle
+Text GLabel 6540 4300 2    50   Input ~ 0
+RCPWMSteering
+Text GLabel 6540 4200 2    50   Input ~ 0
+RCPWMThrottle
+Text GLabel 4900 2900 0    50   Input ~ 0
+RCAnalogThrottle
+Text GLabel 4900 3000 0    50   Input ~ 0
+RCAnalogSteering
+NoConn ~ 4900 3600
+Text GLabel 4900 3400 0    50   Input ~ 0
+ActiveSW
+$Comp
+L Connector:Conn_01x04_Male J4
+U 1 1 5FBAF7AC
+P 6600 5350
+F 0 "J4" H 6708 5631 50  0000 C CNN
+F 1 "Power Input" H 6300 5400 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Horizontal" H 6600 5350 50  0001 C CNN
+F 3 "~" H 6600 5350 50  0001 C CNN
+	1    6600 5350
+	1    0    0    -1  
+$EndComp
+Connection ~ 6800 5250
+NoConn ~ 6800 5550
+Text GLabel 3760 5020 2    50   Input ~ 0
+PWMSteering
+Text GLabel 3760 5120 2    50   Input ~ 0
+PWMThrottle
+$Comp
+L Jumper:SolderJumper_2_Open JP3
+U 1 1 5FC7038F
+P 4320 4620
+F 0 "JP3" H 4930 4620 50  0000 C CNN
+F 1 "LTC Throttle Jumper" H 4510 4710 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 4320 4620 50  0001 C CNN
+F 3 "~" H 4320 4620 50  0001 C CNN
+	1    4320 4620
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Open JP4
+U 1 1 5FC719D5
+P 4320 4720
+F 0 "JP4" H 4920 4730 50  0000 C CNN
+F 1 "LTC Steering Jumper" H 4520 4610 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 4320 4720 50  0001 C CNN
+F 3 "~" H 4320 4720 50  0001 C CNN
+	1    4320 4720
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4170 4720 3760 4720
+Wire Wire Line
+	4170 4620 3760 4620
+$Comp
+L Connector:TestPoint TP3
+U 1 1 5FCBA64C
+P 7130 5350
+F 0 "TP3" H 7090 5550 50  0000 L CNN
+F 1 "5v" H 7430 5450 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_1.5x1.5mm" H 7330 5350 50  0001 C CNN
+F 3 "~" H 7330 5350 50  0001 C CNN
+	1    7130 5350
+	1    0    0    -1  
+$EndComp
+Connection ~ 7130 5350
+Wire Wire Line
+	6800 5350 7130 5350
 $EndSCHEMATC

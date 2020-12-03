@@ -1,4 +1,4 @@
-18567470063223589
+18570782099616671
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -80857,6 +80857,13 @@ transformer flyback
 10
 10
 Useful Modifications
+AdaFruit_MPM3610
+Through hole angled pin header, 1x04, 2.54mm pitch, 6mm pin length, single row
+Through hole angled pin header THT 1x04 2.54mm single row
+0
+4
+4
+Useful Modifications
 FXSound_2x11_P2.54mm
 Through hole straight pin header, 2x14, 2.54mm pitch, double rows
 Through hole pin header THT 2x14 2.54mm double row
@@ -80905,6 +80912,13 @@ Headphones with microphone connector, 3.5mm, 4 pins (http://www.qingpu-electroni
 0
 4
 4
+Useful Modifications
+LTC2645CMS-L8-PBF
+
+
+0
+16
+16
 Useful Modifications
 QFN-44-1EP_7x7mm_P0.5mm_EP5.15x5.15mm_ThermalVias
 QFN, 44 Pin (http://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/ltc-legacy-qfn/QFN_44_05-08-1763.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
