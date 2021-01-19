@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name "Useful Modifications")(type Legacy)(uri "C:/Users/Kevin/OneDrive/Documents/KiCad Files/Geeks/geeksforkids-master/hardware/ControlBoardT4/Useful Modifications.lib")(options "")(descr ""))
+  (lib (name UsefulModifications)(type Legacy)(uri "C:/Users/Kevin/OneDrive/Documents/KiCad Files/Geeks/geeksforkids-master (1)/geeksforkids-master/hardware/AmpOnly/Useful Modifications.lib")(options "")(descr ""))
+)

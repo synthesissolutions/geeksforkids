@@ -1,0 +1,83 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 2
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Connector:Screw_Terminal_01x02 J13
+U 1 1 5EE8257A
+P 5010 2850
+F 0 "J13" H 4928 2525 50  0000 C CNN
+F 1 "Main Power" H 4928 2616 50  0000 C CNN
+F 2 "Useful Modifications:TerminalBlock_bornier-2_P5.08mm" H 5010 2850 50  0001 C CNN
+F 3 "~" H 5010 2850 50  0001 C CNN
+	1    5010 2850
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:+12V #PWR024
+U 1 1 5EE8644F
+P 5210 2750
+F 0 "#PWR024" H 5210 2600 50  0001 C CNN
+F 1 "+12V" V 5225 2878 50  0000 L CNN
+F 2 "" H 5210 2750 50  0001 C CNN
+F 3 "" H 5210 2750 50  0001 C CNN
+	1    5210 2750
+	0    1    1    0   
+$EndComp
+$Sheet
+S 700  700  1250 950 
+U 5F4AD486
+F0 "MAX9744" 50
+F1 "MAX9744.sch" 50
+$EndSheet
+$Comp
+L power:GNDA #PWR019
+U 1 1 5F571777
+P 6860 2950
+F 0 "#PWR019" H 6860 2700 50  0001 C CNN
+F 1 "GNDA" V 6860 2700 50  0000 C CNN
+F 2 "" H 6860 2950 50  0001 C CNN
+F 3 "" H 6860 2950 50  0001 C CNN
+	1    6860 2950
+	0    -1   -1   0   
+$EndComp
+Text GLabel 6860 2850 2    50   Input ~ 0
+LeftIN
+Text GLabel 6860 2750 2    50   Input ~ 0
+RightIN
+$Comp
+L power:GND #PWR0107
+U 1 1 5F5C3B2C
+P 5210 2850
+F 0 "#PWR0107" H 5210 2600 50  0001 C CNN
+F 1 "GND" V 5210 2750 50  0000 R CNN
+F 2 "" H 5210 2850 50  0001 C CNN
+F 3 "" H 5210 2850 50  0001 C CNN
+	1    5210 2850
+	0    -1   -1   0   
+$EndComp
+Text Notes 7210 2900 0    50   ~ 0
+Connects to Amp\non other sheet.
+$Comp
+L Connector:AudioJack4 J?
+U 1 1 5FCB1547
+P 6170 2790
+F 0 "J?" H 6127 3115 50  0000 C CNN
+F 1 "AudioJack4" H 6127 3024 50  0000 C CNN
+F 2 "" H 6170 2790 50  0001 C CNN
+F 3 "~" H 6170 2790 50  0001 C CNN
+	1    6170 2790
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
