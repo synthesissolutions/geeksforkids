@@ -61,8 +61,8 @@ const int           SPEED_CONFIGURATION_MAX_SPEED = 100;
 const int           STEERING_MIN            = 200;        // tuned to maximum wheel turn amount
 const int           STEERING_MAX            = 800;        // tuned to maximum wheel turn amount
 const int           STEERING_CENTER         = 512;
-const int           STEERING_STOP_DELTA     = 10;          // How close to target before stopping so we don't oscillate between 2 numbers.  IN SCALED UNITS: -100 to 100
-const int           STEERING_START_DELTA    = 30;          // How close to target before starting so we don't oscillate between 2 numbers   IN SCALED UNITS: -100 to 100
+const int           STEERING_STOP_DELTA     = 5;          // How close to target before stopping so we don't oscillate between 2 numbers.  IN SCALED UNITS: -100 to 100
+const int           STEERING_START_DELTA    = 20 ;          // How close to target before starting so we don't oscillate between 2 numbers   IN SCALED UNITS: -100 to 100
 const int           STEERING_SPEED          = 240;        // PWM Value from 0 - 254 with 254 = max speed
 
 // Remote control PWM parms ... probably best to leave these alone!
@@ -91,8 +91,8 @@ const boolean       RC_INVERT_THROTTLE      = true;
  ***************************************************************************************** 
  */
 //   ... joystick
-const int           PIN_JOYSTICK_THROTTLE         = A0;
 const int           PIN_JOYSTICK_STEERING         = A1;
+const int           PIN_JOYSTICK_THROTTLE         = A0;
 
 //   ... throttle ... aka the controller for the car's drive motor   
 const int           PIN_THROTTLE_DIRECTION_LEFT   = 12;  // Channel 1 on motor controller
@@ -108,8 +108,8 @@ const int           PIN_STEERING_PWM              = 9;
 const int           PIN_STEERING_POSITION         = A2;
 
 //   ... RC ... aka the parent remote control inputs
-const int           PIN_RC_STEERING               = 5;   
-const int           PIN_RC_THROTTLE               = 2;     
+const int           PIN_RC_STEERING               = A5;   
+const int           PIN_RC_THROTTLE               = A4;     
 
 //   ... Bluetooth
-const int           PIN_ENABLE_BLUETOOTH_BUTTON   = A4;
+const int           PIN_ENABLE_BLUETOOTH_BUTTON   = 5;
