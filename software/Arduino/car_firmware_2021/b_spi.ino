@@ -14,7 +14,7 @@ using namespace Adafruit_LittleFS_Namespace;
 
 File file(InternalFS);
 
-const int CURRENT_SETTINGS_VERSION = 3;
+const int CURRENT_SETTINGS_VERSION = 4;
 
 struct ConfigurationSettings {
 

@@ -16,7 +16,7 @@
 
 const String        RELEASE_VERSION         = "21.0 Beta";
 
-const int           LOGGER_UPDATE_TIME      = 1000;     // How long between updates to the monitor, in milliseconds
+const int           LOGGER_UPDATE_TIME      = 100;     // How long between updates to the monitor, in milliseconds
 const unsigned int  SERIAL_BAUD_RATE        = 57600;     // Baud rate for the serial monitor.  Make sure you set this correctly!
 const int           LOGGER_LINE_LENGTH      = 300;
 const int           LOGGER_LINE_COUNT       = 20;
@@ -27,7 +27,7 @@ const int           LOGGER_LINE_COUNT       = 20;
  ***************************************************************************************** 
  */
 // The delay for the main loop.  We really don't want it running at the full CPU speed.
-const int           LOOP_DELAY_MILLIS       = 10;   // 10ms delay = ~ 100 Hz.  Plenty fast.
+const int           LOOP_DELAY_MILLIS       = 1;   // 10ms delay = ~ 100 Hz.  Plenty fast.
 
 // Joystick parms - these are based on the range 0-1023
 const int           JOYSTICK_X_AXIS_CENTER           = 512;
