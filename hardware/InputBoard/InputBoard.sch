@@ -137,7 +137,7 @@ Text GLabel 5300 3200 3    50   Input ~ 0
 JoyX
 Text GLabel 5400 3200 3    50   Input ~ 0
 JoyY
-Text GLabel 7310 3290 2    50   Input ~ 0
+Text GLabel 6110 2790 0    50   Input ~ 0
 JoyY
 $Comp
 L MCU_Microchip_ATtiny:ATtiny814-SS U1
@@ -239,8 +239,6 @@ Text GLabel 5600 3200 3    50   Input ~ 0
 Other
 NoConn ~ 6110 2990
 NoConn ~ 6110 2890
-NoConn ~ 6110 2790
-NoConn ~ 6110 2690
 $Comp
 L power:GND #PWR021
 U 1 1 6018923D
@@ -256,7 +254,7 @@ Text GLabel 3820 4010 2    50   Input ~ 0
 ReverseButton
 Text GLabel 7310 3090 2    50   Input ~ 0
 ReverseButton
-Text GLabel 7310 2890 2    50   Input ~ 0
+Text GLabel 6110 2690 0    50   Input ~ 0
 JoyX
 Text GLabel 3820 3910 2    50   Input ~ 0
 DriveButton
@@ -445,4 +443,6 @@ F 3 "" H 3590 4990 50  0001 C CNN
 	1    3590 4990
 	0    1    1    0   
 $EndComp
+NoConn ~ 7310 2890
+NoConn ~ 7310 3290
 $EndSCHEMATC
