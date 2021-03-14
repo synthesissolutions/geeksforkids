@@ -19,7 +19,7 @@ U 1 1 5D58DD64
 P 5200 2800
 F 0 "J1" V 5211 3330 50  0000 L CNN
 F 1 "8P8C" V 5302 3330 50  0000 L CNN
-F 2 "Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal" V 5200 2825 50  0001 C CNN
+F 2 "Useful Modifications:RJ45_x08_Horizontal_tabs" V 5200 2825 50  0001 C CNN
 F 3 "~" V 5200 2825 50  0001 C CNN
 	1    5200 2800
 	0    1    1    0   
@@ -239,6 +239,8 @@ Text GLabel 5600 3200 3    50   Input ~ 0
 Other
 NoConn ~ 6110 2990
 NoConn ~ 6110 2890
+NoConn ~ 7310 3290
+NoConn ~ 7310 2890
 $Comp
 L power:GND #PWR021
 U 1 1 6018923D
@@ -309,12 +311,12 @@ Other
 $Comp
 L power:GND #PWR023
 U 1 1 601EFEBA
-P 5140 4200
-F 0 "#PWR023" H 5140 3950 50  0001 C CNN
-F 1 "GND" V 5140 4000 50  0000 C CNN
-F 2 "" H 5140 4200 50  0001 C CNN
-F 3 "" H 5140 4200 50  0001 C CNN
-	1    5140 4200
+P 5240 4200
+F 0 "#PWR023" H 5240 3950 50  0001 C CNN
+F 1 "GND" V 5240 4000 50  0000 C CNN
+F 2 "" H 5240 4200 50  0001 C CNN
+F 3 "" H 5240 4200 50  0001 C CNN
+	1    5240 4200
 	-1   0    0    1   
 $EndComp
 $Comp
@@ -328,7 +330,7 @@ F 3 "~" H 5240 4400 50  0001 C CNN
 	1    5240 4400
 	0    -1   -1   0   
 $EndComp
-Text GLabel 5240 4200 1    50   Input ~ 0
+Text GLabel 5140 4200 1    50   Input ~ 0
 Program
 $Comp
 L Connector_Generic:Conn_02x07_Odd_Even J2
@@ -443,6 +445,4 @@ F 3 "" H 3590 4990 50  0001 C CNN
 	1    3590 4990
 	0    1    1    0   
 $EndComp
-NoConn ~ 7310 2890
-NoConn ~ 7310 3290
 $EndSCHEMATC
