@@ -1,12 +1,9 @@
 const int DRIVE_STRAIGHT_BUTTON_PIN = A1;
-const int DRIVE_RIGHT_BUTTON_PIN = A5;
-const int DRIVE_LEFT_BUTTON_PIN = A3;
+const int DRIVE_RIGHT_BUTTON_PIN = A3;
+const int DRIVE_LEFT_BUTTON_PIN = A2;
 
-//const int THROTTLE_PWM_PIN = 6;
-//const int STEERING_PWM_PIN = 7;
-
-const int THROTTLE_PWM_PIN = 2;
-const int STEERING_PWM_PIN = 9;
+const int THROTTLE_PWM_PIN = 1;
+const int STEERING_PWM_PIN = 0;
 
 const int THROTTLE_OFF = 127;
 const int THROTTLE_FORWARD = 254;
