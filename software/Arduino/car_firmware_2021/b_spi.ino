@@ -14,7 +14,7 @@ using namespace Adafruit_LittleFS_Namespace;
 
 File file(InternalFS);
 
-const int CURRENT_SETTINGS_VERSION = 3;
+const int CURRENT_SETTINGS_VERSION = 4;
 
 struct ConfigurationSettings {
 
@@ -87,7 +87,7 @@ class Spi {
         currentSettings.useJoystick = true;
         currentSettings.invertJoystickX = true;
         currentSettings.invertJoystickY = false;
-        currentSettings.useRc = false;
+        currentSettings.useRc = true;
     }
 
     bool loadFromSpiFlash() {

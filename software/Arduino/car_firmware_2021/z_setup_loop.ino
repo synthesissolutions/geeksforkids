@@ -19,12 +19,6 @@ RemoteControl remoteControl;
 Logger logger;
 
 /*
- * Interrupt request handlers.  The Arduino environment appears to require these to be global methods with no parms, so defining them here.
- *   Really just wrappers to call the proper RemoteControl methods.  
- */
- void handleRCSteeringInterrupt() {remoteControl.steeringIRQHandler();}
- void handleRCThrottleInterrupt() {remoteControl.throttleIRQHandler();}
-/*
  * Now a couple of variables that help us do a bit of logging
  */
 boolean rcInControl = false;
@@ -35,6 +29,8 @@ boolean bluetoothInitialized = false;
  * Arduino defined setup function.  Automatically run once at restart of the device.
  */
 void setup() {
+  dwt_enable();
+  
   // set up the logger
   logger.init(LOGGER_UPDATE_TIME, &spi, &bluetooth, &configuration, &joystick, &remoteControl, &steering, &throttle);
 
@@ -62,12 +58,6 @@ void setup() {
   
   steering.init(PIN_STEERING_DIRECTION, PIN_STEERING_PWM, PIN_STEERING_POSITION);
   logger.addLogLine("steering initialized");
-
-
-  // set up the interrupt handlers
-  attachInterrupt(digitalPinToInterrupt(PIN_RC_STEERING), &handleRCSteeringInterrupt, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(PIN_RC_THROTTLE), &handleRCThrottleInterrupt, CHANGE);
-  logger.addLogLine("interrupts attached");
 
   // Set steering limits from configuration
   steering.setSteeringCenterScaled(configuration.getSteeringCenter());

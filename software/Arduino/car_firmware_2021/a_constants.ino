@@ -16,7 +16,7 @@
 
 const String        RELEASE_VERSION         = "21.0 Beta";
 
-const int           LOGGER_UPDATE_TIME      = 1000;     // How long between updates to the monitor, in milliseconds
+const int           LOGGER_UPDATE_TIME      = 100;     // How long between updates to the monitor, in milliseconds
 const unsigned int  SERIAL_BAUD_RATE        = 57600;     // Baud rate for the serial monitor.  Make sure you set this correctly!
 const int           LOGGER_LINE_LENGTH      = 300;
 const int           LOGGER_LINE_COUNT       = 20;
@@ -27,7 +27,7 @@ const int           LOGGER_LINE_COUNT       = 20;
  ***************************************************************************************** 
  */
 // The delay for the main loop.  We really don't want it running at the full CPU speed.
-const int           LOOP_DELAY_MILLIS       = 10;   // 10ms delay = ~ 100 Hz.  Plenty fast.
+const int           LOOP_DELAY_MILLIS       = 5;   // 10ms delay = ~ 100 Hz.  Plenty fast.
 
 // Joystick parms - these are based on the range 0-1023
 const int           JOYSTICK_X_AXIS_CENTER           = 512;
@@ -66,24 +66,21 @@ const int           STEERING_START_DELTA    = 20 ;          // How close to targ
 const int           STEERING_SPEED          = 240;        // PWM Value from 0 - 254 with 254 = max speed
 
 // Remote control PWM parms ... probably best to leave these alone!
-const int           STEERING_RC_MIN         = 1000;
-const int           STEERING_RC_CENTER      = 1500;
-const int           STEERING_RC_MAX         = 2000;
-const int           THROTTLE_RC_MIN         = 1200;
-const int           THROTTLE_RC_CENTER      = 1500;
-const int           THROTTLE_RC_MAX         = 2000;
-const int           RC_LIMIT                = 2500;
+const int           STEERING_RC_MIN         = 33;
+const int           STEERING_RC_CENTER      = 57;
+const int           STEERING_RC_MAX         = 80;
+const int           THROTTLE_RC_MIN         = 33;
+const int           THROTTLE_RC_CENTER      = 57;
+const int           THROTTLE_RC_MAX         = 80;
 
 // Remote control parm ... tuning
-const int           RC_OVERRIDE_TIMEOUT     = 4000;     // The time required for the parent RC input to be at idle before returning control back to the kid, in millis
-const int           RC_STEERING_DEADZONE_LOW = -10;     // scaled units
-const int           RC_STEERING_DEADZONE_HIGH = 10;     // scaled units
-const int           RC_THROTTLE_DEADZONE_LOW = -10;     // scaled units
-const int           RC_THROTTLE_DEADZONE_HIGH = 10;     // scaled units 
-
-// Remote control parms - get the direction correct
-const boolean       RC_INVERT_STEERING      = false;
-const boolean       RC_INVERT_THROTTLE      = true;
+const int           RC_INPUT_DELAY          = 100;      // The time required for the parent RC input to be out of the deadzone before the control is given to the RC 
+                                                        // to prevent spurious readings from taking the control away from the child
+const int           RC_OVERRIDE_TIMEOUT     = 3000;     // The time required for the parent RC input to be at idle before returning control back to the kid, in millis
+const int           RC_STEERING_DEADZONE_LOW = -25;     // scaled units
+const int           RC_STEERING_DEADZONE_HIGH = 25;     // scaled units
+const int           RC_THROTTLE_DEADZONE_LOW = -25;     // scaled units
+const int           RC_THROTTLE_DEADZONE_HIGH = 25;     // scaled units 
 
 
 /*****************************************************************************************
