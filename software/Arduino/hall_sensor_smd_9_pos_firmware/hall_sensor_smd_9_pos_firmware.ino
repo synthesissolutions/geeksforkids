@@ -1,6 +1,10 @@
 const int PWM_SIGNAL_PIN = 5;
 const int NUMBER_OF_SENSORS = 9;
-const int HALL_SENSOR_PINS[] = {A1, A2, A3, A4, A5, A6, A7, B1, B0};
+const int HALL_SENSOR_PINS[] = {A1, A2, A3, A4, A5, A6, A7, 6, 7};
+
+// Seems to be an issue with using 0 or numbers near 255
+const int MIN_PWM = 40;
+const int MAX_PWM = 200;
 
 int sensorValue = 0;
 int lowestSensorValue = 1000;
@@ -26,7 +30,7 @@ void loop() {
     }
   }
 
-  int steeringPwm = map(lowestSensorPosition, 0, NUMBER_OF_SENSORS - 1, 0, 255);
+  int steeringPwm = map(lowestSensorPosition, 0, NUMBER_OF_SENSORS - 1, MIN_PWM, MAX_PWM);
 
   analogWrite(PWM_SIGNAL_PIN, steeringPwm);
   
