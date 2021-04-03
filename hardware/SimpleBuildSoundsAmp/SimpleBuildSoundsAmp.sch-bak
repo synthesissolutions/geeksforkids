@@ -131,17 +131,6 @@ Wire Wire Line
 	4590 2700 4440 2800
 Wire Wire Line
 	4440 2800 4190 2800
-$Comp
-L power:+12V #PWR01
-U 1 1 5DD7BD56
-P 4490 2000
-F 0 "#PWR01" H 4490 1850 50  0001 C CNN
-F 1 "+12V" V 4490 2300 50  0000 C CNN
-F 2 "" H 4490 2000 50  0001 C CNN
-F 3 "" H 4490 2000 50  0001 C CNN
-	1    4490 2000
-	0    -1   -1   0   
-$EndComp
 $Sheet
 S 1080 940  1570 1110
 U 5FCAE1D8
@@ -158,17 +147,6 @@ F 2 "" H 3840 3960 50  0001 C CNN
 F 3 "" H 3840 3960 50  0001 C CNN
 	1    3840 3960
 	0    -1   -1   0   
-$EndComp
-$Comp
-L power:GND #PWR06
-U 1 1 5FCB0B7E
-P 4490 1900
-F 0 "#PWR06" H 4490 1650 50  0001 C CNN
-F 1 "GND" V 4490 1750 50  0000 R CNN
-F 2 "" H 4490 1900 50  0001 C CNN
-F 3 "" H 4490 1900 50  0001 C CNN
-	1    4490 1900
-	0    1    1    0   
 $EndComp
 $Comp
 L power:GNDA #PWR?
@@ -308,46 +286,90 @@ F 3 "" H 5560 4040 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 Connection ~ 5560 4340
-$Comp
-L Connector:Screw_Terminal_01x02 J1
-U 1 1 604E4A2E
-P 4690 1900
-F 0 "J1" H 4770 1892 50  0000 L CNN
-F 1 "Power In" H 4770 1801 50  0000 L CNN
-F 2 "Useful Modifications:TerminalBlock_bornier-2_P5.08mm" H 4690 1900 50  0001 C CNN
-F 3 "~" H 4690 1900 50  0001 C CNN
-	1    4690 1900
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Screw_Terminal_01x02 J6
-U 1 1 604E7AFC
-P 4680 2300
-F 0 "J6" H 4760 2292 50  0000 L CNN
-F 1 "Relay Signal" H 4760 2201 50  0000 L CNN
-F 2 "Useful Modifications:TerminalBlock_bornier-2_P5.08mm" H 4680 2300 50  0001 C CNN
-F 3 "~" H 4680 2300 50  0001 C CNN
-	1    4680 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR017
-U 1 1 604F6A56
-P 4480 2300
-F 0 "#PWR017" H 4480 2050 50  0001 C CNN
-F 1 "GND" V 4480 2190 50  0000 R CNN
-F 2 "" H 4480 2300 50  0001 C CNN
-F 3 "" H 4480 2300 50  0001 C CNN
-	1    4480 2300
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	4190 2300 4490 2000
-Connection ~ 4490 2000
-Wire Wire Line
-	4190 2400 4480 2400
 Wire Wire Line
 	4590 2700 5400 2700
 Wire Wire Line
 	4190 2600 5400 2600
+$Comp
+L power:GND #PWR06
+U 1 1 5FCB0B7E
+P 4445 1975
+F 0 "#PWR06" H 4445 1725 50  0001 C CNN
+F 1 "GND" V 4445 1825 50  0000 R CNN
+F 2 "" H 4445 1975 50  0001 C CNN
+F 3 "" H 4445 1975 50  0001 C CNN
+	1    4445 1975
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4190 2300 4445 2075
+$Comp
+L power:+12V #PWR01
+U 1 1 5DD7BD56
+P 4445 2075
+F 0 "#PWR01" H 4445 1925 50  0001 C CNN
+F 1 "+12V" V 4445 2375 50  0000 C CNN
+F 2 "" H 4445 2075 50  0001 C CNN
+F 3 "" H 4445 2075 50  0001 C CNN
+	1    4445 2075
+	0    -1   -1   0   
+$EndComp
+Connection ~ 4445 2075
+Wire Wire Line
+	4190 2400 4445 2175
+$Comp
+L Connector:Screw_Terminal_01x03 J1
+U 1 1 6077E077
+P 4645 2075
+F 0 "J1" H 4725 2117 50  0000 L CNN
+F 1 "Power/Relay" H 4725 2026 50  0000 L CNN
+F 2 "TerminalBlock:TerminalBlock_bornier-3_P5.08mm" H 4645 2075 50  0001 C CNN
+F 3 "~" H 4645 2075 50  0001 C CNN
+	1    4645 2075
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H1
+U 1 1 60696523
+P 3345 915
+F 0 "H1" H 3445 961 50  0000 L CNN
+F 1 "MountingHole" H 3445 870 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.5mm" H 3345 915 50  0001 C CNN
+F 3 "~" H 3345 915 50  0001 C CNN
+	1    3345 915 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H2
+U 1 1 60696872
+P 3450 1225
+F 0 "H2" H 3550 1271 50  0000 L CNN
+F 1 "MountingHole" H 3550 1180 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.5mm" H 3450 1225 50  0001 C CNN
+F 3 "~" H 3450 1225 50  0001 C CNN
+	1    3450 1225
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H3
+U 1 1 60697372
+P 4130 915
+F 0 "H3" H 4230 961 50  0000 L CNN
+F 1 "MountingHole" H 4230 870 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.5mm" H 4130 915 50  0001 C CNN
+F 3 "~" H 4130 915 50  0001 C CNN
+	1    4130 915 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H4
+U 1 1 60697A16
+P 4205 1230
+F 0 "H4" H 4305 1276 50  0000 L CNN
+F 1 "MountingHole" H 4305 1185 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.5mm" H 4205 1230 50  0001 C CNN
+F 3 "~" H 4205 1230 50  0001 C CNN
+	1    4205 1230
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
