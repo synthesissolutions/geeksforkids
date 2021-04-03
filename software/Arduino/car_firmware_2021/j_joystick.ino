@@ -8,6 +8,10 @@
  *   the joystick values.
  */
 
+#define JOY_X_READINGS 15
+#define JOY_Y_READINGS 15
+
+
 class Joystick {
   private:
     int xAxisPin;
@@ -34,6 +38,12 @@ class Joystick {
     // direction inversion if necessary
     boolean invertXAxis = JOYSTICK_INVERT_X_AXIS;
     boolean invertYAxis = JOYSTICK_INVERT_Y_AXIS;
+
+    int joyXReadings[JOY_X_READINGS];
+    int joyXIndex = 0;
+
+    int joyYReadings[JOY_Y_READINGS];
+    int joyYIndex = 0;
 
     boolean hasCentered=false;
  
@@ -88,14 +98,42 @@ class Joystick {
 
     // raw value from the x axis potentiometer
     int getXAxisRaw() {
-      int val = analogRead(xAxisPin);
-      return val;
+      int newX = analogRead(xAxisPin);
+
+      joyXIndex++;
+      if (joyXIndex >= JOY_X_READINGS) {
+        joyXIndex = 0;
+      }
+
+      joyXReadings[joyXIndex] = newX;
+      
+      int total = 0;
+
+      for (int i = 0; i < JOY_X_READINGS; i++) {
+        total += joyXReadings[i];
+      }
+      
+      return total / JOY_X_READINGS;
     }
 
     // raw value from the Y axis potentiometer
     int getYAxisRaw() {
-      int val = analogRead(yAxisPin);
-      return val;
+      int newY = analogRead(yAxisPin);
+
+      joyYIndex++;
+      if (joyYIndex >= JOY_Y_READINGS) {
+        joyYIndex = 0;
+      }
+
+      joyYReadings[joyYIndex] = newY;
+      
+      int total = 0;
+
+      for (int i = 0; i < JOY_Y_READINGS; i++) {
+        total += joyYReadings[i];
+      }
+      
+      return total / JOY_Y_READINGS;
     }
 
     // return True/False is the X Axis Inverted
@@ -166,6 +204,7 @@ class Joystick {
      *
      */
     boolean isActive() {
+       if (1==1) return true;
 
       /*
        * If we've not yet centered the controls, then we're not active yet
