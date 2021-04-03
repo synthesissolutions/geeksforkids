@@ -30,10 +30,10 @@ const int           LOGGER_LINE_COUNT       = 20;
 const int           LOOP_DELAY_MILLIS       = 5;   // 10ms delay = ~ 100 Hz.  Plenty fast.
 
 // Joystick parms - these are based on the range 0-1023
-const int           JOYSTICK_X_AXIS_CENTER           = 512;
+const int           JOYSTICK_X_AXIS_CENTER           = 464;
 const int           JOYSTICK_X_AXIS_MIN              = 100;
 const int           JOYSTICK_X_AXIS_MAX              = 900;
-const int           JOYSTICK_Y_AXIS_CENTER           = 512;
+const int           JOYSTICK_Y_AXIS_CENTER           = 482;
 const int           JOYSTICK_Y_AXIS_MIN              = 100;
 const int           JOYSTICK_Y_AXIS_MAX              = 900;
 
@@ -58,11 +58,11 @@ const int           SPEED_CONFIGURATION_MIN_SPEED = 15;   // The min/max setting
 const int           SPEED_CONFIGURATION_MAX_SPEED = 100;
 
 // Steering parms ... controls the steering changes
-const int           STEERING_MIN            = 200;        // tuned to maximum wheel turn amount
-const int           STEERING_MAX            = 800;        // tuned to maximum wheel turn amount
-const int           STEERING_CENTER         = 512;
+const int           STEERING_MIN            = 33;        // tuned to maximum wheel turn amount
+const int           STEERING_CENTER         = 57;
+const int           STEERING_MAX            = 80;        // tuned to maximum wheel turn amount
 const int           STEERING_STOP_DELTA     = 5;          // How close to target before stopping so we don't oscillate between 2 numbers.  IN SCALED UNITS: -100 to 100
-const int           STEERING_START_DELTA    = 20 ;          // How close to target before starting so we don't oscillate between 2 numbers   IN SCALED UNITS: -100 to 100
+const int           STEERING_START_DELTA    = 10;          // How close to target before starting so we don't oscillate between 2 numbers   IN SCALED UNITS: -100 to 100
 const int           STEERING_SPEED          = 240;        // PWM Value from 0 - 254 with 254 = max speed
 
 // Remote control PWM parms ... probably best to leave these alone!
