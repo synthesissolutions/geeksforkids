@@ -14,14 +14,7 @@
 #include <bluefruit.h>
 
 // GUID for Service: d18dd040-9000-42db-abba-1e23f3dd1d67
-// GUIDs for Characteristics increment from 9001, 9002, etc.
 const uint8_t UUID128_SERVICE_GEEK[16] =
-{
-    0x67, 0x1D, 0xDD, 0xF3, 0x23, 0x1E, 0xBA, 0xAB,
-    0xDB, 0x42, 0x00, 0x90, 0x40, 0xD0, 0x8D, 0xD1
-};
-
-uint8_t UUID128_BASE_CHARACTERISTIC[16] =
 {
     0x67, 0x1D, 0xDD, 0xF3, 0x23, 0x1E, 0xBA, 0xAB,
     0xDB, 0x42, 0x00, 0x90, 0x40, 0xD0, 0x8D, 0xD1
@@ -32,43 +25,43 @@ BLEDis bledis;    // DIS (Device Information Service) helper class instance
 
 #define CHARACTERISTIC_COUNT  18
 
-#define STEERING_MIN        1
-#define STEERING_CENTER     2
-#define STEERING_MAX        3
-#define RC_ENABLE           4
-#define RC_STEERING_MIN     5
-#define RC_STEERING_CENTER  6
-#define RC_STEERING_MAX     7
-#define RC_THROTTLE_MIN     8
-#define RC_THROTTLE_CENTER  9
-#define RC_THROTTLE_MAX     10
-#define CHILD_INVERT_STEERING 11
-#define CHILD_INVERT_THROTTLE 12
-#define CHILD_STEERING_MIN    13
-#define CHILD_STEERING_CENTER 14
-#define CHILD_STEERING_MAX    15
-#define CHILD_THROTTLE_MIN    16
-#define CHILD_THROTTLE_CENTER 17
-#define CHILD_THROTTLE_MAX    18
+#define STEERING_MIN        0x01
+#define STEERING_CENTER     0x02
+#define STEERING_MAX        0x03
+#define RC_ENABLE           0x04
+#define RC_STEERING_MIN     0x05
+#define RC_STEERING_CENTER  0x06
+#define RC_STEERING_MAX     0x07
+#define RC_THROTTLE_MIN     0x08
+#define RC_THROTTLE_CENTER  0x09
+#define RC_THROTTLE_MAX     0x0A
+#define CHILD_INVERT_STEERING 0x0B
+#define CHILD_INVERT_THROTTLE 0x0C
+#define CHILD_STEERING_MIN    0x0D
+#define CHILD_STEERING_CENTER 0x0E
+#define CHILD_STEERING_MAX    0x0F
+#define CHILD_THROTTLE_MIN    0x10
+#define CHILD_THROTTLE_CENTER 0x11
+#define CHILD_THROTTLE_MAX    0x12
 
-BLECharacteristic steeringMinCharacteristic = BLECharacteristic(0x01);
-BLECharacteristic steeringCenterCharacteristic = BLECharacteristic(0x02);
-BLECharacteristic steeringMaxCharacteristic = BLECharacteristic(0x03);
-BLECharacteristic rcEnableCharacteristic = BLECharacteristic(0x04);
-BLECharacteristic rcSteeringMinCharacteristic = BLECharacteristic(0x05);
-BLECharacteristic rcSteeringCenterCharacteristic = BLECharacteristic(0x06);
-BLECharacteristic rcSteeringMaxCharacteristic = BLECharacteristic(0x07);
-BLECharacteristic rcThrottleMinCharacteristic = BLECharacteristic(0x08);
-BLECharacteristic rcThrottleCenterCharacteristic = BLECharacteristic(0x09);
-BLECharacteristic rcThrottleMaxCharacteristic = BLECharacteristic(0x0A);
-BLECharacteristic childInvertSteeringCharacteristic = BLECharacteristic(0x0B);
-BLECharacteristic childInvertThrottleCharacteristic = BLECharacteristic(0x0C);
-BLECharacteristic childSteeringMinCharacteristic = BLECharacteristic(0x0D);
-BLECharacteristic childSteeringCenterCharacteristic = BLECharacteristic(0x0E);
-BLECharacteristic childSteeringMaxCharacteristic = BLECharacteristic(0x0F);
-BLECharacteristic childThrottleMinCharacteristic = BLECharacteristic(0x10);
-BLECharacteristic childThrottleCenterCharacteristic = BLECharacteristic(0x11);
-BLECharacteristic childThrottleMaxCharacteristic = BLECharacteristic(0x12);
+BLECharacteristic steeringMinCharacteristic = BLECharacteristic(STEERING_MIN);
+BLECharacteristic steeringCenterCharacteristic = BLECharacteristic(STEERING_CENTER);
+BLECharacteristic steeringMaxCharacteristic = BLECharacteristic(STEERING_MAX);
+BLECharacteristic rcEnableCharacteristic = BLECharacteristic(RC_ENABLE);
+BLECharacteristic rcSteeringMinCharacteristic = BLECharacteristic(RC_STEERING_MIN);
+BLECharacteristic rcSteeringCenterCharacteristic = BLECharacteristic(RC_STEERING_CENTER);
+BLECharacteristic rcSteeringMaxCharacteristic = BLECharacteristic(RC_STEERING_MAX);
+BLECharacteristic rcThrottleMinCharacteristic = BLECharacteristic(RC_THROTTLE_MIN);
+BLECharacteristic rcThrottleCenterCharacteristic = BLECharacteristic(RC_THROTTLE_CENTER);
+BLECharacteristic rcThrottleMaxCharacteristic = BLECharacteristic(RC_THROTTLE_MAX);
+BLECharacteristic childInvertSteeringCharacteristic = BLECharacteristic(CHILD_INVERT_STEERING);
+BLECharacteristic childInvertThrottleCharacteristic = BLECharacteristic(CHILD_INVERT_THROTTLE);
+BLECharacteristic childSteeringMinCharacteristic = BLECharacteristic(CHILD_STEERING_MIN);
+BLECharacteristic childSteeringCenterCharacteristic = BLECharacteristic(CHILD_STEERING_CENTER);
+BLECharacteristic childSteeringMaxCharacteristic = BLECharacteristic(CHILD_STEERING_MAX);
+BLECharacteristic childThrottleMinCharacteristic = BLECharacteristic(CHILD_THROTTLE_MIN);
+BLECharacteristic childThrottleCenterCharacteristic = BLECharacteristic(CHILD_THROTTLE_CENTER);
+BLECharacteristic childThrottleMaxCharacteristic = BLECharacteristic(CHILD_THROTTLE_MAX);
 
 struct ConfigurationEntry {
   uint8_t id;
@@ -195,123 +188,10 @@ void setupGeeksCarService(void)
   // a BLECharacteristic will cause it to be added to the last BLEService that
   // was 'begin()'ed!
 
-/*
-  steeringMinCharacteristic.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
-  steeringMinCharacteristic.setPermission(SECMODE_OPEN, SECMODE_OPEN);
-  steeringMinCharacteristic.setWriteCallback(write_callback);
-  steeringMinCharacteristic.setFixedLen(2);
-  steeringMinCharacteristic.begin();
-  steeringMinCharacteristic.write16(invertByteOrderInt16(configurationEntries[0].intValue));
-  steeringCenterCharacteristic.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
-  steeringCenterCharacteristic.setPermission(SECMODE_OPEN, SECMODE_OPEN);
-  steeringCenterCharacteristic.setWriteCallback(write_callback);
-  steeringCenterCharacteristic.setFixedLen(2);
-  steeringCenterCharacteristic.begin();
-  steeringCenterCharacteristic.write16(invertByteOrderInt16(configurationEntries[1].intValue));
-  steeringMaxCharacteristic.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
-  steeringMaxCharacteristic.setPermission(SECMODE_OPEN, SECMODE_OPEN);
-  steeringMaxCharacteristic.setWriteCallback(write_callback);
-  steeringMaxCharacteristic.setFixedLen(2);
-  steeringMaxCharacteristic.begin();
-  steeringMaxCharacteristic.write16(invertByteOrderInt16(configurationEntries[2].intValue));
-  rcEnableCharacteristic.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
-  rcEnableCharacteristic.setPermission(SECMODE_OPEN, SECMODE_OPEN);
-  rcEnableCharacteristic.setWriteCallback(write_callback);
-  rcEnableCharacteristic.setFixedLen(1);
-  rcEnableCharacteristic.begin();
-  rcEnableCharacteristic.write8(configurationEntries[3].booleanValue);
-  rcSteeringMinCharacteristic.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
-  rcSteeringMinCharacteristic.setPermission(SECMODE_OPEN, SECMODE_OPEN);
-  rcSteeringMinCharacteristic.setWriteCallback(write_callback);
-  rcSteeringMinCharacteristic.setFixedLen(2);
-  rcSteeringMinCharacteristic.begin();
-  rcSteeringMinCharacteristic.write16(invertByteOrderInt16(configurationEntries[4].intValue));
-  rcSteeringCenterCharacteristic.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
-  rcSteeringCenterCharacteristic.setPermission(SECMODE_OPEN, SECMODE_OPEN);
-  rcSteeringCenterCharacteristic.setWriteCallback(write_callback);
-  rcSteeringCenterCharacteristic.setFixedLen(2);
-  rcSteeringCenterCharacteristic.begin();
-  rcSteeringCenterCharacteristic.write16(invertByteOrderInt16(configurationEntries[5].intValue));
-  rcSteeringMaxCharacteristic.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
-  rcSteeringMaxCharacteristic.setPermission(SECMODE_OPEN, SECMODE_OPEN);
-  rcSteeringMaxCharacteristic.setWriteCallback(write_callback);
-  rcSteeringMaxCharacteristic.setFixedLen(2);
-  rcSteeringMaxCharacteristic.begin();
-  rcSteeringMaxCharacteristic.write16(invertByteOrderInt16(configurationEntries[6].intValue));
-  rcThrottleMinCharacteristic.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
-  rcThrottleMinCharacteristic.setPermission(SECMODE_OPEN, SECMODE_OPEN);
-  rcThrottleMinCharacteristic.setWriteCallback(write_callback);
-  rcThrottleMinCharacteristic.setFixedLen(2);
-  rcThrottleMinCharacteristic.begin();
-  rcThrottleMinCharacteristic.write16(invertByteOrderInt16(configurationEntries[7].intValue));
-  rcThrottleCenterCharacteristic.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
-  rcThrottleCenterCharacteristic.setPermission(SECMODE_OPEN, SECMODE_OPEN);
-  rcThrottleCenterCharacteristic.setWriteCallback(write_callback);
-  rcThrottleCenterCharacteristic.setFixedLen(2);
-  rcThrottleCenterCharacteristic.begin();
-  rcThrottleCenterCharacteristic.write16(invertByteOrderInt16(configurationEntries[8].intValue));
-  rcThrottleMaxCharacteristic.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
-  rcThrottleMaxCharacteristic.setPermission(SECMODE_OPEN, SECMODE_OPEN);
-  rcThrottleMaxCharacteristic.setWriteCallback(write_callback);
-  rcThrottleMaxCharacteristic.setFixedLen(2);
-  rcThrottleMaxCharacteristic.begin();
-  rcThrottleMaxCharacteristic.write16(invertByteOrderInt16(configurationEntries[9].intValue));
-  childInvertSteeringCharacteristic.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
-  childInvertSteeringCharacteristic.setPermission(SECMODE_OPEN, SECMODE_OPEN);
-  childInvertSteeringCharacteristic.setWriteCallback(write_callback);
-  childInvertSteeringCharacteristic.setFixedLen(1);
-  childInvertSteeringCharacteristic.begin();
-  childInvertSteeringCharacteristic.write8(configurationEntries[10].booleanValue);
-  childInvertThrottleCharacteristic.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
-  childInvertThrottleCharacteristic.setPermission(SECMODE_OPEN, SECMODE_OPEN);
-  childInvertThrottleCharacteristic.setWriteCallback(write_callback);
-  childInvertThrottleCharacteristic.setFixedLen(1);
-  childInvertThrottleCharacteristic.begin();
-  childInvertThrottleCharacteristic.write8(configurationEntries[11].booleanValue);
-  childSteeringMinCharacteristic.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
-  childSteeringMinCharacteristic.setPermission(SECMODE_OPEN, SECMODE_OPEN);
-  childSteeringMinCharacteristic.setWriteCallback(write_callback);
-  childSteeringMinCharacteristic.setFixedLen(2);
-  childSteeringMinCharacteristic.begin();
-  childSteeringMinCharacteristic.write16(invertByteOrderInt16(configurationEntries[12].intValue));
-  childSteeringCenterCharacteristic.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
-  childSteeringCenterCharacteristic.setPermission(SECMODE_OPEN, SECMODE_OPEN);
-  childSteeringCenterCharacteristic.setWriteCallback(write_callback);
-  childSteeringCenterCharacteristic.setFixedLen(2);
-  childSteeringCenterCharacteristic.begin();
-  childSteeringCenterCharacteristic.write16(invertByteOrderInt16(configurationEntries[13].intValue));
-  childSteeringMaxCharacteristic.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
-  childSteeringMaxCharacteristic.setPermission(SECMODE_OPEN, SECMODE_OPEN);
-  childSteeringMaxCharacteristic.setWriteCallback(write_callback);
-  childSteeringMaxCharacteristic.setFixedLen(2);
-  childSteeringMaxCharacteristic.begin();
-  childSteeringMaxCharacteristic.write16(invertByteOrderInt16(configurationEntries[14].intValue));
-  childThrottleMinCharacteristic.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
-  childThrottleMinCharacteristic.setPermission(SECMODE_OPEN, SECMODE_OPEN);
-  childThrottleMinCharacteristic.setWriteCallback(write_callback);
-  childThrottleMinCharacteristic.setFixedLen(2);
-  childThrottleMinCharacteristic.begin();
-  childThrottleMinCharacteristic.write16(invertByteOrderInt16(configurationEntries[15].intValue));
-  childThrottleCenterCharacteristic.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
-  childThrottleCenterCharacteristic.setPermission(SECMODE_OPEN, SECMODE_OPEN);
-  childThrottleCenterCharacteristic.setWriteCallback(write_callback);
-  childThrottleCenterCharacteristic.setFixedLen(2);
-  childThrottleCenterCharacteristic.begin();
-  childThrottleCenterCharacteristic.write16(invertByteOrderInt16(configurationEntries[16].intValue));
-  childThrottleMaxCharacteristic.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
-  childThrottleMaxCharacteristic.setPermission(SECMODE_OPEN, SECMODE_OPEN);
-  childThrottleMaxCharacteristic.setWriteCallback(write_callback);
-  childThrottleMaxCharacteristic.setFixedLen(2);
-  childThrottleMaxCharacteristic.begin();
-  childThrottleMaxCharacteristic.write16(invertByteOrderInt16(configurationEntries[17].intValue));
-  */
-
   ConfigurationEntry entry;
   for (int i = 0; i < CHARACTERISTIC_COUNT; i++) {
     entry = configurationEntries[i];
 
-    UUID128_BASE_CHARACTERISTIC[10] = entry.id;
-    //entry.characteristic = BLECharacteristic(UUID128_BASE_CHARACTERISTIC);
     entry.characteristic->setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
     entry.characteristic->setPermission(SECMODE_OPEN, SECMODE_OPEN);
     entry.characteristic->setWriteCallback(write_callback);
