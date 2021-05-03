@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Sample illustrating the use of Web Bluetooth / Get Characteristics (Async Await).">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Geeks Car Configuration</title>
+    <script>
+        // Add a global error event listener early on in the page load, to help ensure that browsers
+        // which don't support specific functionality still end up displaying a meaningful message.
+        window.addEventListener('error', function(error) {
+            if (GeeksConfiguration && GeeksConfiguration.setStatus) {
+                console.error(error);
+                GeeksConfiguration.setStatus(error.message + ' (Your browser may not support this feature.)');
+                error.preventDefault();
+            }
+        });
+    </script>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+
+</head>
+
+<body>
+<script>
+    var GeeksConfiguration = {
+        serviceUuid: "d18dd040-9000-42db-abba-1e23f3dd1d67",
+
+        log: function() {
+            var line = Array.prototype.slice.call(arguments).map(function(argument) {
+                return typeof argument === 'string' ? argument : JSON.stringify(argument);
+            }).join(' ');
+
+            document.querySelector('#log').textContent += line + '\n';
+        },
+
+        clearLog: function() {
+            document.querySelector('#log').textContent = '';
+        },
+
+        setStatus: function(status) {
+            document.querySelector('#status').textContent = status;
+        },
+
+        setContent: function(newContent) {
+            var content = document.querySelector('#content');
+            while(content.hasChildNodes()) {
+                content.removeChild(content.lastChild);
+            }
+            content.appendChild(newContent);
+        },
+
+        values: {
+            'd18dd040-9001-42db-abba-1e23f3dd1d67': {
+                name: 'steeringMin',
+                type: 'number',
+                characteristic: null,
+                originalValue: 0,
+                currentValue: 0
+            },
+            'd18dd040-9002-42db-abba-1e23f3dd1d67': {
+                name: 'steeringCenter',
+                type: 'number',
+                characteristic: null,
+                originalValue: 0,
+                currentValue: 0
+            },
+            'd18dd040-9003-42db-abba-1e23f3dd1d67': {
+                name: 'steeringMax',
+                type: 'number',
+                characteristic: null,
+                originalValue: 0,
+                currentValue: 0
+            },
+            'd18dd040-9004-42db-abba-1e23f3dd1d67': {
+                name: 'rcEnable',
+                type: 'boolean',
+                characteristic: null,
+                originalValue: 0,
+                currentValue: 0
+            },
+            'd18dd040-9005-42db-abba-1e23f3dd1d67': {
+                name: 'rcSteeringMin',
+                type: 'number',
+                characteristic: null,
+                originalValue: 0,
+                currentValue: 0
+            },
+            'd18dd040-9006-42db-abba-1e23f3dd1d67': {
+                name: 'rcSteeringCenter',
+                type: 'number',
+                characteristic: null,
+                originalValue: 0,
+                currentValue: 0
+            },
+            'd18dd040-9007-42db-abba-1e23f3dd1d67': {
+                name: 'rcSteeringMax',
+                type: 'number',
+                characteristic: null,
+                originalValue: 0,
+                currentValue: 0
+            },
+            'd18dd040-9008-42db-abba-1e23f3dd1d67': {
+                name: 'rcThrottleMin',
+                type: 'number',
+                characteristic: null,
+                originalValue: 0,
+                currentValue: 0
+            },
+            'd18dd040-9009-42db-abba-1e23f3dd1d67': {
+                name: 'rcThrottleCenter',
+                type: 'number',
+                characteristic: null,
+                originalValue: 0,
+                currentValue: 0
+            },
+            'd18dd040-900a-42db-abba-1e23f3dd1d67': {
+                name: 'rcThrottleMax',
+                type: 'number',
+                characteristic: null,
+                originalValue: 0,
+                currentValue: 0
+            },
+            'd18dd040-900b-42db-abba-1e23f3dd1d67': {
+                name: 'childInvertSteering',
+                type: 'boolean',
+                characteristic: null,
+                originalValue: false,
+                currentValue: false
+            },
+            'd18dd040-900c-42db-abba-1e23f3dd1d67': {
+                name: 'childInvertThrottle',
+                type: 'boolean',
+                characteristic: null,
+                originalValue: false,
+                currentValue: false
+            },
+            'd18dd040-900d-42db-abba-1e23f3dd1d67': {
+                name: 'childSteeringMin',
+                type: 'number',
+                characteristic: null,
+                originalValue: 0,
+                currentValue: 0
+            },
+            'd18dd040-900e-42db-abba-1e23f3dd1d67': {
+                name: 'childSteeringCenter',
+                type: 'number',
+                characteristic: null,
+                originalValue: 0,
+                currentValue: 0
+            },
+            'd18dd040-900f-42db-abba-1e23f3dd1d67': {
+                name: 'childSteeringMax',
+                type: 'number',
+                characteristic: null,
+                originalValue: 0,
+                currentValue: 0
+            },
+            'd18dd040-9010-42db-abba-1e23f3dd1d67': {
+                name: 'childThrottleMin',
+                type: 'number',
+                characteristic: null,
+                originalValue: 0,
+                currentValue: 0
+            },
+            'd18dd040-9011-42db-abba-1e23f3dd1d67': {
+                name: 'childThrottleCenter',
+                type: 'number',
+                characteristic: null,
+                originalValue: 0,
+                currentValue: 0
+            },
+            'd18dd040-9012-42db-abba-1e23f3dd1d67': {
+                name: 'childThrottleMax',
+                type: 'number',
+                characteristic: null,
+                originalValue: 0,
+                currentValue: 0
+            }
+        }
+
+    };
+</script>
+
+<form>
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <h1>Geeks Car Configuration</h1>
+            <button type="button" onclick="connectAndLoad()">Connect and Retrieve Settings</button>
+            <button type="button" onclick="saveSettings()">Save Settings</button>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h3>Steering (Linear Actuator)</h3>
+                        <p>Values are given in units from -100 to 100. Change these settings to adjust the center point for the wheels and define the left and right limits.</p>
+                        <div class="container">
+                            <div class="row">
+                                <div class="form-group col-4">
+                                    <label for="steeringMin">Steering Min</label>
+                                    <input type="number" class="form-control" id="steeringMin" placeholder="-100 to -1">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="steeringCenter">Steering Center</label>
+                                    <input type="number" class="form-control" id="steeringCenter" placeholder="-100 to 100">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="steeringMax">Steering Max</label>
+                                    <input type="number" class="form-control" id="steeringMax" placeholder="1 to 100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col">
+                        <h3>Parental Control (RC)</h3>
+                        <p>Values are given represent the analog reading limits and center point for the RC remote for both steering and throttle controls.
+                            Typically these values are from 0 to 1024. However, with the LTC2645 PWM DAC chip, the values are in a much smaller range.</p>
+                        <div class="container">
+                            <div class="row">
+                                <div class="form-group col-12">
+                                    <input type="checkbox" class="form-check-input" id="rcEnable">
+                                    <label for="rcEnable">Enable Parental Controls</label>
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="rcSteeringMin">Steering Min</label>
+                                    <input type="number" class="form-control" id="rcSteeringMin" placeholder="0 to 1024">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="rcSteeringCenter">Steering Center</label>
+                                    <input type="number" class="form-control" id="rcSteeringCenter" placeholder="0 to 1024">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="rcSteeringMax">Steering Max</label>
+                                    <input type="number" class="form-control" id="rcSteeringMax" placeholder="0 to 1024">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="rcThrottleMin">Throttle Min</label>
+                                    <input type="number" class="form-control" id="rcThrottleMin" placeholder="0 to 1024">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="rcThrottleCenter">Throttle Center</label>
+                                    <input type="number" class="form-control" id="rcThrottleCenter" placeholder="0 to 1024">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="rcThrottleMax">Throttle Max</label>
+                                    <input type="number" class="form-control" id="rcThrottleMax" placeholder="0 to 1024">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2 mb-5">
+                    <div class="col">
+                        <h3>Child Control</h3>
+                        <h4>Joystick, Control Panel, Drive-by-Wire, etc.</h4>
+                        <p>Values are given represent the analog reading limits and center point for the Child input device for both steering and throttle controls.
+                            For analog joysticks, typically these values are from 0 to 1024. However, other input devices are converted from PWM to Analog by the LTC2645.
+                            For this configuration, the values are in a much smaller range.</p>
+                        <div class="container">
+                            <div class="row">
+                                <div class="form-group col-4">
+                                    <input type="checkbox" class="form-check-input" id="childInvertSteering">
+                                    <label for="childInvertSteering">Invert Steering</label>
+                                </div>
+                                <div class="form-group col-8">
+                                    <input type="checkbox" class="form-check-input" id="childInvertThrottle">
+                                    <label for="childInvertThrottle">Invert Throttle</label>
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="childSteeringMin">Steering Min</label>
+                                    <input type="number" class="form-control" id="childSteeringMin" placeholder="0 to 1024">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="childSteeringCenter">Steering Center</label>
+                                    <input type="number" class="form-control" id="childSteeringCenter" placeholder="0 to 1024">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="childSteeringMax">Steering Max</label>
+                                    <input type="number" class="form-control" id="childSteeringMax" placeholder="0 to 1024">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="childThrottleMin">Throttle Min</label>
+                                    <input type="number" class="form-control" id="childThrottleMin" placeholder="0 to 1024">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="childThrottleCenter">Throttle Center</label>
+                                    <input type="number" class="form-control" id="childThrottleCenter" placeholder="0 to 1024">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="childThrottleMax">Throttle Max</label>
+                                    <input type="number" class="form-control" id="childThrottleMax" placeholder="0 to 1024">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <h3>Log Output</h3>
+            <div id="output" class="output">
+                <div id="content"></div>
+                <div id="status"></div>
+                <pre id="log"></pre>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+
+
+
+<script>
+async function connectAndLoad() {
+    try {
+        log('Requesting Bluetooth Device...');
+        const device = await navigator.bluetooth.requestDevice({
+            filters: [{services: [GeeksConfiguration.serviceUuid]}]});
+
+        log('Connecting to GATT Server...');
+        const server = await device.gatt.connect();
+
+        log('Getting Service...');
+        const service = await server.getPrimaryService(GeeksConfiguration.serviceUuid);
+
+        log('Getting Characteristics...');
+        let characteristics;
+        characteristics = await service.getCharacteristics();
+
+        if (characteristics) {
+            log('> Characteristics: ');
+            await characteristics.forEach(async function(ch) {
+                log(' >> ' + ch.uuid);
+                if (GeeksConfiguration.values[ch.uuid]) {
+                    let value = await ch.readValue();
+                    let configItem = GeeksConfiguration.values[ch.uuid];
+                    if (configItem.type == 'boolean') {
+                        console.log("Is Boolean: " + configItem.name);
+                        configItem.originalValue = value.getInt8(0) != 0;
+                        document.querySelector('#' + configItem.name).checked = configItem.originalValue;
+                    } else {
+                        console.log("Is Number: " + configItem.name);
+                        configItem.originalValue = value.getInt16(0);
+                        document.querySelector('#' + configItem.name).value = configItem.originalValue;
+                    }
+                    configItem.currentValue = configItem.originalValue;
+                    configItem.characteristic = ch;
+
+                    log('  >>> Value: ' + configItem.currentValue);
+                }
+            });
+        } else {
+            log('> No Characteristics Found! ');
+        }
+    } catch(error) {
+        log('Argh! ' + error);
+    }
+}
+
+async function saveSettings() {
+    try {
+        log('Attempting to save settings');
+        for (const uuid in GeeksConfiguration.values) {
+            let configItem = GeeksConfiguration.values[uuid];
+
+            if (configItem.type == 'number') {
+                let newValue = parseInt(document.querySelector('#' + configItem.name).value);
+                configItem.newValue = newValue;
+                await configItem.characteristic.writeValue(Int16Array.of(newValue));
+                configItem.originalValue = newValue;
+            } else if (configItem.type == 'boolean') {
+                let newValue = document.querySelector('#' + configItem.name).checked;
+                console.log(document.querySelector('#' + configItem.name));
+                console.log(newValue);
+                configItem.newValue = newValue;
+                await configItem.characteristic.writeValue(Int8Array.of(newValue));
+                configItem.originalValue = newValue;
+            }
+        }
+    } catch(error) {
+        log('Argh! ' + error);
+    }
+}
+</script>
+
+<script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+
+        if (isWebBluetoothEnabled()) {
+            GeeksConfiguration.clearLog();
+            connectAndLoad();
+        }
+    });
+</script>
+
+<script>
+    log = GeeksConfiguration.log;
+
+    function isWebBluetoothEnabled() {
+        if (navigator.bluetooth) {
+            return true;
+        } else {
+            GeeksConfiguration.setStatus('Web Bluetooth API is not available.\n' +
+                'Please make sure the "Experimental Web Platform features" flag is enabled.');
+            return false;
+        }
+    }
+</script>
+</body>
+</html>
