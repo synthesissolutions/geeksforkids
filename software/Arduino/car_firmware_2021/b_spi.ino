@@ -14,37 +14,29 @@ using namespace Adafruit_LittleFS_Namespace;
 
 File file(InternalFS);
 
-const int CURRENT_SETTINGS_VERSION = 4;
+const int CURRENT_SETTINGS_VERSION = 5;
 
 struct ConfigurationSettings {
 
-  int actuatorCenter;
   int actuatorMin;
+  int actuatorCenter;
   int actuatorMax;
-  boolean useJoystick;
+  boolean useRc;
+  int rcSteeringMin;
+  int rcSteeringCenter;
+  int rcSteeringMax;
+  int rcThrottleMin;
+  int rcThrottleCenter;
+  int rcThrottleMax;
   boolean invertJoystickX;
   boolean invertJoystickY;
-  boolean useRc;
+  int joystickSteeringMin;
+  int joystickSteeringCenter;
+  int joystickSteeringMax;
+  int joystickThrottleMin;
+  int joystickThrottleCenter;
+  int joystickThrottleMax;
 };
-
-/*
-ConfigurationEntry configurationEntries[] = {
-  {EEPROM_VERSION, 0, "Integer", false, CURRENT_SETTINGS_VERSION, ""},
-  {EEPROM_MAX_SPEED, 4, "Integer", false, 65, ""},
-  {EEPROM_ACTUATOR_CENTER, 8, "Integer", false, 0, ""},  // in scaled units from -100 to 100
-  {EEPROM_ACTUATOR_MIN, 12, "Integer", false, -50, ""},  // in scaled units from -100 to 100
-  {EEPROM_ACTUATOR_MAX, 16, "Integer", false, 50, ""},   // in scaled units from -100 to 100
-  {EEPROM_USE_JOYSTICK, 20, "Boolean", true, 0, ""},
-  {EEPROM_INVERT_JOYSTICK_X, 24, "Boolean", true, 0, ""},
-  {EEPROM_INVERT_JOYSTICK_Y, 28, "Boolean", true, 0, ""},
-  {EEPROM_USE_RC, 32, "Boolean", true, 0, ""},
-  {EEPROM_USE_DRIVE_BY_WIRE, 36, "Boolean", false, 0, ""},
-  {EEPROM_DRIVE_BY_WIRE_CENTER, 40, "Integer", false, 512, ""},
-  {EEPROM_DRIVE_BY_WIRE_MIN, 44, "Integer", false, 300, ""},
-  {EEPROM_DRIVE_BY_WIRE_MAX, 48, "Integer", false, 700, ""},
-  {EEPROM_USE_PUSH_BUTTON_DRIVE, 52, "Boolean", false, 0, ""}
-};
-*/
 
 class Spi {
   private:
@@ -81,13 +73,24 @@ class Spi {
     void setDefaultValues() {
         version = CURRENT_SETTINGS_VERSION;
         
-        currentSettings.actuatorCenter = 0;
         currentSettings.actuatorMin = -50;
+        currentSettings.actuatorCenter = 0;
         currentSettings.actuatorMax = 50;
-        currentSettings.useJoystick = true;
+        currentSettings.useRc = true;
+        currentSettings.rcSteeringMin = 25;
+        currentSettings.rcSteeringCenter = 512;
+        currentSettings.rcSteeringMax = 1000;
+        currentSettings.rcThrottleMin = 25;
+        currentSettings.rcThrottleCenter = 512;
+        currentSettings.rcThrottleMax = 1000;
         currentSettings.invertJoystickX = true;
         currentSettings.invertJoystickY = false;
-        currentSettings.useRc = true;
+        currentSettings.joystickSteeringMin = 25;
+        currentSettings.joystickSteeringCenter = 512;
+        currentSettings.joystickSteeringMax = 1000;
+        currentSettings.joystickThrottleMin = 25;
+        currentSettings.joystickThrottleCenter = 512;
+        currentSettings.joystickThrottleMax = 1000;
     }
 
     bool loadFromSpiFlash() {
@@ -122,65 +125,6 @@ class Spi {
   
       return false;
     }
-
-/*
-    JsonDocument loadConfigurationSettingsAsJson() {
-      int intValue;
-      boolean booleanValue;
-      
-      for (int i = 0; i < NUMBER_OF_CONFIGURATION_ENTRIES; i++) {
-        ConfigurationEntry entry = configurationEntries[i];
-        if (entry.dataType == "Integer") {
-          EEPROM.get(entry.eeAddress, intValue);
-          currentSettingsJson[entry.name] = intValue;
-        } else if (entry.dataType == "Boolean") {
-          EEPROM.get(entry.eeAddress, booleanValue);
-          currentSettingsJson[entry.name] = booleanValue;
-        } else {
-          // ignore for now
-        }
-      }
-    }
-
-    String saveConfiguration() {
-      for (int i = 0; i < NUMBER_OF_CONFIGURATION_ENTRIES; i++) {
-        ConfigurationEntry entry = configurationEntries[i];
-        if (entry.dataType == "Integer") {
-          int value = currentSettingsJson[entry.name];
-          EEPROM.put(entry.eeAddress, value);
-        } else if (entry.dataType == "Boolean") {
-          boolean booleanValue = currentSettingsJson[entry.name];
-          Serial.println(booleanValue);
-          if (currentSettingsJson[entry.name]) {
-            EEPROM.put(entry.eeAddress, 1);
-          } else {
-            EEPROM.put(entry.eeAddress, 0);
-          }
-        } else {
-          // ignore for now
-        }
-      }
-      
-      return "{\"Success\": true}";
-    }
-    
-    String resetConfiguration() {
-      for (int i = 0; i < NUMBER_OF_CONFIGURATION_ENTRIES; i++) {
-        ConfigurationEntry entry = configurationEntries[i];
-        if (entry.dataType == "Integer") {
-          EEPROM.put(entry.eeAddress, entry.intValue);
-          currentSettingsJson[entry.name] = entry.intValue;
-        } else if (entry.dataType == "Boolean") {
-          EEPROM.put(entry.eeAddress, entry.booleanValue);
-          currentSettingsJson[entry.name] = entry.booleanValue;
-        } else {
-          // ignore for now
-        }
-      }
-      
-      return "{\"Success\": true}";
-    }
-    */
 
      void getStatus(char * status) {
       sprintf(status, "[SPI Flash] Version: %i Configuration %s", version, loadingLogMessage);

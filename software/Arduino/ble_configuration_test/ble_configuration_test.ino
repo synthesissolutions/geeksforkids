@@ -101,7 +101,7 @@ void setup()
 
   // Initialise the Bluefruit module
   Serial.println("Initialise the Bluefruit nRF52 module");
-  Bluefruit.configUuid128Count(20);
+  //Bluefruit.configUuid128Count(20);
   Bluefruit.begin();
   Bluefruit.setName("GeeksCar2021");
 
