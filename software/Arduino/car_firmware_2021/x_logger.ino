@@ -84,11 +84,9 @@ class Logger {
         Serial.write(statusLine, strlen(statusLine));
         Serial.println();
 
-        if (configuration->useJoystick()) {
-          joystick->getStatus(statusLine);
-          Serial.write(statusLine, strlen(statusLine));
-          Serial.println();
-        }
+        joystick->getStatus(statusLine);
+        Serial.write(statusLine, strlen(statusLine));
+        Serial.println();
         
         if (configuration->useRc()) {
           rc->getStatus(statusLine);

@@ -33,7 +33,6 @@ class Configuration {
     boolean getInvertJoystickX() { return spi->currentSettings.invertJoystickX; }
     boolean getInvertJoystickY() { return spi->currentSettings.invertJoystickY; }
 
-    boolean useJoystick() { return spi->currentSettings.useJoystick; }
     boolean useRc() { return spi->currentSettings.useRc; }
 
     int readMaxSpeedPot() {
@@ -60,13 +59,11 @@ class Configuration {
     }
 
     void getStatus(char * status) {
-      sprintf(status, "[Configuration] Version: %i  Invert Joystick X:%s Invert Joystick Y:%s Speed Multiplier:%f Speed Pot:%i Joystick:%s RC:%s Min/C/Max:%i %i %i", 
+      sprintf(status, "[Configuration] Version: %i  Invert Joystick X:%s Invert Joystick Y:%s Speed Pot:%i RC:%s Min/C/Max:%i %i %i", 
         getConfigurationVersion(),
         getInvertJoystickX() ? "true" : "false",
         getInvertJoystickY() ? "true" : "false",
-        getSpeedMultiplier(),
         readMaxSpeedPot(),
-        useJoystick() ? "true" : "false",
         useRc() ? "true" : "false",
         getSteeringMin(),
         getSteeringCenter(),

@@ -1,4 +1,3 @@
-#include <ArduinoJson.h>
 #include <bluefruit.h>
 
 /**
@@ -39,6 +38,7 @@ BLEDis bledis;    // DIS (Device Information Service) helper class instance
 #define CHILD_THROTTLE_CENTER 0x11
 #define CHILD_THROTTLE_MAX    0x12
 
+// The BLECharacteristics must be defined as global variables
 BLECharacteristic steeringMinCharacteristic = BLECharacteristic(STEERING_MIN);
 BLECharacteristic steeringCenterCharacteristic = BLECharacteristic(STEERING_CENTER);
 BLECharacteristic steeringMaxCharacteristic = BLECharacteristic(STEERING_MAX);
@@ -61,31 +61,33 @@ BLECharacteristic childThrottleMaxCharacteristic = BLECharacteristic(CHILD_THROT
 struct ConfigurationEntry {
   uint8_t id;
   String dataType;
-  boolean booleanValue;
-  int intValue;
   BLECharacteristic *characteristic;
 };
 
 ConfigurationEntry configurationEntries[] = {
-  {STEERING_MIN, "Integer", false, -50, &steeringMinCharacteristic},    // in scaled units from -100 to 100
-  {STEERING_CENTER, "Integer", false, 0, &steeringCenterCharacteristic},   // in scaled units from -100 to 100
-  {STEERING_MAX, "Integer", false, 50, &steeringMaxCharacteristic},     // in scaled units from -100 to 100
-  {RC_ENABLE, "Boolean", true, 0, &rcEnableCharacteristic},
-  {RC_STEERING_MIN, "Integer", false, 33, &rcSteeringMinCharacteristic},
-  {RC_STEERING_CENTER, "Integer", false, 50, &rcSteeringCenterCharacteristic},
-  {RC_STEERING_MAX, "Integer", false, 80, &rcSteeringMaxCharacteristic},
-  {RC_THROTTLE_MIN, "Integer", false, 33, &rcThrottleMinCharacteristic},
-  {RC_THROTTLE_CENTER, "Integer", false, 50, &rcThrottleCenterCharacteristic},
-  {RC_THROTTLE_MAX, "Integer", false, 80, &rcThrottleMaxCharacteristic},
-  {CHILD_INVERT_STEERING, "Boolean", false, 0, &childInvertSteeringCharacteristic},
-  {CHILD_INVERT_THROTTLE, "Boolean", false, 0, &childInvertThrottleCharacteristic},
-  {CHILD_STEERING_MIN, "Integer", false, 25, &childSteeringMinCharacteristic},
-  {CHILD_STEERING_CENTER, "Integer", false, 512, &childSteeringCenterCharacteristic},
-  {CHILD_STEERING_MAX, "Integer", false, 1000, &childSteeringMaxCharacteristic},
-  {CHILD_THROTTLE_MIN, "Integer", false, 25, &childThrottleMinCharacteristic},
-  {CHILD_THROTTLE_CENTER, "Integer", false, 512, &childThrottleCenterCharacteristic},
-  {CHILD_THROTTLE_MAX, "Integer", false, 1000, &childThrottleMaxCharacteristic}
+  {STEERING_MIN, "Integer", &steeringMinCharacteristic},    // in scaled units from -100 to 100
+  {STEERING_CENTER, "Integer", &steeringCenterCharacteristic},   // in scaled units from -100 to 100
+  {STEERING_MAX, "Integer", &steeringMaxCharacteristic},     // in scaled units from -100 to 100
+  {RC_ENABLE, "Boolean", &rcEnableCharacteristic},
+  {RC_STEERING_MIN, "Integer", &rcSteeringMinCharacteristic},
+  {RC_STEERING_CENTER, "Integer", &rcSteeringCenterCharacteristic},
+  {RC_STEERING_MAX, "Integer", &rcSteeringMaxCharacteristic},
+  {RC_THROTTLE_MIN, "Integer", &rcThrottleMinCharacteristic},
+  {RC_THROTTLE_CENTER, "Integer", &rcThrottleCenterCharacteristic},
+  {RC_THROTTLE_MAX, "Integer", &rcThrottleMaxCharacteristic},
+  {CHILD_INVERT_STEERING, "Boolean", &childInvertSteeringCharacteristic},
+  {CHILD_INVERT_THROTTLE, "Boolean", &childInvertThrottleCharacteristic},
+  {CHILD_STEERING_MIN, "Integer", &childSteeringMinCharacteristic},
+  {CHILD_STEERING_CENTER, "Integer", &childSteeringCenterCharacteristic},
+  {CHILD_STEERING_MAX, "Integer", &childSteeringMaxCharacteristic},
+  {CHILD_THROTTLE_MIN, "Integer", &childThrottleMinCharacteristic},
+  {CHILD_THROTTLE_CENTER, "Integer", &childThrottleCenterCharacteristic},
+  {CHILD_THROTTLE_MAX, "Integer", &childThrottleMaxCharacteristic}
 };
+
+// TODO Make spi a member variable. To do this, we need to make the callback functions
+// non-static.
+Spi *blSpi;
 
 class Bluetooth {
   private:
@@ -93,10 +95,6 @@ class Bluetooth {
     boolean readingCommand = false;
     int enableBluetoothButtonPin;
     boolean isBluetoothEnabled = false;
-    Spi *spi;
-    
-    StaticJsonDocument<1024> currentCommandJson;
-  
 
   public: 
     // Default constructor ... does nothing.  This allows us to delay setting the pins until we want to (via the init method).  
@@ -108,16 +106,14 @@ class Bluetooth {
      */
     void init(int enableBluetoothButtonPin, Spi *s) {  
       this->enableBluetoothButtonPin = enableBluetoothButtonPin;
-      spi = s;
+      blSpi = s;
       pinMode(enableBluetoothButtonPin, INPUT_PULLUP);
     }
 
     void initBluetooth() {
-      Serial.println("");
-      Serial.println("Bluetooth Initialized...");
-      Serial.println("");
-
-      Bluefruit.configUuid128Count(20);
+      Serial.println("Bluetooth is enabled. Start advertising.");
+      
+      //Bluefruit.configUuid128Count(20);
       Bluefruit.begin();
       Bluefruit.setName("GeeksCar2021");
     
@@ -126,19 +122,13 @@ class Bluetooth {
       Bluefruit.Periph.setDisconnectCallback(disconnect_callback);
     
       // Configure and Start the Device Information Service
-      Serial.println("Configuring the Device Information Service");
       bledis.setManufacturer("GeeksForKids");
       bledis.setModel("Geeks2021Car");
       bledis.begin();
 
-      Serial.println("Configuring the Geeks Car Configuration Service");
       setupGeeksCarService();
     
-      // Setup the advertising packet(s)
-      Serial.println("Setting up the advertising payload(s)");
       startAdvertising();
-    
-      Serial.println("\nAdvertising");
     }
 
     /*
@@ -174,40 +164,104 @@ class Bluetooth {
     
     static void write_callback(uint16_t conn_hdl, BLECharacteristic* chr, uint8_t* data, uint16_t len)
     {
-      Serial.println("in write_callback");
       int16_t valueInt16 = *((int16_t *)data);
       boolean valueBoolean = data[0] != 0;
     
-      // The 10th byte is incremeted for each characteristic from 1 to 255. The service has 0 in this byte.
-      int8_t characteristicId = chr->uuid._uuid128[10];
-      Serial.println("in write_callback");
-      Serial.println(characteristicId);
+      // The 2 byte UUID is incremeted for each characteristic from 1 to 255.
+      uint16_t characteristicId;
+      chr->uuid.get(&characteristicId);
     
       if (len == 2) {
         // Write the value back out so the BLE value gets inverted again
         // otherwise it is cached improperly and the next read by the client will have the wrong value
         chr->write16(invertByteOrderInt16(valueInt16));
-        Serial.print("int16: ");
-        Serial.println(valueInt16);
       }
     
       ConfigurationEntry entry;
       for (int i = 0; i < CHARACTERISTIC_COUNT; i++) {
         entry = configurationEntries[i];
-        if (entry.id == characteristicId) {
-          Serial.print("Found Entry for: ");
-          Serial.println(characteristicId);
-          if (entry.dataType == "Boolean") {
-            entry.booleanValue = valueBoolean;
-          } else if (entry.dataType == "Integer") {
-            entry.intValue = valueInt16;
-          }
-    
+        boolean found = false;
+
+        switch (characteristicId) {
+          case STEERING_MIN:
+            blSpi->currentSettings.actuatorMin = valueInt16;
+            found = true;
+            break;
+          case STEERING_CENTER:
+            blSpi->currentSettings.actuatorCenter = valueInt16;
+            found = true;
+            break;
+          case STEERING_MAX:
+            blSpi->currentSettings.actuatorMax = valueInt16;
+            found = true;
+            break;
+          case RC_ENABLE:
+            blSpi->currentSettings.useRc = valueBoolean;
+            found = true;
+            break;
+          case RC_STEERING_MIN:
+            blSpi->currentSettings.rcSteeringMin = valueInt16;
+            found = true;
+            break;
+          case RC_STEERING_CENTER:
+            blSpi->currentSettings.rcSteeringCenter = valueInt16;
+            found = true;
+            break;
+          case RC_STEERING_MAX:
+            blSpi->currentSettings.rcSteeringMax = valueInt16;
+            found = true;
+            break;
+          case RC_THROTTLE_MIN:
+            blSpi->currentSettings.rcThrottleMin = valueInt16;
+            found = true;
+            break;
+          case RC_THROTTLE_CENTER:
+            blSpi->currentSettings.rcThrottleCenter = valueInt16;
+            found = true;
+            break;
+          case RC_THROTTLE_MAX:
+            blSpi->currentSettings.rcThrottleMax = valueInt16;
+            found = true;
+            break;
+          case CHILD_INVERT_STEERING:
+            blSpi->currentSettings.invertJoystickX = valueBoolean;
+            found = true;
+            break;
+          case CHILD_INVERT_THROTTLE:
+            blSpi->currentSettings.invertJoystickY = valueBoolean;
+            found = true;
+            break;
+          case CHILD_STEERING_MIN:
+            blSpi->currentSettings.joystickSteeringMin = valueInt16;
+            found = true;
+            break;
+          case CHILD_STEERING_CENTER:
+            blSpi->currentSettings.joystickSteeringCenter = valueInt16;
+            found = true;
+            break;
+          case CHILD_STEERING_MAX:
+            blSpi->currentSettings.joystickSteeringMax = valueInt16;
+            found = true;
+            break;
+          case CHILD_THROTTLE_MIN:
+            blSpi->currentSettings.joystickThrottleMin = valueInt16;
+            found = true;
+            break;
+          case CHILD_THROTTLE_CENTER:
+            blSpi->currentSettings.joystickThrottleCenter = valueInt16;
+            found = true;
+            break;
+          case CHILD_THROTTLE_MAX:
+            blSpi->currentSettings.joystickThrottleMax = valueInt16;
+            blSpi->saveToSpiFlash();
+            found = true;
+            break;
+        }
+
+        if (found) {
           break;
         }
       }
-    
-      // TODO Save new values to storage
     }
     
     void setupGeeksCarService(void)
@@ -228,16 +282,63 @@ class Bluetooth {
         entry.characteristic->setWriteCallback(write_callback);
         entry.characteristic->setFixedLen(entry.dataType == "Boolean" ? 1 : 2);
         entry.characteristic->begin();
-    
-        if (entry.dataType == "Boolean") {
-          entry.characteristic->write8(entry.booleanValue);
-        } else if (entry.dataType == "Integer") {
-          Serial.print("before: ");
-          Serial.println(entry.intValue);
-          entry.characteristic->write16(invertByteOrderInt16(entry.intValue));
-          Serial.print("after: ");
-          Serial.println(entry.intValue);
-        }    
+
+        switch (entry.id) {
+          case STEERING_MIN:
+            entry.characteristic->write16(invertByteOrderInt16(blSpi->currentSettings.actuatorMin));
+            break;
+          case STEERING_CENTER:
+            entry.characteristic->write16(invertByteOrderInt16(blSpi->currentSettings.actuatorCenter));
+            break;
+          case STEERING_MAX:
+            entry.characteristic->write16(invertByteOrderInt16(blSpi->currentSettings.actuatorMax));
+            break;
+          case RC_ENABLE:
+            entry.characteristic->write8(blSpi->currentSettings.useRc);
+            break;
+          case RC_STEERING_MIN:
+            entry.characteristic->write16(invertByteOrderInt16(blSpi->currentSettings.rcSteeringMin));
+            break;
+          case RC_STEERING_CENTER:
+            entry.characteristic->write16(invertByteOrderInt16(blSpi->currentSettings.rcSteeringCenter));
+            break;
+          case RC_STEERING_MAX:
+           entry.characteristic->write16(invertByteOrderInt16( blSpi->currentSettings.rcSteeringMax));
+            break;
+          case RC_THROTTLE_MIN:
+            entry.characteristic->write16(invertByteOrderInt16(blSpi->currentSettings.rcThrottleMin));
+            break;
+          case RC_THROTTLE_CENTER:
+            entry.characteristic->write16(invertByteOrderInt16(blSpi->currentSettings.rcThrottleCenter));
+            break;
+          case RC_THROTTLE_MAX:
+            entry.characteristic->write16(invertByteOrderInt16(blSpi->currentSettings.rcThrottleMax));
+            break;
+          case CHILD_INVERT_STEERING:
+            entry.characteristic->write8(blSpi->currentSettings.invertJoystickX);
+            break;
+          case CHILD_INVERT_THROTTLE:
+            entry.characteristic->write8(blSpi->currentSettings.invertJoystickY);
+            break;
+          case CHILD_STEERING_MIN:
+            entry.characteristic->write16(invertByteOrderInt16(blSpi->currentSettings.joystickSteeringMin));
+            break;
+          case CHILD_STEERING_CENTER:
+            entry.characteristic->write16(invertByteOrderInt16(blSpi->currentSettings.joystickSteeringCenter));
+            break;
+          case CHILD_STEERING_MAX:
+            entry.characteristic->write16(invertByteOrderInt16(blSpi->currentSettings.joystickSteeringMax));
+            break;
+          case CHILD_THROTTLE_MIN:
+            entry.characteristic->write16(invertByteOrderInt16(blSpi->currentSettings.joystickThrottleMin));
+            break;
+          case CHILD_THROTTLE_CENTER:
+            entry.characteristic->write16(invertByteOrderInt16(blSpi->currentSettings.joystickThrottleCenter));
+            break;
+          case CHILD_THROTTLE_MAX:
+            entry.characteristic->write16(invertByteOrderInt16(blSpi->currentSettings.joystickThrottleMax));
+            break;
+        }
       }
     }
     
@@ -278,7 +379,7 @@ class Bluetooth {
     
       return invertedValue;
     }
-    
+
     void getStatus(char * status) {
       sprintf(status, "[Bluetooth] Enabled: %s", isBluetoothEnabled ? "true" : "false");
     }

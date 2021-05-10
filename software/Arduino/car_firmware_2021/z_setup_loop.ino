@@ -24,13 +24,14 @@ Logger logger;
 boolean rcInControl = false;
 boolean joystickInControl = false;
 boolean bluetoothInitialized = false;
+boolean badStartMessageDisplayed = false;
 
 /*
  * Arduino defined setup function.  Automatically run once at restart of the device.
  */
 void setup() {
   dwt_enable();
-  
+
   // set up the logger
   logger.init(LOGGER_UPDATE_TIME, &spi, &bluetooth, &configuration, &joystick, &remoteControl, &steering, &throttle);
 
@@ -43,10 +44,8 @@ void setup() {
   configuration.init(&spi, PIN_MAX_SPEED);
   logger.addLogLine("configuration initialized");
     
-  if (configuration.useJoystick()) {
-    joystick.init(PIN_JOYSTICK_STEERING, PIN_JOYSTICK_THROTTLE);
-    logger.addLogLine("joystick initialized");
-  }
+  joystick.init(PIN_JOYSTICK_STEERING, PIN_JOYSTICK_THROTTLE);
+  logger.addLogLine("joystick initialized");
 
   if (configuration.useRc()) {
     remoteControl.init(PIN_RC_STEERING, PIN_RC_THROTTLE);
@@ -77,15 +76,15 @@ void loop() {
     // The only way to deactivate Bluetooth is to turn off the power
     throttle.setThrottle(0);
 
-    if (bluetoothInitialized) {
-      bluetooth.processBluetooth();
-    } else {
+    if (!bluetoothInitialized) {
       bluetooth.initBluetooth();
       bluetoothInitialized = true;
     }
   } else if (configuration.useRc() && remoteControl.isBadRcStart()) {
     // TODO: Play a sound to indicate that the car did not start properly
-    logger.addLogLine("RC did not start up properly do NOT run the car");
+    //remoteControl.getBadStartData(badStartBuffer);
+    logger.addLogLine("Bad Start");
+    //logger.addLogLine(badStartBuffer);
     throttle.setThrottle(0);
   } else {
     // Is the parent overriding and taking control?

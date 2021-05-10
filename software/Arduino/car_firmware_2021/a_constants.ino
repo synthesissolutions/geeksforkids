@@ -30,6 +30,8 @@ const int           LOGGER_LINE_COUNT       = 20;
 const int           LOOP_DELAY_MILLIS       = 5;   // 10ms delay = ~ 100 Hz.  Plenty fast.
 
 // Joystick parms - these are based on the range 0-1023
+// These values should never really be used but are set as a fallback
+// the real values should be read from the configuration file
 const int           JOYSTICK_X_AXIS_CENTER           = 464;
 const int           JOYSTICK_X_AXIS_MIN              = 100;
 const int           JOYSTICK_X_AXIS_MAX              = 900;
@@ -40,10 +42,12 @@ const int           JOYSTICK_Y_AXIS_MAX              = 900;
 // Joystick parms - these are in scaled units (-100 to 100)
 const int           JOYSTICK_X_AXIS_DEADZONE_LOW     = -15;
 const int           JOYSTICK_X_AXIS_DEADZONE_HIGH    = 15;
-const int           JOYSTICK_Y_AXIS_DEADZONE_LOW     = -35;
-const int           JOYSTICK_Y_AXIS_DEADZONE_HIGH    = 35;
+const int           JOYSTICK_Y_AXIS_DEADZONE_LOW     = -15;
+const int           JOYSTICK_Y_AXIS_DEADZONE_HIGH    = 15;
 
 // Joystick parms - get the direction correct
+// These values should never really be used but are set as a fallback
+// the real values should be read from the configuration file
 const boolean       JOYSTICK_INVERT_X_AXIS  = true;
 const boolean       JOYSTICK_INVERT_Y_AXIS  = false;
 

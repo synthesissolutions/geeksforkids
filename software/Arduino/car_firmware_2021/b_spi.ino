@@ -1,4 +1,3 @@
-#include <ArduinoJson.h>
 #include <Adafruit_LittleFS.h>
 #include <InternalFileSystem.h>
 
@@ -14,10 +13,9 @@ using namespace Adafruit_LittleFS_Namespace;
 
 File file(InternalFS);
 
-const int CURRENT_SETTINGS_VERSION = 5;
+const int CURRENT_SETTINGS_VERSION = 1;
 
 struct ConfigurationSettings {
-
   int actuatorMin;
   int actuatorCenter;
   int actuatorMax;
@@ -42,8 +40,6 @@ class Spi {
   private:
     char *loadingLogMessage = "Loaded from SPI Flash memory";
     
-    StaticJsonDocument<1024> currentSettingsJson;  
-
   public: 
     // Default constructor ... does nothing.  This allows us to delay setting the pins until we want to (via the init method).  
     Spi() {  
@@ -100,7 +96,7 @@ class Spi {
 
       if (file.open(FILENAME, FILE_O_READ)) {
         readlen = file.read((uint8_t *)&version, sizeof(unsigned int));
-
+        
         if (version == CURRENT_SETTINGS_VERSION) {
           readlen = file.read((uint8_t *)&currentSettings, sizeof(struct ConfigurationSettings));
         }
@@ -112,17 +108,22 @@ class Spi {
     }
 
     bool saveToSpiFlash() {
+      InternalFS.remove(FILENAME);
+
+      Serial.println("Attempting to save changes to SPI Flash");
       if( file.open(FILENAME, FILE_O_WRITE) )
       {
-        Serial.println("OK");
         file.write((uint8_t *)&version, sizeof(unsigned int));
         file.write((uint8_t *)&currentSettings, sizeof(struct ConfigurationSettings));
-        
+
+        file.flush();
         file.close();
 
+        Serial.println("Save OK");
         return true;
       }
-  
+
+      Serial.println("Save Failed");
       return false;
     }
 
