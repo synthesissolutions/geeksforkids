@@ -18,6 +18,16 @@ class RemoteControl {
     int pinRCSteering;
     int pinRCThrottle;
 
+    // these are in raw pin read units (0 to 1024)
+    int steeringMin = STEERING_RC_MIN;
+    int steeringCenter = STEERING_RC_CENTER;
+    int steeringMax = STEERING_RC_MAX;
+
+    // these are in raw pin read units (0 to 1024)
+    int throttleMin = THROTTLE_RC_MIN;
+    int throttleCenter = THROTTLE_RC_CENTER;
+    int throttleMax = THROTTLE_RC_MAX;
+    
     // initial values of -1 ... used to help figure out if we've seen a 0 signal yet
     int steeringScaled = -1;
     int throttleScaled = -1;
@@ -55,6 +65,18 @@ class RemoteControl {
       pinRCThrottle = throttlePin;  
     }
 
+    void setSteeringRange(int sMin, int sCenter, int sMax) {
+      steeringMin = sMin;
+      steeringCenter = sCenter;
+      steeringMax = sMax;
+    }
+
+    void setThrottleRange(int tMin, int tCenter, int tMax) {
+      throttleMin = tMin;
+      throttleCenter = tCenter;
+      throttleMax = tMax;
+    }
+
     int getSteeringRaw() {
       int newSteering = analogRead(pinRCSteering);
 
@@ -81,12 +103,19 @@ class RemoteControl {
       int steeringRaw = getSteeringRaw();
 
       // Anything outside of the expected range will be ignored
-      if ((steeringRaw < STEERING_RC_MIN - 5) || (steeringRaw > STEERING_RC_MAX + 5)) {
+      if ((steeringRaw < steeringMin - 5) || (steeringRaw > steeringMax + 5)) {
         lastSteeringInputMillis = 0;
         return 0;
       }
-      
-      steeringScaled = constrain(map(steeringRaw, STEERING_RC_MIN, STEERING_RC_MAX, -100, 100), -100, 100);
+
+      if (steeringRaw < steeringCenter) {
+        steeringScaled = constrain(map(steeringRaw, steeringMin, steeringCenter, -100, 0), -100, 0);
+      } else if (steeringRaw > steeringCenter) {
+        steeringScaled = constrain(map(steeringRaw, steeringCenter, steeringMax, 0, 100), 0, 100);        
+      } else {
+        steeringScaled = 0;
+      }
+      //steeringScaled = constrain(map(steeringRaw, STEERING_RC_MIN, STEERING_RC_MAX, -100, 100), -100, 100);
 
       if (steeringScaled >= RC_STEERING_DEADZONE_LOW && steeringScaled <= RC_STEERING_DEADZONE_HIGH) {
         lastSteeringInputMillis = 0;
@@ -124,19 +153,26 @@ class RemoteControl {
       
       return total / RC_THROTTLE_READINGS;
     }
-    
+
     /*
      * get the current throttle position (scaled units -100 to 100)
      */
     int getThrottleScaled() {  
       int throttleRaw = getThrottleRaw();
 
-      if ((throttleRaw < THROTTLE_RC_MIN - 5) || (throttleRaw > THROTTLE_RC_MAX + 5)) {
+      if ((throttleRaw < throttleMin - 5) || (throttleRaw > throttleMax + 5)) {
         lastSteeringInputMillis = 0;
         return 0;
       }
 
-      throttleScaled = constrain(map(throttleRaw, THROTTLE_RC_MIN, THROTTLE_RC_MAX, -100, 100), -100, 100);
+      if (throttleRaw < steeringCenter) {
+        throttleScaled = constrain(map(throttleRaw, throttleMin, throttleCenter, -100, 0), -100, 0);
+      } else if (throttleRaw > steeringCenter) {
+        throttleScaled = constrain(map(throttleRaw, throttleCenter, throttleMax, 0, 100), 0, 100);        
+      } else {
+        throttleScaled = 0;
+      }
+      //throttleScaled = constrain(map(throttleRaw, THROTTLE_RC_MIN, THROTTLE_RC_MAX, -100, 100), -100, 100);
 
       if (throttleScaled >= RC_THROTTLE_DEADZONE_LOW && throttleScaled <= RC_THROTTLE_DEADZONE_HIGH) {
         lastThrottleInputMillis = 0;
@@ -165,11 +201,11 @@ class RemoteControl {
     }
 
     boolean isBadThrottleStartValue(int value) {
-      return (value > 10) && (value < THROTTLE_RC_CENTER - 5) || (value > THROTTLE_RC_CENTER + 5);
+      return (value > 10) && (value < throttleCenter - 5) || (value > throttleCenter + 5);
     }
 
     boolean isBadSteeringStartValue(int value) {
-      return (value > 10) && (value < STEERING_RC_CENTER - 5) || (value > STEERING_RC_CENTER + 5);      
+      return (value > 10) && (value < steeringCenter - 5) || (value > steeringCenter + 5);      
     }
     
     void recordRCStartValue() {

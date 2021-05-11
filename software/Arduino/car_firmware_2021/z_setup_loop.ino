@@ -62,6 +62,16 @@ void setup() {
   steering.setSteeringCenterScaled(configuration.getSteeringCenter());
   steering.setSteeringMinScaled(configuration.getSteeringMin());
   steering.setSteeringMaxScaled(configuration.getSteeringMax());
+
+  // Set Joystick configuration
+  joystick.setXAxisRange(configuration.getJoystickSteeringMin(), configuration.getJoystickSteeringCenter(), configuration.getJoystickSteeringMax());
+  joystick.setYAxisRange(configuration.getJoystickThrottleMin(), configuration.getJoystickThrottleCenter(), configuration.getJoystickThrottleMax());
+  joystick.setInvertXAxis(configuration.getInvertJoystickX());
+  joystick.setInvertYAxis(configuration.getInvertJoystickY());
+
+  // Set RC/Parental Control Configuration
+  remoteControl.setSteeringRange(configuration.getRcSteeringMin(), configuration.getRcSteeringCenter(), configuration.getRcSteeringMax());
+  remoteControl.setThrottleRange(configuration.getRcThrottleMin(), configuration.getRcThrottleCenter(), configuration.getRcThrottleMax());
 }
 
 /*

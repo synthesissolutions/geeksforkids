@@ -163,8 +163,16 @@ class Joystick {
     int getXAxisScaled() {
       int val = getXAxisRaw();
 
-      // constrain to be between min and max, and then scale to -100 to 100
-      val = map(constrain(val,xAxisMin,xAxisMax),xAxisMin,xAxisMax,-100,100);
+      // The center value may not be half way between min and max
+      // so calculate above and below center individually
+      if (val < xAxisCenter) {
+        val = map(constrain(val, xAxisMin, xAxisCenter), xAxisMin, xAxisCenter, -100, 0);
+      } else if (val > xAxisCenter) {
+        val = map(constrain(val, xAxisCenter, xAxisMax), xAxisCenter, xAxisMax, 0, 100);
+      } else {
+        val = 0;
+      }
+      //val = map(constrain(val, xAxisMin, xAxisMax),xAxisMin, xAxisMax, -100, 100);
 
       // invert if necessary
       if (invertXAxis) {
@@ -172,20 +180,31 @@ class Joystick {
       }
 
       // apply the deadzone
-      if (xAxisDZLow < val && val<xAxisDZHigh) val=0;
+      if (xAxisDZLow < val && val < xAxisDZHigh) {
+        val = 0;
+      }
       
       return val;
     }
 
     /* gets the y axis scaled 
      *  
-     *  Algorithm is to simply do a linear scaling based on the range, and then apply the deadzone
+     *  Algorithm is to simply do a linear scaling based on the range, and then apply the deadzone  
      */
     int getYAxisScaled() {
       int val = getYAxisRaw();
 
-      // constrain to be between min and max, and then scale to -100 to 100
-      val = map(constrain(val,yAxisMin,yAxisMax),yAxisMin,yAxisMax,-100,100);
+      // The center value may not be half way between min and max
+      // so calculate above and below center individually
+      if (val < yAxisCenter) {
+        val = map(constrain(val, yAxisMin, yAxisCenter), yAxisMin, yAxisCenter, -100, 0);
+      } else if (val > yAxisCenter) {
+        val = map(constrain(val, yAxisCenter, yAxisMax), yAxisCenter, yAxisMax, 0, 100);
+      } else {
+        val = 0;
+      }
+
+      //val = map(constrain(val,yAxisMin,yAxisMax),yAxisMin,yAxisMax,-100,100);
 
       // invert if necessary
       if (invertYAxis) {
@@ -193,7 +212,9 @@ class Joystick {
       }
       
       // apply the deadzone
-      if (yAxisDZLow < val && val<yAxisDZHigh) val=0;
+      if (yAxisDZLow < val && val < yAxisDZHigh) {
+        val = 0;
+      }
       
       return val;
     }
