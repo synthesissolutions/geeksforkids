@@ -44,7 +44,6 @@ class RemoteControl {
     int steeringIndex = 0;
     
     boolean hasCentered = false;
-  
 
   public: 
     // Track the first few signal readings and mark a bad start if any of those readings
@@ -201,11 +200,11 @@ class RemoteControl {
     }
 
     boolean isBadThrottleStartValue(int value) {
-      return (value > 10) && (value < throttleCenter - 5) || (value > throttleCenter + 5);
+      return (value > 15) && (value < throttleCenter - 5) || (value > throttleCenter + 5);
     }
 
     boolean isBadSteeringStartValue(int value) {
-      return (value > 10) && (value < steeringCenter - 5) || (value > steeringCenter + 5);      
+      return (value > 15) && (value < steeringCenter - 5) || (value > steeringCenter + 5);      
     }
     
     void recordRCStartValue() {
@@ -219,25 +218,40 @@ class RemoteControl {
 
       // Until the RC remote is turned on, the values should be 0 or very close to it
       // We don't want to start checking for a bad start until the RC is turned on.
-      if (newThrottle < 5 && newSteering < 5) {
+      // Once it is turned on - or we get a weird signal that looks like it is on - then start
+      // tracking the values.
+      if (throttleStartIndex == 0 && newThrottle < 15 && newSteering < 15) {
         return;
       }
 
       if (throttleStartIndex < RC_START_LENGTH) {
         throttleStart[throttleStartIndex] = newThrottle;
         throttleStartIndex++;
-
-        if (isBadThrottleStartValue(newThrottle)) {
-          //badControlStart = true;
-        }
       }
 
       if (steeringStartIndex < RC_START_LENGTH) {
         steeringStart[steeringStartIndex] = newSteering;
-        steeringStartIndex++;
+        steeringStartIndex++;  
+      }
 
+      if (throttleStartIndex == RC_START_LENGTH) {
+        if (newThrottle < 15 && newSteering < 15) {
+          // We didn't really start, we just got a weird value
+          // reset everything and wait for a real start
+          throttleStartIndex = 0;
+          steeringStartIndex = 0;
+          
+          return;
+        }
+
+        // Now that we have reached the end check for continued bad values
+        // At this point we will just check the most recent value
+        // we could alter this in the future to look at the array of collected values
+        if (isBadThrottleStartValue(newThrottle)) {
+          badControlStart = true;
+        }
         if (isBadSteeringStartValue(newSteering)) {
-          //badControlStart = true;
+          badControlStart = true;
         }
       }
     }
@@ -295,12 +309,14 @@ class RemoteControl {
     void getStatus(char * status) {
       int testValue = 500;
       
-      sprintf(status, "[RemoteControl] throttleRaw:%lu throttleScaled:%i steeringRaw:%lu steeringScaled:%i isActive:%s Bad Start:%s PWM Th Start: ",
+      sprintf(status, "[RemoteControl] throttleRaw:%lu throttleScaled:%i steeringRaw:%lu steeringScaled:%i isActive:%s Bad Start:%s %s %s",
         getThrottleRaw(),
         getThrottleScaled(),
         getSteeringRaw(),
         getSteeringScaled(),
         isActive() ? "true" : "false",
-        badControlStart ? "true" : "false");
+        badControlStart ? "true" : "false",
+        rcStartComplete() ? "true" : "false",
+        hasCentered ? "true" : "false");
     }  
 };
