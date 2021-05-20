@@ -85,6 +85,7 @@ void loop() {
     // When Bluetooth is active, the car cannot be driven.
     // The only way to deactivate Bluetooth is to turn off the power
     throttle.setThrottle(0);
+    steering.forceStop();
 
     if (!bluetoothInitialized) {
       bluetooth.initBluetooth();
@@ -92,13 +93,12 @@ void loop() {
     }
   } else if (configuration.useRc() && remoteControl.isBadRcStart()) {
     // TODO: Play a sound to indicate that the car did not start properly
-    //remoteControl.getBadStartData(badStartBuffer);
-    logger.addLogLine("Bad Start");
-    //logger.addLogLine(badStartBuffer);
+    //logger.addLogLine("Bad Start");
     throttle.setThrottle(0);
+    steering.forceStop();
   } else {
     // Is the parent overriding and taking control?
-    if (configuration.useRc() && remoteControl.isActive()) {
+    if (remoteControl.isActive() && configuration.useRc()) {
       
       // Yep, the parent has taken over ... parent inputs only
       if (joystickInControl) {
@@ -125,7 +125,7 @@ void loop() {
           joystickInControl=true;
           rcInControl=false;
         }
-  
+
         // set the inputs from the Joystick
         steering.setSteeringPosition(joystick.getXAxisScaled());
         throttle.setThrottle(joystick.getYAxisScaled()*configuration.getSpeedMultiplier());
