@@ -1,7 +1,7 @@
 const int GO_BUTTON_PIN = A1;
 const int REVERSE_SWITCH_PIN = A6;
 const int HALL_SENSOR_PWM_INPUT_PIN = A2;
-
+   
 const int THROTTLE_PWM_PIN = 1;
 const int STEERING_PWM_PIN = 0;
 
@@ -25,28 +25,16 @@ void pwmIRQHandler() {
   // which state are we handling
   if(digitalRead(HALL_SENSOR_PWM_INPUT_PIN) == 1){
     // rising signal
-    if (!steeringSignalHigh) {
-
-      // record when the pulse started
-      steeringPulseStart = micros();
-
-      // set us up to look for the pulse end
-      steeringSignalHigh = true;
-    }
-    
+    // record when the pulse started
+    steeringPulseStart = micros();
   } else {
-
     // falling signal
-    if (steeringSignalHigh) {
-      // and we haven't seen this pulse drop previously
-
-      // calculate the pulse width in microseconds
-      steeringPWMin = micros()-steeringPulseStart;
-      steeringPWMin = constrain(steeringPWMin, PWM_MIN, PWM_MAX);
-      steeringPWMout = map(steeringPWMin, PWM_MIN, PWM_MAX, 10, 240);
-      steeringSignalHigh = false;
+    // calculate the pulse width in microseconds
+    steeringPWMin = micros()-steeringPulseStart;
+    steeringPWMin = constrain(steeringPWMin, PWM_MIN, PWM_MAX);
+    if (steeringPWMin < 650) {
+       steeringPWMout = map(steeringPWMin, PWM_MIN, PWM_MAX, 10, 240);
     }
-
   }      
 }
     
