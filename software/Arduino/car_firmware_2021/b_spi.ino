@@ -9,7 +9,7 @@ using namespace Adafruit_LittleFS_Namespace;
  * This class loads and saves configuration values from the nRF52840 onboard SPI Flash file system
  */
 
-#define FILENAME    "/geeks.dat"
+#define FILENAME    "/geeksconfig.dat"
 
 File file(InternalFS);
 
@@ -68,25 +68,25 @@ class Spi {
 
     void setDefaultValues() {
         version = CURRENT_SETTINGS_VERSION;
-        
-        currentSettings.actuatorMin = -50;
-        currentSettings.actuatorCenter = 0;
-        currentSettings.actuatorMax = 50;
-        currentSettings.useRc = true;
-        currentSettings.rcSteeringMin = 25;
-        currentSettings.rcSteeringCenter = 512;
-        currentSettings.rcSteeringMax = 1000;
-        currentSettings.rcThrottleMin = 25;
-        currentSettings.rcThrottleCenter = 512;
-        currentSettings.rcThrottleMax = 1000;
-        currentSettings.invertJoystickX = true;
+
+        currentSettings.actuatorMin = STEERING_MIN;
+        currentSettings.actuatorCenter = STEERING_CENTER;
+        currentSettings.actuatorMax = STEERING_MAX;
+        currentSettings.useRc = false;
+        currentSettings.rcSteeringMin = STEERING_RC_MIN;
+        currentSettings.rcSteeringCenter = STEERING_RC_CENTER;
+        currentSettings.rcSteeringMax = STEERING_RC_MAX;
+        currentSettings.rcThrottleMin = THROTTLE_RC_MIN;
+        currentSettings.rcThrottleCenter = THROTTLE_RC_CENTER;
+        currentSettings.rcThrottleMax = THROTTLE_RC_MAX;
+        currentSettings.invertJoystickX = false;
         currentSettings.invertJoystickY = false;
-        currentSettings.joystickSteeringMin = 25;
-        currentSettings.joystickSteeringCenter = 512;
-        currentSettings.joystickSteeringMax = 1000;
-        currentSettings.joystickThrottleMin = 25;
-        currentSettings.joystickThrottleCenter = 512;
-        currentSettings.joystickThrottleMax = 1000;
+        currentSettings.joystickSteeringMin = JOYSTICK_X_AXIS_MIN;
+        currentSettings.joystickSteeringCenter = JOYSTICK_X_AXIS_CENTER;
+        currentSettings.joystickSteeringMax = JOYSTICK_X_AXIS_MAX;
+        currentSettings.joystickThrottleMin = JOYSTICK_Y_AXIS_MIN;
+        currentSettings.joystickThrottleCenter = JOYSTICK_Y_AXIS_CENTER;
+        currentSettings.joystickThrottleMax = JOYSTICK_Y_AXIS_MAX;
     }
 
     bool loadFromSpiFlash() {
@@ -107,7 +107,7 @@ class Spi {
       return version == CURRENT_SETTINGS_VERSION;
     }
 
-    bool saveToSpiFlash() {
+    bool saveToSpiFlash() {      
       InternalFS.remove(FILENAME);
 
       Serial.println("Attempting to save changes to SPI Flash");
