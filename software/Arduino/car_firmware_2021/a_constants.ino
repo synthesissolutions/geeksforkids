@@ -14,7 +14,7 @@
  ***************************************************************************************** 
  */
 
-const String        RELEASE_VERSION         = "21.1 Beta";
+const String        RELEASE_VERSION         = "21.1";
 
 const int           LOGGER_UPDATE_TIME      = 100;     // How long between updates to the monitor, in milliseconds
 const unsigned int  SERIAL_BAUD_RATE        = 57600;     // Baud rate for the serial monitor.  Make sure you set this correctly!
@@ -27,7 +27,7 @@ const int           LOGGER_LINE_COUNT       = 20;
  ***************************************************************************************** 
  */
 // The delay for the main loop.  We really don't want it running at the full CPU speed.
-const int           LOOP_DELAY_MILLIS       = 5;   // 10ms delay = ~ 100 Hz.  Plenty fast.
+const int           LOOP_DELAY_MILLIS       = 10;   // 10ms delay = ~ 100 Hz.  Plenty fast.
 
 // Joystick parms - these are based on the range 0-1023
 // These values should never really be used but are set as a fallback
@@ -62,19 +62,19 @@ const int           SPEED_CONFIGURATION_MIN_SPEED = 15;   // The min/max setting
 const int           SPEED_CONFIGURATION_MAX_SPEED = 100;
 
 // Steering parms ... controls the steering changes
-const int           STEERING_MIN            = 33;        // tuned to maximum wheel turn amount
-const int           STEERING_CENTER         = 57;
-const int           STEERING_MAX            = 80;        // tuned to maximum wheel turn amount
+const int           STEERING_MIN            = 25;        // tuned to maximum wheel turn amount
+const int           STEERING_CENTER         = 50;
+const int           STEERING_MAX            = 75;        // tuned to maximum wheel turn amount
 const int           STEERING_STOP_DELTA     = 5;          // How close to target before stopping so we don't oscillate between 2 numbers.  IN SCALED UNITS: -100 to 100
 const int           STEERING_START_DELTA    = 10;          // How close to target before starting so we don't oscillate between 2 numbers   IN SCALED UNITS: -100 to 100
 const int           STEERING_SPEED          = 240;        // PWM Value from 0 - 254 with 254 = max speed
 
 // Remote control PWM parms ... probably best to leave these alone!
 const int           STEERING_RC_MIN         = 33;
-const int           STEERING_RC_CENTER      = 57;
+const int           STEERING_RC_CENTER      = 59;
 const int           STEERING_RC_MAX         = 80;
-const int           THROTTLE_RC_MIN         = 33;
-const int           THROTTLE_RC_CENTER      = 57;
+const int           THROTTLE_RC_MIN         = 40;
+const int           THROTTLE_RC_CENTER      = 59;
 const int           THROTTLE_RC_MAX         = 80;
 
 // Remote control parm ... tuning
