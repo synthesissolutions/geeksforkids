@@ -56,9 +56,6 @@ class Steering {
         isMoving = false;
         digitalWrite(directionPin, HIGH);
         analogWrite(speedPwmPin, 0); 
-
-        // and make note that we're not moving
-        isMoving = false;
     }
 
   public: 
@@ -84,6 +81,12 @@ class Steering {
       return steeringTargetScaled;
     }
 
+    // Used during a bad start scenario or when the bluetooth button is pressed
+    void forceStop() {
+        digitalWrite(directionPin, HIGH);
+        analogWrite(speedPwmPin, 0); 
+    }
+    
     /*
      * Sets the new target for the steering position.  Expects the new target to be in scaled units: -100 to 100, 0=center. 
      */
