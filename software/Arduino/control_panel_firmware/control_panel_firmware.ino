@@ -1,6 +1,7 @@
 const int DRIVE_STRAIGHT_BUTTON_PIN = A1;
 const int DRIVE_RIGHT_BUTTON_PIN = A3;
 const int DRIVE_LEFT_BUTTON_PIN = A2;
+const int REVERSE_BUTTON_PIN = A6;
 
 const int THROTTLE_PWM_PIN = 1;
 const int STEERING_PWM_PIN = 0;
@@ -25,10 +26,11 @@ void setup() {
   pinMode(DRIVE_STRAIGHT_BUTTON_PIN, INPUT_PULLUP);
   pinMode(DRIVE_RIGHT_BUTTON_PIN, INPUT_PULLUP);
   pinMode(DRIVE_LEFT_BUTTON_PIN, INPUT_PULLUP);
+  pinMode(REVERSE_BUTTON_PIN, INPUT_PULLUP);
 }
 
 boolean IsReverse() {
-  return false;
+  return digitalRead(REVERSE_BUTTON_PIN);
 }
 
 void loop() {
