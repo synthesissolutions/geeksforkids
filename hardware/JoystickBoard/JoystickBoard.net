@@ -1,8 +1,8 @@
 (export (version D)
   (design
-    (source "C:\\Users\\Kevin\\OneDrive\\Documents\\KiCad Files\\Geeks\\geeksforkids-master\\hardware\\JoystickBoard\\JoystickBoard.sch")
-    (date "6/9/2020 10:31:11 PM")
-    (tool "Eeschema (5.1.2)-2")
+    (source C:\Users\dsher\GitHub\geeksforkids\hardware\JoystickBoard\JoystickBoard.sch)
+    (date "6/18/2021 10:26:16 PM")
+    (tool "Eeschema (5.1.9)-1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
         (title)
@@ -17,7 +17,7 @@
   (components
     (comp (ref J1)
       (value 8P8C)
-      (footprint Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal)
+      (footprint "Useful Modifications:RJ45_x08_Tab_Up")
       (datasheet ~)
       (libsource (lib Connector) (part 8P8C) (description "RJ connector, 8P8C (8 positions 8 connected), RJ31/RJ32/RJ33/RJ34/RJ35/RJ41/RJ45/RJ49/RJ61"))
       (sheetpath (names /) (tstamps /))
