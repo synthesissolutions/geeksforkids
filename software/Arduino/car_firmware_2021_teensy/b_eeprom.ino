@@ -1,4 +1,3 @@
-#include <ArduinoJson.h>
 #include <EEPROM.h>
 
 #define NUMBER_OF_CONFIGURATION_ENTRIES 21
@@ -31,7 +30,7 @@ const String EEPROM_JOYSTICK_THROTTLE_MAX = "joystickThrottleMax";
  * This class serves to interpret the dip switch setting to define the configuration for this car
  */
 
-const int CURRENT_SETTINGS_VERSION = 3;
+const int CURRENT_SETTINGS_VERSION = 2;
 
 struct ConfigurationEntry {
   String name;
@@ -42,13 +41,12 @@ struct ConfigurationEntry {
   String stringValue;
 };
 
-
 ConfigurationEntry configurationEntries[] = {
   {EEPROM_VERSION, 0, "Integer", false, CURRENT_SETTINGS_VERSION, ""},
   {EEPROM_ACTUATOR_MIN, 8, "Integer", false, -50, ""},  // in scaled units from -100 to 100
   {EEPROM_ACTUATOR_CENTER, 12, "Integer", false, 0, ""},  // in scaled units from -100 to 100
   {EEPROM_ACTUATOR_MAX, 16, "Integer", false, 50, ""},   // in scaled units from -100 to 100
-  {EEPROM_USE_RC, 20, "Boolean", true, 0, ""},
+  {EEPROM_USE_RC, 20, "Boolean", false, 0, ""},
   {EEPROM_RC_STEERING_MIN, 24, "Integer", false, 1000, ""},  // All RC values are in PWM duty cycle milliseconds
   {EEPROM_RC_STEERING_CENTER, 28, "Integer", false, 1500, ""},
   {EEPROM_RC_STEERING_MAX, 32, "Integer", false, 2000, ""},
@@ -59,36 +57,43 @@ ConfigurationEntry configurationEntries[] = {
   {EEPROM_USE_PWM_JOYSTICK_Y, 52, "Boolean", false, 0, ""},
   {EEPROM_INVERT_JOYSTICK_X, 56, "Boolean", true, 0, ""},
   {EEPROM_INVERT_JOYSTICK_Y, 60, "Boolean", true, 0, ""},
-  {EEPROM_JOYSTICK_STEERING_MIN, 64, "Integer", false, 1000, ""}, // Joystick values are in PWM duty cycle milliseconds or analog readings 0 - 1023
-  {EEPROM_JOYSTICK_STEERING_CENTER, 68, "Integer", false, 1500, ""},
-  {EEPROM_JOYSTICK_STEERING_MAX, 72, "Integer", false, 2000, ""},
-  {EEPROM_JOYSTICK_THROTTLE_MIN, 76, "Integer", false, 1000, ""},
-  {EEPROM_JOYSTICK_THROTTLE_CENTER, 80, "Integer", false, 1500, ""},
-  {EEPROM_JOYSTICK_THROTTLE_MAX, 84, "Integer", false, 2000, ""}
+  {EEPROM_JOYSTICK_STEERING_MIN, 64, "Integer", false, 0, ""}, // Joystick values are in PWM duty cycle milliseconds or analog readings 0 - 1023
+  {EEPROM_JOYSTICK_STEERING_CENTER, 68, "Integer", false, 500, ""},
+  {EEPROM_JOYSTICK_STEERING_MAX, 72, "Integer", false, 950, ""},
+  {EEPROM_JOYSTICK_THROTTLE_MIN, 76, "Integer", false, 0, ""},
+  {EEPROM_JOYSTICK_THROTTLE_CENTER, 80, "Integer", false, 500, ""},
+  {EEPROM_JOYSTICK_THROTTLE_MAX, 84, "Integer", false, 950, ""}
 };
     
 class Eeprom {
   private:
-    const unsigned int EE_ADDRESS = 0;
     String loadingLogMessage = "Loaded from Eeprom";
     
-    StaticJsonDocument<1024> currentSettingsJson;  
+    int getConfigurationIndexByName(String configurationName) {
+      for (int i = 0; i < NUMBER_OF_CONFIGURATION_ENTRIES; i++) {
+        ConfigurationEntry entry = configurationEntries[i];
+        if (configurationName == entry.name) {
+          return i;
+        }
+      }
+
+      return -1;
+    }
 
   public: 
     // Default constructor ... does nothing.  This allows us to delay setting the pins until we want to (via the init method).  
-    Configuration() {  
+    Eeprom() {  
     }
 
     /*
      * init - initialize the dip switch pins
      */
     void init() {
-      loadConfigurationSettingsAsJson();
-
-      if (getIntegerSetting("version") != CURRENT_SETTINGS_VERSION) {
-        resetConfiguration();
-        saveConfiguration();
-        loadingLogMessage = "Loaded from defaults";
+      if (getSavedConfigurationVersion() == CURRENT_SETTINGS_VERSION) {
+        loadConfigurationSettings();
+      } else {
+        saveConfiguration(); // This will save the default values
+        loadingLogMessage = "Loaded from defaults";        
       }
     }
 
@@ -96,27 +101,37 @@ class Eeprom {
      * getters ... read settings from EEprom
      */
     int getIntegerSetting(String configurationEntryName) {
-      // TODO check the configuration enry and make sure it is an integer value?
-      return currentSettingsJson[configurationEntryName];
+      int index = getConfigurationIndexByName(configurationEntryName);
+      return configurationEntries[index].intValue;
     }
 
     int getBooleanSetting(String configurationEntryName) {
-      return currentSettingsJson[configurationEntryName];
+      int index = getConfigurationIndexByName(configurationEntryName);
+      return configurationEntries[index].booleanValue;
     }
     
     void setIntegerSetting(String configurationEntryName, int value) {
-      currentSettingsJson[configurationEntryName] = value;
+      int index = getConfigurationIndexByName(configurationEntryName);
+      ConfigurationEntry entry = configurationEntries[index];
+      entry.intValue = value;
     }
 
     void setBooleanSetting(String configurationEntryName, boolean value) {
-      currentSettingsJson[configurationEntryName] = value;
+      int index = getConfigurationIndexByName(configurationEntryName);
+      ConfigurationEntry entry = configurationEntries[index];
+      entry.booleanValue = value;
     }
 
-    JsonDocument getCurrentSettingsAsJson() {
-      return currentSettingsJson;
-    }
+    int getSavedConfigurationVersion() {
+      // The first configuration entry is always the version
+      ConfigurationEntry entry = configurationEntries[0];
+      int intValue;
+      EEPROM.get(entry.eeAddress, intValue);      
 
-    JsonDocument loadConfigurationSettingsAsJson() {
+      return intValue;
+    }
+    
+    void loadConfigurationSettings() {
       int intValue;
       boolean booleanValue;
       
@@ -124,26 +139,23 @@ class Eeprom {
         ConfigurationEntry entry = configurationEntries[i];
         if (entry.dataType == "Integer") {
           EEPROM.get(entry.eeAddress, intValue);
-          currentSettingsJson[entry.name] = intValue;
+          entry.intValue = intValue;
         } else if (entry.dataType == "Boolean") {
           EEPROM.get(entry.eeAddress, booleanValue);
-          currentSettingsJson[entry.name] = booleanValue;
-        } else {
-          // ignore for now
+          entry.booleanValue = booleanValue;
+          // ignore for now        } else {
+
         }
       }
     }
 
-    String saveConfiguration() {
+    void saveConfiguration() {
       for (int i = 0; i < NUMBER_OF_CONFIGURATION_ENTRIES; i++) {
         ConfigurationEntry entry = configurationEntries[i];
         if (entry.dataType == "Integer") {
-          int value = currentSettingsJson[entry.name];
-          EEPROM.put(entry.eeAddress, value);
+          EEPROM.put(entry.eeAddress, entry.intValue);
         } else if (entry.dataType == "Boolean") {
-          boolean booleanValue = currentSettingsJson[entry.name];
-          Serial.println(booleanValue);
-          if (currentSettingsJson[entry.name]) {
+          if (entry.booleanValue) {
             EEPROM.put(entry.eeAddress, 1);
           } else {
             EEPROM.put(entry.eeAddress, 0);
@@ -152,25 +164,6 @@ class Eeprom {
           // ignore for now
         }
       }
-      
-      return "{\"Success\": true}";
-    }
-    
-    String resetConfiguration() {
-      for (int i = 0; i < NUMBER_OF_CONFIGURATION_ENTRIES; i++) {
-        ConfigurationEntry entry = configurationEntries[i];
-        if (entry.dataType == "Integer") {
-          EEPROM.put(entry.eeAddress, entry.intValue);
-          currentSettingsJson[entry.name] = entry.intValue;
-        } else if (entry.dataType == "Boolean") {
-          EEPROM.put(entry.eeAddress, entry.booleanValue);
-          currentSettingsJson[entry.name] = entry.booleanValue;
-        } else {
-          // ignore for now
-        }
-      }
-      
-      return "{\"Success\": true}";
     }
 
      void getStatus(char * status) {

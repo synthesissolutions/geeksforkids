@@ -9,8 +9,7 @@
 /*
  * Objects that we'll need.  They'll auto construct, but the pattern we're using will require them to have their init() method called.
  */
-Spi spi;
-Bluetooth bluetooth;
+Eeprom eeprom;
 Configuration configuration;
 Joystick joystick;
 Steering steering;
@@ -18,30 +17,26 @@ Throttle throttle;
 RemoteControl remoteControl;
 Logger logger;
 
+boolean isConfiguring = false;
+
 /*
  * Now a couple of variables that help us do a bit of logging
  */
 boolean rcInControl = false;
 boolean joystickInControl = false;
-boolean bluetoothInitialized = false;
 boolean badStartMessageDisplayed = false;
 
 /*
  * Arduino defined setup function.  Automatically run once at restart of the device.
  */
 void setup() {
-  dwt_enable();
-
   // set up the logger
-  logger.init(LOGGER_UPDATE_TIME, &spi, &bluetooth, &configuration, &joystick, &remoteControl, &steering, &throttle);
+  logger.init(LOGGER_UPDATE_TIME, &eeprom, &configuration, &joystick, &remoteControl, &steering, &throttle);
 
-  spi.init();
-  logger.addLogLine("SPI Flash initialized");
-
-  bluetooth.init(PIN_ENABLE_BLUETOOTH_BUTTON, &spi);
-  logger.addLogLine("bluetooth button initialized");
-  
-  configuration.init(&spi, PIN_MAX_SPEED);
+  eeprom.init();
+  logger.addLogLine("Eeprom initialized");
+    
+  configuration.init(&eeprom, PIN_MAX_SPEED);
   logger.addLogLine("configuration initialized");
     
   joystick.init(PIN_JOYSTICK_STEERING, PIN_JOYSTICK_THROTTLE);
@@ -78,22 +73,15 @@ void setup() {
  * Arduino defined loop function.  Automatically run repeatedly (after setup).
  */
 void loop() {
-
-  bluetooth.processEnableButton();
-  
-  if (bluetooth.isActive()) {
-    // When Bluetooth is active, the car cannot be driven.
-    // The only way to deactivate Bluetooth is to turn off the power
+/*
+  if (isConfiguring) {
+    // When configuration is active, the car cannot be driven.
     throttle.setThrottle(0);
     steering.forceStop();
 
-    if (!bluetoothInitialized) {
-      bluetooth.initBluetooth();
-      bluetoothInitialized = true;
-    }
+    // TODO Write code to allow serial configuration of the car
   } else if (configuration.useRc() && remoteControl.isBadRcStart()) {
-    // TODO: Play a sound to indicate that the car did not start properly
-    //logger.addLogLine("Bad Start");
+    logger.addLogLine("Bad Start");
     throttle.setThrottle(0);
     steering.forceStop();
   } else {
@@ -114,11 +102,7 @@ void loop() {
       
       // Nope... the parent isn't controlling
       // check to see if the joystick active (e.g. has it centered at least once?)
-      if (joystick.isActive()) {
-        // TODO move configuration settings so they aren't in the main loop
-        joystick.setInvertXAxis(configuration.getInvertJoystickX());
-        joystick.setInvertYAxis(configuration.getInvertJoystickY());
-  
+      if (joystick.isActive()) {  
         // Yeah!  The kid is in control!
         if (rcInControl) {
           logger.addLogLine("Joystick is now in control, taking over from RC");
@@ -136,10 +120,10 @@ void loop() {
       }
     }      
   }
+  */
 
-  // When Bluetooth is active we use the Serial output for logging message directly from that module
-  // In addition, we need full speed processing so we don't miss any message fragments so the delay is eliminated.
-  if (!bluetooth.isActive()) {
+  // When Configuration is active we use the Serial output for logging message directly from that module
+  if (!isConfiguring) {
     // OK, now let's see if it's time to write out the log
     if (Serial) {
       logger.writeLog();

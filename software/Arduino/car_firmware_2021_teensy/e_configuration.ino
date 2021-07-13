@@ -1,12 +1,12 @@
 /**
  * Configuration Class
  * 
- * This class serves to interpret the spi settings to define the configuration for this car
+ * This class serves to interpret the eeprom settings to define the configuration for this car
  */
 
 class Configuration {
   private:
-    Spi *spi;
+    Eeprom *eeprom;
     int maxSpeedPin;
     
   public: 
@@ -17,8 +17,8 @@ class Configuration {
     /*
      * init - initialize the dip switch pins
      */
-    void init(Spi *s, int sp) {
-      spi = s;
+    void init(Eeprom *e, int sp) {
+      eeprom = e;
 
       maxSpeedPin = sp;
       pinMode(maxSpeedPin, INPUT);
@@ -28,26 +28,28 @@ class Configuration {
     /*
      * getters ... translate dip switch settings into car configuration
      */
-    int getConfigurationVersion() { return spi->version; }
+    int getConfigurationVersion() { return eeprom->getIntegerSetting(EEPROM_VERSION); }
 
     // Joystick
-    boolean getInvertJoystickX() { return spi->currentSettings.invertJoystickX; }
-    boolean getInvertJoystickY() { return spi->currentSettings.invertJoystickY; }
-    int getJoystickSteeringMin() { return spi->currentSettings.joystickSteeringMin; }
-    int getJoystickSteeringCenter() { return spi->currentSettings.joystickSteeringCenter; }
-    int getJoystickSteeringMax() { return spi->currentSettings.joystickSteeringMax; }
-    int getJoystickThrottleMin() { return spi->currentSettings.joystickThrottleMin; }
-    int getJoystickThrottleCenter() { return spi->currentSettings.joystickThrottleCenter; }
-    int getJoystickThrottleMax() { return spi->currentSettings.joystickThrottleMax; }
+    boolean getInvertJoystickX() { return eeprom->getBooleanSetting(EEPROM_INVERT_JOYSTICK_X); }
+    boolean getInvertJoystickY() { return eeprom->getBooleanSetting(EEPROM_INVERT_JOYSTICK_Y); }
+    boolean usePwmJoystickX() { return eeprom->getBooleanSetting(EEPROM_USE_PWM_JOYSTICK_X); }
+    boolean usePwmJoystickY() { return eeprom->getBooleanSetting(EEPROM_USE_PWM_JOYSTICK_Y); }
+    int getJoystickSteeringMin() { return eeprom->getIntegerSetting(EEPROM_JOYSTICK_STEERING_MIN); }
+    int getJoystickSteeringCenter() { eeprom->getIntegerSetting(EEPROM_JOYSTICK_STEERING_CENTER); }
+    int getJoystickSteeringMax() { return eeprom->getIntegerSetting(EEPROM_JOYSTICK_STEERING_MAX); }
+    int getJoystickThrottleMin() { return eeprom->getIntegerSetting(EEPROM_JOYSTICK_THROTTLE_MIN); }
+    int getJoystickThrottleCenter() { return eeprom->getIntegerSetting(EEPROM_JOYSTICK_THROTTLE_CENTER); }
+    int getJoystickThrottleMax() { return eeprom->getIntegerSetting(EEPROM_JOYSTICK_THROTTLE_MAX); }
 
     // Parental Control
-    boolean useRc() { return spi->currentSettings.useRc; }
-    int getRcSteeringMin() { return spi->currentSettings.rcSteeringMin; }
-    int getRcSteeringCenter() { return spi->currentSettings.rcSteeringCenter; }
-    int getRcSteeringMax() { return spi->currentSettings.rcSteeringMax; }
-    int getRcThrottleMin() { return spi->currentSettings.rcThrottleMin; }
-    int getRcThrottleCenter() { return spi->currentSettings.rcThrottleCenter; }
-    int getRcThrottleMax() { return spi->currentSettings.rcThrottleMax; }
+    boolean useRc() { return eeprom->getBooleanSetting(EEPROM_USE_RC); }
+    int getRcSteeringMin() { return eeprom->getIntegerSetting(EEPROM_RC_STEERING_MIN); }
+    int getRcSteeringCenter() { return eeprom->getIntegerSetting(EEPROM_RC_STEERING_CENTER); }
+    int getRcSteeringMax() { return eeprom->getIntegerSetting(EEPROM_RC_STEERING_MAX); }
+    int getRcThrottleMin() { return eeprom->getIntegerSetting(EEPROM_RC_THROTTLE_MIN); }
+    int getRcThrottleCenter() { return eeprom->getIntegerSetting(EEPROM_RC_THROTTLE_CENTER); }
+    int getRcThrottleMax() { return eeprom->getIntegerSetting(EEPROM_RC_THROTTLE_MAX); }
 
     int readMaxSpeedPot() {
       return analogRead(maxSpeedPin);  
@@ -58,9 +60,9 @@ class Configuration {
     }
 
     // Linear Actuator
-    int getSteeringCenter() { return spi->currentSettings.actuatorCenter; }
-    int getSteeringMin() { return spi->currentSettings.actuatorMin; }
-    int getSteeringMax() { return spi->currentSettings.actuatorMax; }
+    int getSteeringCenter() { return eeprom->getIntegerSetting(EEPROM_ACTUATOR_CENTER); }
+    int getSteeringMin() { return eeprom->getIntegerSetting(EEPROM_ACTUATOR_MIN); }
+    int getSteeringMax() { return eeprom->getIntegerSetting(EEPROM_ACTUATOR_MAX); }
 
     void getStatus(char * status) {
       sprintf(status, "[Configuration] Version: %i  Invert Joy X:%s Y:%s Joy Steering:%i %i %i  Speed Pot:%i RC:%s Min/C/Max:%i %i %i", 

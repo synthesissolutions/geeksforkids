@@ -20,8 +20,7 @@ class Logger {
     char statusLine[LOGGER_LINE_LENGTH];
     
     // Yeah... don't like that the logger has to have these explicity defined.  But it's good enough for now.
-    Spi *spi;
-    Bluetooth *bluetooth;
+    Eeprom *eeprom;
     Configuration *configuration;
     Joystick *joystick;
     RemoteControl *rc;
@@ -36,12 +35,11 @@ class Logger {
     /*
      * Set up the logging.  An updateTime of 0 will turn logging off.  Very much tied to knowing what objects we're going to log status for!!!
      */
-    void init(int updateTime, Spi *s, Bluetooth *b, Configuration *c, Joystick *j, RemoteControl *r, Steering *st, Throttle *t) {
+    void init(int updateTime, Eeprom *e, Configuration *c, Joystick *j, RemoteControl *r, Steering *st, Throttle *t) {
 
       Serial.begin(txSpeed);
 
-      spi = s;
-      bluetooth = b;
+      eeprom = e;
       configuration = c;
       joystick = j;
       rc = r;
@@ -102,11 +100,7 @@ class Logger {
         Serial.write(statusLine, strlen(statusLine));
         Serial.println();
 
-        spi->getStatus(statusLine);
-        Serial.write(statusLine, strlen(statusLine));
-        Serial.println();
-
-        bluetooth->getStatus(statusLine);
+        eeprom->getStatus(statusLine);
         Serial.write(statusLine, strlen(statusLine));
         Serial.println();
 

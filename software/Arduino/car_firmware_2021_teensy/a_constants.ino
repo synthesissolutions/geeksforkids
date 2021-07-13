@@ -14,7 +14,7 @@
  ***************************************************************************************** 
  */
 
-const String        RELEASE_VERSION         = "21.1.1";
+const String        RELEASE_VERSION         = "21.2.1 Alpha - Teensy";
 
 const int           LOGGER_UPDATE_TIME      = 100;     // How long between updates to the monitor, in milliseconds
 const unsigned int  SERIAL_BAUD_RATE        = 57600;     // Baud rate for the serial monitor.  Make sure you set this correctly!
@@ -92,25 +92,25 @@ const int           RC_THROTTLE_DEADZONE_HIGH = 25;     // scaled units
  ***************************************************************************************** 
  */
 //   ... joystick
-const int           PIN_JOYSTICK_STEERING         = A1;
-const int           PIN_JOYSTICK_THROTTLE         = A0;
+const int           PIN_JOYSTICK_STEERING         = A3;
+const int           PIN_JOYSTICK_THROTTLE         = A2;
 
 //   ... throttle ... aka the controller for the car's drive motor   
-const int           PIN_THROTTLE_DIRECTION_LEFT   = 12;  // Channel 1 on motor controller
-const int           PIN_THROTTLE_PWM_LEFT         = 13;
-const int           PIN_THROTTLE_DIRECTION_RIGHT  = 10; // Channel 2 on motor controller
-const int           PIN_THROTTLE_PWM_RIGHT        = 11;
+const int           PIN_THROTTLE_DIRECTION_LEFT   = 3;  // Channel 1 on motor controller
+const int           PIN_THROTTLE_PWM_LEFT         = 2;
+const int           PIN_THROTTLE_DIRECTION_RIGHT  = 7; // Channel 2 on motor controller
+const int           PIN_THROTTLE_PWM_RIGHT        = 6;
 
-const int           PIN_MAX_SPEED                 = A3;
+const int           PIN_MAX_SPEED                 = A0;
 
 //   ... steering ... aka the controller for the car's steering servo
-const int           PIN_STEERING_DIRECTION        = 6;
-const int           PIN_STEERING_PWM              = 9;
-const int           PIN_STEERING_POSITION         = A2;
+const int           PIN_STEERING_DIRECTION        = 9;
+const int           PIN_STEERING_PWM              = 8;
+const int           PIN_STEERING_POSITION         = A1;
 
 //   ... RC ... aka the parent remote control inputs
-const int           PIN_RC_STEERING               = A5;   
-const int           PIN_RC_THROTTLE               = A4;     
+const int           PIN_RC_STEERING               = 11;   
+const int           PIN_RC_THROTTLE               = 10;     
 
-//   ... Bluetooth
-const int           PIN_ENABLE_BLUETOOTH_BUTTON   = 5;
+//   ... Configuration Button
+const int           PIN_ENABLE_CONFIGURATION_BUTTON   = 9;
