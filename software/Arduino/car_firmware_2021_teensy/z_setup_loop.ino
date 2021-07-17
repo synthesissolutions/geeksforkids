@@ -20,6 +20,13 @@ Logger logger;
 boolean isConfiguring = false;
 
 /*
+ * Interrupt request handlers.  The Arduino environment appears to require these to be global methods with no parms, so defining them here.
+ *   Really just wrappers to call the proper RemoteControl methods.  
+ */
+ void handleRCSteeringInterrupt() { remoteControl.steeringIRQHandler(); }
+ void handleRCThrottleInterrupt() { remoteControl.throttleIRQHandler(); }
+
+/*
  * Now a couple of variables that help us do a bit of logging
  */
 boolean rcInControl = false;
@@ -67,13 +74,16 @@ void setup() {
   // Set RC/Parental Control Configuration
   remoteControl.setSteeringRange(configuration.getRcSteeringMin(), configuration.getRcSteeringCenter(), configuration.getRcSteeringMax());
   remoteControl.setThrottleRange(configuration.getRcThrottleMin(), configuration.getRcThrottleCenter(), configuration.getRcThrottleMax());
+
+  // set up the interrupt handlers
+  attachInterrupt(digitalPinToInterrupt(PIN_RC_STEERING), &handleRCSteeringInterrupt, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(PIN_RC_THROTTLE), &handleRCThrottleInterrupt, CHANGE);
 }
 
 /*
  * Arduino defined loop function.  Automatically run repeatedly (after setup).
  */
 void loop() {
-/*
   if (isConfiguring) {
     // When configuration is active, the car cannot be driven.
     throttle.setThrottle(0);
@@ -81,12 +91,25 @@ void loop() {
 
     // TODO Write code to allow serial configuration of the car
   } else if (configuration.useRc() && remoteControl.isBadRcStart()) {
+    // A bad RC start is when the throttle trigger on the RC remote is pulled 
+    // when the remote is turned on. This creates a situation where the 
+    // failsafe setting used if the RC remote is turned off or loses connection,
+    // will cause the car will drive at whatever speed was set when the remote was switched on.
+    // To prevent this from happening, we disable the car if this is detected.
+    // A full power cycle is required to break out of this condition.
     logger.addLogLine("Bad Start");
     throttle.setThrottle(0);
     steering.forceStop();
   } else {
+    // recalculate the scaled RC throttle and steering values
+    // this is necessary to know whether or not the RC is active
+    if (configuration.useRc()) {
+      remoteControl.updateThrottleScaled();
+      remoteControl.updateSteeringScaled();
+    }
+    
     // Is the parent overriding and taking control?
-    if (remoteControl.isActive() && configuration.useRc()) {
+    if (configuration.useRc() && remoteControl.isActive()) {
       
       // Yep, the parent has taken over ... parent inputs only
       if (joystickInControl) {
@@ -111,8 +134,10 @@ void loop() {
         }
 
         // set the inputs from the Joystick
+        // we need to get the speed multiplier each time,
+        // because the speed potentiometer can be turned at any time to adjust the max speed
         steering.setSteeringPosition(joystick.getXAxisScaled());
-        throttle.setThrottle(joystick.getYAxisScaled()*configuration.getSpeedMultiplier());
+        throttle.setThrottle(joystick.getYAxisScaled() * configuration.getSpeedMultiplier());
       } else {
   
         // Whoops ... we got here becuase neither control is active.  Nobody is going anywhere until that changes.
@@ -120,16 +145,14 @@ void loop() {
       }
     }      
   }
-  */
 
   // When Configuration is active we use the Serial output for logging message directly from that module
   if (!isConfiguring) {
-    // OK, now let's see if it's time to write out the log
+    // Only write the log messages if there is an active serial connection
     if (Serial) {
       logger.writeLog();
     }
 
-    // now delay for the loop delay time... we really don't want to try and run this loop at full CPU speed
     delay(LOOP_DELAY_MILLIS);
   }
 }

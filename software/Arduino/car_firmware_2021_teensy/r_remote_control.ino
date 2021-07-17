@@ -18,6 +18,14 @@ class RemoteControl {
     int pinRCSteering;
     int pinRCThrottle;
 
+    // variables to track the PWM signals
+    unsigned long steeringPulseStart; // the timestamp in ms for the current PWM steering pulse
+    unsigned long steeringPwm = 0;    // the length of the last full PWM steering pulse in microseconds
+    boolean steeringSignalHigh = false; // flag indicating that the start of a PWM signal (rising edge) has occured
+    unsigned long throttlePulseStart; // the timestamp in ms for the current PWM throttle pulse
+    unsigned long throttlePwm = 0;    // the length of the last full PWM throttle pulse in microseconds
+    boolean throttleSignalHigh = false; // flag indicating that the start of a PWM signal (rising edge) has occured
+    
     // these are in raw pin read units (0 to 1024)
     int steeringMin = STEERING_RC_MIN;
     int steeringCenter = STEERING_RC_CENTER;
@@ -49,10 +57,10 @@ class RemoteControl {
     // Track the first few signal readings and mark a bad start if any of those readings
     // are outside of a small dead zone
     boolean badControlStart = false;
-    int throttleStart[RC_START_LENGTH];
-    int throttleStartIndex = 0;
-    int steeringStart[RC_START_LENGTH];
-    int steeringStartIndex = 0;
+    unsigned long throttlePwmStart[10];
+    int throttlePwmStartIndex = 0;
+    unsigned long steeringPwmStart[10];
+    int steeringPwmStartIndex = 0;
 
     // Default constructor ... does nothing.  This allows us to delay setting the pins until we want to (via the init method).
     RemoteControl() {
@@ -76,6 +84,7 @@ class RemoteControl {
       throttleMax = tMax;
     }
 
+/*
     int getSteeringRaw() {
       int newSteering = analogRead(pinRCSteering);
 
@@ -94,17 +103,22 @@ class RemoteControl {
       
       return total / RC_STEERING_READINGS;
     }
+    */
     
     /*
      * get the current steering position (scaled units -100 to 100)
      */
     int getSteeringScaled() {
-      int steeringRaw = getSteeringRaw();
+      return steeringScaled;
+    }
+    
+    int updateSteeringScaled() {
+      //int steeringRaw = getSteeringRaw();
+      int steeringRaw = steeringPwm;
 
-      // Anything outside of the expected range will be ignored
-      if ((steeringRaw < steeringMin - 5) || (steeringRaw > steeringMax + 5)) {
-        lastSteeringInputMillis = 0;
-        return 0;
+      // Value is not in the expected range return 0 as a safe value
+      if (steeringRaw == 0 || steeringRaw >= RC_LIMIT) {
+        return 0; 
       }
 
       if (steeringRaw < steeringCenter) {
@@ -114,26 +128,18 @@ class RemoteControl {
       } else {
         steeringScaled = 0;
       }
-      //steeringScaled = constrain(map(steeringRaw, STEERING_RC_MIN, STEERING_RC_MAX, -100, 100), -100, 100);
 
       if (steeringScaled >= RC_STEERING_DEADZONE_LOW && steeringScaled <= RC_STEERING_DEADZONE_HIGH) {
-        lastSteeringInputMillis = 0;
-        return 0;
+        steeringScaled = 0;
+        lastSteeringInputMillis = 0; // this does not count as a significant input since it didn't leave the deadzone
+      } else {
+        lastSignificantInputMillis = millis();
       }
-
-      if (lastSteeringInputMillis == 0) {
-        lastSteeringInputMillis = millis();
-      }
-
-      if (millis() - lastSteeringInputMillis < RC_INPUT_DELAY) {
-        return 0;
-      }
-      
-      lastSignificantInputMillis = millis();
       
       return steeringScaled;
     }
 
+/*
     int getThrottleRaw() {
       int newThrottle = analogRead(pinRCThrottle);
 
@@ -152,41 +158,38 @@ class RemoteControl {
       
       return total / RC_THROTTLE_READINGS;
     }
+    */
 
     /*
      * get the current throttle position (scaled units -100 to 100)
      */
-    int getThrottleScaled() {  
-      int throttleRaw = getThrottleRaw();
+    int getThrottleScaled() {
+      return throttleScaled;
+    }
+    
+    int updateThrottleScaled() {  
+      //int throttleRaw = getThrottleRaw();
+      int throttleRaw = throttlePwm;
 
-      if ((throttleRaw < throttleMin - 5) || (throttleRaw > throttleMax + 5)) {
-        lastSteeringInputMillis = 0;
-        return 0;
+      // Value is not in the expected range return 0 as a safe value
+      if (throttleRaw == 0 || throttleRaw >= RC_LIMIT) {
+        return 0; 
       }
 
-      if (throttleRaw < steeringCenter) {
+      if (throttleRaw < throttleCenter) {
         throttleScaled = constrain(map(throttleRaw, throttleMin, throttleCenter, -100, 0), -100, 0);
-      } else if (throttleRaw > steeringCenter) {
+      } else if (throttleRaw > throttleCenter) {
         throttleScaled = constrain(map(throttleRaw, throttleCenter, throttleMax, 0, 100), 0, 100);        
       } else {
         throttleScaled = 0;
       }
-      //throttleScaled = constrain(map(throttleRaw, THROTTLE_RC_MIN, THROTTLE_RC_MAX, -100, 100), -100, 100);
 
       if (throttleScaled >= RC_THROTTLE_DEADZONE_LOW && throttleScaled <= RC_THROTTLE_DEADZONE_HIGH) {
-        lastThrottleInputMillis = 0;
-        return 0;
+        throttleScaled = 0;
+        lastThrottleInputMillis = 0; // this does not count as a significant input since it didn't leave the deadzone
+      } else {        
+        lastSignificantInputMillis = millis();
       }
-      
-      if (lastThrottleInputMillis == 0) {
-        lastThrottleInputMillis = millis();
-      }
-
-      if (millis() - lastThrottleInputMillis < RC_INPUT_DELAY) {
-        return 0;
-      }
-
-      lastSignificantInputMillis = millis();
 
       return throttleScaled;
     }
@@ -195,111 +198,110 @@ class RemoteControl {
       return badControlStart;
     }
 
-    boolean rcStartComplete() {
-      return throttleStartIndex >= RC_START_LENGTH;
-    }
-
-    boolean isBadThrottleStartValue(int value) {
-      return (value > 15) && (value < throttleCenter - 5) || (value > throttleCenter + 5);
-    }
-
-    boolean isBadSteeringStartValue(int value) {
-      return (value > 15) && (value < steeringCenter - 5) || (value > steeringCenter + 5);      
-    }
-    
-    void recordRCStartValue() {
-      // Don't start checking for a bad start immediately, give it a brief time to settle
-      if (millis() < 100) {
-        return;
-      }
-      
-      int newThrottle = analogRead(pinRCThrottle);
-      int newSteering = analogRead(pinRCSteering);
-
-      // Until the RC remote is turned on, the values should be 0 or very close to it
-      // We don't want to start checking for a bad start until the RC is turned on.
-      // Once it is turned on - or we get a weird signal that looks like it is on - then start
-      // tracking the values.
-      if (throttleStartIndex == 0 && newThrottle < 15 && newSteering < 15) {
-        return;
-      }
-
-      if (throttleStartIndex < RC_START_LENGTH) {
-        throttleStart[throttleStartIndex] = newThrottle;
-        throttleStartIndex++;
-      }
-
-      if (steeringStartIndex < RC_START_LENGTH) {
-        steeringStart[steeringStartIndex] = newSteering;
-        steeringStartIndex++;  
-      }
-
-      if (throttleStartIndex == RC_START_LENGTH) {
-        if (newThrottle < 15 && newSteering < 15) {
-          // We didn't really start, we just got a weird value
-          // reset everything and wait for a real start
-          throttleStartIndex = 0;
-          steeringStartIndex = 0;
-          
-          return;
-        }
-
-        // Now that we have reached the end check for continued bad values
-        // At this point we will just check the most recent value
-        // we could alter this in the future to look at the array of collected values
-        if (isBadThrottleStartValue(newThrottle)) {
-          badControlStart = true;
-        }
-        if (isBadSteeringStartValue(newSteering)) {
-          badControlStart = true;
-        }
-      }
-    }
-    
     /*
      * Is the remote control "hot" ... meaning does the parent have control.  This also accounts for the timeout... e.g. has the parent had control recently.
      */
     boolean isActive() {
-      if (!rcStartComplete()) {
-        recordRCStartValue();
-        return false;
-      }
-
-      if (badControlStart) {
-        return false;
-      }
        
-      /*
-       * If we've not yet centered the controls, then we're not active yet
-       */
+      //If we've not yet centered the controls, then we're not active yet
       if (!hasCentered) {
-        if (getSteeringScaled() == 0 && getThrottleScaled() == 0) {
-          
-          // controls are centered, OK to go on
-          hasCentered=true;
-          
+        if (steeringScaled == 0 && throttleScaled == 0) {
+          hasCentered=true;          
         } else {
-
-          // controls have not yet centered, we're not active!
-          return false;
-          
+          return false;         
         }
       }
 
-      // Call get scaled methods to update input millis
-      getSteeringScaled();
-      getThrottleScaled();
-      
-      /* 
-       *  we're active if we've had a significant input recently enough
-       */
-      if (millis()-lastSignificantInputMillis < RC_OVERRIDE_TIMEOUT) {
+      // we're active if we've had a significant input recently enough
+      if (millis() - lastSignificantInputMillis < RC_OVERRIDE_TIMEOUT) {
         return true;
       }
       
       return false;
     }
 
+    /* 
+     * Handler for IRQ updates for steering.
+     * 
+     * NOTE: This code is considered critical (should not be interrupted), but does not disable interrupts.  This is because we assume it's being 
+     *       called in an IRQ handler and therefore interrupts are already disabled until we exit.  We are doing the math to figure out the pulse width
+     *       and the scaled signal here, which is based on the assumption that the board in use (e.g. teensy) is much faster in clock speed than the 
+     *       resolution of the PWM signal.  
+     */
+    void steeringIRQHandler() {
+      if(digitalRead(pinRCSteering) == 1){
+        if (!steeringSignalHigh) {
+          // rising edge of the PWM signal
+          // record when the pulse started
+          steeringPulseStart = micros();
+          steeringSignalHigh = true;
+        }
+        
+      } else if (steeringSignalHigh) {
+        // falling edge of the PWM signal
+        // record the duty cycle in microseconds
+        steeringPwm = micros() - steeringPulseStart;
+
+        if (steeringPwmStartIndex < 10) {
+          steeringPwmStart[steeringPwmStartIndex] = steeringPwm;
+          steeringPwmStartIndex++;
+
+          // CRITICAL NOTE: If the RC steering is not centered when it is turned on
+          // then when it is turned off it will return a non-centered result.
+          // !!!!! IMPORTANT !!!!! This means that when the RC remote is turned off in this
+          // case and the car is still it will turn the wheel in that direction
+          // and prevent the child from controlling via the joystick
+          if (steeringPwm < 1400 || steeringPwm > 1600) {
+            badControlStart = true;
+          }
+        }
+
+        // reset for the next pulse
+        steeringSignalHigh = false;
+      }
+      
+    }
+   
+    /* 
+     * Handler for IRQ updates for throttle.
+     * 
+     * NOTE: This code is considered critical (should not be interrupted), but does not disable interrupts.  This is because we assume it's being 
+     *       called in an IRQ handler and therefore interrupts are already disabled until we exit.  We are doing the math to figure out the pulse width
+     *       and the scaled signal here, which is based on the assumption that the board in use (e.g. teensy) is much faster in clock speed than the 
+     *       resolution of the PWM signal.  
+     */
+    void throttleIRQHandler() {
+      if(digitalRead(pinRCThrottle) == 1){
+        if (!throttleSignalHigh) {
+          // rising edge of the PWM signal
+          // record when the pulse started
+          throttlePulseStart = micros();
+          throttleSignalHigh = true;
+        }
+      } else if (throttleSignalHigh) {
+        // falling edge of the PWM signal
+        // record the duty cycle in microseconds
+        throttlePwm = micros() - throttlePulseStart;
+
+        if (throttlePwmStartIndex < 10) {
+          throttlePwmStart[throttlePwmStartIndex] = throttlePwm;
+          throttlePwmStartIndex++;
+
+          // CRITICAL NOTE: If the RC throttle is not centered when it is turned on
+          // then when it is turned off it will return a non-centered result.
+          // !!!!! IMPORTANT !!!!! This means that when the RC remote is turned off in this
+          // case and the car is still it will drive in that direction with the child having
+          // no control via the joystick.
+          if (throttlePwm < 1400 || throttlePwm > 1600) {
+            badControlStart = true;
+          }
+        }
+
+        // reset for the next pulse
+        throttleSignalHigh = false;
+      }
+    }
+    
     void getBadStartData(char *buffer) {
       //sprintf(buffer, "%i %i %i %i %i %i %i %i %i %i", throttleStart[0], throttleStart[1], throttleStart[2], throttleStart[3], throttleStart[4], throttleStart[5], throttleStart[6], throttleStart[7], throttleStart[8], throttleStart[9]);
       buffer = "Test";
@@ -307,16 +309,13 @@ class RemoteControl {
 
     
     void getStatus(char * status) {
-      int testValue = 500;
-      
-      sprintf(status, "[RemoteControl] throttleRaw:%lu throttleScaled:%i steeringRaw:%lu steeringScaled:%i isActive:%s Bad Start:%s %s %s",
-        getThrottleRaw(),
-        getThrottleScaled(),
-        getSteeringRaw(),
-        getSteeringScaled(),
+      sprintf(status, "[RemoteControl] throttleRaw:%lu throttleScaled:%i steeringRaw:%lu steeringScaled:%i isActive:%s Bad Start:%s Has Centered: %s",
+        throttlePwm,
+        throttleScaled,
+        steeringPwm,
+        steeringScaled,
         isActive() ? "true" : "false",
         badControlStart ? "true" : "false",
-        rcStartComplete() ? "true" : "false",
         hasCentered ? "true" : "false");
     }  
 };

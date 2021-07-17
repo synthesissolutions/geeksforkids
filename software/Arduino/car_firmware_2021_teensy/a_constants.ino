@@ -14,7 +14,7 @@
  ***************************************************************************************** 
  */
 
-const String        RELEASE_VERSION         = "21.2.1 Alpha - Teensy";
+const String        RELEASE_VERSION         = "21.2.0 Alpha - Teensy";
 
 const int           LOGGER_UPDATE_TIME      = 100;     // How long between updates to the monitor, in milliseconds
 const unsigned int  SERIAL_BAUD_RATE        = 57600;     // Baud rate for the serial monitor.  Make sure you set this correctly!
@@ -70,21 +70,20 @@ const int           STEERING_START_DELTA    = 10;          // How close to targe
 const int           STEERING_SPEED          = 240;        // PWM Value from 0 - 254 with 254 = max speed
 
 // Remote control PWM parms ... probably best to leave these alone!
-const int           STEERING_RC_MIN         = 33;
-const int           STEERING_RC_CENTER      = 59;
-const int           STEERING_RC_MAX         = 80;
-const int           THROTTLE_RC_MIN         = 40;
-const int           THROTTLE_RC_CENTER      = 59;
-const int           THROTTLE_RC_MAX         = 80;
+const int           STEERING_RC_MIN         = 1000;
+const int           STEERING_RC_CENTER      = 1500;
+const int           STEERING_RC_MAX         = 2000;
+const int           THROTTLE_RC_MIN         = 1200;
+const int           THROTTLE_RC_CENTER      = 1500;
+const int           THROTTLE_RC_MAX         = 2000;
+const int           RC_LIMIT                = 2500;
 
 // Remote control parm ... tuning
-const int           RC_INPUT_DELAY          = 100;      // The time required for the parent RC input to be out of the deadzone before the control is given to the RC 
-                                                        // to prevent spurious readings from taking the control away from the child
 const int           RC_OVERRIDE_TIMEOUT     = 3000;     // The time required for the parent RC input to be at idle before returning control back to the kid, in millis
-const int           RC_STEERING_DEADZONE_LOW = -25;     // scaled units
-const int           RC_STEERING_DEADZONE_HIGH = 25;     // scaled units
-const int           RC_THROTTLE_DEADZONE_LOW = -25;     // scaled units
-const int           RC_THROTTLE_DEADZONE_HIGH = 25;     // scaled units 
+const int           RC_STEERING_DEADZONE_LOW = -10;     // scaled units
+const int           RC_STEERING_DEADZONE_HIGH = 10;     // scaled units
+const int           RC_THROTTLE_DEADZONE_LOW = -10;     // scaled units
+const int           RC_THROTTLE_DEADZONE_HIGH = 10;     // scaled units 
 
 
 /*****************************************************************************************
@@ -98,8 +97,8 @@ const int           PIN_JOYSTICK_THROTTLE         = A2;
 //   ... throttle ... aka the controller for the car's drive motor   
 const int           PIN_THROTTLE_DIRECTION_LEFT   = 3;  // Channel 1 on motor controller
 const int           PIN_THROTTLE_PWM_LEFT         = 2;
-const int           PIN_THROTTLE_DIRECTION_RIGHT  = 7; // Channel 2 on motor controller
-const int           PIN_THROTTLE_PWM_RIGHT        = 6;
+const int           PIN_THROTTLE_DIRECTION_RIGHT  = 5; // Channel 2 on motor controller
+const int           PIN_THROTTLE_PWM_RIGHT        = 4;
 
 const int           PIN_MAX_SPEED                 = A0;
 

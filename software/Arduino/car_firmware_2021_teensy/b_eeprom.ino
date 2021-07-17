@@ -2,32 +2,35 @@
 
 #define NUMBER_OF_CONFIGURATION_ENTRIES 21
 
-const String EEPROM_VERSION = "version";
-const String EEPROM_ACTUATOR_MIN = "actuatorMin";
-const String EEPROM_ACTUATOR_CENTER = "actuatorCenter";
-const String EEPROM_ACTUATOR_MAX = "actuatorMax";
-const String EEPROM_USE_RC = "useRc";
-const String EEPROM_RC_STEERING_MIN = "rcSteeringMin";
-const String EEPROM_RC_STEERING_CENTER = "rcSteeringCenter";
-const String EEPROM_RC_STEERING_MAX = "rcSteeringMax";
-const String EEPROM_RC_THROTTLE_MIN = "rcThrottleMin";
-const String EEPROM_RC_THROTTLE_CENTER = "rcThrottleCenter";
-const String EEPROM_RC_THROTTLE_MAX = "rcThrottleMax";
-const String EEPROM_USE_PWM_JOYSTICK_X = "usePwmJoystickX";
-const String EEPROM_USE_PWM_JOYSTICK_Y = "usePwmJoystickY";
-const String EEPROM_INVERT_JOYSTICK_X = "invertJoystickX";
-const String EEPROM_INVERT_JOYSTICK_Y = "invertJoystickY";
-const String EEPROM_JOYSTICK_STEERING_MIN = "joystickSteeringMin";
-const String EEPROM_JOYSTICK_STEERING_CENTER = "joystickSteeringCenter";
-const String EEPROM_JOYSTICK_STEERING_MAX = "joystickSteeringMax";
-const String EEPROM_JOYSTICK_THROTTLE_MIN = "joystickThrottleMin";
-const String EEPROM_JOYSTICK_THROTTLE_CENTER = "joystickThrottleCenter";
-const String EEPROM_JOYSTICK_THROTTLE_MAX = "joystickThrottleMax";
+#define EEPROM_VERSION              0
+#define EEPROM_ACTUATOR_MIN         1
+#define EEPROM_ACTUATOR_CENTER      2
+#define EEPROM_ACTUATOR_MAX         3
+#define EEPROM_USE_RC               4
+#define EEPROM_RC_STEERING_MIN      5
+#define EEPROM_RC_STEERING_CENTER   6
+#define EEPROM_RC_STEERING_MAX      7
+#define EEPROM_RC_THROTTLE_MIN      8
+#define EEPROM_RC_THROTTLE_CENTER   9
+#define EEPROM_RC_THROTTLE_MAX      10
+#define EEPROM_USE_PWM_JOYSTICK_X   11
+#define EEPROM_USE_PWM_JOYSTICK_Y   12
+#define EEPROM_INVERT_JOYSTICK_X    13
+#define EEPROM_INVERT_JOYSTICK_Y    14
+#define EEPROM_JOYSTICK_STEERING_MIN    15
+#define EEPROM_JOYSTICK_STEERING_CENTER 16
+#define EEPROM_JOYSTICK_STEERING_MAX    17
+#define EEPROM_JOYSTICK_THROTTLE_MIN    18
+#define EEPROM_JOYSTICK_THROTTLE_CENTER 19
+#define EEPROM_JOYSTICK_THROTTLE_MAX    20
+
+#define INTEGER_CONFIGURATION 1
+#define BOOLEAN_CONFIGURATION 2
 
 /**
  * Eeprom Class
  * 
- * This class serves to interpret the dip switch setting to define the configuration for this car
+ * This class stores and retrievs settings from Eeprom to define the configuration for this car
  */
 
 const int CURRENT_SETTINGS_VERSION = 2;
@@ -35,138 +38,123 @@ const int CURRENT_SETTINGS_VERSION = 2;
 struct ConfigurationEntry {
   String name;
   unsigned int eeAddress;
-  String dataType;
+  int dataType;
   boolean booleanValue;
   int intValue;
-  String stringValue;
 };
 
 ConfigurationEntry configurationEntries[] = {
-  {EEPROM_VERSION, 0, "Integer", false, CURRENT_SETTINGS_VERSION, ""},
-  {EEPROM_ACTUATOR_MIN, 8, "Integer", false, -50, ""},  // in scaled units from -100 to 100
-  {EEPROM_ACTUATOR_CENTER, 12, "Integer", false, 0, ""},  // in scaled units from -100 to 100
-  {EEPROM_ACTUATOR_MAX, 16, "Integer", false, 50, ""},   // in scaled units from -100 to 100
-  {EEPROM_USE_RC, 20, "Boolean", false, 0, ""},
-  {EEPROM_RC_STEERING_MIN, 24, "Integer", false, 1000, ""},  // All RC values are in PWM duty cycle milliseconds
-  {EEPROM_RC_STEERING_CENTER, 28, "Integer", false, 1500, ""},
-  {EEPROM_RC_STEERING_MAX, 32, "Integer", false, 2000, ""},
-  {EEPROM_RC_STEERING_MIN, 36, "Integer", false, 1000, ""},
-  {EEPROM_RC_STEERING_CENTER, 40, "Integer", false, 1500, ""},
-  {EEPROM_RC_STEERING_MAX, 44, "Integer", false, 2000, ""},
-  {EEPROM_USE_PWM_JOYSTICK_X, 48, "Boolean", false, 0, ""},
-  {EEPROM_USE_PWM_JOYSTICK_Y, 52, "Boolean", false, 0, ""},
-  {EEPROM_INVERT_JOYSTICK_X, 56, "Boolean", true, 0, ""},
-  {EEPROM_INVERT_JOYSTICK_Y, 60, "Boolean", true, 0, ""},
-  {EEPROM_JOYSTICK_STEERING_MIN, 64, "Integer", false, 0, ""}, // Joystick values are in PWM duty cycle milliseconds or analog readings 0 - 1023
-  {EEPROM_JOYSTICK_STEERING_CENTER, 68, "Integer", false, 500, ""},
-  {EEPROM_JOYSTICK_STEERING_MAX, 72, "Integer", false, 950, ""},
-  {EEPROM_JOYSTICK_THROTTLE_MIN, 76, "Integer", false, 0, ""},
-  {EEPROM_JOYSTICK_THROTTLE_CENTER, 80, "Integer", false, 500, ""},
-  {EEPROM_JOYSTICK_THROTTLE_MAX, 84, "Integer", false, 950, ""}
+  {"Version", 0, INTEGER_CONFIGURATION, false, CURRENT_SETTINGS_VERSION},
+  {"Actuator Min", 8, INTEGER_CONFIGURATION, false, -50},  // in scaled units from -100 to 100
+  {"Actuator Center", 12, INTEGER_CONFIGURATION, false, 0},  // in scaled units from -100 to 100
+  {"Actuator Max", 16, INTEGER_CONFIGURATION, false, 50},   // in scaled units from -100 to 100
+  {"Use RC", 20, BOOLEAN_CONFIGURATION, true, 0},
+  {"RC Steering Min", 24, INTEGER_CONFIGURATION, false, 1000},  // All RC values are in PWM duty cycle milliseconds
+  {"RC Steering Center", 28, INTEGER_CONFIGURATION, false, 1500},
+  {"RC Steering Max", 32, INTEGER_CONFIGURATION, false, 2000},
+  {"RC Throttle Min", 36, INTEGER_CONFIGURATION, false, 1000},
+  {"RC Throttle Center", 40, INTEGER_CONFIGURATION, false, 1500},
+  {"RC Throttle Max", 44, INTEGER_CONFIGURATION, false, 2000},
+  {"Use PWM Joystick X", 48, BOOLEAN_CONFIGURATION, false, 0},
+  {"Use PWM Joystick Y", 52, BOOLEAN_CONFIGURATION, false, 0},
+  {"Invert Joystick X", 56, BOOLEAN_CONFIGURATION, true, 0},
+  {"Invert Joystick Y", 60, BOOLEAN_CONFIGURATION, true, 0},
+  {"Joystick Steering Min", 64, INTEGER_CONFIGURATION, false, 0}, // Joystick values are in PWM duty cycle milliseconds or analog readings 0 - 1023
+  {"Joystick Steering Center", 68, INTEGER_CONFIGURATION, false, 500},
+  {"Joystick Steering Max", 72, INTEGER_CONFIGURATION, false, 950},
+  {"Joystick Throttle Min", 76, INTEGER_CONFIGURATION, false, 0},
+  {"Joystick Throttle Center", 80, INTEGER_CONFIGURATION, false, 500},
+  {"Joystick Throttle Max", 84, INTEGER_CONFIGURATION, false, 950}
 };
     
 class Eeprom {
   private:
-    String loadingLogMessage = "Loaded from Eeprom";
-    
-    int getConfigurationIndexByName(String configurationName) {
-      for (int i = 0; i < NUMBER_OF_CONFIGURATION_ENTRIES; i++) {
-        ConfigurationEntry entry = configurationEntries[i];
-        if (configurationName == entry.name) {
-          return i;
-        }
-      }
-
-      return -1;
-    }
+    boolean isConfigurationDefault = false;
 
   public: 
     // Default constructor ... does nothing.  This allows us to delay setting the pins until we want to (via the init method).  
     Eeprom() {  
     }
 
-    /*
-     * init - initialize the dip switch pins
-     */
     void init() {
       if (getSavedConfigurationVersion() == CURRENT_SETTINGS_VERSION) {
         loadConfigurationSettings();
       } else {
         saveConfiguration(); // This will save the default values
-        loadingLogMessage = "Loaded from defaults";        
+        isConfigurationDefault = true;      
       }
     }
 
     /*
-     * getters ... read settings from EEprom
+     * getters ... read settings from Eeprom cache
      */
-    int getIntegerSetting(String configurationEntryName) {
-      int index = getConfigurationIndexByName(configurationEntryName);
+    int getIntegerSetting(int index) {
       return configurationEntries[index].intValue;
     }
 
-    int getBooleanSetting(String configurationEntryName) {
-      int index = getConfigurationIndexByName(configurationEntryName);
+    int getBooleanSetting(int index) {
       return configurationEntries[index].booleanValue;
     }
-    
-    void setIntegerSetting(String configurationEntryName, int value) {
-      int index = getConfigurationIndexByName(configurationEntryName);
-      ConfigurationEntry entry = configurationEntries[index];
-      entry.intValue = value;
+
+    /*
+     * setters ... write settings to Eeprom cache
+     */
+    void setIntegerSetting(int index, int value) {
+      configurationEntries[index].intValue = value;
     }
 
-    void setBooleanSetting(String configurationEntryName, boolean value) {
-      int index = getConfigurationIndexByName(configurationEntryName);
-      ConfigurationEntry entry = configurationEntries[index];
-      entry.booleanValue = value;
+    void setBooleanSetting(int index, boolean value) {
+      configurationEntries[index].booleanValue = value;
     }
 
     int getSavedConfigurationVersion() {
-      // The first configuration entry is always the version
-      ConfigurationEntry entry = configurationEntries[0];
+      ConfigurationEntry entry = configurationEntries[EEPROM_VERSION];
       int intValue;
       EEPROM.get(entry.eeAddress, intValue);      
 
       return intValue;
     }
-    
+
+    /*
+     * Load the configuration settings from Eeprom into cache
+     */
     void loadConfigurationSettings() {
       int intValue;
       boolean booleanValue;
       
       for (int i = 0; i < NUMBER_OF_CONFIGURATION_ENTRIES; i++) {
         ConfigurationEntry entry = configurationEntries[i];
-        if (entry.dataType == "Integer") {
+        if (entry.dataType == INTEGER_CONFIGURATION) {
           EEPROM.get(entry.eeAddress, intValue);
           entry.intValue = intValue;
-        } else if (entry.dataType == "Boolean") {
+        } else if (entry.dataType == BOOLEAN_CONFIGURATION) {
           EEPROM.get(entry.eeAddress, booleanValue);
           entry.booleanValue = booleanValue;
-          // ignore for now        } else {
-
         }
       }
     }
 
+    /*
+     * Save the configuration settings from cache into Eeprom
+     */
     void saveConfiguration() {
       for (int i = 0; i < NUMBER_OF_CONFIGURATION_ENTRIES; i++) {
         ConfigurationEntry entry = configurationEntries[i];
-        if (entry.dataType == "Integer") {
+        if (entry.dataType == INTEGER_CONFIGURATION) {
           EEPROM.put(entry.eeAddress, entry.intValue);
-        } else if (entry.dataType == "Boolean") {
+        } else if (entry.dataType == BOOLEAN_CONFIGURATION) {
           if (entry.booleanValue) {
             EEPROM.put(entry.eeAddress, 1);
           } else {
             EEPROM.put(entry.eeAddress, 0);
           }
-        } else {
-          // ignore for now
-        }
+          }
       }
     }
 
      void getStatus(char * status) {
-      sprintf(status, "[EEprom] Version: %i Configuration %s", getIntegerSetting("version"), loadingLogMessage);
+      sprintf(status, "[EEprom] Version: %i Steering: %i %i %i Configuration: %s", getIntegerSetting(EEPROM_VERSION), 
+        getIntegerSetting(EEPROM_JOYSTICK_STEERING_MIN), getIntegerSetting(EEPROM_JOYSTICK_STEERING_CENTER), 
+        getIntegerSetting(EEPROM_JOYSTICK_STEERING_MAX), isConfigurationDefault ? "Default" : "Eeprom");
     }
 };
