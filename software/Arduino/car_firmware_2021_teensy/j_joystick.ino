@@ -15,25 +15,30 @@
 class Joystick {
   private:
     int xAxisPin;
-    int yAxisPin; 
+    int yAxisPin;
 
-    // settting default values here ... being a little lazy by defaulting from constants.  
+    boolean useSteeringPwm = false;
+    boolean useThrottlePwm = false;
 
-    // these are in raw pin read units (0 to 1024)
+    // variables to track the PWM signals
+    unsigned long steeringPulseStart; // the timestamp in ms for the current PWM steering pulse
+    unsigned long steeringPwm = 0;    // the length of the last full PWM steering pulse in microseconds
+    boolean steeringSignalHigh = false; // flag indicating that the start of a PWM signal (rising edge) has occured
+    unsigned long throttlePulseStart; // the timestamp in ms for the current PWM throttle pulse
+    unsigned long throttlePwm = 0;    // the length of the last full PWM throttle pulse in microseconds
+    boolean throttleSignalHigh = false; // flag indicating that the start of a PWM signal (rising edge) has occured
+
+    // settting default values here
+
+    // these are in raw pin read units (0 to 1024) for analog and ?? for PWM
     int xAxisCenter = JOYSTICK_X_AXIS_CENTER;
     int xAxisMin = JOYSTICK_X_AXIS_MIN;
     int xAxisMax = JOYSTICK_X_AXIS_MAX;
 
-    // these are in raw pin read units (0 to 1024)
+    // these are in raw pin read units (0 to 1024) for analog and ?? for PWM
     int yAxisCenter = JOYSTICK_Y_AXIS_CENTER;
     int yAxisMin = JOYSTICK_Y_AXIS_MIN;
     int yAxisMax = JOYSTICK_Y_AXIS_MAX;
-
-    // these are in scaled units (-100 to 100)
-    int xAxisDZLow = JOYSTICK_X_AXIS_DEADZONE_LOW;
-    int xAxisDZHigh = JOYSTICK_X_AXIS_DEADZONE_HIGH;
-    int yAxisDZLow = JOYSTICK_Y_AXIS_DEADZONE_LOW;
-    int yAxisDZHigh = JOYSTICK_Y_AXIS_DEADZONE_HIGH;
 
     // direction inversion if necessary
     boolean invertXAxis = JOYSTICK_INVERT_X_AXIS;
@@ -96,9 +101,22 @@ class Joystick {
       this->yAxisDZHigh = yAxisDZHigh;
     }
 
+    void setUseSteeringPwm(boolean setting) {
+      useSteeringPwm = setting;
+    }
+
+    void setUseThrottlePwm(boolean setting) {
+      useThrottlePwm = setting;
+    }
+
     // raw value from the x axis potentiometer
     int getXAxisRaw() {
-      int newX = analogRead(xAxisPin);
+      int newX;
+      if (useSteeringPwm) {
+        newX = steeringPwm;
+      } else {
+        newX = analogRead(xAxisPin);
+      }
 
       joyXIndex++;
       if (joyXIndex >= JOY_X_READINGS) {
@@ -118,7 +136,12 @@ class Joystick {
 
     // raw value from the Y axis potentiometer
     int getYAxisRaw() {
-      int newY = analogRead(yAxisPin);
+      int newY;
+      if (useThrottlePwm) {
+        newY = throttlePwm;
+      } else {
+        newY = analogRead(yAxisPin);
+      }
 
       joyYIndex++;
       if (joyYIndex >= JOY_Y_READINGS) {
@@ -172,15 +195,14 @@ class Joystick {
       } else {
         val = 0;
       }
-      //val = map(constrain(val, xAxisMin, xAxisMax),xAxisMin, xAxisMax, -100, 100);
-
+      
       // invert if necessary
       if (invertXAxis) {
         val = -val;
       }
 
       // apply the deadzone
-      if (xAxisDZLow < val && val < xAxisDZHigh) {
+      if (JOYSTICK_X_AXIS_DEADZONE_LOW < val && val < JOYSTICK_X_AXIS_DEADZONE_HIGH) {
         val = 0;
       }
       
@@ -204,15 +226,13 @@ class Joystick {
         val = 0;
       }
 
-      //val = map(constrain(val,yAxisMin,yAxisMax),yAxisMin,yAxisMax,-100,100);
-
       // invert if necessary
       if (invertYAxis) {
         val = -val;
       }
       
       // apply the deadzone
-      if (yAxisDZLow < val && val < yAxisDZHigh) {
+      if (JOYSTICK_Y_AXIS_DEADZONE_LOW < val && val < JOYSTICK_Y_AXIS_DEADZONE_HIGH) {
         val = 0;
       }
       
@@ -247,6 +267,60 @@ class Joystick {
       return true;
     }
 
+    /* 
+     * Handler for IRQ updates for steering.
+     * 
+     * NOTE: This code is considered critical (should not be interrupted), but does not disable interrupts.  This is because we assume it's being 
+     *       called in an IRQ handler and therefore interrupts are already disabled until we exit.  We are doing the math to figure out the pulse width
+     *       and the scaled signal here, which is based on the assumption that the board in use (e.g. teensy) is much faster in clock speed than the 
+     *       resolution of the PWM signal.  
+     */
+    void steeringIRQHandler() {
+      if(digitalRead(xAxisPin) == 1){
+        if (!steeringSignalHigh) {
+          // rising edge of the PWM signal
+          // record when the pulse started
+          steeringPulseStart = micros();
+          steeringSignalHigh = true;
+        }
+        
+      } else if (steeringSignalHigh) {
+        // falling edge of the PWM signal
+        // record the duty cycle in microseconds
+        steeringPwm = micros() - steeringPulseStart;
+
+        // reset for the next pulse
+        steeringSignalHigh = false;
+      }
+      
+    }
+   
+    /* 
+     * Handler for IRQ updates for throttle.
+     * 
+     * NOTE: This code is considered critical (should not be interrupted), but does not disable interrupts.  This is because we assume it's being 
+     *       called in an IRQ handler and therefore interrupts are already disabled until we exit.  We are doing the math to figure out the pulse width
+     *       and the scaled signal here, which is based on the assumption that the board in use (e.g. teensy) is much faster in clock speed than the 
+     *       resolution of the PWM signal.  
+     */
+    void throttleIRQHandler() {
+      if(digitalRead(yAxisPin) == 1){
+        if (!throttleSignalHigh) {
+          // rising edge of the PWM signal
+          // record when the pulse started
+          throttlePulseStart = micros();
+          throttleSignalHigh = true;
+        }
+      } else if (throttleSignalHigh) {
+        // falling edge of the PWM signal
+        // record the duty cycle in microseconds
+        throttlePwm = micros() - throttlePulseStart;
+
+        // reset for the next pulse
+        throttleSignalHigh = false;
+      }
+    }
+    
     void getStatus(char * status) {
       sprintf(status, "[Joystick] x:%i xscaled:%i%s y:%i yscaled:%i%s isActive:%s", 
           getXAxisRaw(),

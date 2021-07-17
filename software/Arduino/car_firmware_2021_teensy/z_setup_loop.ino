@@ -25,6 +25,8 @@ boolean isConfiguring = false;
  */
  void handleRCSteeringInterrupt() { remoteControl.steeringIRQHandler(); }
  void handleRCThrottleInterrupt() { remoteControl.throttleIRQHandler(); }
+ void handleJoystickSteeringInterrupt() { joystick.steeringIRQHandler(); }
+ void handleJoystickThrottleInterrupt() { joystick.throttleIRQHandler(); }
 
 /*
  * Now a couple of variables that help us do a bit of logging
@@ -76,8 +78,25 @@ void setup() {
   remoteControl.setThrottleRange(configuration.getRcThrottleMin(), configuration.getRcThrottleCenter(), configuration.getRcThrottleMax());
 
   // set up the interrupt handlers
-  attachInterrupt(digitalPinToInterrupt(PIN_RC_STEERING), &handleRCSteeringInterrupt, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(PIN_RC_THROTTLE), &handleRCThrottleInterrupt, CHANGE);
+  if (configuration.useRc()) {
+    attachInterrupt(digitalPinToInterrupt(PIN_RC_STEERING), &handleRCSteeringInterrupt, CHANGE);
+    attachInterrupt(digitalPinToInterrupt(PIN_RC_THROTTLE), &handleRCThrottleInterrupt, CHANGE);    
+  }
+
+  if (configuration.usePwmJoystickX()) {
+    attachInterrupt(digitalPinToInterrupt(PIN_JOYSTICK_STEERING), &handleJoystickSteeringInterrupt, CHANGE);    
+    joystick.setUseSteeringPwm(true);
+  } else {
+    joystick.setUseSteeringPwm(false);    
+  }
+
+  if (configuration.usePwmJoystickY()) {
+    attachInterrupt(digitalPinToInterrupt(PIN_JOYSTICK_THROTTLE), &handleJoystickThrottleInterrupt, CHANGE);        
+    joystick.setUseThrottlePwm(true);
+  } else {
+    joystick.setUseThrottlePwm(false);    
+  }
+
 }
 
 /*

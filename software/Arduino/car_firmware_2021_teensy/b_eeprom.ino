@@ -33,7 +33,7 @@
  * This class stores and retrievs settings from Eeprom to define the configuration for this car
  */
 
-const int CURRENT_SETTINGS_VERSION = 2;
+const int CURRENT_SETTINGS_VERSION = 3;
 
 struct ConfigurationEntry {
   String name;
@@ -49,22 +49,30 @@ ConfigurationEntry configurationEntries[] = {
   {"Actuator Center", 12, INTEGER_CONFIGURATION, false, 0},  // in scaled units from -100 to 100
   {"Actuator Max", 16, INTEGER_CONFIGURATION, false, 50},   // in scaled units from -100 to 100
   {"Use RC", 20, BOOLEAN_CONFIGURATION, true, 0},
-  {"RC Steering Min", 24, INTEGER_CONFIGURATION, false, 1000},  // All RC values are in PWM duty cycle milliseconds
+  {"RC Steering Min", 24, INTEGER_CONFIGURATION, false, 1000},  // All RC values are in PWM duty cycle microseconds
   {"RC Steering Center", 28, INTEGER_CONFIGURATION, false, 1500},
   {"RC Steering Max", 32, INTEGER_CONFIGURATION, false, 2000},
   {"RC Throttle Min", 36, INTEGER_CONFIGURATION, false, 1000},
   {"RC Throttle Center", 40, INTEGER_CONFIGURATION, false, 1500},
   {"RC Throttle Max", 44, INTEGER_CONFIGURATION, false, 2000},
-  {"Use PWM Joystick X", 48, BOOLEAN_CONFIGURATION, false, 0},
-  {"Use PWM Joystick Y", 52, BOOLEAN_CONFIGURATION, false, 0},
+  {"Use PWM Joystick X", 48, BOOLEAN_CONFIGURATION, true, 0},
+  {"Use PWM Joystick Y", 52, BOOLEAN_CONFIGURATION, true, 0},
   {"Invert Joystick X", 56, BOOLEAN_CONFIGURATION, true, 0},
   {"Invert Joystick Y", 60, BOOLEAN_CONFIGURATION, true, 0},
-  {"Joystick Steering Min", 64, INTEGER_CONFIGURATION, false, 0}, // Joystick values are in PWM duty cycle milliseconds or analog readings 0 - 1023
+  /*
+  {"Joystick Steering Min", 64, INTEGER_CONFIGURATION, false, 0}, // Joystick values are in PWM duty cycle microseconds or analog readings 0 - 1023
   {"Joystick Steering Center", 68, INTEGER_CONFIGURATION, false, 500},
   {"Joystick Steering Max", 72, INTEGER_CONFIGURATION, false, 950},
   {"Joystick Throttle Min", 76, INTEGER_CONFIGURATION, false, 0},
   {"Joystick Throttle Center", 80, INTEGER_CONFIGURATION, false, 500},
   {"Joystick Throttle Max", 84, INTEGER_CONFIGURATION, false, 950}
+  */
+  {"Joystick Steering Min", 64, INTEGER_CONFIGURATION, false, 0}, // Joystick values are in PWM duty cycle microseconds or analog readings 0 - 1023
+  {"Joystick Steering Center", 68, INTEGER_CONFIGURATION, false, 408},
+  {"Joystick Steering Max", 72, INTEGER_CONFIGURATION, false, 816},
+  {"Joystick Throttle Min", 76, INTEGER_CONFIGURATION, false, 0},
+  {"Joystick Throttle Center", 80, INTEGER_CONFIGURATION, false, 408},
+  {"Joystick Throttle Max", 84, INTEGER_CONFIGURATION, false, 816}
 };
     
 class Eeprom {
