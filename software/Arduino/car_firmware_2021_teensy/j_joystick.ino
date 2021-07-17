@@ -85,22 +85,6 @@ class Joystick {
       this->yAxisMax = maxv; 
     }
 
-    /*
-     * setXAxisDeadzone - in scaled units (-100 to 100)
-     */
-    void setXAxisDeadzone(int xAxisDZLow, int xAxisDZHigh) {
-      this->xAxisDZLow = xAxisDZLow;
-      this->xAxisDZHigh = xAxisDZHigh;
-    }
-
-    /*
-     * setYAxisDeadzone - in scaled units (-100 to 100)
-     */
-    void setYAxisDeadzone(int yAxisDZLow, int yAxisDZHigh) {
-      this->yAxisDZLow = yAxisDZLow;
-      this->yAxisDZHigh = yAxisDZHigh;
-    }
-
     void setUseSteeringPwm(boolean setting) {
       useSteeringPwm = setting;
     }
