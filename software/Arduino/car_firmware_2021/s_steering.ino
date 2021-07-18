@@ -6,6 +6,8 @@
  *   changes to the steering as appropriate.
  */
 
+#define CURRENT_POSITION_READINGS 30
+
 class Steering {
   private:
 
@@ -17,6 +19,9 @@ class Steering {
     int steeringPositionScaled = 0;        // scaled units (-100 to 100)
     int targetDeltaScaled = 0;             // scaled units (-100 to 100)
 
+    int currentPositions[CURRENT_POSITION_READINGS];
+    int currentPositionIndex = 0;
+    
     boolean isMoving = false;
     
     // settting default values here ... being a little lazy by defaulting from constants.  
@@ -55,9 +60,6 @@ class Steering {
         isMoving = false;
         digitalWrite(directionPin, HIGH);
         analogWrite(speedPwmPin, 0); 
-
-        // and make note that we're not moving
-        isMoving = false;
     }
 
   public: 
@@ -83,6 +85,12 @@ class Steering {
       return steeringTargetScaled;
     }
 
+    // Used during a bad start scenario or when the bluetooth button is pressed
+    void forceStop() {
+        digitalWrite(directionPin, HIGH);
+        analogWrite(speedPwmPin, 0); 
+    }
+    
     /*
      * Sets the new target for the steering position.  Expects the new target to be in scaled units: -100 to 100, 0=center. 
      */
@@ -104,6 +112,26 @@ class Steering {
     void setSteeringMaxScaled(int newMax) {
       steeringMaxScaled = newMax;
     }
+
+    int getCurrentPosition() {
+      int newPosition = analogRead(currentPositionPin);
+
+      currentPositionIndex++;
+      if (currentPositionIndex >= CURRENT_POSITION_READINGS) {
+        currentPositionIndex = 0;
+      }
+
+      currentPositions[currentPositionIndex] = newPosition;
+      
+      int total = 0;
+      int averagePosition;
+
+      for (int i = 0; i < CURRENT_POSITION_READINGS; i++) {
+        total += currentPositions[i];
+      }
+      
+      return total / CURRENT_POSITION_READINGS;
+    }
     
     /*
      * Update the steering ... this is the actual method that handles moving of the servo
@@ -117,7 +145,7 @@ class Steering {
      */
     void updateSteering() {
       // Convert analog read value to scaled units
-      steeringPositionScaled = map(analogRead(currentPositionPin), 0, 1023, -100, 100);
+      steeringPositionScaled = map(getCurrentPosition(), 0, 1023, -100, 100);
 
       // Use steeringPositionScaled + steeringCenterScaled to account for configuration setting
       // add instead of subtract because configuration use > 0 for adjustments to the right but the actuator has > vaues to the left
@@ -156,6 +184,6 @@ class Steering {
         steeringPositionScaled,
         steeringTargetScaled,
         isMoving ? "true" : "false",
-        analogRead(currentPositionPin));
+        getCurrentPosition());
     }
 };

@@ -1,5 +1,5 @@
 EESchema Schematic File Version 4
-EELAYER 29 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -19,7 +19,7 @@ U 1 1 5D58DD64
 P 5200 2800
 F 0 "J1" V 5211 3330 50  0000 L CNN
 F 1 "8P8C" V 5302 3330 50  0000 L CNN
-F 2 "Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal" V 5200 2825 50  0001 C CNN
+F 2 "Useful Modifications:RJ45_x08_Tab_Up" V 5200 2825 50  0001 C CNN
 F 3 "~" V 5200 2825 50  0001 C CNN
 	1    5200 2800
 	0    1    1    0   

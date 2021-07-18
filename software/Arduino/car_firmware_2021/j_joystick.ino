@@ -8,6 +8,10 @@
  *   the joystick values.
  */
 
+#define JOY_X_READINGS 15
+#define JOY_Y_READINGS 15
+
+
 class Joystick {
   private:
     int xAxisPin;
@@ -34,6 +38,12 @@ class Joystick {
     // direction inversion if necessary
     boolean invertXAxis = JOYSTICK_INVERT_X_AXIS;
     boolean invertYAxis = JOYSTICK_INVERT_Y_AXIS;
+
+    int joyXReadings[JOY_X_READINGS];
+    int joyXIndex = 0;
+
+    int joyYReadings[JOY_Y_READINGS];
+    int joyYIndex = 0;
 
     boolean hasCentered=false;
  
@@ -88,14 +98,42 @@ class Joystick {
 
     // raw value from the x axis potentiometer
     int getXAxisRaw() {
-      int val = analogRead(xAxisPin);
-      return val;
+      int newX = analogRead(xAxisPin);
+
+      joyXIndex++;
+      if (joyXIndex >= JOY_X_READINGS) {
+        joyXIndex = 0;
+      }
+
+      joyXReadings[joyXIndex] = newX;
+      
+      int total = 0;
+
+      for (int i = 0; i < JOY_X_READINGS; i++) {
+        total += joyXReadings[i];
+      }
+      
+      return total / JOY_X_READINGS;
     }
 
     // raw value from the Y axis potentiometer
     int getYAxisRaw() {
-      int val = analogRead(yAxisPin);
-      return val;
+      int newY = analogRead(yAxisPin);
+
+      joyYIndex++;
+      if (joyYIndex >= JOY_Y_READINGS) {
+        joyYIndex = 0;
+      }
+
+      joyYReadings[joyYIndex] = newY;
+      
+      int total = 0;
+
+      for (int i = 0; i < JOY_Y_READINGS; i++) {
+        total += joyYReadings[i];
+      }
+      
+      return total / JOY_Y_READINGS;
     }
 
     // return True/False is the X Axis Inverted
@@ -125,8 +163,16 @@ class Joystick {
     int getXAxisScaled() {
       int val = getXAxisRaw();
 
-      // constrain to be between min and max, and then scale to -100 to 100
-      val = map(constrain(val,xAxisMin,xAxisMax),xAxisMin,xAxisMax,-100,100);
+      // The center value may not be half way between min and max
+      // so calculate above and below center individually
+      if (val < xAxisCenter) {
+        val = map(constrain(val, xAxisMin, xAxisCenter), xAxisMin, xAxisCenter, -100, 0);
+      } else if (val > xAxisCenter) {
+        val = map(constrain(val, xAxisCenter, xAxisMax), xAxisCenter, xAxisMax, 0, 100);
+      } else {
+        val = 0;
+      }
+      //val = map(constrain(val, xAxisMin, xAxisMax),xAxisMin, xAxisMax, -100, 100);
 
       // invert if necessary
       if (invertXAxis) {
@@ -134,20 +180,31 @@ class Joystick {
       }
 
       // apply the deadzone
-      if (xAxisDZLow < val && val<xAxisDZHigh) val=0;
+      if (xAxisDZLow < val && val < xAxisDZHigh) {
+        val = 0;
+      }
       
       return val;
     }
 
     /* gets the y axis scaled 
      *  
-     *  Algorithm is to simply do a linear scaling based on the range, and then apply the deadzone
+     *  Algorithm is to simply do a linear scaling based on the range, and then apply the deadzone  
      */
     int getYAxisScaled() {
       int val = getYAxisRaw();
 
-      // constrain to be between min and max, and then scale to -100 to 100
-      val = map(constrain(val,yAxisMin,yAxisMax),yAxisMin,yAxisMax,-100,100);
+      // The center value may not be half way between min and max
+      // so calculate above and below center individually
+      if (val < yAxisCenter) {
+        val = map(constrain(val, yAxisMin, yAxisCenter), yAxisMin, yAxisCenter, -100, 0);
+      } else if (val > yAxisCenter) {
+        val = map(constrain(val, yAxisCenter, yAxisMax), yAxisCenter, yAxisMax, 0, 100);
+      } else {
+        val = 0;
+      }
+
+      //val = map(constrain(val,yAxisMin,yAxisMax),yAxisMin,yAxisMax,-100,100);
 
       // invert if necessary
       if (invertYAxis) {
@@ -155,7 +212,9 @@ class Joystick {
       }
       
       // apply the deadzone
-      if (yAxisDZLow < val && val<yAxisDZHigh) val=0;
+      if (yAxisDZLow < val && val < yAxisDZHigh) {
+        val = 0;
+      }
       
       return val;
     }
@@ -166,6 +225,7 @@ class Joystick {
      *
      */
     boolean isActive() {
+       if (1==1) return true;
 
       /*
        * If we've not yet centered the controls, then we're not active yet

@@ -29,12 +29,25 @@ class Configuration {
      * getters ... translate dip switch settings into car configuration
      */
     int getConfigurationVersion() { return spi->version; }
-    
+
+    // Joystick
     boolean getInvertJoystickX() { return spi->currentSettings.invertJoystickX; }
     boolean getInvertJoystickY() { return spi->currentSettings.invertJoystickY; }
+    int getJoystickSteeringMin() { return spi->currentSettings.joystickSteeringMin; }
+    int getJoystickSteeringCenter() { return spi->currentSettings.joystickSteeringCenter; }
+    int getJoystickSteeringMax() { return spi->currentSettings.joystickSteeringMax; }
+    int getJoystickThrottleMin() { return spi->currentSettings.joystickThrottleMin; }
+    int getJoystickThrottleCenter() { return spi->currentSettings.joystickThrottleCenter; }
+    int getJoystickThrottleMax() { return spi->currentSettings.joystickThrottleMax; }
 
-    boolean useJoystick() { return spi->currentSettings.useJoystick; }
+    // Parental Control
     boolean useRc() { return spi->currentSettings.useRc; }
+    int getRcSteeringMin() { return spi->currentSettings.rcSteeringMin; }
+    int getRcSteeringCenter() { return spi->currentSettings.rcSteeringCenter; }
+    int getRcSteeringMax() { return spi->currentSettings.rcSteeringMax; }
+    int getRcThrottleMin() { return spi->currentSettings.rcThrottleMin; }
+    int getRcThrottleCenter() { return spi->currentSettings.rcThrottleCenter; }
+    int getRcThrottleMax() { return spi->currentSettings.rcThrottleMax; }
 
     int readMaxSpeedPot() {
       return analogRead(maxSpeedPin);  
@@ -43,30 +56,21 @@ class Configuration {
     float getSpeedMultiplier() {
       return constrain(map(readMaxSpeedPot(), 0, 1023, SPEED_CONFIGURATION_MIN_SPEED, SPEED_CONFIGURATION_MAX_SPEED), SPEED_CONFIGURATION_MIN_SPEED, SPEED_CONFIGURATION_MAX_SPEED) / 100.0;
     }
-    
-    int getSteeringCenter() {
-      int spiValue = spi->currentSettings.actuatorCenter;
-      return spiValue;
-    }
-    
-    int getSteeringMin() {
-      int spiValue = spi->currentSettings.actuatorMin;
-      return spiValue;
-    }
-    
-    int getSteeringMax() {
-      int spiValue = spi->currentSettings.actuatorMax;
-      return spiValue;
-    }
+
+    // Linear Actuator
+    int getSteeringCenter() { return spi->currentSettings.actuatorCenter; }
+    int getSteeringMin() { return spi->currentSettings.actuatorMin; }
+    int getSteeringMax() { return spi->currentSettings.actuatorMax; }
 
     void getStatus(char * status) {
-      sprintf(status, "[Configuration] Version: %i  Invert Joystick X:%s Invert Joystick Y:%s Speed Multiplier:%f Speed Pot:%i Joystick:%s RC:%s Min/C/Max:%i %i %i", 
+      sprintf(status, "[Configuration] Version: %i  Invert Joy X:%s Y:%s Joy Steering:%i %i %i  Speed Pot:%i RC:%s Min/C/Max:%i %i %i", 
         getConfigurationVersion(),
         getInvertJoystickX() ? "true" : "false",
         getInvertJoystickY() ? "true" : "false",
-        getSpeedMultiplier(),
+        getJoystickSteeringMin(),
+        getJoystickSteeringCenter(),
+        getJoystickSteeringMax(),
         readMaxSpeedPot(),
-        useJoystick() ? "true" : "false",
         useRc() ? "true" : "false",
         getSteeringMin(),
         getSteeringCenter(),

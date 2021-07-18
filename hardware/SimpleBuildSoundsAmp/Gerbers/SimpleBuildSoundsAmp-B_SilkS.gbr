@@ -1,15 +1,14 @@
-G04 #@! TF.GenerationSoftware,KiCad,Pcbnew,(5.1.6)-1*
-G04 #@! TF.CreationDate,2021-01-04T14:23:14-06:00*
+G04 #@! TF.GenerationSoftware,KiCad,Pcbnew,(5.1.5)-3*
+G04 #@! TF.CreationDate,2021-03-16T03:38:43-05:00*
 G04 #@! TF.ProjectId,SimpleBuildSoundsAmp,53696d70-6c65-4427-9569-6c64536f756e,rev?*
 G04 #@! TF.SameCoordinates,Original*
 G04 #@! TF.FileFunction,Legend,Bot*
 G04 #@! TF.FilePolarity,Positive*
 %FSLAX46Y46*%
 G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
-G04 Created by KiCad (PCBNEW (5.1.6)-1) date 2021-01-04 14:23:14*
+G04 Created by KiCad (PCBNEW (5.1.5)-3) date 2021-03-16 03:38:43*
 %MOMM*%
 %LPD*%
-G01*
 G04 APERTURE LIST*
 %ADD10C,0.120000*%
 %ADD11C,0.152400*%
@@ -160,8 +159,7 @@ X182590260Y-67342000D01*
 D10*
 X182501455Y-74324460D02*
 G75*
-G03*
-X182501455Y-74324460I-230595J0D01*
+G03X182501455Y-74324460I-230595J0D01*
 G01*
 X143415000Y-64486252D02*
 X143415000Y-63963748D01*

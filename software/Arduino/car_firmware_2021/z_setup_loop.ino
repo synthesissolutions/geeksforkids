@@ -24,11 +24,14 @@ Logger logger;
 boolean rcInControl = false;
 boolean joystickInControl = false;
 boolean bluetoothInitialized = false;
+boolean badStartMessageDisplayed = false;
 
 /*
  * Arduino defined setup function.  Automatically run once at restart of the device.
  */
 void setup() {
+  dwt_enable();
+
   // set up the logger
   logger.init(LOGGER_UPDATE_TIME, &spi, &bluetooth, &configuration, &joystick, &remoteControl, &steering, &throttle);
 
@@ -41,10 +44,8 @@ void setup() {
   configuration.init(&spi, PIN_MAX_SPEED);
   logger.addLogLine("configuration initialized");
     
-  if (configuration.useJoystick()) {
-    joystick.init(PIN_JOYSTICK_STEERING, PIN_JOYSTICK_THROTTLE);
-    logger.addLogLine("joystick initialized");
-  }
+  joystick.init(PIN_JOYSTICK_STEERING, PIN_JOYSTICK_THROTTLE);
+  logger.addLogLine("joystick initialized");
 
   if (configuration.useRc()) {
     remoteControl.init(PIN_RC_STEERING, PIN_RC_THROTTLE);
@@ -61,6 +62,16 @@ void setup() {
   steering.setSteeringCenterScaled(configuration.getSteeringCenter());
   steering.setSteeringMinScaled(configuration.getSteeringMin());
   steering.setSteeringMaxScaled(configuration.getSteeringMax());
+
+  // Set Joystick configuration
+  joystick.setXAxisRange(configuration.getJoystickSteeringMin(), configuration.getJoystickSteeringCenter(), configuration.getJoystickSteeringMax());
+  joystick.setYAxisRange(configuration.getJoystickThrottleMin(), configuration.getJoystickThrottleCenter(), configuration.getJoystickThrottleMax());
+  joystick.setInvertXAxis(configuration.getInvertJoystickX());
+  joystick.setInvertYAxis(configuration.getInvertJoystickY());
+
+  // Set RC/Parental Control Configuration
+  remoteControl.setSteeringRange(configuration.getRcSteeringMin(), configuration.getRcSteeringCenter(), configuration.getRcSteeringMax());
+  remoteControl.setThrottleRange(configuration.getRcThrottleMin(), configuration.getRcThrottleCenter(), configuration.getRcThrottleMax());
 }
 
 /*
@@ -74,20 +85,20 @@ void loop() {
     // When Bluetooth is active, the car cannot be driven.
     // The only way to deactivate Bluetooth is to turn off the power
     throttle.setThrottle(0);
+    steering.forceStop();
 
-    if (bluetoothInitialized) {
-      bluetooth.processBluetooth();
-    } else {
+    if (!bluetoothInitialized) {
       bluetooth.initBluetooth();
       bluetoothInitialized = true;
     }
   } else if (configuration.useRc() && remoteControl.isBadRcStart()) {
     // TODO: Play a sound to indicate that the car did not start properly
-    logger.addLogLine("RC did not start up properly do NOT run the car");
+    //logger.addLogLine("Bad Start");
     throttle.setThrottle(0);
+    steering.forceStop();
   } else {
     // Is the parent overriding and taking control?
-    if (configuration.useRc() && remoteControl.isActive()) {
+    if (remoteControl.isActive() && configuration.useRc()) {
       
       // Yep, the parent has taken over ... parent inputs only
       if (joystickInControl) {
@@ -114,7 +125,7 @@ void loop() {
           joystickInControl=true;
           rcInControl=false;
         }
-  
+
         // set the inputs from the Joystick
         steering.setSteeringPosition(joystick.getXAxisScaled());
         throttle.setThrottle(joystick.getYAxisScaled()*configuration.getSpeedMultiplier());
