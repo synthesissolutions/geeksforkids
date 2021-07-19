@@ -72,6 +72,10 @@ class Logger {
       // is logging turned on?
       if (updateDeltaT==0) return;
 
+      int linactPos = analogRead(PIN_STEERING_POSITION);
+
+      if (linactPos > 500 && linactPos < 550) return;
+
       // is it time yet to do another log (we don't want to log too much)
       if (millis()-lastUpdateTime >= updateDeltaT) {
         Serial.print("Version: ");Serial.println(RELEASE_VERSION);

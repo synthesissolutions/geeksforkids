@@ -27,7 +27,7 @@ const int           LOGGER_LINE_COUNT       = 20;
  ***************************************************************************************** 
  */
 // The delay for the main loop.  We really don't want it running at the full CPU speed.
-const int           LOOP_DELAY_MILLIS       = 10;   // 10ms delay = ~ 100 Hz.  Plenty fast.
+const int           LOOP_DELAY_MILLIS       = 1;   // 10ms delay = ~ 100 Hz.  Plenty fast.
 
 // Joystick parms - these are based on the range 0-1023
 // These values should never really be used but are set as a fallback

@@ -347,7 +347,7 @@ U 1 1 5F516D0D
 P 4250 4050
 F 0 "J14" H 4200 4000 50  0000 C CNN
 F 1 "Volume" H 4450 3850 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 4250 4050 50  0001 C CNN
+F 2 "Useful Modifications:JST_XH_B3B-XH-A_1x03_P2.54mm_Vertical" H 4250 4050 50  0001 C CNN
 F 3 "~" H 4250 4050 50  0001 C CNN
 	1    4250 4050
 	1    0    0    -1  

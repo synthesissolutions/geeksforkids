@@ -1,4 +1,4 @@
-18570788257324290
+18574452374738880
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -80898,6 +80898,20 @@ Feather_nRF52840
 0
 28
 28
+Useful Modifications
+JST_XH_B3B-XH-A_1x03_P2.54mm_Vertical
+JST XH series connector, B3B-XH-A (http://www.jst-mfg.com/product/pdf/eng/eXH.pdf), generated with kicad-footprint-generator
+connector JST XH vertical
+0
+3
+3
+Useful Modifications
+JST_XH_B4B-XH-A_1x04_P2.54mm_Vertical
+JST XH series connector, B4B-XH-A (http://www.jst-mfg.com/product/pdf/eng/eXH.pdf), generated with kicad-footprint-generator
+connector JST XH vertical
+0
+4
+4
 Useful Modifications
 Jack_3.5mm_PJ320A_Horizontal
 Headphones with microphone connector, 3.5mm, 4 pins (http://www.qingpu-electronics.com/en/products/WQP-PJ320E-177.html)

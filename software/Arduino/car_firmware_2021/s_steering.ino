@@ -33,6 +33,10 @@ class Steering {
      * run the motor ... direction is based on the current position and the target
      */
     void runMotor() {
+      if (1==1) {
+        //stopMotor();
+        //return;
+      }
       // How we set the pins is based on the direction we need to go
       if (steeringPositionScaled < steeringTargetScaled) {
         // turn left

@@ -19,7 +19,7 @@ U 1 1 5D5BB7A8
 P 4380 4700
 F 0 "J1" H 4580 4950 50  0000 R CNN
 F 1 "RC" H 4430 4950 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 4380 4700 50  0001 C CNN
+F 2 "Useful Modifications:JST_XH_B4B-XH-A_1x04_P2.54mm_Vertical" H 4380 4700 50  0001 C CNN
 F 3 "~" H 4380 4700 50  0001 C CNN
 	1    4380 4700
 	1    0    0    -1  
@@ -290,7 +290,7 @@ U 1 1 5FA4353E
 P 1980 3370
 F 0 "J3" H 2280 3620 50  0000 R CNN
 F 1 "SpeedCtrl" H 2130 3620 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 1980 3370 50  0001 C CNN
+F 2 "Useful Modifications:JST_XH_B3B-XH-A_1x03_P2.54mm_Vertical" H 1980 3370 50  0001 C CNN
 F 3 "~" H 1980 3370 50  0001 C CNN
 	1    1980 3370
 	1    0    0    -1  
@@ -363,7 +363,7 @@ U 1 1 5D5BCD6A
 P 1880 2720
 F 0 "J2" H 2180 2970 50  0000 R CNN
 F 1 "LinAct" H 2030 2970 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 1880 2720 50  0001 C CNN
+F 2 "Useful Modifications:JST_XH_B3B-XH-A_1x03_P2.54mm_Vertical" H 1880 2720 50  0001 C CNN
 F 3 "~" H 1880 2720 50  0001 C CNN
 	1    1880 2720
 	1    0    0    -1  
