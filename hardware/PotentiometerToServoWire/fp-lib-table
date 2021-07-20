@@ -1,3 +1,4 @@
 (fp_lib_table
   (lib (name PotentiometerToServoWire)(type KiCad)(uri ${KIPRJMOD}/PotentiometerToServoWire.pretty)(options "")(descr ""))
+  (lib (name "Useful Modifications")(type KiCad)(uri "${KIPRJMOD}/Useful Modifications.pretty")(options "")(descr ""))
 )
