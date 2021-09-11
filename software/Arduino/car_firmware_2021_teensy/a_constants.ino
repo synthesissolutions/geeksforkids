@@ -14,7 +14,7 @@
  ***************************************************************************************** 
  */
 
-const String        RELEASE_VERSION         = "21.2.0 Alpha - Teensy";
+const String        RELEASE_VERSION         = "21.2.1 Beta - Teensy";
 
 const int           LOGGER_UPDATE_TIME      = 100;     // How long between updates to the monitor, in milliseconds
 const unsigned int  SERIAL_BAUD_RATE        = 57600;     // Baud rate for the serial monitor.  Make sure you set this correctly!

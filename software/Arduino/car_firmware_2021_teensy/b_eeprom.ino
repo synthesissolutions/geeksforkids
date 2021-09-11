@@ -48,15 +48,15 @@ ConfigurationEntry configurationEntries[] = {
   {"Actuator Min", 8, INTEGER_CONFIGURATION, false, -50},  // in scaled units from -100 to 100
   {"Actuator Center", 12, INTEGER_CONFIGURATION, false, 0},  // in scaled units from -100 to 100
   {"Actuator Max", 16, INTEGER_CONFIGURATION, false, 50},   // in scaled units from -100 to 100
-  {"Use RC", 20, BOOLEAN_CONFIGURATION, true, 0},
+  {"Use RC", 20, BOOLEAN_CONFIGURATION, false, 0},
   {"RC Steering Min", 24, INTEGER_CONFIGURATION, false, 1000},  // All RC values are in PWM duty cycle microseconds
   {"RC Steering Center", 28, INTEGER_CONFIGURATION, false, 1500},
   {"RC Steering Max", 32, INTEGER_CONFIGURATION, false, 2000},
   {"RC Throttle Min", 36, INTEGER_CONFIGURATION, false, 1000},
   {"RC Throttle Center", 40, INTEGER_CONFIGURATION, false, 1500},
   {"RC Throttle Max", 44, INTEGER_CONFIGURATION, false, 2000},
-  {"Use PWM Joystick X", 48, BOOLEAN_CONFIGURATION, true, 0},
-  {"Use PWM Joystick Y", 52, BOOLEAN_CONFIGURATION, true, 0},
+  {"Use PWM Joystick X", 48, BOOLEAN_CONFIGURATION, false, 0},
+  {"Use PWM Joystick Y", 52, BOOLEAN_CONFIGURATION, false, 0},
   {"Invert Joystick X", 56, BOOLEAN_CONFIGURATION, true, 0},
   {"Invert Joystick Y", 60, BOOLEAN_CONFIGURATION, true, 0},
   /*
@@ -104,6 +104,18 @@ class Eeprom {
       return configurationEntries[index].booleanValue;
     }
 
+    String getSettingName(int index) {
+      return configurationEntries[index].name;
+    }
+
+    int getSettingType(int index) {
+      return configurationEntries[index].dataType;
+    }
+
+    int isDefaultConfiguration() {
+      return isConfigurationDefault;
+    }
+    
     /*
      * setters ... write settings to Eeprom cache
      */
@@ -131,13 +143,12 @@ class Eeprom {
       boolean booleanValue;
       
       for (int i = 0; i < NUMBER_OF_CONFIGURATION_ENTRIES; i++) {
-        ConfigurationEntry entry = configurationEntries[i];
-        if (entry.dataType == INTEGER_CONFIGURATION) {
-          EEPROM.get(entry.eeAddress, intValue);
-          entry.intValue = intValue;
-        } else if (entry.dataType == BOOLEAN_CONFIGURATION) {
-          EEPROM.get(entry.eeAddress, booleanValue);
-          entry.booleanValue = booleanValue;
+        if (configurationEntries[i].dataType == INTEGER_CONFIGURATION) {
+          EEPROM.get(configurationEntries[i].eeAddress, intValue);
+          configurationEntries[i].intValue = intValue;
+        } else if (configurationEntries[i].dataType == BOOLEAN_CONFIGURATION) {
+          EEPROM.get(configurationEntries[i].eeAddress, booleanValue);
+          configurationEntries[i].booleanValue = booleanValue;
         }
       }
     }
@@ -147,14 +158,13 @@ class Eeprom {
      */
     void saveConfiguration() {
       for (int i = 0; i < NUMBER_OF_CONFIGURATION_ENTRIES; i++) {
-        ConfigurationEntry entry = configurationEntries[i];
-        if (entry.dataType == INTEGER_CONFIGURATION) {
-          EEPROM.put(entry.eeAddress, entry.intValue);
-        } else if (entry.dataType == BOOLEAN_CONFIGURATION) {
-          if (entry.booleanValue) {
-            EEPROM.put(entry.eeAddress, 1);
+        if (configurationEntries[i].dataType == INTEGER_CONFIGURATION) {
+          EEPROM.put(configurationEntries[i].eeAddress, configurationEntries[i].intValue);
+        } else if (configurationEntries[i].dataType == BOOLEAN_CONFIGURATION) {
+          if (configurationEntries[i].booleanValue) {
+            EEPROM.put(configurationEntries[i].eeAddress, 1);
           } else {
-            EEPROM.put(entry.eeAddress, 0);
+            EEPROM.put(configurationEntries[i].eeAddress, 0);
           }
           }
       }
