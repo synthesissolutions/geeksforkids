@@ -64,6 +64,147 @@ class Configuration {
     int getSteeringMin() { return eeprom->getIntegerSetting(EEPROM_ACTUATOR_MIN); }
     int getSteeringMax() { return eeprom->getIntegerSetting(EEPROM_ACTUATOR_MAX); }
 
+    void configureCar() {
+      int selection;
+      int indexToEdit;
+      int newIntValue;
+      boolean newBooleanValue;
+      
+      // This method will never return control to the main program
+      // The microcontroller must be reset for the car to resume normal operation
+      while (1) {
+        printMainMenu();
+        selection = readMainMenu();
+        indexToEdit = selection - 'a' + 1;
+
+        Serial.print(eeprom->getSettingName(indexToEdit));
+        Serial.print("Current Setting: ");
+
+        if (eeprom->getSettingType(indexToEdit) == INTEGER_CONFIGURATION) {
+          Serial.print(eeprom->getIntegerSetting(indexToEdit));
+          Serial.print(" Enter new value: ");
+
+          newIntValue = readIntValue();
+
+          eeprom->setIntegerSetting(indexToEdit, newIntValue);
+          Serial.println("");
+          Serial.print("Saving New Value: ");
+          Serial.println(newIntValue);
+          eeprom->saveConfiguration();
+        } else if (eeprom->getSettingType(indexToEdit) == BOOLEAN_CONFIGURATION) {
+          if (eeprom->getBooleanSetting(indexToEdit)) {
+            Serial.print("True");
+          } else {
+            Serial.print("False");
+          }
+          Serial.print(" Enter new value t/f: ");
+
+          newBooleanValue = readBooleanValue();
+          
+          eeprom->setBooleanSetting(indexToEdit, newBooleanValue);
+          Serial.println("");
+          Serial.print("Saving New Value: ");
+          Serial.println(newBooleanValue);
+          eeprom->saveConfiguration();
+        }
+      }
+    }
+
+    int readIntValue() {
+      int entry;
+      while(1) {
+        if (Serial.available() > 0) {
+          entry = Serial.parseInt();
+          break;
+        }
+      }
+
+      // Discard newline and any other additional characters
+      while (Serial.available() > 0) {
+        Serial.read();
+      }
+
+      return entry;
+    }
+
+    boolean readBooleanValue() {
+      int entry;
+      while(1) {
+        if (Serial.available() > 0) {
+          entry = Serial.read();
+          if (entry != 't' && entry != 'f') {
+            Serial.print("Invalid Entry: ");
+            Serial.println(entry);
+          } else {
+            break;
+          }
+        }
+      }
+
+      // Discard newline and any other additional characters
+      while (Serial.available() > 0) {
+        Serial.read();
+      }
+
+      return entry == 't';
+    }
+
+    void printMainMenu() {
+      char option;
+
+      if (eeprom->isDefaultConfiguration()) {
+        Serial.println("Default settings used");
+      } else {
+        Serial.println("Loaded from EEPROM");
+      }
+      
+      Serial.print("Configuration Version: ");
+      Serial.println(eeprom->getSavedConfigurationVersion());
+      
+      for (int i = 1; i < NUMBER_OF_CONFIGURATION_ENTRIES; i++) {
+        option = 'a' + i - 1;
+        Serial.print(option);
+        Serial.print(") ");
+        Serial.print(eeprom->getSettingName(i));
+        Serial.print(": ");
+
+        if (eeprom->getSettingType(i) == INTEGER_CONFIGURATION) {
+          Serial.println(eeprom->getIntegerSetting(i));
+        } else if (eeprom->getSettingType(i) == BOOLEAN_CONFIGURATION) {
+          if (eeprom->getBooleanSetting(i)) {
+            Serial.println("True");
+          } else {
+            Serial.println("False");
+          }
+        }
+      }
+
+      Serial.println("");
+      Serial.println("Enter the letter of the item you wish to edit in lowercase.");
+    }
+
+    int readMainMenu() {
+      int entry;
+      while(1) {
+        if (Serial.available() > 0) {
+          entry = Serial.read();
+          if (entry < 'a' || entry > 't') {
+            Serial.print("Invalid Entry: ");
+            Serial.println(entry);
+          } else {
+            break;
+          }
+        }
+      }
+
+      // Discard newline and any other additional characters
+      while (Serial.available() > 0) {
+        Serial.read();
+      }
+
+      return entry;
+    }
+
     void getStatus(char * status) {
       sprintf(status, "[Configuration] Version: %i  Invert Joy X:%s Y:%s Joy Steering:%i %i %i  Speed Pot:%i RC:%s Min/C/Max:%i %i %i", 
         getConfigurationVersion(),

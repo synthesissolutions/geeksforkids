@@ -17,6 +17,7 @@ Throttle throttle;
 RemoteControl remoteControl;
 Logger logger;
 
+boolean isLogging = false;
 boolean isConfiguring = false;
 
 /*
@@ -103,12 +104,36 @@ void setup() {
  * Arduino defined loop function.  Automatically run repeatedly (after setup).
  */
 void loop() {
+  if (!isConfiguring && !isLogging && Serial) {
+    // We have detected a Serial connection, check to see if we want logging or configuration
+    Serial.println("Press c to configure or any other key to run with logging");
+
+    while (!isConfiguring && !isLogging) {
+      if (Serial.available() > 0) {
+        if (Serial.read() == 'c') {
+          Serial.println("Start Configuring");
+          isConfiguring = true;
+        } else {
+          Serial.println("Start Logging");
+          isLogging = true;
+        }
+      }
+    }
+
+    // Read and discard other input. This will also include the carriage return
+    while (Serial.available() > 0) {
+      Serial.read();
+    }
+  }
+  
   if (isConfiguring) {
     // When configuration is active, the car cannot be driven.
     throttle.setThrottle(0);
     steering.forceStop();
 
-    // TODO Write code to allow serial configuration of the car
+    configuration.configureCar();
+    // We will never return from this method.
+    // The microcontroller will have to be reset for the car to begin running normally again
   } else if (configuration.useRc() && remoteControl.isBadRcStart()) {
     // A bad RC start is when the throttle trigger on the RC remote is pulled 
     // when the remote is turned on. This creates a situation where the 
@@ -166,11 +191,9 @@ void loop() {
   }
 
   // When Configuration is active we use the Serial output for logging message directly from that module
-  if (!isConfiguring) {
+  if (isLogging) {
     // Only write the log messages if there is an active serial connection
-    if (Serial) {
-      logger.writeLog();
-    }
+    logger.writeLog();
 
     delay(LOOP_DELAY_MILLIS);
   }
