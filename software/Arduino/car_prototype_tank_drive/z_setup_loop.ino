@@ -109,7 +109,7 @@ void loop() {
   
       // set the inputs from the RC
       //steering.setSteeringPosition(remoteControl.getSteeringScaled());
-      //throttle.setThrottle(remoteControl.getThrottleScaled());
+      throttle.setThrottle(remoteControl.getLeftScaled(), remoteControl.getRightScaled());
     } else {
       
       // Nope... the parent isn't controlling
