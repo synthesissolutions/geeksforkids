@@ -196,7 +196,7 @@ void loop() {
   if (isLogging) {
     // Only write the log messages if there is an active serial connection
     logger.writeLog();
-
-    delay(LOOP_DELAY_MILLIS);
   }
+
+  delay(LOOP_DELAY_MILLIS);
 }
