@@ -496,21 +496,17 @@ $EndComp
 $Comp
 L Device:C_Small C5
 U 1 1 60FD4A39
-P 890 2490
-F 0 "C5" V 661 2490 50  0000 C CNN
-F 1 "1uF" V 752 2490 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric" H 890 2490 50  0001 C CNN
-F 3 "~" H 890 2490 50  0001 C CNN
-	1    890  2490
-	0    1    1    0   
+P 890 2670
+F 0 "C5" V 661 2670 50  0000 C CNN
+F 1 "1uF" V 752 2670 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 890 2670 50  0001 C CNN
+F 3 "~" H 890 2670 50  0001 C CNN
+	1    890  2670
+	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	1080 2590 1080 2490
-Wire Wire Line
-	1080 2490 990  2490
 Connection ~ 1080 2490
-Wire Wire Line
-	790  2490 650  2490
 $Comp
 L power:GND #PWR06
 U 1 1 60FD7E4E
@@ -536,18 +532,14 @@ $EndComp
 $Comp
 L Device:C_Small C6
 U 1 1 60FDB993
-P 1870 2490
-F 0 "C6" V 1641 2490 50  0000 C CNN
-F 1 "1uF" V 1732 2490 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric" H 1870 2490 50  0001 C CNN
-F 3 "~" H 1870 2490 50  0001 C CNN
-	1    1870 2490
-	0    1    1    0   
+P 1870 2670
+F 0 "C6" V 1641 2670 50  0000 C CNN
+F 1 "1uF" V 1732 2670 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 1870 2670 50  0001 C CNN
+F 3 "~" H 1870 2670 50  0001 C CNN
+	1    1870 2670
+	-1   0    0    1   
 $EndComp
-Wire Wire Line
-	1680 2490 1770 2490
-Wire Wire Line
-	1970 2490 2080 2490
 $Comp
 L power:GND #PWR013
 U 1 1 60FE1229
@@ -751,4 +743,40 @@ Text Notes 2440 2210 0    98   ~ 0
 Power LED
 Text GLabel 10290 2270 2    50   Input ~ 0
 PA10
+Wire Wire Line
+	650  2490 890  2490
+Wire Wire Line
+	890  2570 890  2490
+Connection ~ 890  2490
+Wire Wire Line
+	890  2490 1080 2490
+Wire Wire Line
+	1680 2490 1870 2490
+Connection ~ 1870 2490
+Wire Wire Line
+	1870 2490 2080 2490
+Wire Wire Line
+	1870 2490 1870 2570
+$Comp
+L power:GND #PWR?
+U 1 1 6176201C
+P 1870 2770
+F 0 "#PWR?" H 1870 2520 50  0001 C CNN
+F 1 "GND" V 1870 2550 50  0000 C CNN
+F 2 "" H 1870 2770 50  0001 C CNN
+F 3 "" H 1870 2770 50  0001 C CNN
+	1    1870 2770
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61762D65
+P 890 2770
+F 0 "#PWR?" H 890 2520 50  0001 C CNN
+F 1 "GND" V 890 2550 50  0000 C CNN
+F 2 "" H 890 2770 50  0001 C CNN
+F 3 "" H 890 2770 50  0001 C CNN
+	1    890  2770
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
