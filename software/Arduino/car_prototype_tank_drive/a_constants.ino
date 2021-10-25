@@ -71,11 +71,11 @@ const int           STEERING_SPEED          = 240;        // PWM Value from 0 - 
 
 // Remote control PWM parms ... probably best to leave these alone!
 const int           STEERING_RC_MIN         = 33;
-const int           STEERING_RC_CENTER      = 59;
-const int           STEERING_RC_MAX         = 80;
-const int           THROTTLE_RC_MIN         = 40;
-const int           THROTTLE_RC_CENTER      = 59;
-const int           THROTTLE_RC_MAX         = 80;
+const int           STEERING_RC_CENTER      = 56;
+const int           STEERING_RC_MAX         = 75;
+const int           THROTTLE_RC_MIN         = 45;
+const int           THROTTLE_RC_CENTER      = 56;
+const int           THROTTLE_RC_MAX         = 75;
 
 // Remote control parm ... tuning
 const int           RC_INPUT_DELAY          = 100;      // The time required for the parent RC input to be out of the deadzone before the control is given to the RC 

@@ -14,7 +14,7 @@
  ***************************************************************************************** 
  */
 
-const String        RELEASE_VERSION         = "21.2.1 Beta - Teensy";
+const String        RELEASE_VERSION         = "21.2.1";
 
 const int           LOGGER_UPDATE_TIME      = 100;     // How long between updates to the monitor, in milliseconds
 const unsigned int  SERIAL_BAUD_RATE        = 57600;     // Baud rate for the serial monitor.  Make sure you set this correctly!
@@ -103,8 +103,8 @@ const int           PIN_THROTTLE_PWM_RIGHT        = 4;
 const int           PIN_MAX_SPEED                 = A0;
 
 //   ... steering ... aka the controller for the car's steering servo
-const int           PIN_STEERING_DIRECTION        = 9;
-const int           PIN_STEERING_PWM              = 8;
+const int           PIN_STEERING_DIRECTION        = 7;
+const int           PIN_STEERING_PWM              = 6;
 const int           PIN_STEERING_POSITION         = A1;
 
 //   ... RC ... aka the parent remote control inputs

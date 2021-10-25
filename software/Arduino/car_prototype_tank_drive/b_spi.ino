@@ -13,7 +13,7 @@ using namespace Adafruit_LittleFS_Namespace;
 
 File file(InternalFS);
 
-const int CURRENT_SETTINGS_VERSION = 1;
+const int CURRENT_SETTINGS_VERSION = 2;
 
 struct ConfigurationSettings {
   int actuatorMin;
@@ -72,7 +72,7 @@ class Spi {
         currentSettings.actuatorMin = STEERING_MIN;
         currentSettings.actuatorCenter = STEERING_CENTER;
         currentSettings.actuatorMax = STEERING_MAX;
-        currentSettings.useRc = false;
+        currentSettings.useRc = true;
         currentSettings.rcSteeringMin = STEERING_RC_MIN;
         currentSettings.rcSteeringCenter = STEERING_RC_CENTER;
         currentSettings.rcSteeringMax = STEERING_RC_MAX;

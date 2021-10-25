@@ -29,8 +29,8 @@ class RemoteControl {
     int throttleMax = THROTTLE_RC_MAX;
     
     // initial values of -1 ... used to help figure out if we've seen a 0 signal yet
-    int steeringScaled = -1;
-    int throttleScaled = -1;
+    int throttleLeftScaled = -1;
+    int throttleRightScaled = -1;
 
     unsigned long lastSignificantInputMillis = 0;
     unsigned long lastThrottleInputMillis = 0;
@@ -94,29 +94,42 @@ class RemoteControl {
       
       return total / RC_STEERING_READINGS;
     }
+
+    int getThrottleScaled() {
+      int throttleRaw = getThrottleRaw();
+      int throttleScaled = 0;
+      
+      if (throttleRaw < throttleCenter) {
+        throttleScaled = constrain(map(throttleRaw, throttleMin, throttleCenter, -100, 0), -100, 0);
+      } else if (throttleRaw > throttleCenter) {
+        throttleScaled = constrain(map(throttleRaw, throttleCenter, throttleMax, 0, 100), 0, 100);        
+      } else {
+        throttleScaled = 0;
+      }
+
+      return throttleScaled;
+    }
     
     /*
      * get the current steering position (scaled units -100 to 100)
      */
-    int getSteeringScaled() {
+    int getLeftScaled() {
       int steeringRaw = getSteeringRaw();
-
-      // Anything outside of the expected range will be ignored
-      if ((steeringRaw < steeringMin - 5) || (steeringRaw > steeringMax + 5)) {
-        lastSteeringInputMillis = 0;
-        return 0;
-      }
+      int throttleScaled = getThrottleScaled();
 
       if (steeringRaw < steeringCenter) {
-        steeringScaled = constrain(map(steeringRaw, steeringMin, steeringCenter, -100, 0), -100, 0);
+        // Turning Left
+        // Need to scale the left value
+        double steeringScaled = constrain(map(steeringRaw, steeringMin, steeringCenter, -100, 100), -100, 100) / 100.0;
+        throttleLeftScaled = throttleScaled * steeringScaled;
       } else if (steeringRaw > steeringCenter) {
-        steeringScaled = constrain(map(steeringRaw, steeringCenter, steeringMax, 0, 100), 0, 100);        
+        // Turning Right
+        throttleLeftScaled = throttleScaled;
       } else {
-        steeringScaled = 0;
+        throttleLeftScaled = 0;
       }
-      //steeringScaled = constrain(map(steeringRaw, STEERING_RC_MIN, STEERING_RC_MAX, -100, 100), -100, 100);
 
-      if (steeringScaled >= RC_STEERING_DEADZONE_LOW && steeringScaled <= RC_STEERING_DEADZONE_HIGH) {
+      if (throttleScaled >= RC_STEERING_DEADZONE_LOW && throttleScaled <= RC_STEERING_DEADZONE_HIGH) {
         lastSteeringInputMillis = 0;
         return 0;
       }
@@ -125,13 +138,13 @@ class RemoteControl {
         lastSteeringInputMillis = millis();
       }
 
-      if (millis() - lastSteeringInputMillis < RC_INPUT_DELAY) {
-        return 0;
-      }
+      //if (millis() - lastSteeringInputMillis < RC_INPUT_DELAY) {
+        //return 0;
+      //}
       
       lastSignificantInputMillis = millis();
       
-      return steeringScaled;
+      return throttleLeftScaled;
     }
 
     int getThrottleRaw() {
@@ -156,25 +169,24 @@ class RemoteControl {
     /*
      * get the current throttle position (scaled units -100 to 100)
      */
-    int getThrottleScaled() {  
-      int throttleRaw = getThrottleRaw();
+    int getRightScaled() {  
+      int steeringRaw = getSteeringRaw();
+      int throttleScaled = getThrottleScaled();
 
-      if ((throttleRaw < throttleMin - 5) || (throttleRaw > throttleMax + 5)) {
-        lastSteeringInputMillis = 0;
-        return 0;
-      }
-
-      if (throttleRaw < steeringCenter) {
-        throttleScaled = constrain(map(throttleRaw, throttleMin, throttleCenter, -100, 0), -100, 0);
-      } else if (throttleRaw > steeringCenter) {
-        throttleScaled = constrain(map(throttleRaw, throttleCenter, throttleMax, 0, 100), 0, 100);        
+      if (steeringRaw < steeringCenter) {
+        // Turning Left
+        throttleRightScaled = throttleScaled;
+      } else if (steeringRaw > steeringCenter) {
+        // Turning Right
+        // Need to scale the right value
+        double steeringScaled = constrain(map(steeringRaw, steeringCenter, steeringMax, -100, 100), -100, 100) / 100.0;
+        throttleRightScaled = throttleScaled * -steeringScaled;
       } else {
-        throttleScaled = 0;
+        throttleRightScaled = 0;
       }
-      //throttleScaled = constrain(map(throttleRaw, THROTTLE_RC_MIN, THROTTLE_RC_MAX, -100, 100), -100, 100);
 
-      if (throttleScaled >= RC_THROTTLE_DEADZONE_LOW && throttleScaled <= RC_THROTTLE_DEADZONE_HIGH) {
-        lastThrottleInputMillis = 0;
+      if (throttleScaled >= RC_STEERING_DEADZONE_LOW && throttleScaled <= RC_STEERING_DEADZONE_HIGH) {
+        lastSteeringInputMillis = 0;
         return 0;
       }
       
@@ -182,13 +194,13 @@ class RemoteControl {
         lastThrottleInputMillis = millis();
       }
 
-      if (millis() - lastThrottleInputMillis < RC_INPUT_DELAY) {
-        return 0;
-      }
+      //if (millis() - lastThrottleInputMillis < RC_INPUT_DELAY) {
+        //return 0;
+      //}
 
       lastSignificantInputMillis = millis();
 
-      return throttleScaled;
+      return throttleRightScaled;
     }
 
     boolean isBadRcStart() {
@@ -273,7 +285,7 @@ class RemoteControl {
        * If we've not yet centered the controls, then we're not active yet
        */
       if (!hasCentered) {
-        if (getSteeringScaled() == 0 && getThrottleScaled() == 0) {
+        if (getLeftScaled() == 0 && getRightScaled() == 0) {
           
           // controls are centered, OK to go on
           hasCentered=true;
@@ -287,8 +299,8 @@ class RemoteControl {
       }
 
       // Call get scaled methods to update input millis
-      getSteeringScaled();
-      getThrottleScaled();
+      getLeftScaled();
+      getRightScaled();
       
       /* 
        *  we're active if we've had a significant input recently enough
@@ -309,11 +321,11 @@ class RemoteControl {
     void getStatus(char * status) {
       int testValue = 500;
       
-      sprintf(status, "[RemoteControl] throttleRaw:%lu throttleScaled:%i steeringRaw:%lu steeringScaled:%i isActive:%s Bad Start:%s %s %s",
+      sprintf(status, "[RemoteControl] throttleRaw:%lu steeringRaw:%lu leftScaled:%i rightScaled:%i isActive:%s Bad Start:%s %s %s",
         getThrottleRaw(),
-        getThrottleScaled(),
         getSteeringRaw(),
-        getSteeringScaled(),
+        getLeftScaled(),
+        getRightScaled(),
         isActive() ? "true" : "false",
         badControlStart ? "true" : "false",
         rcStartComplete() ? "true" : "false",

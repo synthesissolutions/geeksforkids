@@ -107,6 +107,8 @@ void loop() {
   if (!isConfiguring && !isLogging && Serial) {
     // We have detected a Serial connection, check to see if we want logging or configuration
     Serial.println("Press c to configure or any other key to run with logging");
+    throttle.setThrottle(0);
+    steering.forceStop();
 
     while (!isConfiguring && !isLogging) {
       if (Serial.available() > 0) {
@@ -194,7 +196,7 @@ void loop() {
   if (isLogging) {
     // Only write the log messages if there is an active serial connection
     logger.writeLog();
-
-    delay(LOOP_DELAY_MILLIS);
   }
+
+  delay(LOOP_DELAY_MILLIS);
 }

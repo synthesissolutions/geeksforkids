@@ -52,7 +52,9 @@ class Configuration {
     int getRcThrottleMax() { return eeprom->getIntegerSetting(EEPROM_RC_THROTTLE_MAX); }
 
     int readMaxSpeedPot() {
-      return analogRead(maxSpeedPin);  
+      // The speed potentiometer reads near 0 when turned all the way to the right
+      // However, we want that to be max speed so we "invert" the reading.
+      return 1024 - analogRead(maxSpeedPin);  
     }
     
     float getSpeedMultiplier() {
