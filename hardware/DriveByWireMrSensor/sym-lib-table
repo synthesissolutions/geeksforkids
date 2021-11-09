@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name KMZ49)(type Legacy)(uri ${KIPRJMOD}/KMZ49.lib)(options "")(descr ""))
+  (lib (name LM358)(type Legacy)(uri ${KIPRJMOD}/LM358.lib)(options "")(descr ""))
+)
