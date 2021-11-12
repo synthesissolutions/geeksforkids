@@ -47,40 +47,29 @@ F 3 "~" H 6045 3685 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Connector:Conn_01x03_Female J1
-U 1 1 6189EBE1
-P 3630 2545
-F 0 "J1" H 3658 2571 50  0000 L CNN
-F 1 "Conn_01x03_Female" H 3658 2480 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 3630 2545 50  0001 C CNN
-F 3 "~" H 3630 2545 50  0001 C CNN
-	1    3630 2545
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:+3.3V #PWR0101
 U 1 1 6189F625
-P 3430 2445
-F 0 "#PWR0101" H 3430 2295 50  0001 C CNN
-F 1 "+3.3V" H 3445 2618 50  0000 C CNN
-F 2 "" H 3430 2445 50  0001 C CNN
-F 3 "" H 3430 2445 50  0001 C CNN
-	1    3430 2445
+P 3470 2515
+F 0 "#PWR0101" H 3470 2365 50  0001 C CNN
+F 1 "+3.3V" H 3485 2688 50  0000 C CNN
+F 2 "" H 3470 2515 50  0001 C CNN
+F 3 "" H 3470 2515 50  0001 C CNN
+	1    3470 2515
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR0102
 U 1 1 618A05B7
-P 3430 2645
-F 0 "#PWR0102" H 3430 2395 50  0001 C CNN
-F 1 "GND" H 3435 2472 50  0000 C CNN
-F 2 "" H 3430 2645 50  0001 C CNN
-F 3 "" H 3430 2645 50  0001 C CNN
-	1    3430 2645
+P 3470 2815
+F 0 "#PWR0102" H 3470 2565 50  0001 C CNN
+F 1 "GND" H 3475 2642 50  0000 C CNN
+F 2 "" H 3470 2815 50  0001 C CNN
+F 3 "" H 3470 2815 50  0001 C CNN
+	1    3470 2815
 	1    0    0    -1  
 $EndComp
-Text GLabel 3430 2545 0    50   Input ~ 0
-AnalogSignal
+Text GLabel 3470 2615 0    50   Input ~ 0
+AnalogSignal1
 $Comp
 L power:+3.3V #PWR0103
 U 1 1 618A1C2D
@@ -125,17 +114,15 @@ F 3 "" H 3540 4290 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 6545 4180 2    50   Input ~ 0
-AnalogSignal
+AnalogSignal1
 Text GLabel 6795 2760 3    50   Input ~ 0
 Op1GndReference
 Text GLabel 5695 4280 0    50   Input ~ 0
 Op1GndReference
-NoConn ~ 6795 2660
-NoConn ~ 5195 2560
 Text GLabel 5195 2460 0    50   Input ~ 0
-SourceSignal
+SourceSignal1
 Text GLabel 5000 4080 0    50   Input ~ 0
-SourceSignal
+SourceSignal1
 $Comp
 L Amplifier_Operational:LM358 U1
 U 1 1 618B4249
@@ -190,12 +177,79 @@ $EndComp
 $Comp
 L Amplifier_Operational:LM358 U1
 U 2 1 618E9970
-P 6115 4865
-F 0 "U1" H 6115 5232 50  0000 C CNN
-F 1 "LM358" H 6115 5141 50  0000 C CNN
-F 2 "" H 6115 4865 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 6115 4865 50  0001 C CNN
-	2    6115 4865
+P 6050 5060
+F 0 "U1" H 6090 5300 50  0000 C CNN
+F 1 "LM358" H 6135 5210 50  0000 C CNN
+F 2 "UsefulModifications:LM358PSR" H 6050 5060 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 6050 5060 50  0001 C CNN
+	2    6050 5060
 	1    0    0    -1  
 $EndComp
+$Comp
+L Device:R R4
+U 1 1 618DED44
+P 5990 4680
+F 0 "R4" V 6197 4680 50  0000 C CNN
+F 1 "560K" V 6106 4680 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 5920 4680 50  0001 C CNN
+F 3 "~" H 5990 4680 50  0001 C CNN
+	1    5990 4680
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R3
+U 1 1 618E050D
+P 5405 4960
+F 0 "R3" V 5198 4960 50  0000 C CNN
+F 1 "100K" V 5289 4960 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 5335 4960 50  0001 C CNN
+F 3 "~" H 5405 4960 50  0001 C CNN
+	1    5405 4960
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:Conn_01x04_Female J1
+U 1 1 618E11C5
+P 3670 2615
+F 0 "J1" H 3698 2591 50  0000 L CNN
+F 1 "Conn_01x04_Female" H 3698 2500 50  0000 L CNN
+F 2 "" H 3670 2615 50  0001 C CNN
+F 3 "~" H 3670 2615 50  0001 C CNN
+	1    3670 2615
+	1    0    0    -1  
+$EndComp
+Text GLabel 3470 2715 0    50   Input ~ 0
+AnalogSignal2
+Text GLabel 6945 2660 3    50   Input ~ 0
+Op2GndReference
+Wire Wire Line
+	6795 2660 6945 2660
+Text GLabel 5195 2560 0    50   Input ~ 0
+SourceSignal2
+Text GLabel 5050 4960 0    50   Input ~ 0
+SourceSignal2
+Text GLabel 5750 5160 0    50   Input ~ 0
+Op2GndReference
+Text GLabel 6595 5060 2    50   Input ~ 0
+AnalogSignal2
+Wire Wire Line
+	6350 5060 6465 5060
+Wire Wire Line
+	6140 4680 6465 4680
+Wire Wire Line
+	6465 4680 6465 5060
+Connection ~ 6465 5060
+Wire Wire Line
+	6465 5060 6595 5060
+Wire Wire Line
+	5555 4960 5645 4960
+Wire Wire Line
+	5840 4680 5645 4680
+Wire Wire Line
+	5645 4680 5645 4960
+Connection ~ 5645 4960
+Wire Wire Line
+	5645 4960 5750 4960
+Wire Wire Line
+	5050 4960 5255 4960
 $EndSCHEMATC
