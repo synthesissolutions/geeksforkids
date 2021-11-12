@@ -18,6 +18,7 @@ int rearAnimationStep = 0;
 //   NEO_RGB     Pixels are wired for RGB bitstream (v1 FLORA pixels, not v2)
 
 Adafruit_NeoPixel rearStrip = Adafruit_NeoPixel(15, 5, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel rearStrip2 = Adafruit_NeoPixel(15, 9, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel frontStrip = Adafruit_NeoPixel(39, 6, NEO_GRB + NEO_KHZ800);
 
 // IMPORTANT: To reduce NeoPixel burnout risk, add 1000 uF capacitor across
@@ -31,6 +32,10 @@ void setup() {
   rearStrip.begin();
   rearStrip.setBrightness(brightness);
   rearStrip.show(); // Initialize all pixels to 'off'
+
+  rearStrip2.begin();
+  rearStrip2.setBrightness(brightness);
+  rearStrip2.show(); // Initialize all pixels to 'off'
 
   frontStrip.begin();
   frontStrip.setBrightness(brightness);
@@ -167,17 +172,20 @@ int frontAnimation3(Adafruit_NeoPixel *strip, int animationStep) {
 }
 
 int loopCount = 0;
-
+int tempAnimation = 0;
 void loop() {
   if (loopCount < 100) {
     frontAnimationStep = frontAnimation3(&frontStrip, frontAnimationStep);
-    rearAnimationStep = rearAnimation3(&rearStrip, 200, rearAnimationStep);
+    rearAnimation3(&rearStrip, 200, rearAnimationStep);
+    rearAnimationStep = rearAnimation3(&rearStrip2, 200, rearAnimationStep);
   } else if (loopCount < 200) {
     frontAnimationStep = frontAnimation2(&frontStrip, frontAnimationStep);    
-    rearAnimationStep = rearAnimation2(&rearStrip, 200, rearAnimationStep);
+    rearAnimation2(&rearStrip, 200, rearAnimationStep);
+    rearAnimationStep = rearAnimation2(&rearStrip2, 200, rearAnimationStep);
   } else {
     frontAnimationStep = frontAnimation1(&frontStrip, frontAnimationStep);    
-    rearAnimationStep = rearAnimation1(&rearStrip, 200, rearAnimationStep);
+    rearAnimation1(&rearStrip, 200, rearAnimationStep);
+    rearAnimationStep = rearAnimation1(&rearStrip2, 200, rearAnimationStep);
   }
   
   delay (100);
