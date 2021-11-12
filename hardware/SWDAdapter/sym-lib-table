@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name ST-Link)(type Legacy)(uri ${KIPRJMOD}/ST-Link.lib)(options "")(descr ""))
+)

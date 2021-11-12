@@ -182,7 +182,7 @@ Text GLabel 3310 3180 0    50   Input ~ 0
 ActiveSW
 Text GLabel 3310 3480 0    50   Input ~ 0
 MI
-Text GLabel 3300 2380 0    50   Input ~ 0
+Text GLabel 3310 2380 0    50   Input ~ 0
 TX
 $Comp
 L power:+5V #PWR0102
