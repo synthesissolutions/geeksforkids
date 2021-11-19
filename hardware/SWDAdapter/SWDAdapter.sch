@@ -175,4 +175,34 @@ SWDIO
 Text GLabel 3970 2410 2    50   Input ~ 0
 SWDIO
 NoConn ~ 3970 2510
+$Comp
+L Connector_Generic:Conn_02x03_Odd_Even J?
+U 1 1 61972078
+P 4580 3395
+F 0 "J?" H 4630 3712 50  0000 C CNN
+F 1 "Conn_02x03_Odd_Even" H 4630 3621 50  0000 C CNN
+F 2 "" H 4580 3395 50  0001 C CNN
+F 3 "~" H 4580 3395 50  0001 C CNN
+	1    4580 3395
+	1    0    0    -1  
+$EndComp
+Text GLabel 4380 3295 0    50   Input ~ 0
+RESET
+Text GLabel 4880 3295 2    50   Input ~ 0
+SWCLK
+Text GLabel 4880 3395 2    50   Input ~ 0
+SWDIO
+$Comp
+L power:GND #PWR?
+U 1 1 61973077
+P 4380 3495
+F 0 "#PWR?" H 4380 3245 50  0001 C CNN
+F 1 "GND" V 4385 3295 50  0000 C CNN
+F 2 "" H 4380 3495 50  0001 C CNN
+F 3 "" H 4380 3495 50  0001 C CNN
+	1    4380 3495
+	0    1    1    0   
+$EndComp
+Text GLabel 4380 3395 0    50   Input ~ 0
+VIN
 $EndSCHEMATC
