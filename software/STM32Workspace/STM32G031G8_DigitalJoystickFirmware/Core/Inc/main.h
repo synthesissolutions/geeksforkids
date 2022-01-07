@@ -72,10 +72,10 @@ void Error_Handler(void);
 #define RIGHT_PAD_GPIO_Port GPIOB
 #define LEFT_PAD_Pin GPIO_PIN_6
 #define LEFT_PAD_GPIO_Port GPIOC
-#define FORWARD_PAD_Pin GPIO_PIN_11
-#define FORWARD_PAD_GPIO_Port GPIOA
-#define REVERSE_PAD_Pin GPIO_PIN_12
+#define REVERSE_PAD_Pin GPIO_PIN_11
 #define REVERSE_PAD_GPIO_Port GPIOA
+#define FORWARD_PAD_Pin GPIO_PIN_12
+#define FORWARD_PAD_GPIO_Port GPIOA
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

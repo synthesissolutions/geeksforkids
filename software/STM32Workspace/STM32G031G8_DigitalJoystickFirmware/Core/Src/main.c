@@ -186,6 +186,8 @@ int main(void)
 
 	  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_3, pwmSteering);
 	  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, pwmThrottle);
+	  //__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_3, THROTTLE_FORWARD);
+	  //__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, THROTTLE_REVERSE);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -319,8 +321,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(LEFT_PAD_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : FORWARD_PAD_Pin REVERSE_PAD_Pin */
-  GPIO_InitStruct.Pin = FORWARD_PAD_Pin|REVERSE_PAD_Pin;
+  /*Configure GPIO pins : REVERSE_PAD_Pin FORWARD_PAD_Pin */
+  GPIO_InitStruct.Pin = REVERSE_PAD_Pin|FORWARD_PAD_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
