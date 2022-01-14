@@ -68,14 +68,14 @@ void Error_Handler(void);
 #define LED_LEFT_GPIO_Port GPIOA
 #define LED_REVERSE_Pin GPIO_PIN_7
 #define LED_REVERSE_GPIO_Port GPIOA
-#define RIGHT_PAD_Pin GPIO_PIN_1
-#define RIGHT_PAD_GPIO_Port GPIOB
-#define LEFT_PAD_Pin GPIO_PIN_6
-#define LEFT_PAD_GPIO_Port GPIOC
-#define REVERSE_PAD_Pin GPIO_PIN_11
-#define REVERSE_PAD_GPIO_Port GPIOA
-#define FORWARD_PAD_Pin GPIO_PIN_12
-#define FORWARD_PAD_GPIO_Port GPIOA
+#define REVERSE_PAD_Pin GPIO_PIN_1
+#define REVERSE_PAD_GPIO_Port GPIOB
+#define FORWARD_PAD_Pin GPIO_PIN_6
+#define FORWARD_PAD_GPIO_Port GPIOC
+#define RIGHT_PAD_Pin GPIO_PIN_11
+#define RIGHT_PAD_GPIO_Port GPIOA
+#define LEFT_PAD_Pin GPIO_PIN_12
+#define LEFT_PAD_GPIO_Port GPIOA
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
@@ -85,5 +85,3 @@ void Error_Handler(void);
 #endif
 
 #endif /* __MAIN_H */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

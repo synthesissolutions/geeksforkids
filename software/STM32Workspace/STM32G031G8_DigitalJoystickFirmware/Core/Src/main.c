@@ -309,20 +309,20 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : RIGHT_PAD_Pin */
-  GPIO_InitStruct.Pin = RIGHT_PAD_Pin;
+  /*Configure GPIO pin : REVERSE_PAD_Pin */
+  GPIO_InitStruct.Pin = REVERSE_PAD_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(RIGHT_PAD_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(REVERSE_PAD_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : LEFT_PAD_Pin */
-  GPIO_InitStruct.Pin = LEFT_PAD_Pin;
+  /*Configure GPIO pin : FORWARD_PAD_Pin */
+  GPIO_InitStruct.Pin = FORWARD_PAD_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(LEFT_PAD_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(FORWARD_PAD_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : REVERSE_PAD_Pin FORWARD_PAD_Pin */
-  GPIO_InitStruct.Pin = REVERSE_PAD_Pin|FORWARD_PAD_Pin;
+  /*Configure GPIO pins : RIGHT_PAD_Pin LEFT_PAD_Pin */
+  GPIO_InitStruct.Pin = RIGHT_PAD_Pin|LEFT_PAD_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -365,4 +365,3 @@ void assert_failed(uint8_t *file, uint32_t line)
 }
 #endif /* USE_FULL_ASSERT */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
