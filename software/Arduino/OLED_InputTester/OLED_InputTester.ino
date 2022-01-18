@@ -5,32 +5,16 @@
 
 Adafruit_SH110X display = Adafruit_SH110X(64, 128, &Wire);
 
-// OLED FeatherWing buttons map to different pins depending on board:
-#if defined(ESP8266)
-  #define BUTTON_A  0
-  #define BUTTON_B 16
-  #define BUTTON_C  2
-#elif defined(ESP32)
-  #define BUTTON_A 15
-  #define BUTTON_B 32
-  #define BUTTON_C 14
-#elif defined(ARDUINO_STM32_FEATHER)
-  #define BUTTON_A PA15
-  #define BUTTON_B PC7
-  #define BUTTON_C PC5
-#elif defined(TEENSYDUINO)
-  #define BUTTON_A  4
-  #define BUTTON_B  3
-  #define BUTTON_C  8
-#elif defined(ARDUINO_NRF52832_FEATHER)
-  #define BUTTON_A 31
-  #define BUTTON_B 30
-  #define BUTTON_C 27
-#else // 32u4, M0, M4, nrf52840 and 328p
-  #define BUTTON_A  9
-  #define BUTTON_B  6
-  #define BUTTON_C  5
-#endif
+#define BUTTON_A  9
+#define BUTTON_B  6
+#define BUTTON_C  5
+
+#define PIN_JOYSTICK_STEERING 17
+#define PIN_JOYSTICK_THROTTLE 16
+#define PIN_RC_STEERING       11
+#define PIN_RC_THROTTLE       10
+#define PIN_SOUND_1           7
+#define PIN_SOUND_2           8
 
 int throttle = 0;
 int steering = 0;
@@ -38,13 +22,29 @@ int steering = 0;
 int rcThrottle = 0;
 int rcSteering = 0;
 
+bool isAnalog = true;
+bool showRc = false;
+
+int joystickSteeringPwm = 0;
+bool joystickSteeringSignalHigh = false;
+int joystickSteeringPulseStart = 0;
+
+int joystickThrottlePwm = 0;
+bool joystickThrottleSignalHigh = false;
+int joystickThrottlePulseStart = 0;
+
+int rcSteeringPwm = 0;
+bool rcSteeringSignalHigh = false;
+int rcSteeringPulseStart = 0;
+
+int rcThrottlePwm = 0;
+bool rcThrottleSignalHigh = false;
+int rcThrottlePulseStart = 0;
+
 void setup() {
   Serial.begin(115200);
-
-  Serial.println("128x64 OLED FeatherWing test");
+  
   display.begin(0x3C, true); // Address 0x3C default
-
-  Serial.println("OLED begun");
   
   // Show image buffer on the display hardware.
   // Since the buffer is intialized with an Adafruit splashscreen
@@ -57,15 +57,29 @@ void setup() {
   display.display();
 
   display.setRotation(1);
-  Serial.println("Button test");
 
   pinMode(BUTTON_A, INPUT_PULLUP);
   pinMode(BUTTON_B, INPUT_PULLUP);
   pinMode(BUTTON_C, INPUT_PULLUP);
 
-  pinMode(12, INPUT_PULLUP);
-  pinMode(13, INPUT_PULLUP);
+  pinMode(PIN_SOUND_1, INPUT_PULLUP);
+  pinMode(PIN_SOUND_2, INPUT_PULLUP);
 
+  display.setTextSize(1);
+  display.setTextColor(SH110X_WHITE);
+  display.setCursor(0, 0);
+  display.print("A - Analog (default)");
+  display.setCursor(0, 15);
+  display.print("B - PWM");
+  display.setCursor(0, 30);
+  display.print("C - Show RC");
+  
+  display.display();
+
+  delay(3000);
+
+  display.clearDisplay();
+    
   // text display tests
   display.setTextSize(1);
   display.setTextColor(SH110X_WHITE);
@@ -84,54 +98,137 @@ void setup() {
   display.setCursor(110, 15);
   display.print("RC");
 
-  display.display(); // actually display all of the above
+  display.display();
+
+  attachInterrupt(digitalPinToInterrupt(PIN_JOYSTICK_STEERING), &joystickSteeringIRQHandler, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(PIN_JOYSTICK_THROTTLE), &joystickThrottleIRQHandler, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(PIN_RC_STEERING), &rcSteeringIRQHandler, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(PIN_RC_THROTTLE), &rcThrottleIRQHandler, CHANGE);   
 }
 
 void loop() {
   if(!digitalRead(BUTTON_A)) {
-    display.print("a");
+    isAnalog = true;
   }
   if(!digitalRead(BUTTON_B)) {
-    display.print("b");
+    isAnalog = false;
   }
   if(!digitalRead(BUTTON_C)) { 
-    display.print("c");
+    showRc = true;
   }
 
+  display.fillRect(53, 0, 53, 60, SH110X_BLACK);
 
-  display.fillRect(60, 0, 50, 60, SH110X_BLACK);
-  throttle = analogRead(A0);
-  steering = analogRead(A1);
-  display.setCursor(60, 0);
+  if (isAnalog) {
+    throttle = analogRead(PIN_JOYSTICK_THROTTLE);
+    steering = analogRead(PIN_JOYSTICK_STEERING);
+  } else {
+    throttle = joystickThrottlePwm;
+    steering = joystickSteeringPwm;    
+  }
+
+  display.setCursor(53, 0);
   display.print(throttle);
 
-  display.setCursor(60, 15);
+  display.setCursor(53, 15);
   display.print(steering);
 
-  rcSteering = analogRead(A4);
-  rcThrottle = analogRead(A5);
-  display.setCursor(90, 0);
-  display.print(rcThrottle);
-
-  display.setCursor(90, 15);
-  display.print(rcSteering);
-
-  if (!digitalRead(12)) {
-    display.setCursor(60, 30);
-    display.print("On");
-  } else {
-    display.setCursor(60, 30);
-    display.print("Off");
+  if (showRc) {
+    display.setCursor(83, 0);
+    display.print(rcThrottlePwm);
+  
+    display.setCursor(83, 15);
+    display.print(rcSteeringPwm);  
   }
 
-  if (!digitalRead(13)) {
-    display.setCursor(60, 45);
+  if (!digitalRead(PIN_SOUND_1)) {
+    display.setCursor(53, 30);
     display.print("On");
   } else {
-    display.setCursor(60, 45);
+    display.setCursor(53, 30);
+    display.print("Off");
+  } 
+
+  if (!digitalRead(PIN_SOUND_2)) {
+    display.setCursor(53, 45);
+    display.print("On");
+  } else {
+    display.setCursor(53, 45);
     display.print("Off");
   }
 
   display.display();
   delay(100);
+}
+
+void joystickSteeringIRQHandler() {
+  if(digitalRead(PIN_JOYSTICK_STEERING) == 1){
+    if (!joystickSteeringSignalHigh) {
+      // rising edge of the PWM signal
+      // record when the pulse started
+      joystickSteeringPulseStart = micros();
+      joystickSteeringSignalHigh = true;
+    }
+  } else if (joystickSteeringSignalHigh) {
+    // falling edge of the PWM signal
+    // record the duty cycle in microseconds
+    joystickSteeringPwm = micros() - joystickSteeringPulseStart;
+
+    // reset for the next pulse
+    joystickSteeringSignalHigh = false;
+  }
+}
+
+void joystickThrottleIRQHandler() {
+  if(digitalRead(PIN_JOYSTICK_THROTTLE) == 1){
+    if (!joystickThrottleSignalHigh) {
+      // rising edge of the PWM signal
+      // record when the pulse started
+      joystickThrottlePulseStart = micros();
+      joystickThrottleSignalHigh = true;
+    }
+  } else if (joystickThrottleSignalHigh) {
+    // falling edge of the PWM signal
+    // record the duty cycle in microseconds
+    joystickThrottlePwm = micros() - joystickThrottlePulseStart;
+
+    // reset for the next pulse
+    joystickThrottleSignalHigh = false;
+  }
+}
+
+void rcSteeringIRQHandler() {
+  if(digitalRead(PIN_RC_STEERING) == 1){
+    if (!rcSteeringSignalHigh) {
+      // rising edge of the PWM signal
+      // record when the pulse started
+      rcSteeringPulseStart = micros();
+      rcSteeringSignalHigh = true;
+    }
+  } else if (rcSteeringSignalHigh) {
+    // falling edge of the PWM signal
+    // record the duty cycle in microseconds
+    rcSteeringPwm = micros() - rcSteeringPulseStart;
+
+    // reset for the next pulse
+    rcSteeringSignalHigh = false;
+  }
+}
+
+void rcThrottleIRQHandler() {
+  if(digitalRead(PIN_RC_THROTTLE) == 1){
+    if (!rcThrottleSignalHigh) {
+      // rising edge of the PWM signal
+      // record when the pulse started
+      rcThrottlePulseStart = micros();
+      rcThrottleSignalHigh = true;
+    }
+  } else if (rcThrottleSignalHigh) {
+    // falling edge of the PWM signal
+    // record the duty cycle in microseconds
+    rcThrottlePwm = micros() - rcThrottlePulseStart;
+
+    // reset for the next pulse
+    rcThrottleSignalHigh = false;
+  }
 }
