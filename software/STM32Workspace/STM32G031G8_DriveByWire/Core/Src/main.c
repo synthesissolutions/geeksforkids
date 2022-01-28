@@ -6,13 +6,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2022 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -32,6 +31,8 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define MIN_SENSOR	400
+#define MAX_SENSOR	625
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -40,22 +41,21 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+ADC_HandleTypeDef hadc1;
+DMA_HandleTypeDef hdma_adc1;
+
 TIM_HandleTypeDef htim3;
 
 /* USER CODE BEGIN PV */
-THROTTLE_OFF = 500;
-THROTTLE_FORWARD = 800;
-THROTTLE_REVERSE = 200;
 
-STEERING_STRAIGHT = 500;
-STEERING_LEFT = 200;
-STEERING_RIGHT = 800;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_TIM3_Init(void);
+static void MX_DMA_Init(void);
+static void MX_ADC1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -72,10 +72,11 @@ static void MX_TIM3_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  uint16_t pwmSteering = STEERING_STRAIGHT;
-  uint16_t pwmThrottle = THROTTLE_OFF;
-  int throttleOn = 0;
-
+	double rawSinData;
+	double rawCosData;
+	uint16_t adjustedSinData;
+	double adjustedCosData;
+	uint16_t raw;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -97,71 +98,38 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_TIM3_Init();
+  MX_DMA_Init();
+  MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
-  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
-  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  // All Buttons are connected to GND so their logic is inverted
-	  if (!HAL_GPIO_ReadPin(DRIVE_BUTTON_GPIO_Port, DRIVE_BUTTON_Pin)) {
-		  // Drive Straight Button Pressed
-		  HAL_GPIO_WritePin(LED_STRAIGHT_GPIO_Port, LED_STRAIGHT_Pin, 1);
-		  HAL_GPIO_WritePin(LED_LEFT_GPIO_Port, LED_LEFT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_RIGHT_GPIO_Port, LED_RIGHT_Pin, 0);
+	// Get ADC value
+	HAL_ADC_Start(&hadc1);
+	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+	//raw = HAL_ADC_GetValue(&hadc1);
 
-		  throttleOn = 1;
-		  pwmSteering = STEERING_STRAIGHT;
-	  } else if (!HAL_GPIO_ReadPin(LEFT_BUTTON_GPIO_Port, LEFT_BUTTON_Pin)) {
-		  // Drive Left Button Pressed
-		  HAL_GPIO_WritePin(LED_STRAIGHT_GPIO_Port, LED_STRAIGHT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_LEFT_GPIO_Port, LED_LEFT_Pin, 1);
-		  HAL_GPIO_WritePin(LED_RIGHT_GPIO_Port, LED_RIGHT_Pin, 0);
+	  rawSinData = HAL_ADC_GetValue(&hadc1);
+	  //rawCosData = analogRead(A1);
+	  //adjustedSinData = (rawSinData - 514)/130;
+	  //adjustedCosData = (rawCosData - 514)/130;
 
-		  throttleOn = 1;
-		  pwmSteering = STEERING_LEFT;
-	  } else if (!HAL_GPIO_ReadPin(RIGHT_BUTTON_GPIO_Port, RIGHT_BUTTON_Pin)) {
-		  // Drive Right Button Pressed
-		  HAL_GPIO_WritePin(LED_STRAIGHT_GPIO_Port, LED_STRAIGHT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_LEFT_GPIO_Port, LED_LEFT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_RIGHT_GPIO_Port, LED_RIGHT_Pin, 1);
+	  if (adjustedSinData > 1)
+	    adjustedSinData = 1;
 
-		  throttleOn = 1;
-		  pwmSteering = STEERING_RIGHT;
-	  } else {
-		  HAL_GPIO_WritePin(LED_STRAIGHT_GPIO_Port, LED_STRAIGHT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_LEFT_GPIO_Port, LED_LEFT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_RIGHT_GPIO_Port, LED_RIGHT_Pin, 0);
+	  else if (adjustedSinData < -1)
+	    adjustedSinData = -1;
 
-		  throttleOn = 0;
-		  pwmSteering = STEERING_STRAIGHT;
-	  }
+	  //if (adjustedCosData > 1)
+	    //adjustedCosData = 1;
 
+	  //else if (adjustedCosData < -1)
+	    //adjustedCosData = -1;
 
-	  if (!HAL_GPIO_ReadPin(REVERSE_SWITCH_GPIO_Port, REVERSE_SWITCH_Pin)) {
-		  HAL_GPIO_WritePin(LED_REVERSE_GPIO_Port, LED_REVERSE_Pin, 1);
-		  if (throttleOn) {
-			  pwmThrottle = THROTTLE_REVERSE;
-		  } else {
-			  pwmThrottle = THROTTLE_OFF;
-		  }
-	  } else {
-		  HAL_GPIO_WritePin(LED_REVERSE_GPIO_Port, LED_REVERSE_Pin, 0);
-		  if (throttleOn) {
-			  pwmThrottle = THROTTLE_FORWARD;
-		  } else {
-			  pwmThrottle = THROTTLE_OFF;
-		  }
-	  }
-
-	  //__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_3, 0);
-	  //__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 5);
-
-	  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_3, pwmSteering);
-	  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, pwmThrottle);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -203,6 +171,63 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief ADC1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_ADC1_Init(void)
+{
+
+  /* USER CODE BEGIN ADC1_Init 0 */
+
+  /* USER CODE END ADC1_Init 0 */
+
+  ADC_ChannelConfTypeDef sConfig = {0};
+
+  /* USER CODE BEGIN ADC1_Init 1 */
+
+  /* USER CODE END ADC1_Init 1 */
+  /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
+  */
+  hadc1.Instance = ADC1;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV2;
+  hadc1.Init.Resolution = ADC_RESOLUTION_10B;
+  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+  hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+  hadc1.Init.LowPowerAutoWait = DISABLE;
+  hadc1.Init.LowPowerAutoPowerOff = DISABLE;
+  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.DiscontinuousConvMode = DISABLE;
+  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+  hadc1.Init.DMAContinuousRequests = DISABLE;
+  hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
+  hadc1.Init.SamplingTimeCommon1 = ADC_SAMPLETIME_1CYCLE_5;
+  hadc1.Init.SamplingTimeCommon2 = ADC_SAMPLETIME_1CYCLE_5;
+  hadc1.Init.OversamplingMode = DISABLE;
+  hadc1.Init.TriggerFrequencyMode = ADC_TRIGGER_FREQ_HIGH;
+  if (HAL_ADC_Init(&hadc1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /** Configure Regular Channel
+  */
+  sConfig.Channel = ADC_CHANNEL_2;
+  sConfig.Rank = ADC_REGULAR_RANK_1;
+  sConfig.SamplingTime = ADC_SAMPLINGTIME_COMMON_1;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN ADC1_Init 2 */
+
+  /* USER CODE END ADC1_Init 2 */
+
 }
 
 /**
@@ -260,6 +285,22 @@ static void MX_TIM3_Init(void)
 }
 
 /**
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Channel1_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -273,33 +314,17 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, LED_STRAIGHT_Pin|LED_RIGHT_Pin|LED_LEFT_Pin|LED_REVERSE_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pins : LED_STRAIGHT_Pin LED_RIGHT_Pin LED_LEFT_Pin LED_REVERSE_Pin */
-  GPIO_InitStruct.Pin = LED_STRAIGHT_Pin|LED_RIGHT_Pin|LED_LEFT_Pin|LED_REVERSE_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  /*Configure GPIO pin : GO_BUTON_Pin */
+  GPIO_InitStruct.Pin = GO_BUTON_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  HAL_GPIO_Init(GO_BUTON_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : LEFT_BUTTON_Pin */
-  GPIO_InitStruct.Pin = LEFT_BUTTON_Pin;
+  /*Configure GPIO pin : REVERSE_SWITCH_Pin */
+  GPIO_InitStruct.Pin = REVERSE_SWITCH_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(LEFT_BUTTON_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : RIGHT_BUTTON_Pin */
-  GPIO_InitStruct.Pin = RIGHT_BUTTON_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(RIGHT_BUTTON_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : DRIVE_BUTTON_Pin REVERSE_SWITCH_Pin */
-  GPIO_InitStruct.Pin = DRIVE_BUTTON_Pin|REVERSE_SWITCH_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  HAL_GPIO_Init(REVERSE_SWITCH_GPIO_Port, &GPIO_InitStruct);
 
 }
 
