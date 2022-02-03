@@ -1,5 +1,0 @@
-(sym_lib_table
-  (lib (name UsefulModifications)(type Legacy)(uri "${KIPRJMOD}/Useful Modifications.lib")(options "")(descr ""))
-  (lib (name ControlBoardT4_28PinSound_Power-rescue)(type Legacy)(uri ${KIPRJMOD}/ControlBoardT4_28PinSound_Power-rescue.lib)(options "")(descr ""))
-  (lib (name ControlBoardT4_28PinSound_PowerAmp-rescue)(type Legacy)(uri ${KIPRJMOD}/ControlBoardT4_28PinSound_PowerAmp-rescue.lib)(options "")(descr ""))
-)

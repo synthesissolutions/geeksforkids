@@ -1,4 +1,0 @@
-(sym_lib_table
-  (lib (name UsefulModifications)(type Legacy)(uri "${KIPRJMOD}/Useful Modifications.lib")(options "")(descr ""))
-  (lib (name ltc2645)(type Legacy)(uri ${KIPRJMOD}/ltc2645.lib)(options "")(descr ""))
-)
