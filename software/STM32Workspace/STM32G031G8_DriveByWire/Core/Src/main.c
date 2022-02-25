@@ -33,6 +33,16 @@
 /* USER CODE BEGIN PD */
 #define MIN_SENSOR	400
 #define MAX_SENSOR	625
+
+// Read the Go Button and Reverse Switch and select one of the three options
+#define THROTTLE_OFF 500
+#define THROTTLE_FORWARD 800
+#define THROTTLE_REVERSE 200
+
+// Take the reading from the magnetic sensor and apply it's reading to the
+// range below.
+#define STEERING_LEFT 200
+#define STEERING_RIGHT 800
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -62,7 +72,9 @@ static void MX_ADC1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+long map(long x, long in_min, long in_max, long out_min, long out_max) {
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
 /* USER CODE END 0 */
 
 /**
@@ -72,6 +84,10 @@ static void MX_ADC1_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+	uint16_t pwmSteering = (STEERING_LEFT + STEERING_RIGHT) / 2;
+	uint16_t pwmThrottle = THROTTLE_OFF;
+	int throttleOn = 0;
+
 	double rawSinData;
 	double rawCosData;
 	uint16_t adjustedSinData;
@@ -111,24 +127,36 @@ int main(void)
 	// Get ADC value
 	HAL_ADC_Start(&hadc1);
 	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-	//raw = HAL_ADC_GetValue(&hadc1);
 
-	  rawSinData = HAL_ADC_GetValue(&hadc1);
-	  //rawCosData = analogRead(A1);
-	  //adjustedSinData = (rawSinData - 514)/130;
-	  //adjustedCosData = (rawCosData - 514)/130;
+	rawSinData = HAL_ADC_GetValue(&hadc1);
 
-	  if (adjustedSinData > 1)
-	    adjustedSinData = 1;
+	if (rawSinData < MIN_SENSOR) {
+		rawSinData = MIN_SENSOR;
+	}
+	if (rawSinData > MAX_SENSOR) {
+		rawSinData = MAX_SENSOR;
+	}
 
-	  else if (adjustedSinData < -1)
-	    adjustedSinData = -1;
+	pwmSteering = map(rawSinData, MIN_SENSOR, MAX_SENSOR, STEERING_LEFT, STEERING_RIGHT);
 
-	  //if (adjustedCosData > 1)
-	    //adjustedCosData = 1;
+	if (!HAL_GPIO_ReadPin(REVERSE_SWITCH_GPIO_Port, REVERSE_SWITCH_Pin)) {
+		HAL_GPIO_WritePin(LED_REVERSE_GPIO_Port, LED_REVERSE_Pin, 1);
+		if (throttleOn) {
+			pwmThrottle = THROTTLE_REVERSE;
+		} else {
+			pwmThrottle = THROTTLE_OFF;
+		}
+	} else {
+		HAL_GPIO_WritePin(LED_REVERSE_GPIO_Port, LED_REVERSE_Pin, 0);
+		if (throttleOn) {
+			pwmThrottle = THROTTLE_FORWARD;
+		} else {
+			pwmThrottle = THROTTLE_OFF;
+		}
+	}
 
-	  //else if (adjustedCosData < -1)
-	    //adjustedCosData = -1;
+	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_3, pwmSteering);
+	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, pwmThrottle);
 
     /* USER CODE END WHILE */
 
