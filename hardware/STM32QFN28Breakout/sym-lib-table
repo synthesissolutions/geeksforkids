@@ -3,4 +3,5 @@
   (lib (name CrystalOscillator)(type Legacy)(uri ${KIPRJMOD}/ECS-3225MVQ-160-BP-TR.lib)(options "")(descr ""))
   (lib (name MicroUSB)(type Legacy)(uri ${KIPRJMOD}/microusb.lib)(options "")(descr ""))
   (lib (name USB)(type Legacy)(uri ${KIPRJMOD}/USB3076-XX-X_REVC.lib)(options "")(descr ""))
+  (lib (name STM32QFN28Breakout-rescue)(type Legacy)(uri ${KIPRJMOD}/STM32QFN28Breakout-rescue.lib)(options "")(descr ""))
 )
