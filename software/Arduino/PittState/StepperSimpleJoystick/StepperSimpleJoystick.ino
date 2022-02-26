@@ -7,6 +7,7 @@ AccelStepper stepper = AccelStepper(AccelStepper::DRIVER, 6, 4); // Defaults to 
 #define LIMIT_SWITCH_PIN  A0
 #define JOYSTICK_X_PIN    A2
 #define STEPS_PER_ROTATION  800
+#define STEPS_CLOSE_ENOUGH   3  // number of steps away from current target considered close enough
 #define MOVEMENT_RANGE_DEGREES  100.0
 #define BUFFER_FROM_SWITCH_STEPS  100
 #define ACCELERATION  400  // too low need to figure out if this is necessary at all
@@ -19,10 +20,11 @@ boolean startupComplete = false;
 
 long startingPosition;
 long switchPosition;
-long min, center, max;
+long stepperMin, stepperCenter, stepperMax;
 int rangeSteps = (MOVEMENT_RANGE_DEGREES / 360.0) * STEPS_PER_ROTATION;
 long switchPressedTime;
 long lastJoystickXReadTime = 0;
+long currentStepperTarget = 0;
 
 void setup()
 {
@@ -65,62 +67,78 @@ void loop()
         Serial.print("Switch Position: ");
         Serial.println(switchPosition);
   
-        min = switchPosition - BUFFER_FROM_SWITCH_STEPS;
-        center = min - (rangeSteps / 2);
-        max = min - rangeSteps;
+        stepperMin = switchPosition - BUFFER_FROM_SWITCH_STEPS;
+        stepperCenter = stepperMin - (rangeSteps / 2);
+        stepperMax = stepperMin - rangeSteps;
   
         Serial.print("Min: ");
-        Serial.println(min);
+        Serial.println(stepperMin);
         Serial.print("Center: ");
-        Serial.println(center);
+        Serial.println(stepperCenter);
         Serial.print("Max: ");
-        Serial.println(max);
+        Serial.println(stepperMax);
         
-        stepper.moveTo(center);
-        stepper.setAcceleration(ACCELERATION);
+        stepper.setSpeed(-SPEED);
       } else {
         if (digitalRead(LIMIT_SWITCH_PIN)) { // double check that the button is not pressed
           stepper.runSpeed();
         }
       }
     } else if (!centerFound) {
-      if (stepper.distanceToGo() == 0) {
+      if (stepper.currentPosition() == stepperCenter) {
         Serial.println("Found Center");
         centerFound = true;
         startupComplete = true;
         stepper.stop();
       } else {
         if ((millis() - switchPressedTime < 500) || digitalRead(LIMIT_SWITCH_PIN)) { // double check that the button is not pressed
-          stepper.run();
+          stepper.runSpeed();
         }
       }
     }
     
   } else {
     // Startup is finished, handle steering
-    
     // if the limit switch is not pressed
     if (digitalRead(LIMIT_SWITCH_PIN)) {
+      long currentStepperPosition = stepper.currentPosition();
+
       if (millis() - JOYSTICK_READ_DELAY_MILLIS > lastJoystickXReadTime) {
         // take new joystick reading
         int joyX = 1024 - constrain(analogRead(JOYSTICK_X_PIN), 0, 1024);
-        int newStepperTarget = map(joyX, 0, 1024, min, max);        
+        currentStepperTarget = map(joyX, 0, 1024, stepperMin, stepperMax);        
         lastJoystickXReadTime = millis();
         
         Serial.print(joyX);
         Serial.print("  ");
-        Serial.println(newStepperTarget);
-        
-        stepper.moveTo(newStepperTarget);
-        stepper.setAcceleration(ACCELERATION);
+        Serial.print(currentStepperTarget);
+        Serial.print("  ");
+        Serial.println(currentStepperPosition);
+
+        if (between(currentStepperTarget, currentStepperPosition - STEPS_CLOSE_ENOUGH, currentStepperPosition + STEPS_CLOSE_ENOUGH)) {
+          // Close enough, just stay here
+          stepper.stop();
+        } else if (currentStepperTarget < currentStepperPosition) {
+          stepper.setSpeed(-SPEED);
+        } else {
+          stepper.setSpeed(SPEED);
+        }
       }
 
-      stepper.run();
+      if (between(currentStepperTarget, currentStepperPosition - STEPS_CLOSE_ENOUGH, currentStepperPosition + STEPS_CLOSE_ENOUGH)) {
+        stepper.stop();
+      } else {
+        stepper.runSpeed();
+      }
+
     } else {
       Serial.println("ERROR!");
       stepper.stop();
       delay(1000);
     }
-
   }
+}
+
+boolean between(long value, long min, long max) {
+  return value >= min && value <= max;
 }
