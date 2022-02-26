@@ -9,7 +9,7 @@
 #include <Wire.h>
 
 #define I2C_ADDRESS 4
-#define TRANSMISSION_DELAY_MILLIS 5
+#define TRANSMISSION_DELAY_MILLIS 5     // currently this is smaller than the main loop delay so we will always transmit a new value
 
 class Steering {
   private:
