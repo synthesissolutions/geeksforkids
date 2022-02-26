@@ -9,6 +9,7 @@
 #include <Wire.h>
 
 #define I2C_ADDRESS 4
+#define TRANSMISSION_DELAY_MILLIS 5
 
 class Steering {
   private:
@@ -21,6 +22,8 @@ class Steering {
     int steeringMinScaled = -100;
     int steeringMaxScaled = 100;
     int steeringCenterScaled = 0;
+
+    long lastTransmissionTime = 0;
 
   public: 
     // Default constructor ... does nothing.  This allows us to delay setting the pins until we want to (via the init method).
@@ -75,11 +78,14 @@ class Steering {
      * 
      */
     void updateSteering() {
-      // steeringMaxScaled should be from -100 to +100 which fits in a 1 signed byte
-      int8_t transmitValue = steeringTargetScaled;
-      Wire.beginTransmission(I2C_ADDRESS);
-      Wire.write(transmitValue);
-      Wire.endTransmission();
+      if (millis() - TRANSMISSION_DELAY_MILLIS > lastTransmissionTime) {
+        // steeringMaxScaled should be from -100 to +100 which fits in a 1 signed byte
+        int8_t transmitValue = steeringTargetScaled;
+        Wire.beginTransmission(I2C_ADDRESS);
+        Wire.write(transmitValue);
+        Wire.endTransmission();
+        lastTransmissionTime = millis();
+      }
     }
 
     void getStatus(char * status) {

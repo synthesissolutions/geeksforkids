@@ -33,7 +33,7 @@
  * This class stores and retrievs settings from Eeprom to define the configuration for this car
  */
 
-const int CURRENT_SETTINGS_VERSION = 3;
+const int CURRENT_SETTINGS_VERSION = 1;
 
 struct ConfigurationEntry {
   String name;
@@ -45,9 +45,9 @@ struct ConfigurationEntry {
 
 ConfigurationEntry configurationEntries[] = {
   {"Version", 0, INTEGER_CONFIGURATION, false, CURRENT_SETTINGS_VERSION},
-  {"Actuator Min", 8, INTEGER_CONFIGURATION, false, -50},  // in scaled units from -100 to 100
+  {"Actuator Min", 8, INTEGER_CONFIGURATION, false, -100},  // in scaled units from -100 to 100
   {"Actuator Center", 12, INTEGER_CONFIGURATION, false, 0},  // in scaled units from -100 to 100
-  {"Actuator Max", 16, INTEGER_CONFIGURATION, false, 50},   // in scaled units from -100 to 100
+  {"Actuator Max", 16, INTEGER_CONFIGURATION, false, 100},   // in scaled units from -100 to 100
   {"Use RC", 20, BOOLEAN_CONFIGURATION, false, 0},
   {"RC Steering Min", 24, INTEGER_CONFIGURATION, false, 1000},  // All RC values are in PWM duty cycle microseconds
   {"RC Steering Center", 28, INTEGER_CONFIGURATION, false, 1500},
