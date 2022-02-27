@@ -95,8 +95,8 @@ const int           PIN_JOYSTICK_STEERING         = A3;
 const int           PIN_JOYSTICK_THROTTLE         = A2;
 
 //   ... throttle ... aka the controller for the car's drive motor   
-const int           PIN_THROTTLE_DIRECTION_LEFT   = 3;  // Channel 1 on motor controller
-const int           PIN_THROTTLE_PWM_LEFT         = 2;
+const int           PIN_BRAKE_DIRECTION           = 3;  // Channel 1 on motor controller
+const int           PIN_BRAKE_PWM                 = 2;
 const int           PIN_THROTTLE_DIRECTION_RIGHT  = 5; // Channel 2 on motor controller
 const int           PIN_THROTTLE_PWM_RIGHT        = 4;
 

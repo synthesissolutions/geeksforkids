@@ -57,7 +57,7 @@ void setup() {
     logger.addLogLine("remote control initialized");
   }
 
-  throttle.init();
+  throttle.init(PIN_BRAKE_DIRECTION, PIN_BRAKE_PWM);
   logger.addLogLine("throttle initialized");
   
   steering.init();
