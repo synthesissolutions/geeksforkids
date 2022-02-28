@@ -3,10 +3,13 @@
 #include <AccelStepper.h>
 #include <Wire.h>
 
-AccelStepper stepper = AccelStepper(AccelStepper::DRIVER, 6, 4); // Defaults to AccelStepper::FULL4WIRE (4 pins) on 2, 3, 4, 5
+#define PULSE_PIN     4
+#define DIR_PIN       3
+#define ENABLE_PIN    2
+
+AccelStepper stepper = AccelStepper(AccelStepper::DRIVER, PULSE_PIN, DIR_PIN);
 
 #define LIMIT_SWITCH_PIN          A0
-#define JOYSTICK_X_PIN            A2
 #define STEPS_PER_ROTATION        800
 #define STEPS_CLOSE_ENOUGH        3  // number of steps away from current target considered close enough
 #define MOVEMENT_RANGE_DEGREES    100.0
@@ -35,9 +38,9 @@ void setup()
   Wire.begin(4);
   Wire.onReceive(receiveEvent);
   
-  pinMode(JOYSTICK_X_PIN, INPUT);
   pinMode(LIMIT_SWITCH_PIN, INPUT_PULLUP);
 
+/*
   pinMode(3, OUTPUT);
   pinMode(5, OUTPUT);
   pinMode(7, OUTPUT);
@@ -45,8 +48,8 @@ void setup()
   digitalWrite(3, HIGH);
   digitalWrite(5, HIGH);
   digitalWrite(7, HIGH);
-  
-  stepper.setEnablePin(2);
+*/
+  stepper.setEnablePin(ENABLE_PIN);
   stepper.setMaxSpeed(1000);
   stepper.enableOutputs();
   stepper.setPinsInverted();

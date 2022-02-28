@@ -9,21 +9,26 @@
  *     to help minimize jerky behavior.  
  */
 #include <Adafruit_MCP4728.h>
+#include <Adafruit_MCP23X17.h>
+
 Adafruit_MCP4728 mcp;
+Adafruit_MCP23X17 gpioExpander;
 
 #define DAC_OFF 0
-#define DAC_MIN 750
+#define DAC_MIN 1250
 #define DAC_MAX 2000
 
 // Define this here for now, need to refactor once things are clearer
-#define REVERSE_OUTPUT_PIN      20
-#define BRAKE_LIMIT_SWITCH_PIN  21
-#define BRAKE_ENGAGE_PWM        127
-#define BRAKE_RELEASE_PWM       254
+#define REVERSE_GPIO_EXPANDER_PIN      0
+#define BRAKE_LIMIT_SWITCH_PIN  15
+//#define BRAKE_ENGAGE_PWM        127
+//#define BRAKE_RELEASE_PWM       254
+#define BRAKE_ENGAGE_PWM        75
+#define BRAKE_RELEASE_PWM       150
 #define BRAKE_MOTOR_OFF_PWM     0
 
-#define BRAKE_RELEASE_MILLISECONDS  350
-#define MAX_BRAKE_TIME_MILLISECONDS 700
+#define BRAKE_RELEASE_MILLISECONDS  300
+#define MAX_BRAKE_TIME_MILLISECONDS 900
 
 class Throttle {
 
@@ -45,7 +50,7 @@ class Throttle {
     // that we traveled during the initial braking. If we start moving after the limit switch is
     // activated, we reverse the braking motion by the full number of milliseconds.
     boolean isMovingForward = true;
-    boolean criticalBrakingFailure = false;
+    boolean criticalBrakeFailure = false;
     boolean isBraking = false;
     boolean isBrakeReleasing = false;
     long brakingStartTimeMillis = 0;
@@ -90,8 +95,15 @@ class Throttle {
         }
       }
 
-      pinMode(REVERSE_OUTPUT_PIN, OUTPUT);
-      digitalWrite(REVERSE_OUTPUT_PIN, HIGH);
+      if (!gpioExpander.begin_I2C(0x27)) {
+        Serial.println("Error initializing MCP23017 GPIO Expander.");
+        while (1) {
+          delay(10);
+        }
+      }
+
+      gpioExpander.pinMode(REVERSE_GPIO_EXPANDER_PIN, OUTPUT);
+      gpioExpander.digitalWrite(REVERSE_GPIO_EXPANDER_PIN, HIGH);
       pinMode(BRAKE_LIMIT_SWITCH_PIN, INPUT_PULLUP);
 
       digitalWrite(directionBrakePin, HIGH);
@@ -125,6 +137,7 @@ class Throttle {
     boolean isStopped() {
       // The limit switch is Grounded when triggered, so the logic is inverted
       return !digitalRead(BRAKE_LIMIT_SWITCH_PIN);
+      //return true;
     }
 
     void engageBrakes() {
@@ -156,7 +169,7 @@ class Throttle {
         return;
       }
 
-      if (criticalBrakingFailure) {
+      if (criticalBrakeFailure) {
         mcp.setChannelValue(MCP4728_CHANNEL_A, DAC_MIN);
         return;
       }
@@ -187,7 +200,7 @@ class Throttle {
             // initialization took to long, a critical braking failure has occured
             stopBrakingMotor();
             brakesInitialized = true;
-            criticalBrakingFailure = true;
+            criticalBrakeFailure = true;
           }
         }
 
@@ -274,6 +287,7 @@ class Throttle {
           // we need to start braking now
           engageBrakes();
           isBraking = true;
+          isBrakeReleasing = false;
           brakingStartTimeMillis = millis();
         }
         
@@ -282,6 +296,9 @@ class Throttle {
         // figure out the throttle DAC setting (ignoring the direction)
         currentDacOut = map(abs(currentThrottleScaled), 0.0, 100.0, DAC_MIN, DAC_MAX);
 
+        // TODO: The moving forward and moving backward code is basically the same
+        // except for setting the isMovingForward variable and the reverse pin
+        // should combine them into one condition more elegantly
         if (currentThrottleScaled < 0) {
           //reverse
           if (isStopped()) {
@@ -292,7 +309,7 @@ class Throttle {
             brakeReleaseStartTimeMillis = tempMillis;
 
             // ok to switch directions
-            digitalWrite(REVERSE_OUTPUT_PIN, LOW);
+            gpioExpander.digitalWrite(REVERSE_GPIO_EXPANDER_PIN, LOW);
             mcp.setChannelValue(MCP4728_CHANNEL_A, currentDacOut);
             isMovingForward = false;
           } else if (!isMovingForward) {
@@ -304,10 +321,11 @@ class Throttle {
               isBraking = false;
               releaseBrakes();
               isBrakeReleasing = true;
-              // Adjust the brake release start time by half of the time already spent braking
-              // this assumes that braking is running half as fast as releasing
-              // need to do real math here for other scenarios
-              brakeReleaseStartTimeMillis = tempMillis - ((tempMillis - brakingStartTimeMillis) / 2);
+              // Adjust the brake release start time based on the fact that we were
+              // already braking so we don't want to release too far. However,
+              // the following is only a gross approximation and falls apaprt when
+              // pulsing quickly between braking and releasing
+              brakeReleaseStartTimeMillis = tempMillis - (tempMillis - brakingStartTimeMillis);
             }
           } else {
             // moving forward and we haven't stopped yet
@@ -324,7 +342,7 @@ class Throttle {
             brakeReleaseStartTimeMillis = tempMillis;
 
             // ok to switch directions
-            digitalWrite(REVERSE_OUTPUT_PIN, HIGH);
+            gpioExpander.digitalWrite(REVERSE_GPIO_EXPANDER_PIN, HIGH);
             mcp.setChannelValue(MCP4728_CHANNEL_A, currentDacOut);
             isMovingForward = true;
           } else if (isMovingForward) {
@@ -336,10 +354,11 @@ class Throttle {
               isBraking = false;
               releaseBrakes();
               isBrakeReleasing = true;
-              // Adjust the brake release start time by half of the time already spent braking
-              // this assumes that braking is running half as fast as releasing
-              // need to do real math here for other scenarios
-              brakeReleaseStartTimeMillis = tempMillis - ((tempMillis - brakingStartTimeMillis) / 2);
+              // Adjust the brake release start time based on the fact that we were
+              // already braking so we don't want to release too far. However,
+              // the following is only a gross approximation and falls apaprt when
+              // pulsing quickly between braking and releasing
+              brakeReleaseStartTimeMillis = tempMillis - (tempMillis - brakingStartTimeMillis);
             }
           } else {
             // moving backward and we haven't stopped yet
@@ -357,17 +376,18 @@ class Throttle {
     }
     
     void getStatus(char * status) {
-      if (criticalBrakingFailure) {
+      if (criticalBrakeFailure) {
         sprintf(status, "[Throttle] !! braking limit switch not found in allotted time !!");
       } else if (!brakesInitialized) {
         sprintf(status, "[Throttle] brake initialization underway ms: %ul", 
         millis() - brakingStartTimeMillis);
       } else {
-        sprintf(status, "[Throttle] target:%i current:%f DAC:%i Delta:%i",
+        sprintf(status, "[Throttle] target:%i current:%f DAC:%i isBraking: %s isBrakeReleasing: %s",
           throttleTargetScaled,
           currentThrottleScaled,
           currentDacOut,
-          throttleDelta);
+          isBraking ? "true" : "false",
+          isBrakeReleasing ? "true" : "false");
       }
     }
 };
