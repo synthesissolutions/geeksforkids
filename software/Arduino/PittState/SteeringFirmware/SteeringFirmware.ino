@@ -25,9 +25,9 @@
 #define MAX_STARTUP_TIME_MILLIS   2000
 
 AccelStepper frontLeftStepper = AccelStepper(AccelStepper::DRIVER, FRONT_LEFT_PULSE_PIN, FRONT_LEFT_DIR_PIN);
-AccelStepper frontRightStepper = AccelStepper(AccelStepper::DRIVER, FRONT_RIGHT_PULSE_PIN, FRONT_RIGHT_DIR_PIN);
-AccelStepper backLeftStepper = AccelStepper(AccelStepper::DRIVER, BACK_LEFT_PULSE_PIN, BACK_LEFT_DIR_PIN);
-AccelStepper backRightStepper = AccelStepper(AccelStepper::DRIVER, BACK_RIGHT_PULSE_PIN, BACK_RIGHT_DIR_PIN);
+//AccelStepper frontRightStepper = AccelStepper(AccelStepper::DRIVER, FRONT_RIGHT_PULSE_PIN, FRONT_RIGHT_DIR_PIN);
+//AccelStepper backLeftStepper = AccelStepper(AccelStepper::DRIVER, BACK_LEFT_PULSE_PIN, BACK_LEFT_DIR_PIN);
+//AccelStepper backRightStepper = AccelStepper(AccelStepper::DRIVER, BACK_RIGHT_PULSE_PIN, BACK_RIGHT_DIR_PIN);
 
 #define FRONT_LEFT_LIMIT_SWITCH_PIN         A0
 #define FRONT_RIGHT_LIMIT_SWITCH_PIN        A1
@@ -57,7 +57,8 @@ int limitSwitchPin[] = {A0, A1, A2, A3};
 // this can be adjusted per wheel to account for limit switch positioning differences
 int bufferFromSwitchInSteps[] = {100, 100, 100, 100};
 
-AccelStepper stepperMotor[] = {frontLeftStepper, frontRightStepper, backLeftStepper, backRightStepper};
+//AccelStepper stepperMotor[] = {frontLeftStepper, frontRightStepper, backLeftStepper, backRightStepper};
+AccelStepper stepperMotor[] = {frontLeftStepper, frontLeftStepper, frontLeftStepper, frontLeftStepper};
 int enablePin[] = {FRONT_LEFT_ENABLE_PIN, FRONT_RIGHT_ENABLE_PIN, BACK_LEFT_ENABLE_PIN, BACK_RIGHT_ENABLE_PIN};
 
 int rangeSteps = (MOVEMENT_RANGE_DEGREES / 360.0) * STEPS_PER_ROTATION;
@@ -108,15 +109,28 @@ void loop()
       if (!switchFound[i]) {
         if (!digitalRead(limitSwitchPin[i])) {
           switchFound[i] = true;
+          Serial.print("Switch Found for: ");
+          Serial.println(i);
           long switchPosition = stepperMotor[i].currentPosition();
-    
+
+          Serial.print("Switch Position: ");
+          Serial.println(switchPosition);
+          
           stepperMin[i] = switchPosition - bufferFromSwitchInSteps[i];
           stepperCenter[i] = stepperMin[i] - (rangeSteps / 2);
           stepperMax[i] = stepperMin[i] - rangeSteps;
+
+          Serial.print("Min, Center, Max: ");
+          Serial.print(stepperMin[i]);
+          Serial.print(" ");
+          Serial.print(stepperCenter[i]);
+          Serial.print(" ");
+          Serial.println(stepperMax[i]);
           
           stepperMotor[i].setSpeed(-SPEED);
         } else {
           stepperMotor[i].runSpeed();
+          Serial.println(stepperMotor[i].speed());
         }
       } else if (!centerFound[i]) {
         if (stepperMotor[i].currentPosition() == stepperCenter[i]) {
@@ -126,6 +140,9 @@ void loop()
           centerFound[i] = true;
           stepperMotor[i].stop();
         } else {
+          Serial.print(stepperMotor[i].currentPosition());
+          Serial.print(" ");
+          Serial.println(stepperMotor[i].speed());
           stepperMotor[i].runSpeed();
         }
       }
@@ -133,6 +150,7 @@ void loop()
 
     if (allCentersFound()) {
       startupComplete = true;
+      Serial.println("Initialization completed successfully!");
     }
   } else {
     // Startup is finished, handle steering
@@ -186,6 +204,7 @@ boolean allCentersFound() {
     }
   }
 
+  Serial.println("all centers found true");
   return true;
 }
 
@@ -195,4 +214,5 @@ void receiveEvent(int howMany) {
   }
 
   currentScaledTarget = Wire.read();
+  Serial.println(currentScaledTarget);
 }
