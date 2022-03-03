@@ -25,9 +25,9 @@
 #define MAX_STARTUP_TIME_MILLIS   2000
 
 AccelStepper frontLeftStepper = AccelStepper(AccelStepper::DRIVER, FRONT_LEFT_PULSE_PIN, FRONT_LEFT_DIR_PIN);
-//AccelStepper frontRightStepper = AccelStepper(AccelStepper::DRIVER, FRONT_RIGHT_PULSE_PIN, FRONT_RIGHT_DIR_PIN);
-//AccelStepper backLeftStepper = AccelStepper(AccelStepper::DRIVER, BACK_LEFT_PULSE_PIN, BACK_LEFT_DIR_PIN);
-//AccelStepper backRightStepper = AccelStepper(AccelStepper::DRIVER, BACK_RIGHT_PULSE_PIN, BACK_RIGHT_DIR_PIN);
+AccelStepper frontRightStepper = AccelStepper(AccelStepper::DRIVER, FRONT_RIGHT_PULSE_PIN, FRONT_RIGHT_DIR_PIN);
+AccelStepper backLeftStepper = AccelStepper(AccelStepper::DRIVER, BACK_LEFT_PULSE_PIN, BACK_LEFT_DIR_PIN);
+AccelStepper backRightStepper = AccelStepper(AccelStepper::DRIVER, BACK_RIGHT_PULSE_PIN, BACK_RIGHT_DIR_PIN);
 
 #define FRONT_LEFT_LIMIT_SWITCH_PIN         A0
 #define FRONT_RIGHT_LIMIT_SWITCH_PIN        A1
@@ -57,8 +57,7 @@ int limitSwitchPin[] = {A0, A1, A2, A3};
 // this can be adjusted per wheel to account for limit switch positioning differences
 int bufferFromSwitchInSteps[] = {100, 100, 100, 100};
 
-//AccelStepper stepperMotor[] = {frontLeftStepper, frontRightStepper, backLeftStepper, backRightStepper};
-AccelStepper stepperMotor[] = {frontLeftStepper, frontLeftStepper, frontLeftStepper, frontLeftStepper};
+AccelStepper stepperMotor[] = {frontLeftStepper, frontRightStepper, backLeftStepper, backRightStepper};
 int enablePin[] = {FRONT_LEFT_ENABLE_PIN, FRONT_RIGHT_ENABLE_PIN, BACK_LEFT_ENABLE_PIN, BACK_RIGHT_ENABLE_PIN};
 
 int rangeSteps = (MOVEMENT_RANGE_DEGREES / 360.0) * STEPS_PER_ROTATION;
@@ -102,6 +101,9 @@ void loop()
     if (millis() - initializationStartTime > MAX_STARTUP_TIME_MILLIS) {
       startupFailed = true;
       Serial.println("Start failed. Max Initialization time exceeded.");
+      for (int i = 0; i < STEPPER_MOTOR_COUNT; i++) {
+        stepperMotor[i].stop();
+      }
       return;
     }
     
@@ -130,7 +132,6 @@ void loop()
           stepperMotor[i].setSpeed(-SPEED);
         } else {
           stepperMotor[i].runSpeed();
-          Serial.println(stepperMotor[i].speed());
         }
       } else if (!centerFound[i]) {
         if (stepperMotor[i].currentPosition() == stepperCenter[i]) {
@@ -140,9 +141,7 @@ void loop()
           centerFound[i] = true;
           stepperMotor[i].stop();
         } else {
-          Serial.print(stepperMotor[i].currentPosition());
-          Serial.print(" ");
-          Serial.println(stepperMotor[i].speed());
+          //Serial.println(stepperMotor[i].currentPosition());
           stepperMotor[i].runSpeed();
         }
       }
@@ -162,9 +161,9 @@ void loop()
         if (millis() - UPDATE_DELAY_MILLIS > lastUpdateTime) {
           if (stepperDirectionInverted[i]) {
             // Direction is inverted (rear wheels)
-            currentStepperTarget = map(-currentScaledTarget, -100, 100, stepperMin, stepperMax);            
+            currentStepperTarget = map(-currentScaledTarget, -100, 100, stepperMin[i], stepperMax[i]);            
           } else {
-            currentStepperTarget = map(currentScaledTarget, -100, 100, stepperMin, stepperMax);
+            currentStepperTarget = map(currentScaledTarget, -100, 100, stepperMin[i], stepperMax[i]);
           }
           lastUpdateTime = millis();
   
