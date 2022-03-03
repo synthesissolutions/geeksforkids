@@ -3,7 +3,7 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SH110X.h>
 
-Adafruit_SH110X display = Adafruit_SH110X(64, 128, &Wire);
+Adafruit_SH1107 display = Adafruit_SH1107(64, 128, &Wire);
 
 #define BUTTON_A  9
 #define BUTTON_B  6

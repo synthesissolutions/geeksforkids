@@ -7,7 +7,6 @@
 class Configuration {
   private:
     Eeprom *eeprom;
-    int maxSpeedPin;
     
   public: 
     // Default constructor ... does nothing.  This allows us to delay setting the pins until we want to (via the init method).  
@@ -17,12 +16,8 @@ class Configuration {
     /*
      * init - initialize the dip switch pins
      */
-    void init(Eeprom *e, int sp) {
+    void init(Eeprom *e) {
       eeprom = e;
-
-      maxSpeedPin = sp;
-      pinMode(maxSpeedPin, INPUT);
-
     }
 
     /*
@@ -50,17 +45,6 @@ class Configuration {
     int getRcThrottleMin() { return eeprom->getIntegerSetting(EEPROM_RC_THROTTLE_MIN); }
     int getRcThrottleCenter() { return eeprom->getIntegerSetting(EEPROM_RC_THROTTLE_CENTER); }
     int getRcThrottleMax() { return eeprom->getIntegerSetting(EEPROM_RC_THROTTLE_MAX); }
-
-    int readMaxSpeedPot() {
-      // The speed potentiometer reads near 0 when turned all the way to the right
-      // However, we want that to be max speed so we "invert" the reading.
-      return 1024 - analogRead(maxSpeedPin);  
-    }
-    
-    float getSpeedMultiplier() {
-      //return constrain(map(readMaxSpeedPot(), 0, 1023, SPEED_CONFIGURATION_MIN_SPEED, SPEED_CONFIGURATION_MAX_SPEED), SPEED_CONFIGURATION_MIN_SPEED, SPEED_CONFIGURATION_MAX_SPEED) / 100.0;
-      return 1.0;
-    }
 
     // Linear Actuator
     int getSteeringCenter() { return eeprom->getIntegerSetting(EEPROM_ACTUATOR_CENTER); }
@@ -209,14 +193,13 @@ class Configuration {
     }
 
     void getStatus(char * status) {
-      sprintf(status, "[Configuration] Version: %i  Invert Joy X:%s Y:%s Joy Steering:%i %i %i  Speed Pot:%i RC:%s Min/C/Max:%i %i %i", 
+      sprintf(status, "[Configuration] Version: %i  Invert Joy X:%s Y:%s Joy Steering:%i %i %i  RC:%s Min/C/Max:%i %i %i", 
         getConfigurationVersion(),
         getInvertJoystickX() ? "true" : "false",
         getInvertJoystickY() ? "true" : "false",
         getJoystickSteeringMin(),
         getJoystickSteeringCenter(),
         getJoystickSteeringMax(),
-        readMaxSpeedPot(),
         useRc() ? "true" : "false",
         getSteeringMin(),
         getSteeringCenter(),

@@ -19,10 +19,14 @@ Adafruit_MCP23X17 gpioExpander;
 #define DAC_MAX 2000
 
 // Define this here for now, need to refactor once things are clearer
-#define REVERSE_GPIO_EXPANDER_PIN      0
-#define BRAKE_LIMIT_SWITCH_PIN  15
-//#define BRAKE_ENGAGE_PWM        127
-//#define BRAKE_RELEASE_PWM       254
+#define REVERSE1_GPIO_EXPANDER_PIN      0
+#define REVERSE2_GPIO_EXPANDER_PIN      1
+#define REVERSE3_GPIO_EXPANDER_PIN      2
+#define REVERSE4_GPIO_EXPANDER_PIN      3
+
+#define BRAKE1_LIMIT_SWITCH_PIN 14
+#define BRAKE2_LIMIT_SWITCH_PIN 15
+
 #define BRAKE_ENGAGE_PWM        75
 #define BRAKE_RELEASE_PWM       150
 #define BRAKE_MOTOR_OFF_PWM     0
@@ -38,8 +42,10 @@ class Throttle {
     // it also allows time for the joystick and PWM readings to settle
     boolean throttleReady = false;
 
-    int directionBrakePin;
-    int speedPwmBrakePin;
+    int directionBrake1Pin;
+    int speedPwmBrake1Pin;
+    int directionBrake2Pin;
+    int speedPwmBrake2Pin;
 
     // When braking is activated move the motor forward until the limit switch is pressed
     // or it took too long to activate the switch. If it takes too long, shutdown the throttle
@@ -80,13 +86,17 @@ class Throttle {
     }
 
     // initial setup
-    void init(int dirBrakePin, int pwmBrakePin) {
-      directionBrakePin = dirBrakePin;
-      speedPwmBrakePin = pwmBrakePin;
-
-      pinMode(directionBrakePin, OUTPUT);
-      pinMode(speedPwmBrakePin, OUTPUT);
+    void init(int dirBrake1Pin, int pwmBrake1Pin, int dirBrake2Pin, int pwmBrake2Pin) {
+      directionBrake1Pin = dirBrake1Pin;
+      speedPwmBrake1Pin = pwmBrake1Pin;
+      directionBrake2Pin = dirBrake2Pin;
+      speedPwmBrake2Pin = pwmBrake2Pin;
       
+      pinMode(directionBrake1Pin, OUTPUT);
+      pinMode(speedPwmBrake1Pin, OUTPUT);
+      pinMode(directionBrake2Pin, OUTPUT);
+      pinMode(speedPwmBrake2Pin, OUTPUT);
+            
       // Try to initialize!
       if (!mcp.begin()) {
         Serial.println("Failed to find MCP4728 chip");
@@ -102,14 +112,29 @@ class Throttle {
         }
       }
 
-      gpioExpander.pinMode(REVERSE_GPIO_EXPANDER_PIN, OUTPUT);
-      gpioExpander.digitalWrite(REVERSE_GPIO_EXPANDER_PIN, HIGH);
-      pinMode(BRAKE_LIMIT_SWITCH_PIN, INPUT_PULLUP);
+      gpioExpander.pinMode(REVERSE1_GPIO_EXPANDER_PIN, OUTPUT);
+      gpioExpander.pinMode(REVERSE2_GPIO_EXPANDER_PIN, OUTPUT);
+      gpioExpander.pinMode(REVERSE3_GPIO_EXPANDER_PIN, OUTPUT);
+      gpioExpander.pinMode(REVERSE4_GPIO_EXPANDER_PIN, OUTPUT);
 
-      digitalWrite(directionBrakePin, HIGH);
-      analogWrite(speedPwmBrakePin, BRAKE_MOTOR_OFF_PWM);
+      // Signal HIGH for forward and LOW for reverse
+      gpioExpander.digitalWrite(REVERSE1_GPIO_EXPANDER_PIN, HIGH);
+      gpioExpander.digitalWrite(REVERSE2_GPIO_EXPANDER_PIN, HIGH);
+      gpioExpander.digitalWrite(REVERSE3_GPIO_EXPANDER_PIN, HIGH);
+      gpioExpander.digitalWrite(REVERSE4_GPIO_EXPANDER_PIN, HIGH);
+      
+      pinMode(BRAKE1_LIMIT_SWITCH_PIN, INPUT_PULLUP);
+      pinMode(BRAKE2_LIMIT_SWITCH_PIN, INPUT_PULLUP);
+
+      digitalWrite(directionBrake1Pin, HIGH);
+      digitalWrite(directionBrake2Pin, HIGH);
+      analogWrite(speedPwmBrake1Pin, BRAKE_MOTOR_OFF_PWM);
+      analogWrite(speedPwmBrake2Pin, BRAKE_MOTOR_OFF_PWM);
 
       mcp.setChannelValue(MCP4728_CHANNEL_A, DAC_OFF);
+      mcp.setChannelValue(MCP4728_CHANNEL_B, DAC_OFF);
+      mcp.setChannelValue(MCP4728_CHANNEL_C, DAC_OFF);
+      mcp.setChannelValue(MCP4728_CHANNEL_D, DAC_OFF);
       
       // and do an initial update to get the timer kicked off
       updateThrottle();
@@ -134,26 +159,73 @@ class Throttle {
       return this->currentThrottleScaled;
     }
 
+    boolean isStoppedBrakeActuator1() {
+      // The limit switch is Grounded when triggered, so the logic is inverted
+      //return !digitalRead(BRAKE_LIMIT_SWITCH1_PIN);
+      return true;
+    }
+
+    boolean isStoppedBrakeActuator2() {
+      // The limit switch is Grounded when triggered, so the logic is inverted
+      //return !digitalRead(BRAKE_LIMIT_SWITCH2_PIN);
+      return true;
+    }
+    
     boolean isStopped() {
       // The limit switch is Grounded when triggered, so the logic is inverted
-      return !digitalRead(BRAKE_LIMIT_SWITCH_PIN);
-      //return true;
+      return isStoppedBrakeActuator1() && isStoppedBrakeActuator2();
     }
 
     void engageBrakes() {
-      digitalWrite(directionBrakePin, HIGH);
-      analogWrite(speedPwmBrakePin, BRAKE_ENGAGE_PWM);
+      digitalWrite(directionBrake1Pin, HIGH);
+      digitalWrite(directionBrake2Pin, HIGH);
+      analogWrite(speedPwmBrake1Pin, BRAKE_ENGAGE_PWM);
+      analogWrite(speedPwmBrake2Pin, BRAKE_ENGAGE_PWM);
     }
 
     void releaseBrakes() {
-      digitalWrite(directionBrakePin, LOW);
-      analogWrite(speedPwmBrakePin, BRAKE_RELEASE_PWM);
+      digitalWrite(directionBrake1Pin, LOW);
+      digitalWrite(directionBrake2Pin, LOW);
+      analogWrite(speedPwmBrake1Pin, BRAKE_RELEASE_PWM);
+      analogWrite(speedPwmBrake2Pin, BRAKE_RELEASE_PWM);
     }
 
     void stopBrakingMotor() {
-      digitalWrite(directionBrakePin, HIGH);
-      analogWrite(speedPwmBrakePin, BRAKE_MOTOR_OFF_PWM);
+      digitalWrite(directionBrake1Pin, HIGH);
+      digitalWrite(directionBrake2Pin, HIGH);
+      analogWrite(speedPwmBrake1Pin, BRAKE_MOTOR_OFF_PWM);
+      analogWrite(speedPwmBrake2Pin, BRAKE_MOTOR_OFF_PWM);
     }
+
+    void moveForward(int dacOut) {
+      gpioExpander.digitalWrite(REVERSE1_GPIO_EXPANDER_PIN, HIGH);
+      gpioExpander.digitalWrite(REVERSE2_GPIO_EXPANDER_PIN, HIGH);
+      gpioExpander.digitalWrite(REVERSE3_GPIO_EXPANDER_PIN, HIGH);
+      gpioExpander.digitalWrite(REVERSE4_GPIO_EXPANDER_PIN, HIGH);
+      mcp.setChannelValue(MCP4728_CHANNEL_A, dacOut);
+      mcp.setChannelValue(MCP4728_CHANNEL_B, dacOut);
+      mcp.setChannelValue(MCP4728_CHANNEL_C, dacOut);
+      mcp.setChannelValue(MCP4728_CHANNEL_D, dacOut);
+    }
+
+    void moveBackward(int dacOut) {
+      gpioExpander.digitalWrite(REVERSE1_GPIO_EXPANDER_PIN, LOW);
+      gpioExpander.digitalWrite(REVERSE2_GPIO_EXPANDER_PIN, LOW);
+      gpioExpander.digitalWrite(REVERSE3_GPIO_EXPANDER_PIN, LOW);
+      gpioExpander.digitalWrite(REVERSE4_GPIO_EXPANDER_PIN, LOW);
+      mcp.setChannelValue(MCP4728_CHANNEL_A, dacOut);
+      mcp.setChannelValue(MCP4728_CHANNEL_B, dacOut);
+      mcp.setChannelValue(MCP4728_CHANNEL_C, dacOut);
+      mcp.setChannelValue(MCP4728_CHANNEL_D, dacOut);
+    }
+    
+    void stopBrushlessMotors() {
+      mcp.setChannelValue(MCP4728_CHANNEL_A, DAC_OFF);
+      mcp.setChannelValue(MCP4728_CHANNEL_B, DAC_OFF);
+      mcp.setChannelValue(MCP4728_CHANNEL_C, DAC_OFF);
+      mcp.setChannelValue(MCP4728_CHANNEL_D, DAC_OFF);
+    }
+    
     /* 
      * updateThrottle
      * 
@@ -165,12 +237,12 @@ class Throttle {
       if (tempMillis < 1000) {
         // Don't do anything for the first second
         // give various systems time to settle
-        mcp.setChannelValue(MCP4728_CHANNEL_A, DAC_MIN);
+        stopBrushlessMotors();
         return;
       }
 
       if (criticalBrakeFailure) {
-        mcp.setChannelValue(MCP4728_CHANNEL_A, DAC_MIN);
+        stopBrushlessMotors();
         return;
       }
 
@@ -223,7 +295,7 @@ class Throttle {
         if (throttleTargetScaled == 0) {
           throttleReady = true;
         } else {
-          mcp.setChannelValue(MCP4728_CHANNEL_A, DAC_OFF);
+          stopBrushlessMotors();
           return;
         }
       }
@@ -236,7 +308,7 @@ class Throttle {
           isBraking = false;
         } else if (tempMillis - MAX_BRAKE_TIME_MILLISECONDS > brakingStartTimeMillis) {
           stopBrakingMotor();
-          mcp.setChannelValue(MCP4728_CHANNEL_A, DAC_OFF); // shouldn't be on, but just in case
+          stopBrushlessMotors(); // shouldn't be on, but just in case
           criticalBrakeFailure = true;
 
           return;
@@ -291,7 +363,7 @@ class Throttle {
           brakingStartTimeMillis = millis();
         }
         
-        mcp.setChannelValue(MCP4728_CHANNEL_A, DAC_OFF);
+        stopBrushlessMotors();
       } else {
         // figure out the throttle DAC setting (ignoring the direction)
         currentDacOut = map(abs(currentThrottleScaled), 0.0, 100.0, DAC_MIN, DAC_MAX);
@@ -309,12 +381,11 @@ class Throttle {
             brakeReleaseStartTimeMillis = tempMillis;
 
             // ok to switch directions
-            gpioExpander.digitalWrite(REVERSE_GPIO_EXPANDER_PIN, LOW);
-            mcp.setChannelValue(MCP4728_CHANNEL_A, currentDacOut);
+            moveBackward(currentDacOut);
             isMovingForward = false;
           } else if (!isMovingForward) {
             // already moving backard, OK to keep moving
-            mcp.setChannelValue(MCP4728_CHANNEL_A, currentDacOut);
+            moveBackward(currentDacOut);
 
             if (isBraking) {
               // if we were starting to brake, need to release the brake
@@ -330,7 +401,7 @@ class Throttle {
           } else {
             // moving forward and we haven't stopped yet
             // keep waiting until we stop to reverse direction
-            mcp.setChannelValue(MCP4728_CHANNEL_A, DAC_OFF);
+            stopBrushlessMotors();
           }
         } else if (currentThrottleScaled > 0) {
           //forward
@@ -342,12 +413,11 @@ class Throttle {
             brakeReleaseStartTimeMillis = tempMillis;
 
             // ok to switch directions
-            gpioExpander.digitalWrite(REVERSE_GPIO_EXPANDER_PIN, HIGH);
-            mcp.setChannelValue(MCP4728_CHANNEL_A, currentDacOut);
+            moveForward(currentDacOut);
             isMovingForward = true;
           } else if (isMovingForward) {
             // already moving forward, OK to keep moving
-            mcp.setChannelValue(MCP4728_CHANNEL_A, currentDacOut);
+            moveForward(currentDacOut);
 
             if (isBraking) {
               // if we were starting to brake, need to release the brake
@@ -363,7 +433,7 @@ class Throttle {
           } else {
             // moving backward and we haven't stopped yet
             // keep waiting until we stop to reverse direction
-            mcp.setChannelValue(MCP4728_CHANNEL_A, DAC_OFF);
+            stopBrushlessMotors();
           }
         }
       }

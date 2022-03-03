@@ -46,7 +46,7 @@ void setup() {
   eeprom.init();
   logger.addLogLine("Eeprom initialized");
     
-  configuration.init(&eeprom, PIN_MAX_SPEED);
+  configuration.init(&eeprom);
   logger.addLogLine("configuration initialized");
     
   joystick.init(PIN_JOYSTICK_STEERING, PIN_JOYSTICK_THROTTLE);
@@ -57,7 +57,7 @@ void setup() {
     logger.addLogLine("remote control initialized");
   }
 
-  throttle.init(PIN_BRAKE_DIRECTION, PIN_BRAKE_PWM);
+  throttle.init(PIN_BRAKE1_DIRECTION, PIN_BRAKE1_PWM, PIN_BRAKE2_DIRECTION, PIN_BRAKE2_PWM);
   logger.addLogLine("throttle initialized");
   
   steering.init();
@@ -180,10 +180,8 @@ void loop() {
         }
 
         // set the inputs from the Joystick
-        // we need to get the speed multiplier each time,
-        // because the speed potentiometer can be turned at any time to adjust the max speed
         steering.setSteeringPosition(joystick.getXAxisScaled());
-        throttle.setThrottle(joystick.getYAxisScaled() * configuration.getSpeedMultiplier());
+        throttle.setThrottle(joystick.getYAxisScaled());
       } else {
   
         // Whoops ... we got here becuase neither control is active.  Nobody is going anywhere until that changes.
