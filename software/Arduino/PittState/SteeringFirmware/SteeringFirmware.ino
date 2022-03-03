@@ -3,29 +3,65 @@
 #include <AccelStepper.h>
 #include <Wire.h>
 
-#define PULSE_PIN     4
-#define DIR_PIN       3
-#define ENABLE_PIN    2
+#define STEPPER_MOTOR_COUNT      1
+//#define STEPPER_MOTOR_COUNT      4
 
-AccelStepper stepper = AccelStepper(AccelStepper::DRIVER, PULSE_PIN, DIR_PIN);
+#define FRONT_LEFT_PULSE_PIN     4
+#define FRONT_LEFT_DIR_PIN       3
+#define FRONT_LEFT_ENABLE_PIN    2
 
-#define LIMIT_SWITCH_PIN          A0
+#define FRONT_RIGHT_PULSE_PIN     7
+#define FRONT_RIGHT_DIR_PIN       6
+#define FRONT_RIGHT_ENABLE_PIN    5
+
+#define BACK_LEFT_PULSE_PIN     10
+#define BACK_LEFT_DIR_PIN       9
+#define BACK_LEFT_ENABLE_PIN    8
+
+#define BACK_RIGHT_PULSE_PIN     13
+#define BACK_RIGHT_DIR_PIN       12
+#define BACK_RIGHT_ENABLE_PIN    11
+
+#define MAX_STARTUP_TIME_MILLIS   2000
+
+AccelStepper frontLeftStepper = AccelStepper(AccelStepper::DRIVER, FRONT_LEFT_PULSE_PIN, FRONT_LEFT_DIR_PIN);
+AccelStepper frontRightStepper = AccelStepper(AccelStepper::DRIVER, FRONT_RIGHT_PULSE_PIN, FRONT_RIGHT_DIR_PIN);
+AccelStepper backLeftStepper = AccelStepper(AccelStepper::DRIVER, BACK_LEFT_PULSE_PIN, BACK_LEFT_DIR_PIN);
+AccelStepper backRightStepper = AccelStepper(AccelStepper::DRIVER, BACK_RIGHT_PULSE_PIN, BACK_RIGHT_DIR_PIN);
+
+#define FRONT_LEFT_LIMIT_SWITCH_PIN         A0
+#define FRONT_RIGHT_LIMIT_SWITCH_PIN        A1
+#define BACK_LEFT_LIMIT_SWITCH_PIN          A2
+#define BACK_RIGHT_LIMIT_SWITCH_PIN         A3
+
 #define STEPS_PER_ROTATION        800
 #define STEPS_CLOSE_ENOUGH        3  // number of steps away from current target considered close enough
 #define MOVEMENT_RANGE_DEGREES    100.0
-#define BUFFER_FROM_SWITCH_STEPS  100
-#define SPEED               400
-#define UPDATE_DELAY_MILLIS 50
+#define SPEED                     400
+#define UPDATE_DELAY_MILLIS       50
 
-boolean switchFound = false;
-boolean centerFound = false;
+boolean switchFound[] = {false, false, false, false};
+boolean centerFound[] = {false, false, false, false};
+
+long initializationStartTime;
 boolean startupComplete = false;
+boolean startupFailed = false;
 
-long startingPosition;
-long switchPosition;
-long stepperMin, stepperCenter, stepperMax;
+long stepperMin[4], stepperCenter[4], stepperMax[4];
+// Typically, the rear two wheels wil be moved in the opposite direction
+// from the front wheels to turn more quickly
+boolean stepperDirectionInverted[] = {false, false, true, true};
+int limitSwitchPin[] = {A0, A1, A2, A3};
+
+// how far from the limit switch does the movement range start
+// this can be adjusted per wheel to account for limit switch positioning differences
+int bufferFromSwitchInSteps[] = {100, 100, 100, 100};
+
+AccelStepper stepperMotor[] = {frontLeftStepper, frontRightStepper, backLeftStepper, backRightStepper};
+int enablePin[] = {FRONT_LEFT_ENABLE_PIN, FRONT_RIGHT_ENABLE_PIN, BACK_LEFT_ENABLE_PIN, BACK_RIGHT_ENABLE_PIN};
+
 int rangeSteps = (MOVEMENT_RANGE_DEGREES / 360.0) * STEPS_PER_ROTATION;
-long switchPressedTime;
+
 long lastUpdateTime = 0;
 long currentStepperTarget = 0;
 int8_t currentScaledTarget = 0;
@@ -33,99 +69,108 @@ int8_t currentScaledTarget = 0;
 void setup()
 {
   Serial.begin(115200);
-  Serial.println("22.1 Alpha Pitt State Steering");
+  Serial.println("22.1 Beta Pitt State Steering");
 
   Wire.begin(4);
   Wire.onReceive(receiveEvent);
-  
-  pinMode(LIMIT_SWITCH_PIN, INPUT_PULLUP);
 
-/*
-  pinMode(3, OUTPUT);
-  pinMode(5, OUTPUT);
-  pinMode(7, OUTPUT);
+  for (int i = 0; i < STEPPER_MOTOR_COUNT; i++) {
+    pinMode(limitSwitchPin[i], INPUT_PULLUP);
+  }
 
-  digitalWrite(3, HIGH);
-  digitalWrite(5, HIGH);
-  digitalWrite(7, HIGH);
-*/
-  stepper.setEnablePin(ENABLE_PIN);
-  stepper.setMaxSpeed(1000);
-  stepper.enableOutputs();
-  stepper.setPinsInverted();
-  stepper.setSpeed(SPEED);
-  
-  startingPosition = stepper.currentPosition();
+  for (int i = 0; i < STEPPER_MOTOR_COUNT; i++) {
+    stepperMotor[i].setEnablePin(enablePin[i]);
+    stepperMotor[i].setMaxSpeed(1000);
+    stepperMotor[i].enableOutputs();
+    stepperMotor[i].setPinsInverted();
+    stepperMotor[i].setSpeed(SPEED);
+  }
+
+  initializationStartTime = millis();
 }
 
 void loop()
 {
-  if (!startupComplete) {
-    if (!switchFound) {
-      if (!digitalRead(LIMIT_SWITCH_PIN)) {
-        switchFound = true;
-        switchPosition = stepper.currentPosition();
-        switchPressedTime = millis();
-  
-        stepperMin = switchPosition - BUFFER_FROM_SWITCH_STEPS;
-        stepperCenter = stepperMin - (rangeSteps / 2);
-        stepperMax = stepperMin - rangeSteps;
-        
-        stepper.setSpeed(-SPEED);
-      } else {
-        if (digitalRead(LIMIT_SWITCH_PIN)) { // double check that the button is not pressed
-          stepper.runSpeed();
+  // Startup is complete either when all steppers have touched their limit switch
+  // and then moved to their calculated center position
+  // or when time has elasped and that has not occured for all stepper motors
+  if (startupFailed) {
+    
+  } else if (!startupComplete) {
+    // Check to see if the startup time has expired before startup is complete
+    if (millis() - initializationStartTime > MAX_STARTUP_TIME_MILLIS) {
+      startupFailed = true;
+      Serial.println("Start failed. Max Initialization time exceeded.");
+      return;
+    }
+    
+    for (int i = 0; i < STEPPER_MOTOR_COUNT; i++) {
+      if (!switchFound[i]) {
+        if (!digitalRead(limitSwitchPin[i])) {
+          switchFound[i] = true;
+          long switchPosition = stepperMotor[i].currentPosition();
+    
+          stepperMin[i] = switchPosition - bufferFromSwitchInSteps[i];
+          stepperCenter[i] = stepperMin[i] - (rangeSteps / 2);
+          stepperMax[i] = stepperMin[i] - rangeSteps;
+          
+          stepperMotor[i].setSpeed(-SPEED);
+        } else {
+          stepperMotor[i].runSpeed();
         }
-      }
-    } else if (!centerFound) {
-      if (stepper.currentPosition() == stepperCenter) {
-        //Serial.println("Found Center");
-        centerFound = true;
-        startupComplete = true;
-        stepper.stop();
-      } else {
-        if ((millis() - switchPressedTime < 500) || digitalRead(LIMIT_SWITCH_PIN)) { // double check that the button is not pressed
-          stepper.runSpeed();
+      } else if (!centerFound[i]) {
+        if (stepperMotor[i].currentPosition() == stepperCenter[i]) {
+          Serial.print("Found Center for: ");
+          Serial.println(i);
+          
+          centerFound[i] = true;
+          stepperMotor[i].stop();
+        } else {
+          stepperMotor[i].runSpeed();
         }
       }
     }
+
+    if (allCentersFound()) {
+      startupComplete = true;
+    }
   } else {
     // Startup is finished, handle steering
-    // if the limit switch is not pressed
-    if (digitalRead(LIMIT_SWITCH_PIN)) {
-      long currentStepperPosition = stepper.currentPosition();
-
-      if (millis() - UPDATE_DELAY_MILLIS > lastUpdateTime) {
-        currentStepperTarget = map(currentScaledTarget, -100, 100, stepperMin, stepperMax);        
-        lastUpdateTime = millis();
-        
-        //Serial.print("Scaled Target: ");
-        //Serial.print(currentScaledTarget);
-        //Serial.print("  Stepper Target: ");
-        //Serial.print(currentStepperTarget);
-        //Serial.print("  Stepper Position: ");
-        //Serial.println(currentStepperPosition);
-
-        if (between(currentStepperTarget, currentStepperPosition - STEPS_CLOSE_ENOUGH, currentStepperPosition + STEPS_CLOSE_ENOUGH)) {
-          // Close enough, just stay here
-          stepper.stop();
-        } else if (currentStepperTarget < currentStepperPosition) {
-          stepper.setSpeed(-SPEED);
-        } else {
-          stepper.setSpeed(SPEED);
+    for (int i = 0; i < STEPPER_MOTOR_COUNT; i++) {
+      // if the limit switch is not pressed
+      if (digitalRead(limitSwitchPin[i])) {
+        long currentStepperPosition = stepperMotor[i].currentPosition();
+  
+        if (millis() - UPDATE_DELAY_MILLIS > lastUpdateTime) {
+          if (stepperDirectionInverted[i]) {
+            // Direction is inverted (rear wheels)
+            currentStepperTarget = map(-currentScaledTarget, -100, 100, stepperMin, stepperMax);            
+          } else {
+            currentStepperTarget = map(currentScaledTarget, -100, 100, stepperMin, stepperMax);
+          }
+          lastUpdateTime = millis();
+  
+          if (between(currentStepperTarget, currentStepperPosition - STEPS_CLOSE_ENOUGH, currentStepperPosition + STEPS_CLOSE_ENOUGH)) {
+            // Close enough, just stay here
+            stepperMotor[i].stop();
+          } else if (currentStepperTarget < currentStepperPosition) {
+            stepperMotor[i].setSpeed(-SPEED);
+          } else {
+            stepperMotor[i].setSpeed(SPEED);
+          }
         }
-      }
-
-      if (between(currentStepperTarget, currentStepperPosition - STEPS_CLOSE_ENOUGH, currentStepperPosition + STEPS_CLOSE_ENOUGH)) {
-        stepper.stop();
+  
+        if (between(currentStepperTarget, currentStepperPosition - STEPS_CLOSE_ENOUGH, currentStepperPosition + STEPS_CLOSE_ENOUGH)) {
+          stepperMotor[i].stop();
+        } else {
+          stepperMotor[i].runSpeed();
+        }
       } else {
-        stepper.runSpeed();
+        Serial.print("ERROR: Limit switch pressed for motor: ");
+        Serial.println(i);
+        
+        stepperMotor[i].stop();
       }
-
-    } else {
-      Serial.println("ERROR!");
-      stepper.stop();
-      delay(1000);
     }
   }
 }
@@ -134,12 +179,20 @@ boolean between(long value, long min, long max) {
   return value >= min && value <= max;
 }
 
+boolean allCentersFound() {
+  for (int i = 0; i < STEPPER_MOTOR_COUNT; i++) {
+    if (!centerFound[i]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
 void receiveEvent(int howMany) {
   while (1 < Wire.available()) {
     Wire.read(); // this should not happen
   }
 
   currentScaledTarget = Wire.read();
-  //Serial.print("I2C Value: ");
-  //Serial.println(currentScaledTarget);
 }
