@@ -1,7 +1,7 @@
 // Rotate Counter Clockwise until 
 
 #include <AccelStepper.h>
-#include <Wire.h>
+//#include <Wire.h>
 
 #define STEPPER_MOTOR_COUNT      1
 //#define STEPPER_MOTOR_COUNT      4
@@ -34,10 +34,12 @@ AccelStepper backRightStepper = AccelStepper(AccelStepper::DRIVER, BACK_RIGHT_PU
 #define BACK_LEFT_LIMIT_SWITCH_PIN          A2
 #define BACK_RIGHT_LIMIT_SWITCH_PIN         A3
 
+#define ANALOG_STEERING_SIGNAL_PIN          A4
+
 #define STEPS_PER_ROTATION        800
 #define STEPS_CLOSE_ENOUGH        3  // number of steps away from current target considered close enough
-#define MOVEMENT_RANGE_DEGREES    100.0
-#define SPEED                     400
+#define MOVEMENT_RANGE_DEGREES    90.0
+#define SPEED                     -200
 #define UPDATE_DELAY_MILLIS       50
 
 boolean switchFound[] = {false, false, false, false};
@@ -55,7 +57,7 @@ int limitSwitchPin[] = {A0, A1, A2, A3};
 
 // how far from the limit switch does the movement range start
 // this can be adjusted per wheel to account for limit switch positioning differences
-int bufferFromSwitchInSteps[] = {100, 100, 100, 100};
+int bufferFromSwitchInSteps[] = {35, 100, 100, 100};
 
 AccelStepper stepperMotor[] = {frontLeftStepper, frontRightStepper, backLeftStepper, backRightStepper};
 int enablePin[] = {FRONT_LEFT_ENABLE_PIN, FRONT_RIGHT_ENABLE_PIN, BACK_LEFT_ENABLE_PIN, BACK_RIGHT_ENABLE_PIN};
@@ -64,16 +66,18 @@ int rangeSteps = (MOVEMENT_RANGE_DEGREES / 360.0) * STEPS_PER_ROTATION;
 
 long lastUpdateTime = 0;
 long currentStepperTarget = 0;
-int8_t currentScaledTarget = 0;
+//int8_t currentScaledTarget = 0;
+uint16_t currentScaledTarget = 0;
 
 void setup()
 {
   Serial.begin(115200);
   Serial.println("22.1 Beta Pitt State Steering");
 
-  Wire.begin(4);
-  Wire.onReceive(receiveEvent);
-
+  //Wire.begin(4);
+  //Wire.onReceive(receiveEvent);
+  pinMode(ANALOG_STEERING_SIGNAL_PIN, INPUT);
+  
   for (int i = 0; i < STEPPER_MOTOR_COUNT; i++) {
     pinMode(limitSwitchPin[i], INPUT_PULLUP);
   }
@@ -101,6 +105,7 @@ void loop()
     if (millis() - initializationStartTime > MAX_STARTUP_TIME_MILLIS) {
       startupFailed = true;
       Serial.println("Start failed. Max Initialization time exceeded.");
+      Serial.println(stepperMotor[0].currentPosition());
       for (int i = 0; i < STEPPER_MOTOR_COUNT; i++) {
         stepperMotor[i].stop();
       }
@@ -118,9 +123,9 @@ void loop()
           Serial.print("Switch Position: ");
           Serial.println(switchPosition);
           
-          stepperMin[i] = switchPosition - bufferFromSwitchInSteps[i];
-          stepperCenter[i] = stepperMin[i] - (rangeSteps / 2);
-          stepperMax[i] = stepperMin[i] - rangeSteps;
+          stepperMin[i] = switchPosition + bufferFromSwitchInSteps[i];
+          stepperCenter[i] = stepperMin[i] + (rangeSteps / 2);
+          stepperMax[i] = stepperMin[i] + rangeSteps;
 
           Serial.print("Min, Center, Max: ");
           Serial.print(stepperMin[i]);
@@ -141,7 +146,6 @@ void loop()
           centerFound[i] = true;
           stepperMotor[i].stop();
         } else {
-          //Serial.println(stepperMotor[i].currentPosition());
           stepperMotor[i].runSpeed();
         }
       }
@@ -157,13 +161,16 @@ void loop()
       // if the limit switch is not pressed
       if (digitalRead(limitSwitchPin[i])) {
         long currentStepperPosition = stepperMotor[i].currentPosition();
+        currentScaledTarget = analogRead(ANALOG_STEERING_SIGNAL_PIN);
   
         if (millis() - UPDATE_DELAY_MILLIS > lastUpdateTime) {
           if (stepperDirectionInverted[i]) {
             // Direction is inverted (rear wheels)
-            currentStepperTarget = map(-currentScaledTarget, -100, 100, stepperMin[i], stepperMax[i]);            
+            //currentStepperTarget = map(-currentScaledTarget, -100, 100, stepperMin[i], stepperMax[i]);            
+            currentStepperTarget = map(500-currentScaledTarget, 0, 500, stepperMin[i], stepperMax[i]);            
           } else {
-            currentStepperTarget = map(currentScaledTarget, -100, 100, stepperMin[i], stepperMax[i]);
+            //currentStepperTarget = map(currentScaledTarget, -100, 100, stepperMin[i], stepperMax[i]);
+            currentStepperTarget = map(currentScaledTarget, 0, 500, stepperMin[i], stepperMax[i]);
           }
           lastUpdateTime = millis();
   
@@ -171,9 +178,9 @@ void loop()
             // Close enough, just stay here
             stepperMotor[i].stop();
           } else if (currentStepperTarget < currentStepperPosition) {
-            stepperMotor[i].setSpeed(-SPEED);
-          } else {
             stepperMotor[i].setSpeed(SPEED);
+          } else {
+            stepperMotor[i].setSpeed(-SPEED);
           }
         }
   
@@ -207,11 +214,13 @@ boolean allCentersFound() {
   return true;
 }
 
+/*
 void receiveEvent(int howMany) {
   while (1 < Wire.available()) {
     Wire.read(); // this should not happen
   }
 
   currentScaledTarget = Wire.read();
-  Serial.println(currentScaledTarget);
+  //Serial.println(currentScaledTarget);
 }
+*/
