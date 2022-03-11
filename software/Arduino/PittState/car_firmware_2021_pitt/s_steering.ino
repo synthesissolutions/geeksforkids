@@ -6,9 +6,11 @@
  *   changes to the steering as appropriate.
  */
 
-#include <Wire.h>
+//#include <Wire.h>
+#include <Adafruit_PCF8591.h>
+Adafruit_PCF8591 pcf = Adafruit_PCF8591();
 
-#define I2C_ADDRESS 4
+//#define I2C_ADDRESS 4
 #define TRANSMISSION_DELAY_MILLIS 5     // currently this is smaller than the main loop delay so we will always transmit a new value
 
 class Steering {
@@ -33,7 +35,13 @@ class Steering {
 
     // initial setup
     void init() {
-      Wire.begin();
+      //Wire.begin();
+      if (!pcf.begin()) {
+        while (1)
+          delay(10);
+      }
+
+      pcf.enableDAC(true);
     }
 
     int getSteeringPosition() {
@@ -80,10 +88,15 @@ class Steering {
     void updateSteering() {
       if (millis() - TRANSMISSION_DELAY_MILLIS > lastTransmissionTime) {
         // steeringMaxScaled should be from -100 to +100 which fits in a 1 signed byte
-        int8_t transmitValue = steeringTargetScaled;
+        //int8_t transmitValue = steeringTargetScaled;
+        uint8_t transmitValue = steeringTargetScaled + 100;
+
+        pcf.analogWrite(transmitValue);
+        /*
         Wire.beginTransmission(I2C_ADDRESS);
         Wire.write(transmitValue);
         Wire.endTransmission();
+        */
         lastTransmissionTime = millis();
       }
     }

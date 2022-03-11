@@ -19,6 +19,8 @@ Adafruit_MCP23X17 gpioExpander;
 #define DAC_MAX 2000
 
 // Define this here for now, need to refactor once things are clearer
+#define REVERSE1_PIN  20
+#define REVERSE2_PIN  21
 #define REVERSE1_GPIO_EXPANDER_PIN      0
 #define REVERSE2_GPIO_EXPANDER_PIN      1
 #define REVERSE3_GPIO_EXPANDER_PIN      2
@@ -105,6 +107,7 @@ class Throttle {
         }
       }
 
+
       if (!gpioExpander.begin_I2C(0x27)) {
         Serial.println("Error initializing MCP23017 GPIO Expander.");
         while (1) {
@@ -122,7 +125,14 @@ class Throttle {
       gpioExpander.digitalWrite(REVERSE2_GPIO_EXPANDER_PIN, HIGH);
       gpioExpander.digitalWrite(REVERSE3_GPIO_EXPANDER_PIN, HIGH);
       gpioExpander.digitalWrite(REVERSE4_GPIO_EXPANDER_PIN, HIGH);
-      
+
+      /*
+      pinMode(REVERSE1_PIN, INPUT_PULLUP);
+      pinMode(REVERSE2_PIN, INPUT_PULLUP);
+
+      digitalWrite(REVERSE1_PIN, HIGH);
+      digitalWrite(REVERSE2_PIN, HIGH);
+      */
       pinMode(BRAKE1_LIMIT_SWITCH_PIN, INPUT_PULLUP);
       pinMode(BRAKE2_LIMIT_SWITCH_PIN, INPUT_PULLUP);
 
@@ -176,11 +186,24 @@ class Throttle {
       return isStoppedBrakeActuator1() && isStoppedBrakeActuator2();
     }
 
-    void engageBrakes() {
+    void engageBrakeActuator1() {
       digitalWrite(directionBrake1Pin, HIGH);
-      digitalWrite(directionBrake2Pin, HIGH);
       analogWrite(speedPwmBrake1Pin, BRAKE_ENGAGE_PWM);
+    }
+
+    void engageBrakeActuator2() {
+      digitalWrite(directionBrake2Pin, HIGH);
       analogWrite(speedPwmBrake2Pin, BRAKE_ENGAGE_PWM);
+    }
+    
+    void engageBrakes() {
+      if (!isStoppedBrakeActuator1()) {
+        engageBrakeActuator1();
+      }
+
+      if (!isStoppedBrakeActuator2()) {
+        engageBrakeActuator2();
+      }
     }
 
     void releaseBrakes() {
@@ -190,18 +213,31 @@ class Throttle {
       analogWrite(speedPwmBrake2Pin, BRAKE_RELEASE_PWM);
     }
 
-    void stopBrakingMotor() {
+    void stopBrakingMotor1() {
       digitalWrite(directionBrake1Pin, HIGH);
-      digitalWrite(directionBrake2Pin, HIGH);
       analogWrite(speedPwmBrake1Pin, BRAKE_MOTOR_OFF_PWM);
+    }
+
+    void stopBrakingMotor2() {
+      digitalWrite(directionBrake2Pin, HIGH);
       analogWrite(speedPwmBrake2Pin, BRAKE_MOTOR_OFF_PWM);
+    }
+    
+    void stopBrakingMotors() {
+      stopBrakingMotor1();
+      stopBrakingMotor2();
     }
 
     void moveForward(int dacOut) {
+
       gpioExpander.digitalWrite(REVERSE1_GPIO_EXPANDER_PIN, HIGH);
       gpioExpander.digitalWrite(REVERSE2_GPIO_EXPANDER_PIN, HIGH);
       gpioExpander.digitalWrite(REVERSE3_GPIO_EXPANDER_PIN, HIGH);
       gpioExpander.digitalWrite(REVERSE4_GPIO_EXPANDER_PIN, HIGH);
+      /*
+      digitalWrite(REVERSE1_PIN, HIGH);
+      digitalWrite(REVERSE2_PIN, HIGH);
+      */  
       mcp.setChannelValue(MCP4728_CHANNEL_A, dacOut);
       mcp.setChannelValue(MCP4728_CHANNEL_B, dacOut);
       mcp.setChannelValue(MCP4728_CHANNEL_C, dacOut);
@@ -209,10 +245,16 @@ class Throttle {
     }
 
     void moveBackward(int dacOut) {
+
       gpioExpander.digitalWrite(REVERSE1_GPIO_EXPANDER_PIN, LOW);
       gpioExpander.digitalWrite(REVERSE2_GPIO_EXPANDER_PIN, LOW);
       gpioExpander.digitalWrite(REVERSE3_GPIO_EXPANDER_PIN, LOW);
       gpioExpander.digitalWrite(REVERSE4_GPIO_EXPANDER_PIN, LOW);
+      /*
+      digitalWrite(REVERSE1_PIN, LOW);
+      digitalWrite(REVERSE2_PIN, LOW);
+
+      */
       mcp.setChannelValue(MCP4728_CHANNEL_A, dacOut);
       mcp.setChannelValue(MCP4728_CHANNEL_B, dacOut);
       mcp.setChannelValue(MCP4728_CHANNEL_C, dacOut);
@@ -238,11 +280,13 @@ class Throttle {
         // Don't do anything for the first second
         // give various systems time to settle
         stopBrushlessMotors();
+        stopBrakingMotors();
         return;
       }
 
       if (criticalBrakeFailure) {
         stopBrushlessMotors();
+        stopBrakingMotors();
         return;
       }
 
@@ -256,21 +300,33 @@ class Throttle {
             brakesInitialized = true;
           } else {
             // Start the braking motors
-            engageBrakes();
+            if (!isStoppedBrakeActuator1()) {
+              engageBrakeActuator1();
+            }
+            if (!isStoppedBrakeActuator2()) {
+              engageBrakeActuator2();
+            }
           }
         } else {
-          // check for successful brake initialization (limit switch pressed), in progress (time limit not expired),
+          // check for successful brake initialization (both limit switches pressed),
+          // in progress (time limit not expired),
           // or critical braking failure (time limit is expired)
           if (isStopped()) {
-            // limit switch pressed
+            // both limit switches pressed
             // stop motors and record successful initialization
-            stopBrakingMotor();
+            stopBrakingMotors();
             brakesInitialized = true;
           } else if (tempMillis - MAX_BRAKE_TIME_MILLISECONDS < brakingStartTimeMillis) {
-            // still braking, nothing to do
+            // at least one brake actuator still moving
+            if (isStoppedBrakeActuator1()) {
+              stopBrakingMotor1();
+            }
+            if (isStoppedBrakeActuator2()) {
+              stopBrakingMotor2();
+            }
           } else {
             // initialization took to long, a critical braking failure has occured
-            stopBrakingMotor();
+            stopBrakingMotors();
             brakesInitialized = true;
             criticalBrakeFailure = true;
           }
@@ -304,20 +360,28 @@ class Throttle {
       // or because we have failed to trigger the limit switch in time
       if (isBraking) {
         if (isStopped()) {
-          stopBrakingMotor();
+          stopBrakingMotors();
           isBraking = false;
         } else if (tempMillis - MAX_BRAKE_TIME_MILLISECONDS > brakingStartTimeMillis) {
-          stopBrakingMotor();
+          stopBrakingMotors();
           stopBrushlessMotors(); // shouldn't be on, but just in case
           criticalBrakeFailure = true;
 
           return;
+        } else {
+          // check to see if one of the braking motors needs to be stopped
+          if (isStoppedBrakeActuator1()) {
+            stopBrakingMotor1();
+          }
+          if (isStoppedBrakeActuator2()) {
+            stopBrakingMotor2();
+          }
         }
       }
       
       // Check to see if we need to stop releasing the brake
       if (isBrakeReleasing && (tempMillis - BRAKE_RELEASE_MILLISECONDS > brakeReleaseStartTimeMillis)) {
-        stopBrakingMotor();
+        stopBrakingMotors();
         isBrakeReleasing = false;
       }
       
