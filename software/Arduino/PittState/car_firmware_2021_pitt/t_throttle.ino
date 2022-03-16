@@ -9,22 +9,16 @@
  *     to help minimize jerky behavior.  
  */
 #include <Adafruit_MCP4728.h>
-#include <Adafruit_MCP23X17.h>
 
 Adafruit_MCP4728 mcp;
-Adafruit_MCP23X17 gpioExpander;
 
 #define DAC_OFF 0
 #define DAC_MIN 1250
 #define DAC_MAX 2000
 
 // Define this here for now, need to refactor once things are clearer
-#define REVERSE1_PIN  20
-#define REVERSE2_PIN  21
-#define REVERSE1_GPIO_EXPANDER_PIN      0
-#define REVERSE2_GPIO_EXPANDER_PIN      1
-#define REVERSE3_GPIO_EXPANDER_PIN      2
-#define REVERSE4_GPIO_EXPANDER_PIN      3
+#define REVERSE_PIN  20
+//#define REVERSE2_PIN  21
 
 #define BRAKE1_LIMIT_SWITCH_PIN 14
 #define BRAKE2_LIMIT_SWITCH_PIN 15
@@ -107,24 +101,10 @@ class Throttle {
         }
       }
 
-
-      if (!gpioExpander.begin_I2C(0x27)) {
-        Serial.println("Error initializing MCP23017 GPIO Expander.");
-        while (1) {
-          delay(10);
-        }
-      }
-
-      gpioExpander.pinMode(REVERSE1_GPIO_EXPANDER_PIN, OUTPUT);
-      gpioExpander.pinMode(REVERSE2_GPIO_EXPANDER_PIN, OUTPUT);
-      gpioExpander.pinMode(REVERSE3_GPIO_EXPANDER_PIN, OUTPUT);
-      gpioExpander.pinMode(REVERSE4_GPIO_EXPANDER_PIN, OUTPUT);
-
+      pinMode(REVERSE_PIN, OUTPUT);
       // Signal HIGH for forward and LOW for reverse
-      gpioExpander.digitalWrite(REVERSE1_GPIO_EXPANDER_PIN, HIGH);
-      gpioExpander.digitalWrite(REVERSE2_GPIO_EXPANDER_PIN, HIGH);
-      gpioExpander.digitalWrite(REVERSE3_GPIO_EXPANDER_PIN, HIGH);
-      gpioExpander.digitalWrite(REVERSE4_GPIO_EXPANDER_PIN, HIGH);
+      digitalWrite(REVERSE_PIN, HIGH);
+
 
       /*
       pinMode(REVERSE1_PIN, INPUT_PULLUP);
@@ -230,14 +210,8 @@ class Throttle {
 
     void moveForward(int dacOut) {
 
-      gpioExpander.digitalWrite(REVERSE1_GPIO_EXPANDER_PIN, HIGH);
-      gpioExpander.digitalWrite(REVERSE2_GPIO_EXPANDER_PIN, HIGH);
-      gpioExpander.digitalWrite(REVERSE3_GPIO_EXPANDER_PIN, HIGH);
-      gpioExpander.digitalWrite(REVERSE4_GPIO_EXPANDER_PIN, HIGH);
-      /*
-      digitalWrite(REVERSE1_PIN, HIGH);
-      digitalWrite(REVERSE2_PIN, HIGH);
-      */  
+      digitalWrite(REVERSE_PIN, HIGH);
+
       mcp.setChannelValue(MCP4728_CHANNEL_A, dacOut);
       mcp.setChannelValue(MCP4728_CHANNEL_B, dacOut);
       mcp.setChannelValue(MCP4728_CHANNEL_C, dacOut);
@@ -246,15 +220,8 @@ class Throttle {
 
     void moveBackward(int dacOut) {
 
-      gpioExpander.digitalWrite(REVERSE1_GPIO_EXPANDER_PIN, LOW);
-      gpioExpander.digitalWrite(REVERSE2_GPIO_EXPANDER_PIN, LOW);
-      gpioExpander.digitalWrite(REVERSE3_GPIO_EXPANDER_PIN, LOW);
-      gpioExpander.digitalWrite(REVERSE4_GPIO_EXPANDER_PIN, LOW);
-      /*
-      digitalWrite(REVERSE1_PIN, LOW);
-      digitalWrite(REVERSE2_PIN, LOW);
+      digitalWrite(REVERSE_PIN, LOW);
 
-      */
       mcp.setChannelValue(MCP4728_CHANNEL_A, dacOut);
       mcp.setChannelValue(MCP4728_CHANNEL_B, dacOut);
       mcp.setChannelValue(MCP4728_CHANNEL_C, dacOut);
