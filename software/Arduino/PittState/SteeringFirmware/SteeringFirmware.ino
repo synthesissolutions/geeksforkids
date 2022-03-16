@@ -2,6 +2,26 @@
 
 #include <AccelStepper.h>
 
+#define FRONT_RIGHT
+
+#if defined(FRONT_LEFT)
+  #define STEERING_DIRECTION_NORMAL   true
+  #define STEPPER_DIRECTION_INVERTED  false
+  #define BUFFER_FROM_SWITCH_IN_STEPS 50
+#elif defined(FRONT_RIGHT)
+  #define STEERING_DIRECTION_NORMAL   true
+  #define STEPPER_DIRECTION_INVERTED  true
+  #define BUFFER_FROM_SWITCH_IN_STEPS 50
+#elif defined(BACK_LEFT)
+  #define STEERING_DIRECTION_NORMAL   false
+  #define STEPPER_DIRECTION_INVERTED  true
+  #define BUFFER_FROM_SWITCH_IN_STEPS 50
+#elif defined(BACK_RIGHT)
+  #define STEERING_DIRECTION_NORMAL   false
+  #define STEPPER_DIRECTION_INVERTED  false
+  #define BUFFER_FROM_SWITCH_IN_STEPS 50
+#endif
+
 #define PULSE_PIN     4
 #define DIR_PIN       3
 #define ENABLE_PIN    2
@@ -29,12 +49,12 @@ long stepperMin, stepperCenter, stepperMax;
 
 // The rear wheels steer in opposite directions from the front wheels
 // set to true for the front wheels and false for rear wheels
-boolean steeringDirectionNormal = true;
-boolean stepperDirectionInverted = false;
+boolean steeringDirectionNormal = STEERING_DIRECTION_NORMAL;
+boolean stepperDirectionInverted = STEPPER_DIRECTION_INVERTED;
 
 // how far from the limit switch does the movement range start
 // this can be adjusted per wheel to account for limit switch positioning differences
-int bufferFromSwitchInSteps = 50;
+int bufferFromSwitchInSteps = BUFFER_FROM_SWITCH_IN_STEPS;
 
 int rangeSteps = (MOVEMENT_RANGE_DEGREES / 360.0) * STEPS_PER_ROTATION;
 
