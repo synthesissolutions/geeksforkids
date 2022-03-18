@@ -2,12 +2,12 @@
 
 #include <AccelStepper.h>
 
-#define FRONT_RIGHT
+#define FRONT_LEFT
 
 #if defined(FRONT_LEFT)
   #define STEERING_DIRECTION_NORMAL   true
   #define STEPPER_DIRECTION_INVERTED  false
-  #define BUFFER_FROM_SWITCH_IN_STEPS 50
+  #define BUFFER_FROM_SWITCH_IN_STEPS 30
 #elif defined(FRONT_RIGHT)
   #define STEERING_DIRECTION_NORMAL   true
   #define STEPPER_DIRECTION_INVERTED  true
@@ -15,7 +15,7 @@
 #elif defined(BACK_LEFT)
   #define STEERING_DIRECTION_NORMAL   false
   #define STEPPER_DIRECTION_INVERTED  true
-  #define BUFFER_FROM_SWITCH_IN_STEPS 50
+  #define BUFFER_FROM_SWITCH_IN_STEPS 47
 #elif defined(BACK_RIGHT)
   #define STEERING_DIRECTION_NORMAL   false
   #define STEPPER_DIRECTION_INVERTED  false

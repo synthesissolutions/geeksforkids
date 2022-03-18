@@ -17,18 +17,11 @@ Adafruit_MCP4728 mcp;
 #define DAC_MAX 2000
 
 // Define this here for now, need to refactor once things are clearer
-#define REVERSE_PIN  20
-//#define REVERSE2_PIN  21
+#define REVERSE_PIN   15
 
-#define BRAKE1_LIMIT_SWITCH_PIN 14
-#define BRAKE2_LIMIT_SWITCH_PIN 15
+#define BRAKE_PIN     14
+#define BRAKE_DELAY_MILLISECONDS  100
 
-#define BRAKE_ENGAGE_PWM        75
-#define BRAKE_RELEASE_PWM       150
-#define BRAKE_MOTOR_OFF_PWM     0
-
-#define BRAKE_RELEASE_MILLISECONDS  300
-#define MAX_BRAKE_TIME_MILLISECONDS 900
 
 class Throttle {
 
@@ -38,33 +31,10 @@ class Throttle {
     // it also allows time for the joystick and PWM readings to settle
     boolean throttleReady = false;
 
-    int directionBrake1Pin;
-    int speedPwmBrake1Pin;
-    int directionBrake2Pin;
-    int speedPwmBrake2Pin;
-
-    // When braking is activated move the motor forward until the limit switch is pressed
-    // or it took too long to activate the switch. If it takes too long, shutdown the throttle
-    // permanently and display error message in logs.
-    // When moving after braking has started, the brake must be released. There is no limit switch
-    // in this direction so we just release for X milliseconds. If we start braking and then the
-    // throttle is told to move, we reverse the braking motion by the same number of milliseconds
-    // that we traveled during the initial braking. If we start moving after the limit switch is
-    // activated, we reverse the braking motion by the full number of milliseconds.
     boolean isMovingForward = true;
-    boolean criticalBrakeFailure = false;
     boolean isBraking = false;
-    boolean isBrakeReleasing = false;
+    boolean isStopped = false;
     long brakingStartTimeMillis = 0;
-    long brakeReleaseStartTimeMillis = 0;
-
-    // Brakes are initialized after the car starts
-    // all brakes are moved to the their limit switch
-    // If all brakes reach their limit switch in the alotted time,
-    // then brakesInitialized will be set to true
-    // If during the initialization, one of the brakes does not trigger
-    // it's limit switch in the alotted time, a critical braking failure is set.
-    boolean brakesInitialized = false;
     
     int throttleTargetScaled = -1;
     float currentThrottleScaled = 0;
@@ -82,16 +52,8 @@ class Throttle {
     }
 
     // initial setup
-    void init(int dirBrake1Pin, int pwmBrake1Pin, int dirBrake2Pin, int pwmBrake2Pin) {
-      directionBrake1Pin = dirBrake1Pin;
-      speedPwmBrake1Pin = pwmBrake1Pin;
-      directionBrake2Pin = dirBrake2Pin;
-      speedPwmBrake2Pin = pwmBrake2Pin;
-      
-      pinMode(directionBrake1Pin, OUTPUT);
-      pinMode(speedPwmBrake1Pin, OUTPUT);
-      pinMode(directionBrake2Pin, OUTPUT);
-      pinMode(speedPwmBrake2Pin, OUTPUT);
+    void init() {
+      pinMode(BRAKE_PIN, OUTPUT);
             
       // Try to initialize!
       if (!mcp.begin()) {
@@ -104,22 +66,6 @@ class Throttle {
       pinMode(REVERSE_PIN, OUTPUT);
       // Signal HIGH for forward and LOW for reverse
       digitalWrite(REVERSE_PIN, HIGH);
-
-
-      /*
-      pinMode(REVERSE1_PIN, INPUT_PULLUP);
-      pinMode(REVERSE2_PIN, INPUT_PULLUP);
-
-      digitalWrite(REVERSE1_PIN, HIGH);
-      digitalWrite(REVERSE2_PIN, HIGH);
-      */
-      pinMode(BRAKE1_LIMIT_SWITCH_PIN, INPUT_PULLUP);
-      pinMode(BRAKE2_LIMIT_SWITCH_PIN, INPUT_PULLUP);
-
-      digitalWrite(directionBrake1Pin, HIGH);
-      digitalWrite(directionBrake2Pin, HIGH);
-      analogWrite(speedPwmBrake1Pin, BRAKE_MOTOR_OFF_PWM);
-      analogWrite(speedPwmBrake2Pin, BRAKE_MOTOR_OFF_PWM);
 
       mcp.setChannelValue(MCP4728_CHANNEL_A, DAC_OFF);
       mcp.setChannelValue(MCP4728_CHANNEL_B, DAC_OFF);
@@ -148,64 +94,15 @@ class Throttle {
     int getCurrentThrottleScaled() {
       return this->currentThrottleScaled;
     }
-
-    boolean isStoppedBrakeActuator1() {
-      // The limit switch is Grounded when triggered, so the logic is inverted
-      //return !digitalRead(BRAKE_LIMIT_SWITCH1_PIN);
-      return true;
-    }
-
-    boolean isStoppedBrakeActuator2() {
-      // The limit switch is Grounded when triggered, so the logic is inverted
-      //return !digitalRead(BRAKE_LIMIT_SWITCH2_PIN);
-      return true;
-    }
-    
-    boolean isStopped() {
-      // The limit switch is Grounded when triggered, so the logic is inverted
-      return isStoppedBrakeActuator1() && isStoppedBrakeActuator2();
-    }
-
-    void engageBrakeActuator1() {
-      digitalWrite(directionBrake1Pin, HIGH);
-      analogWrite(speedPwmBrake1Pin, BRAKE_ENGAGE_PWM);
-    }
-
-    void engageBrakeActuator2() {
-      digitalWrite(directionBrake2Pin, HIGH);
-      analogWrite(speedPwmBrake2Pin, BRAKE_ENGAGE_PWM);
-    }
-    
+   
     void engageBrakes() {
-      if (!isStoppedBrakeActuator1()) {
-        engageBrakeActuator1();
-      }
-
-      if (!isStoppedBrakeActuator2()) {
-        engageBrakeActuator2();
-      }
+      isStopped = true;
+      digitalWrite(BRAKE_PIN, LOW);
     }
 
     void releaseBrakes() {
-      digitalWrite(directionBrake1Pin, LOW);
-      digitalWrite(directionBrake2Pin, LOW);
-      analogWrite(speedPwmBrake1Pin, BRAKE_RELEASE_PWM);
-      analogWrite(speedPwmBrake2Pin, BRAKE_RELEASE_PWM);
-    }
-
-    void stopBrakingMotor1() {
-      digitalWrite(directionBrake1Pin, HIGH);
-      analogWrite(speedPwmBrake1Pin, BRAKE_MOTOR_OFF_PWM);
-    }
-
-    void stopBrakingMotor2() {
-      digitalWrite(directionBrake2Pin, HIGH);
-      analogWrite(speedPwmBrake2Pin, BRAKE_MOTOR_OFF_PWM);
-    }
-    
-    void stopBrakingMotors() {
-      stopBrakingMotor1();
-      stopBrakingMotor2();
+      isStopped = false;
+      digitalWrite(BRAKE_PIN, HIGH);
     }
 
     void moveForward(int dacOut) {
@@ -247,58 +144,7 @@ class Throttle {
         // Don't do anything for the first second
         // give various systems time to settle
         stopBrushlessMotors();
-        stopBrakingMotors();
-        return;
-      }
-
-      if (criticalBrakeFailure) {
-        stopBrushlessMotors();
-        stopBrakingMotors();
-        return;
-      }
-
-      // Handle brake initializaiton
-      if (!brakesInitialized) {
-        if (brakingStartTimeMillis == 0) {
-          // start brake initialization
-          brakingStartTimeMillis = millis();
-          if (isStopped()) {
-            // Are the brakes already fully engaged? If so, nothing more to do
-            brakesInitialized = true;
-          } else {
-            // Start the braking motors
-            if (!isStoppedBrakeActuator1()) {
-              engageBrakeActuator1();
-            }
-            if (!isStoppedBrakeActuator2()) {
-              engageBrakeActuator2();
-            }
-          }
-        } else {
-          // check for successful brake initialization (both limit switches pressed),
-          // in progress (time limit not expired),
-          // or critical braking failure (time limit is expired)
-          if (isStopped()) {
-            // both limit switches pressed
-            // stop motors and record successful initialization
-            stopBrakingMotors();
-            brakesInitialized = true;
-          } else if (tempMillis - MAX_BRAKE_TIME_MILLISECONDS < brakingStartTimeMillis) {
-            // at least one brake actuator still moving
-            if (isStoppedBrakeActuator1()) {
-              stopBrakingMotor1();
-            }
-            if (isStoppedBrakeActuator2()) {
-              stopBrakingMotor2();
-            }
-          } else {
-            // initialization took to long, a critical braking failure has occured
-            stopBrakingMotors();
-            brakesInitialized = true;
-            criticalBrakeFailure = true;
-          }
-        }
-
+        engageBrakes();
         return;
       }
 
@@ -323,33 +169,11 @@ class Throttle {
         }
       }
 
-      // Check to see if we need to stop braking either because we have hit the limit switch
-      // or because we have failed to trigger the limit switch in time
-      if (isBraking) {
-        if (isStopped()) {
-          stopBrakingMotors();
-          isBraking = false;
-        } else if (tempMillis - MAX_BRAKE_TIME_MILLISECONDS > brakingStartTimeMillis) {
-          stopBrakingMotors();
-          stopBrushlessMotors(); // shouldn't be on, but just in case
-          criticalBrakeFailure = true;
-
-          return;
-        } else {
-          // check to see if one of the braking motors needs to be stopped
-          if (isStoppedBrakeActuator1()) {
-            stopBrakingMotor1();
-          }
-          if (isStoppedBrakeActuator2()) {
-            stopBrakingMotor2();
-          }
+      // don't engage the brakes immediately give the car a chance to slow down first
+      if (isBraking ) {
+        if (millis() - brakingStartTimeMillis > BRAKE_DELAY_MILLISECONDS) {
+          engageBrakes();
         }
-      }
-      
-      // Check to see if we need to stop releasing the brake
-      if (isBrakeReleasing && (tempMillis - BRAKE_RELEASE_MILLISECONDS > brakeReleaseStartTimeMillis)) {
-        stopBrakingMotors();
-        isBrakeReleasing = false;
       }
       
       // All of the preliminaries are over and we can now start handling throttle and braking normally
@@ -386,11 +210,8 @@ class Throttle {
       // now set the direction and the throttle
       if (floatNearZero(currentThrottleScaled, 2.0)) {
         // Stop
-        if (!isStopped() && !isBraking) {
-          // we need to start braking now
-          engageBrakes();
+        if (!isBraking) {
           isBraking = true;
-          isBrakeReleasing = false;
           brakingStartTimeMillis = millis();
         }
         
@@ -404,12 +225,10 @@ class Throttle {
         // should combine them into one condition more elegantly
         if (currentThrottleScaled < 0) {
           //reverse
-          if (isStopped()) {
-            // start releasing the brake
+          if (isStopped) {
+            // release the brakes
             releaseBrakes();
-            isBrakeReleasing = true;
             isBraking = false;
-            brakeReleaseStartTimeMillis = tempMillis;
 
             // ok to switch directions
             moveBackward(currentDacOut);
@@ -417,31 +236,23 @@ class Throttle {
           } else if (!isMovingForward) {
             // already moving backard, OK to keep moving
             moveBackward(currentDacOut);
-
-            if (isBraking) {
-              // if we were starting to brake, need to release the brake
-              isBraking = false;
-              releaseBrakes();
-              isBrakeReleasing = true;
-              // Adjust the brake release start time based on the fact that we were
-              // already braking so we don't want to release too far. However,
-              // the following is only a gross approximation and falls apaprt when
-              // pulsing quickly between braking and releasing
-              brakeReleaseStartTimeMillis = tempMillis - (tempMillis - brakingStartTimeMillis);
-            }
+            releaseBrakes();
+            isBraking = false;
           } else {
             // moving forward and we haven't stopped yet
             // keep waiting until we stop to reverse direction
+            if (!isBraking) {
+              brakingStartTimeMillis = millis();
+              isBraking = true;
+            }
             stopBrushlessMotors();
           }
         } else if (currentThrottleScaled > 0) {
           //forward
-          if (isStopped()) {
+          if (isStopped) {
             // start releasing the brake
             releaseBrakes();
-            isBrakeReleasing = true;
             isBraking = false;
-            brakeReleaseStartTimeMillis = tempMillis;
 
             // ok to switch directions
             moveForward(currentDacOut);
@@ -449,21 +260,15 @@ class Throttle {
           } else if (isMovingForward) {
             // already moving forward, OK to keep moving
             moveForward(currentDacOut);
-
-            if (isBraking) {
-              // if we were starting to brake, need to release the brake
-              isBraking = false;
-              releaseBrakes();
-              isBrakeReleasing = true;
-              // Adjust the brake release start time based on the fact that we were
-              // already braking so we don't want to release too far. However,
-              // the following is only a gross approximation and falls apaprt when
-              // pulsing quickly between braking and releasing
-              brakeReleaseStartTimeMillis = tempMillis - (tempMillis - brakingStartTimeMillis);
-            }
+            releaseBrakes();
+            isBraking = false;
           } else {
             // moving backward and we haven't stopped yet
             // keep waiting until we stop to reverse direction
+            if (!isBraking) {
+              brakingStartTimeMillis = millis();
+              isBraking = true;
+            }
             stopBrushlessMotors();
           }
         }
@@ -477,18 +282,11 @@ class Throttle {
     }
     
     void getStatus(char * status) {
-      if (criticalBrakeFailure) {
-        sprintf(status, "[Throttle] !! braking limit switch not found in allotted time !!");
-      } else if (!brakesInitialized) {
-        sprintf(status, "[Throttle] brake initialization underway ms: %ul", 
-        millis() - brakingStartTimeMillis);
-      } else {
-        sprintf(status, "[Throttle] target:%i current:%f DAC:%i isBraking: %s isBrakeReleasing: %s",
+        sprintf(status, "[Throttle] target:%i current:%f DAC:%i isBraking: %s isStopping: %s",
           throttleTargetScaled,
           currentThrottleScaled,
           currentDacOut,
           isBraking ? "true" : "false",
-          isBrakeReleasing ? "true" : "false");
-      }
+          isStopped ? "true" : "false");
     }
 };

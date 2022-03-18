@@ -252,7 +252,8 @@ class RemoteControl {
           // case and the car is still it will turn the wheel in that direction
           // and prevent the child from controlling via the joystick
           if (steeringPwm < 1400 || steeringPwm > 1600) {
-            badControlStart = true;
+//            badControlStart = true;
+            badControlStart = false;
           }
         }
 
