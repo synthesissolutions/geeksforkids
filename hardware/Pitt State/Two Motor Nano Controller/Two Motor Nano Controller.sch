@@ -1,0 +1,511 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Connector:Conn_01x03_Female J3
+U 1 1 6240C11D
+P 2040 1340
+F 0 "J3" H 2068 1366 50  0000 L CNN
+F 1 "Stepper Plus Front" H 1500 1570 50  0000 L CNN
+F 2 "Project:JST_XH_B3B-XH-A_1x03_P2.54mm_Vertical" H 2040 1340 50  0001 C CNN
+F 3 "~" H 2040 1340 50  0001 C CNN
+	1    2040 1340
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x03_Female J2
+U 1 1 6240DC1E
+P 2030 2000
+F 0 "J2" H 2058 2026 50  0000 L CNN
+F 1 "Stepper Minus Front" H 1550 2230 50  0000 L CNN
+F 2 "Project:JST_XH_B3B-XH-A_1x03_P2.54mm_Vertical" H 2030 2000 50  0001 C CNN
+F 3 "~" H 2030 2000 50  0001 C CNN
+	1    2030 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x02_Female J6
+U 1 1 6240E87C
+P 5525 5195
+F 0 "J6" H 5553 5171 50  0000 L CNN
+F 1 "Analog Steering" H 5553 5080 50  0000 L CNN
+F 2 "Project:TerminalBlock_bornier-2_P5.08mm" H 5525 5195 50  0001 C CNN
+F 3 "~" H 5525 5195 50  0001 C CNN
+	1    5525 5195
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x02_Female J5
+U 1 1 6240F675
+P 5510 4870
+F 0 "J5" H 5538 4846 50  0000 L CNN
+F 1 "12v Power" H 5538 4755 50  0000 L CNN
+F 2 "Project:TerminalBlock_bornier-2_P5.08mm" H 5510 4870 50  0001 C CNN
+F 3 "~" H 5510 4870 50  0001 C CNN
+	1    5510 4870
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+12V #PWR012
+U 1 1 62410A17
+P 5310 4870
+F 0 "#PWR012" H 5310 4720 50  0001 C CNN
+F 1 "+12V" V 5325 4998 50  0000 L CNN
+F 2 "" H 5310 4870 50  0001 C CNN
+F 3 "" H 5310 4870 50  0001 C CNN
+	1    5310 4870
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR013
+U 1 1 62411970
+P 5310 4970
+F 0 "#PWR013" H 5310 4720 50  0001 C CNN
+F 1 "GND" V 5315 4842 50  0000 R CNN
+F 2 "" H 5310 4970 50  0001 C CNN
+F 3 "" H 5310 4970 50  0001 C CNN
+	1    5310 4970
+	0    1    1    0   
+$EndComp
+Text GLabel 1840 1240 0    50   Input ~ 0
+PulseFront
+Text GLabel 1840 1340 0    50   Input ~ 0
+DirFront
+Text GLabel 1840 1440 0    50   Input ~ 0
+EnableFront
+$Comp
+L power:GND #PWR03
+U 1 1 624130AA
+P 1830 1900
+F 0 "#PWR03" H 1830 1650 50  0001 C CNN
+F 1 "GND" V 1835 1772 50  0000 R CNN
+F 2 "" H 1830 1900 50  0001 C CNN
+F 3 "" H 1830 1900 50  0001 C CNN
+	1    1830 1900
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR04
+U 1 1 6241401D
+P 1830 2000
+F 0 "#PWR04" H 1830 1750 50  0001 C CNN
+F 1 "GND" V 1835 1872 50  0000 R CNN
+F 2 "" H 1830 2000 50  0001 C CNN
+F 3 "" H 1830 2000 50  0001 C CNN
+	1    1830 2000
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR05
+U 1 1 624143C2
+P 1830 2100
+F 0 "#PWR05" H 1830 1850 50  0001 C CNN
+F 1 "GND" V 1835 1972 50  0000 R CNN
+F 2 "" H 1830 2100 50  0001 C CNN
+F 3 "" H 1830 2100 50  0001 C CNN
+	1    1830 2100
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR014
+U 1 1 6241484F
+P 5325 5195
+F 0 "#PWR014" H 5325 4945 50  0001 C CNN
+F 1 "GND" V 5330 5067 50  0000 R CNN
+F 2 "" H 5325 5195 50  0001 C CNN
+F 3 "" H 5325 5195 50  0001 C CNN
+	1    5325 5195
+	0    1    1    0   
+$EndComp
+Text GLabel 5325 5295 0    50   Input ~ 0
+SteeringSignal
+$Comp
+L Connector:Conn_01x03_Female J4
+U 1 1 624196ED
+P 2065 2570
+F 0 "J4" H 2093 2596 50  0000 L CNN
+F 1 "Limit Switch Front" H 1595 2830 50  0000 L CNN
+F 2 "Project:JST_XH_B3B-XH-A_1x03_P2.54mm_Vertical" H 2065 2570 50  0001 C CNN
+F 3 "~" H 2065 2570 50  0001 C CNN
+	1    2065 2570
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR07
+U 1 1 6241C66B
+P 1865 2570
+F 0 "#PWR07" H 1865 2320 50  0001 C CNN
+F 1 "GND" V 1870 2442 50  0000 R CNN
+F 2 "" H 1865 2570 50  0001 C CNN
+F 3 "" H 1865 2570 50  0001 C CNN
+	1    1865 2570
+	0    1    1    0   
+$EndComp
+Text GLabel 1865 2670 0    50   Input ~ 0
+LimitSwitchFront
+Text GLabel 2990 1905 0    50   Input ~ 0
+PulseFront
+Text GLabel 2990 1805 0    50   Input ~ 0
+DirFront
+Text GLabel 2990 1705 0    50   Input ~ 0
+EnableFront
+Text GLabel 3990 2105 2    50   Input ~ 0
+LimitSwitchFront
+Text GLabel 3990 2505 2    50   Input ~ 0
+SteeringSignal
+$Comp
+L power:+12V #PWR08
+U 1 1 6242160D
+P 3390 1105
+F 0 "#PWR08" H 3390 955 50  0001 C CNN
+F 1 "+12V" H 3405 1278 50  0000 C CNN
+F 2 "" H 3390 1105 50  0001 C CNN
+F 3 "" H 3390 1105 50  0001 C CNN
+	1    3390 1105
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR06
+U 1 1 62423C6E
+P 1865 2470
+F 0 "#PWR06" H 1865 2320 50  0001 C CNN
+F 1 "+5V" V 1880 2598 50  0000 L CNN
+F 2 "" H 1865 2470 50  0001 C CNN
+F 3 "" H 1865 2470 50  0001 C CNN
+	1    1865 2470
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+5V #PWR011
+U 1 1 62425105
+P 3690 1105
+F 0 "#PWR011" H 3690 955 50  0001 C CNN
+F 1 "+5V" H 3705 1278 50  0000 C CNN
+F 2 "" H 3690 1105 50  0001 C CNN
+F 3 "" H 3690 1105 50  0001 C CNN
+	1    3690 1105
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR010
+U 1 1 62426009
+P 3590 3105
+F 0 "#PWR010" H 3590 2855 50  0001 C CNN
+F 1 "GND" H 3595 2932 50  0000 C CNN
+F 2 "" H 3590 3105 50  0001 C CNN
+F 3 "" H 3590 3105 50  0001 C CNN
+	1    3590 3105
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR09
+U 1 1 624274B0
+P 3490 3105
+F 0 "#PWR09" H 3490 2855 50  0001 C CNN
+F 1 "GND" H 3495 2932 50  0000 C CNN
+F 2 "" H 3490 3105 50  0001 C CNN
+F 3 "" H 3490 3105 50  0001 C CNN
+	1    3490 3105
+	1    0    0    -1  
+$EndComp
+$Comp
+L MCU_Module:Arduino_Nano_v3.x A1
+U 1 1 6240A3D6
+P 3490 2105
+F 0 "A1" H 3385 2165 50  0000 C CNN
+F 1 "Arduino_Nano_v3.x" V 3520 2080 50  0000 C CNN
+F 2 "Module:Arduino_Nano" H 3490 2105 50  0001 C CIN
+F 3 "http://www.mouser.com/pdfdocs/Gravitech_Arduino_Nano3_0.pdf" H 3490 2105 50  0001 C CNN
+	1    3490 2105
+	1    0    0    -1  
+$EndComp
+NoConn ~ 3990 1505
+NoConn ~ 3990 1605
+NoConn ~ 3990 1905
+NoConn ~ 3990 2405
+NoConn ~ 3990 2605
+NoConn ~ 3990 2705
+NoConn ~ 3990 2805
+NoConn ~ 2990 2005
+NoConn ~ 2990 2105
+NoConn ~ 2990 2205
+NoConn ~ 2990 2305
+NoConn ~ 2990 2405
+NoConn ~ 2990 2505
+NoConn ~ 2990 2605
+NoConn ~ 2990 2705
+NoConn ~ 2990 2805
+$Comp
+L Connector:Conn_01x04_Female J1
+U 1 1 62428C29
+P 1965 3105
+F 0 "J1" H 1993 3081 50  0000 L CNN
+F 1 "Additiona Inputs Front" H 1530 3365 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 1965 3105 50  0001 C CNN
+F 3 "~" H 1965 3105 50  0001 C CNN
+	1    1965 3105
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR01
+U 1 1 6242BA2E
+P 1765 3005
+F 0 "#PWR01" H 1765 2855 50  0001 C CNN
+F 1 "+5V" V 1780 3133 50  0000 L CNN
+F 2 "" H 1765 3005 50  0001 C CNN
+F 3 "" H 1765 3005 50  0001 C CNN
+	1    1765 3005
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR02
+U 1 1 6242C607
+P 1765 3105
+F 0 "#PWR02" H 1765 2855 50  0001 C CNN
+F 1 "GND" V 1770 2977 50  0000 R CNN
+F 2 "" H 1765 3105 50  0001 C CNN
+F 3 "" H 1765 3105 50  0001 C CNN
+	1    1765 3105
+	0    1    1    0   
+$EndComp
+Text GLabel 1765 3205 0    50   Input ~ 0
+A1Front
+Text GLabel 1765 3305 0    50   Input ~ 0
+A2Front
+Text GLabel 3990 2205 2    50   Input ~ 0
+A1Front
+Text GLabel 3990 2305 2    50   Input ~ 0
+A2Front
+$Comp
+L Connector:Conn_01x03_Female J9
+U 1 1 6244AA6C
+P 6335 1220
+F 0 "J9" H 6363 1246 50  0000 L CNN
+F 1 "Stepper Plus Back" H 5795 1450 50  0000 L CNN
+F 2 "Project:JST_XH_B3B-XH-A_1x03_P2.54mm_Vertical" H 6335 1220 50  0001 C CNN
+F 3 "~" H 6335 1220 50  0001 C CNN
+	1    6335 1220
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x03_Female J8
+U 1 1 6244AA76
+P 6325 1880
+F 0 "J8" H 6353 1906 50  0000 L CNN
+F 1 "Stepper Minus Front" H 5845 2110 50  0000 L CNN
+F 2 "Project:JST_XH_B3B-XH-A_1x03_P2.54mm_Vertical" H 6325 1880 50  0001 C CNN
+F 3 "~" H 6325 1880 50  0001 C CNN
+	1    6325 1880
+	1    0    0    -1  
+$EndComp
+Text GLabel 6135 1120 0    50   Input ~ 0
+PulseBack
+Text GLabel 6135 1220 0    50   Input ~ 0
+DirBack
+Text GLabel 6135 1320 0    50   Input ~ 0
+EnableBack
+$Comp
+L power:GND #PWR017
+U 1 1 6244AA83
+P 6125 1780
+F 0 "#PWR017" H 6125 1530 50  0001 C CNN
+F 1 "GND" V 6130 1652 50  0000 R CNN
+F 2 "" H 6125 1780 50  0001 C CNN
+F 3 "" H 6125 1780 50  0001 C CNN
+	1    6125 1780
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR018
+U 1 1 6244AA8D
+P 6125 1880
+F 0 "#PWR018" H 6125 1630 50  0001 C CNN
+F 1 "GND" V 6130 1752 50  0000 R CNN
+F 2 "" H 6125 1880 50  0001 C CNN
+F 3 "" H 6125 1880 50  0001 C CNN
+	1    6125 1880
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR019
+U 1 1 6244AA97
+P 6125 1980
+F 0 "#PWR019" H 6125 1730 50  0001 C CNN
+F 1 "GND" V 6130 1852 50  0000 R CNN
+F 2 "" H 6125 1980 50  0001 C CNN
+F 3 "" H 6125 1980 50  0001 C CNN
+	1    6125 1980
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:Conn_01x03_Female J10
+U 1 1 6244AAA1
+P 6360 2450
+F 0 "J10" H 6388 2476 50  0000 L CNN
+F 1 "Limit Switch Front" H 5890 2710 50  0000 L CNN
+F 2 "Project:JST_XH_B3B-XH-A_1x03_P2.54mm_Vertical" H 6360 2450 50  0001 C CNN
+F 3 "~" H 6360 2450 50  0001 C CNN
+	1    6360 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR021
+U 1 1 6244AAAB
+P 6160 2450
+F 0 "#PWR021" H 6160 2200 50  0001 C CNN
+F 1 "GND" V 6165 2322 50  0000 R CNN
+F 2 "" H 6160 2450 50  0001 C CNN
+F 3 "" H 6160 2450 50  0001 C CNN
+	1    6160 2450
+	0    1    1    0   
+$EndComp
+Text GLabel 6160 2550 0    50   Input ~ 0
+LimitSwitchBack
+Text GLabel 7285 1785 0    50   Input ~ 0
+PulseBack
+Text GLabel 7285 1685 0    50   Input ~ 0
+DirBack
+Text GLabel 7285 1585 0    50   Input ~ 0
+EnableBack
+Text GLabel 8285 1985 2    50   Input ~ 0
+LimitSwitchBack
+Text GLabel 8285 2385 2    50   Input ~ 0
+SteeringSignal
+$Comp
+L power:+12V #PWR022
+U 1 1 6244AABB
+P 7685 985
+F 0 "#PWR022" H 7685 835 50  0001 C CNN
+F 1 "+12V" H 7700 1158 50  0000 C CNN
+F 2 "" H 7685 985 50  0001 C CNN
+F 3 "" H 7685 985 50  0001 C CNN
+	1    7685 985 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR020
+U 1 1 6244AAC5
+P 6160 2350
+F 0 "#PWR020" H 6160 2200 50  0001 C CNN
+F 1 "+5V" V 6175 2478 50  0000 L CNN
+F 2 "" H 6160 2350 50  0001 C CNN
+F 3 "" H 6160 2350 50  0001 C CNN
+	1    6160 2350
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+5V #PWR025
+U 1 1 6244AACF
+P 7985 985
+F 0 "#PWR025" H 7985 835 50  0001 C CNN
+F 1 "+5V" H 8000 1158 50  0000 C CNN
+F 2 "" H 7985 985 50  0001 C CNN
+F 3 "" H 7985 985 50  0001 C CNN
+	1    7985 985 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR024
+U 1 1 6244AAD9
+P 7885 2985
+F 0 "#PWR024" H 7885 2735 50  0001 C CNN
+F 1 "GND" H 7890 2812 50  0000 C CNN
+F 2 "" H 7885 2985 50  0001 C CNN
+F 3 "" H 7885 2985 50  0001 C CNN
+	1    7885 2985
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR023
+U 1 1 6244AAE3
+P 7785 2985
+F 0 "#PWR023" H 7785 2735 50  0001 C CNN
+F 1 "GND" H 7790 2812 50  0000 C CNN
+F 2 "" H 7785 2985 50  0001 C CNN
+F 3 "" H 7785 2985 50  0001 C CNN
+	1    7785 2985
+	1    0    0    -1  
+$EndComp
+$Comp
+L MCU_Module:Arduino_Nano_v3.x A2
+U 1 1 6244AAED
+P 7785 1985
+F 0 "A2" H 7680 2045 50  0000 C CNN
+F 1 "Arduino_Nano_v3.x" V 7815 1960 50  0000 C CNN
+F 2 "Module:Arduino_Nano" H 7785 1985 50  0001 C CIN
+F 3 "http://www.mouser.com/pdfdocs/Gravitech_Arduino_Nano3_0.pdf" H 7785 1985 50  0001 C CNN
+	1    7785 1985
+	1    0    0    -1  
+$EndComp
+NoConn ~ 8285 1385
+NoConn ~ 8285 1485
+NoConn ~ 8285 1785
+NoConn ~ 8285 2285
+NoConn ~ 8285 2485
+NoConn ~ 8285 2585
+NoConn ~ 8285 2685
+NoConn ~ 7285 1885
+NoConn ~ 7285 1985
+NoConn ~ 7285 2085
+NoConn ~ 7285 2185
+NoConn ~ 7285 2285
+NoConn ~ 7285 2385
+NoConn ~ 7285 2485
+NoConn ~ 7285 2585
+NoConn ~ 7285 2685
+$Comp
+L Connector:Conn_01x04_Female J7
+U 1 1 6244AB07
+P 6260 2985
+F 0 "J7" H 6288 2961 50  0000 L CNN
+F 1 "Additiona Inputs Back" H 5825 3245 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 6260 2985 50  0001 C CNN
+F 3 "~" H 6260 2985 50  0001 C CNN
+	1    6260 2985
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR015
+U 1 1 6244AB11
+P 6060 2885
+F 0 "#PWR015" H 6060 2735 50  0001 C CNN
+F 1 "+5V" V 6075 3013 50  0000 L CNN
+F 2 "" H 6060 2885 50  0001 C CNN
+F 3 "" H 6060 2885 50  0001 C CNN
+	1    6060 2885
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR016
+U 1 1 6244AB1B
+P 6060 2985
+F 0 "#PWR016" H 6060 2735 50  0001 C CNN
+F 1 "GND" V 6065 2857 50  0000 R CNN
+F 2 "" H 6060 2985 50  0001 C CNN
+F 3 "" H 6060 2985 50  0001 C CNN
+	1    6060 2985
+	0    1    1    0   
+$EndComp
+Text GLabel 6060 3085 0    50   Input ~ 0
+A1Back
+Text GLabel 6060 3185 0    50   Input ~ 0
+A2Back
+Text GLabel 8285 2085 2    50   Input ~ 0
+A1Back
+Text GLabel 8285 2185 2    50   Input ~ 0
+A2Back
+NoConn ~ 7885 985 
+NoConn ~ 3590 1105
+$EndSCHEMATC
