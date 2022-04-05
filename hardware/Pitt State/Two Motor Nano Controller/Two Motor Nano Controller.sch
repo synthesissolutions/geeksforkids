@@ -41,7 +41,7 @@ U 1 1 6240E87C
 P 5525 5195
 F 0 "J6" H 5553 5171 50  0000 L CNN
 F 1 "Analog Steering" H 5553 5080 50  0000 L CNN
-F 2 "Project:TerminalBlock_bornier-2_P5.08mm" H 5525 5195 50  0001 C CNN
+F 2 "Project:JST_XH_B2B-XH-A_1x02_P2.54mm_Vertical" H 5525 5195 50  0001 C CNN
 F 3 "~" H 5525 5195 50  0001 C CNN
 	1    5525 5195
 	1    0    0    -1  

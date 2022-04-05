@@ -19,7 +19,7 @@ U 1 1 6249BA04
 P 4605 3250
 F 0 "U1" H 4580 3765 50  0000 C CNN
 F 1 "MCP4728" H 4580 3674 50  0000 C CNN
-F 2 "" H 4605 3250 50  0001 C CNN
+F 2 "Project:Adafruit_MCP4728" H 4605 3250 50  0001 C CNN
 F 3 "" H 4605 3250 50  0001 C CNN
 	1    4605 3250
 	1    0    0    -1  
@@ -30,7 +30,7 @@ U 1 1 6249DF93
 P 6845 3475
 F 0 "U2" H 6820 4190 50  0000 C CNN
 F 1 "PCF8591" H 6820 4099 50  0000 C CNN
-F 2 "" H 6845 3475 50  0001 C CNN
+F 2 "Project:Adafruit_PCF8591" H 6845 3475 50  0001 C CNN
 F 3 "" H 6845 3475 50  0001 C CNN
 	1    6845 3475
 	1    0    0    -1  
@@ -145,7 +145,7 @@ U 1 1 624ABAB0
 P 5665 5800
 F 0 "J8" H 5693 5776 50  0000 L CNN
 F 1 "Throttle Out A" H 5693 5685 50  0000 L CNN
-F 2 "Project:TerminalBlock_bornier-2_P5.08mm" H 5665 5800 50  0001 C CNN
+F 2 "Project:JST_XH_B2B-XH-A_1x02_P2.54mm_Vertical" H 5665 5800 50  0001 C CNN
 F 3 "~" H 5665 5800 50  0001 C CNN
 	1    5665 5800
 	1    0    0    -1  
@@ -156,7 +156,7 @@ U 1 1 624AD368
 P 5645 6155
 F 0 "J6" H 5673 6131 50  0000 L CNN
 F 1 "Throttle Out B" H 5673 6040 50  0000 L CNN
-F 2 "Project:TerminalBlock_bornier-2_P5.08mm" H 5645 6155 50  0001 C CNN
+F 2 "Project:JST_XH_B2B-XH-A_1x02_P2.54mm_Vertical" H 5645 6155 50  0001 C CNN
 F 3 "~" H 5645 6155 50  0001 C CNN
 	1    5645 6155
 	1    0    0    -1  
@@ -167,7 +167,7 @@ U 1 1 624ADC69
 P 5670 6555
 F 0 "J9" H 5698 6531 50  0000 L CNN
 F 1 "Throttle Out C" H 5698 6440 50  0000 L CNN
-F 2 "Project:TerminalBlock_bornier-2_P5.08mm" H 5670 6555 50  0001 C CNN
+F 2 "Project:JST_XH_B2B-XH-A_1x02_P2.54mm_Vertical" H 5670 6555 50  0001 C CNN
 F 3 "~" H 5670 6555 50  0001 C CNN
 	1    5670 6555
 	1    0    0    -1  
@@ -178,7 +178,7 @@ U 1 1 624AE9DC
 P 5655 6885
 F 0 "J7" H 5683 6861 50  0000 L CNN
 F 1 "Throttle Out D" H 5683 6770 50  0000 L CNN
-F 2 "Project:TerminalBlock_bornier-2_P5.08mm" H 5655 6885 50  0001 C CNN
+F 2 "Project:JST_XH_B2B-XH-A_1x02_P2.54mm_Vertical" H 5655 6885 50  0001 C CNN
 F 3 "~" H 5655 6885 50  0001 C CNN
 	1    5655 6885
 	1    0    0    -1  
@@ -189,7 +189,7 @@ U 1 1 624B1727
 P 3650 5640
 F 0 "J2" H 3678 5616 50  0000 L CNN
 F 1 "Reverse Out A" H 3678 5525 50  0000 L CNN
-F 2 "Project:TerminalBlock_bornier-2_P5.08mm" H 3650 5640 50  0001 C CNN
+F 2 "Project:JST_XH_B2B-XH-A_1x02_P2.54mm_Vertical" H 3650 5640 50  0001 C CNN
 F 3 "~" H 3650 5640 50  0001 C CNN
 	1    3650 5640
 	1    0    0    -1  
@@ -200,7 +200,7 @@ U 1 1 624B291C
 P 3675 6035
 F 0 "J3" H 3703 6011 50  0000 L CNN
 F 1 "Reverse Out B" H 3703 5920 50  0000 L CNN
-F 2 "Project:TerminalBlock_bornier-2_P5.08mm" H 3675 6035 50  0001 C CNN
+F 2 "Project:JST_XH_B2B-XH-A_1x02_P2.54mm_Vertical" H 3675 6035 50  0001 C CNN
 F 3 "~" H 3675 6035 50  0001 C CNN
 	1    3675 6035
 	1    0    0    -1  
@@ -211,7 +211,7 @@ U 1 1 624B335E
 P 3690 6505
 F 0 "J4" H 3718 6481 50  0000 L CNN
 F 1 "Reverse Out C" H 3718 6390 50  0000 L CNN
-F 2 "Project:TerminalBlock_bornier-2_P5.08mm" H 3690 6505 50  0001 C CNN
+F 2 "Project:JST_XH_B2B-XH-A_1x02_P2.54mm_Vertical" H 3690 6505 50  0001 C CNN
 F 3 "~" H 3690 6505 50  0001 C CNN
 	1    3690 6505
 	1    0    0    -1  
@@ -222,7 +222,7 @@ U 1 1 624B3BFF
 P 3700 6870
 F 0 "J5" H 3728 6846 50  0000 L CNN
 F 1 "Reverse Out D" H 3728 6755 50  0000 L CNN
-F 2 "Project:TerminalBlock_bornier-2_P5.08mm" H 3700 6870 50  0001 C CNN
+F 2 "Project:JST_XH_B2B-XH-A_1x02_P2.54mm_Vertical" H 3700 6870 50  0001 C CNN
 F 3 "~" H 3700 6870 50  0001 C CNN
 	1    3700 6870
 	1    0    0    -1  
@@ -402,7 +402,7 @@ ReverseSignal
 Text GLabel 7900 1205 0    50   Input ~ 0
 LowVoltageBrakeSignal
 NoConn ~ 7900 1105
-Text GLabel 7885 1685 0    50   Input ~ 0
+Text GLabel 7485 1825 0    50   Input ~ 0
 HighVoltageBrakeSignal
 Text GLabel 5240 1820 0    50   Input ~ 0
 LowVoltageBrakeSignal
@@ -438,12 +438,12 @@ Wire Wire Line
 $Comp
 L power:+12V #PWR019
 U 1 1 624D94E0
-P 7885 1585
-F 0 "#PWR019" H 7885 1435 50  0001 C CNN
-F 1 "+12V" V 7900 1713 50  0000 L CNN
-F 2 "" H 7885 1585 50  0001 C CNN
-F 3 "" H 7885 1585 50  0001 C CNN
-	1    7885 1585
+P 7305 1525
+F 0 "#PWR019" H 7305 1375 50  0001 C CNN
+F 1 "+12V" V 7320 1653 50  0000 L CNN
+F 2 "" H 7305 1525 50  0001 C CNN
+F 3 "" H 7305 1525 50  0001 C CNN
+	1    7305 1525
 	0    -1   -1   0   
 $EndComp
 $Comp
@@ -494,27 +494,13 @@ Wire Wire Line
 	5360 1925 5360 1820
 Wire Wire Line
 	5360 2195 5360 2125
-Wire Wire Line
-	5810 1525 5810 1570
-Wire Wire Line
-	5810 2125 5810 2065
-Wire Wire Line
-	6445 2065 5810 2065
-Connection ~ 5810 2065
-Wire Wire Line
-	5810 2065 5810 2020
-Wire Wire Line
-	6445 1570 5810 1570
-Connection ~ 5810 1570
-Wire Wire Line
-	5810 1570 5810 1620
 $Comp
 L Connector:Conn_01x02_Female J14
 U 1 1 624E7C01
 P 6595 4660
 F 0 "J14" H 6623 4636 50  0000 L CNN
 F 1 "Steering Signal Out A" H 6623 4545 50  0000 L CNN
-F 2 "Project:TerminalBlock_bornier-2_P5.08mm" H 6595 4660 50  0001 C CNN
+F 2 "Project:JST_XH_B2B-XH-A_1x02_P2.54mm_Vertical" H 6595 4660 50  0001 C CNN
 F 3 "~" H 6595 4660 50  0001 C CNN
 	1    6595 4660
 	1    0    0    -1  
@@ -525,7 +511,7 @@ U 1 1 624E8F38
 P 6580 4970
 F 0 "J13" H 6608 4946 50  0000 L CNN
 F 1 "Steering Signal Out B" H 6608 4855 50  0000 L CNN
-F 2 "Project:TerminalBlock_bornier-2_P5.08mm" H 6580 4970 50  0001 C CNN
+F 2 "Project:JST_XH_B2B-XH-A_1x02_P2.54mm_Vertical" H 6580 4970 50  0001 C CNN
 F 3 "~" H 6580 4970 50  0001 C CNN
 	1    6580 4970
 	1    0    0    -1  
@@ -559,16 +545,31 @@ $EndComp
 $Comp
 L Diode:1N4004 D1
 U 1 1 624F1645
-P 6445 1805
-F 0 "D1" V 6399 1884 50  0000 L CNN
-F 1 "1N4004" V 6490 1884 50  0000 L CNN
-F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 6445 1630 50  0001 C CNN
-F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 6445 1805 50  0001 C CNN
-	1    6445 1805
+P 7485 1675
+F 0 "D1" V 7439 1754 50  0000 L CNN
+F 1 "1N4004" V 7530 1754 50  0000 L CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 7485 1500 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 7485 1675 50  0001 C CNN
+	1    7485 1675
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	6445 2065 6445 1955
+	5810 1525 5810 1620
 Wire Wire Line
-	6445 1655 6445 1570
+	5810 2020 5810 2125
+Wire Wire Line
+	7885 1585 7735 1585
+Wire Wire Line
+	7735 1585 7735 1525
+Wire Wire Line
+	7730 1685 7730 1825
+Wire Wire Line
+	7730 1825 7485 1825
+Wire Wire Line
+	7885 1685 7730 1685
+Wire Wire Line
+	7305 1525 7485 1525
+Connection ~ 7485 1525
+Wire Wire Line
+	7485 1525 7735 1525
 $EndSCHEMATC

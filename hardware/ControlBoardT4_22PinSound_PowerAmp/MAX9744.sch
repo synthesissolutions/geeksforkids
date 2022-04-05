@@ -84,9 +84,11 @@ LeftIN
 Text GLabel 3150 3550 0    50   Input ~ 0
 RightIN
 $Comp
-L power:GND1 #PWR052
+L ControlBoardT4_22PinSound_PowerAmp-rescue:GND1-power #PWR052
 U 1 1 5F5FE8D5
 P 3500 4300
+AR Path="/5F5FE8D5" Ref="#PWR052"  Part="1" 
+AR Path="/5F4AD486/5F5FE8D5" Ref="#PWR052"  Part="1" 
 F 0 "#PWR052" H 3500 4050 50  0001 C CNN
 F 1 "GND1" V 3450 4100 50  0000 C CNN
 F 2 "" H 3500 4300 50  0001 C CNN
@@ -229,9 +231,11 @@ Wire Wire Line
 Text Notes 9450 3600 0    50   ~ 0
 +\n-
 $Comp
-L power:GND1 #PWR045
+L ControlBoardT4_22PinSound_PowerAmp-rescue:GND1-power #PWR045
 U 1 1 5F5BDED0
 P 4450 4150
+AR Path="/5F5BDED0" Ref="#PWR045"  Part="1" 
+AR Path="/5F4AD486/5F5BDED0" Ref="#PWR045"  Part="1" 
 F 0 "#PWR045" H 4450 3900 50  0001 C CNN
 F 1 "GND1" V 4430 3910 50  0000 C CNN
 F 2 "" H 4450 4150 50  0001 C CNN
@@ -260,9 +264,11 @@ F 4 "	399-8012-1-ND" H 5050 2350 50  0001 C CNN "DigiKey ID"
 	-1   0    0    1   
 $EndComp
 $Comp
-L power:GND1 #PWR057
+L ControlBoardT4_22PinSound_PowerAmp-rescue:GND1-power #PWR057
 U 1 1 5F58FC4A
 P 5050 2500
+AR Path="/5F58FC4A" Ref="#PWR057"  Part="1" 
+AR Path="/5F4AD486/5F58FC4A" Ref="#PWR057"  Part="1" 
 F 0 "#PWR057" H 5050 2250 50  0001 C CNN
 F 1 "GND1" H 5055 2327 50  0000 C CNN
 F 2 "" H 5050 2500 50  0001 C CNN
@@ -283,9 +289,11 @@ F 4 "	399-8012-1-ND" H 4500 2350 50  0001 C CNN "DigiKey ID"
 	-1   0    0    1   
 $EndComp
 $Comp
-L power:GND1 #PWR053
+L ControlBoardT4_22PinSound_PowerAmp-rescue:GND1-power #PWR053
 U 1 1 5F58783B
 P 4500 2500
+AR Path="/5F58783B" Ref="#PWR053"  Part="1" 
+AR Path="/5F4AD486/5F58783B" Ref="#PWR053"  Part="1" 
 F 0 "#PWR053" H 4500 2250 50  0001 C CNN
 F 1 "GND1" H 4505 2327 50  0000 C CNN
 F 2 "" H 4500 2500 50  0001 C CNN
@@ -294,9 +302,11 @@ F 3 "" H 4500 2500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND1 #PWR051
+L ControlBoardT4_22PinSound_PowerAmp-rescue:GND1-power #PWR051
 U 1 1 5F586250
 P 3950 2500
+AR Path="/5F586250" Ref="#PWR051"  Part="1" 
+AR Path="/5F4AD486/5F586250" Ref="#PWR051"  Part="1" 
 F 0 "#PWR051" H 3950 2250 50  0001 C CNN
 F 1 "GND1" H 3955 2327 50  0000 C CNN
 F 2 "" H 3950 2500 50  0001 C CNN
@@ -388,9 +398,11 @@ F 3 "" H 7050 4850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND1 #PWR064
+L ControlBoardT4_22PinSound_PowerAmp-rescue:GND1-power #PWR064
 U 1 1 5F50B05E
 P 7600 4850
+AR Path="/5F50B05E" Ref="#PWR064"  Part="1" 
+AR Path="/5F4AD486/5F50B05E" Ref="#PWR064"  Part="1" 
 F 0 "#PWR064" H 7600 4600 50  0001 C CNN
 F 1 "GND1" V 7600 4650 50  0000 C CNN
 F 2 "" H 7600 4850 50  0001 C CNN
@@ -490,9 +502,11 @@ Connection ~ 8400 3600
 Wire Wire Line
 	8250 3600 8400 3600
 $Comp
-L power:GND1 #PWR065
+L ControlBoardT4_22PinSound_PowerAmp-rescue:GND1-power #PWR065
 U 1 1 5F4FAF9C
 P 8400 3600
+AR Path="/5F4FAF9C" Ref="#PWR065"  Part="1" 
+AR Path="/5F4AD486/5F4FAF9C" Ref="#PWR065"  Part="1" 
 F 0 "#PWR065" H 8400 3350 50  0001 C CNN
 F 1 "GND1" H 8405 3427 50  0000 C CNN
 F 2 "" H 8400 3600 50  0001 C CNN
@@ -580,9 +594,11 @@ F 4 "	399-8000-1-ND" H 6850 3300 50  0001 C CNN "DigiKey ID"
 	0    1    1    0   
 $EndComp
 $Comp
-L power:GND1 #PWR060
+L ControlBoardT4_22PinSound_PowerAmp-rescue:GND1-power #PWR060
 U 1 1 5F4EEB60
 P 6700 2350
+AR Path="/5F4EEB60" Ref="#PWR060"  Part="1" 
+AR Path="/5F4AD486/5F4EEB60" Ref="#PWR060"  Part="1" 
 F 0 "#PWR060" H 6700 2100 50  0001 C CNN
 F 1 "GND1" H 6705 2177 50  0000 C CNN
 F 2 "" H 6700 2350 50  0001 C CNN
@@ -591,9 +607,11 @@ F 3 "" H 6700 2350 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L power:GND1 #PWR055
+L ControlBoardT4_22PinSound_PowerAmp-rescue:GND1-power #PWR055
 U 1 1 5F4ED503
 P 5700 5300
+AR Path="/5F4ED503" Ref="#PWR055"  Part="1" 
+AR Path="/5F4AD486/5F4ED503" Ref="#PWR055"  Part="1" 
 F 0 "#PWR055" H 5700 5050 50  0001 C CNN
 F 1 "GND1" H 5705 5127 50  0000 C CNN
 F 2 "" H 5700 5300 50  0001 C CNN
@@ -632,9 +650,11 @@ F 4 "	399-8000-1-ND" H 6200 2700 50  0001 C CNN "DigiKey ID"
 	0    1    1    0   
 $EndComp
 $Comp
-L power:GND1 #PWR058
+L ControlBoardT4_22PinSound_PowerAmp-rescue:GND1-power #PWR058
 U 1 1 5F4EA408
 P 6350 2700
+AR Path="/5F4EA408" Ref="#PWR058"  Part="1" 
+AR Path="/5F4AD486/5F4EA408" Ref="#PWR058"  Part="1" 
 F 0 "#PWR058" H 6350 2450 50  0001 C CNN
 F 1 "GND1" H 6355 2527 50  0000 C CNN
 F 2 "" H 6350 2700 50  0001 C CNN
@@ -721,9 +741,11 @@ F 3 "" H 3500 2500 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L power:GND1 #PWR0106
+L ControlBoardT4_22PinSound_PowerAmp-rescue:GND1-power #PWR0106
 U 1 1 5F59C7EF
 P 3500 2500
+AR Path="/5F59C7EF" Ref="#PWR0106"  Part="1" 
+AR Path="/5F4AD486/5F59C7EF" Ref="#PWR0106"  Part="1" 
 F 0 "#PWR0106" H 3500 2250 50  0001 C CNN
 F 1 "GND1" H 3505 2327 50  0000 C CNN
 F 2 "" H 3500 2500 50  0001 C CNN
