@@ -116,15 +116,9 @@ F 3 "" H 6920 4560 50  0001 C CNN
 	1    6920 4560
 	0    1    1    0   
 $EndComp
-NoConn ~ 8990 3530
-NoConn ~ 8990 3430
-NoConn ~ 8990 3330
 NoConn ~ 8990 2830
-NoConn ~ 8990 3630
 NoConn ~ 8990 3730
 NoConn ~ 8990 3830
-NoConn ~ 8990 2930
-NoConn ~ 8990 3230
 NoConn ~ 9490 3030
 Text Notes 9240 3430 0    50   ~ 0
 T\nR\nU
@@ -652,4 +646,105 @@ RxA7
 Text GLabel 6290 3170 2    50   Input ~ 0
 TxA6
 NoConn ~ 3840 3470
+Text GLabel 8990 2930 0    50   Input ~ 0
+Sound0
+Text GLabel 8990 3230 0    50   Input ~ 0
+Sound3
+Text GLabel 8990 3330 0    50   Input ~ 0
+Sound4
+Text GLabel 8990 3430 0    50   Input ~ 0
+Sound5
+Text GLabel 8990 3530 0    50   Input ~ 0
+Sound6
+Text GLabel 8990 3630 0    50   Input ~ 0
+Sound7
+$Comp
+L Connector_Generic:Conn_02x06_Odd_Even J16
+U 1 1 6251B752
+P 8965 4725
+F 0 "J16" H 9015 5142 50  0000 C CNN
+F 1 "Additional Sound Header" H 9015 5051 50  0000 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_2x06_P2.54mm_Vertical" H 8965 4725 50  0001 C CNN
+F 3 "~" H 8965 4725 50  0001 C CNN
+	1    8965 4725
+	1    0    0    -1  
+$EndComp
+Text GLabel 8765 4525 0    50   Input ~ 0
+Sound0
+Text GLabel 8765 4625 0    50   Input ~ 0
+Sound3
+Text GLabel 8765 4725 0    50   Input ~ 0
+Sound4
+Text GLabel 8765 4825 0    50   Input ~ 0
+Sound5
+Text GLabel 8765 4925 0    50   Input ~ 0
+Sound6
+Text GLabel 8765 5025 0    50   Input ~ 0
+Sound7
+$Comp
+L power:GND #PWR017
+U 1 1 6251E13E
+P 9265 4525
+F 0 "#PWR017" H 9265 4275 50  0001 C CNN
+F 1 "GND" V 9265 4375 50  0000 R CNN
+F 2 "" H 9265 4525 50  0001 C CNN
+F 3 "" H 9265 4525 50  0001 C CNN
+	1    9265 4525
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR018
+U 1 1 6251EF8C
+P 9265 4625
+F 0 "#PWR018" H 9265 4375 50  0001 C CNN
+F 1 "GND" V 9265 4475 50  0000 R CNN
+F 2 "" H 9265 4625 50  0001 C CNN
+F 3 "" H 9265 4625 50  0001 C CNN
+	1    9265 4625
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR020
+U 1 1 6251F484
+P 9265 4725
+F 0 "#PWR020" H 9265 4475 50  0001 C CNN
+F 1 "GND" V 9265 4575 50  0000 R CNN
+F 2 "" H 9265 4725 50  0001 C CNN
+F 3 "" H 9265 4725 50  0001 C CNN
+	1    9265 4725
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR021
+U 1 1 6251F903
+P 9265 4825
+F 0 "#PWR021" H 9265 4575 50  0001 C CNN
+F 1 "GND" V 9265 4675 50  0000 R CNN
+F 2 "" H 9265 4825 50  0001 C CNN
+F 3 "" H 9265 4825 50  0001 C CNN
+	1    9265 4825
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR022
+U 1 1 6251FD7F
+P 9265 4925
+F 0 "#PWR022" H 9265 4675 50  0001 C CNN
+F 1 "GND" V 9265 4775 50  0000 R CNN
+F 2 "" H 9265 4925 50  0001 C CNN
+F 3 "" H 9265 4925 50  0001 C CNN
+	1    9265 4925
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR023
+U 1 1 6252010C
+P 9265 5025
+F 0 "#PWR023" H 9265 4775 50  0001 C CNN
+F 1 "GND" V 9265 4875 50  0000 R CNN
+F 2 "" H 9265 5025 50  0001 C CNN
+F 3 "" H 9265 5025 50  0001 C CNN
+	1    9265 5025
+	0    -1   -1   0   
+$EndComp
 $EndSCHEMATC

@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name DAC-ADC)(type Legacy)(uri ${KIPRJMOD}/DAC-ADC.lib)(options "")(descr ""))
+)

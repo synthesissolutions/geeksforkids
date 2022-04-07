@@ -51,7 +51,7 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-ADC_HandleTypeDef hadc1;
+ ADC_HandleTypeDef hadc1;
 DMA_HandleTypeDef hdma_adc1;
 
 TIM_HandleTypeDef htim3;
@@ -117,7 +117,8 @@ int main(void)
   MX_DMA_Init();
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
-
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -138,16 +139,15 @@ int main(void)
 	}
 
 	pwmSteering = map(rawSinData, MIN_SENSOR, MAX_SENSOR, STEERING_LEFT, STEERING_RIGHT);
+	throttleOn = ! HAL_GPIO_ReadPin(GO_BUTON_GPIO_Port, GO_BUTON_Pin);
 
 	if (!HAL_GPIO_ReadPin(REVERSE_SWITCH_GPIO_Port, REVERSE_SWITCH_Pin)) {
-		HAL_GPIO_WritePin(LED_REVERSE_GPIO_Port, LED_REVERSE_Pin, 1);
 		if (throttleOn) {
 			pwmThrottle = THROTTLE_REVERSE;
 		} else {
 			pwmThrottle = THROTTLE_OFF;
 		}
 	} else {
-		HAL_GPIO_WritePin(LED_REVERSE_GPIO_Port, LED_REVERSE_Pin, 0);
 		if (throttleOn) {
 			pwmThrottle = THROTTLE_FORWARD;
 		} else {
@@ -177,6 +177,7 @@ void SystemClock_Config(void)
   /** Configure the main internal regulator output voltage
   */
   HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1);
+
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
@@ -187,6 +188,7 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+
   /** Initializes the CPU, AHB and APB buses clocks
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
@@ -218,6 +220,7 @@ static void MX_ADC1_Init(void)
   /* USER CODE BEGIN ADC1_Init 1 */
 
   /* USER CODE END ADC1_Init 1 */
+
   /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
   */
   hadc1.Instance = ADC1;
@@ -230,7 +233,6 @@ static void MX_ADC1_Init(void)
   hadc1.Init.LowPowerAutoPowerOff = DISABLE;
   hadc1.Init.ContinuousConvMode = DISABLE;
   hadc1.Init.NbrOfConversion = 1;
-  hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
   hadc1.Init.DMAContinuousRequests = DISABLE;
@@ -243,6 +245,7 @@ static void MX_ADC1_Init(void)
   {
     Error_Handler();
   }
+
   /** Configure Regular Channel
   */
   sConfig.Channel = ADC_CHANNEL_2;
@@ -345,7 +348,7 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin : GO_BUTON_Pin */
   GPIO_InitStruct.Pin = GO_BUTON_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GO_BUTON_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : REVERSE_SWITCH_Pin */
@@ -391,4 +394,3 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
-
