@@ -282,11 +282,12 @@ class Throttle {
     }
     
     void getStatus(char * status) {
-        sprintf(status, "[Throttle] target:%i current:%f DAC:%i isBraking: %s isStopping: %s",
+        sprintf(status, "[Throttle] target:%i current:%f DAC:%i isBraking: %s isStopping: %s isMovingForward: %s",
           throttleTargetScaled,
           currentThrottleScaled,
           currentDacOut,
           isBraking ? "true" : "false",
-          isStopped ? "true" : "false");
+          isStopped ? "true" : "false",
+          isMovingForward ? "true" : "false");
     }
 };
