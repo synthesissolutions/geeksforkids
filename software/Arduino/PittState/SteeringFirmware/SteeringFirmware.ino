@@ -7,11 +7,11 @@
 #if defined(FRONT_LEFT)
   #define STEERING_DIRECTION_NORMAL   true
   #define STEPPER_DIRECTION_INVERTED  false
-  #define BUFFER_FROM_SWITCH_IN_STEPS 30
+  #define BUFFER_FROM_SWITCH_IN_STEPS 28
 #elif defined(FRONT_RIGHT)
   #define STEERING_DIRECTION_NORMAL   true
   #define STEPPER_DIRECTION_INVERTED  true
-  #define BUFFER_FROM_SWITCH_IN_STEPS 50
+  #define BUFFER_FROM_SWITCH_IN_STEPS 22
 #elif defined(BACK_LEFT)
   #define STEERING_DIRECTION_NORMAL   false
   #define STEPPER_DIRECTION_INVERTED  true
@@ -30,7 +30,7 @@
 
 AccelStepper stepperMotor = AccelStepper(AccelStepper::DRIVER, PULSE_PIN, DIR_PIN);
 
-#define LIMIT_SWITCH_PIN         A0
+#define LIMIT_SWITCH_PIN                    A0
 #define ANALOG_STEERING_SIGNAL_PIN          A4
 
 #define STEPS_PER_ROTATION        800
@@ -67,19 +67,19 @@ void setup()
   Serial.println("22.2 Beta Pitt State Steering Single");
 
   pinMode(ANALOG_STEERING_SIGNAL_PIN, INPUT);
-  pinMode(LIMIT_SWITCH_PIN, INPUT_PULLUP);
+  pinMode(LIMIT_SWITCH_PIN, INPUT_PULLDOWN);
 
-    stepperMotor.setEnablePin(ENABLE_PIN);
-    stepperMotor.setMaxSpeed(1000);
-    stepperMotor.enableOutputs();
-    stepperMotor.setPinsInverted();
-    //stepperMotor.setMinPulseWidth(3);
-    
-    if (stepperDirectionInverted) {
-      stepperMotor.setSpeed(-SPEED);
-    } else {
-      stepperMotor.setSpeed(SPEED);
-    }
+  //stepperMotor.setEnablePin(ENABLE_PIN);
+  stepperMotor.setMaxSpeed(1000);
+  //stepperMotor.enableOutputs();
+  //stepperMotor.setPinsInverted();
+  //stepperMotor.setMinPulseWidth(3);
+  
+  if (stepperDirectionInverted) {
+    stepperMotor.setSpeed(-SPEED);
+  } else {
+    stepperMotor.setSpeed(SPEED);
+  }
 
   initializationStartTime = millis();
 }
@@ -102,7 +102,7 @@ void loop()
     }
     
     if (!switchFound) {
-      if (!digitalRead(LIMIT_SWITCH_PIN)) {
+      if (digitalRead(LIMIT_SWITCH_PIN)) {
         switchFound = true;
         Serial.println("Limit Switch Found");
         long switchPosition = stepperMotor.currentPosition();
@@ -154,7 +154,7 @@ void loop()
   } else {
     // Startup is finished, handle steering
     // if the limit switch is not pressed
-    if (digitalRead(LIMIT_SWITCH_PIN)) {
+    if (!digitalRead(LIMIT_SWITCH_PIN)) {
       long currentStepperPosition = stepperMotor.currentPosition();
       uint16_t currentScaledTarget = getCurrentScaledTarget();
 
@@ -194,7 +194,7 @@ void loop()
   }
 }
 
-uint16_t getCurrentScaledTarget() {
+  uint16_t getCurrentScaledTarget() {
   uint16_t currentScaledTarget = analogRead(ANALOG_STEERING_SIGNAL_PIN);
   currentScaledTarget = constrain(currentScaledTarget, 0, 500);
 
