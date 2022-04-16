@@ -2,15 +2,15 @@
 
 #define CENTER_STARTUP_MODE
 
-#define FRONT_LEFT
+#define BACK_LEFT
 
 #if defined(FRONT_LEFT)
   #define STEERING_DIRECTION_NORMAL   true
-  #define STEPPER_DIRECTION_INVERTED  false
+  #define STEPPER_DIRECTION_INVERTED  true
   #define BUFFER_FROM_SWITCH_IN_STEPS 50
 #elif defined(FRONT_RIGHT)
   #define STEERING_DIRECTION_NORMAL   true
-  #define STEPPER_DIRECTION_INVERTED  false
+  #define STEPPER_DIRECTION_INVERTED  true
   #define BUFFER_FROM_SWITCH_IN_STEPS 50
 #elif defined(BACK_LEFT)
   #define STEERING_DIRECTION_NORMAL   false
@@ -26,11 +26,8 @@
 #define DIR_PIN       3
 #define ENABLE_PIN    2
 
-#define MAX_STARTUP_TIME_MILLIS   2500
 #define STEERING_READINGS         10
 #define STEERING_READINGS_DELAY_MILLIS  30
-
-FlexyStepper stepperMotor;
 
 #define LIMIT_SWITCH_PIN                    A0
 #define ANALOG_STEERING_SIGNAL_PIN          A4
@@ -39,9 +36,9 @@ FlexyStepper stepperMotor;
 #define STEPS_CLOSE_ENOUGH        3  // number of steps away from current target considered close enough
 #define MOVEMENT_RANGE_DEGREES    90.0
 #define SPEED                     200
+#define ACCELERATION              1000  // steps per second per second
 
-boolean switchFound = false;
-boolean centerFound = false;
+FlexyStepper stepperMotor;
 
 long initializationStartTime;
 boolean startupComplete = false;
@@ -71,8 +68,8 @@ void setup()
 
   stepperMotor.connectToPins(PULSE_PIN, DIR_PIN);
   
-  stepperMotor.setSpeedInStepsPerSecond(200);
-  stepperMotor.setAccelerationInStepsPerSecondPerSecond(1000);
+  stepperMotor.setSpeedInStepsPerSecond(SPEED);
+  stepperMotor.setAccelerationInStepsPerSecondPerSecond(ACCELERATION);
 
   initializationStartTime = millis();
 }
@@ -95,49 +92,34 @@ void loop()
   
   // Startup is complete either when all steppers have touched their limit switch
   // and then moved to their calculated center position
-  // or when time has elasped and that has not occured for all stepper motors
+  // If the limit switch is not found with a limitted number of steps, initialization fails
   if (startupFailed) {
-    
+    while (true) {
+      // just stay here, no movement of the stepper motor is allowed
+      delay(10);
+    }
   } else if (!startupComplete) {
-    // Check to see if the startup time has expired before startup is complete
-    if (millis() - initializationStartTime > MAX_STARTUP_TIME_MILLIS) {
+    // Move to the limit switch
+    // if not found enter error mode
+    if (!moveToLimitSwitch(rangeSteps)) {
+      // The limit switch wasn't found
       startupFailed = true;
-      Serial.println("Start failed. Max Initialization time exceeded.");
+      Serial.println("Start failed. Limit switch not found.");
       stepperMotor.setTargetPositionToStop();
 
       return;
     }
-    
-    if (!switchFound) {
-      if (limitSwitchPressed()) {
-        switchFound = true;
-        Serial.println("Limit Switch Found");
 
-        calculateStepperLimits();
-        
-        stepperMotor.setTargetPositionInSteps(stepperCenter);
-      } else {
-        stepperMotor.processMovement();
-      }
-    } else if (!centerFound) {
-      if (stepperMotor.motionComplete()) {
-        Serial.println("Found Center");
+    calculateStepperLimits();
+    moveToPositionInSteps(center); // Blocking until the move is complete
 
-        centerFound = true;
-        stepperMotor.setTargetPositionToStop();
-      } else {
-        stepperMotor.processMovement();
-      }
-    }
-
-    if (centerFound) {
-      startupComplete = true;
-      Serial.println("Initialization completed successfully!");
-    }
+    startupComplete = true;
+    Serial.println("Initialization completed successfully!");
   } else {
-    long currentStepperPosition = stepperMotor.getCurrentPositionInSteps();
-          
     // Startup is finished, handle steering
+
+    long currentStepperPosition = stepperMotor.getCurrentPositionInSteps();
+
     // if the limit switch is not pressed
     if (!limitSwitchPressed()) {
 
