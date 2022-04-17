@@ -2,24 +2,27 @@
 
 #define CENTER_STARTUP_MODE
 
-#define BACK_LEFT
+#define BACK_RIGHT
+
+// The rear wheels steer in opposite directions from the front wheels
+// set STEERING_DIRECTION_NORMAL to true for the front wheels and false for rear wheels
 
 #if defined(FRONT_LEFT)
-  #define STEERING_DIRECTION_NORMAL   true
-  #define STEPPER_DIRECTION_INVERTED  true
-  #define BUFFER_FROM_SWITCH_IN_STEPS 50
+  #define STEERING_DIRECTION_NORMAL             true
+  #define DIRECTION_TO_LIMIT_SWITCH_CLOCKWISE   true
+  #define BUFFER_FROM_SWITCH_IN_STEPS           50
 #elif defined(FRONT_RIGHT)
-  #define STEERING_DIRECTION_NORMAL   true
-  #define STEPPER_DIRECTION_INVERTED  true
-  #define BUFFER_FROM_SWITCH_IN_STEPS 50
+  #define STEERING_DIRECTION_NORMAL             true
+  #define DIRECTION_TO_LIMIT_SWITCH_CLOCKWISE   false
+  #define BUFFER_FROM_SWITCH_IN_STEPS           50
 #elif defined(BACK_LEFT)
-  #define STEERING_DIRECTION_NORMAL   false
-  #define STEPPER_DIRECTION_INVERTED  false
-  #define BUFFER_FROM_SWITCH_IN_STEPS 50
+  #define STEERING_DIRECTION_NORMAL             false
+  #define DIRECTION_TO_LIMIT_SWITCH_CLOCKWISE   false
+  #define BUFFER_FROM_SWITCH_IN_STEPS           50
 #elif defined(BACK_RIGHT)
-  #define STEERING_DIRECTION_NORMAL   false
-  #define STEPPER_DIRECTION_INVERTED  false
-  #define BUFFER_FROM_SWITCH_IN_STEPS 50
+  #define STEERING_DIRECTION_NORMAL             false
+  #define DIRECTION_TO_LIMIT_SWITCH_CLOCKWISE   true
+  #define BUFFER_FROM_SWITCH_IN_STEPS           50
 #endif
 
 #define PULSE_PIN     4
@@ -45,11 +48,6 @@ boolean startupComplete = false;
 boolean startupFailed = false;
 
 long stepperMin, stepperCenter, stepperMax;
-
-// The rear wheels steer in opposite directions from the front wheels
-// set to true for the front wheels and false for rear wheels
-boolean steeringDirectionNormal = STEERING_DIRECTION_NORMAL;
-boolean stepperDirectionInverted = STEPPER_DIRECTION_INVERTED;
 
 // how far from the limit switch does the movement range start
 // this can be adjusted per wheel to account for limit switch positioning differences
@@ -101,7 +99,7 @@ void loop()
   } else if (!startupComplete) {
     // Move to the limit switch
     // if not found enter error mode
-    if (!moveToLimitSwitch(rangeSteps)) {
+    if (!moveToLimitSwitch(STEPS_PER_ROTATION / 2)) {
       // The limit switch wasn't found
       startupFailed = true;
       Serial.println("Start failed. Limit switch not found.");
@@ -111,7 +109,7 @@ void loop()
     }
 
     calculateStepperLimits();
-    moveToPositionInSteps(center); // Blocking until the move is complete
+    stepperMotor.moveToPositionInSteps(stepperCenter); // Blocking until the move is complete
 
     startupComplete = true;
     Serial.println("Initialization completed successfully!");
@@ -126,7 +124,7 @@ void loop()
       uint16_t currentScaledTarget = getCurrentScaledTarget();
       long currentStepperTarget;
       
-      if (steeringDirectionNormal) {
+      if (STEERING_DIRECTION_NORMAL) {
         // Direction is inverted (rear wheels)
         currentStepperTarget = map(500-currentScaledTarget, 0, 500, stepperMin, stepperMax);  
       } else {
@@ -161,6 +159,27 @@ void loop()
       stepperMotor.setTargetPositionInSteps(currentStepperPosition);
     }
   }
+}
+
+// This function blocks until either the limit switch is found
+// or the max number of steps have been reached
+boolean moveToLimitSwitch(long maxSteps) {
+  stepperMotor.setCurrentPositionInSteps(0);
+
+  if (DIRECTION_TO_LIMIT_SWITCH_CLOCKWISE) {
+    stepperMotor.setTargetPositionInSteps(maxSteps);
+  } else {
+    stepperMotor.setTargetPositionInSteps(-maxSteps);
+  }
+
+  while (!stepperMotor.motionComplete()) {
+    if (limitSwitchPressed()) {
+      return true;
+    }
+    stepperMotor.processMovement();
+  }
+
+  return false;
 }
 
 uint16_t getCurrentScaledTarget() {
@@ -201,8 +220,11 @@ uint16_t getCurrentScaledTarget() {
 }
 
 boolean limitSwitchPressed() {
-  return false;
-  //return digitalRead(LIMIT_SWITCH_PIN);
+  #if defined(CENTER_STARTUP_MODE)
+    return false;
+  #else
+    return digitalRead(LIMIT_SWITCH_PIN);
+  #endif
 }
 
 void calculateStepperLimits() {
@@ -211,14 +233,14 @@ void calculateStepperLimits() {
   Serial.print("Switch Position: ");
   Serial.println(switchPosition);
 
-  if (stepperDirectionInverted) {
-    stepperMin = switchPosition + bufferFromSwitchInSteps;
-    stepperCenter = stepperMin + (rangeSteps / 2);
-    stepperMax = stepperMin + rangeSteps;
-  } else {
+  if (DIRECTION_TO_LIMIT_SWITCH_CLOCKWISE) {
     stepperMax = switchPosition - bufferFromSwitchInSteps;
     stepperCenter = stepperMax - (rangeSteps / 2);
     stepperMin = stepperMax - rangeSteps;
+  } else {
+    stepperMin = switchPosition + bufferFromSwitchInSteps;
+    stepperCenter = stepperMin + (rangeSteps / 2);
+    stepperMax = stepperMin + rangeSteps;
   }
 
 
@@ -236,16 +258,9 @@ void calculateStepperLimitsCenterStart() {
   Serial.print("Switch Position: ");
   Serial.println(switchPosition);
 
-  if (stepperDirectionInverted) {
-    stepperMin = switchPosition - (rangeSteps / 2);
-    stepperCenter = switchPosition;
-    stepperMax = switchPosition + (rangeSteps / 2);
-  } else {
-    stepperMin = switchPosition + (rangeSteps / 2);
-    stepperCenter = switchPosition;
-    stepperMax = switchPosition - (rangeSteps / 2);
-  }
-
+  stepperMin = switchPosition - (rangeSteps / 2);
+  stepperCenter = switchPosition;
+  stepperMax = switchPosition + (rangeSteps / 2);
 
   Serial.print("Min, Center, Max: ");
   Serial.print(stepperMin);
