@@ -61,6 +61,8 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define SENSOR_SIN_Pin GPIO_PIN_2
 #define SENSOR_SIN_GPIO_Port GPIOA
+#define SENSOR_COS_Pin GPIO_PIN_3
+#define SENSOR_COS_GPIO_Port GPIOA
 #define GO_BUTON_Pin GPIO_PIN_6
 #define GO_BUTON_GPIO_Port GPIOC
 #define REVERSE_SWITCH_Pin GPIO_PIN_12
