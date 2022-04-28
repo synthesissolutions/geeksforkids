@@ -9,17 +9,17 @@ CDefines=USE_HAL_DRIVER;STM32G031xx;USE_HAL_DRIVER;USE_HAL_DRIVER;
 [PreviousGenFiles]
 AdvancedFolderStructure=true
 HeaderFileListSize=3
-HeaderFiles#0=C:/Users/itops/GitHub/geeksforkids/software/STM32Workspace/STM32G031G8_ControlPanelFirmware/Core/Inc/stm32g0xx_it.h
-HeaderFiles#1=C:/Users/itops/GitHub/geeksforkids/software/STM32Workspace/STM32G031G8_ControlPanelFirmware/Core/Inc/stm32g0xx_hal_conf.h
-HeaderFiles#2=C:/Users/itops/GitHub/geeksforkids/software/STM32Workspace/STM32G031G8_ControlPanelFirmware/Core/Inc/main.h
+HeaderFiles#0=C:/Users/dsher/GitHub/geeksforkids/software/STM32Workspace/STM32G031G8_ControlPanelFirmware/Core/Inc/stm32g0xx_it.h
+HeaderFiles#1=C:/Users/dsher/GitHub/geeksforkids/software/STM32Workspace/STM32G031G8_ControlPanelFirmware/Core/Inc/stm32g0xx_hal_conf.h
+HeaderFiles#2=C:/Users/dsher/GitHub/geeksforkids/software/STM32Workspace/STM32G031G8_ControlPanelFirmware/Core/Inc/main.h
 HeaderFolderListSize=1
-HeaderPath#0=C:/Users/itops/GitHub/geeksforkids/software/STM32Workspace/STM32G031G8_ControlPanelFirmware/Core/Inc
+HeaderPath#0=C:/Users/dsher/GitHub/geeksforkids/software/STM32Workspace/STM32G031G8_ControlPanelFirmware/Core/Inc
 HeaderFiles=;
 SourceFileListSize=3
-SourceFiles#0=C:/Users/itops/GitHub/geeksforkids/software/STM32Workspace/STM32G031G8_ControlPanelFirmware/Core/Src/stm32g0xx_it.c
-SourceFiles#1=C:/Users/itops/GitHub/geeksforkids/software/STM32Workspace/STM32G031G8_ControlPanelFirmware/Core/Src/stm32g0xx_hal_msp.c
-SourceFiles#2=C:/Users/itops/GitHub/geeksforkids/software/STM32Workspace/STM32G031G8_ControlPanelFirmware/Core/Src/main.c
+SourceFiles#0=C:/Users/dsher/GitHub/geeksforkids/software/STM32Workspace/STM32G031G8_ControlPanelFirmware/Core/Src/stm32g0xx_it.c
+SourceFiles#1=C:/Users/dsher/GitHub/geeksforkids/software/STM32Workspace/STM32G031G8_ControlPanelFirmware/Core/Src/stm32g0xx_hal_msp.c
+SourceFiles#2=C:/Users/dsher/GitHub/geeksforkids/software/STM32Workspace/STM32G031G8_ControlPanelFirmware/Core/Src/main.c
 SourceFolderListSize=1
-SourcePath#0=C:/Users/itops/GitHub/geeksforkids/software/STM32Workspace/STM32G031G8_ControlPanelFirmware/Core/Src
+SourcePath#0=C:/Users/dsher/GitHub/geeksforkids/software/STM32Workspace/STM32G031G8_ControlPanelFirmware/Core/Src
 SourceFiles=;
 
