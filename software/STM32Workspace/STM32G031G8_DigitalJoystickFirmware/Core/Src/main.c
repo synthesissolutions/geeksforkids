@@ -311,17 +311,17 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : REVERSE_PAD_Pin */
-  GPIO_InitStruct.Pin = REVERSE_PAD_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(REVERSE_PAD_GPIO_Port, &GPIO_InitStruct);
-
   /*Configure GPIO pin : FORWARD_PAD_Pin */
   GPIO_InitStruct.Pin = FORWARD_PAD_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(FORWARD_PAD_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : REVERSE_PAD_Pin */
+  GPIO_InitStruct.Pin = REVERSE_PAD_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(REVERSE_PAD_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : RIGHT_PAD_Pin LEFT_PAD_Pin */
   GPIO_InitStruct.Pin = RIGHT_PAD_Pin|LEFT_PAD_Pin;
