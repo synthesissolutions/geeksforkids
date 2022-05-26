@@ -43,13 +43,13 @@
  TIM_HandleTypeDef htim3;
 
 /* USER CODE BEGIN PV */
-THROTTLE_OFF = 500;
-THROTTLE_FORWARD = 800;
-THROTTLE_REVERSE = 200;
+#define THROTTLE_OFF		500;
+#define THROTTLE_FORWARD	800;
+#define THROTTLE_REVERSE	200;
 
-STEERING_STRAIGHT = 500;
-STEERING_LEFT = 200;
-STEERING_RIGHT = 800;
+#define STEERING_STRAIGHT	500;
+#define STEERING_LEFT		200;
+#define STEERING_RIGHT		800;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -156,9 +156,6 @@ int main(void)
 			  pwmThrottle = THROTTLE_OFF;
 		  }
 	  }
-
-	  //__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_3, 0);
-	  //__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 5);
 
 	  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_3, pwmSteering);
 	  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, pwmThrottle);
