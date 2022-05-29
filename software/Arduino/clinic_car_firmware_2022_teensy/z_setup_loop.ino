@@ -98,7 +98,7 @@ void loop() {
   if (!isConfiguring && !isLogging && Serial) {
     // We have detected a Serial connection, check to see if we want logging or configuration
     Serial.println("Press c to configure or any other key to run with logging");
-    throttle.setThrottle(0, 0);
+    throttle.setThrottle(0, 0, 0);
 
     while (!isConfiguring && !isLogging) {
       if (Serial.available() > 0) {
@@ -120,7 +120,7 @@ void loop() {
   
   if (isConfiguring) {
     // When configuration is active, the car cannot be driven.
-    throttle.setThrottle(0, 0);
+    throttle.setThrottle(0, 0, 0);
 
     configuration.configureCar();
     // We will never return from this method.
@@ -133,7 +133,7 @@ void loop() {
     // To prevent this from happening, we disable the car if this is detected.
     // A full power cycle is required to break out of this condition.
     logger.addLogLine("Bad Start");
-    throttle.setThrottle(0, 0);
+    throttle.setThrottle(0, 0, 0);
   } else {
     // recalculate the scaled RC throttle and steering values
     // this is necessary to know whether or not the RC is active
@@ -153,7 +153,7 @@ void loop() {
       }
   
       // set the inputs from the RC
-      throttle.setThrottle(remoteControl.getThrottleScaled(), remoteControl.getSteeringScaled());
+      throttle.setThrottle(remoteControl.getThrottleScaled(), remoteControl.getSteeringScaled(), 100 * configuration.getSpeedMultiplier());
     } else {
       
       // Nope... the parent isn't controlling
@@ -169,7 +169,7 @@ void loop() {
         // set the inputs from the Joystick
         // we need to get the speed multiplier each time,
         // because the speed potentiometer can be turned at any time to adjust the max speed
-        throttle.setThrottle(joystick.getYAxisScaled() * configuration.getSpeedMultiplier(), joystick.getXAxisScaled());
+        throttle.setThrottle(joystick.getYAxisScaled() * configuration.getSpeedMultiplier(), joystick.getXAxisScaled(), 100 * configuration.getSpeedMultiplier());
       } else {
   
         // Whoops ... we got here becuase neither control is active.  Nobody is going anywhere until that changes.

@@ -13,6 +13,8 @@ class Throttle {
 
   private:
 
+    enum direction {Forward = 1, Backward = 0}; 
+
     int directionLeftPin;
     int speedPwmLeftPin;
     int directionRightPin;
@@ -21,8 +23,10 @@ class Throttle {
     int throttleTargetScaled = 0;
     float currentThrottleScaled = 0;
     int currentPwmOut = 0;
-    bool leftDirectionForward = true;
-    bool rightDirectionForward = true;
+    bool leftMotorOn = false;
+    bool rightMotorOn = false;
+    direction leftMotorDirection = Forward;
+    direction rightMotorDirection = Forward;
 
     unsigned long lastThrottleUpdateMillis = 0;
 
@@ -55,33 +59,73 @@ class Throttle {
      * Expected range for throttle is -100 to 100, 0=stopped
      * for steering -100 spin left, 0 go straight, 100 spin right
      */
-    void setThrottle(int throttle, int steering) {
+    void setThrottle(int throttle, int steering, int turnSpeed) {
       // We always set the throttle to a positive value with the spinning car
       // then control direction using the left/right direction settings
+
+      int absThrottle = abs(throttle);
       if (steering > 20) {
         // Spin Right
-        this->throttleTargetScaled = abs(throttle);
-        leftDirectionForward = true;
-        rightDirectionForward = false;
+        leftMotorOn = true;
+
+        if (absThrottle > 15) {
+          // Dead wheel spin, only forward motor turns
+          rightMotorOn = false;
+          this->throttleTargetScaled = absThrottle;
+
+          if (throttle > 0) {
+            leftMotorDirection = Forward;
+          } else {
+            leftMotorDirection = Backward;            
+          }
+        } else {
+          // Tank drive spin, one forward, one backward
+          leftMotorDirection = Forward;
+          rightMotorDirection = Backward;
+          rightMotorOn = true;
+          this->throttleTargetScaled = turnSpeed;
+        }
       } else if (steering < -20) {
         // Spin Left
-        this->throttleTargetScaled = abs(throttle);
-        leftDirectionForward = false;
-        rightDirectionForward = true;
+        rightMotorOn = true;
+
+        if (absThrottle > 15) {
+          // Dead wheel spin, only one motor turns
+          leftMotorOn = false;
+          this->throttleTargetScaled = absThrottle;
+
+          if (throttle > 0) {
+            rightMotorDirection = Forward;
+          } else {
+            rightMotorDirection = Backward;            
+          }
+        } else {
+          // Tank drive spin, one forward, one backward
+          leftMotorDirection = Backward;
+          rightMotorDirection = Forward;
+          leftMotorOn = true;
+          this->throttleTargetScaled = turnSpeed;
+        }
       } else if (throttle > 20) {
         // Go Forward
-        this->throttleTargetScaled = abs(throttle);
-        leftDirectionForward = true;
-        rightDirectionForward = true;
+        this->throttleTargetScaled = absThrottle;
+        leftMotorDirection = Forward;
+        rightMotorDirection = Forward;
+        leftMotorOn = true;
+        rightMotorOn = true;
       } else if (throttle < -20) {
         // Go Backward
-        this->throttleTargetScaled = abs(throttle);
-        leftDirectionForward = false;
-        rightDirectionForward = false;
+        this->throttleTargetScaled = absThrottle;
+        leftMotorDirection = Backward;
+        rightMotorDirection = Backward;
+        leftMotorOn = true;
+        rightMotorOn = true;
       } else {
         this->throttleTargetScaled = 0;
-        leftDirectionForward = true;
-        rightDirectionForward = true;
+        leftMotorDirection = Forward;
+        rightMotorDirection = Forward;
+        leftMotorOn = false;
+        rightMotorOn = false;
       }
 
       updateThrottle();
@@ -135,37 +179,41 @@ class Throttle {
       // figure out the throttle pwm setting (ignoring the direction)
       currentPwmOut = map(abs(currentThrottleScaled), 0.0, 100.0, THROTTLE_PWM_MIN, THROTTLE_PWM_MAX);
 
-      if (leftDirectionForward) {
-        digitalWrite(directionLeftPin, HIGH);
-      } else {
+      if (leftMotorDirection == Forward) {
         digitalWrite(directionLeftPin, LOW);
+      } else {
+        digitalWrite(directionLeftPin, HIGH);
       }
 
-      if (rightDirectionForward) {
+      if (rightMotorDirection == Forward) {
         digitalWrite(directionRightPin, HIGH);
       } else {
         digitalWrite(directionRightPin, LOW);
       }
       
-      // now set the direction and the throttle
-      if (int(currentThrottleScaled)==0) {
-        // stop
-        analogWrite(speedPwmLeftPin, THROTTLE_PWM_MIN); 
-        analogWrite(speedPwmRightPin, THROTTLE_PWM_MIN);                
+      if (leftMotorOn) {
+        analogWrite(speedPwmLeftPin, currentPwmOut);
       } else {
-        analogWrite(speedPwmLeftPin, currentPwmOut);   
-        analogWrite(speedPwmRightPin, currentPwmOut);             
+        analogWrite(speedPwmLeftPin, THROTTLE_PWM_MIN);
+      }
+
+      if (rightMotorOn) {
+        analogWrite(speedPwmRightPin, currentPwmOut);
+      } else {
+        analogWrite(speedPwmRightPin, THROTTLE_PWM_MIN);
       }
 
       lastThrottleUpdateMillis = millis();
     }
 
     void getStatus(char * status) {
-      sprintf(status, "[Throttle] target:%i current:%f PWM:%i Left Forward: %s Right Forward: %s",
+      sprintf(status, "[Throttle] target:%i current:%f PWM:%i LeftDir/On: %s/%s RightDir/On: %s/%s",
         throttleTargetScaled,
         currentThrottleScaled,
         currentPwmOut,
-        leftDirectionForward ? "true" : "false",
-        rightDirectionForward ? "true" : "false");
+        leftMotorDirection == Forward ? "Forward" : "Backward",
+        leftMotorOn ? "true" : "false",
+        rightMotorDirection == Forward ? "Forward" : "Backward",
+        rightMotorOn ? "true" : "false");
     }
 };
