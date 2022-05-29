@@ -40,10 +40,7 @@ class RemoteControl {
     int steeringScaled = -1;
     int throttleScaled = -1;
 
-    unsigned long lastSignificantInputMillis = 0;
     unsigned long lastThrottleInputMillis = 0;
-    unsigned long lastSteeringInputMillis = 0;
-
 
     int throttleReadings[RC_THROTTLE_READINGS];
     int throttleIndex = 0;
@@ -84,31 +81,14 @@ class RemoteControl {
       throttleMax = tMax;
     }
 
-/*
-    int getSteeringRaw() {
-      int newSteering = analogRead(pinRCSteering);
-
-      steeringIndex++;
-      if (steeringIndex >= RC_STEERING_READINGS) {
-        steeringIndex = 0;
-      }
-
-      steeringReadings[steeringIndex] = newSteering;
-      
-      int total = 0;
-
-      for (int i = 0; i < RC_STEERING_READINGS; i++) {
-        total += steeringReadings[i];
-      }
-      
-      return total / RC_STEERING_READINGS;
-    }
-    */
-    
     /*
      * get the current steering position (scaled units -100 to 100)
      */
     int getSteeringScaled() {
+      if (steeringScaled == -1) {
+        return 0;
+      }
+      
       return steeringScaled;
     }
     
@@ -131,34 +111,10 @@ class RemoteControl {
 
       if (steeringScaled >= RC_STEERING_DEADZONE_LOW && steeringScaled <= RC_STEERING_DEADZONE_HIGH) {
         steeringScaled = 0;
-        lastSteeringInputMillis = 0; // this does not count as a significant input since it didn't leave the deadzone
-      } else {
-        lastSignificantInputMillis = millis();
       }
       
       return steeringScaled;
     }
-
-/*
-    int getThrottleRaw() {
-      int newThrottle = analogRead(pinRCThrottle);
-
-      throttleIndex++;
-      if (throttleIndex >= RC_THROTTLE_READINGS) {
-        throttleIndex = 0;
-      }
-
-      throttleReadings[throttleIndex] = newThrottle;
-      
-      int total = 0;
-
-      for (int i = 0; i < RC_THROTTLE_READINGS; i++) {
-        total += throttleReadings[i];
-      }
-      
-      return total / RC_THROTTLE_READINGS;
-    }
-    */
 
     /*
      * get the current throttle position (scaled units -100 to 100)
@@ -186,9 +142,8 @@ class RemoteControl {
 
       if (throttleScaled >= RC_THROTTLE_DEADZONE_LOW && throttleScaled <= RC_THROTTLE_DEADZONE_HIGH) {
         throttleScaled = 0;
-        lastThrottleInputMillis = 0; // this does not count as a significant input since it didn't leave the deadzone
       } else {        
-        lastSignificantInputMillis = millis();
+        lastThrottleInputMillis = millis();
       }
 
       return throttleScaled;
@@ -200,8 +155,11 @@ class RemoteControl {
 
     /*
      * Is the remote control "hot" ... meaning does the parent have control.  This also accounts for the timeout... e.g. has the parent had control recently.
+     * For this specific use case, we only consider the parent to be in control when the throttle is used.
+     * This allows the child to push the go button while the parent steers. But if the parent uses the throttle,
+     * the childs go button will no longer be active.
      */
-    boolean isActive() {
+    boolean isThrottleActive() {
        
       //If we've not yet centered the controls, then we're not active yet
       if (!hasCentered) {
@@ -213,7 +171,7 @@ class RemoteControl {
       }
 
       // we're active if we've had a significant input recently enough
-      if (millis() - lastSignificantInputMillis < RC_OVERRIDE_TIMEOUT) {
+      if (millis() - lastThrottleInputMillis < RC_OVERRIDE_TIMEOUT) {
         return true;
       }
       

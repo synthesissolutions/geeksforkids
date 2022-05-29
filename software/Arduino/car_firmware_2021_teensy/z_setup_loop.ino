@@ -155,7 +155,7 @@ void loop() {
     }
     
     // Is the parent overriding and taking control?
-    if (configuration.useRc() && remoteControl.isActive()) {
+    if (configuration.useRc() && remoteControl.isThrottleActive()) {
       
       // Yep, the parent has taken over ... parent inputs only
       if (joystickInControl) {
@@ -182,8 +182,11 @@ void loop() {
         // set the inputs from the Joystick
         // we need to get the speed multiplier each time,
         // because the speed potentiometer can be turned at any time to adjust the max speed
-        steering.setSteeringPosition(joystick.getXAxisScaled());
         throttle.setThrottle(joystick.getYAxisScaled() * configuration.getSpeedMultiplier());
+
+        // For this specific use case of the child not having steering control, we always use
+        // RC for steering input.
+        steering.setSteeringPosition(remoteControl.getSteeringScaled());
       } else {
   
         // Whoops ... we got here becuase neither control is active.  Nobody is going anywhere until that changes.
