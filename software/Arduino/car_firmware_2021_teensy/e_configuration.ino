@@ -66,6 +66,10 @@ class Configuration {
     int getSteeringMin() { return eeprom->getIntegerSetting(EEPROM_ACTUATOR_MIN); }
     int getSteeringMax() { return eeprom->getIntegerSetting(EEPROM_ACTUATOR_MAX); }
 
+    // Extend Throttle
+    boolean getExtendThrottle() { return eeprom->getBooleanSetting(EEPROM_EXTEND_THROTTLE); }
+    int getExtendThrottleTimeMilliseconds() { return eeprom->getIntegerSetting(EEPROM_EXTEND_THROTTLE_TIME_MS); }
+    
     void configureCar() {
       int selection;
       int indexToEdit;
@@ -190,7 +194,7 @@ class Configuration {
       while(1) {
         if (Serial.available() > 0) {
           entry = Serial.read();
-          if (entry < 'a' || entry > 't') {
+          if (entry < 'a' || entry > 'v') {
             Serial.print("Invalid Entry: ");
             Serial.println(entry);
           } else {

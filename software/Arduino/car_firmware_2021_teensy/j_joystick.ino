@@ -20,6 +20,14 @@ class Joystick {
     boolean useSteeringPwm = false;
     boolean useThrottlePwm = false;
 
+    // Variables to handle extending the throttle time
+    // When true, this allows a child to push go button briefly and have 
+    // the car travel longer than the time the button was pushed.
+    bool extendThrottle = false;
+    int extendThrottleSpeedScaled = 0;
+    int extendThrottleTimeMilliseconds = 500;
+    long lastThrottleOnMillis = 0;
+    
     // variables to track the PWM signals
     unsigned long steeringPulseStart; // the timestamp in ms for the current PWM steering pulse
     unsigned long steeringPwm = 0;    // the length of the last full PWM steering pulse in microseconds
@@ -93,6 +101,14 @@ class Joystick {
       useThrottlePwm = setting;
     }
 
+    void setExtendThrottle(boolean value) {
+      extendThrottle = value;
+    }
+
+    void setExtendThrottleTimeMilliseconds(int value) {
+      extendThrottleTimeMilliseconds = value;
+    }
+    
     // raw value from the x axis potentiometer
     int getXAxisRaw() {
       int newX;
@@ -218,6 +234,15 @@ class Joystick {
       // apply the deadzone
       if (JOYSTICK_Y_AXIS_DEADZONE_LOW < val && val < JOYSTICK_Y_AXIS_DEADZONE_HIGH) {
         val = 0;
+      }
+
+      // If we are extending the throttle, keep track of the last time and speed the throttle was not 0
+      // if the throttle is 0, then override the val until the throttle extend time has expired
+      if (extendThrottle && val != 0) {
+        extendThrottleSpeedScaled = val;
+        lastThrottleOnMillis = millis();
+      } else if (extendThrottle && (millis() - lastThrottleOnMillis < extendThrottleTimeMilliseconds)) {
+        val = extendThrottleSpeedScaled;
       }
       
       return val;
