@@ -272,7 +272,7 @@ class RemoteControl {
         throttleScaled,
         steeringPwm,
         steeringScaled,
-        isActive() ? "true" : "false",
+        isThrottleActive() ? "true" : "false",
         badControlStart ? "true" : "false",
         hasCentered ? "true" : "false");
     }  
