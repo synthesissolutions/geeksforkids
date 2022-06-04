@@ -239,9 +239,14 @@ class Joystick {
       // If we are extending the throttle, keep track of the last time and speed the throttle was not 0
       // if the throttle is 0, then override the val until the throttle extend time has expired
       if (extendThrottle && val != 0) {
-        extendThrottleSpeedScaled = val;
+        if (val > 0) {
+          extendThrottleSpeedScaled = -66;
+        } else {
+          extendThrottleSpeedScaled = 66;
+        }
+        extendThrottleSpeedScaled = 100; // this is really only valid for digital controls like control panel but good enough for now
         lastThrottleOnMillis = millis();
-      } else if (extendThrottle && (millis() - lastThrottleOnMillis < extendThrottleTimeMilliseconds)) {
+      } else if (extendThrottle && (millis() > 5000) && (millis() - lastThrottleOnMillis < extendThrottleTimeMilliseconds)) {
         val = extendThrottleSpeedScaled;
       }
       
@@ -331,13 +336,17 @@ class Joystick {
     }
     
     void getStatus(char * status) {
-      sprintf(status, "[Joystick] x:%i xscaled:%i%s y:%i yscaled:%i%s isActive:%s", 
+      sprintf(status, "[Joystick] x:%i xscaled:%i%s y:%i yscaled:%i%s isActive:%s Extend Throttle: %s %i %i %i", 
           getXAxisRaw(),
           getXAxisScaled(),
           invertXAxis ? "(inverted)" : "",
           getYAxisRaw(),
           getYAxisScaled(),
           invertYAxis ? "(inverted)" : "",
-          isActive() ? "true" : "false");
+          isActive() ? "true" : "false",
+          extendThrottle ? "true" : "false",
+          extendThrottleTimeMilliseconds,
+          millis() - lastThrottleOnMillis,
+          extendThrottleSpeedScaled);
     }
 };

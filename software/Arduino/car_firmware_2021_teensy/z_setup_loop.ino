@@ -73,6 +73,8 @@ void setup() {
   joystick.setYAxisRange(configuration.getJoystickThrottleMin(), configuration.getJoystickThrottleCenter(), configuration.getJoystickThrottleMax());
   joystick.setInvertXAxis(configuration.getInvertJoystickX());
   joystick.setInvertYAxis(configuration.getInvertJoystickY());
+  joystick.setExtendThrottle(configuration.getExtendThrottle());
+  joystick.setExtendThrottleTimeMilliseconds(configuration.getExtendThrottleTimeMilliseconds());
 
   // Set RC/Parental Control Configuration
   remoteControl.setSteeringRange(configuration.getRcSteeringMin(), configuration.getRcSteeringCenter(), configuration.getRcSteeringMax());
