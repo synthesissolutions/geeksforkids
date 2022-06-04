@@ -20,6 +20,15 @@ Logger logger;
 boolean isLogging = false;
 boolean isConfiguring = false;
 
+boolean checkForExtendedThrottle = false;
+int extendThrottleTimeMilliseconds = 0;
+int extendThrottleValueScaled = 0;
+int extendSteeringValueScaled = 0;
+int lastThrottleOnMillis = 0;
+int yAxisScaled = 0;
+int xAxisScaled = 0;
+long millisTemp = 0;
+
 /*
  * Interrupt request handlers.  The Arduino environment appears to require these to be global methods with no parms, so defining them here.
  *   Really just wrappers to call the proper RemoteControl methods.  
@@ -73,8 +82,9 @@ void setup() {
   joystick.setYAxisRange(configuration.getJoystickThrottleMin(), configuration.getJoystickThrottleCenter(), configuration.getJoystickThrottleMax());
   joystick.setInvertXAxis(configuration.getInvertJoystickX());
   joystick.setInvertYAxis(configuration.getInvertJoystickY());
-  joystick.setExtendThrottle(configuration.getExtendThrottle());
-  joystick.setExtendThrottleTimeMilliseconds(configuration.getExtendThrottleTimeMilliseconds());
+
+  checkForExtendedThrottle = configuration.getExtendThrottle() && configuration.usePwmJoystickY() && configuration.usePwmJoystickX();
+  extendThrottleTimeMilliseconds = configuration.getExtendThrottleTimeMilliseconds();
 
   // Set RC/Parental Control Configuration
   remoteControl.setSteeringRange(configuration.getRcSteeringMin(), configuration.getRcSteeringCenter(), configuration.getRcSteeringMax());
@@ -181,11 +191,29 @@ void loop() {
           rcInControl=false;
         }
 
+        xAxisScaled = joystick.getXAxisScaled();
+        yAxisScaled = joystick.getYAxisScaled();
+
+        // Check for extended throttle and track if necessary
+        if (checkForExtendedThrottle) {
+          millisTemp = millis();
+          
+          if (abs(yAxisScaled) > 75) {
+            lastThrottleOnMillis = millisTemp;
+            extendThrottleValueScaled = yAxisScaled;
+            extendSteeringValueScaled = xAxisScaled;
+          } else if(millisTemp > 5000 && millisTemp - lastThrottleOnMillis < extendThrottleTimeMilliseconds) {
+            // Override the current throttle and steering values with the saved values until the extended time expires
+            xAxisScaled = extendSteeringValueScaled;
+            yAxisScaled = extendThrottleValueScaled;
+          }
+        }
+
         // set the inputs from the Joystick
         // we need to get the speed multiplier each time,
         // because the speed potentiometer can be turned at any time to adjust the max speed
-        steering.setSteeringPosition(joystick.getXAxisScaled());
-        throttle.setThrottle(joystick.getYAxisScaled() * configuration.getSpeedMultiplier());
+        steering.setSteeringPosition(xAxisScaled);
+        throttle.setThrottle(yAxisScaled * configuration.getSpeedMultiplier());
       } else {
   
         // Whoops ... we got here becuase neither control is active.  Nobody is going anywhere until that changes.
