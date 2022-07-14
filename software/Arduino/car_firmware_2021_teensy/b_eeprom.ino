@@ -1,6 +1,6 @@
 #include <EEPROM.h>
 
-#define NUMBER_OF_CONFIGURATION_ENTRIES 21
+#define NUMBER_OF_CONFIGURATION_ENTRIES 23
 
 #define EEPROM_VERSION              0
 #define EEPROM_ACTUATOR_MIN         1
@@ -23,6 +23,8 @@
 #define EEPROM_JOYSTICK_THROTTLE_MIN    18
 #define EEPROM_JOYSTICK_THROTTLE_CENTER 19
 #define EEPROM_JOYSTICK_THROTTLE_MAX    20
+#define EEPROM_EXTEND_THROTTLE          21
+#define EEPROM_EXTEND_THROTTLE_TIME_MS  22
 
 #define INTEGER_CONFIGURATION 1
 #define BOOLEAN_CONFIGURATION 2
@@ -33,7 +35,7 @@
  * This class stores and retrievs settings from Eeprom to define the configuration for this car
  */
 
-const int CURRENT_SETTINGS_VERSION = 3;
+const int CURRENT_SETTINGS_VERSION = 4;
 
 struct ConfigurationEntry {
   String name;
@@ -72,7 +74,9 @@ ConfigurationEntry configurationEntries[] = {
   {"Joystick Steering Max", 72, INTEGER_CONFIGURATION, false, 816},
   {"Joystick Throttle Min", 76, INTEGER_CONFIGURATION, false, 0},
   {"Joystick Throttle Center", 80, INTEGER_CONFIGURATION, false, 408},
-  {"Joystick Throttle Max", 84, INTEGER_CONFIGURATION, false, 816}
+  {"Joystick Throttle Max", 84, INTEGER_CONFIGURATION, false, 816},
+  {"Extend Throttle", 88, BOOLEAN_CONFIGURATION, false, 0},
+  {"Extend Throttle Milliseconds", 92, INTEGER_CONFIGURATION, false, 500}
 };
     
 class Eeprom {

@@ -19,7 +19,7 @@ class Joystick {
 
     boolean useSteeringPwm = false;
     boolean useThrottlePwm = false;
-
+    
     // variables to track the PWM signals
     unsigned long steeringPulseStart; // the timestamp in ms for the current PWM steering pulse
     unsigned long steeringPwm = 0;    // the length of the last full PWM steering pulse in microseconds
@@ -92,7 +92,7 @@ class Joystick {
     void setUseThrottlePwm(boolean setting) {
       useThrottlePwm = setting;
     }
-
+    
     // raw value from the x axis potentiometer
     int getXAxisRaw() {
       int newX;
@@ -189,7 +189,7 @@ class Joystick {
       if (JOYSTICK_X_AXIS_DEADZONE_LOW < val && val < JOYSTICK_X_AXIS_DEADZONE_HIGH) {
         val = 0;
       }
-      
+
       return val;
     }
 
