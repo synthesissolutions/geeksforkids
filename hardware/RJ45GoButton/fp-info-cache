@@ -1,4 +1,4 @@
-20368721858224630
+20370309750699341
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -85336,6 +85336,13 @@ terminal block bornier2
 0
 2
 2
+Useful Modifications
+TerminalBlock_bornier-3_P5.08mm
+simple 2-pin terminal block, pitch 5.08mm, revamped version of bornier2
+terminal block bornier2
+0
+3
+3
 Useful Modifications
 max9744eth&plus_
 
