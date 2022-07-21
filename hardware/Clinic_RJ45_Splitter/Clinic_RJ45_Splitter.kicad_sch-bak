@@ -1,0 +1,70 @@
+(kicad_sch (version 20211123) (generator eeschema)
+
+  (uuid 961b361e-53da-48ae-b5d4-b31303735af7)
+
+  (paper "A4")
+
+  (lib_symbols
+    (symbol "Clinic_RJ45_Splitter:Connector_1X3" (in_bom yes) (on_board yes)
+      (property "Reference" "J" (id 0) (at -5.08 2.54 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Value" "Connector_1X3" (id 1) (at 1.27 6.35 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Footprint" "" (id 2) (at -6.35 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "" (id 3) (at -6.35 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "Connector_1X3_0_1"
+        (rectangle (start -2.54 3.81) (end 0 -3.81)
+          (stroke (width 0) (type default) (color 0 0 0 0))
+          (fill (type background))
+        )
+      )
+      (symbol "Connector_1X3_1_1"
+        (pin passive line (at 2.54 2.54 180) (length 2.54)
+          (name "" (effects (font (size 1.27 1.27))))
+          (number "1" (effects (font (size 1.27 1.27))))
+        )
+        (pin passive line (at 2.54 0 180) (length 2.54)
+          (name "" (effects (font (size 1.27 1.27))))
+          (number "2" (effects (font (size 1.27 1.27))))
+        )
+        (pin passive line (at 2.54 -2.54 180) (length 2.54)
+          (name "" (effects (font (size 1.27 1.27))))
+          (number "3" (effects (font (size 1.27 1.27))))
+        )
+      )
+    )
+  )
+
+
+  (symbol (lib_id "Clinic_RJ45_Splitter:Connector_1X3") (at 120.65 88.9 0) (unit 1)
+    (in_bom yes) (on_board yes) (fields_autoplaced)
+    (uuid 1ccc9486-0048-4580-b323-0c5a4fa95dd2)
+    (property "Reference" "J?" (id 0) (at 119.38 80.01 0))
+    (property "Value" "Connector_1X3" (id 1) (at 119.38 82.55 0))
+    (property "Footprint" "" (id 2) (at 114.3 88.9 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (id 3) (at 114.3 88.9 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 7722a4e9-666b-4c06-9804-657f5e06bcde))
+    (pin "2" (uuid da01d692-aaa1-4234-8186-1cf2d04c9c64))
+    (pin "3" (uuid 5c596519-aef4-4197-8d97-1ab6fe9e2080))
+  )
+
+  (sheet_instances
+    (path "/" (page "1"))
+  )
+
+  (symbol_instances
+    (path "/1ccc9486-0048-4580-b323-0c5a4fa95dd2"
+      (reference "J?") (unit 1) (value "Connector_1X3") (footprint "")
+    )
+  )
+)

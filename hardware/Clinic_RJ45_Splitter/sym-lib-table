@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name "Clinic_RJ45_Splitter")(type "KiCad")(uri "${KIPRJMOD}/Clinic_RJ45_Splitter.kicad_sym")(options "")(descr ""))
+)
