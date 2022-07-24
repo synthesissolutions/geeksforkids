@@ -1,0 +1,6 @@
+(sym_lib_table
+  (lib (name "STM32")(type "Legacy")(uri "${KIPRJMOD}/STM32.lib")(options "")(descr ""))
+  (lib (name "STM32QFN")(type "Legacy")(uri "${KIPRJMOD}/STM32QFN28.lib")(options "")(descr ""))
+  (lib (name "CrystalOscillator")(type "Legacy")(uri "${KIPRJMOD}/ECS-3225MVQ-160-BP-TR.lib")(options "")(descr ""))
+  (lib (name "SmacSys")(type "Legacy")(uri "${KICAD6_3RD_PARTY}/SamacSys_Parts.lib")(options "")(descr ""))
+)
