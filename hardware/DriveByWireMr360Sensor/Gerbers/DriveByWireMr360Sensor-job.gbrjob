@@ -5,12 +5,12 @@
       "Application": "Pcbnew",
       "Version": "(6.0.0)"
     },
-    "CreationDate": "2022-07-24T16:27:14-05:00"
+    "CreationDate": "2022-07-24T19:50:36-05:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
-      "Name": "DriveByWireMrSensor",
-      "GUID": "44726976-6542-4795-9769-72654d725365",
+      "Name": "DriveByWireMr360Sensor",
+      "GUID": "44726976-6542-4795-9769-72654d723336",
       "Revision": "rev?"
     },
     "Size": {
@@ -34,47 +34,47 @@
   ],
   "FilesAttributes": [
     {
-      "Path": "DriveByWireMrSensor-F_Cu.gbr",
+      "Path": "DriveByWireMr360Sensor-F_Cu.gbr",
       "FileFunction": "Copper,L1,Top",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "DriveByWireMrSensor-B_Cu.gbr",
+      "Path": "DriveByWireMr360Sensor-B_Cu.gbr",
       "FileFunction": "Copper,L2,Bot",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "DriveByWireMrSensor-F_Paste.gbr",
+      "Path": "DriveByWireMr360Sensor-F_Paste.gbr",
       "FileFunction": "SolderPaste,Top",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "DriveByWireMrSensor-B_Paste.gbr",
+      "Path": "DriveByWireMr360Sensor-B_Paste.gbr",
       "FileFunction": "SolderPaste,Bot",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "DriveByWireMrSensor-F_Silkscreen.gbr",
+      "Path": "DriveByWireMr360Sensor-F_Silkscreen.gbr",
       "FileFunction": "Legend,Top",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "DriveByWireMrSensor-B_Silkscreen.gbr",
+      "Path": "DriveByWireMr360Sensor-B_Silkscreen.gbr",
       "FileFunction": "Legend,Bot",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "DriveByWireMrSensor-F_Mask.gbr",
+      "Path": "DriveByWireMr360Sensor-F_Mask.gbr",
       "FileFunction": "SolderMask,Top",
       "FilePolarity": "Negative"
     },
     {
-      "Path": "DriveByWireMrSensor-B_Mask.gbr",
+      "Path": "DriveByWireMr360Sensor-B_Mask.gbr",
       "FileFunction": "SolderMask,Bot",
       "FilePolarity": "Negative"
     },
     {
-      "Path": "DriveByWireMrSensor-Edge_Cuts.gbr",
+      "Path": "DriveByWireMr360Sensor-Edge_Cuts.gbr",
       "FileFunction": "Profile",
       "FilePolarity": "Positive"
     }
