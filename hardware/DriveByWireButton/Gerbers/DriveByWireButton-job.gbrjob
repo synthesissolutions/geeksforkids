@@ -5,17 +5,17 @@
       "Application": "Pcbnew",
       "Version": "(6.0.0)"
     },
-    "CreationDate": "2022-07-24T20:05:13-05:00"
+    "CreationDate": "2022-07-24T20:14:01-05:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
-      "Name": "DriveByWireMrSensor",
-      "GUID": "44726976-6542-4795-9769-72654d725365",
+      "Name": "DriveByWireButton",
+      "GUID": "44726976-6542-4795-9769-726542757474",
       "Revision": "rev?"
     },
     "Size": {
-      "X": 33.2,
-      "Y": 18.2
+      "X": 25.07,
+      "Y": 10.27
     },
     "LayerNumber": 2,
     "BoardThickness": 1.6,
@@ -24,57 +24,57 @@
   "DesignRules": [
     {
       "Layers": "Outer",
-      "PadToPad": 0.0,
-      "PadToTrack": 0.0,
+      "PadToPad": 0.2,
+      "PadToTrack": 0.2,
       "TrackToTrack": 0.2,
-      "MinLineWidth": 0.2286,
+      "MinLineWidth": 0.25,
       "TrackToRegion": 0.508,
       "RegionToRegion": 0.508
     }
   ],
   "FilesAttributes": [
     {
-      "Path": "DriveByWireMrSensor-F_Cu.gbr",
+      "Path": "DriveByWireButton-F_Cu.gbr",
       "FileFunction": "Copper,L1,Top",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "DriveByWireMrSensor-B_Cu.gbr",
+      "Path": "DriveByWireButton-B_Cu.gbr",
       "FileFunction": "Copper,L2,Bot",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "DriveByWireMrSensor-F_Paste.gbr",
+      "Path": "DriveByWireButton-F_Paste.gbr",
       "FileFunction": "SolderPaste,Top",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "DriveByWireMrSensor-B_Paste.gbr",
+      "Path": "DriveByWireButton-B_Paste.gbr",
       "FileFunction": "SolderPaste,Bot",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "DriveByWireMrSensor-F_Silkscreen.gbr",
+      "Path": "DriveByWireButton-F_Silkscreen.gbr",
       "FileFunction": "Legend,Top",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "DriveByWireMrSensor-B_Silkscreen.gbr",
+      "Path": "DriveByWireButton-B_Silkscreen.gbr",
       "FileFunction": "Legend,Bot",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "DriveByWireMrSensor-F_Mask.gbr",
+      "Path": "DriveByWireButton-F_Mask.gbr",
       "FileFunction": "SolderMask,Top",
       "FilePolarity": "Negative"
     },
     {
-      "Path": "DriveByWireMrSensor-B_Mask.gbr",
+      "Path": "DriveByWireButton-B_Mask.gbr",
       "FileFunction": "SolderMask,Bot",
       "FilePolarity": "Negative"
     },
     {
-      "Path": "DriveByWireMrSensor-Edge_Cuts.gbr",
+      "Path": "DriveByWireButton-Edge_Cuts.gbr",
       "FileFunction": "Profile",
       "FilePolarity": "Positive"
     }
