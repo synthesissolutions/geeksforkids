@@ -334,7 +334,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "DriveByWireInputSTM32QFN28.kicad_pro",
+    "filename": "DriveByWireInputAltSTM32QFN28.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -368,7 +368,7 @@
       "idf": "",
       "netlist": "InputBoardSTM32QFN28.net",
       "specctra_dsn": "",
-      "step": "",
+      "step": "DriveByWireInputAltSTM32QFN28.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
