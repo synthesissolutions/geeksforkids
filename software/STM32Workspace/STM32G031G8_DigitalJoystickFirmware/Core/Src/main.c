@@ -112,76 +112,40 @@ int main(void)
 		  // Joystick pushed forward and left
 		  pwmThrottle = THROTTLE_FORWARD;
 		  pwmSteering = STEERING_LEFT;
-		  HAL_GPIO_WritePin(LED_STRAIGHT_GPIO_Port, LED_STRAIGHT_Pin, 1);
-		  HAL_GPIO_WritePin(LED_LEFT_GPIO_Port, LED_LEFT_Pin, 1);
-		  HAL_GPIO_WritePin(LED_RIGHT_GPIO_Port, LED_RIGHT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_REVERSE_GPIO_Port, LED_REVERSE_Pin, 0);
 	  } else if (!HAL_GPIO_ReadPin(FORWARD_PAD_GPIO_Port, FORWARD_PAD_Pin)
 			  && !HAL_GPIO_ReadPin(RIGHT_PAD_GPIO_Port, RIGHT_PAD_Pin)) {
 		  // Joystick pushed forward and right
 		  pwmThrottle = THROTTLE_FORWARD;
 		  pwmSteering = STEERING_RIGHT;
-		  HAL_GPIO_WritePin(LED_STRAIGHT_GPIO_Port, LED_STRAIGHT_Pin, 1);
-		  HAL_GPIO_WritePin(LED_LEFT_GPIO_Port, LED_LEFT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_RIGHT_GPIO_Port, LED_RIGHT_Pin, 1);
-		  HAL_GPIO_WritePin(LED_REVERSE_GPIO_Port, LED_REVERSE_Pin, 0);
 	  } else if (!HAL_GPIO_ReadPin(FORWARD_PAD_GPIO_Port, FORWARD_PAD_Pin)) {
 		  // Joystick pushed forward
 		  pwmThrottle = THROTTLE_FORWARD;
 		  pwmSteering = STEERING_STRAIGHT;
-		  HAL_GPIO_WritePin(LED_STRAIGHT_GPIO_Port, LED_STRAIGHT_Pin, 1);
-		  HAL_GPIO_WritePin(LED_LEFT_GPIO_Port, LED_LEFT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_RIGHT_GPIO_Port, LED_RIGHT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_REVERSE_GPIO_Port, LED_REVERSE_Pin, 0);
 	  } else if (!HAL_GPIO_ReadPin(REVERSE_PAD_GPIO_Port, REVERSE_PAD_Pin)
 			  && !HAL_GPIO_ReadPin(LEFT_PAD_GPIO_Port, LEFT_PAD_Pin)) {
 		  // Joystick pushed backward and left
 		  pwmThrottle = THROTTLE_REVERSE;
 		  pwmSteering = STEERING_LEFT;
-		  HAL_GPIO_WritePin(LED_STRAIGHT_GPIO_Port, LED_STRAIGHT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_LEFT_GPIO_Port, LED_LEFT_Pin, 1);
-		  HAL_GPIO_WritePin(LED_RIGHT_GPIO_Port, LED_RIGHT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_REVERSE_GPIO_Port, LED_REVERSE_Pin, 1);
 	  } else if (!HAL_GPIO_ReadPin(REVERSE_PAD_GPIO_Port, REVERSE_PAD_Pin)
 			  && !HAL_GPIO_ReadPin(RIGHT_PAD_GPIO_Port, RIGHT_PAD_Pin)) {
 		  // Joystick pushed backward and right
 		  pwmThrottle = THROTTLE_REVERSE;
 		  pwmSteering = STEERING_RIGHT;
-		  HAL_GPIO_WritePin(LED_STRAIGHT_GPIO_Port, LED_STRAIGHT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_LEFT_GPIO_Port, LED_LEFT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_RIGHT_GPIO_Port, LED_RIGHT_Pin, 1);
-		  HAL_GPIO_WritePin(LED_REVERSE_GPIO_Port, LED_REVERSE_Pin, 1);
 	  } else if (!HAL_GPIO_ReadPin(RIGHT_PAD_GPIO_Port, RIGHT_PAD_Pin)) {
 		  // Joystick pushed right
 		  pwmThrottle = THROTTLE_FORWARD;
 		  pwmSteering = STEERING_RIGHT;
-		  HAL_GPIO_WritePin(LED_STRAIGHT_GPIO_Port, LED_STRAIGHT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_LEFT_GPIO_Port, LED_LEFT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_RIGHT_GPIO_Port, LED_RIGHT_Pin, 1);
-		  HAL_GPIO_WritePin(LED_REVERSE_GPIO_Port, LED_REVERSE_Pin, 0);
 	  } else if (!HAL_GPIO_ReadPin(LEFT_PAD_GPIO_Port, LEFT_PAD_Pin)) {
 		  // Joystick pushed left
 		  pwmThrottle = THROTTLE_FORWARD;
 		  pwmSteering = STEERING_LEFT;
-		  HAL_GPIO_WritePin(LED_STRAIGHT_GPIO_Port, LED_STRAIGHT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_LEFT_GPIO_Port, LED_LEFT_Pin, 1);
-		  HAL_GPIO_WritePin(LED_RIGHT_GPIO_Port, LED_RIGHT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_REVERSE_GPIO_Port, LED_REVERSE_Pin, 0);
 	  } else if (!HAL_GPIO_ReadPin(REVERSE_PAD_GPIO_Port, REVERSE_PAD_Pin)) {
 		  // Joystick pushed backward
 		  pwmThrottle = THROTTLE_REVERSE;
 		  pwmSteering = STEERING_STRAIGHT;
-		  HAL_GPIO_WritePin(LED_STRAIGHT_GPIO_Port, LED_STRAIGHT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_LEFT_GPIO_Port, LED_LEFT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_RIGHT_GPIO_Port, LED_RIGHT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_REVERSE_GPIO_Port, LED_REVERSE_Pin, 1);
 	  } else {
 		  pwmThrottle = THROTTLE_OFF;
 		  pwmSteering = STEERING_STRAIGHT;
-		  HAL_GPIO_WritePin(LED_STRAIGHT_GPIO_Port, LED_STRAIGHT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_LEFT_GPIO_Port, LED_LEFT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_RIGHT_GPIO_Port, LED_RIGHT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_REVERSE_GPIO_Port, LED_REVERSE_Pin, 0);
 	  }
 
 	  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_3, pwmSteering);
@@ -301,14 +265,10 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, LED_STRAIGHT_Pin|LED_RIGHT_Pin|LED_LEFT_Pin|LED_REVERSE_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pins : LED_STRAIGHT_Pin LED_RIGHT_Pin LED_LEFT_Pin LED_REVERSE_Pin */
-  GPIO_InitStruct.Pin = LED_STRAIGHT_Pin|LED_RIGHT_Pin|LED_LEFT_Pin|LED_REVERSE_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  /*Configure GPIO pins : SOUND_BUTTON2_Pin SOUND_BUTTON1_Pin */
+  GPIO_InitStruct.Pin = SOUND_BUTTON2_Pin|SOUND_BUTTON1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : FORWARD_PAD_Pin */
