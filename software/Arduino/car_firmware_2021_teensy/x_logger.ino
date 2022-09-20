@@ -6,6 +6,13 @@
  * Would be nice if we had a "loggable" interface ... but not really worth trying to do it
  * 
  */
+#include <SPI.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SH110X.h>
+
+Adafruit_SH1107 display = Adafruit_SH1107(64, 128, &Wire);
+
 class Logger {
   private:
 
@@ -49,6 +56,23 @@ class Logger {
       updateDeltaT = updateTime;
       lastUpdateTime = millis();
       Serial.println("Logging started ...");
+
+      // Setup OLED Featherwing
+      // This should be moved to a function for readability
+      delay(250); // wait for the OLED to power up
+      display.begin(0x3C, true); // Address 0x3C default
+    
+      // Show image buffer on the display hardware.
+      // Since the buffer is intialized with an Adafruit splashscreen
+      // internally, this will display the splashscreen.
+      display.display();
+      delay(50);
+    
+      // Clear the buffer.
+      display.clearDisplay();
+      display.display();
+    
+      display.setRotation(1);
     }
 
     // provides a way to add an ad-hoc line to the logging output.  Not sure this is super userful, but eh.
@@ -76,6 +100,16 @@ class Logger {
         
         Serial.print("Log Time:");Serial.println(millis());
 
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setTextColor(SH110X_WHITE);
+  display.setCursor(0,0);
+  display.print("Version: ");
+  display.println(RELEASE_VERSION);
+  display.print("Millis: ");
+  display.println(millis());
+  display.display(); // actually display all of the above
+  
         // Go through the known instances (they'd better all be here).  Would be better to have an interface and a 
         //   vector of these to iterate over. 
         configuration->getStatus(statusLine);
