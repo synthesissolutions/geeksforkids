@@ -1,7 +1,0 @@
-{
-  "appId": "org.learnscienceandmathclub.geekscarconfigurator",
-  "appName": "GeeksCarConfiguration",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "webDir": "www"
-}
