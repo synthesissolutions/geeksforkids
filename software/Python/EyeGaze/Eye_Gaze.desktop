@@ -1,0 +1,7 @@
+[Desktop Entry]
+
+Type=Application
+
+Name=Eye_Gaze
+
+Exec=lxterminal -e '/usr/bin/python3 /home/pi/Documents/Eye_Tracking_V5.py'
