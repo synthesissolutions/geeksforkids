@@ -49,6 +49,16 @@ boolean badStartMessageDisplayed = false;
  * Arduino defined setup function.  Automatically run once at restart of the device.
  */
 void setup() {
+  // Force Sound Output Pins High
+  // Low will trigger the related sound on the Adafruit Sound Board
+  pinMode(8, OUTPUT);   // Sound 0
+  pinMode(12, OUTPUT);  // Sound 3
+  pinMode(22, OUTPUT);  // Sound 4
+
+  digitalWrite(8, HIGH);
+  digitalWrite(12, HIGH);
+  digitalWrite(22, HIGH);
+  
   // set up the logger
   logger.init(LOGGER_UPDATE_TIME, &eeprom, &configuration, &joystick, &remoteControl, &steering, &throttle);
 
