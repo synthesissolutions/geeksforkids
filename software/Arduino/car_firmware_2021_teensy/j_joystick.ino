@@ -67,6 +67,15 @@ class Joystick {
       pinMode(yAxisPin, INPUT);
     }
 
+    void initAveragingArrays() {
+      for (int i = 0; i < JOY_X_READINGS; i++) {
+        joyXReadings[i] = xAxisCenter;
+      }
+      for (int i = 0; i < JOY_Y_READINGS; i++) {
+        joyYReadings[i] = yAxisCenter;
+      }
+    }
+    
     /*
      * setXAxisRange - sets the range for converting the xAxis to scaled units
      */

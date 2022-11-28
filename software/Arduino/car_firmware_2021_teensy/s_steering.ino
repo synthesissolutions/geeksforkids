@@ -77,6 +77,12 @@ class Steering {
       analogWrite(speedPwmPin, 0);
     }
 
+    void initAveragingArrays() {
+      for (int i = 0; i < CURRENT_POSITION_READINGS; i++) {
+        currentPositions[i] = analogRead(currentPositionPin);
+      }
+    }
+    
     int getSteeringPosition() {
       return steeringTargetScaled;
     }

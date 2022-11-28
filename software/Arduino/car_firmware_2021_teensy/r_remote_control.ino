@@ -82,14 +82,14 @@ class RemoteControl {
       pinRCThrottle = throttlePin;
 
       // Setup OLED Featherwing
-      delay(250); // wait for the OLED to power up
+      delay(500); // wait for the OLED to power up
       display.begin(0x3D, true); // Address 0x3C default
     
       // Show image buffer on the display hardware.
       // Since the buffer is intialized with an Adafruit splashscreen
       // internally, this will display the splashscreen.
       display.display();
-      delay(50);
+      delay(150);
     
       // Clear the buffer.
       display.clearDisplay();
@@ -98,6 +98,15 @@ class RemoteControl {
       display.setRotation(1);
     }
 
+    void initAveragingArrays() {
+      for (int i = 0; i < RC_THROTTLE_READINGS; i++) {
+        throttleReadings[i] = throttleCenter;
+      }
+      for (int i = 0; i < RC_STEERING_READINGS; i++) {
+        steeringReadings[i] = steeringCenter;
+      }
+    }
+    
     void setSteeringRange(int sMin, int sCenter, int sMax) {
       steeringMin = sMin;
       steeringCenter = sCenter;
