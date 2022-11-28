@@ -4,6 +4,16 @@
  * This class serves to be the interface to the to the parental remote control unit
  */
 
+#include <SPI.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SH110X.h>
+
+#define SCREEN_WIDTH 128  // OLED display width, in pixels
+#define SCREEN_HEIGHT 128 // OLED display height, in pixels
+#define OLED_RESET -1     // can set an oled reset pin if desired
+Adafruit_SH1107 display = Adafruit_SH1107(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET, 1000000, 100000);
+
 // The number of throttle and steering readings to average to smooth results
 #define RC_THROTTLE_READINGS 15
 #define RC_STEERING_READINGS 15
@@ -69,9 +79,34 @@ class RemoteControl {
     // initial setup
     void init(int steeringPin, int throttlePin) {
       pinRCSteering = steeringPin;
-      pinRCThrottle = throttlePin;  
+      pinRCThrottle = throttlePin;
+
+      // Setup OLED Featherwing
+      delay(500); // wait for the OLED to power up
+      display.begin(0x3D, true); // Address 0x3C default
+    
+      // Show image buffer on the display hardware.
+      // Since the buffer is intialized with an Adafruit splashscreen
+      // internally, this will display the splashscreen.
+      display.display();
+      delay(150);
+    
+      // Clear the buffer.
+      display.clearDisplay();
+      display.display();
+    
+      display.setRotation(1);
     }
 
+    void initAveragingArrays() {
+      for (int i = 0; i < RC_THROTTLE_READINGS; i++) {
+        throttleReadings[i] = throttleCenter;
+      }
+      for (int i = 0; i < RC_STEERING_READINGS; i++) {
+        steeringReadings[i] = steeringCenter;
+      }
+    }
+    
     void setSteeringRange(int sMin, int sCenter, int sMax) {
       steeringMin = sMin;
       steeringCenter = sCenter;
@@ -83,27 +118,6 @@ class RemoteControl {
       throttleCenter = tCenter;
       throttleMax = tMax;
     }
-
-/*
-    int getSteeringRaw() {
-      int newSteering = analogRead(pinRCSteering);
-
-      steeringIndex++;
-      if (steeringIndex >= RC_STEERING_READINGS) {
-        steeringIndex = 0;
-      }
-
-      steeringReadings[steeringIndex] = newSteering;
-      
-      int total = 0;
-
-      for (int i = 0; i < RC_STEERING_READINGS; i++) {
-        total += steeringReadings[i];
-      }
-      
-      return total / RC_STEERING_READINGS;
-    }
-    */
     
     /*
      * get the current steering position (scaled units -100 to 100)
@@ -113,9 +127,10 @@ class RemoteControl {
     }
     
     int updateSteeringScaled() {
-      //int steeringRaw = getSteeringRaw();
       int steeringRaw = steeringPwm;
 
+      updateOled();
+      
       // Value is not in the expected range return 0 as a safe value
       if (steeringRaw == 0 || steeringRaw >= RC_LIMIT) {
         return 0; 
@@ -139,26 +154,18 @@ class RemoteControl {
       return steeringScaled;
     }
 
-/*
-    int getThrottleRaw() {
-      int newThrottle = analogRead(pinRCThrottle);
-
-      throttleIndex++;
-      if (throttleIndex >= RC_THROTTLE_READINGS) {
-        throttleIndex = 0;
-      }
-
-      throttleReadings[throttleIndex] = newThrottle;
-      
-      int total = 0;
-
-      for (int i = 0; i < RC_THROTTLE_READINGS; i++) {
-        total += throttleReadings[i];
-      }
-      
-      return total / RC_THROTTLE_READINGS;
+    void updateOled() {
+      display.clearDisplay();
+      display.setTextSize(2);
+      display.setTextColor(SH110X_WHITE);
+      display.setCursor(0,0);
+      display.println("Steering: ");
+      display.println(steeringPwm);
+      display.println("");
+      display.print("Throttle: ");
+      display.println(throttlePwm);
+      display.display();
     }
-    */
 
     /*
      * get the current throttle position (scaled units -100 to 100)
@@ -168,7 +175,6 @@ class RemoteControl {
     }
     
     int updateThrottleScaled() {  
-      //int throttleRaw = getThrottleRaw();
       int throttleRaw = throttlePwm;
 
       // Value is not in the expected range return 0 as a safe value
