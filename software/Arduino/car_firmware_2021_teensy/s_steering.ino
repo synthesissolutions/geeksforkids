@@ -6,7 +6,7 @@
  *   changes to the steering as appropriate.
  */
 
-#define CURRENT_POSITION_READINGS 30
+#define CURRENT_POSITION_READINGS 10
 
 class Steering {
   private:
