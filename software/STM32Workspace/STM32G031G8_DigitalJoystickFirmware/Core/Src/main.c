@@ -40,7 +40,7 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
- TIM_HandleTypeDef htim3;
+TIM_HandleTypeDef htim3;
 
 /* USER CODE BEGIN PV */
 #define THROTTLE_OFF 		500

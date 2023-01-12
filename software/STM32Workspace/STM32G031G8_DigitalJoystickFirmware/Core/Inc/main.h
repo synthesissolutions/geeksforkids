@@ -76,6 +76,7 @@ void Error_Handler(void);
 #define RIGHT_PAD_GPIO_Port GPIOA
 #define LEFT_PAD_Pin GPIO_PIN_12
 #define LEFT_PAD_GPIO_Port GPIOA
+
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
