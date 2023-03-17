@@ -60,16 +60,12 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define LED_STRAIGHT_Pin GPIO_PIN_0
-#define LED_STRAIGHT_GPIO_Port GPIOA
-#define LED_RIGHT_Pin GPIO_PIN_1
-#define LED_RIGHT_GPIO_Port GPIOA
-#define LED_LEFT_Pin GPIO_PIN_4
-#define LED_LEFT_GPIO_Port GPIOA
-#define LED_REVERSE_Pin GPIO_PIN_7
-#define LED_REVERSE_GPIO_Port GPIOA
+#define SOUND_2_Pin GPIO_PIN_7
+#define SOUND_2_GPIO_Port GPIOA
 #define FORWARD_PAD_Pin GPIO_PIN_1
 #define FORWARD_PAD_GPIO_Port GPIOB
+#define SOUND_1_Pin GPIO_PIN_8
+#define SOUND_1_GPIO_Port GPIOA
 #define REVERSE_PAD_Pin GPIO_PIN_6
 #define REVERSE_PAD_GPIO_Port GPIOC
 #define RIGHT_PAD_Pin GPIO_PIN_11
