@@ -54,10 +54,12 @@ void setup() {
   pinMode(8, OUTPUT);   // Sound 0
   pinMode(12, OUTPUT);  // Sound 3
   pinMode(22, OUTPUT);  // Sound 4
+  pinMode(20, OUTPUT);  // Tx Jumpered to one of the Sound Inputs for V3 PCBs
 
   digitalWrite(8, HIGH);
   digitalWrite(12, HIGH);
   digitalWrite(22, HIGH);
+  digitalWrite(20, LOW);
   
   // set up the logger
   logger.init(LOGGER_UPDATE_TIME, &eeprom, &configuration, &joystick, &remoteControl, &steering, &throttle);
@@ -86,6 +88,7 @@ void setup() {
   steering.setSteeringCenterScaled(configuration.getSteeringCenter());
   steering.setSteeringMinScaled(configuration.getSteeringMin());
   steering.setSteeringMaxScaled(configuration.getSteeringMax());
+  steering.initAveragingArrays();
 
   // Set Joystick configuration
   joystick.setXAxisRange(configuration.getJoystickSteeringMin(), configuration.getJoystickSteeringCenter(), configuration.getJoystickSteeringMax());
@@ -99,7 +102,8 @@ void setup() {
   // Set RC/Parental Control Configuration
   remoteControl.setSteeringRange(configuration.getRcSteeringMin(), configuration.getRcSteeringCenter(), configuration.getRcSteeringMax());
   remoteControl.setThrottleRange(configuration.getRcThrottleMin(), configuration.getRcThrottleCenter(), configuration.getRcThrottleMax());
-
+  remoteControl.initAveragingArrays();
+  
   // set up the interrupt handlers
   if (configuration.useRc()) {
     attachInterrupt(digitalPinToInterrupt(PIN_RC_STEERING), &handleRCSteeringInterrupt, CHANGE);
@@ -120,6 +124,7 @@ void setup() {
     joystick.setUseThrottlePwm(false);    
   }
 
+  joystick.initAveragingArrays();
 }
 
 /*
@@ -178,6 +183,10 @@ void loop() {
     
     // Is the parent overriding and taking control?
     if (configuration.useRc() && remoteControl.isActive()) {
+      // while the RC is active, we want to keep averaging the childs controls
+      lastThrottleOnMillis = 0;
+      joystick.getXAxisScaled();
+      joystick.getYAxisScaled();
       
       // Yep, the parent has taken over ... parent inputs only
       if (joystickInControl) {

@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name "Magic_Wand_Timer")(type "KiCad")(uri "${KIPRJMOD}/Magic_Wand_Timer.kicad_sym")(options "")(descr ""))
+)

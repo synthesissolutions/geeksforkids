@@ -12,7 +12,9 @@
 * Install MediaPipe library with sudo pip3 install mediapipe-rpi4
 * Run the demo code from the video https://www.youtube.com/watch?v=B7fWq_U_ipw&t=320s
     * You can change the cv2.VideoCapture call to cv2.VideoCapture(0) instead of cv2.VideoCapture("path to mp4") to use the USB camera
-
+## Setting up Rapsberry Pi 4 for PWM Output
+* Install HardwarePWM - pip3 install rpi-hardware-pwm
+* Follow the instructions for enabling Hardware PWM pins here - https://pypi.org/project/rpi-hardware-pwm/
 ## Setting up PC (Windows/Mac) for EyeGaze Software
 * Install Python3
     * https://www.python.org/downloads/
