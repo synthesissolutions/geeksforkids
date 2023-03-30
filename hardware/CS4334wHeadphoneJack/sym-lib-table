@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name "CS4334")(type "Legacy")(uri "${KIPRJMOD}/2023-03-18_19-29-08.lib")(options "")(descr ""))
+  (lib (name "Tensility")(type "Legacy")(uri "${KIPRJMOD}/2023-03-18_00-01-31.lib")(options "")(descr ""))
+)

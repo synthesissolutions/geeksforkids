@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name "FFC8Pin")(type "Legacy")(uri "${KIPRJMOD}/HFW8R-1STE1H1LF.lib")(options "")(descr ""))
+  (lib (name "SDCard")(type "KiCad")(uri "${KIPRJMOD}/2023-02-26_04-24-12.kicad_sym")(options "")(descr ""))
+)
