@@ -4,16 +4,6 @@
  * This class serves to be the interface to the to the parental remote control unit
  */
 
-#include <SPI.h>
-#include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SH110X.h>
-
-#define SCREEN_WIDTH 128  // OLED display width, in pixels
-#define SCREEN_HEIGHT 128 // OLED display height, in pixels
-#define OLED_RESET -1     // can set an oled reset pin if desired
-Adafruit_SH1107 display = Adafruit_SH1107(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET, 1000000, 100000);
-
 // The number of throttle and steering readings to average to smooth results
 #define RC_THROTTLE_READINGS 15
 #define RC_STEERING_READINGS 15
@@ -80,22 +70,6 @@ class RemoteControl {
     void init(int steeringPin, int throttlePin) {
       pinRCSteering = steeringPin;
       pinRCThrottle = throttlePin;
-
-      // Setup OLED Featherwing
-      delay(500); // wait for the OLED to power up
-      display.begin(0x3D, true); // Address 0x3C default
-    
-      // Show image buffer on the display hardware.
-      // Since the buffer is intialized with an Adafruit splashscreen
-      // internally, this will display the splashscreen.
-      display.display();
-      delay(150);
-    
-      // Clear the buffer.
-      display.clearDisplay();
-      display.display();
-    
-      display.setRotation(1);
     }
 
     void initAveragingArrays() {
@@ -128,8 +102,6 @@ class RemoteControl {
     
     int updateSteeringScaled() {
       int steeringRaw = steeringPwm;
-
-      updateOled();
       
       // Value is not in the expected range return 0 as a safe value
       if (steeringRaw == 0 || steeringRaw >= RC_LIMIT) {
@@ -152,19 +124,6 @@ class RemoteControl {
       }
       
       return steeringScaled;
-    }
-
-    void updateOled() {
-      display.clearDisplay();
-      display.setTextSize(2);
-      display.setTextColor(SH110X_WHITE);
-      display.setCursor(0,0);
-      display.println("Steering: ");
-      display.println(steeringPwm);
-      display.println("");
-      display.print("Throttle: ");
-      display.println(throttlePwm);
-      display.display();
     }
 
     /*
