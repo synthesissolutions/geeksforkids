@@ -136,6 +136,7 @@ int main(void)
 	prevRawCosData = rawCosData;
 	rawCosData = sensorData[1];
 
+	/*
 	if (rawSinData < MIN_SIN_SENSOR) {
 		finalData += rawCosData - prevRawCosData;
 	} else if (rawSinData > MAX_SIN_SENSOR) {
@@ -144,6 +145,10 @@ int main(void)
 		finalData = rawSinData;
 		startupComplete = 1;
 	}
+	*/
+
+	finalData = rawSinData;
+	startupComplete = 1;
 
 	if (startupComplete) {
 		pwmSteering = map(finalData, MIN_SENSOR, MAX_SENSOR, STEERING_LEFT, STEERING_RIGHT);
