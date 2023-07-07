@@ -95,9 +95,8 @@ int main(void)
 	uint32_t rawSinData;
 	uint32_t rawCosData;
 	uint32_t finalData;
-	uint16_t adjustedSinData;
-	double adjustedCosData;
-	uint16_t raw;
+	uint8_t  startupComplete = 0;
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -124,6 +123,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+
   HAL_ADC_Start_DMA(&hadc1, sensorData, 2);
   /* USER CODE END 2 */
 
@@ -136,29 +136,26 @@ int main(void)
 	prevRawCosData = rawCosData;
 	rawCosData = sensorData[1];
 
-//	HAL_ADC_Start(&hadc1);
-//	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-
-//	rawSinData = HAL_ADC_GetValue(&hadc1);
-
-//	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-
-//	rawCosData = HAL_ADC_GetValue(&hadc1);
-
-	// rawSinData = 675
-	// cosPrev = 450
-	// cosCurret = 445
+	/*
 	if (rawSinData < MIN_SIN_SENSOR) {
 		finalData += rawCosData - prevRawCosData;
-//		rawSinData = MIN_SENSOR;
 	} else if (rawSinData > MAX_SIN_SENSOR) {
 		finalData -= rawCosData - prevRawCosData;
-//		rawSinData = MAX_SENSOR;
 	} else {
 		finalData = rawSinData;
+		startupComplete = 1;
+	}
+	*/
+
+	finalData = rawSinData;
+	startupComplete = 1;
+
+	if (startupComplete) {
+		pwmSteering = map(finalData, MIN_SENSOR, MAX_SENSOR, STEERING_LEFT, STEERING_RIGHT);
+	} else {
+		pwmSteering = (STEERING_LEFT + STEERING_RIGHT)  / 2;
 	}
 
-	pwmSteering = map(finalData, MIN_SENSOR, MAX_SENSOR, STEERING_LEFT, STEERING_RIGHT);
 
 	if (pwmSteering > STEERING_RIGHT) {
 		pwmSteering = STEERING_RIGHT;

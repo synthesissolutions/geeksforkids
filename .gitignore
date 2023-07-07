@@ -45,6 +45,8 @@ log.txt
 .vscode/
 npm-debug.log*
 
+*-backups/
+
 .idea/
 .ionic/
 .sourcemaps/

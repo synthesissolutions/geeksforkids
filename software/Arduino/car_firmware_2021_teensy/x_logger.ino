@@ -6,6 +6,7 @@
  * Would be nice if we had a "loggable" interface ... but not really worth trying to do it
  * 
  */
+
 class Logger {
   private:
 
@@ -75,7 +76,7 @@ class Logger {
         Serial.print("Version: ");Serial.println(RELEASE_VERSION);
         
         Serial.print("Log Time:");Serial.println(millis());
-
+  
         // Go through the known instances (they'd better all be here).  Would be better to have an interface and a 
         //   vector of these to iterate over. 
         configuration->getStatus(statusLine);

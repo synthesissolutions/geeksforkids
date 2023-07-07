@@ -69,9 +69,18 @@ class RemoteControl {
     // initial setup
     void init(int steeringPin, int throttlePin) {
       pinRCSteering = steeringPin;
-      pinRCThrottle = throttlePin;  
+      pinRCThrottle = throttlePin;
     }
 
+    void initAveragingArrays() {
+      for (int i = 0; i < RC_THROTTLE_READINGS; i++) {
+        throttleReadings[i] = throttleCenter;
+      }
+      for (int i = 0; i < RC_STEERING_READINGS; i++) {
+        steeringReadings[i] = steeringCenter;
+      }
+    }
+    
     void setSteeringRange(int sMin, int sCenter, int sMax) {
       steeringMin = sMin;
       steeringCenter = sCenter;
@@ -83,27 +92,6 @@ class RemoteControl {
       throttleCenter = tCenter;
       throttleMax = tMax;
     }
-
-/*
-    int getSteeringRaw() {
-      int newSteering = analogRead(pinRCSteering);
-
-      steeringIndex++;
-      if (steeringIndex >= RC_STEERING_READINGS) {
-        steeringIndex = 0;
-      }
-
-      steeringReadings[steeringIndex] = newSteering;
-      
-      int total = 0;
-
-      for (int i = 0; i < RC_STEERING_READINGS; i++) {
-        total += steeringReadings[i];
-      }
-      
-      return total / RC_STEERING_READINGS;
-    }
-    */
     
     /*
      * get the current steering position (scaled units -100 to 100)
@@ -113,9 +101,8 @@ class RemoteControl {
     }
     
     int updateSteeringScaled() {
-      //int steeringRaw = getSteeringRaw();
       int steeringRaw = steeringPwm;
-
+      
       // Value is not in the expected range return 0 as a safe value
       if (steeringRaw == 0 || steeringRaw >= RC_LIMIT) {
         return 0; 
@@ -139,27 +126,6 @@ class RemoteControl {
       return steeringScaled;
     }
 
-/*
-    int getThrottleRaw() {
-      int newThrottle = analogRead(pinRCThrottle);
-
-      throttleIndex++;
-      if (throttleIndex >= RC_THROTTLE_READINGS) {
-        throttleIndex = 0;
-      }
-
-      throttleReadings[throttleIndex] = newThrottle;
-      
-      int total = 0;
-
-      for (int i = 0; i < RC_THROTTLE_READINGS; i++) {
-        total += throttleReadings[i];
-      }
-      
-      return total / RC_THROTTLE_READINGS;
-    }
-    */
-
     /*
      * get the current throttle position (scaled units -100 to 100)
      */
@@ -168,7 +134,6 @@ class RemoteControl {
     }
     
     int updateThrottleScaled() {  
-      //int throttleRaw = getThrottleRaw();
       int throttleRaw = throttlePwm;
 
       // Value is not in the expected range return 0 as a safe value

@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name "Useful Modifications")(type "KiCad")(uri "${KIPRJMOD}/Useful Modifications.pretty")(options "")(descr ""))
+  (lib (name "SamacSys")(type "KiCad")(uri "${KICAD6_3RD_PARTY}/SamacSys_Parts.pretty")(options "")(descr ""))
+)
