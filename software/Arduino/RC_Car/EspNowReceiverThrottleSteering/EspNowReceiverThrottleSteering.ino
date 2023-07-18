@@ -4,6 +4,7 @@
 
 #define THROTTLE_OUT_PIN  15
 #define STEERING_OUT_PIN  14
+#define MAX_SPEED_PIN     32
 
 #define STEERING_CENTER_DEAD_ZONE_DEGREES 2
 #define STEERING_CENTER 90
@@ -13,7 +14,7 @@
 #define THROTTLE_STOPPED_DEAD_ZONE_MILLIS 25
 #define THROTTLE_STOPPED  1500
 #define THROTTLE_MIN      1400
-#define THROTTLE_MAX      1600
+#define THROTTLE_MAX      1900
 
 #define MAX_MESSAGE_DELAY_MILLIS  75
 
@@ -24,6 +25,7 @@ long lastMessageTimeMillis = 0;
 
 int steeringPosition = STEERING_CENTER;    // "normal" servo controls with 90 in center
 int throttleMicroseconds = THROTTLE_STOPPED;
+int maxSpeed = THROTTLE_STOPPED + 100;
 
 // Structure example to send data
 // Must match the receiver structure
@@ -39,20 +41,14 @@ struct_message myData;
 void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
   memcpy(&myData, incomingData, sizeof(myData));
 
-  throttleMicroseconds = map(myData.throttleScaled, -100, 100, THROTTLE_MIN, THROTTLE_MAX);
-  steeringPosition = map(myData.steeringScaled, -100, 100, STEERING_MIN, STEERING_MAX);
+  if (myData.throttleScaled >= 0) {
+    throttleMicroseconds = map(myData.throttleScaled, 0, 100, THROTTLE_STOPPED, maxSpeed);
+  } else {
+    throttleMicroseconds = map(myData.throttleScaled, -100, 0, THROTTLE_MIN, THROTTLE_STOPPED);
+  }
+  
+  steeringPosition = map(-myData.steeringScaled, -100, 100, STEERING_MIN, STEERING_MAX);
   lastMessageTimeMillis = millis();
-  
-  /*
-  Serial.print("Bytes received: ");
-  Serial.println(len);
-  Serial.print("Throttle: ");
-  Serial.println(myData.throttleScaled);
-  Serial.print("Steering: ");
-  Serial.println(myData.steeringScaled);
-  
-  Serial.println();
-  */
 }
  
 void setup() {
@@ -75,6 +71,8 @@ void setup() {
     Serial.println("Error initializing ESP-NOW");
     return;
   }
+
+  setMaxSpeed();
   
   // Once ESPNow is successfully Init, we will register for recv CB to
   // get recv packer info
@@ -82,6 +80,8 @@ void setup() {
 }
  
 void loop() {
+  setMaxSpeed();
+  
   if (millis() - lastMessageTimeMillis > MAX_MESSAGE_DELAY_MILLIS) {
     steeringServo.write(STEERING_CENTER);
     throttleServo.writeMicroseconds(THROTTLE_STOPPED);
@@ -108,4 +108,16 @@ void loop() {
   */
   
   delay(25);
+}
+
+void setMaxSpeed() {
+  int rawSpeed = analogRead(MAX_SPEED_PIN);
+
+/*
+  maxSpeed = map(rawSpeed, 0, 4095, THROTTLE_STOPPED, THROTTLE_MAX);
+  Serial.print("Raw: ");
+  Serial.print(rawSpeed);
+  Serial.print("  PWM Max Speed: ");
+  Serial.println(maxSpeed);
+*/
 }
