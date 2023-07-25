@@ -3,7 +3,8 @@
 
 #define THROTTLE_PIN    32
 #define STEERING_PIN    33
-#define PWM_SWITCH_PIN  5
+#define PWM_SWITCH_PIN      5
+#define SWAP_LEFT_RIGHT_PIN 17
 
 #define ANALOG_THROTTLE_CENTER   1730
 #define ANALOG_STEERING_CENTER   1745
@@ -32,7 +33,9 @@ struct_message myData;
 
 esp_now_peer_info_t peerInfo;
 
+// variables to track jumper position on startup
 bool usePwmSignals;
+bool swapLeftRight;
 
 // variables to track the PWM signals
 unsigned long steeringPulseStart; // the timestamp in ms for the current PWM steering pulse
@@ -55,6 +58,7 @@ void setup() {
   pinMode(THROTTLE_PIN, INPUT);
   pinMode(STEERING_PIN, INPUT);
   pinMode(PWM_SWITCH_PIN, INPUT_PULLUP);
+  pinMode(SWAP_LEFT_RIGHT_PIN, INPUT_PULLUP);
   
   // Set device as a Wi-Fi Station
   WiFi.mode(WIFI_STA);
@@ -80,6 +84,7 @@ void setup() {
     return;
   }
 
+  swapLeftRight = digitalRead(SWAP_LEFT_RIGHT_PIN);
   usePwmSignals = !digitalRead(PWM_SWITCH_PIN); // logic is reversed since internal pullup resistor is used
 
   if (usePwmSignals) {
@@ -91,9 +96,9 @@ void setup() {
 void loop() {
   if (usePwmSignals) {
     if (throttlePwm >= PWM_THROTTLE_CENTER) {
-      myData.throttleScaled = -map(throttlePwm, PWM_THROTTLE_CENTER, PWM_THROTTLE_RIGHT, 0, 100);
+      myData.throttleScaled = map(throttlePwm, PWM_THROTTLE_CENTER, PWM_THROTTLE_RIGHT, 0, 100);
     } else {
-      myData.throttleScaled = -map(throttlePwm, PWM_THROTTLE_LEFT, PWM_THROTTLE_CENTER, -100, 0);    
+      myData.throttleScaled = map(throttlePwm, PWM_THROTTLE_LEFT, PWM_THROTTLE_CENTER, -100, 0);    
     }
     
     if (steeringPwm >= PWM_STEERING_CENTER) {
@@ -101,6 +106,11 @@ void loop() {
     } else {
       myData.steeringScaled = map(steeringPwm, PWM_STEERING_LEFT, PWM_STEERING_CENTER, -100, 0);    
     }
+
+    Serial.print("Steering PWM: ");
+    Serial.print(steeringPwm);
+    Serial.print("  Throttle PWM: ");
+    Serial.println(throttlePwm);
   } else {
     // Set values to send
     int rawThrottle = analogRead(THROTTLE_PIN);
@@ -117,19 +127,12 @@ void loop() {
     } else {
       myData.steeringScaled = map(rawSteering, 0, ANALOG_STEERING_CENTER, -100, 0);    
     }
-  
-    Serial.print("Switch: ");
-    Serial.print(digitalRead(PWM_SWITCH_PIN));
-    Serial.print("   Throttle: ");
-    Serial.print(rawThrottle);
-    Serial.print(", ");
-    Serial.print(myData.throttleScaled);
-    Serial.print("  Steering: ");
-    Serial.print(rawSteering);
-    Serial.print(", ");
-    Serial.println(myData.steeringScaled);
   }
 
+  if (swapLeftRight) {
+    myData.steeringScaled *= -1;
+  }
+    
   // Send message via ESP-NOW
   esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
    

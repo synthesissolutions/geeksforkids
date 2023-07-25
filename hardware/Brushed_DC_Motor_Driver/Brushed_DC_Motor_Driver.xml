@@ -1,0 +1,855 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>C:\Users\wmp39\Documents\KiCad\7.0\projects\Brushed_DC_Motor_Driver\Brushed_DC_Motor_Driver.kicad_sch</source>
+    <date>4/20/2023 6:55:51 PM</date>
+    <tool>Eeschema (7.0.0)</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>Brushed DC Motor Driver</title>
+        <company>Geeks for Kids</company>
+        <rev>1.0</rev>
+        <date>2023-04-07</date>
+        <source>Brushed_DC_Motor_Driver.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>1u</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>22874d56-e8c7-4e95-930d-2daf03365aee</tstamps>
+    </comp>
+    <comp ref="C2">
+      <value>1u</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>304e9dfd-efd7-4e70-9341-e3414d3f2a40</tstamps>
+    </comp>
+    <comp ref="C3">
+      <value>0.1u</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>598dea43-e69f-41c6-9518-1e12d30862c1</tstamps>
+    </comp>
+    <comp ref="C4">
+      <value>1u</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0ab021d3-d2bc-4a4b-9ad6-db97c061b62e</tstamps>
+    </comp>
+    <comp ref="C5">
+      <value>0.1u</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d851d4f4-47e3-4542-a7d2-b56a113ec655</tstamps>
+    </comp>
+    <comp ref="C6">
+      <value>10u</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b1e6ad8c-1b2c-40d9-bdba-9c572cb53cc8</tstamps>
+    </comp>
+    <comp ref="C7">
+      <value>150u</value>
+      <footprint>Capacitor_SMD:CP_Elec_6.3x7.7</footprint>
+      <libsource lib="Device" part="C_Polarized_US" description="Polarized capacitor, US symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Polarized capacitor, US symbol"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cd83a7cc-b069-4ee0-b3d7-5691eb472e34</tstamps>
+    </comp>
+    <comp ref="C8">
+      <value>10u</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0a4d8fe2-1217-4838-b318-e417cc2d18da</tstamps>
+    </comp>
+    <comp ref="D1">
+      <value>A7</value>
+      <footprint>Diode_SMD:D_SOD-123F</footprint>
+      <fields>
+        <field name="Sim.Device">D</field>
+        <field name="Sim.Pins">1=K 2=A</field>
+      </fields>
+      <libsource lib="Device" part="D" description="Diode"/>
+      <property name="Sim.Device" value="D"/>
+      <property name="Sim.Pins" value="1=K 2=A"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Diode"/>
+      <property name="ki_keywords" value="diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>67d0d6da-2e80-4d4a-86f4-8b27ca2a04e5</tstamps>
+    </comp>
+    <comp ref="H1">
+      <value>MountingHole_Pad</value>
+      <footprint>MountingHole:MountingHole_2.2mm_M2</footprint>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Mounting Hole without connection"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>902a119a-324f-488f-b77f-210eaa060637</tstamps>
+    </comp>
+    <comp ref="H2">
+      <value>MountingHole_Pad</value>
+      <footprint>MountingHole:MountingHole_2.2mm_M2</footprint>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Mounting Hole without connection"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b617efdf-576b-4513-b23d-bec2d2221853</tstamps>
+    </comp>
+    <comp ref="J1">
+      <value>Conn_01x08</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical</footprint>
+      <libsource lib="Connector_Generic" part="Conn_01x08" description="Generic connector, single row, 01x08, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x08, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c0c43d8a-34a9-4957-9e26-b1b534e14205</tstamps>
+    </comp>
+    <comp ref="J2">
+      <value>Conn_01x02</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</footprint>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7c278896-6d59-4623-a89e-7d182562f17b</tstamps>
+    </comp>
+    <comp ref="J3">
+      <value>Screw_Terminal_01x04</value>
+      <footprint>Brushed_DC_Motor_Driver_Parts:CUI_TB004-508-04BE</footprint>
+      <libsource lib="Connector" part="Screw_Terminal_01x04" description="Generic screw terminal, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Generic screw terminal, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="screw terminal"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3407495a-c756-4a63-b691-51badd12a7b7</tstamps>
+    </comp>
+    <comp ref="J4">
+      <value>Conn_01x02</value>
+      <footprint>Brushed_DC_Motor_Driver_Parts:PinHeader_1x02_P5.00mm_Vertical</footprint>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>45d2d8a5-669a-4cda-9182-18a98aa84ce5</tstamps>
+    </comp>
+    <comp ref="J5">
+      <value>Conn_01x01</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical</footprint>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ea71b418-c2ea-4046-880b-d61f1bf6fd58</tstamps>
+    </comp>
+    <comp ref="Q1">
+      <value>MMBT2222A</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <fields>
+        <field name="Sim.Device">NPN</field>
+        <field name="Sim.Pins">1=C 2=B 3=E</field>
+        <field name="Sim.Type">GUMMELPOON</field>
+      </fields>
+      <libsource lib="Simulation_SPICE" part="NPN" description="Bipolar transistor symbol for simulation only, substrate tied to the emitter"/>
+      <property name="Sim.Device" value="NPN"/>
+      <property name="Sim.Type" value="GUMMELPOON"/>
+      <property name="Sim.Pins" value="1=C 2=B 3=E"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Bipolar transistor symbol for simulation only, substrate tied to the emitter"/>
+      <property name="ki_keywords" value="simulation"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5a33c100-5047-44bb-ad1b-4a4ed6f64a7a</tstamps>
+    </comp>
+    <comp ref="Q2">
+      <value>AON7418</value>
+      <footprint>Brushed_DC_Motor_Driver_Parts:AON7418</footprint>
+      <datasheet>https://aosmd.com/res/data_sheets/AON7418.pdf</datasheet>
+      <libsource lib="Brushed_DC_Motor_Driver_Parts" part="AON7418" description="MOSFET N-CH 30V 46A/50A 8DFN"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="MOSFET N-CH 30V 46A/50A 8DFN"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cb18b7e4-93ba-491b-b4ba-b0b130bce13f</tstamps>
+    </comp>
+    <comp ref="Q3">
+      <value>AON7418</value>
+      <footprint>Brushed_DC_Motor_Driver_Parts:AON7418</footprint>
+      <datasheet>https://aosmd.com/res/data_sheets/AON7418.pdf</datasheet>
+      <libsource lib="Brushed_DC_Motor_Driver_Parts" part="AON7418" description="MOSFET N-CH 30V 46A/50A 8DFN"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="MOSFET N-CH 30V 46A/50A 8DFN"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ee790b76-975e-43c0-a674-d8ba5d235b2f</tstamps>
+    </comp>
+    <comp ref="Q4">
+      <value>AON7418</value>
+      <footprint>Brushed_DC_Motor_Driver_Parts:AON7418</footprint>
+      <datasheet>https://aosmd.com/res/data_sheets/AON7418.pdf</datasheet>
+      <libsource lib="Brushed_DC_Motor_Driver_Parts" part="AON7418" description="MOSFET N-CH 30V 46A/50A 8DFN"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="MOSFET N-CH 30V 46A/50A 8DFN"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7718024a-bf46-4e79-9fb6-baae7937e17b</tstamps>
+    </comp>
+    <comp ref="Q5">
+      <value>AON7418</value>
+      <footprint>Brushed_DC_Motor_Driver_Parts:AON7418</footprint>
+      <datasheet>https://aosmd.com/res/data_sheets/AON7418.pdf</datasheet>
+      <libsource lib="Brushed_DC_Motor_Driver_Parts" part="AON7418" description="MOSFET N-CH 30V 46A/50A 8DFN"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="MOSFET N-CH 30V 46A/50A 8DFN"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2221e1da-fb1f-4bce-be5d-fbba8d65aa90</tstamps>
+    </comp>
+    <comp ref="Q6">
+      <value>AON7418</value>
+      <footprint>Brushed_DC_Motor_Driver_Parts:AON7418</footprint>
+      <datasheet>https://aosmd.com/res/data_sheets/AON7418.pdf</datasheet>
+      <libsource lib="Brushed_DC_Motor_Driver_Parts" part="AON7418" description="MOSFET N-CH 30V 46A/50A 8DFN"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="MOSFET N-CH 30V 46A/50A 8DFN"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c28504b6-d2f0-43e6-b6a1-a9397d99dddc</tstamps>
+    </comp>
+    <comp ref="R1">
+      <value>330k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3e78871e-c933-4a8b-91f1-6a661e89e892</tstamps>
+    </comp>
+    <comp ref="R2">
+      <value>68.1k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fd6acdc5-e86e-4c63-9286-14603a656afe</tstamps>
+    </comp>
+    <comp ref="R3">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>81bc6d42-10cb-4d6c-a904-010c06ae24af</tstamps>
+    </comp>
+    <comp ref="R4">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>85adc6f7-db3c-4ed5-982d-6476ad55d30e</tstamps>
+    </comp>
+    <comp ref="R5">
+      <value>68.1k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d857f419-1f5e-4379-b2bc-1efa1875a955</tstamps>
+    </comp>
+    <comp ref="R6">
+      <value>~</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>435b8110-4772-486a-a528-ae52a79148ce</tstamps>
+    </comp>
+    <comp ref="R7">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bb66f974-0339-473b-b6e4-1a0646edb50c</tstamps>
+    </comp>
+    <comp ref="R8">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>62abaad0-c100-4371-a2df-016254681e66</tstamps>
+    </comp>
+    <comp ref="R9">
+      <value>43k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c32bbfff-230f-4bf0-bc98-4d16a5e8601d</tstamps>
+    </comp>
+    <comp ref="R10">
+      <value>1m</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="Resistor, US symbol"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a57f5855-7ad7-4d44-9b55-425178c53b89</tstamps>
+    </comp>
+    <comp ref="U1">
+      <value>DRV8701</value>
+      <footprint>Brushed_DC_Motor_Driver_Parts:RGE0024F</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/drv8701.pdf?ts=1680889436714&amp;ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FDRV8701%253FkeyMatch%253DDRV8701%2526tisearch%253Dsearch-everything%2526usecase%253DGPN</datasheet>
+      <libsource lib="Brushed_DC_Motor_Driver_Parts" part="DRV8701" description="IC MOTOR DRIVER 0V-5.5V 24VQFN"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Brushed_DC_Motor_Driver.kicad_sch"/>
+      <property name="ki_description" value="IC MOTOR DRIVER 0V-5.5V 24VQFN"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d7e1697e-ee21-41ca-b14c-786b0b109fc6</tstamps>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Brushed_DC_Motor_Driver_Parts" part="AON7418">
+      <description>MOSFET N-CH 30V 46A/50A 8DFN</description>
+      <docs>https://aosmd.com/res/data_sheets/AON7418.pdf</docs>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">AON7418</field>
+        <field name="Datasheet">https://aosmd.com/res/data_sheets/AON7418.pdf</field>
+      </fields>
+      <pins>
+        <pin num="1" name="S" type="passive"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="S" type="passive"/>
+        <pin num="4" name="G" type="input"/>
+        <pin num="5" name="D" type="passive"/>
+        <pin num="6" name="D" type="passive"/>
+        <pin num="7" name="D" type="passive"/>
+        <pin num="8" name="D" type="passive"/>
+        <pin num="9" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Brushed_DC_Motor_Driver_Parts" part="DRV8701">
+      <description>IC MOTOR DRIVER 0V-5.5V 24VQFN</description>
+      <docs>https://www.ti.com/lit/ds/symlink/drv8701.pdf?ts=1680889436714&amp;ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FDRV8701%253FkeyMatch%253DDRV8701%2526tisearch%253Dsearch-everything%2526usecase%253DGPN</docs>
+      <fields>
+        <field name="Reference">U1</field>
+        <field name="Value">DRV8701</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/drv8701.pdf?ts=1680889436714&amp;ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FDRV8701%253FkeyMatch%253DDRV8701%2526tisearch%253Dsearch-everything%2526usecase%253DGPN</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VM" type="power_in"/>
+        <pin num="2" name="VCP" type="power_out"/>
+        <pin num="3" name="CPH" type="passive"/>
+        <pin num="4" name="CPL" type="passive"/>
+        <pin num="5" name="GND" type="power_in"/>
+        <pin num="6" name="VREF" type="input"/>
+        <pin num="7" name="AVDD" type="power_out"/>
+        <pin num="8" name="DVDD" type="power_out"/>
+        <pin num="9" name="~{FAULT}" type="open_collector"/>
+        <pin num="10" name="SNSOUT" type="open_collector"/>
+        <pin num="11" name="SO" type="output"/>
+        <pin num="12" name="IDRIVE" type="input"/>
+        <pin num="13" name="~{SLEEP}" type="input"/>
+        <pin num="14" name="EN/IN2" type="input"/>
+        <pin num="15" name="PH/IN1" type="input"/>
+        <pin num="16" name="GND" type="power_in"/>
+        <pin num="17" name="GH1" type="output"/>
+        <pin num="18" name="SH1" type="input"/>
+        <pin num="19" name="GL1" type="output"/>
+        <pin num="20" name="SN" type="input"/>
+        <pin num="21" name="SP" type="input"/>
+        <pin num="22" name="GL2" type="output"/>
+        <pin num="23" name="SH2" type="input"/>
+        <pin num="24" name="GH2" type="output"/>
+        <pin num="25" name="PPAD" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="Screw_Terminal_01x04">
+      <description>Generic screw terminal, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TerminalBlock*:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Screw_Terminal_01x04</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x01">
+      <description>Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x01</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x02">
+      <description>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x02</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x08">
+      <description>Generic connector, single row, 01x08, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x08</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="Pin_5" type="passive"/>
+        <pin num="6" name="Pin_6" type="passive"/>
+        <pin num="7" name="Pin_7" type="passive"/>
+        <pin num="8" name="Pin_8" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C">
+      <description>Unpolarized capacitor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C_Polarized_US">
+      <description>Polarized capacitor, US symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>CP_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C_Polarized_US</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="D">
+      <description>Diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D</field>
+        <field name="Datasheet">~</field>
+        <field name="Sim.Device">D</field>
+        <field name="Sim.Pins">1=K 2=A</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="NetTie_2">
+      <description>Net tie, 2 pins</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Net*Tie*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">NT</field>
+        <field name="Value">NetTie_2</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R_US">
+      <description>Resistor, US symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R_US</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Mechanical" part="MountingHole">
+      <description>Mounting Hole without connection</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>MountingHole*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole</field>
+        <field name="Datasheet">~</field>
+      </fields>
+    </libpart>
+    <libpart lib="Simulation_SPICE" part="NPN">
+      <description>Bipolar transistor symbol for simulation only, substrate tied to the emitter</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">NPN</field>
+        <field name="Datasheet">~</field>
+        <field name="Sim.Device">NPN</field>
+        <field name="Sim.Type">GUMMELPOON</field>
+        <field name="Sim.Pins">1=C 2=B 3=E</field>
+      </fields>
+      <pins>
+        <pin num="1" name="C" type="open_collector"/>
+        <pin num="2" name="B" type="input"/>
+        <pin num="3" name="E" type="open_emitter"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Brushed_DC_Motor_Driver_Parts">
+      <uri>C:\Users\wmp39\Documents\KiCad\7.0\projects\Brushed_DC_Motor_Driver/Brushed_DC_Motor_Driver_Parts.kicad_sym</uri>
+    </library>
+    <library logical="Connector">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Connector.kicad_sym</uri>
+    </library>
+    <library logical="Connector_Generic">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Connector_Generic.kicad_sym</uri>
+    </library>
+    <library logical="Device">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Device.kicad_sym</uri>
+    </library>
+    <library logical="Mechanical">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Mechanical.kicad_sym</uri>
+    </library>
+    <library logical="Simulation_SPICE">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Simulation_SPICE.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="+BATT">
+      <node ref="D1" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="J3" pin="4" pinfunction="Pin_4" pintype="passive"/>
+      <node ref="Q4" pin="1" pinfunction="S" pintype="passive"/>
+      <node ref="Q4" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q4" pin="3" pinfunction="S" pintype="passive"/>
+    </net>
+    <net code="2" name="/CPH">
+      <node ref="C3" pin="2" pintype="passive"/>
+      <node ref="U1" pin="3" pinfunction="CPH" pintype="passive"/>
+    </net>
+    <net code="3" name="/CPL">
+      <node ref="C3" pin="1" pintype="passive"/>
+      <node ref="U1" pin="4" pinfunction="CPL" pintype="passive"/>
+    </net>
+    <net code="4" name="/CSA_OUT">
+      <node ref="J1" pin="6" pinfunction="Pin_6" pintype="passive"/>
+      <node ref="U1" pin="11" pinfunction="SO" pintype="output"/>
+    </net>
+    <net code="5" name="/CURRENT_SENSE_N">
+      <node ref="U1" pin="20" pinfunction="SN" pintype="input"/>
+    </net>
+    <net code="6" name="/CURRENT_SENSE_P">
+      <node ref="U1" pin="21" pinfunction="SP" pintype="input"/>
+    </net>
+    <net code="7" name="/DIR">
+      <node ref="J1" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="U1" pin="15" pinfunction="PH/IN1" pintype="input"/>
+    </net>
+    <net code="8" name="/GH1">
+      <node ref="Q5" pin="4" pinfunction="G" pintype="input"/>
+      <node ref="U1" pin="17" pinfunction="GH1" pintype="output"/>
+    </net>
+    <net code="9" name="/GH2">
+      <node ref="Q2" pin="4" pinfunction="G" pintype="input"/>
+      <node ref="U1" pin="24" pinfunction="GH2" pintype="output"/>
+    </net>
+    <net code="10" name="/GL1">
+      <node ref="Q6" pin="4" pinfunction="G" pintype="input"/>
+      <node ref="U1" pin="19" pinfunction="GL1" pintype="output"/>
+    </net>
+    <net code="11" name="/GL2">
+      <node ref="Q3" pin="4" pinfunction="G" pintype="input"/>
+      <node ref="U1" pin="22" pinfunction="GL2" pintype="output"/>
+    </net>
+    <net code="12" name="/GR">
+      <node ref="Q1" pin="1" pinfunction="C" pintype="open_collector"/>
+      <node ref="Q4" pin="4" pinfunction="G" pintype="input"/>
+      <node ref="R8" pin="2" pintype="passive"/>
+    </net>
+    <net code="13" name="/IDRIVE">
+      <node ref="R5" pin="2" pintype="passive"/>
+      <node ref="R6" pin="1" pintype="passive"/>
+      <node ref="U1" pin="12" pinfunction="IDRIVE" pintype="input"/>
+    </net>
+    <net code="14" name="/MOTOR_OUT_A">
+      <node ref="J3" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="Q5" pin="1" pinfunction="S" pintype="passive"/>
+      <node ref="Q5" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q5" pin="3" pinfunction="S" pintype="passive"/>
+      <node ref="Q6" pin="5" pinfunction="D" pintype="passive"/>
+      <node ref="Q6" pin="6" pinfunction="D" pintype="passive"/>
+      <node ref="Q6" pin="7" pinfunction="D" pintype="passive"/>
+      <node ref="Q6" pin="8" pinfunction="D" pintype="passive"/>
+      <node ref="Q6" pin="9" pinfunction="D" pintype="passive"/>
+      <node ref="U1" pin="18" pinfunction="SH1" pintype="input"/>
+    </net>
+    <net code="15" name="/MOTOR_OUT_B">
+      <node ref="J3" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="Q2" pin="1" pinfunction="S" pintype="passive"/>
+      <node ref="Q2" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q2" pin="3" pinfunction="S" pintype="passive"/>
+      <node ref="Q3" pin="5" pinfunction="D" pintype="passive"/>
+      <node ref="Q3" pin="6" pinfunction="D" pintype="passive"/>
+      <node ref="Q3" pin="7" pinfunction="D" pintype="passive"/>
+      <node ref="Q3" pin="8" pinfunction="D" pintype="passive"/>
+      <node ref="Q3" pin="9" pinfunction="D" pintype="passive"/>
+      <node ref="U1" pin="23" pinfunction="SH2" pintype="input"/>
+    </net>
+    <net code="16" name="/PWM">
+      <node ref="J1" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="U1" pin="14" pinfunction="EN/IN2" pintype="input"/>
+    </net>
+    <net code="17" name="/VCP">
+      <node ref="C4" pin="1" pintype="passive"/>
+      <node ref="R8" pin="1" pintype="passive"/>
+      <node ref="U1" pin="2" pinfunction="VCP" pintype="power_out"/>
+    </net>
+    <net code="18" name="/VREF">
+      <node ref="J2" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="R1" pin="2" pintype="passive"/>
+      <node ref="R2" pin="1" pintype="passive"/>
+      <node ref="U1" pin="6" pinfunction="VREF" pintype="input"/>
+    </net>
+    <net code="19" name="/V_SENSE">
+      <node ref="Q3" pin="1" pinfunction="S" pintype="passive"/>
+      <node ref="Q3" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q3" pin="3" pinfunction="S" pintype="passive"/>
+      <node ref="Q6" pin="1" pinfunction="S" pintype="passive"/>
+      <node ref="Q6" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q6" pin="3" pinfunction="S" pintype="passive"/>
+      <node ref="R10" pin="1" pintype="passive"/>
+    </net>
+    <net code="20" name="/~{CHOPPING}">
+      <node ref="R3" pin="2" pintype="passive"/>
+      <node ref="U1" pin="10" pinfunction="SNSOUT" pintype="open_collector"/>
+    </net>
+    <net code="21" name="/~{FAULT}">
+      <node ref="J1" pin="5" pinfunction="Pin_5" pintype="passive"/>
+      <node ref="R4" pin="2" pintype="passive"/>
+      <node ref="U1" pin="9" pinfunction="~{FAULT}" pintype="open_collector"/>
+    </net>
+    <net code="22" name="/~{SLEEP}">
+      <node ref="J1" pin="4" pinfunction="Pin_4" pintype="passive"/>
+      <node ref="R7" pin="2" pintype="passive"/>
+      <node ref="U1" pin="13" pinfunction="~{SLEEP}" pintype="input"/>
+    </net>
+    <net code="23" name="GND">
+      <node ref="C1" pin="1" pintype="passive"/>
+      <node ref="C2" pin="1" pintype="passive"/>
+      <node ref="C5" pin="1" pintype="passive"/>
+      <node ref="C6" pin="1" pintype="passive"/>
+      <node ref="C7" pin="2" pintype="passive"/>
+      <node ref="C8" pin="1" pintype="passive"/>
+      <node ref="J1" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J2" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J3" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J4" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J5" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R10" pin="2" pintype="passive"/>
+      <node ref="R2" pin="2" pintype="passive"/>
+      <node ref="R6" pin="2" pintype="passive"/>
+      <node ref="R9" pin="2" pintype="passive"/>
+      <node ref="U1" pin="16" pinfunction="GND" pintype="power_in"/>
+      <node ref="U1" pin="25" pinfunction="PPAD" pintype="power_in"/>
+      <node ref="U1" pin="5" pinfunction="GND" pintype="power_in"/>
+    </net>
+    <net code="24" name="Net-(D1-A)">
+      <node ref="D1" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="Q1" pin="3" pinfunction="E" pintype="open_emitter"/>
+    </net>
+    <net code="25" name="Net-(Q1-B)">
+      <node ref="Q1" pin="2" pinfunction="B" pintype="input"/>
+      <node ref="R9" pin="1" pintype="passive"/>
+    </net>
+    <net code="26" name="VCC">
+      <node ref="C4" pin="2" pintype="passive"/>
+      <node ref="C5" pin="2" pintype="passive"/>
+      <node ref="C6" pin="2" pintype="passive"/>
+      <node ref="C7" pin="1" pintype="passive"/>
+      <node ref="C8" pin="2" pintype="passive"/>
+      <node ref="J1" pin="8" pinfunction="Pin_8" pintype="passive"/>
+      <node ref="J4" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="Q2" pin="5" pinfunction="D" pintype="passive"/>
+      <node ref="Q2" pin="6" pinfunction="D" pintype="passive"/>
+      <node ref="Q2" pin="7" pinfunction="D" pintype="passive"/>
+      <node ref="Q2" pin="8" pinfunction="D" pintype="passive"/>
+      <node ref="Q2" pin="9" pinfunction="D" pintype="passive"/>
+      <node ref="Q4" pin="5" pinfunction="D" pintype="passive"/>
+      <node ref="Q4" pin="6" pinfunction="D" pintype="passive"/>
+      <node ref="Q4" pin="7" pinfunction="D" pintype="passive"/>
+      <node ref="Q4" pin="8" pinfunction="D" pintype="passive"/>
+      <node ref="Q4" pin="9" pinfunction="D" pintype="passive"/>
+      <node ref="Q5" pin="5" pinfunction="D" pintype="passive"/>
+      <node ref="Q5" pin="6" pinfunction="D" pintype="passive"/>
+      <node ref="Q5" pin="7" pinfunction="D" pintype="passive"/>
+      <node ref="Q5" pin="8" pinfunction="D" pintype="passive"/>
+      <node ref="Q5" pin="9" pinfunction="D" pintype="passive"/>
+      <node ref="U1" pin="1" pinfunction="VM" pintype="power_in"/>
+    </net>
+    <net code="27" name="VDD">
+      <node ref="C2" pin="2" pintype="passive"/>
+      <node ref="J1" pin="7" pinfunction="Pin_7" pintype="passive"/>
+      <node ref="R3" pin="1" pintype="passive"/>
+      <node ref="R4" pin="1" pintype="passive"/>
+      <node ref="R7" pin="1" pintype="passive"/>
+      <node ref="U1" pin="8" pinfunction="DVDD" pintype="power_out"/>
+    </net>
+    <net code="28" name="VDDA">
+      <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="R1" pin="1" pintype="passive"/>
+      <node ref="R5" pin="1" pintype="passive"/>
+      <node ref="U1" pin="7" pinfunction="AVDD" pintype="power_out"/>
+    </net>
+  </nets>
+</export>

@@ -5,16 +5,16 @@
 
 Adafruit_SH1107 display = Adafruit_SH1107(64, 128, &Wire);
 
-#define BUTTON_A  9
-#define BUTTON_B  6
-#define BUTTON_C  5
+//#define BUTTON_A  9
+//#define BUTTON_B  6
+//#define BUTTON_C  5
 
-#define PIN_JOYSTICK_STEERING 17
-#define PIN_JOYSTICK_THROTTLE 16
+#define PIN_JOYSTICK_STEERING A0
+#define PIN_JOYSTICK_THROTTLE A1
 #define PIN_RC_STEERING       11
 #define PIN_RC_THROTTLE       10
-#define PIN_SOUND_1           7
-#define PIN_SOUND_2           8
+#define PIN_SOUND_1           6
+#define PIN_SOUND_2           9
 
 int throttle = 0;
 int steering = 0;
