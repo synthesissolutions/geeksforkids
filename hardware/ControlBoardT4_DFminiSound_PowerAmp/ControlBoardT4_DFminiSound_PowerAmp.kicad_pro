@@ -117,7 +117,7 @@
         "allow_blind_buried_vias": false,
         "allow_microvias": false,
         "max_error": 0.005,
-        "min_clearance": 0.0,
+        "min_clearance": 0.19999999999999998,
         "min_connection": 0.0,
         "min_copper_edge_clearance": 0.024999999999999998,
         "min_hole_clearance": 0.25,
@@ -507,8 +507,12 @@
       ""
     ],
     [
-      "00000000-0000-0000-0000-00005f4ad486",
-      "MAX9744"
+      "cad66ec4-2943-4164-803f-94a2a6d86b7b",
+      "Audio_Module"
+    ],
+    [
+      "d78eba2a-29cb-43e2-8ef5-0db20209515b",
+      "Buck_Converter"
     ]
   ],
   "text_variables": {}
