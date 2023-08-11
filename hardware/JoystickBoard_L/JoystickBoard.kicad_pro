@@ -475,7 +475,7 @@
       "idf": "",
       "netlist": "JoystickBoard.net",
       "specctra_dsn": "",
-      "step": "",
+      "step": "JoystickBoard.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
