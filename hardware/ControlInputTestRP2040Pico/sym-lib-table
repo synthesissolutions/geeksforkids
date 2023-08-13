@@ -1,0 +1,6 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "UsefulModifications")(type "Legacy")(uri "${KIPRJMOD}/Useful Modifications.lib")(options "")(descr ""))
+  (lib (name "RP2040")(type "Legacy")(uri "${KIPRJMOD}/RPi_Pico.lib")(options "")(descr ""))
+  (lib (name "ControlInputTestRP2040Pico-rescue")(type "KiCad")(uri "${KIPRJMOD}/ControlInputTestRP2040Pico-rescue.kicad_sym")(options "")(descr ""))
+)

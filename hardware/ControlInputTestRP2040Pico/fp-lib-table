@@ -1,0 +1,5 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "Useful Modifications")(type "KiCad")(uri "${KIPRJMOD}/Useful Modifications.pretty")(options "")(descr ""))
+  (lib (name "RP2040")(type "KiCad")(uri "${KIPRJMOD}/RPi_Pico.pretty")(options "")(descr ""))
+)
