@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "JST_XHtoPH_4-rescue")(type "KiCad")(uri "${KIPRJMOD}/JST_XHtoPH_4-rescue.kicad_sym")(options "")(descr ""))
+  (lib (name "ButtonToActionChallenge-rescue")(type "KiCad")(uri "${KIPRJMOD}/ButtonToActionChallenge-rescue.kicad_sym")(options "")(descr ""))
+)
