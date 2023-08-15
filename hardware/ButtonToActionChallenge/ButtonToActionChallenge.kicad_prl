@@ -40,7 +40,6 @@
       9,
       10,
       11,
-      12,
       13,
       14,
       15,
@@ -67,8 +66,8 @@
       39,
       40
     ],
-    "visible_layers": "ffdffdf_ffffffff",
-    "zone_display_mode": 1
+    "visible_layers": "ffdffff_ffffffff",
+    "zone_display_mode": 0
   },
   "meta": {
     "filename": "ButtonToActionChallenge.kicad_prl",
