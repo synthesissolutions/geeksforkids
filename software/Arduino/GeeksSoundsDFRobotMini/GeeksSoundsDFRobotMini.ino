@@ -5,15 +5,23 @@
 DFRobotDFPlayerMini myDFPlayer;
 
 //Input Pins 
-const byte noPins = 2;
-const byte inPins[] = {6,7};
-const byte busyPin = 10;
+const byte noPins = 2;  //Number of pins we are using used for looping through inPins[].
+const byte inPins[] = {3,11}; // {PA7,PC1} physical {5,13}
+const byte busyPin = 5;  //PB4 physical 7
+const byte volPin = 15; //PA1 physical 18
+const byte speedPin = 16; //PA3 physical 19
 
 //Input Tracking
 byte p[] = {1,1};
 byte pOld[] = {1,1};
 byte folderSounds[] = {0,0};
 byte isBusy = 1;
+int volRead = 512; //10 bit int 0-1023
+int speedRead = 512; //10 bit int 0-1023
+
+//Outputs Tracking
+int volOut = 15; //DFRobot takes 0-30.
+int speedOut = 128; //Sent over i2c to Main board convention will be to send 0-255.
 
 void setup() {
   // A delay is required to give the DFRobot Mini MP3 player time to boot up
@@ -36,7 +44,7 @@ void setup() {
   myDFPlayer.setTimeOut(500); //Set serial communictaion time out 500ms
   
   //----Set volume----
-  myDFPlayer.volume(15);  //Set volume value (0~30).
+  myDFPlayer.volume(30);  //Set volume value (0~30).
 
   //----Set different EQ----
   myDFPlayer.EQ(DFPLAYER_EQ_NORMAL);
@@ -59,17 +67,25 @@ void ReadInputs(){
     p[i]=digitalRead(inPins[i]);
   }
   isBusy = digitalRead(busyPin); //busy when busy Pin is Low
+  volRead = analogRead(volPin);
+  speedRead = analogRead(speedPin);
 }
 
 //Trigger sounds based on inputs
 void SetOutputs(){
   for(int i = 0; i < noPins; i++){
-    if (p[i] == 0 && p[i] != pOld[i]){
+    if (p[i] == 0 && p[i] != pOld[i]){ //if the value of the pin changed play the sound.
       PlaySound(i+1, random(1,folderSounds[i]+1));
     } 
-  }
- 
-  SetOldp();
+  } 
+  SetOldp(); //Sets current pin values as old.
+
+  volOut = map(volRead,0,1023,0,30); //Map vol pot read to DF Robot range.
+  myDFPlayer.volume(volOut); //Set DF Robot volume
+  
+  speedOut = map(speedRead,0,1023,0,255); //Map speed pot to output.
+  //i2c command....
+  
 }
 
 //Used for simple "Debounce" keeps track of the value last pressed
@@ -81,7 +97,8 @@ void SetOldp(){
 
 //Checks if a sounds is playing then plays a sound folder values 1-99 sound values 1-255
 void PlaySound(byte folder, byte sound){
-  if (isBusy){
+  
+  if (isBusy){ //logic is reversed for isBusy 
     myDFPlayer.playFolder(folder, sound);
   }
 }
