@@ -1,6 +1,7 @@
 
 #include "Arduino.h"
 #include "DFRobotDFPlayerMini.h"
+#include "Wire.h"
 
 DFRobotDFPlayerMini myDFPlayer;
 
@@ -53,6 +54,10 @@ void setup() {
   myDFPlayer.outputDevice(DFPLAYER_DEVICE_SD);
 
   SetFolderFileCounts();
+
+  //i2c commands for sending speed values.
+  Wire.onRequest(SendSpeedReading);   
+  Wire.begin(0x54);
 }
 
 void loop() {
@@ -110,4 +115,8 @@ void SetFolderFileCounts(){
     count = myDFPlayer.readFileCountsInFolder(i+1);
     folderSounds[i]=count;
   }
+}
+
+void SendSpeedReading(){  
+  Wire.write((uint8_t) speedOut);
 }
