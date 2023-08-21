@@ -1358,7 +1358,7 @@
   (symbol (lib_id "Device:R_Small") (at 214.63 128.27 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 044f7aee-9d91-45b0-ac8c-4760229b16ca)
-    (property "Reference" "R6" (at 217.17 126.9999 0)
+    (property "Reference" "R7" (at 217.17 126.9999 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10K" (at 217.17 129.5399 0)
@@ -1378,7 +1378,7 @@
     (instances
       (project "Magic_Wand_Timer"
         (path "/c5eed718-a5cc-419c-bfa3-9985e5d26a34"
-          (reference "R6") (unit 1)
+          (reference "R7") (unit 1)
         )
       )
     )
@@ -1387,7 +1387,7 @@
   (symbol (lib_id "Device:R_Small") (at 78.74 111.76 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 09b4f2c6-7f75-48c2-8d9b-2d74ff7e1258)
-    (property "Reference" "R7" (at 81.28 110.4899 0)
+    (property "Reference" "R3" (at 81.28 110.4899 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100K" (at 81.28 113.0299 0)
@@ -1407,7 +1407,7 @@
     (instances
       (project "Magic_Wand_Timer"
         (path "/c5eed718-a5cc-419c-bfa3-9985e5d26a34"
-          (reference "R7") (unit 1)
+          (reference "R3") (unit 1)
         )
       )
     )
@@ -1501,7 +1501,7 @@
   (symbol (lib_id "Device:R_Small") (at 135.255 50.165 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 24f310be-ed87-411a-b345-c7143292287d)
-    (property "Reference" "R1" (at 135.255 45.085 90)
+    (property "Reference" "R5" (at 135.255 45.085 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "10K" (at 135.255 47.625 90)
@@ -1521,7 +1521,7 @@
     (instances
       (project "Magic_Wand_Timer"
         (path "/c5eed718-a5cc-419c-bfa3-9985e5d26a34"
-          (reference "R1") (unit 1)
+          (reference "R5") (unit 1)
         )
       )
     )
@@ -1530,7 +1530,7 @@
   (symbol (lib_id "Transistor_FET:Si2371EDS") (at 76.2 97.155 0) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 2cf08847-807d-4dbf-969c-d4accc811abb)
-    (property "Reference" "Q2" (at 82.55 97.79 0)
+    (property "Reference" "Q1" (at 82.55 97.79 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "SI2301CDS-T1-GE3" (at 82.55 95.25 0)
@@ -1551,7 +1551,7 @@
     (instances
       (project "Magic_Wand_Timer"
         (path "/c5eed718-a5cc-419c-bfa3-9985e5d26a34"
-          (reference "Q2") (unit 1)
+          (reference "Q1") (unit 1)
         )
       )
     )
@@ -1560,7 +1560,7 @@
   (symbol (lib_id "Device:Q_NMOS_GSD") (at 223.52 123.19 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 2ef75644-3695-4daf-b471-c9da9f65b120)
-    (property "Reference" "Q1" (at 229.87 121.9199 0)
+    (property "Reference" "Q2" (at 229.87 121.9199 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "AS2302" (at 229.87 124.4599 0)
@@ -1581,7 +1581,7 @@
     (instances
       (project "Magic_Wand_Timer"
         (path "/c5eed718-a5cc-419c-bfa3-9985e5d26a34"
-          (reference "Q1") (unit 1)
+          (reference "Q2") (unit 1)
         )
       )
     )
@@ -1645,7 +1645,7 @@
   (symbol (lib_id "Device:R_Small") (at 173.99 91.44 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 43906e70-a033-47ad-982e-56ab05be5025)
-    (property "Reference" "R5" (at 176.53 90.1699 0)
+    (property "Reference" "R6" (at 176.53 90.1699 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100K" (at 176.53 92.7099 0)
@@ -1665,7 +1665,7 @@
     (instances
       (project "Magic_Wand_Timer"
         (path "/c5eed718-a5cc-419c-bfa3-9985e5d26a34"
-          (reference "R5") (unit 1)
+          (reference "R6") (unit 1)
         )
       )
     )
@@ -1699,7 +1699,7 @@
   (symbol (lib_id "Device:C_Small") (at 143.51 55.88 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 51063f20-f58e-4e71-b885-f1988d6cf200)
-    (property "Reference" "C3" (at 146.05 55.88 90)
+    (property "Reference" "C2" (at 146.05 55.88 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "1uF" (at 140.97 55.88 90)
@@ -1722,7 +1722,7 @@
     (instances
       (project "Magic_Wand_Timer"
         (path "/c5eed718-a5cc-419c-bfa3-9985e5d26a34"
-          (reference "C3") (unit 1)
+          (reference "C2") (unit 1)
         )
       )
     )
@@ -1789,7 +1789,7 @@
   (symbol (lib_id "Device:C_Small") (at 153.035 55.88 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 616a2042-1242-410e-885a-44d326c7529e)
-    (property "Reference" "C2" (at 155.575 55.88 90)
+    (property "Reference" "C3" (at 155.575 55.88 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "10nF" (at 150.495 55.88 90)
@@ -1812,7 +1812,7 @@
     (instances
       (project "Magic_Wand_Timer"
         (path "/c5eed718-a5cc-419c-bfa3-9985e5d26a34"
-          (reference "C2") (unit 1)
+          (reference "C3") (unit 1)
         )
       )
     )
@@ -1880,7 +1880,7 @@
   (symbol (lib_id "Device:R_Small") (at 69.85 92.71 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6ac6efa9-394d-4394-84fa-27eff2985fb6)
-    (property "Reference" "R8" (at 65.405 90.805 0)
+    (property "Reference" "R2" (at 65.405 90.805 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100K" (at 63.5 93.345 0)
@@ -1900,7 +1900,7 @@
     (instances
       (project "Magic_Wand_Timer"
         (path "/c5eed718-a5cc-419c-bfa3-9985e5d26a34"
-          (reference "R8") (unit 1)
+          (reference "R2") (unit 1)
         )
       )
     )
@@ -2039,10 +2039,10 @@
   (symbol (lib_id "Timer:NE555D") (at 143.51 110.49 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 9a993e5d-9cab-4514-abc2-f0cbc7a15ef2)
-    (property "Reference" "U2" (at 145.5294 97.79 0)
+    (property "Reference" "U1" (at 145.7041 97.79 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "NE555D" (at 145.5294 100.33 0)
+    (property "Value" "NE555D" (at 145.7041 100.33 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" (at 165.1 120.65 0)
@@ -2068,7 +2068,7 @@
     (instances
       (project "Magic_Wand_Timer"
         (path "/c5eed718-a5cc-419c-bfa3-9985e5d26a34"
-          (reference "U2") (unit 1)
+          (reference "U1") (unit 1)
         )
       )
     )
@@ -2131,7 +2131,7 @@
   (symbol (lib_id "Device:R_Small") (at 62.865 97.155 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b305dab0-507c-42c6-88d0-23f924cb6b96)
-    (property "Reference" "R2" (at 62.865 99.06 90)
+    (property "Reference" "R1" (at 62.865 99.06 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "1K" (at 62.865 100.965 90)
@@ -2143,7 +2143,7 @@
     (property "Datasheet" "~" (at 62.865 97.155 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "MPN" "C11702" (at 62.865 97.155 90)
+    (property "MPN" "C17513" (at 62.865 97.155 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 4aa9e8d3-72ea-4a87-bbc7-54f63e708ba7))
@@ -2151,7 +2151,7 @@
     (instances
       (project "Magic_Wand_Timer"
         (path "/c5eed718-a5cc-419c-bfa3-9985e5d26a34"
-          (reference "R2") (unit 1)
+          (reference "R1") (unit 1)
         )
       )
     )
@@ -2242,7 +2242,7 @@
     (property "Reference" "R4" (at 130.81 97.7899 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "10K" (at 130.81 100.3299 0)
+    (property "Value" "100K" (at 130.81 100.3299 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 128.27 99.06 0)
@@ -2251,7 +2251,7 @@
     (property "Datasheet" "~" (at 128.27 99.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "MPN" "C17414" (at 128.27 99.06 0)
+    (property "MPN" "C149504" (at 128.27 99.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Field5" "" (at 128.27 99.06 0)
@@ -2271,7 +2271,7 @@
   (symbol (lib_id "Connector:Conn_01x02_Pin") (at 233.68 115.57 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid c6299008-955b-4aed-9ea5-6617537476d7)
-    (property "Reference" "J4" (at 234.95 114.935 0)
+    (property "Reference" "J3" (at 234.95 114.935 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "Conn_01x02" (at 234.95 112.395 0)
@@ -2288,7 +2288,7 @@
     (instances
       (project "Magic_Wand_Timer"
         (path "/c5eed718-a5cc-419c-bfa3-9985e5d26a34"
-          (reference "J4") (unit 1)
+          (reference "J3") (unit 1)
         )
       )
     )
