@@ -67,6 +67,7 @@ void Error_Handler(void);
 #define GO_BUTON_GPIO_Port GPIOC
 #define REVERSE_SWITCH_Pin GPIO_PIN_12
 #define REVERSE_SWITCH_GPIO_Port GPIOA
+
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
