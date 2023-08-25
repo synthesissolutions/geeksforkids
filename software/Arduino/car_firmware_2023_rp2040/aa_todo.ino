@@ -10,9 +10,8 @@
 
 /*
 
-implement check for active pin pulled high
-read max speed potentiometer on ATTiny1616
-implement I2C on ATTiny to provide max speed when requested
+- implement check for active pin pulled high
+- implement startup sound signal
 
 add in options for
   - throttle accelleration rate

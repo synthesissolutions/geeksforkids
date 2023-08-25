@@ -67,7 +67,7 @@ void setup() {
   eeprom.init();
   logger.addLogLine("Eeprom initialized");
     
-  configuration.init(&eeprom, PIN_MAX_SPEED);
+  configuration.init(&eeprom);
   logger.addLogLine("configuration initialized");
     
   joystick.init(PIN_JOYSTICK_STEERING, PIN_JOYSTICK_THROTTLE);

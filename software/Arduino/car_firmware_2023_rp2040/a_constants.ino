@@ -14,7 +14,7 @@
  ***************************************************************************************** 
  */
 
-const String        RELEASE_VERSION         = "24.1 Alpha";
+const String        RELEASE_VERSION         = "24.1 Beta";
 
 const int           LOGGER_UPDATE_TIME      = 100;     // How long between updates to the monitor, in milliseconds
 const unsigned int  SERIAL_BAUD_RATE        = 57600;     // Baud rate for the serial monitor.  Make sure you set this correctly!
@@ -85,28 +85,32 @@ const int           RC_STEERING_DEADZONE_HIGH = 10;     // scaled units
 const int           RC_THROTTLE_DEADZONE_LOW = -10;     // scaled units
 const int           RC_THROTTLE_DEADZONE_HIGH = 10;     // scaled units 
 
+// I2C Addresses
+#define             ATTINY_SPEED_CONTROL_I2C_ADDRESS  0x54
 
 /*****************************************************************************************
  * pin assignments
  ***************************************************************************************** 
  */
-//   ... joystick
+// joystick
 const int           PIN_JOYSTICK_STEERING         = A1;
 const int           PIN_JOYSTICK_THROTTLE         = A0;
 
-//   ... throttle ... aka the controller for the car's drive motor   
+// throttle ... aka the controller for the car's drive motor   
 const int           PIN_THROTTLE_DIRECTION_LEFT   = 3;  // Channel 1 on motor controller
 const int           PIN_THROTTLE_PWM_LEFT         = 2;
 const int           PIN_THROTTLE_DIRECTION_RIGHT  = 5; // Channel 2 on motor controller
 const int           PIN_THROTTLE_PWM_RIGHT        = 4;
 
-const int           PIN_MAX_SPEED                 = A3;
+// I2C
+#define             I2C_SDA_PIN                    14
+#define             I2C_SCL_PIN                    15
 
-//   ... steering ... aka the controller for the car's steering servo
+// steering ... aka the controller for the car's steering servo
 const int           PIN_STEERING_DIRECTION        = 7;
 const int           PIN_STEERING_PWM              = 6;
 const int           PIN_STEERING_POSITION         = A2;
 
-//   ... RC ... aka the parent remote control inputs
+// RC ... aka the parent remote control inputs
 const int           PIN_RC_STEERING               = 17;
 const int           PIN_RC_THROTTLE               = 19;

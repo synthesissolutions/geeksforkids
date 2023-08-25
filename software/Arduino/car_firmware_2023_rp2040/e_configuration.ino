@@ -3,6 +3,7 @@
  * 
  * This class serves to interpret the eeprom settings to define the configuration for this car
  */
+#include <Wire.h>
 
 class Configuration {
   private:
@@ -17,12 +18,12 @@ class Configuration {
     /*
      * init - initialize the dip switch pins
      */
-    void init(Eeprom *e, int sp) {
+    void init(Eeprom *e) {
       eeprom = e;
 
-      maxSpeedPin = sp;
-      pinMode(maxSpeedPin, INPUT);
-
+      Wire1.setSDA(I2C_SDA_PIN);
+      Wire1.setSCL(I2C_SCL_PIN);
+      Wire1.begin();
     }
 
     /*
@@ -54,11 +55,23 @@ class Configuration {
     int readMaxSpeedPot() {
       // The speed potentiometer reads near 0 when turned all the way to the right
       // However, we want that to be max speed so we "invert" the reading.
-      return 1024 - analogRead(maxSpeedPin);  
+      uint8_t value;
+      
+      Wire1.requestFrom(ATTINY_SPEED_CONTROL_I2C_ADDRESS, 1);
+      if(Wire1.requestFrom(0x54, 1))
+      {
+        value = Wire1.read();
+      }
+      else
+      {
+        // If we can't read the potentiometer, set to medium slow speed as a default
+        value = 80;
+      }
+      return 255 - value;
     }
     
     float getSpeedMultiplier() {
-      return constrain(map(readMaxSpeedPot(), 0, 1023, SPEED_CONFIGURATION_MIN_SPEED, SPEED_CONFIGURATION_MAX_SPEED), SPEED_CONFIGURATION_MIN_SPEED, SPEED_CONFIGURATION_MAX_SPEED) / 100.0;
+      return constrain(map(readMaxSpeedPot(), 0, 255, SPEED_CONFIGURATION_MIN_SPEED, SPEED_CONFIGURATION_MAX_SPEED), SPEED_CONFIGURATION_MIN_SPEED, SPEED_CONFIGURATION_MAX_SPEED) / 100.0;
     }
 
     // Linear Actuator
