@@ -85,7 +85,7 @@ void SetOutputs(){
   } 
   SetOldp(); //Sets current pin values as old.
 
-  volOut = map(volRead,0,1023,0,30); //Map vol pot read to DF Robot range.
+  volOut = map(volRead,1023,0,0,30); //Map vol pot read to DF Robot range.
   myDFPlayer.volume(volOut); //Set DF Robot volume
   
   speedOut = map(speedRead,0,1023,0,255); //Map speed pot to output.
