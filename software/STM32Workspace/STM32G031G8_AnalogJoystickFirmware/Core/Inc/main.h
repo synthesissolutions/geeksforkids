@@ -59,6 +59,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define CONNECTED_SIGNAL_Pin GPIO_PIN_5
+#define CONNECTED_SIGNAL_GPIO_Port GPIOA
 #define SOUND_2_Pin GPIO_PIN_7
 #define SOUND_2_GPIO_Port GPIOA
 #define JOYSTICK_X_Pin GPIO_PIN_1
