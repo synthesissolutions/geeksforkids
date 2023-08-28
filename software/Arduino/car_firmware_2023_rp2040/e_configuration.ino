@@ -21,8 +21,8 @@ class Configuration {
     void init(Eeprom *e) {
       eeprom = e;
 
-      Wire1.setSDA(I2C_SDA_PIN);
-      Wire1.setSCL(I2C_SCL_PIN);
+      Wire1.setSDA(PIN_I2C_SDA);
+      Wire1.setSCL(PIN_I2C_SCL);
       Wire1.begin();
     }
 
