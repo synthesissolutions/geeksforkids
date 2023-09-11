@@ -9,7 +9,10 @@
     * You must restart after doing this
 * Install OpenCV with sudo apt install python3-opencv
 * Upgrade numpy with sudo pip3 install -U numpy
-* Install MediaPipe library with sudo pip3 install mediapipe-rpi4
+* Install MediaPipe library with sudo pip3 install mediapipe-rpi4 
+    * It might be necessary to run this command twice (not sure why)
+    * If you receive errors related to protobuf, downgrade protobuf with the command
+        * sudo pip3 install -U protobuf==3.19.4
 * Run the demo code from the video https://www.youtube.com/watch?v=B7fWq_U_ipw&t=320s
     * You can change the cv2.VideoCapture call to cv2.VideoCapture(0) instead of cv2.VideoCapture("path to mp4") to use the USB camera
 ## Setting up Rapsberry Pi 4 for PWM Output
