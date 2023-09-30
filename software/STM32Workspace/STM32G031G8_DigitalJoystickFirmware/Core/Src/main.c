@@ -268,10 +268,13 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(ACTIVE_SIGNAL_GPIO_Port, ACTIVE_SIGNAL_Pin, GPIO_PIN_SET);
+
+  /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, SOUND_2_Pin|SOUND_1_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : SOUND_2_Pin SOUND_1_Pin */
-  GPIO_InitStruct.Pin = SOUND_2_Pin|SOUND_1_Pin;
+  /*Configure GPIO pins : ACTIVE_SIGNAL_Pin SOUND_2_Pin SOUND_1_Pin */
+  GPIO_InitStruct.Pin = ACTIVE_SIGNAL_Pin|SOUND_2_Pin|SOUND_1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
