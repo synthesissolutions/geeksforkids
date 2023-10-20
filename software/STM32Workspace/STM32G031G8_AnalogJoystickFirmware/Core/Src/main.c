@@ -127,7 +127,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  xData = sensorData[0];
+	  xData = MAX_SENSOR - sensorData[0]; // Reverse reading to make left 0 and right 1023
 	  yData = sensorData[1];
 
 	  if (startupComplete)
