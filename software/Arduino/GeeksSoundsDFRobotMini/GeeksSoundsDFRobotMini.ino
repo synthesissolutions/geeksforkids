@@ -1,4 +1,4 @@
-
+ 
 #include "Arduino.h"
 #include "DFRobotDFPlayerMini.h"
 #include "Wire.h"
@@ -6,16 +6,16 @@
 DFRobotDFPlayerMini myDFPlayer;
 
 //Input Pins 
-const byte noPins = 2;  //Number of pins we are using used for looping through inPins[].
-const byte inPins[] = {3,11}; // {PA7,PC1} physical {5,13}
-const byte busyPin = 5;  //PB4 physical 7
-const byte volPin = 15; //PA1 physical 18
-const byte speedPin = 16; //PA3 physical 19
+const byte noPins = 4;  //Number of pins we are using used for looping through inPins[].
+const byte inPins[] = {3,11,1,2}; // {PA7,PC1,PA5,PA6} physical {5,13,6,7}
+const byte busyPin = 5;  //PB4 physical 10
+const byte volPin = 15; //PA2 physical 1
+const byte speedPin = 16; //PA3 physical 2
 
 //Input Tracking
-byte p[] = {1,1};
-byte pOld[] = {1,1};
-byte folderSounds[] = {0,0};
+byte p[] = {1,1,1,1};
+byte pOld[] = {1,1,1,1};
+byte folderSounds[] = {0,0,0,0};
 byte isBusy = 1;
 int volRead = 512; //10 bit int 0-1023
 int speedRead = 512; //10 bit int 0-1023
