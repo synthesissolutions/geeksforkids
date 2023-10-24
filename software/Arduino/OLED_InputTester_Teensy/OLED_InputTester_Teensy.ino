@@ -15,6 +15,7 @@ Adafruit_SH1107 display = Adafruit_SH1107(64, 128, &Wire);
 #define PIN_RC_THROTTLE       10
 #define PIN_SOUND_1           7
 #define PIN_SOUND_2           8
+#define PIN_ACTIVE_SWITCH     9
 
 int throttle = 0;
 int steering = 0;
@@ -65,6 +66,8 @@ void setup() {
   pinMode(PIN_SOUND_1, INPUT_PULLUP);
   pinMode(PIN_SOUND_2, INPUT_PULLUP);
 
+  pinMode(PIN_ACTIVE_SWITCH, INPUT_PULLDOWN);
+
   display.setTextSize(1);
   display.setTextColor(SH110X_WHITE);
   display.setCursor(0, 0);
@@ -85,17 +88,20 @@ void setup() {
   display.setTextColor(SH110X_WHITE);
   display.setCursor(0, 0);
   display.print("Throttle");
-  display.setCursor(0, 15);
+  display.setCursor(0, 14);
   display.print("Steering");
 
-  display.setCursor(0, 30);
+  display.setCursor(0, 28);
   display.print("Sound 1");
-  display.setCursor(0, 45);
+  display.setCursor(0, 42);
   display.print("Sound 2");
+
+  display.setCursor(0, 56);
+  display.print("Active");
 
   display.setCursor(110, 0);
   display.print("RC");
-  display.setCursor(110, 15);
+  display.setCursor(110, 14);
   display.print("RC");
 
   display.display();
@@ -117,7 +123,7 @@ void loop() {
     showRc = true;
   }
 
-  display.fillRect(53, 0, 53, 60, SH110X_BLACK);
+  display.fillRect(53, 0, 53, 65, SH110X_BLACK);
 
   if (isAnalog) {
     throttle = analogRead(PIN_JOYSTICK_THROTTLE);
@@ -130,30 +136,38 @@ void loop() {
   display.setCursor(53, 0);
   display.print(throttle);
 
-  display.setCursor(53, 15);
+  display.setCursor(53, 14);
   display.print(steering);
 
   if (showRc) {
     display.setCursor(83, 0);
     display.print(rcThrottlePwm);
   
-    display.setCursor(83, 15);
+    display.setCursor(83, 14);
     display.print(rcSteeringPwm);  
   }
 
   if (!digitalRead(PIN_SOUND_1)) {
-    display.setCursor(53, 30);
+    display.setCursor(53, 28);
     display.print("On");
   } else {
-    display.setCursor(53, 30);
+    display.setCursor(53, 28);
     display.print("Off");
   } 
 
   if (!digitalRead(PIN_SOUND_2)) {
-    display.setCursor(53, 45);
+    display.setCursor(53, 42);
     display.print("On");
   } else {
     display.setCursor(53, 45);
+    display.print("Off");
+  }
+
+  if (digitalRead(PIN_ACTIVE_SWITCH)) {
+    display.setCursor(53, 56);
+    display.print("On");
+  } else {
+    display.setCursor(53, 56);
     display.print("Off");
   }
 

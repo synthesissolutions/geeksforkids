@@ -14,7 +14,7 @@
  ***************************************************************************************** 
  */
 
-const String        RELEASE_VERSION         = "24.1 Alpha";
+const String        RELEASE_VERSION         = "24.2.1 Beta";
 
 const int           LOGGER_UPDATE_TIME      = 100;     // How long between updates to the monitor, in milliseconds
 const unsigned int  SERIAL_BAUD_RATE        = 57600;     // Baud rate for the serial monitor.  Make sure you set this correctly!
@@ -29,15 +29,16 @@ const int           LOGGER_LINE_COUNT       = 20;
 // The delay for the main loop.  We really don't want it running at the full CPU speed.
 const int           LOOP_DELAY_MILLIS       = 10;   // 10ms delay = ~ 100 Hz.  Plenty fast.
 
-// Joystick parms - these are based on the range 0-1023
+// Joystick parms - these are based on the range 0-1023 for analog controls
+//                  200 to 800 for PWM controls
 // These values should never really be used but are set as a fallback
 // the real values should be read from the configuration file
-const int           JOYSTICK_X_AXIS_CENTER           = 464;
-const int           JOYSTICK_X_AXIS_MIN              = 100;
-const int           JOYSTICK_X_AXIS_MAX              = 900;
-const int           JOYSTICK_Y_AXIS_CENTER           = 482;
-const int           JOYSTICK_Y_AXIS_MIN              = 100;
-const int           JOYSTICK_Y_AXIS_MAX              = 900;
+const int           JOYSTICK_X_AXIS_CENTER           = 500;
+const int           JOYSTICK_X_AXIS_MIN              = 200;
+const int           JOYSTICK_X_AXIS_MAX              = 800;
+const int           JOYSTICK_Y_AXIS_CENTER           = 500;
+const int           JOYSTICK_Y_AXIS_MIN              = 200;
+const int           JOYSTICK_Y_AXIS_MAX              = 800;
 
 // Joystick parms - these are in scaled units (-100 to 100)
 const int           JOYSTICK_X_AXIS_DEADZONE_LOW     = -15;
@@ -85,28 +86,40 @@ const int           RC_STEERING_DEADZONE_HIGH = 10;     // scaled units
 const int           RC_THROTTLE_DEADZONE_LOW = -10;     // scaled units
 const int           RC_THROTTLE_DEADZONE_HIGH = 10;     // scaled units 
 
+// I2C Addresses
+#define             ATTINY_SPEED_CONTROL_I2C_ADDRESS  0x54
 
 /*****************************************************************************************
  * pin assignments
  ***************************************************************************************** 
  */
-//   ... joystick
+// joystick
 const int           PIN_JOYSTICK_STEERING         = A1;
 const int           PIN_JOYSTICK_THROTTLE         = A0;
+#define             PIN_ACTIVE_SWITCH             20
 
-//   ... throttle ... aka the controller for the car's drive motor   
+// throttle
 const int           PIN_THROTTLE_DIRECTION_LEFT   = 3;  // Channel 1 on motor controller
 const int           PIN_THROTTLE_PWM_LEFT         = 2;
 const int           PIN_THROTTLE_DIRECTION_RIGHT  = 5; // Channel 2 on motor controller
 const int           PIN_THROTTLE_PWM_RIGHT        = 4;
 
-const int           PIN_MAX_SPEED                 = A3;
+// I2C
+#define             PIN_I2C_SDA                    14
+#define             PIN_I2C_SCL                    15
 
-//   ... steering ... aka the controller for the car's steering servo
+// steering
 const int           PIN_STEERING_DIRECTION        = 7;
 const int           PIN_STEERING_PWM              = 6;
 const int           PIN_STEERING_POSITION         = A2;
 
-//   ... RC ... aka the parent remote control inputs
+// sound
+#define             PIN_SOUND_4                    8
+#define             PIN_SOUND_5                    9
+
+// Reverse Switch
+#define             PIN_REVERSE_SWITCH             18
+
+// RC ... aka the parent remote control inputs
 const int           PIN_RC_STEERING               = 17;
 const int           PIN_RC_THROTTLE               = 19;

@@ -57,9 +57,9 @@ class RemoteControl {
     // Track the first few signal readings and mark a bad start if any of those readings
     // are outside of a small dead zone
     boolean badControlStart = false;
-    unsigned long throttlePwmStart[10];
+    unsigned long throttlePwmStart[RC_START_LENGTH];
     int throttlePwmStartIndex = 0;
-    unsigned long steeringPwmStart[10];
+    unsigned long steeringPwmStart[RC_START_LENGTH];
     int steeringPwmStartIndex = 0;
 
     // Default constructor ... does nothing.  This allows us to delay setting the pins until we want to (via the init method).
@@ -268,8 +268,7 @@ class RemoteControl {
     }
     
     void getBadStartData(char *buffer) {
-      //sprintf(buffer, "%i %i %i %i %i %i %i %i %i %i", throttleStart[0], throttleStart[1], throttleStart[2], throttleStart[3], throttleStart[4], throttleStart[5], throttleStart[6], throttleStart[7], throttleStart[8], throttleStart[9]);
-      buffer = "Test";
+      sprintf(buffer, "%i %i %i %i %i %i %i %i %i %i", throttlePwmStart[0], throttlePwmStart[1], throttlePwmStart[2], throttlePwmStart[3], throttlePwmStart[4], throttlePwmStart[5], throttlePwmStart[6], throttlePwmStart[7], throttlePwmStart[8], throttlePwmStart[9]);
     }
 
     

@@ -50,16 +50,15 @@ boolean badStartMessageDisplayed = false;
  */
 void setup() {
   // Force Sound Output Pins High
-  // Low will trigger the related sound on the Adafruit Sound Board
-  pinMode(8, OUTPUT);   // Sound 0
-  pinMode(12, OUTPUT);  // Sound 3
-  pinMode(22, OUTPUT);  // Sound 4
-  pinMode(20, OUTPUT);  // Tx Jumpered to one of the Sound Inputs for V3 PCBs
+  // Low will trigger the related sound
+  pinMode(PIN_SOUND_4, OUTPUT);
+  pinMode(PIN_SOUND_5, OUTPUT);
+  digitalWrite(PIN_SOUND_4, HIGH);
+  digitalWrite(PIN_SOUND_5, HIGH);
 
-  digitalWrite(8, HIGH);
-  digitalWrite(12, HIGH);
-  digitalWrite(22, HIGH);
-  digitalWrite(20, LOW);
+  // Control Connected setup
+  // Each control system (joystick, control panel, etc.) must take this pin high to show they are connected
+  pinMode(PIN_ACTIVE_SWITCH, INPUT_PULLDOWN);
   
   // set up the logger
   logger.init(LOGGER_UPDATE_TIME, &eeprom, &configuration, &joystick, &remoteControl, &steering, &throttle);
@@ -67,7 +66,7 @@ void setup() {
   eeprom.init();
   logger.addLogLine("Eeprom initialized");
     
-  configuration.init(&eeprom, PIN_MAX_SPEED);
+  configuration.init(&eeprom);
   logger.addLogLine("configuration initialized");
     
   joystick.init(PIN_JOYSTICK_STEERING, PIN_JOYSTICK_THROTTLE);
@@ -173,6 +172,23 @@ void loop() {
     logger.addLogLine("Bad Start");
     throttle.setThrottle(0);
     steering.forceStop();
+  } else if (!digitalRead(PIN_ACTIVE_SWITCH)) {
+    // The Active Switch must be pulled high by the connected control system. Otherwise, we stop the car.
+    logger.addLogLine("No control system connected. Force car to stop.");
+    throttle.setThrottle(0);
+    steering.forceStop();
+
+    // Take a few more steps so the logging can still be used without a control system attached
+
+    // recalculate the scaled RC throttle and steering values
+    // this is necessary to know whether or not the RC is active
+    if (configuration.useRc()) {
+      remoteControl.updateThrottleScaled();
+      remoteControl.updateSteeringScaled();
+    }
+    
+    joystick.getXAxisScaled();
+    joystick.getYAxisScaled();
   } else {
     // recalculate the scaled RC throttle and steering values
     // this is necessary to know whether or not the RC is active

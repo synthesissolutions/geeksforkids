@@ -40,7 +40,7 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
- TIM_HandleTypeDef htim3;
+TIM_HandleTypeDef htim3;
 
 /* USER CODE BEGIN PV */
 #define THROTTLE_OFF		500
@@ -109,47 +109,28 @@ int main(void)
 	  // All Buttons are connected to GND so their logic is inverted
 	  if (!HAL_GPIO_ReadPin(DRIVE_BUTTON_GPIO_Port, DRIVE_BUTTON_Pin)) {
 		  // Drive Straight Button Pressed
-		  HAL_GPIO_WritePin(LED_STRAIGHT_GPIO_Port, LED_STRAIGHT_Pin, 1);
-		  HAL_GPIO_WritePin(LED_LEFT_GPIO_Port, LED_LEFT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_RIGHT_GPIO_Port, LED_RIGHT_Pin, 0);
-
 		  throttleOn = 1;
 		  pwmSteering = STEERING_STRAIGHT;
 	  } else if (!HAL_GPIO_ReadPin(LEFT_BUTTON_GPIO_Port, LEFT_BUTTON_Pin)) {
 		  // Drive Left Button Pressed
-		  HAL_GPIO_WritePin(LED_STRAIGHT_GPIO_Port, LED_STRAIGHT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_LEFT_GPIO_Port, LED_LEFT_Pin, 1);
-		  HAL_GPIO_WritePin(LED_RIGHT_GPIO_Port, LED_RIGHT_Pin, 0);
-
 		  throttleOn = 1;
 		  pwmSteering = STEERING_LEFT;
 	  } else if (!HAL_GPIO_ReadPin(RIGHT_BUTTON_GPIO_Port, RIGHT_BUTTON_Pin)) {
 		  // Drive Right Button Pressed
-		  HAL_GPIO_WritePin(LED_STRAIGHT_GPIO_Port, LED_STRAIGHT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_LEFT_GPIO_Port, LED_LEFT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_RIGHT_GPIO_Port, LED_RIGHT_Pin, 1);
-
 		  throttleOn = 1;
 		  pwmSteering = STEERING_RIGHT;
 	  } else {
-		  HAL_GPIO_WritePin(LED_STRAIGHT_GPIO_Port, LED_STRAIGHT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_LEFT_GPIO_Port, LED_LEFT_Pin, 0);
-		  HAL_GPIO_WritePin(LED_RIGHT_GPIO_Port, LED_RIGHT_Pin, 0);
-
 		  throttleOn = 0;
 		  pwmSteering = STEERING_STRAIGHT;
 	  }
 
-
 	  if (!HAL_GPIO_ReadPin(REVERSE_SWITCH_GPIO_Port, REVERSE_SWITCH_Pin)) {
-		  HAL_GPIO_WritePin(LED_REVERSE_GPIO_Port, LED_REVERSE_Pin, 1);
 		  if (throttleOn) {
 			  pwmThrottle = THROTTLE_REVERSE;
 		  } else {
 			  pwmThrottle = THROTTLE_OFF;
 		  }
 	  } else {
-		  HAL_GPIO_WritePin(LED_REVERSE_GPIO_Port, LED_REVERSE_Pin, 0);
 		  if (throttleOn) {
 			  pwmThrottle = THROTTLE_FORWARD;
 		  } else {
@@ -266,6 +247,8 @@ static void MX_TIM3_Init(void)
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
+/* USER CODE BEGIN MX_GPIO_Init_1 */
+/* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOC_CLK_ENABLE();
@@ -273,14 +256,14 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, LED_STRAIGHT_Pin|LED_RIGHT_Pin|LED_LEFT_Pin|LED_REVERSE_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(ACTIVE_SIGNAL_GPIO_Port, ACTIVE_SIGNAL_Pin, GPIO_PIN_SET);
 
-  /*Configure GPIO pins : LED_STRAIGHT_Pin LED_RIGHT_Pin LED_LEFT_Pin LED_REVERSE_Pin */
-  GPIO_InitStruct.Pin = LED_STRAIGHT_Pin|LED_RIGHT_Pin|LED_LEFT_Pin|LED_REVERSE_Pin;
+  /*Configure GPIO pin : ACTIVE_SIGNAL_Pin */
+  GPIO_InitStruct.Pin = ACTIVE_SIGNAL_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  HAL_GPIO_Init(ACTIVE_SIGNAL_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : LEFT_BUTTON_Pin */
   GPIO_InitStruct.Pin = LEFT_BUTTON_Pin;
@@ -300,6 +283,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+/* USER CODE BEGIN MX_GPIO_Init_2 */
+/* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */

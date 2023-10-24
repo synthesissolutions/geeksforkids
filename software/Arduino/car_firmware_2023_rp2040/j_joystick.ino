@@ -65,6 +65,7 @@ class Joystick {
       this->yAxisPin = yAxisPin; 
       pinMode(xAxisPin, INPUT);
       pinMode(yAxisPin, INPUT);
+      pinMode(PIN_REVERSE_SWITCH, INPUT_PULLUP);
     }
 
     void initAveragingArrays() {
@@ -219,8 +220,14 @@ class Joystick {
         val = 0;
       }
 
-      // invert if necessary
+      // invert if necessary based on EEPROM configuration
       if (invertYAxis) {
+        val = -val;
+      }
+
+      // Check to see if the shifter is in reverse, if so invert speed
+      // If the car doesn't have a shifter, then this will never be true because of the pull up configuration
+      if (!digitalRead(PIN_REVERSE_SWITCH)) {
         val = -val;
       }
       

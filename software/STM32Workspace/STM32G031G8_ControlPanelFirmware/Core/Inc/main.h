@@ -60,14 +60,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define LED_STRAIGHT_Pin GPIO_PIN_0
-#define LED_STRAIGHT_GPIO_Port GPIOA
-#define LED_RIGHT_Pin GPIO_PIN_1
-#define LED_RIGHT_GPIO_Port GPIOA
-#define LED_LEFT_Pin GPIO_PIN_4
-#define LED_LEFT_GPIO_Port GPIOA
-#define LED_REVERSE_Pin GPIO_PIN_7
-#define LED_REVERSE_GPIO_Port GPIOA
+#define ACTIVE_SIGNAL_Pin GPIO_PIN_5
+#define ACTIVE_SIGNAL_GPIO_Port GPIOA
 #define LEFT_BUTTON_Pin GPIO_PIN_1
 #define LEFT_BUTTON_GPIO_Port GPIOB
 #define RIGHT_BUTTON_Pin GPIO_PIN_6
@@ -76,6 +70,7 @@ void Error_Handler(void);
 #define DRIVE_BUTTON_GPIO_Port GPIOA
 #define REVERSE_SWITCH_Pin GPIO_PIN_12
 #define REVERSE_SWITCH_GPIO_Port GPIOA
+
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
