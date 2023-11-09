@@ -1,3 +1,5 @@
 (sym_lib_table
-  (lib (name ST-Link)(type Legacy)(uri ${KIPRJMOD}/ST-Link.lib)(options "")(descr ""))
+  (version 7)
+  (lib (name "ST-Link")(type "Legacy")(uri "${KIPRJMOD}/ST-Link.lib")(options "")(descr ""))
+  (lib (name "STDC14-V3Mini-JTAG")(type "KiCad")(uri "${KIPRJMOD}/STDC14-V3Mini-JTAG.kicad_sym")(options "")(descr ""))
 )
