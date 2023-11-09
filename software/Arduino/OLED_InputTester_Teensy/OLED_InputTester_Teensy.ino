@@ -114,9 +114,11 @@ void setup() {
 
 void loop() {
   if(!digitalRead(BUTTON_A)) {
-    isAnalog = true;
+    Serial.println("Button A Pressed");
+    //isAnalog = true;
   }
   if(!digitalRead(BUTTON_B)) {
+    Serial.println("Button B Pressed");
     isAnalog = false;
   }
   if(!digitalRead(BUTTON_C)) { 
