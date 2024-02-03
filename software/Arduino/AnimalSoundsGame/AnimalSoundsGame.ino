@@ -7,6 +7,7 @@ Adafruit_AW9523 aw;
 DFRobotDFPlayerMini myDFPlayer;
 
 #define BUTTON_COUNT  5
+#define SOUND_FOLDER_COUNT  5
 
 #define BUSY_PIN      5  //PB4 physical 10
 #define VOLUME_PIN    15 //PA2 physical 1
@@ -19,11 +20,17 @@ DFRobotDFPlayerMini myDFPlayer;
 
 #define RANDOM_SEED_PIN   17  // PC2 - Unconnected
 
+#define ANIMAL_SOUNDS_FOLDER    1
+#define ANIMAL_NAMES_FOLDER     2
+#define SPARKLE_SOUNDS_FOLDER   3
+#define GOOD_JOB_SOUNDS_FOLDER  4
+#define TRY_AGAIN_SOUNDS_FOLDER 5
+
 int buttonPins[] = {BUTTON_1_PIN, BUTTON_2_PIN, BUTTON_3_PIN, BUTTON_4_PIN, BUTTON_5_PIN};
 
 unsigned long lastDebounceTime = 0;  // the last time the output pin was toggled
 unsigned long debounceDelay = 50;    // the debounce time; increase if the output flickers
-byte folderSounds[] = {0,0,0,0};
+byte folderSounds[] = {0,0,0,0,0};
 
 int volumeRead = 0;
 int volumeOut = 30;
@@ -70,7 +77,7 @@ void setup()
   
   delay(250);
 
-  SetFolderFileCounts();
+  setFolderFileCounts();
 
   volumeRead = analogRead(VOLUME_PIN);
   volumeOut = map(volumeRead, 1023, 0, 0, 30); //Map vol pot read to DF Robot range.
@@ -100,6 +107,8 @@ void loop()
 
   if (currentAnimal < 0 || currentButton < 0)
   {
+    // Start a new game
+    
     // wait until the current sound finishes
     while (mp3Playing())
     {
@@ -110,13 +119,20 @@ void loop()
     
     // Start a new game
     currentButton = random(1, BUTTON_COUNT + 1);
-    currentAnimal = random(1, folderSounds[0] + 1);
+    currentAnimal = random(1, folderSounds[ANIMAL_NAMES_FOLDER - 1] + 1);
 
     // Play the anmial name sound
-    myDFPlayer.playFolder(1, currentAnimal);
+    myDFPlayer.playFolder(ANIMAL_NAMES_FOLDER, currentAnimal);
     // Flash the current button while the sound plays
+    delay(50);
     while (mp3Playing())
     {
+      lightButton(currentButton, true);
+      delay(100);
+      lightButton(currentButton, false);
+      delay(100);
+    }
+    for (int i = 0; i < 5; i++) {
       lightButton(currentButton, true);
       delay(100);
       lightButton(currentButton, false);
@@ -133,23 +149,33 @@ void loop()
       // Play the anmial name sound
       myDFPlayer.playFolder(1, currentAnimal);
       // Flash the current button while the sound plays
-      while (mp3Playing())
-      {
-        lightButton(currentButton, true);
-        delay(100);
-        lightButton(currentButton, false);
-        delay(100);
-      }
-      
-      playRightAnswerSound();
+      delay(50);
       while (mp3Playing())
       {
         turnOnAllButtons();
+        //lightButton(currentButton, true);
         delay(100);
         turnOffAllButtons();
+        //lightButton(currentButton, false);
         delay(100);
       }
 
+      delay(50);
+      
+      playRightAnswerSound();
+      delay(50);
+      while (mp3Playing())
+      {
+        turnOnAllButtons();
+        //lightButton(currentButton, true);
+        delay(100);
+        turnOffAllButtons();
+        //lightButton(currentButton, false);
+        delay(100);
+      }
+
+      delay(2000);
+      
       currentAnimal = -1;
       currentButton = -1;
     }
@@ -173,6 +199,24 @@ void startupAnimation()
   chase(2, 200);
 
   turnOffAllButtons();
+
+  delay(1000);
+  lightButton(1, true);
+  delay(50);
+  lightButton(1, false);
+  lightButton(2, true);
+  delay(50);
+  lightButton(2, false);
+  lightButton(3, true);
+  delay(50);
+  lightButton(3, false);
+  lightButton(4, true);
+  delay(50);
+  lightButton(4, false);
+  lightButton(5, true);
+  delay(50);
+  lightButton(5, false);
+  delay(1000);
 }
 
 void turnOnAllButtons()
@@ -251,33 +295,27 @@ void pong(int count, int delayMs)
 
 void playRandomSparkleSound()
 {
-  int folderNumber = 3;
-  
-  long randomSoundNumber = random(1, folderSounds[folderNumber - 1] + 1);
-  myDFPlayer.playFolder(folderNumber, randomSoundNumber);
+  long randomSoundNumber = random(1, getFolderCount(SPARKLE_SOUNDS_FOLDER) + 1);
+  myDFPlayer.playFolder(SPARKLE_SOUNDS_FOLDER, randomSoundNumber);
 }
 
 void playWrongAnswerSound()
 {
-  int folderNumber = 2;
-  
-  long randomSoundNumber = random(1, folderSounds[folderNumber - 1] + 1);
-  myDFPlayer.playFolder(folderNumber, randomSoundNumber);
+  long randomSoundNumber = random(1, getFolderCount(TRY_AGAIN_SOUNDS_FOLDER) + 1);
+  myDFPlayer.playFolder(TRY_AGAIN_SOUNDS_FOLDER, randomSoundNumber);
 }
 
 void playRightAnswerSound()
 {
-  int folderNumber = 3;
-  
-  long randomSoundNumber = random(1, folderSounds[folderNumber - 1] + 1);
-  myDFPlayer.playFolder(folderNumber, randomSoundNumber);
+  long randomSoundNumber = random(1, getFolderCount(GOOD_JOB_SOUNDS_FOLDER) + 1);
+  myDFPlayer.playFolder(GOOD_JOB_SOUNDS_FOLDER, randomSoundNumber);
 }
 
 //Reads SD card file counds and saves values into folderSounds array. Runs once during setup.
-void SetFolderFileCounts()
+void setFolderFileCounts()
 {
   byte count = 0;
-  for(int i = 0; i < 3; i++){
+  for(int i = 0; i < SOUND_FOLDER_COUNT; i++){
     count = myDFPlayer.readFileCountsInFolder(i+1);
     folderSounds[i]=count;
   }
@@ -286,6 +324,11 @@ void SetFolderFileCounts()
 bool mp3Playing()
 {
   return !digitalRead(BUSY_PIN); //busy when busy Pin is Low
+}
+
+int getFolderCount(int folder)
+{
+  return folderSounds[folder - 1];
 }
 
 bool buttonPressed(int buttonNumber)
