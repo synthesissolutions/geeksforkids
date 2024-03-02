@@ -94,7 +94,7 @@ void loop()
   // Game Play
   // Play Start Sound?
   // Play Start Light Animation
-  // Flash Single Button light while animal name plays
+  // Flash Single Button light while animal sound plays
   // Check for button press
     // If incorrect button is pressed
     //  light the button being pressed 
@@ -123,10 +123,10 @@ void loop()
     
     // Start a new game
     currentButton = random(1, BUTTON_COUNT + 1);
-    currentAnimal = random(1, folderSounds[ANIMAL_NAMES_FOLDER - 1] + 1);
+    currentAnimal = random(1, folderSounds[ANIMAL_SOUNDS_FOLDER - 1] + 1);
 
     // Play the anmial name sound
-    myDFPlayer.playFolder(ANIMAL_NAMES_FOLDER, currentAnimal);
+    myDFPlayer.playFolder(ANIMAL_SOUNDS_FOLDER, currentAnimal);
     // Flash the current button while the sound plays
     delay(50);
     while (mp3Playing())
@@ -151,23 +151,6 @@ void loop()
     {
       // The correct button was pressed!
       
-      // Play the anmial name sound
-      myDFPlayer.playFolder(1, currentAnimal);
-      // Flash the current button while the sound plays
-      delay(50);
-      while (mp3Playing())
-      {
-        setVolumeFromPot();
-        turnOnAllButtons();
-        //lightButton(currentButton, true);
-        delay(100);
-        turnOffAllButtons();
-        //lightButton(currentButton, false);
-        delay(100);
-      }
-
-      delay(50);
-      
       playRightAnswerSound();
       delay(50);
       while (mp3Playing())
@@ -181,7 +164,7 @@ void loop()
         delay(100);
       }
 
-      delay(2000);
+      delay(1500);
       
       currentAnimal = -1;
       currentButton = -1;
@@ -235,7 +218,7 @@ void startupAnimation()
 
   turnOffAllButtons();
 
-  delay(1000);
+  delay(750);
   lightButton(1, true);
   delay(50);
   lightButton(1, false);
@@ -251,7 +234,7 @@ void startupAnimation()
   lightButton(5, true);
   delay(50);
   lightButton(5, false);
-  delay(1000);
+  delay(200);
 }
 
 void turnOnAllButtons()
