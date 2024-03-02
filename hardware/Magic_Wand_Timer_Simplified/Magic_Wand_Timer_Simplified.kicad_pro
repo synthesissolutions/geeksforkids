@@ -397,10 +397,10 @@
       "no_connect_dangling": "warning",
       "pin_not_connected": "error",
       "pin_not_driven": "error",
-      "pin_to_pin": "warning",
+      "pin_to_pin": "error",
       "power_pin_not_driven": "error",
       "similar_labels": "warning",
-      "simulation_model_issue": "error",
+      "simulation_model_issue": "ignore",
       "unannotated": "error",
       "unit_value_mismatch": "error",
       "unresolved_variable": "error",
@@ -412,7 +412,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "Magic_Wand_Timer.kicad_pro",
+    "filename": "Magic_Wand_Timer_Simplified.kicad_pro",
     "version": 1
   },
   "net_settings": {
