@@ -172,23 +172,6 @@ void loop() {
     logger.addLogLine("Bad Start");
     throttle.setThrottle(0);
     steering.forceStop();
-  } else if (!digitalRead(PIN_ACTIVE_SWITCH)) {
-    // The Active Switch must be pulled high by the connected control system. Otherwise, we stop the car.
-    logger.addLogLine("No control system connected. Force car to stop.");
-    throttle.setThrottle(0);
-    steering.forceStop();
-
-    // Take a few more steps so the logging can still be used without a control system attached
-
-    // recalculate the scaled RC throttle and steering values
-    // this is necessary to know whether or not the RC is active
-    if (configuration.useRc()) {
-      remoteControl.updateThrottleScaled();
-      remoteControl.updateSteeringScaled();
-    }
-    
-    joystick.getXAxisScaled();
-    joystick.getYAxisScaled();
   } else {
     // recalculate the scaled RC throttle and steering values
     // this is necessary to know whether or not the RC is active
@@ -214,7 +197,16 @@ void loop() {
       // set the inputs from the RC
       steering.setSteeringPosition(remoteControl.getSteeringScaled());
       throttle.setThrottle(remoteControl.getThrottleScaled());
-    } else {
+    } else if (!digitalRead(PIN_ACTIVE_SWITCH)) {
+      // The Active Switch must be pulled high by the connected control system. Otherwise, we stop the car.
+      logger.addLogLine("No control system connected. Force car to stop.");
+      throttle.setThrottle(0);
+      steering.forceStop();
+  
+      // Take a few more steps so the logging can still be used without a control system attached
+      joystick.getXAxisScaled();
+      joystick.getYAxisScaled();
+  } else {
       
       // Nope... the parent isn't controlling
       // check to see if the joystick active (e.g. has it centered at least once?)
