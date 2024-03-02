@@ -37,6 +37,7 @@ int volumeOut = 30;
 
 int currentAnimal = -1;
 int currentButton = -1;
+int incorrectQuessCount = 0;
 
 void setup()
 {
@@ -60,7 +61,10 @@ void setup()
   delay(250);
 
   if (! aw.begin(0x58)) {
-    while (1) delay(10);  // halt forever
+    while (1)
+    {
+      delay(100);  // halt forever
+    }
   }
 
   for (int i = 1; i <= BUTTON_COUNT; i++)
@@ -78,17 +82,15 @@ void setup()
   delay(250);
 
   setFolderFileCounts();
-
-  volumeRead = analogRead(VOLUME_PIN);
-  volumeOut = map(volumeRead, 1023, 0, 0, 30); //Map vol pot read to DF Robot range.
-
-  myDFPlayer.volume(volumeOut);  //Set volume value. From 0 to 30
+  setVolumeFromPot();
 
   startupAnimation();
 }
 
 void loop()
 {
+  setVolumeFromPot();
+  
   // Game Play
   // Play Start Sound?
   // Play Start Light Animation
@@ -108,11 +110,13 @@ void loop()
   if (currentAnimal < 0 || currentButton < 0)
   {
     // Start a new game
+    incorrectQuessCount = 0;
     
     // wait until the current sound finishes
     while (mp3Playing())
     {
       delay(10);
+      setVolumeFromPot();
     }
 
     turnOffAllButtons();
@@ -127,6 +131,7 @@ void loop()
     delay(50);
     while (mp3Playing())
     {
+      setVolumeFromPot();
       lightButton(currentButton, true);
       delay(100);
       lightButton(currentButton, false);
@@ -142,7 +147,7 @@ void loop()
   else
   {
     // The Game is Afoot!
-    if (buttonPressed(currentButton))
+    if (correctButtonPressed(currentButton))
     {
       // The correct button was pressed!
       
@@ -152,6 +157,7 @@ void loop()
       delay(50);
       while (mp3Playing())
       {
+        setVolumeFromPot();
         turnOnAllButtons();
         //lightButton(currentButton, true);
         delay(100);
@@ -166,6 +172,7 @@ void loop()
       delay(50);
       while (mp3Playing())
       {
+        setVolumeFromPot();
         turnOnAllButtons();
         //lightButton(currentButton, true);
         delay(100);
@@ -181,9 +188,38 @@ void loop()
     }
     else
     {
+      // If incorrect button is pressed
+      if (incorrectButtonPressed(currentButton))
+      {
+        incorrectQuessCount++;
+        
+        //  light the button being pressed
+        int button = getFirstButtonPressed();
+        lightButton(button, true);
+        
+        //  play a sounds from the inccorect sound folder
+        //  things like "boing"        
+        playWrongAnswerSound();
+        delay(50);
+        while (mp3Playing())
+        {
+          setVolumeFromPot();
+          delay(100);
+        }
       
+        turnOffAllButtons();
+      }
+      //  after X incorrect guesses, replay the animation and sound for the proper animal
     }
   }
+}
+
+void setVolumeFromPot()
+{
+  volumeRead = analogRead(VOLUME_PIN);
+  volumeOut = map(volumeRead, 1023, 0, 0, 30); //Map vol pot read to DF Robot range.
+
+  myDFPlayer.volume(volumeOut);  //Set volume value. From 0 to 30
 }
 
 void startupAnimation()
@@ -195,7 +231,6 @@ void startupAnimation()
   turnOffAllButtons();
   delay(100);
 
-    
   chase(2, 200);
 
   turnOffAllButtons();
@@ -331,7 +366,40 @@ int getFolderCount(int folder)
   return folderSounds[folder - 1];
 }
 
-bool buttonPressed(int buttonNumber)
+int getFirstButtonPressed()
+{
+  for (int i = 0; i < BUTTON_COUNT; i++)
+  {
+    int pin = buttonPins[i];
+    if (!digitalRead(pin))
+    {
+      // Button index is 1 to BUTTON_COUNT and not 0 to BUTTON_COUNT
+      return i + 1;
+    }
+  }
+
+  return -1;
+}
+
+bool incorrectButtonPressed(int buttonNumber)
+{
+  // buttonNumber uses an index of 1 to BUTTON_COUNT
+  // need to adjust to use the 0 to BUTTON_COUNT - 1 array
+  for (int i = 0; i < BUTTON_COUNT; i++)
+  {
+    if (i == buttonNumber - 1) continue;
+
+    int pin = buttonPins[i];
+    if (!digitalRead(pin))
+    {
+      return true;
+    }
+  }
+    
+  return false;
+}
+
+bool correctButtonPressed(int buttonNumber)
 {
   int pin = buttonPins[buttonNumber - 1];
   
