@@ -1,9 +1,7 @@
 #include "Arduino.h"
 #include "SoftwareSerial.h"
 #include "DFRobotDFPlayerMini.h"
-#include <Adafruit_AW9523.h>
 
-Adafruit_AW9523 aw;
 DFRobotDFPlayerMini myDFPlayer;
 
 #define BUTTON_COUNT  5
@@ -12,11 +10,17 @@ DFRobotDFPlayerMini myDFPlayer;
 #define BUSY_PIN      5  //PB4 physical 10
 #define VOLUME_PIN    15 //PA2 physical 1
 
-#define BUTTON_1_PIN     1    // PA5  - Red
-#define BUTTON_2_PIN     0    // PA4  - Blue
-#define BUTTON_3_PIN     14   // PA1  - Yellow
-#define BUTTON_4_PIN     4    // PB5  - White
-#define BUTTON_5_PIN     10   // PC0  - Green
+#define BUTTON_1_PIN     0     // PA4  - Red
+#define BUTTON_2_PIN     16    // PA3  - Blue
+#define BUTTON_3_PIN     3     // PA7  - Yellow
+#define BUTTON_4_PIN     2     // PA6  - White
+#define BUTTON_5_PIN     1     // PA5  - Green
+
+#define LED_1_PIN     15    // PA2  - Red
+#define LED_2_PIN     14    // PA1  - Blue
+#define LED_3_PIN     4     // PB5  - Yellow
+#define LED_4_PIN     13    // PC3  - White
+#define LED_5_PIN     12    // PC2  - Green
 
 #define RANDOM_SEED_PIN   17  // PC2 - Unconnected
 
@@ -27,6 +31,7 @@ DFRobotDFPlayerMini myDFPlayer;
 #define TRY_AGAIN_SOUNDS_FOLDER 5
 
 int buttonPins[] = {BUTTON_1_PIN, BUTTON_2_PIN, BUTTON_3_PIN, BUTTON_4_PIN, BUTTON_5_PIN};
+int ledPins[] = {LED_1_PIN, LED_2_PIN, LED_3_PIN, LED_4_PIN, LED_5_PIN};
 
 unsigned long lastDebounceTime = 0;  // the last time the output pin was toggled
 unsigned long debounceDelay = 50;    // the debounce time; increase if the output flickers
@@ -53,6 +58,12 @@ void setup()
   pinMode(BUTTON_4_PIN, INPUT_PULLUP);
   pinMode(BUTTON_5_PIN, INPUT_PULLUP);
 
+  pinMode(LED_1_PIN, OUTPUT);
+  pinMode(LED_2_PIN, OUTPUT);
+  pinMode(LED_3_PIN, OUTPUT);
+  pinMode(LED_4_PIN, OUTPUT);
+  pinMode(LED_5_PIN, OUTPUT);
+
   pinMode(BUSY_PIN, INPUT_PULLUP);
   
   Serial.begin(9600); // Used to talk to the DFRobot MP3 Player 
@@ -60,18 +71,6 @@ void setup()
   // Delay for a short period to make sure the DF Robot MP3 Player board is ready
   delay(250);
 
-  if (! aw.begin(0x58)) {
-    while (1)
-    {
-      delay(100);  // halt forever
-    }
-  }
-
-  for (int i = 1; i <= BUTTON_COUNT; i++)
-  {
-    aw.pinMode(i, OUTPUT);
-  }
-  
   if (!myDFPlayer.begin(Serial)) 
   {
     while(true){
@@ -264,9 +263,7 @@ void lightButtons(bool button1, bool button2, bool button3, bool button4, bool b
 
 void lightButton(int buttonNumber, bool isLit)
 {
-  // Buttons are lit up with a 0 and turned off with a 1
-  // so invert the isLit value
-  aw.digitalWrite(buttonNumber, !isLit);
+  digitalWrite(ledPins[buttonNumber], isLit);
 }
 
 void chase(int count, int delayMs)
