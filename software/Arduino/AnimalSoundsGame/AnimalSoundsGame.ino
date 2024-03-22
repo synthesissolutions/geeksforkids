@@ -18,13 +18,15 @@ DFRobotDFPlayerMini myDFPlayer;
 #define BUTTON_4_PIN     4    // PB5  - White
 #define BUTTON_5_PIN     10   // PC0  - Green
 
-#define RANDOM_SEED_PIN   17  // PC2 - Unconnected
+#define RANDOM_SEED_PIN   16  // PC2 - Unconnected
 
 #define ANIMAL_SOUNDS_FOLDER    1
 #define ANIMAL_NAMES_FOLDER     2
 #define SPARKLE_SOUNDS_FOLDER   3
 #define GOOD_JOB_SOUNDS_FOLDER  4
 #define TRY_AGAIN_SOUNDS_FOLDER 5
+
+#define SOUND_DELAY_MS    250
 
 int buttonPins[] = {BUTTON_1_PIN, BUTTON_2_PIN, BUTTON_3_PIN, BUTTON_4_PIN, BUTTON_5_PIN};
 
@@ -37,7 +39,14 @@ int volumeOut = 30;
 
 int currentAnimal = -1;
 int currentButton = -1;
-int incorrectQuessCount = 0;
+int incorrectGuessCount = 0;
+
+// Keep track of the previous sound played or button selected for the game
+// then make sure we don't use the same sound or button twice in a row
+int lastButton = -1;
+int lastAnimalSound = -1;
+int lastGoodJobSound = 1;
+int lastTryAgainSound = -1;
 
 void setup()
 {
@@ -110,7 +119,7 @@ void loop()
   if (currentAnimal < 0 || currentButton < 0)
   {
     // Start a new game
-    incorrectQuessCount = 0;
+    incorrectGuessCount = 0;
     
     // wait until the current sound finishes
     while (mp3Playing())
@@ -122,13 +131,25 @@ void loop()
     turnOffAllButtons();
     
     // Start a new game
-    currentButton = random(1, BUTTON_COUNT + 1);
-    currentAnimal = random(1, folderSounds[ANIMAL_SOUNDS_FOLDER - 1] + 1);
+    do
+    {
+      currentButton = random(1, BUTTON_COUNT + 1);
+    } while (currentButton == lastButton);
+    
+    lastButton = currentButton;
+    
+    do
+    {
+      currentAnimal = random(1, folderSounds[ANIMAL_SOUNDS_FOLDER - 1] + 1);
+    } while(currentAnimal == lastAnimalSound);
+    // Keep randomizing until we get a new animal sound so we don't play the same sound twice
 
+    lastAnimalSound = currentAnimal;
+    
     // Play the anmial name sound
     myDFPlayer.playFolder(ANIMAL_SOUNDS_FOLDER, currentAnimal);
     // Flash the current button while the sound plays
-    delay(50);
+    delay(SOUND_DELAY_MS);
     while (mp3Playing())
     {
       setVolumeFromPot();
@@ -150,9 +171,10 @@ void loop()
     if (correctButtonPressed(currentButton))
     {
       // The correct button was pressed!
-      
+
+      lightButton(currentButton, true);
       playRightAnswerSound();
-      delay(50);
+      delay(SOUND_DELAY_MS);
       while (mp3Playing())
       {
         setVolumeFromPot();
@@ -174,7 +196,7 @@ void loop()
       // If incorrect button is pressed
       if (incorrectButtonPressed(currentButton))
       {
-        incorrectQuessCount++;
+        incorrectGuessCount++;
         
         //  light the button being pressed
         int button = getFirstButtonPressed();
@@ -183,7 +205,7 @@ void loop()
         //  play a sounds from the inccorect sound folder
         //  things like "boing"        
         playWrongAnswerSound();
-        delay(50);
+        delay(SOUND_DELAY_MS);
         while (mp3Playing())
         {
           setVolumeFromPot();
@@ -209,32 +231,47 @@ void startupAnimation()
 {
   playRandomSparkleSound();
 
+  setVolumeFromPot();
   turnOnAllButtons();
   delay(100);
   turnOffAllButtons();
   delay(100);
+  setVolumeFromPot();
 
   chase(2, 200);
+  setVolumeFromPot();
 
   turnOffAllButtons();
 
   delay(750);
   lightButton(1, true);
+  setVolumeFromPot();
   delay(50);
   lightButton(1, false);
   lightButton(2, true);
+  setVolumeFromPot();
   delay(50);
   lightButton(2, false);
   lightButton(3, true);
+  setVolumeFromPot();
   delay(50);
   lightButton(3, false);
   lightButton(4, true);
+  setVolumeFromPot();
   delay(50);
   lightButton(4, false);
   lightButton(5, true);
+  setVolumeFromPot();
   delay(50);
   lightButton(5, false);
+  setVolumeFromPot();
   delay(200);
+
+  while (mp3Playing())
+  {
+    delay(10);
+    setVolumeFromPot();
+  }
 }
 
 void turnOnAllButtons()
@@ -319,13 +356,31 @@ void playRandomSparkleSound()
 
 void playWrongAnswerSound()
 {
-  long randomSoundNumber = random(1, getFolderCount(TRY_AGAIN_SOUNDS_FOLDER) + 1);
+  int randomSoundNumber;
+  
+  do
+  {
+    randomSoundNumber = random(1, getFolderCount(TRY_AGAIN_SOUNDS_FOLDER) + 1);
+  } while(randomSoundNumber == lastTryAgainSound);
+  // Keep randomizing until we get a new right answer sound so we don't play the same sound twice
+
+  lastTryAgainSound = randomSoundNumber;
+  
   myDFPlayer.playFolder(TRY_AGAIN_SOUNDS_FOLDER, randomSoundNumber);
 }
 
 void playRightAnswerSound()
 {
-  long randomSoundNumber = random(1, getFolderCount(GOOD_JOB_SOUNDS_FOLDER) + 1);
+  int randomSoundNumber;
+  
+  do
+  {
+    randomSoundNumber = random(1, getFolderCount(GOOD_JOB_SOUNDS_FOLDER) + 1);
+  } while(randomSoundNumber == lastGoodJobSound);
+  // Keep randomizing until we get a new right answer sound so we don't play the same sound twice
+
+  lastGoodJobSound = randomSoundNumber;
+  
   myDFPlayer.playFolder(GOOD_JOB_SOUNDS_FOLDER, randomSoundNumber);
 }
 
