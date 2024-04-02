@@ -7,8 +7,8 @@ DFRobotDFPlayerMini myDFPlayer;
 #define BUTTON_COUNT  5
 #define SOUND_FOLDER_COUNT  5
 
-#define BUSY_PIN      5  //PB4 physical 10
-#define VOLUME_PIN    15 //PA2 physical 1
+#define BUSY_PIN      5  //PB4
+#define VOLUME_PIN    8  //PB1
 
 #define BUTTON_1_PIN     0     // PA4  - Red
 #define BUTTON_2_PIN     16    // PA3  - Blue
@@ -132,7 +132,7 @@ void loop()
     // Start a new game
     do
     {
-      currentButton = random(1, BUTTON_COUNT + 1);
+      currentButton = random(0, BUTTON_COUNT);
     } while (currentButton == lastButton);
     
     lastButton = currentButton;
@@ -243,6 +243,10 @@ void startupAnimation()
   turnOffAllButtons();
 
   delay(750);
+  lightButton(0, true);
+  setVolumeFromPot();
+  delay(50);
+  lightButton(0, false);
   lightButton(1, true);
   setVolumeFromPot();
   delay(50);
@@ -259,10 +263,6 @@ void startupAnimation()
   setVolumeFromPot();
   delay(50);
   lightButton(4, false);
-  lightButton(5, true);
-  setVolumeFromPot();
-  delay(50);
-  lightButton(5, false);
   setVolumeFromPot();
   delay(200);
 
@@ -275,7 +275,7 @@ void startupAnimation()
 
 void turnOnAllButtons()
 {
-    for (int i = 1; i <= BUTTON_COUNT; i++)
+    for (int i = 0; i < BUTTON_COUNT; i++)
   {
     lightButton(i, true);
   }
@@ -283,7 +283,7 @@ void turnOnAllButtons()
 
 void turnOffAllButtons()
 {
-    for (int i = 1; i <= BUTTON_COUNT; i++)
+    for (int i = 0; i < BUTTON_COUNT; i++)
   {
     lightButton(i, false);
   }
@@ -291,11 +291,11 @@ void turnOffAllButtons()
 
 void lightButtons(bool button1, bool button2, bool button3, bool button4, bool button5)
 {
-  lightButton(1, button1);
-  lightButton(2, button2);
-  lightButton(3, button3);
-  lightButton(4, button4);
-  lightButton(5, button5);
+  lightButton(0, button1);
+  lightButton(1, button2);
+  lightButton(2, button3);
+  lightButton(3, button4);
+  lightButton(4, button5);
 }
 
 void lightButton(int buttonNumber, bool isLit)
@@ -408,8 +408,7 @@ int getFirstButtonPressed()
     int pin = buttonPins[i];
     if (!digitalRead(pin))
     {
-      // Button index is 1 to BUTTON_COUNT and not 0 to BUTTON_COUNT
-      return i + 1;
+      return i;
     }
   }
 
@@ -418,11 +417,9 @@ int getFirstButtonPressed()
 
 bool incorrectButtonPressed(int buttonNumber)
 {
-  // buttonNumber uses an index of 1 to BUTTON_COUNT
-  // need to adjust to use the 0 to BUTTON_COUNT - 1 array
   for (int i = 0; i < BUTTON_COUNT; i++)
   {
-    if (i == buttonNumber - 1) continue;
+    if (i == buttonNumber) continue;
 
     int pin = buttonPins[i];
     if (!digitalRead(pin))
@@ -436,7 +433,7 @@ bool incorrectButtonPressed(int buttonNumber)
 
 bool correctButtonPressed(int buttonNumber)
 {
-  int pin = buttonPins[buttonNumber - 1];
+  int pin = buttonPins[buttonNumber];
   
   // Will go LOW if pressed
   if (!digitalRead(pin)) 
