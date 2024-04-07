@@ -51,6 +51,7 @@ class Configuration {
     int getRcThrottleMin() { return eeprom->getIntegerSetting(EEPROM_RC_THROTTLE_MIN); }
     int getRcThrottleCenter() { return eeprom->getIntegerSetting(EEPROM_RC_THROTTLE_CENTER); }
     int getRcThrottleMax() { return eeprom->getIntegerSetting(EEPROM_RC_THROTTLE_MAX); }
+    boolean allowChildLockoutFromRc() { return eeprom->getBooleanSetting(EEPROM_ALLOW_CHILD_LOCKOUT_FROM_RC); }
 
     int readMaxSpeedPot() {
       // The speed potentiometer reads near 0 when turned all the way to the right
@@ -225,7 +226,7 @@ class Configuration {
     }
 
     void getStatus(char * status) {
-      sprintf(status, "[Configuration] Version: %i  Invert Joy X:%s Y:%s Joy Steering:%i %i %i  Speed Pot:%i RC:%s Min/C/Max:%i %i %i", 
+      sprintf(status, "[Configuration] Version: %i  Invert Joy X:%s Y:%s Joy Steering:%i %i %i  Speed Pot:%i RC:%s Allow Lockout: %s Min/C/Max:%i %i %i", 
         getConfigurationVersion(),
         getInvertJoystickX() ? "true" : "false",
         getInvertJoystickY() ? "true" : "false",
@@ -234,6 +235,7 @@ class Configuration {
         getJoystickSteeringMax(),
         readMaxSpeedPot(),
         useRc() ? "true" : "false",
+        allowChildLockoutFromRc() ? "true" : "false",
         getSteeringMin(),
         getSteeringCenter(),
         getSteeringMax());

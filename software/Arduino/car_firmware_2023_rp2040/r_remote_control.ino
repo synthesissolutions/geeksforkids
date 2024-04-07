@@ -56,6 +56,7 @@ class RemoteControl {
     int steeringIndex = 0;
     
     boolean hasCentered = false;
+    boolean allowChildLockoutFromRc = false;
 
   public: 
     // Track the first few signal readings and mark a bad start if any of those readings
@@ -95,6 +96,10 @@ class RemoteControl {
       throttleMin = tMin;
       throttleCenter = tCenter;
       throttleMax = tMax;
+    }
+
+    void setAllowChildLockoutFromRc(bool allowLockout) {
+      allowChildLockoutFromRc = allowLockout;
     }
     
     /*
@@ -190,7 +195,7 @@ class RemoteControl {
     }
 
     boolean isChildLockedOut() {
-      return lockoutPwm > 1400;
+      return allowChildLockoutFromRc && lockoutPwm > 1400;
     }
 
     /* 

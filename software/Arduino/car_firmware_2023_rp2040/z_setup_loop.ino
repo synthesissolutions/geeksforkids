@@ -103,6 +103,7 @@ void setup() {
   remoteControl.setSteeringRange(configuration.getRcSteeringMin(), configuration.getRcSteeringCenter(), configuration.getRcSteeringMax());
   remoteControl.setThrottleRange(configuration.getRcThrottleMin(), configuration.getRcThrottleCenter(), configuration.getRcThrottleMax());
   remoteControl.initAveragingArrays();
+  remoteControl.setAllowChildLockoutFromRc(configuration.allowChildLockoutFromRc());
   
   // set up the interrupt handlers
   if (configuration.useRc()) {
