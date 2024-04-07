@@ -14,7 +14,7 @@
  ***************************************************************************************** 
  */
 
-const String        RELEASE_VERSION         = "24.3 Beta";
+const String        RELEASE_VERSION         = "24.4 w/Lockout";
 
 const int           LOGGER_UPDATE_TIME      = 100;     // How long between updates to the monitor, in milliseconds
 const unsigned int  SERIAL_BAUD_RATE        = 57600;     // Baud rate for the serial monitor.  Make sure you set this correctly!
@@ -121,5 +121,6 @@ const int           PIN_STEERING_POSITION         = A2;
 #define             PIN_REVERSE_SWITCH             18
 
 // RC ... aka the parent remote control inputs
-const int           PIN_RC_STEERING               = 17;
-const int           PIN_RC_THROTTLE               = 19;
+const int           PIN_RC_STEERING               = 17; // RC Channel 1
+const int           PIN_RC_THROTTLE               = 19; // RC Channel 2
+const int           PIN_RC_LOCKOUT                = 0;  // RC Channel 3

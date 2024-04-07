@@ -17,6 +17,7 @@ class RemoteControl {
 
     int pinRCSteering;
     int pinRCThrottle;
+    int pinRCLockout = PIN_RC_LOCKOUT;
 
     // variables to track the PWM signals
     unsigned long steeringPulseStart; // the timestamp in ms for the current PWM steering pulse
@@ -25,6 +26,9 @@ class RemoteControl {
     unsigned long throttlePulseStart; // the timestamp in ms for the current PWM throttle pulse
     unsigned long throttlePwm = 0;    // the length of the last full PWM throttle pulse in microseconds
     boolean throttleSignalHigh = false; // flag indicating that the start of a PWM signal (rising edge) has occured
+    unsigned long lockoutPulseStart; // the timestamp in ms for the current PWM throttle pulse
+    unsigned long lockoutPwm = 0;    // the length of the last full PWM throttle pulse in microseconds
+    boolean lockoutSignalHigh = false; // flag indicating that the start of a PWM signal (rising edge) has occured
     
     // these are in raw pin read units (0 to 1024)
     int steeringMin = STEERING_RC_MIN;
@@ -185,6 +189,10 @@ class RemoteControl {
       return false;
     }
 
+    boolean isChildLockedOut() {
+      return lockoutPwm > 1400;
+    }
+
     /* 
      * Handler for IRQ updates for steering.
      * 
@@ -271,13 +279,33 @@ class RemoteControl {
       sprintf(buffer, "%i %i %i %i %i %i %i %i %i %i", throttlePwmStart[0], throttlePwmStart[1], throttlePwmStart[2], throttlePwmStart[3], throttlePwmStart[4], throttlePwmStart[5], throttlePwmStart[6], throttlePwmStart[7], throttlePwmStart[8], throttlePwmStart[9]);
     }
 
+    void lockoutIRQHandler() {
+      if(digitalRead(pinRCLockout) == 1){
+        if (!lockoutSignalHigh) {
+          // rising edge of the PWM signal
+          // record when the pulse started
+          lockoutPulseStart = micros();
+          lockoutSignalHigh = true;
+        }
+        
+      } else if (lockoutSignalHigh) {
+        // falling edge of the PWM signal
+        // record the duty cycle in microseconds
+        lockoutPwm = micros() - lockoutPulseStart;
+
+        // reset for the next pulse
+        lockoutSignalHigh = false;
+      }
+    }
     
     void getStatus(char * status) {
-      sprintf(status, "[RemoteControl] throttleRaw:%lu throttleScaled:%i steeringRaw:%lu steeringScaled:%i isActive:%s Bad Start:%s Has Centered: %s",
+      sprintf(status, "[RemoteControl] throttleRaw:%lu throttleScaled:%i steeringRaw:%lu steeringScaled:%i lockoutRaw:%lu isChildLockedOut: %s isActive:%s Bad Start:%s Has Centered: %s",
         throttlePwm,
         throttleScaled,
         steeringPwm,
         steeringScaled,
+        lockoutPwm,
+        isChildLockedOut() ? "true" : "false",
         isActive() ? "true" : "false",
         badControlStart ? "true" : "false",
         hasCentered ? "true" : "false");

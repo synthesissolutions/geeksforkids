@@ -35,6 +35,7 @@ long millisTemp = 0;
  */
  void handleRCSteeringInterrupt() { remoteControl.steeringIRQHandler(); }
  void handleRCThrottleInterrupt() { remoteControl.throttleIRQHandler(); }
+ void handleRCLockoutInterrupt() { remoteControl.lockoutIRQHandler(); }
  void handleJoystickSteeringInterrupt() { joystick.steeringIRQHandler(); }
  void handleJoystickThrottleInterrupt() { joystick.throttleIRQHandler(); }
 
@@ -107,6 +108,7 @@ void setup() {
   if (configuration.useRc()) {
     attachInterrupt(digitalPinToInterrupt(PIN_RC_STEERING), &handleRCSteeringInterrupt, CHANGE);
     attachInterrupt(digitalPinToInterrupt(PIN_RC_THROTTLE), &handleRCThrottleInterrupt, CHANGE);    
+    attachInterrupt(digitalPinToInterrupt(PIN_RC_LOCKOUT), &handleRCLockoutInterrupt, CHANGE);    
   }
 
   if (configuration.usePwmJoystickX()) {
@@ -181,7 +183,7 @@ void loop() {
     }
     
     // Is the parent overriding and taking control?
-    if (configuration.useRc() && remoteControl.isActive()) {
+    if (configuration.useRc() && (remoteControl.isActive() || remoteControl.isChildLockedOut())) {
       // while the RC is active, we want to keep averaging the childs controls
       lastThrottleOnMillis = 0;
       joystick.getXAxisScaled();
