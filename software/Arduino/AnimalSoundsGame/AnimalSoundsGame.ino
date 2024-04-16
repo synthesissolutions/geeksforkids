@@ -1,24 +1,28 @@
 #include "Arduino.h"
 #include "SoftwareSerial.h"
 #include "DFRobotDFPlayerMini.h"
-#include <Adafruit_AW9523.h>
 
-Adafruit_AW9523 aw;
 DFRobotDFPlayerMini myDFPlayer;
 
 #define BUTTON_COUNT  5
 #define SOUND_FOLDER_COUNT  5
 
-#define BUSY_PIN      5  //PB4 physical 10
-#define VOLUME_PIN    15 //PA2 physical 1
+#define BUSY_PIN      5  //PB4
+#define VOLUME_PIN    8  //PB1
 
-#define BUTTON_1_PIN     1    // PA5  - Red
-#define BUTTON_2_PIN     0    // PA4  - Blue
-#define BUTTON_3_PIN     14   // PA1  - Yellow
-#define BUTTON_4_PIN     4    // PB5  - White
-#define BUTTON_5_PIN     10   // PC0  - Green
+#define BUTTON_1_PIN     0     // PA4  - Red
+#define BUTTON_2_PIN     16    // PA3  - Blue
+#define BUTTON_3_PIN     3     // PA7  - Yellow
+#define BUTTON_4_PIN     2     // PA6  - White
+#define BUTTON_5_PIN     1     // PA5  - Green
 
-#define RANDOM_SEED_PIN   17  // PC2 - Unconnected
+#define LED_1_PIN     15    // PA2  - Red
+#define LED_2_PIN     14    // PA1  - Blue
+#define LED_3_PIN     4     // PB5  - Yellow
+#define LED_4_PIN     13    // PC3  - White
+#define LED_5_PIN     12    // PC2  - Green
+
+#define RANDOM_SEED_PIN   16  // PC2 - Unconnected
 
 #define ANIMAL_SOUNDS_FOLDER    1
 #define ANIMAL_NAMES_FOLDER     2
@@ -26,7 +30,10 @@ DFRobotDFPlayerMini myDFPlayer;
 #define GOOD_JOB_SOUNDS_FOLDER  4
 #define TRY_AGAIN_SOUNDS_FOLDER 5
 
+#define SOUND_DELAY_MS    250
+
 int buttonPins[] = {BUTTON_1_PIN, BUTTON_2_PIN, BUTTON_3_PIN, BUTTON_4_PIN, BUTTON_5_PIN};
+int ledPins[] = {LED_1_PIN, LED_2_PIN, LED_3_PIN, LED_4_PIN, LED_5_PIN};
 
 unsigned long lastDebounceTime = 0;  // the last time the output pin was toggled
 unsigned long debounceDelay = 50;    // the debounce time; increase if the output flickers
@@ -37,7 +44,14 @@ int volumeOut = 30;
 
 int currentAnimal = -1;
 int currentButton = -1;
-int incorrectQuessCount = 0;
+int incorrectGuessCount = 0;
+
+// Keep track of the previous sound played or button selected for the game
+// then make sure we don't use the same sound or button twice in a row
+int lastButton = -1;
+int lastAnimalSound = -1;
+int lastGoodJobSound = 1;
+int lastTryAgainSound = -1;
 
 void setup()
 {
@@ -53,24 +67,18 @@ void setup()
   pinMode(BUTTON_4_PIN, INPUT_PULLUP);
   pinMode(BUTTON_5_PIN, INPUT_PULLUP);
 
+  pinMode(LED_1_PIN, OUTPUT);
+  pinMode(LED_2_PIN, OUTPUT);
+  pinMode(LED_3_PIN, OUTPUT);
+  pinMode(LED_4_PIN, OUTPUT);
+  pinMode(LED_5_PIN, OUTPUT);
+
   pinMode(BUSY_PIN, INPUT_PULLUP);
   
   Serial.begin(9600); // Used to talk to the DFRobot MP3 Player 
 
   // Delay for a short period to make sure the DF Robot MP3 Player board is ready
   delay(250);
-
-  if (! aw.begin(0x58)) {
-    while (1)
-    {
-      delay(100);  // halt forever
-    }
-  }
-
-  for (int i = 1; i <= BUTTON_COUNT; i++)
-  {
-    aw.pinMode(i, OUTPUT);
-  }
   
   if (!myDFPlayer.begin(Serial)) 
   {
@@ -110,7 +118,7 @@ void loop()
   if (currentAnimal < 0 || currentButton < 0)
   {
     // Start a new game
-    incorrectQuessCount = 0;
+    incorrectGuessCount = 0;
     
     // wait until the current sound finishes
     while (mp3Playing())
@@ -122,13 +130,25 @@ void loop()
     turnOffAllButtons();
     
     // Start a new game
-    currentButton = random(1, BUTTON_COUNT + 1);
-    currentAnimal = random(1, folderSounds[ANIMAL_SOUNDS_FOLDER - 1] + 1);
+    do
+    {
+      currentButton = random(0, BUTTON_COUNT);
+    } while (currentButton == lastButton);
+    
+    lastButton = currentButton;
+    
+    do
+    {
+      currentAnimal = random(1, folderSounds[ANIMAL_SOUNDS_FOLDER - 1] + 1);
+    } while(currentAnimal == lastAnimalSound);
+    // Keep randomizing until we get a new animal sound so we don't play the same sound twice
 
+    lastAnimalSound = currentAnimal;
+    
     // Play the anmial name sound
     myDFPlayer.playFolder(ANIMAL_SOUNDS_FOLDER, currentAnimal);
     // Flash the current button while the sound plays
-    delay(50);
+    delay(SOUND_DELAY_MS);
     while (mp3Playing())
     {
       setVolumeFromPot();
@@ -150,9 +170,10 @@ void loop()
     if (correctButtonPressed(currentButton))
     {
       // The correct button was pressed!
-      
+
+      lightButton(currentButton, true);
       playRightAnswerSound();
-      delay(50);
+      delay(SOUND_DELAY_MS);
       while (mp3Playing())
       {
         setVolumeFromPot();
@@ -174,7 +195,7 @@ void loop()
       // If incorrect button is pressed
       if (incorrectButtonPressed(currentButton))
       {
-        incorrectQuessCount++;
+        incorrectGuessCount++;
         
         //  light the button being pressed
         int button = getFirstButtonPressed();
@@ -183,7 +204,7 @@ void loop()
         //  play a sounds from the inccorect sound folder
         //  things like "boing"        
         playWrongAnswerSound();
-        delay(50);
+        delay(SOUND_DELAY_MS);
         while (mp3Playing())
         {
           setVolumeFromPot();
@@ -209,37 +230,52 @@ void startupAnimation()
 {
   playRandomSparkleSound();
 
+  setVolumeFromPot();
   turnOnAllButtons();
   delay(100);
   turnOffAllButtons();
   delay(100);
+  setVolumeFromPot();
 
   chase(2, 200);
+  setVolumeFromPot();
 
   turnOffAllButtons();
 
   delay(750);
+  lightButton(0, true);
+  setVolumeFromPot();
+  delay(50);
+  lightButton(0, false);
   lightButton(1, true);
+  setVolumeFromPot();
   delay(50);
   lightButton(1, false);
   lightButton(2, true);
+  setVolumeFromPot();
   delay(50);
   lightButton(2, false);
   lightButton(3, true);
+  setVolumeFromPot();
   delay(50);
   lightButton(3, false);
   lightButton(4, true);
+  setVolumeFromPot();
   delay(50);
   lightButton(4, false);
-  lightButton(5, true);
-  delay(50);
-  lightButton(5, false);
+  setVolumeFromPot();
   delay(200);
+
+  while (mp3Playing())
+  {
+    delay(10);
+    setVolumeFromPot();
+  }
 }
 
 void turnOnAllButtons()
 {
-    for (int i = 1; i <= BUTTON_COUNT; i++)
+    for (int i = 0; i < BUTTON_COUNT; i++)
   {
     lightButton(i, true);
   }
@@ -247,7 +283,7 @@ void turnOnAllButtons()
 
 void turnOffAllButtons()
 {
-    for (int i = 1; i <= BUTTON_COUNT; i++)
+    for (int i = 0; i < BUTTON_COUNT; i++)
   {
     lightButton(i, false);
   }
@@ -255,18 +291,16 @@ void turnOffAllButtons()
 
 void lightButtons(bool button1, bool button2, bool button3, bool button4, bool button5)
 {
-  lightButton(1, button1);
-  lightButton(2, button2);
-  lightButton(3, button3);
-  lightButton(4, button4);
-  lightButton(5, button5);
+  lightButton(0, button1);
+  lightButton(1, button2);
+  lightButton(2, button3);
+  lightButton(3, button4);
+  lightButton(4, button5);
 }
 
 void lightButton(int buttonNumber, bool isLit)
 {
-  // Buttons are lit up with a 0 and turned off with a 1
-  // so invert the isLit value
-  aw.digitalWrite(buttonNumber, !isLit);
+  digitalWrite(ledPins[buttonNumber], isLit);
 }
 
 void chase(int count, int delayMs)
@@ -319,13 +353,31 @@ void playRandomSparkleSound()
 
 void playWrongAnswerSound()
 {
-  long randomSoundNumber = random(1, getFolderCount(TRY_AGAIN_SOUNDS_FOLDER) + 1);
+  int randomSoundNumber;
+  
+  do
+  {
+    randomSoundNumber = random(1, getFolderCount(TRY_AGAIN_SOUNDS_FOLDER) + 1);
+  } while(randomSoundNumber == lastTryAgainSound);
+  // Keep randomizing until we get a new right answer sound so we don't play the same sound twice
+
+  lastTryAgainSound = randomSoundNumber;
+  
   myDFPlayer.playFolder(TRY_AGAIN_SOUNDS_FOLDER, randomSoundNumber);
 }
 
 void playRightAnswerSound()
 {
-  long randomSoundNumber = random(1, getFolderCount(GOOD_JOB_SOUNDS_FOLDER) + 1);
+  int randomSoundNumber;
+  
+  do
+  {
+    randomSoundNumber = random(1, getFolderCount(GOOD_JOB_SOUNDS_FOLDER) + 1);
+  } while(randomSoundNumber == lastGoodJobSound);
+  // Keep randomizing until we get a new right answer sound so we don't play the same sound twice
+
+  lastGoodJobSound = randomSoundNumber;
+  
   myDFPlayer.playFolder(GOOD_JOB_SOUNDS_FOLDER, randomSoundNumber);
 }
 
@@ -356,8 +408,7 @@ int getFirstButtonPressed()
     int pin = buttonPins[i];
     if (!digitalRead(pin))
     {
-      // Button index is 1 to BUTTON_COUNT and not 0 to BUTTON_COUNT
-      return i + 1;
+      return i;
     }
   }
 
@@ -366,11 +417,9 @@ int getFirstButtonPressed()
 
 bool incorrectButtonPressed(int buttonNumber)
 {
-  // buttonNumber uses an index of 1 to BUTTON_COUNT
-  // need to adjust to use the 0 to BUTTON_COUNT - 1 array
   for (int i = 0; i < BUTTON_COUNT; i++)
   {
-    if (i == buttonNumber - 1) continue;
+    if (i == buttonNumber) continue;
 
     int pin = buttonPins[i];
     if (!digitalRead(pin))
@@ -384,7 +433,7 @@ bool incorrectButtonPressed(int buttonNumber)
 
 bool correctButtonPressed(int buttonNumber)
 {
-  int pin = buttonPins[buttonNumber - 1];
+  int pin = buttonPins[buttonNumber];
   
   // Will go LOW if pressed
   if (!digitalRead(pin)) 
