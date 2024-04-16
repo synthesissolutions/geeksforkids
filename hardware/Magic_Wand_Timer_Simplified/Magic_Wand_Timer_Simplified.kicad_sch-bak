@@ -1387,7 +1387,7 @@
     (property "Reference" "R5" (at 238.76 99.06 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "680" (at 238.76 101.6 0)
+    (property "Value" "680R" (at 238.76 101.6 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" (at 236.22 100.33 0)
@@ -2384,10 +2384,10 @@
   (symbol (lib_id "Timer:NE555P") (at 158.75 63.5 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid d941daca-9868-42ec-afc6-69fb1434aa67)
-    (property "Reference" "U1" (at 160.7059 50.8 0)
+    (property "Reference" "U2" (at 160.9441 50.8 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "NE555P" (at 160.7059 53.34 0)
+    (property "Value" "NE555P" (at 160.9441 53.34 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Package_DIP:DIP-8_W7.62mm" (at 175.26 73.66 0)
@@ -2410,7 +2410,7 @@
     (instances
       (project "Magic_Wand_Timer_Simplified"
         (path "/c5eed718-a5cc-419c-bfa3-9985e5d26a34"
-          (reference "U1") (unit 1)
+          (reference "U2") (unit 1)
         )
       )
     )
