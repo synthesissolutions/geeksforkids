@@ -167,18 +167,11 @@ int main(void)
 
 	throttleOn = ! HAL_GPIO_ReadPin(GO_BUTON_GPIO_Port, GO_BUTON_Pin);
 
-	if (!HAL_GPIO_ReadPin(REVERSE_SWITCH_GPIO_Port, REVERSE_SWITCH_Pin)) {
-		if (throttleOn) {
-			pwmThrottle = THROTTLE_REVERSE;
-		} else {
-			pwmThrottle = THROTTLE_OFF;
-		}
+	// No longer using the reverse switch on the steering column
+	if (throttleOn) {
+		pwmThrottle = THROTTLE_FORWARD;
 	} else {
-		if (throttleOn) {
-			pwmThrottle = THROTTLE_FORWARD;
-		} else {
-			pwmThrottle = THROTTLE_OFF;
-		}
+		pwmThrottle = THROTTLE_OFF;
 	}
 
 	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_3, pwmSteering);
