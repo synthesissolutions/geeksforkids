@@ -120,7 +120,9 @@ class RemoteControl {
         steeringScaled = 0;
         lastSteeringInputMillis = 0; // this does not count as a significant input since it didn't leave the deadzone
       } else {
-        lastSignificantInputMillis = millis();
+        // In this particular case, we don't want the parent steering to lock the child
+        // out of pushing the single go button control.
+        //lastSignificantInputMillis = millis();
       }
       
       return steeringScaled;

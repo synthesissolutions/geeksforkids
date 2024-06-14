@@ -218,7 +218,7 @@ void loop() {
           rcInControl=false;
         }
 
-        xAxisScaled = joystick.getXAxisScaled();
+        xAxisScaled = remoteControl.getSteeringScaled();
         yAxisScaled = joystick.getYAxisScaled();
 
         // Check for extended throttle and track if necessary
