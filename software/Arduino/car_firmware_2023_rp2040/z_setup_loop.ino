@@ -255,5 +255,7 @@ void loop() {
     logger.writeLog();
   }
 
+  configuration.update();
+  
   delay(LOOP_DELAY_MILLIS);
 }

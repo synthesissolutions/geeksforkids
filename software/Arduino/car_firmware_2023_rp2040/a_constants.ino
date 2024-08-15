@@ -87,6 +87,7 @@ const int           RC_THROTTLE_DEADZONE_LOW = -10;     // scaled units
 const int           RC_THROTTLE_DEADZONE_HIGH = 10;     // scaled units 
 
 // I2C Addresses
+#define             M5DIAL_I2C_ADDRESS  0x55
 #define             ATTINY_SPEED_CONTROL_I2C_ADDRESS  0x54
 
 /*****************************************************************************************
