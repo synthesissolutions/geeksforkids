@@ -45,6 +45,7 @@
       15,
       16,
       17,
+      18,
       19,
       20,
       21,
@@ -62,8 +63,14 @@
       35,
       36
     ],
-    "visible_layers": "fffffff_ffffffff",
+    "visible_layers": "ffcffff_fffffff9",
     "zone_display_mode": 0
+  },
+  "git": {
+    "repo_password": "",
+    "repo_type": "",
+    "repo_username": "",
+    "ssh_key": ""
   },
   "meta": {
     "filename": "ControlBoardT4_DFminiSound_PowerAmp.kicad_prl",
