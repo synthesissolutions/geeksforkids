@@ -23,8 +23,12 @@ class Configuration {
     void init(Eeprom *e) {
       eeprom = e;
 
-      Wire1.setSDA(PIN_I2C_SDA);
-      Wire1.setSCL(PIN_I2C_SCL);
+      Wire.setSDA(PIN_M5DIAL_I2C_SDA);
+      Wire.setSCL(PIN_M5DIAL_I2C_SCL);
+      Wire.begin();
+      
+      Wire1.setSDA(PIN_ATTINY_I2C_SDA);
+      Wire1.setSCL(PIN_ATTINY_I2C_SCL);
       Wire1.begin();
     }
 
@@ -61,10 +65,10 @@ class Configuration {
     int getRcThrottleMax() { return eeprom->getIntegerSetting(EEPROM_RC_THROTTLE_MAX); }
 
     void readSpeedVolume() {
-      if(Wire1.requestFrom(M5DIAL_I2C_ADDRESS, 2))
+      if(Wire.requestFrom(M5DIAL_I2C_ADDRESS, 2))
       {
-        speed = Wire1.read();
-        volume = Wire1.read();
+        speed = Wire.read();
+        volume = Wire.read();
       }
       else
       {
