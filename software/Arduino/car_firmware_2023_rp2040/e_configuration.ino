@@ -9,6 +9,8 @@ class Configuration {
   private:
     Eeprom *eeprom;
     int maxSpeedPin;
+    uint8_t speed = 5;
+    uint8_t volume = 10;
     
   public: 
     // Default constructor ... does nothing.  This allows us to delay setting the pins until we want to (via the init method).  
@@ -21,11 +23,21 @@ class Configuration {
     void init(Eeprom *e) {
       eeprom = e;
 
-      Wire1.setSDA(PIN_I2C_SDA);
-      Wire1.setSCL(PIN_I2C_SCL);
+      Wire.setSDA(PIN_M5DIAL_I2C_SDA);
+      Wire.setSCL(PIN_M5DIAL_I2C_SCL);
+      Wire.begin();
+      
+      Wire1.setSDA(PIN_ATTINY_I2C_SDA);
+      Wire1.setSCL(PIN_ATTINY_I2C_SCL);
       Wire1.begin();
     }
 
+    // Called periodically to update any values read in real-time
+    void update() {
+      readSpeedVolume();
+      writeVolume(); // Send the selected volume to the ATTiny handling audio output
+    }
+    
     /*
      * getters ... translate dip switch settings into car configuration
      */
@@ -52,26 +64,28 @@ class Configuration {
     int getRcThrottleCenter() { return eeprom->getIntegerSetting(EEPROM_RC_THROTTLE_CENTER); }
     int getRcThrottleMax() { return eeprom->getIntegerSetting(EEPROM_RC_THROTTLE_MAX); }
 
-    int readMaxSpeedPot() {
-      // The speed potentiometer reads near 0 when turned all the way to the right
-      // However, we want that to be max speed so we "invert" the reading.
-      uint8_t value;
-      
-      Wire1.requestFrom(ATTINY_SPEED_CONTROL_I2C_ADDRESS, 1);
-      if(Wire1.requestFrom(0x54, 1))
+    void readSpeedVolume() {
+      if(Wire.requestFrom(M5DIAL_I2C_ADDRESS, 2))
       {
-        value = Wire1.read();
+        speed = Wire.read();
+        volume = Wire.read();
       }
       else
       {
         // If we can't read the potentiometer, set to medium slow speed as a default
-        value = 80;
+        speed = 35;
+        volume = 35;
       }
-      return 255 - value;
     }
-    
+
+    void writeVolume() {
+      Wire1.beginTransmission(ATTINY_SPEED_CONTROL_I2C_ADDRESS);
+      Wire1.write(volume);
+      Wire1.endTransmission();
+    }
+
     float getSpeedMultiplier() {
-      return constrain(map(readMaxSpeedPot(), 0, 255, SPEED_CONFIGURATION_MIN_SPEED, SPEED_CONFIGURATION_MAX_SPEED), SPEED_CONFIGURATION_MIN_SPEED, SPEED_CONFIGURATION_MAX_SPEED) / 100.0;
+      return constrain(map(speed, 1, 100, SPEED_CONFIGURATION_MIN_SPEED, SPEED_CONFIGURATION_MAX_SPEED), SPEED_CONFIGURATION_MIN_SPEED, SPEED_CONFIGURATION_MAX_SPEED) / 100.0;
     }
 
     // Linear Actuator
@@ -225,14 +239,15 @@ class Configuration {
     }
 
     void getStatus(char * status) {
-      sprintf(status, "[Configuration] Version: %i  Invert Joy X:%s Y:%s Joy Steering:%i %i %i  Speed Pot:%i RC:%s Min/C/Max:%i %i %i", 
+      sprintf(status, "[Configuration] Version: %i  Invert Joy X:%s Y:%s Joy Steering:%i %i %i  Speed:%i Volume: %i RC:%s Min/C/Max:%i %i %i", 
         getConfigurationVersion(),
         getInvertJoystickX() ? "true" : "false",
         getInvertJoystickY() ? "true" : "false",
         getJoystickSteeringMin(),
         getJoystickSteeringCenter(),
         getJoystickSteeringMax(),
-        readMaxSpeedPot(),
+        speed,
+        volume,
         useRc() ? "true" : "false",
         getSteeringMin(),
         getSteeringCenter(),

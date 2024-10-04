@@ -14,7 +14,7 @@
  ***************************************************************************************** 
  */
 
-const String        RELEASE_VERSION         = "24.3 Final";
+const String        RELEASE_VERSION         = "c24.09.01";
 
 const int           LOGGER_UPDATE_TIME      = 100;     // How long between updates to the monitor, in milliseconds
 const unsigned int  SERIAL_BAUD_RATE        = 57600;     // Baud rate for the serial monitor.  Make sure you set this correctly!
@@ -87,6 +87,7 @@ const int           RC_THROTTLE_DEADZONE_LOW = -10;     // scaled units
 const int           RC_THROTTLE_DEADZONE_HIGH = 10;     // scaled units 
 
 // I2C Addresses
+#define             M5DIAL_I2C_ADDRESS  0x55
 #define             ATTINY_SPEED_CONTROL_I2C_ADDRESS  0x54
 
 /*****************************************************************************************
@@ -105,8 +106,10 @@ const int           PIN_THROTTLE_DIRECTION_RIGHT  = 5; // Channel 2 on motor con
 const int           PIN_THROTTLE_PWM_RIGHT        = 4;
 
 // I2C
-#define             PIN_I2C_SDA                    14
-#define             PIN_I2C_SCL                    15
+#define             PIN_M5DIAL_I2C_SDA                    0
+#define             PIN_M5DIAL_I2C_SCL                    1
+#define             PIN_ATTINY_I2C_SDA                    14
+#define             PIN_ATTINY_I2C_SCL                    15
 
 // steering
 const int           PIN_STEERING_DIRECTION        = 7;
