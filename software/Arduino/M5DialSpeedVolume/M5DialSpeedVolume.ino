@@ -1,32 +1,25 @@
-/**
- * @file encoder.ino
- * @author SeanKwok (shaoxiang@m5stack.com)
- * @brief M5Dial Encoder Test
- * @version 0.2
- * @date 2023-10-18
- *
- *
- * @Hardwares: M5Dial
- * @Platform Version: Arduino M5Stack Board Manager v2.0.7
- * @Dependent Library:
- * M5GFX: https://github.com/m5stack/M5GFX
- * M5Unified: https://github.com/m5stack/M5Unified
- */
-
 #include "M5Dial.h"
 #include <Wire.h>
+#include <Preferences.h>
+
+Preferences preferences;
 
 long oldPosition = -999;
-long speed = 50; 
-long volume = 75;
+uint16_t speed = 50; 
+uint16_t volume = 75;
 bool showSpeed = true;
 
 // Only allow the car version string to be set once by I2C
 bool carVersionSet = false;
 char carVersion[30];
 
-#define M5DIAL_VERSION "d24.09.0"
-#define CAR_VERSION "c24.09.1"
+const uint16_t currentVersion = 1;
+
+#define M5DIAL_VERSION        "d24.10.1"
+#define PREFERENCES_VERSION   "version"
+#define PREFERENCES_NAMESPACE "settings"
+#define PREFERENCES_SPEED     "speed"
+#define PREFERENCES_VOLUME    "volume"
 
 void requestEvent() {
   Wire.write((uint8_t) speed);
@@ -43,6 +36,7 @@ void receiveEvent(int count) {
   }
 
   carVersionSet = true;
+  displayChanged();
 }
 
 void setup() {
@@ -53,8 +47,22 @@ void setup() {
     M5Dial.update();
     oldPosition = M5Dial.Encoder.read();
 
-    //carVersion += CAR_VERSION;
-    
+    preferences.begin(PREFERENCES_NAMESPACE, false);
+
+    uint16_t version = preferences.getShort(PREFERENCES_VERSION, -1);
+    if (version == currentVersion) {
+      speed = preferences.getShort(PREFERENCES_SPEED, speed);
+      volume = preferences.getShort(PREFERENCES_VOLUME, volume);
+
+      speed = constrain(speed, 1, 100);
+      volume = constrain(volume, 0, 100);
+    } else {
+      preferences.clear();
+      preferences.putShort(PREFERENCES_VERSION, currentVersion);
+      preferences.putShort(PREFERENCES_SPEED, speed);
+      preferences.putShort(PREFERENCES_VOLUME, volume);
+    }
+
     displayChanged();
 
     Wire.begin(0x55); // join i2c bus with address 0x55
@@ -135,9 +143,11 @@ void loop() {
       if (showSpeed) {
         speed += delta;
         speed = constrain(speed, 1, 100);
+        preferences.putShort(PREFERENCES_SPEED, speed);
       } else {
         volume += delta;
         volume = constrain(volume, 1, 100);
+        preferences.putShort(PREFERENCES_VOLUME, volume);
       }
 
       displayChanged();
