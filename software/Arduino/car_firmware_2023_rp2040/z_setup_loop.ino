@@ -28,6 +28,7 @@ int lastThrottleOnMillis = 0;
 int yAxisScaled = 0;
 int xAxisScaled = 0;
 long millisTemp = 0;
+long loopCount = 0;
 
 /*
  * Interrupt request handlers.  The Arduino environment appears to require these to be global methods with no parms, so defining them here.
@@ -102,6 +103,12 @@ void setup() {
   remoteControl.setSteeringRange(configuration.getRcSteeringMin(), configuration.getRcSteeringCenter(), configuration.getRcSteeringMax());
   remoteControl.setThrottleRange(configuration.getRcThrottleMin(), configuration.getRcThrottleCenter(), configuration.getRcThrottleMax());
   remoteControl.initAveragingArrays();
+
+  delay(250); // give time for external device like M5Dial to startup
+
+  configuration.update();
+
+  delay(10);
   
   // set up the interrupt handlers
   if (configuration.useRc()) {
@@ -255,7 +262,11 @@ void loop() {
     logger.writeLog();
   }
 
-  configuration.update();
+  // Don't need to update the configuration every time through the loop
+  if (loopCount % 5 == 0) {
+    configuration.update();    
+  }
   
   delay(LOOP_DELAY_MILLIS);
+  loopCount++;
 }
