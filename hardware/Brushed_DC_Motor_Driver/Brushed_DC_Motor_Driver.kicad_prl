@@ -66,12 +66,6 @@
     "visible_layers": "ffd9f13_ffffffff",
     "zone_display_mode": 0
   },
-  "git": {
-    "repo_password": "",
-    "repo_type": "",
-    "repo_username": "",
-    "ssh_key": ""
-  },
   "meta": {
     "filename": "Brushed_DC_Motor_Driver.kicad_prl",
     "version": 3
