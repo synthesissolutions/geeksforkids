@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "Magic_Wand_Timer")(type "KiCad")(uri "${KIPRJMOD}/Magic_Wand_Timer.kicad_sym")(options "")(descr ""))
+  (lib (name "Pulse_PWM_Timer")(type "KiCad")(uri "${KIPRJMOD}/Pulse_PWM_Timer.kicad_sym")(options "")(descr ""))
+)
