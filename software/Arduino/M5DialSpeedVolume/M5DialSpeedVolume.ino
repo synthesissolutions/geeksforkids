@@ -15,7 +15,7 @@ char carVersion[30];
 
 const uint16_t currentVersion = 1;
 
-#define M5DIAL_VERSION        "d24.10.0"
+#define M5DIAL_VERSION        "d24.10.1"
 #define PREFERENCES_VERSION   "version"
 #define PREFERENCES_NAMESPACE "settings"
 #define PREFERENCES_SPEED     "speed"
@@ -36,6 +36,7 @@ void receiveEvent(int count) {
   }
 
   carVersionSet = true;
+  displayChanged();
 }
 
 void setup() {

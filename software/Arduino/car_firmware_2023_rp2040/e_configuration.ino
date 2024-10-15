@@ -11,6 +11,7 @@ class Configuration {
     int maxSpeedPin;
     uint8_t speed = 5;
     uint8_t volume = 10;
+    bool versionSent = false;
     
   public: 
     // Default constructor ... does nothing.  This allows us to delay setting the pins until we want to (via the init method).  
@@ -36,6 +37,11 @@ class Configuration {
     void update() {
       readSpeedVolume();
       writeVolume(); // Send the selected volume to the ATTiny handling audio output
+
+      if (!versionSent) {
+        versionSent = true;
+        writeVersion();
+      }
     }
     
     /*
@@ -76,6 +82,12 @@ class Configuration {
         speed = 35;
         volume = 35;
       }
+    }
+
+    void writeVersion() {
+      Wire.beginTransmission(M5DIAL_I2C_ADDRESS);
+      Wire.write(RELEASE_VERSION);
+      Wire.endTransmission();
     }
 
     void writeVolume() {
