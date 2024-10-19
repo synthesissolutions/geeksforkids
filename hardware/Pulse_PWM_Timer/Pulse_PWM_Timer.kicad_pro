@@ -500,7 +500,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "Pulse_PWM_Timer.step",
       "svg": "",
       "vrml": ""
     },
