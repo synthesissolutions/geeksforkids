@@ -582,6 +582,12 @@
           "label": "Package",
           "name": "Package",
           "show": true
+        },
+        {
+          "group_by": false,
+          "label": "DNP",
+          "name": "DNP",
+          "show": false
         }
       ],
       "filter_string": "",
