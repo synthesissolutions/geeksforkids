@@ -37,9 +37,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.95,
-          "height": 1.95,
-          "width": 1.7
+          "drill": 0.0,
+          "height": 1.6,
+          "width": 0.9
         },
         "silk_line_width": 0.15,
         "silk_text_italic": false,
@@ -120,7 +120,7 @@
         "allow_microvias": false,
         "max_error": 0.005,
         "min_clearance": 0.127,
-        "min_connection": 0.254,
+        "min_connection": 0.1524,
         "min_copper_edge_clearance": 0.254,
         "min_hole_clearance": 0.254,
         "min_hole_to_hole": 0.2032,
@@ -131,7 +131,7 @@
         "min_text_height": 0.635,
         "min_text_thickness": 0.0762,
         "min_through_hole_diameter": 0.1524,
-        "min_track_width": 0.2032,
+        "min_track_width": 0.1524,
         "min_via_annular_width": 0.0508,
         "min_via_diameter": 0.2032,
         "solder_mask_clearance": 0.0,
@@ -185,6 +185,7 @@
       "track_widths": [
         0.0,
         0.254,
+        0.381,
         0.508,
         0.635
       ],
@@ -499,7 +500,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "Pulse_PWM_Timer.step",
       "svg": "",
       "vrml": ""
     },
@@ -581,6 +582,12 @@
           "label": "Package",
           "name": "Package",
           "show": true
+        },
+        {
+          "group_by": false,
+          "label": "DNP",
+          "name": "DNP",
+          "show": false
         }
       ],
       "filter_string": "",
