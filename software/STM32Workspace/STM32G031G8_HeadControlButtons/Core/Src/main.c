@@ -124,22 +124,20 @@ int main(void)
 		  pwmSteering = STEERING_STRAIGHT;
 	  }
 
-	  if (!HAL_GPIO_ReadPin(ENABLE_SWITCH_GPIO_Port, ENABLE_SWITCH_Pin)) {
-		  if (throttleOn) {
-			  pwmThrottle = THROTTLE_REVERSE;
-		  } else {
-			  pwmThrottle = THROTTLE_OFF;
-		  }
-	  } else {
+	  if (HAL_GPIO_ReadPin(ENABLE_SWITCH_GPIO_Port, ENABLE_SWITCH_Pin)) {
 		  if (throttleOn) {
 			  pwmThrottle = THROTTLE_FORWARD;
 		  } else {
 			  pwmThrottle = THROTTLE_OFF;
 		  }
+	  } else {
+		  pwmThrottle = THROTTLE_OFF;
 	  }
 
 	  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_3, pwmSteering);
 	  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, pwmThrottle);
+    /* USER CODE END WHILE */
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -275,11 +273,17 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(RIGHT_BUTTON_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : DRIVE_BUTTON_Pin ENABLE_SWITCH_Pin */
-  GPIO_InitStruct.Pin = DRIVE_BUTTON_Pin|ENABLE_SWITCH_Pin;
+  /*Configure GPIO pin : DRIVE_BUTTON_Pin */
+  GPIO_InitStruct.Pin = DRIVE_BUTTON_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  HAL_GPIO_Init(DRIVE_BUTTON_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : ENABLE_SWITCH_Pin */
+  GPIO_InitStruct.Pin = ENABLE_SWITCH_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init(ENABLE_SWITCH_GPIO_Port, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
