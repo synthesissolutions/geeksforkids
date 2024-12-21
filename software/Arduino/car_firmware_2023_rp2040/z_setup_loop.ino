@@ -124,6 +124,8 @@ void setup() {
   }
 
   joystick.initAveragingArrays();
+
+  delay(1000);
 }
 
 /*
