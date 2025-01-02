@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "ADAFRUIT_QT_PY")(type "KiCad")(uri "${KIPRJMOD}/Symbols/ADAFRUIT_QT_PY.kicad_sym")(options "")(descr ""))
+)
