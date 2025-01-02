@@ -9,9 +9,13 @@
 #include <stdlib.h>
 #include <Adafruit_NeoPixel.h>
 
-#define PIN         0
+#define PIN         A0
 #define NUMPIXELS   1
-#define BUTTON_PIN  9
+#define BUTTON_PIN  2
+
+// If using the XH connector I2C
+// #define SDA 4
+// #define SCL 5
 
 Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
@@ -32,6 +36,9 @@ void setup()
   pixels.clear(); // Set all pixel colors to 'off'
   
   // Initialize I2C bus.
+  // If using the XH connector I2C
+  // Wire.setSDA(SDA);
+  // Wire.setSCL(SCL);
   Wire.begin();
 
   // Configure VL53L4CD satellite component.
@@ -74,8 +81,6 @@ void loop()
              results.distance_mm,
              results.signal_per_spad_kcps);
     Serial.print(report);
-    Serial.println(digitalRead(A2));
-    
 
     if (results.range_status == 0) {
       if (results.distance_mm >= 175 || results.distance_mm <= 10) {
