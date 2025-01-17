@@ -18,13 +18,14 @@
 // Multiplexer Defines
 #define PCAADDR 0x70
 
-#define PCA_LEFT    1
-#define PCA_CENTER  2
-#define PCA_RIGHT   3
+#define PCA_LEFT    0
+#define PCA_CENTER  1
+#define PCA_RIGHT   2
 
 // Other Defines
-#define SENSOR_THRESHOLD  500
-#define ACTIVE_SIGNAL_PIN 9
+#define SENSOR_THRESHOLD    500
+#define ACTIVE_SIGNAL_PIN   9
+#define REVERSE_SIGNAL_PIN  2
 
 VCNL4200Class sensorLeft(Wire);
 VCNL4200Class sensorCenter(Wire);
@@ -51,6 +52,7 @@ void setup()
   Serial.begin(115200);
 
   pinMode(ACTIVE_SIGNAL_PIN, OUTPUT);
+  pinMode(REVERSE_SIGNAL_PIN, INPUT_PULLUP);
   
   steeringPwmConfig = new RP2040_PWM(STEERING_OUT_PIN, PWM_FREQUENCY, STEERING_STRAIGHT);
   throttlePwmConfig = new RP2040_PWM(THROTTLE_OUT_PIN, PWM_FREQUENCY, THROTTLE_FORWARD);
@@ -139,7 +141,11 @@ void loop()
 
   if (throttleOn)
   {
-    throttlePwm = THROTTLE_FORWARD;
+    if (digitalRead(REVERSE_SIGNAL_PIN)) {
+      throttlePwm = THROTTLE_FORWARD;
+    } else {
+      throttlePwm = THROTTLE_REVERSE;      
+    }
   }
   else
   {
