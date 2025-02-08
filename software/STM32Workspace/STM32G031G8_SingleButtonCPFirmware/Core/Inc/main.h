@@ -61,10 +61,6 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define ACTIVE_SIGNAL_Pin GPIO_PIN_5
 #define ACTIVE_SIGNAL_GPIO_Port GPIOA
-#define LEFT_BUTTON_Pin GPIO_PIN_1
-#define LEFT_BUTTON_GPIO_Port GPIOB
-#define RIGHT_BUTTON_Pin GPIO_PIN_6
-#define RIGHT_BUTTON_GPIO_Port GPIOC
 #define DRIVE_BUTTON_Pin GPIO_PIN_11
 #define DRIVE_BUTTON_GPIO_Port GPIOA
 #define REVERSE_SWITCH_Pin GPIO_PIN_12

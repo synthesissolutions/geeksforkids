@@ -4392,7 +4392,7 @@
 			(justify left bottom)
 		)
 	)
-	(gr_text "QT Py\nSensor v2"
+	(gr_text "QT Py\nSensor v3"
 		(at 167.64 77.47 0)
 		(layer "F.SilkS")
 		(uuid "59ce3e77-36a4-484c-af26-e586473bbe72")

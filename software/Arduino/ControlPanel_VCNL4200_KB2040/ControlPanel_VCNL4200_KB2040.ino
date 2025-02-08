@@ -23,7 +23,7 @@
 #define PCA_RIGHT   2
 
 // Other Defines
-#define SENSOR_THRESHOLD    500
+#define SENSOR_THRESHOLD    1250
 #define ACTIVE_SIGNAL_PIN   9
 #define REVERSE_SIGNAL_PIN  2
 
