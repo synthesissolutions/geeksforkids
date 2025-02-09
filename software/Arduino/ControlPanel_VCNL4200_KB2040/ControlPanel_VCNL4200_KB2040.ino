@@ -26,6 +26,7 @@
 #define SENSOR_THRESHOLD    1250
 #define ACTIVE_SIGNAL_PIN   9
 #define REVERSE_SIGNAL_PIN  2
+#define DISTANCE_POTENTIOMETER_PIN  A2
 
 VCNL4200Class sensorLeft(Wire);
 VCNL4200Class sensorCenter(Wire);
@@ -47,12 +48,24 @@ void pcaSelect(uint8_t i) {
   Wire.endTransmission();  
 }
 
+void pulseLed(int count, int durationMilliseconds) {
+  for (int i = 0; i < count; i++) {
+    digitalWrite(DISTANCE_POTENTIOMETER_PIN, true);
+    delay(durationMilliseconds);
+    digitalWrite(DISTANCE_POTENTIOMETER_PIN, false);
+    delay(durationMilliseconds);
+  }
+}
+
 void setup()
 {
   Serial.begin(115200);
 
   pinMode(ACTIVE_SIGNAL_PIN, OUTPUT);
   pinMode(REVERSE_SIGNAL_PIN, INPUT_PULLUP);
+  
+  // Using this PIN to light the Reverse Switch LED
+  pinMode(DISTANCE_POTENTIOMETER_PIN, OUTPUT);
   
   steeringPwmConfig = new RP2040_PWM(STEERING_OUT_PIN, PWM_FREQUENCY, STEERING_STRAIGHT);
   throttlePwmConfig = new RP2040_PWM(THROTTLE_OUT_PIN, PWM_FREQUENCY, THROTTLE_FORWARD);
@@ -63,6 +76,7 @@ void setup()
   if (!sensorLeft.begin())
   {
     Serial.println("Failed to initialize vcnl4200 for left button");
+    pulseLed(500, 50);
     while(1);
   }
 
@@ -70,6 +84,7 @@ void setup()
   if (!sensorCenter.begin())
   {
     Serial.println("Failed to initialize vcnl4200 for center button");
+    pulseLed(500, 100);
     while(1);
   }
 
@@ -77,11 +92,14 @@ void setup()
   if (!sensorRight.begin())
   {
     Serial.println("Failed to initialize vcnl4200 for right button");
+    pulseLed(500, 200);
     while(1);
   }
 
   digitalWrite(ACTIVE_SIGNAL_PIN, true);
 
+  pulseLed(4, 100);
+  
   Serial.println("PRX\tLux");
 }
 
@@ -139,17 +157,25 @@ void loop()
     steeringPwm = STEERING_STRAIGHT;
   }
 
+  bool isReverse = digitalRead(REVERSE_SIGNAL_PIN);
+  
   if (throttleOn)
   {
-    if (digitalRead(REVERSE_SIGNAL_PIN)) {
+    if (isReverse) {
       throttlePwm = THROTTLE_FORWARD;
     } else {
-      throttlePwm = THROTTLE_REVERSE;      
+      throttlePwm = THROTTLE_REVERSE;
     }
   }
   else
   {
     throttlePwm = THROTTLE_OFF;
+  }
+
+  if (isReverse) {
+    digitalWrite(DISTANCE_POTENTIOMETER_PIN, false);
+  } else {
+    digitalWrite(DISTANCE_POTENTIOMETER_PIN, true);
   }
 
   steeringPwmConfig->setPWM(STEERING_OUT_PIN, PWM_FREQUENCY, steeringPwm);
