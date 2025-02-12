@@ -108,7 +108,10 @@ class Configuration {
     // Extend Throttle
     boolean getExtendThrottle() { return eeprom->getBooleanSetting(EEPROM_EXTEND_THROTTLE); }
     int getExtendThrottleTimeMilliseconds() { return eeprom->getIntegerSetting(EEPROM_EXTEND_THROTTLE_TIME_MS); }
-    
+
+    // Extend Throttle
+    boolean getChildThrottleOnly() { return eeprom->getBooleanSetting(EEPROM_CHILD_THROTTLE_ONLY); }
+
     void configureCar() {
       int selection;
       int indexToEdit;
@@ -233,7 +236,7 @@ class Configuration {
       while(1) {
         if (Serial.available() > 0) {
           entry = Serial.read();
-          if (entry < 'a' || entry > 'v') {
+          if (entry < 'a' || entry > 'w') {
             Serial.print("Invalid Entry: ");
             Serial.println(entry);
           } else {

@@ -18,6 +18,11 @@ class RemoteControl {
     int pinRCSteering;
     int pinRCThrottle;
 
+    // If this is set to true, the parent will be steering the car with the remote
+    // while the child uses a button or equivalent to control the throttle
+    // in this case, we don't want the parent steering the car to lock the child out
+    bool childThrottleOnly;
+    
     // variables to track the PWM signals
     unsigned long steeringPulseStart; // the timestamp in ms for the current PWM steering pulse
     unsigned long steeringPwm = 0;    // the length of the last full PWM steering pulse in microseconds
@@ -67,9 +72,10 @@ class RemoteControl {
     }
 
     // initial setup
-    void init(int steeringPin, int throttlePin) {
+    void init(int steeringPin, int throttlePin, bool throttleOnly) {
       pinRCSteering = steeringPin;
       pinRCThrottle = throttlePin;
+      childThrottleOnly = throttleOnly;
     }
 
     void initAveragingArrays() {
@@ -120,7 +126,9 @@ class RemoteControl {
         steeringScaled = 0;
         lastSteeringInputMillis = 0; // this does not count as a significant input since it didn't leave the deadzone
       } else {
-        lastSignificantInputMillis = millis();
+        if (!childThrottleOnly) {
+          lastSignificantInputMillis = millis();
+        }
       }
       
       return steeringScaled;

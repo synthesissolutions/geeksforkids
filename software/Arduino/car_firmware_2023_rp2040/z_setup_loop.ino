@@ -74,7 +74,7 @@ void setup() {
   logger.addLogLine("joystick initialized");
 
   if (configuration.useRc()) {
-    remoteControl.init(PIN_RC_STEERING, PIN_RC_THROTTLE);
+    remoteControl.init(PIN_RC_STEERING, PIN_RC_THROTTLE, configuration.getChildThrottleOnly());
     logger.addLogLine("remote control initialized");
   }
 
@@ -225,7 +225,12 @@ void loop() {
           rcInControl=false;
         }
 
-        xAxisScaled = joystick.getXAxisScaled();
+        if (configuration.getChildThrottleOnly()) {
+          xAxisScaled = remoteControl.getSteeringScaled();
+        } else {
+          xAxisScaled = joystick.getXAxisScaled();          
+        }
+        
         yAxisScaled = joystick.getYAxisScaled();
 
         // Check for extended throttle and track if necessary

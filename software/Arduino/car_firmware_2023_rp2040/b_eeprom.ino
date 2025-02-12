@@ -1,6 +1,6 @@
 #include <EEPROM.h>
 
-#define NUMBER_OF_CONFIGURATION_ENTRIES 23
+#define NUMBER_OF_CONFIGURATION_ENTRIES 24
 
 #define EEPROM_VERSION              0
 #define EEPROM_ACTUATOR_MIN         1
@@ -25,6 +25,7 @@
 #define EEPROM_JOYSTICK_THROTTLE_MAX    20
 #define EEPROM_EXTEND_THROTTLE          21
 #define EEPROM_EXTEND_THROTTLE_TIME_MS  22
+#define EEPROM_CHILD_THROTTLE_ONLY      23
 
 #define INTEGER_CONFIGURATION 1
 #define BOOLEAN_CONFIGURATION 2
@@ -35,7 +36,7 @@
  * This class stores and retrievs settings from Eeprom to define the configuration for this car
  */
 
-const int CURRENT_SETTINGS_VERSION = 4;
+const int CURRENT_SETTINGS_VERSION = 5;
 
 struct ConfigurationEntry {
   String name;
@@ -76,7 +77,8 @@ ConfigurationEntry configurationEntries[] = {
   {"Joystick Throttle Center", 80, INTEGER_CONFIGURATION, false, 500},
   {"Joystick Throttle Max", 84, INTEGER_CONFIGURATION, false, 800},
   {"Extend Throttle", 88, BOOLEAN_CONFIGURATION, false, 0},
-  {"Extend Throttle Milliseconds", 92, INTEGER_CONFIGURATION, false, 500}
+  {"Extend Throttle Milliseconds", 92, INTEGER_CONFIGURATION, false, 500},
+  {"Child Throttle Only", 94, BOOLEAN_CONFIGURATION, false, 0}
 };
     
 class Eeprom {
@@ -91,8 +93,17 @@ class Eeprom {
     void init() {
       EEPROM.begin(512);
       
-      if (getSavedConfigurationVersion() == CURRENT_SETTINGS_VERSION) {
+      int savedVersion = getSavedConfigurationVersion();
+      
+      if (savedVersion == CURRENT_SETTINGS_VERSION) {
         loadConfigurationSettings();
+      } else if (savedVersion == 4 && CURRENT_SETTINGS_VERSION == 5) {
+        loadConfigurationSettings();
+        
+        setBooleanSetting(EEPROM_CHILD_THROTTLE_ONLY, false);
+        setIntegerSetting(EEPROM_VERSION, CURRENT_SETTINGS_VERSION);
+
+        saveConfiguration();
       } else {
         saveConfiguration(); // This will save the default values
         isConfigurationDefault = true;      
