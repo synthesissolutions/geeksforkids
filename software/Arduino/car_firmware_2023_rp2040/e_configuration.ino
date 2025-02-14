@@ -254,7 +254,7 @@ class Configuration {
     }
 
     void getStatus(char * status) {
-      sprintf(status, "[Configuration] Version: %i  Invert Joy X:%s Y:%s Joy Steering:%i %i %i  Speed:%i Volume: %i RC:%s Min/C/Max:%i %i %i", 
+      sprintf(status, "[Configuration] Version: %i  Invert Joy X:%s Y:%s Joy Steering:%i %i %i  Speed:%i Volume: %i RC:%s %s Min/C/Max:%i %i %i", 
         getConfigurationVersion(),
         getInvertJoystickX() ? "true" : "false",
         getInvertJoystickY() ? "true" : "false",
@@ -264,6 +264,7 @@ class Configuration {
         speed,
         volume,
         useRc() ? "true" : "false",
+        getChildThrottleOnly() ? "true" : "false",
         getSteeringMin(),
         getSteeringCenter(),
         getSteeringMax());

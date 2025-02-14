@@ -78,7 +78,7 @@ ConfigurationEntry configurationEntries[] = {
   {"Joystick Throttle Max", 84, INTEGER_CONFIGURATION, false, 800},
   {"Extend Throttle", 88, BOOLEAN_CONFIGURATION, false, 0},
   {"Extend Throttle Milliseconds", 92, INTEGER_CONFIGURATION, false, 500},
-  {"Child Throttle Only", 94, BOOLEAN_CONFIGURATION, false, 0}
+  {"Child Throttle Only", 96, BOOLEAN_CONFIGURATION, false, 0}
 };
     
 class Eeprom {
