@@ -62,14 +62,6 @@ ConfigurationEntry configurationEntries[] = {
   {"Use PWM Joystick Y", 52, BOOLEAN_CONFIGURATION, true, 0},
   {"Invert Joystick X", 56, BOOLEAN_CONFIGURATION, true, 0},
   {"Invert Joystick Y", 60, BOOLEAN_CONFIGURATION, true, 0},
-  /*
-  {"Joystick Steering Min", 64, INTEGER_CONFIGURATION, false, 0}, // Joystick values are in PWM duty cycle microseconds or analog readings 0 - 1023
-  {"Joystick Steering Center", 68, INTEGER_CONFIGURATION, false, 500},
-  {"Joystick Steering Max", 72, INTEGER_CONFIGURATION, false, 950},
-  {"Joystick Throttle Min", 76, INTEGER_CONFIGURATION, false, 0},
-  {"Joystick Throttle Center", 80, INTEGER_CONFIGURATION, false, 500},
-  {"Joystick Throttle Max", 84, INTEGER_CONFIGURATION, false, 950}
-  */
   {"Joystick Steering Min", 64, INTEGER_CONFIGURATION, false, 200}, // Joystick values are in PWM duty cycle microseconds or analog readings 0 - 1023
   {"Joystick Steering Center", 68, INTEGER_CONFIGURATION, false, 500},
   {"Joystick Steering Max", 72, INTEGER_CONFIGURATION, false, 800},
