@@ -394,19 +394,30 @@ void configurationLoop() {
   }
 }
 
-void getInteger(ConfigurationEntry entry) {
+void getInteger(ConfigurationEntry *entry) {
   drawInteger(entry);
 
-  int currentPosition = M5Dial.Encoder.read();
+  int currentPosition = entry->intValue;
+  M5Dial.Encoder.write(currentPosition);
   
   while (true) {
     M5Dial.update();
     int newPosition = M5Dial.Encoder.read();
     
     if (newPosition != currentPosition) {
-      //currentPosition = newPosition;
-      //entry.booleanValue = !entry.booleanValue;
-      //drawBoolean(entry);
+      if (newPosition < entry->intMin) {
+        currentPosition = entry->intMin;
+        M5Dial.Encoder.write(currentPosition);
+      } else if (newPosition > entry->intMax) {
+        currentPosition = entry->intMax;
+        M5Dial.Encoder.write(currentPosition);
+      } else {
+        currentPosition = newPosition;
+      }
+
+      //configurationEntries[configurationEntriesIndex].intValue = currentPosition;
+      entry->intValue = currentPosition;
+      drawInteger(entry);
     }
     
     if (M5Dial.BtnA.wasPressed()) {
@@ -415,7 +426,7 @@ void getInteger(ConfigurationEntry entry) {
   }  
 }
 
-void drawBoolean(ConfigurationEntry entry) {
+void drawBoolean(ConfigurationEntry *entry) {
   int centerX = M5Dial.Display.width() / 2;
   int centerY = M5Dial.Display.height() / 2;
   
@@ -425,18 +436,18 @@ void drawBoolean(ConfigurationEntry entry) {
   M5Dial.Display.setTextColor(WHITE);
   M5Dial.Display.setTextDatum(middle_center);
   M5Dial.Display.setTextSize(0.75);
-  M5Dial.Display.drawString(entry.name, centerX, 48);
+  M5Dial.Display.drawString(entry->name, centerX, 48);
 
   M5Dial.Display.setTextColor(WHITE);
   M5Dial.Display.setTextSize(2);
-  if (entry.booleanValue) {
+  if (entry->booleanValue) {
     M5Dial.Display.drawString("True", centerX, centerY);
   } else {
     M5Dial.Display.drawString("False", centerX, centerY);
   }
 }
 
-void drawInteger(ConfigurationEntry entry) {
+void drawInteger(ConfigurationEntry *entry) {
   int centerX = M5Dial.Display.width() / 2;
   int centerY = M5Dial.Display.height() / 2;
   
@@ -446,14 +457,14 @@ void drawInteger(ConfigurationEntry entry) {
   M5Dial.Display.setTextColor(WHITE);
   M5Dial.Display.setTextDatum(middle_center);
   M5Dial.Display.setTextSize(0.75);
-  M5Dial.Display.drawString(entry.name, centerX, 48);
+  M5Dial.Display.drawString(entry->name, centerX, 48);
 
   M5Dial.Display.setTextColor(WHITE);
   M5Dial.Display.setTextSize(2);
-  M5Dial.Display.drawString(String(entry.intValue), centerX, centerY);
+  M5Dial.Display.drawString(String(entry->intValue), centerX, centerY);
 }
 
-void getBoolean(ConfigurationEntry entry) {
+void getBoolean(ConfigurationEntry *entry) {
   int centerX = M5Dial.Display.width() / 2;
   int centerY = M5Dial.Display.height() / 2;
 
@@ -467,7 +478,7 @@ void getBoolean(ConfigurationEntry entry) {
     
     if (newPosition != currentPosition) {
       currentPosition = newPosition;
-      entry.booleanValue = !entry.booleanValue;
+      entry->booleanValue = !entry->booleanValue;
       drawBoolean(entry);
     }
     
@@ -503,13 +514,14 @@ void secondaryMenuLoop(MenuOption menuOption) {
         return;
       }
       
-      ConfigurationEntry entry = configurationEntries[menuOption.options[currentMenuItem]];
-      if (entry.dataType == BOOLEAN_CONFIGURATION) {
+      ConfigurationEntry *entry = &configurationEntries[menuOption.options[currentMenuItem]];
+      if (entry->dataType == BOOLEAN_CONFIGURATION) {
         getBoolean(entry);
       } else {
         getInteger(entry);
       }
 
+      M5Dial.Encoder.write(currentMenuItem);
       drawSecondaryMenu(menuOption, currentMenuItem);
     }
   }
