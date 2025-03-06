@@ -29,32 +29,35 @@
 #define REGISTER_CAR_CODE_VERSION         98
 #define REGISTER_SPEED_VOLUME             99
 
+#define BACK_MENU_ITEM                    -1
+
 const int CURRENT_SETTINGS_VERSION = 5;
 
 #define INTEGER_CONFIGURATION 1
 #define BOOLEAN_CONFIGURATION 2
 
-struct MenuOptions {
+struct MenuOption {
   String name;
+  uint8_t optionCount;
   uint8_t options[10];
 };
 
-MenuOptions menuOptions[] = {
-  {"Linear Actuator", {REGISTER_ACTUATOR_MIN, REGISTER_ACTUATOR_CENTER, REGISTER_ACTUATOR_MAX}},
-  {"Remote Control", {REGISTER_USE_RC, REGISTER_RC_STEERING_MIN, REGISTER_RC_STEERING_CENTER, REGISTER_RC_STEERING_MAX, REGISTER_RC_THROTTLE_MIN, REGISTER_RC_THROTTLE_CENTER, REGISTER_RC_THROTTLE_MAX}},
-  {"Analog/PWM", {REGISTER_USE_PWM_JOYSTICK_X, REGISTER_USE_PWM_JOYSTICK_Y}},
-  {"Direction", {REGISTER_INVERT_JOYSTICK_X, REGISTER_INVERT_JOYSTICK_Y}},
-  {"Steering", {REGISTER_JOYSTICK_STEERING_MIN, REGISTER_JOYSTICK_STEERING_CENTER, REGISTER_JOYSTICK_STEERING_MAX}},
-  {"Throttle", {REGISTER_JOYSTICK_THROTTLE_MIN, REGISTER_JOYSTICK_THROTTLE_CENTER, REGISTER_JOYSTICK_THROTTLE_MAX, REGISTER_EXTEND_THROTTLE, REGISTER_EXTEND_THROTTLE_TIME_MS, REGISTER_CHILD_THROTTLE_ONLY}}
+MenuOption menuOptions[] = {
+  {"Lin Actuator", 4, {BACK_MENU_ITEM, REGISTER_ACTUATOR_MIN, REGISTER_ACTUATOR_CENTER, REGISTER_ACTUATOR_MAX}},
+  {"Remote Ctrl", 8, {BACK_MENU_ITEM, REGISTER_USE_RC, REGISTER_RC_STEERING_MIN, REGISTER_RC_STEERING_CENTER, REGISTER_RC_STEERING_MAX, REGISTER_RC_THROTTLE_MIN, REGISTER_RC_THROTTLE_CENTER, REGISTER_RC_THROTTLE_MAX}},
+  {"Analog/PWM", 3, {BACK_MENU_ITEM, REGISTER_USE_PWM_JOYSTICK_X, REGISTER_USE_PWM_JOYSTICK_Y}},
+  {"Direction", 3, {BACK_MENU_ITEM, REGISTER_INVERT_JOYSTICK_X, REGISTER_INVERT_JOYSTICK_Y}},
+  {"Steering", 4, {BACK_MENU_ITEM, REGISTER_JOYSTICK_STEERING_MIN, REGISTER_JOYSTICK_STEERING_CENTER, REGISTER_JOYSTICK_STEERING_MAX}},
+  {"Throttle", 7, {BACK_MENU_ITEM, REGISTER_JOYSTICK_THROTTLE_MIN, REGISTER_JOYSTICK_THROTTLE_CENTER, REGISTER_JOYSTICK_THROTTLE_MAX, REGISTER_EXTEND_THROTTLE, REGISTER_EXTEND_THROTTLE_TIME_MS, REGISTER_CHILD_THROTTLE_ONLY}}
 };
 
-int menuItemCount = sizeof(menuOptions);
+int menuItemCount = sizeof(menuOptions) / sizeof(menuOptions[0]);
 
 struct ConfigurationEntry {
   String name;
-  int dataType;
   int intMin;
   int intMax;
+  int dataType;
   boolean booleanValue;
   int16_t intValue;
 };
@@ -82,8 +85,8 @@ ConfigurationEntry configurationEntries[] = {
   {"Throttle Center", 0, 1023, INTEGER_CONFIGURATION, false, 500},
   {"Throttle Max", 0, 1023, INTEGER_CONFIGURATION, false, 800},
   {"Extend Throttle", 0, 0, BOOLEAN_CONFIGURATION, false, 0},
-  {"Extend Throttle Milliseconds", 0, 5000, INTEGER_CONFIGURATION, false, 500},
-  {"Child Throttle Only", 0, 0, BOOLEAN_CONFIGURATION, false, 0}
+  {"Ext Throttle Ms", 0, 5000, INTEGER_CONFIGURATION, false, 500},
+  {"Child Throt Only", 0, 0, BOOLEAN_CONFIGURATION, false, 0}
 };
 
 Preferences preferences;
@@ -94,9 +97,6 @@ uint8_t volume = 75;
 bool showSpeed = true;
 uint8_t currentRegister = REGISTER_SPEED_VOLUME;
 bool isInConfigurationMode = false;
-
-// Configuration UI variables
-uint8_t currentMenuOption;
 
 // Only allow the car version string to be set once by I2C
 bool carVersionSet = false;
@@ -332,19 +332,41 @@ void loop() {
 
 void drawMainMenu(int currentMenuOption) {
   M5Dial.Display.clear();
-  
+
+  int centerX = M5Dial.Display.width() / 2;
+  int centerY = M5Dial.Display.height() / 2;
+  int lineOffset = 24;
+
+  // Place Selected Menu Item
   M5Dial.Display.setTextColor(BLUE);
   M5Dial.Display.setTextDatum(middle_center);
   M5Dial.Display.setTextSize(0.75);
-  M5Dial.Display.drawString("Main Menu1", M5Dial.Display.width() /2, M5Dial.Display.height() / 2);  
-  M5Dial.Display.drawString("Main Menu2", M5Dial.Display.width() /2, M5Dial.Display.height() / 2 + 24);  
+
+  M5Dial.Display.drawString(menuOptions[currentMenuOption].name, centerX, centerY);
+
+  M5Dial.Display.setTextSize(0.6);
+  M5Dial.Display.setTextColor(WHITE);
+
+  // Place items above selected item
+  if (currentMenuOption != 0) {
+    for (int i = currentMenuOption - 1; i >= 0; i--) {
+      M5Dial.Display.drawString(menuOptions[i].name, centerX, centerY - (currentMenuOption - i) * lineOffset);
+    }    
+  }
+
+  // Place items below selected item
+  if (currentMenuOption < (menuItemCount - 1)) {
+    for (int i = currentMenuOption + 1; i < menuItemCount; i++) {
+      M5Dial.Display.drawString(menuOptions[i].name, centerX, centerY + (i - currentMenuOption) * lineOffset);
+    }
+  }
 }
 
 void configurationLoop() {
   // Display the main menu
   // We will never exit this loop and return to speed/volume control
   
-  currentMenuOption = 0;
+  int currentMenuOption = 0;
   M5Dial.Encoder.write(currentMenuOption);
 
   drawMainMenu(currentMenuOption);
@@ -352,5 +374,205 @@ void configurationLoop() {
   while (true) {
     M5Dial.update();
     long newPosition = M5Dial.Encoder.read();
+
+    if (newPosition < 0) {
+      newPosition = 0;
+    } else if (newPosition >= menuItemCount) {
+      newPosition = menuItemCount - 1;
+    }
+
+    if (newPosition != currentMenuOption) {
+      currentMenuOption = newPosition;
+      drawMainMenu(currentMenuOption);
+    }
+
+    if (M5Dial.BtnA.wasPressed()) {
+      secondaryMenuLoop(menuOptions[currentMenuOption]);
+      M5Dial.Encoder.write(currentMenuOption);
+      drawMainMenu(currentMenuOption);
+    }
   }
+}
+
+void getInteger(ConfigurationEntry entry) {
+  drawInteger(entry);
+
+  int currentPosition = M5Dial.Encoder.read();
+  
+  while (true) {
+    M5Dial.update();
+    int newPosition = M5Dial.Encoder.read();
+    
+    if (newPosition != currentPosition) {
+      //currentPosition = newPosition;
+      //entry.booleanValue = !entry.booleanValue;
+      //drawBoolean(entry);
+    }
+    
+    if (M5Dial.BtnA.wasPressed()) {
+      return;
+    }
+  }  
+}
+
+void drawBoolean(ConfigurationEntry entry) {
+  int centerX = M5Dial.Display.width() / 2;
+  int centerY = M5Dial.Display.height() / 2;
+  
+  M5Dial.Display.clear();
+
+  M5Dial.Display.fillRect(0, 24, M5Dial.Display.width(), 46, BLUE);
+  M5Dial.Display.setTextColor(WHITE);
+  M5Dial.Display.setTextDatum(middle_center);
+  M5Dial.Display.setTextSize(0.75);
+  M5Dial.Display.drawString(entry.name, centerX, 48);
+
+  M5Dial.Display.setTextColor(WHITE);
+  M5Dial.Display.setTextSize(2);
+  if (entry.booleanValue) {
+    M5Dial.Display.drawString("True", centerX, centerY);
+  } else {
+    M5Dial.Display.drawString("False", centerX, centerY);
+  }
+}
+
+void drawInteger(ConfigurationEntry entry) {
+  int centerX = M5Dial.Display.width() / 2;
+  int centerY = M5Dial.Display.height() / 2;
+  
+  M5Dial.Display.clear();
+
+  M5Dial.Display.fillRect(0, 24, M5Dial.Display.width(), 46, BLUE);
+  M5Dial.Display.setTextColor(WHITE);
+  M5Dial.Display.setTextDatum(middle_center);
+  M5Dial.Display.setTextSize(0.75);
+  M5Dial.Display.drawString(entry.name, centerX, 48);
+
+  M5Dial.Display.setTextColor(WHITE);
+  M5Dial.Display.setTextSize(2);
+  M5Dial.Display.drawString(String(entry.intValue), centerX, centerY);
+}
+
+void getBoolean(ConfigurationEntry entry) {
+  int centerX = M5Dial.Display.width() / 2;
+  int centerY = M5Dial.Display.height() / 2;
+
+  drawBoolean(entry);
+
+  int currentPosition = M5Dial.Encoder.read();
+  
+  while (true) {
+    M5Dial.update();
+    int newPosition = M5Dial.Encoder.read();
+    
+    if (newPosition != currentPosition) {
+      currentPosition = newPosition;
+      entry.booleanValue = !entry.booleanValue;
+      drawBoolean(entry);
+    }
+    
+    if (M5Dial.BtnA.wasPressed()) {
+      return;
+    }
+  }
+}
+
+void secondaryMenuLoop(MenuOption menuOption) {
+  int currentMenuItem = 0;
+  M5Dial.Encoder.write(currentMenuItem);
+
+  drawSecondaryMenu(menuOption, currentMenuItem);
+  
+  while (true) {
+    M5Dial.update();
+    long newPosition = M5Dial.Encoder.read();
+
+    if (newPosition < 0) {
+      newPosition = 0;
+    } else if (newPosition >= menuOption.optionCount) {
+      newPosition = menuOption.optionCount - 1;
+    }
+
+    if (newPosition != currentMenuItem) {
+      currentMenuItem = newPosition;
+      drawSecondaryMenu(menuOption, currentMenuItem);
+    }
+
+    if (M5Dial.BtnA.wasPressed()) {
+      if (currentMenuItem == 0) {
+        return;
+      }
+      
+      ConfigurationEntry entry = configurationEntries[menuOption.options[currentMenuItem]];
+      if (entry.dataType == BOOLEAN_CONFIGURATION) {
+        getBoolean(entry);
+      } else {
+        getInteger(entry);
+      }
+
+      drawSecondaryMenu(menuOption, currentMenuItem);
+    }
+  }
+}
+
+void drawSecondaryMenu(MenuOption menuOption, int selectedMenuOption) {
+  M5Dial.Display.clear();
+
+  int centerX = M5Dial.Display.width() / 2;
+  int centerY = M5Dial.Display.height() / 2;
+  int lineOffset = 24;
+
+  // Place Selected Menu Item
+  M5Dial.Display.setTextColor(ORANGE);
+  M5Dial.Display.setTextDatum(middle_center);
+  M5Dial.Display.setTextSize(0.75);
+
+  ConfigurationEntry entry;
+
+  //if (menuOption.options[selectedMenuOption] == BACK_MENU_ITEM) {
+  if (selectedMenuOption == 0) {
+    M5Dial.Display.drawString("<< Back", centerX, centerY);
+  } else {
+    entry = configurationEntries[menuOption.options[selectedMenuOption]];
+    M5Dial.Display.drawString(entry.name, centerX, centerY);
+  }
+
+  M5Dial.Display.setTextSize(0.6);
+  M5Dial.Display.setTextColor(WHITE);
+
+  // Place items above selected item
+  if (selectedMenuOption != 0) {
+    for (int i = selectedMenuOption - 1; i >= 0; i--) {
+      int yPosition = centerY - (selectedMenuOption - i) * lineOffset;
+      if (yPosition < 60) {
+        break;
+      }
+
+      if (i == 0) {
+        M5Dial.Display.drawString("<< Back", centerX, yPosition);
+      } else {
+        entry = configurationEntries[menuOption.options[i]];
+        M5Dial.Display.drawString(entry.name, centerX, yPosition);        
+      }
+    }    
+  }
+
+  // Place items below selected item
+  if (selectedMenuOption < (menuOption.optionCount - 1)) {
+    for (int i = selectedMenuOption + 1; i < menuOption.optionCount; i++) {
+      if (menuOption.options[selectedMenuOption] == BACK_MENU_ITEM) {
+        M5Dial.Display.drawString("<< Back", centerX, centerY + (i - selectedMenuOption) * lineOffset);
+      } else {
+        entry = configurationEntries[menuOption.options[i]];
+        M5Dial.Display.drawString(entry.name, centerX, centerY + (i - selectedMenuOption) * lineOffset);
+      }
+    }
+  }
+
+   // Draw Menu Option Title
+  M5Dial.Display.fillRect(0, 24, M5Dial.Display.width(), 46, BLUE);
+  M5Dial.Display.setTextColor(WHITE);
+  M5Dial.Display.setTextDatum(middle_center);
+  M5Dial.Display.setTextSize(0.75);
+  M5Dial.Display.drawString(menuOption.name, centerX, 48);
 }
