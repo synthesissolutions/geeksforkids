@@ -55,6 +55,7 @@ int menuItemCount = sizeof(menuOptions) / sizeof(menuOptions[0]);
 
 struct ConfigurationEntry {
   String name;
+  boolean setByCar;
   int intMin;
   int intMax;
   int dataType;
@@ -63,30 +64,30 @@ struct ConfigurationEntry {
 };
 
 ConfigurationEntry configurationEntries[] = {
-  {"Version", 1, 100, INTEGER_CONFIGURATION, false, CURRENT_SETTINGS_VERSION},
-  {"Min", -100, 100, INTEGER_CONFIGURATION, false, -50},  // in scaled units from -100 to 100
-  {"Center", -100, 100, INTEGER_CONFIGURATION, false, 0},  // in scaled units from -100 to 100
-  {"Max", -100, 100, INTEGER_CONFIGURATION, false, 50},   // in scaled units from -100 to 100
-  {"Use RC", 0, 0, BOOLEAN_CONFIGURATION, true, 0},
-  {"Steering Min", 800, 2200, INTEGER_CONFIGURATION, false, 1000},  // All RC values are in PWM duty cycle microseconds
-  {"Steering Center", 800, 2200, INTEGER_CONFIGURATION, false, 1500},
-  {"Steering Max", 800, 2200, INTEGER_CONFIGURATION, false, 2000},
-  {"Throttle Min", 800, 2200, INTEGER_CONFIGURATION, false, 1000},
-  {"Throttle Center", 800, 2200, INTEGER_CONFIGURATION, false, 1500},
-  {"Throttle Max", 800, 2200, INTEGER_CONFIGURATION, false, 2000},
-  {"Steering PWM", 0, 0, BOOLEAN_CONFIGURATION, true, 0},
-  {"Throttle PWM", 0, 0, BOOLEAN_CONFIGURATION, true, 0},
-  {"Invert Steering", 0, 0, BOOLEAN_CONFIGURATION, true, 0},
-  {"Invert Throttle", 0, 0, BOOLEAN_CONFIGURATION, true, 0},
-  {"Steering Min", 0, 1023, INTEGER_CONFIGURATION, false, 200}, // Joystick values are in PWM duty cycle microseconds or analog readings 0 - 1023
-  {"Steering Center", 0, 1023, INTEGER_CONFIGURATION, false, 500},
-  {"Steering Max", 0, 1023, INTEGER_CONFIGURATION, false, 800},
-  {"Throttle Min", 0, 1023, INTEGER_CONFIGURATION, false, 200},
-  {"Throttle Center", 0, 1023, INTEGER_CONFIGURATION, false, 500},
-  {"Throttle Max", 0, 1023, INTEGER_CONFIGURATION, false, 800},
-  {"Extend Throttle", 0, 0, BOOLEAN_CONFIGURATION, false, 0},
-  {"Ext Throttle Ms", 0, 5000, INTEGER_CONFIGURATION, false, 500},
-  {"Child Throt Only", 0, 0, BOOLEAN_CONFIGURATION, false, 0}
+  {"Version", false, 1, 100, INTEGER_CONFIGURATION, false, CURRENT_SETTINGS_VERSION},
+  {"Min", false, -100, 100, INTEGER_CONFIGURATION, false, -50},  // in scaled units from -100 to 100
+  {"Center", false, -100, 100, INTEGER_CONFIGURATION, false, 0},  // in scaled units from -100 to 100
+  {"Max", false, -100, 100, INTEGER_CONFIGURATION, false, 50},   // in scaled units from -100 to 100
+  {"Use RC", false, 0, 0, BOOLEAN_CONFIGURATION, true, 0},
+  {"Steering Min", false, 800, 2200, INTEGER_CONFIGURATION, false, 1000},  // All RC values are in PWM duty cycle microseconds
+  {"Steering Center", false, 800, 2200, INTEGER_CONFIGURATION, false, 1500},
+  {"Steering Max", false, 800, 2200, INTEGER_CONFIGURATION, false, 2000},
+  {"Throttle Min", false, 800, 2200, INTEGER_CONFIGURATION, false, 1000},
+  {"Throttle Center", false, 800, 2200, INTEGER_CONFIGURATION, false, 1500},
+  {"Throttle Max", false, 800, 2200, INTEGER_CONFIGURATION, false, 2000},
+  {"Steering PWM", false, 0, 0, BOOLEAN_CONFIGURATION, true, 0},
+  {"Throttle PWM", false, 0, 0, BOOLEAN_CONFIGURATION, true, 0},
+  {"Invert Steering", false, 0, 0, BOOLEAN_CONFIGURATION, true, 0},
+  {"Invert Throttle", false, 0, 0, BOOLEAN_CONFIGURATION, true, 0},
+  {"Steering Min", false, 0, 1023, INTEGER_CONFIGURATION, false, 200}, // Joystick values are in PWM duty cycle microseconds or analog readings 0 - 1023
+  {"Steering Center", false, 0, 1023, INTEGER_CONFIGURATION, false, 500},
+  {"Steering Max", false, 0, 1023, INTEGER_CONFIGURATION, false, 800},
+  {"Throttle Min", false, 0, 1023, INTEGER_CONFIGURATION, false, 200},
+  {"Throttle Center", false, 0, 1023, INTEGER_CONFIGURATION, false, 500},
+  {"Throttle Max", false, 0, 1023, INTEGER_CONFIGURATION, false, 800},
+  {"Extend Throttle", false, 0, 0, BOOLEAN_CONFIGURATION, false, 0},
+  {"Ext Throttle Ms", false, 0, 5000, INTEGER_CONFIGURATION, false, 500},
+  {"Child Throt Only", false, 0, 0, BOOLEAN_CONFIGURATION, false, 0}
 };
 
 Preferences preferences;
@@ -187,6 +188,8 @@ void receiveEvent(int count) {
     // that should be controlled by the M5Dial
     
     if (isWriteFlag) {
+      configurationEntries[currentRegister].setByCar = true;
+      
       if (configurationEntries[currentRegister].dataType == BOOLEAN_CONFIGURATION) {
         configurationEntries[currentRegister].booleanValue = Wire.read();
       } else if (configurationEntries[currentRegister].dataType == INTEGER_CONFIGURATION) {
@@ -326,7 +329,8 @@ void loop() {
       displayChanged();
     }
     if (M5Dial.BtnA.pressedFor(3000)) {
-        configurationLoop();
+      isInConfigurationMode = true;
+      configurationLoop();
     }
 }
 
@@ -405,19 +409,22 @@ void getInteger(ConfigurationEntry *entry) {
     int newPosition = M5Dial.Encoder.read();
     
     if (newPosition != currentPosition) {
-      if (newPosition < entry->intMin) {
-        currentPosition = entry->intMin;
-        M5Dial.Encoder.write(currentPosition);
-      } else if (newPosition > entry->intMax) {
-        currentPosition = entry->intMax;
-        M5Dial.Encoder.write(currentPosition);
-      } else {
-        currentPosition = newPosition;
-      }
+      // If the value has not be set by the car caddy,
+      // show *waiting* and wait until it is set.
+      if (entry->setByCar) {
+        if (newPosition < entry->intMin) {
+          currentPosition = entry->intMin;
+          M5Dial.Encoder.write(currentPosition);
+        } else if (newPosition > entry->intMax) {
+          currentPosition = entry->intMax;
+          M5Dial.Encoder.write(currentPosition);
+        } else {
+          currentPosition = newPosition;
+        }      
 
-      //configurationEntries[configurationEntriesIndex].intValue = currentPosition;
-      entry->intValue = currentPosition;
-      drawInteger(entry);
+        entry->intValue = currentPosition;
+        drawInteger(entry);
+      }
     }
     
     if (M5Dial.BtnA.wasPressed()) {
@@ -428,7 +435,7 @@ void getInteger(ConfigurationEntry *entry) {
 
 void drawBoolean(ConfigurationEntry *entry) {
   int centerX = M5Dial.Display.width() / 2;
-  int centerY = M5Dial.Display.height() / 2;
+  int centerY = (M5Dial.Display.height() / 2) + 20;
   
   M5Dial.Display.clear();
 
@@ -439,17 +446,22 @@ void drawBoolean(ConfigurationEntry *entry) {
   M5Dial.Display.drawString(entry->name, centerX, 48);
 
   M5Dial.Display.setTextColor(WHITE);
-  M5Dial.Display.setTextSize(2);
-  if (entry->booleanValue) {
-    M5Dial.Display.drawString("True", centerX, centerY);
+  if (!entry->setByCar) {
+    M5Dial.Display.setTextSize(1.25);
+    M5Dial.Display.drawString("*waiting*", centerX, centerY);
   } else {
-    M5Dial.Display.drawString("False", centerX, centerY);
+    M5Dial.Display.setTextSize(2);
+    if (entry->booleanValue) {
+      M5Dial.Display.drawString("True", centerX, centerY);
+    } else {
+      M5Dial.Display.drawString("False", centerX, centerY);
+    }
   }
 }
 
 void drawInteger(ConfigurationEntry *entry) {
   int centerX = M5Dial.Display.width() / 2;
-  int centerY = M5Dial.Display.height() / 2;
+  int centerY = (M5Dial.Display.height() / 2) + 20;
   
   M5Dial.Display.clear();
 
@@ -460,8 +472,13 @@ void drawInteger(ConfigurationEntry *entry) {
   M5Dial.Display.drawString(entry->name, centerX, 48);
 
   M5Dial.Display.setTextColor(WHITE);
-  M5Dial.Display.setTextSize(2);
-  M5Dial.Display.drawString(String(entry->intValue), centerX, centerY);
+  if (!entry->setByCar) {
+    M5Dial.Display.setTextSize(1.25);
+    M5Dial.Display.drawString("*waiting*", centerX, centerY);
+  } else {
+    M5Dial.Display.setTextSize(2);
+    M5Dial.Display.drawString(String(entry->intValue), centerX, centerY);
+  }
 }
 
 void getBoolean(ConfigurationEntry *entry) {
@@ -475,13 +492,24 @@ void getBoolean(ConfigurationEntry *entry) {
   while (true) {
     M5Dial.update();
     int newPosition = M5Dial.Encoder.read();
-    
-    if (newPosition != currentPosition) {
+
+    // If the value has not be set by the car caddy,
+    // show *waiting* and wait until it is set.
+    if (entry->setByCar) {
+      bool oldValue = entry->booleanValue;
+      
+      if (newPosition < currentPosition) {
+        entry->booleanValue = true;
+      } else if (newPosition > currentPosition) {
+        entry->booleanValue = false;
+      }
+      
       currentPosition = newPosition;
-      entry->booleanValue = !entry->booleanValue;
-      drawBoolean(entry);
+      if (oldValue != entry->booleanValue) {
+        drawBoolean(entry);
+      }
     }
-    
+
     if (M5Dial.BtnA.wasPressed()) {
       return;
     }
@@ -515,6 +543,7 @@ void secondaryMenuLoop(MenuOption menuOption) {
       }
       
       ConfigurationEntry *entry = &configurationEntries[menuOption.options[currentMenuItem]];
+      currentRegister = menuOption.options[currentMenuItem];
       if (entry->dataType == BOOLEAN_CONFIGURATION) {
         getBoolean(entry);
       } else {
