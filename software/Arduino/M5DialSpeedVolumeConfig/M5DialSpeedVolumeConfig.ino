@@ -111,25 +111,28 @@ const uint16_t currentVersion = 1;
 #define PREFERENCES_SPEED     "speed"
 #define PREFERENCES_VOLUME    "volume"
 
-// Based on the current register, return three or four bytes
+// Return Four bytes, for boolean values pad with 0 on the 4th byte
 // Byte one is a boolean true = config mode, false = speed/volume mode
 // Byte two is the register being returned
 // speed and volume are single byte values but both are returned together
 // all boolean registers are single byte values
 // all other integer values are two bytes
 void requestEvent() {
-  if (currentRegister == REGISTER_SPEED_VOLUME) {
+  if (isInConfigurationMode) {
+   Wire.write((uint8_t) 1); // Configuration Mode
+  } else {
     Wire.write((uint8_t) 0); // speed/volume mode
-    Wire.write(currentRegister);
-    
+  }
+
+  Wire.write(currentRegister);
+
+  if (currentRegister == REGISTER_SPEED_VOLUME) {  
     Wire.write((uint8_t) speed);
     Wire.write((uint8_t) volume);
   } else if (currentRegister <= REGISTER_CHILD_THROTTLE_ONLY) {
-    Wire.write((uint8_t) 1); // config mode
-    Wire.write(currentRegister);
-
     if (configurationEntries[currentRegister].dataType == BOOLEAN_CONFIGURATION) {
       Wire.write(configurationEntries[currentRegister].booleanValue);
+      Wire.write(0);
     } else if (configurationEntries[currentRegister].dataType == INTEGER_CONFIGURATION) {
       uint8_t* p = (uint8_t*) &configurationEntries[currentRegister].intValue;
       Wire.write(p[0]);
@@ -139,12 +142,12 @@ void requestEvent() {
 }
 
 // Byte 1 read/write flag
-// Byte 2 register (which value to read/write to)
+// Byte 2 register (which value to read from/write to)
 // Bytes 3&4 data if byte 1 is write flag contain either a one byte boolean or two byte signed integer
 // Unless the register is for the car version, in which case it's the version text
 void receiveEvent(int count) {
-  // If we have fewer than 3 bytes then something is wrong
-  if (count < 3) return;
+  // If we have fewer than 2 bytes then something is wrong
+  if (count < 2) return;
 
   uint8_t isWriteFlag = Wire.read();
   uint8_t newRegister = Wire.read();
@@ -152,8 +155,9 @@ void receiveEvent(int count) {
   
   currentRegister = newRegister;
   
-  if (!isWriteFlag) {
+  if (!isWriteFlag || count == 2) {
     // If we are reading data, we just need to save the register and wait for the request event
+    // if the write flag is set but no data is sent, then just pretend it was set to read
     return;
   }
   
@@ -237,8 +241,8 @@ void setup() {
     displayChanged();
 
     Wire.begin(0x55); // join i2c bus with address 0x55
-    //Wire.onRequest(requestEvent);
-    //Wire.onReceive(receiveEvent);
+    Wire.onRequest(requestEvent);
+    Wire.onReceive(receiveEvent);
 }
 
 void drawSpeed() {
