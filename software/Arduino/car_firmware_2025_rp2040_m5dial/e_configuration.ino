@@ -170,7 +170,12 @@ class Configuration {
         for (int i = 1; i < NUMBER_OF_CONFIGURATION_ENTRIES; i++) {
           Wire.beginTransmission(M5DIAL_I2C_ADDRESS);
     
-          Wire.write(1); // Set to 
+          Wire.write(1); // Set to write mode
+          Wire.write(i); // The Register
+  
+          if (configurationEntries[i].dataType == BOOLEAN_CONFIGURATION) {
+            Wire.write(configurationEntries[i].booleanValue);
+          } else {
             uint8_t* p = (uint8_t*) configurationEntries[i].intValue;
             p[0] = Wire.read();
             p[1] = Wire.read();
@@ -187,12 +192,7 @@ class Configuration {
     
     void configureCar() {
       int selection;
-      int indexToEdit;write mode
-          Wire.write(i); // The Register
-  
-          if (configurationEntries[i].dataType == BOOLEAN_CONFIGURATION) {
-            Wire.write(configurationEntries[i].booleanValue);
-          } else {
+      int indexToEdit;
       int newIntValue;
       boolean newBooleanValue;
       
