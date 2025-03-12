@@ -175,7 +175,35 @@ class Eeprom {
           } else {
             EEPROM.put(configurationEntries[i].eeAddress, 0);
           }
-          }
+        }
+      }
+
+      if (EEPROM.commit()) {
+        Serial.println("EEPROM successfully committed");
+      } else {
+        Serial.println("ERROR! EEPROM commit failed");
+      }
+    }
+
+    void saveIntegerValue(int index, int value) {
+      if (configurationEntries[index].dataType == INTEGER_CONFIGURATION) {
+        EEPROM.put(configurationEntries[index].eeAddress, configurationEntries[index].intValue);
+      }
+
+      if (EEPROM.commit()) {
+        Serial.println("EEPROM successfully committed");
+      } else {
+        Serial.println("ERROR! EEPROM commit failed");
+      }
+    }
+
+    void saveBooleanValue(int index, boolean value) {
+      if (configurationEntries[index].dataType == BOOLEAN_CONFIGURATION) {
+        if (configurationEntries[index].booleanValue) {
+          EEPROM.put(configurationEntries[index].eeAddress, 1);
+        } else {
+          EEPROM.put(configurationEntries[index].eeAddress, 0);
+        }
       }
 
       if (EEPROM.commit()) {
