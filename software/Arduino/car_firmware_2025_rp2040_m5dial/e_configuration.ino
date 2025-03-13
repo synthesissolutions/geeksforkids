@@ -8,6 +8,15 @@
 #define REGISTER_CAR_CODE_VERSION         98
 #define REGISTER_SPEED_VOLUME             99
 
+struct M5DialCurrentConfiguration {
+  boolean success;
+  uint8_t configMode;
+  uint8_t reg;
+  uint8_t firstByte;
+  uint8_t secondByte;
+  boolean validRegister;
+};
+
 class Configuration {
   private:
     Eeprom *eeprom;
@@ -163,6 +172,75 @@ class Configuration {
     // Extend Throttle
     boolean getChildThrottleOnly() { return eeprom->getBooleanSetting(EEPROM_CHILD_THROTTLE_ONLY); }
 
+    void sendConfigurationsToM5Dial() {
+            // Send all configuration data to the M5Dial
+      // Skip the Version configuration setting
+      for (int i = 1; i < NUMBER_OF_CONFIGURATION_ENTRIES; i++) {
+        Wire.beginTransmission(M5DIAL_I2C_ADDRESS);
+ 
+        Wire.write(1); // Set to write mode
+        Wire.write(i); // The Register
+
+        if (configurationEntries[i].dataType == BOOLEAN_CONFIGURATION) {
+          Wire.write(configurationEntries[i].booleanValue);
+        } else {
+          uint8_t* p = (uint8_t*) &configurationEntries[i].intValue;
+          Wire.write(p[0]);
+          Wire.write(p[1]);
+        }
+ 
+        Wire.endTransmission();
+
+        delay(10);
+      }
+    }
+
+    M5DialCurrentConfiguration readCurrentM5DialConfiguration() {
+      M5DialCurrentConfiguration config;
+
+      if(Wire.requestFrom(M5DIAL_I2C_ADDRESS, 4)) {
+        config.success = true;
+        config.configMode = Wire.read();
+        config.reg = Wire.read();
+        config.firstByte = Wire.read();
+        config.secondByte = Wire.read();
+        config.validRegister = config.reg > EEPROM_VERSION && config.reg < NUMBER_OF_CONFIGURATION_ENTRIES;
+      } else {
+        config.success = false;
+      }
+
+      return config;
+    }
+
+    void saveM5DialConfiguration(M5DialCurrentConfiguration config) {
+      if (configurationEntries[config.reg].dataType == BOOLEAN_CONFIGURATION) {
+        if (configurationEntries[config.reg].booleanValue != config.firstByte) {
+          Serial.print("write boolean reg: ");
+          Serial.print(config.reg);
+          Serial.print(" new value: ");
+          Serial.println(config.firstByte);
+          
+          configurationEntries[config.reg].booleanValue = config.firstByte;
+          eeprom->saveBooleanValue(config.reg, configurationEntries[config.reg].booleanValue);
+        }
+      } else {
+        int16_t newValue = 0;
+        uint8_t* p = (uint8_t*) &newValue;
+        p[0] = config.firstByte;
+        p[1] = config.secondByte;
+
+        if (configurationEntries[config.reg].intValue != newValue) {
+          Serial.print("write integer reg: ");
+          Serial.print(config.reg);
+          Serial.print(" new value: ");
+          Serial.println(newValue);
+          configurationEntries[config.reg].intValue = newValue;
+          eeprom->saveIntegerValue(config.reg, configurationEntries[config.reg].intValue);
+        }
+      }
+
+    }
+/*
     void m5DialConfigureCar() {
       // Send all configuration data to the M5Dial
       // Skip the Version configuration setting
@@ -241,6 +319,7 @@ class Configuration {
         delay(50);
       }
     }
+    */
     
     void configureCar() {
       int selection;

@@ -11,6 +11,7 @@
  */
 Eeprom eeprom;
 Configuration configuration;
+M5DialConfiguration m5DialConfiguration;
 Joystick joystick;
 Steering steering;
 Throttle throttle;
@@ -83,6 +84,8 @@ void setup() {
   
   steering.init(PIN_STEERING_DIRECTION, PIN_STEERING_PWM, PIN_STEERING_POSITION);
   logger.addLogLine("steering initialized");
+
+  m5DialConfiguration.init(&configuration, &joystick, &steering);
 
   // Set steering limits from configuration
   steering.setSteeringCenterScaled(configuration.getSteeringCenter());
@@ -174,7 +177,7 @@ void loop() {
     throttle.setThrottle(0);
     steering.forceStop();
 
-    configuration.m5DialConfigureCar();
+    m5DialConfiguration.m5DialConfigureCar();
     // We will never return from this method.
     // The microcontroller will have to be reset for the car to begin running normally again    
   } else if (configuration.useRc() && remoteControl.isBadRcStart()) {

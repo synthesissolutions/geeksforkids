@@ -28,6 +28,7 @@ class Steering {
     int steeringMinScaled = -100;
     int steeringMaxScaled = 100;
     int steeringCenterScaled = 0;
+    int steeringStopDeltaScaled = STEERING_STOP_DELTA;
 
     /*
      * run the motor ... direction is based on the current position and the target
@@ -115,6 +116,10 @@ class Steering {
       steeringMaxScaled = newMax;
     }
 
+    void setSteeringDeltaScaled(int newDelta) {
+      steeringStopDeltaScaled = newDelta;
+    }
+
     int getCurrentPosition() {
       int newPosition = analogRead(currentPositionPin);
 
@@ -159,7 +164,7 @@ class Steering {
       if (isMoving) {
         
         // we are moving already ... should we stop?
-        if (targetDeltaScaled <= STEERING_STOP_DELTA) {
+        if (targetDeltaScaled <= steeringStopDeltaScaled) {
            // yes we should
            stopMotor();  
         } else {
@@ -170,7 +175,7 @@ class Steering {
       } else {
 
         // we're not moving ... should we start?
-        if (targetDeltaScaled >= STEERING_STOP_DELTA) {
+        if (targetDeltaScaled >= steeringStopDeltaScaled) {
            // yes we should
            runMotor();  
         } else {
