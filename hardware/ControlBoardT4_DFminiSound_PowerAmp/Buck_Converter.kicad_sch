@@ -6268,7 +6268,7 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb/d78eba2a-29cb-43e2-8ef5-0db20209515b"
-					(reference "#PWR078")
+					(reference "#PWR0106")
 					(unit 1)
 				)
 			)
@@ -6623,7 +6623,7 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb/d78eba2a-29cb-43e2-8ef5-0db20209515b"
-					(reference "#PWR081")
+					(reference "#PWR0109")
 					(unit 1)
 				)
 			)
@@ -6704,7 +6704,7 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb/d78eba2a-29cb-43e2-8ef5-0db20209515b"
-					(reference "#PWR077")
+					(reference "#PWR0105")
 					(unit 1)
 				)
 			)
@@ -6889,7 +6889,7 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb/d78eba2a-29cb-43e2-8ef5-0db20209515b"
-					(reference "#PWR074")
+					(reference "#PWR0102")
 					(unit 1)
 				)
 			)
@@ -6993,7 +6993,7 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb/d78eba2a-29cb-43e2-8ef5-0db20209515b"
-					(reference "R12")
+					(reference "R20")
 					(unit 1)
 				)
 			)
@@ -7179,7 +7179,7 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb/d78eba2a-29cb-43e2-8ef5-0db20209515b"
-					(reference "#PWR072")
+					(reference "#PWR0100")
 					(unit 1)
 				)
 			)
@@ -7387,7 +7387,7 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb/d78eba2a-29cb-43e2-8ef5-0db20209515b"
-					(reference "R11")
+					(reference "R19")
 					(unit 1)
 				)
 			)
@@ -7491,7 +7491,7 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb/d78eba2a-29cb-43e2-8ef5-0db20209515b"
-					(reference "R13")
+					(reference "R21")
 					(unit 1)
 				)
 			)
@@ -7699,7 +7699,7 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb/d78eba2a-29cb-43e2-8ef5-0db20209515b"
-					(reference "R15")
+					(reference "R23")
 					(unit 1)
 				)
 			)
@@ -7999,7 +7999,7 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb/d78eba2a-29cb-43e2-8ef5-0db20209515b"
-					(reference "#PWR076")
+					(reference "#PWR0104")
 					(unit 1)
 				)
 			)
@@ -8285,7 +8285,7 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb/d78eba2a-29cb-43e2-8ef5-0db20209515b"
-					(reference "#PWR080")
+					(reference "#PWR0108")
 					(unit 1)
 				)
 			)
@@ -8366,7 +8366,7 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb/d78eba2a-29cb-43e2-8ef5-0db20209515b"
-					(reference "#PWR079")
+					(reference "#PWR0107")
 					(unit 1)
 				)
 			)
@@ -8447,7 +8447,7 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb/d78eba2a-29cb-43e2-8ef5-0db20209515b"
-					(reference "#PWR082")
+					(reference "#PWR0110")
 					(unit 1)
 				)
 			)
@@ -8528,7 +8528,7 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb/d78eba2a-29cb-43e2-8ef5-0db20209515b"
-					(reference "#PWR075")
+					(reference "#PWR0103")
 					(unit 1)
 				)
 			)
@@ -8609,7 +8609,7 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb/d78eba2a-29cb-43e2-8ef5-0db20209515b"
-					(reference "#PWR073")
+					(reference "#PWR0101")
 					(unit 1)
 				)
 			)
@@ -8713,7 +8713,7 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb/d78eba2a-29cb-43e2-8ef5-0db20209515b"
-					(reference "R14")
+					(reference "R22")
 					(unit 1)
 				)
 			)

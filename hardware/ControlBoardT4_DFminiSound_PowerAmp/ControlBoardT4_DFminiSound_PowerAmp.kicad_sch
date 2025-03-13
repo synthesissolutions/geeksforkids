@@ -894,6 +894,207 @@
 				)
 			)
 		)
+		(symbol "Connector:Conn_01x03_Pin"
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x03_Pin"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x03, script generated"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x03_Pin_1_1"
+				(polyline
+					(pts
+						(xy 1.27 -2.54) (xy 0.8636 -2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 0) (xy 0.8636 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 2.54) (xy 0.8636 2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 0.8636 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 2.667)
+					(end 0 2.413)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(pin passive line
+					(at 5.08 2.54 180)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -2.54 180)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Connector:Conn_01x04_Male"
 			(pin_names
 				(offset 1.016) hide)
@@ -1370,7 +1571,7 @@
 				)
 			)
 		)
-		(symbol "Connector:Conn_01x05_Pin"
+		(symbol "Connector:Conn_01x06_Pin"
 			(pin_names
 				(offset 1.016) hide)
 			(exclude_from_sim no)
@@ -1384,8 +1585,8 @@
 					)
 				)
 			)
-			(property "Value" "Conn_01x05_Pin"
-				(at 0 -7.62 0)
+			(property "Value" "Conn_01x06_Pin"
+				(at 0 -10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1410,7 +1611,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Generic connector, single row, 01x05, script generated"
+			(property "Description" "Generic connector, single row, 01x06, script generated"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1445,7 +1646,19 @@
 					(hide yes)
 				)
 			)
-			(symbol "Conn_01x05_Pin_1_1"
+			(symbol "Conn_01x06_Pin_1_1"
+				(polyline
+					(pts
+						(xy 1.27 -7.62) (xy 0.8636 -7.62)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
 				(polyline
 					(pts
 						(xy 1.27 -5.08) (xy 0.8636 -5.08)
@@ -1504,6 +1717,17 @@
 					)
 					(fill
 						(type none)
+					)
+				)
+				(rectangle
+					(start 0.8636 -7.493)
+					(end 0 -7.747)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
 					)
 				)
 				(rectangle
@@ -1644,6 +1868,24 @@
 						)
 					)
 					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -7.62 180)
+					(length 3.81)
+					(name "Pin_6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -5939,6 +6181,10 @@
 		(uuid "f3019696-d4cd-4f1d-bde3-597ca5566847")
 	)
 	(no_connect
+		(at 212.09 118.11)
+		(uuid "0090cbc2-57a8-40ff-bd8d-d5830bc7de25")
+	)
+	(no_connect
 		(at 238.76 52.07)
 		(uuid "0d01d4ad-bfda-41c1-8395-4eed394e07a0")
 	)
@@ -5955,7 +6201,7 @@
 		(uuid "487fe95a-a8a7-4932-bac6-9b7401bf57bd")
 	)
 	(no_connect
-		(at 118.745 121.285)
+		(at 118.11 127)
 		(uuid "58943683-5b38-464c-a2c7-2bd17fa70152")
 	)
 	(no_connect
@@ -5963,16 +6209,12 @@
 		(uuid "65b82eb5-62b9-4ebc-97e9-de860d899430")
 	)
 	(no_connect
-		(at 238.76 54.61)
-		(uuid "85426366-94c3-4451-b45f-646c50423e31")
-	)
-	(no_connect
 		(at 156.845 112.395)
 		(uuid "97bca81a-223a-4804-92d4-a131c8899f98")
 	)
 	(no_connect
-		(at 252.095 121.285)
-		(uuid "c82abf7c-c251-45e9-88f8-39d022ccf771")
+		(at 212.09 120.65)
+		(uuid "a40d5e29-4c37-4f7f-8c50-f1512f9b6098")
 	)
 	(no_connect
 		(at 144.145 112.395)
@@ -6342,17 +6584,6 @@
 		)
 		(uuid "f46f10be-b67d-46a8-97ed-96ac4985a8db")
 	)
-	(text "G S 3"
-		(exclude_from_sim no)
-		(at 245.9736 112.395 90)
-		(effects
-			(font
-				(size 1.4986 1.4986)
-			)
-			(justify right bottom)
-		)
-		(uuid "69144899-88c3-462c-8e1b-b90e7ad87848")
-	)
 	(text "Connects to Amp\non other sheet."
 		(exclude_from_sim no)
 		(at 158.115 118.11 0)
@@ -6363,17 +6594,6 @@
 			(justify right bottom)
 		)
 		(uuid "870adc97-1bcb-48e1-9298-9183b4180638")
-	)
-	(text "S S G 3\n"
-		(exclude_from_sim no)
-		(at 209.7786 108.585 90)
-		(effects
-			(font
-				(size 1.4986 1.4986)
-			)
-			(justify right bottom)
-		)
-		(uuid "9fd5e0c0-858f-495f-9c80-f78c4f90fcff")
 	)
 	(text "3 Y X 2 1 5 G"
 		(exclude_from_sim no)
@@ -6573,7 +6793,7 @@
 	)
 	(global_label "ATT_Rx"
 		(shape input)
-		(at 118.745 116.205 0)
+		(at 118.11 121.92 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -6583,7 +6803,7 @@
 		)
 		(uuid "0ce9a77f-7a6d-4414-bee7-049af428b65d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 127.2861 116.205 0)
+			(at 126.6511 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6681,7 +6901,7 @@
 	)
 	(global_label "RCPWMSteering"
 		(shape input)
-		(at 214.63 116.84 0)
+		(at 212.09 110.49 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -6691,7 +6911,7 @@
 		)
 		(uuid "1766e9bb-6fbd-430e-9842-5bedded888f1")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 98.298 -7.62 0)
+			(at 95.758 -13.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6761,6 +6981,28 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "RCPWMExtra"
+		(shape input)
+		(at 212.09 115.57 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "2bd14d0d-c3a3-4556-87cc-d117363cfd6a")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 225.9718 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -6853,6 +7095,28 @@
 			)
 		)
 	)
+	(global_label "RCPWMExtra"
+		(shape input)
+		(at 238.76 54.61 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "38be031c-61ff-4ccf-b179-d7ab5073ff75")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 252.6418 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "Left_PWM"
 		(shape input)
 		(at 34.036 98.171 0)
@@ -6909,6 +7173,28 @@
 		(uuid "3be9485d-6a2f-4cab-ac10-3199e6dd1529")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 102.7752 126.9206 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "Pico_M5_SCL"
+		(shape input)
+		(at 248.92 134.62 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "3c8513c3-b3a9-405d-badd-36c98a67dcc0")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 263.4671 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6984,7 +7270,7 @@
 			)
 		)
 	)
-	(global_label "Pico_Tx"
+	(global_label "Pico_M5_SDA"
 		(shape input)
 		(at 203.2 26.67 180)
 		(fields_autoplaced yes)
@@ -6996,7 +7282,7 @@
 		)
 		(uuid "472ea082-c8e7-468d-a4f4-11c79103fcea")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 193.8727 26.67 0)
+			(at 188.5924 26.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7030,7 +7316,7 @@
 	)
 	(global_label "VOL"
 		(shape input)
-		(at 250.825 97.155 0)
+		(at 151.13 154.94 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7040,7 +7326,7 @@
 		)
 		(uuid "4a7ba4da-6018-4ff6-9bb1-c681bc573dd5")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 256.5238 97.155 0)
+			(at 156.8288 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7308,31 +7594,9 @@
 			)
 		)
 	)
-	(global_label "RCPWMLockout"
-		(shape input)
-		(at 238.76 74.93 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "6e155eb9-35c3-4af5-9bdd-736f85e56f3b")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 255.1213 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "ATT_Tx"
 		(shape input)
-		(at 118.745 118.745 0)
+		(at 118.11 124.46 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7342,7 +7606,7 @@
 		)
 		(uuid "703470b2-c885-4e30-a52c-3d43a83471b3")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 126.9837 118.745 0)
+			(at 126.3487 124.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7390,6 +7654,28 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "RCPWMCloseOut"
+		(shape input)
+		(at 238.76 74.93 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "7c721f9d-8d14-4e96-85c5-9d1c6658c218")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 256.2099 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -7524,7 +7810,7 @@
 			)
 		)
 	)
-	(global_label "Pico_Rx"
+	(global_label "Pico_M5_SCL"
 		(shape input)
 		(at 203.2 29.21 180)
 		(fields_autoplaced yes)
@@ -7536,7 +7822,7 @@
 		)
 		(uuid "97e6e37a-ebed-4fe8-8a60-0f91b1d49184")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 193.5703 29.21 0)
+			(at 188.6529 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7720,28 +8006,6 @@
 			)
 		)
 	)
-	(global_label "RCPWMLockout"
-		(shape input)
-		(at 214.63 119.38 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "ab9e1f00-98c4-4fc0-904b-ba6d701f5b48")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 230.9913 119.38 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "ActionSignal1"
 		(shape input)
 		(at 138.43 57.15 0)
@@ -7766,7 +8030,7 @@
 	)
 	(global_label "SpeedCtrl"
 		(shape input)
-		(at 252.095 116.205 0)
+		(at 151.13 157.48 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7776,7 +8040,7 @@
 		)
 		(uuid "b1c17df5-61b3-4f3f-8e9b-ac2a91671222")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 196.723 30.607 0)
+			(at 95.758 71.882 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7893,28 +8157,6 @@
 			)
 		)
 	)
-	(global_label "Pico_Tx"
-		(shape input)
-		(at 151.13 154.94 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "bdf9044a-f58c-4d06-8899-1ff87ebe14c1")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 160.4573 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "Left_DIR"
 		(shape input)
 		(at 203.2 36.83 180)
@@ -7980,7 +8222,7 @@
 	)
 	(global_label "RCPWMThrottle"
 		(shape input)
-		(at 214.63 114.3 0)
+		(at 212.09 107.95 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7990,7 +8232,7 @@
 		)
 		(uuid "c30f5e4d-f8a0-4c61-b0ce-aff854b887dc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 98.298 -7.62 0)
+			(at 95.758 -13.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8281,7 +8523,7 @@
 	)
 	(global_label "ATT_Prog"
 		(shape input)
-		(at 118.745 111.125 0)
+		(at 118.11 116.84 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8291,7 +8533,7 @@
 		)
 		(uuid "e84f2f9c-da46-4a71-8ed5-c97054987792")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 129.4149 111.0456 0)
+			(at 128.7799 116.7606 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8366,9 +8608,9 @@
 			)
 		)
 	)
-	(global_label "Pico_Rx"
+	(global_label "Pico_M5_SDA"
 		(shape input)
-		(at 151.13 157.48 0)
+		(at 250.19 96.52 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8376,9 +8618,31 @@
 			)
 			(justify left)
 		)
-		(uuid "f6dd675a-121c-4f7b-9dac-aadf0881fc29")
+		(uuid "f0a37ad6-e8d4-4ec0-a208-8f537eda283e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 160.7597 157.48 0)
+			(at 264.7976 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "RCPWMCloseOut"
+		(shape input)
+		(at 212.09 113.03 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "f3699e23-61ce-45cb-9f24-ae1fffa5e5cc")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 229.5399 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8419,7 +8683,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005d5bcd6a")
-		(property "Reference" "J12"
+		(property "Reference" "J16"
 			(at 217.805 90.805 0)
 			(effects
 				(font
@@ -8476,7 +8740,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "J12")
+					(reference "J16")
 					(unit 1)
 				)
 			)
@@ -8491,7 +8755,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005d627b3b")
-		(property "Reference" "J11"
+		(property "Reference" "J14"
 			(at 195.58 107.95 0)
 			(effects
 				(font
@@ -8563,7 +8827,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "J11")
+					(reference "J14")
 					(unit 1)
 				)
 			)
@@ -8578,7 +8842,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005d691ea1")
-		(property "Reference" "#PWR034"
+		(property "Reference" "#PWR056"
 			(at 234.95 29.21 0)
 			(effects
 				(font
@@ -8629,7 +8893,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR034")
+					(reference "#PWR056")
 					(unit 1)
 				)
 			)
@@ -8644,7 +8908,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005d6b4b0c")
-		(property "Reference" "#PWR014"
+		(property "Reference" "#PWR022"
 			(at 147.955 94.615 0)
 			(effects
 				(font
@@ -8695,7 +8959,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR014")
+					(reference "#PWR022")
 					(unit 1)
 				)
 			)
@@ -8710,7 +8974,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005d6b5159")
-		(property "Reference" "#PWR023"
+		(property "Reference" "#PWR037"
 			(at 187.96 93.98 0)
 			(effects
 				(font
@@ -8761,7 +9025,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR023")
+					(reference "#PWR037")
 					(unit 1)
 				)
 			)
@@ -8906,7 +9170,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005d6ca869")
-		(property "Reference" "#PWR031"
+		(property "Reference" "#PWR047"
 			(at 221.615 97.155 0)
 			(effects
 				(font
@@ -8956,7 +9220,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR031")
+					(reference "#PWR047")
 					(unit 1)
 				)
 			)
@@ -8971,7 +9235,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005d6dd9cd")
-		(property "Reference" "#PWR021"
+		(property "Reference" "#PWR032"
 			(at 163.195 109.855 0)
 			(effects
 				(font
@@ -9022,7 +9286,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR021")
+					(reference "#PWR032")
 					(unit 1)
 				)
 			)
@@ -9037,7 +9301,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005d6de9aa")
-		(property "Reference" "#PWR022"
+		(property "Reference" "#PWR036"
 			(at 177.8 91.44 0)
 			(effects
 				(font
@@ -9088,7 +9352,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR022")
+					(reference "#PWR036")
 					(unit 1)
 				)
 			)
@@ -9295,15 +9559,15 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 252.095 118.745 90)
+		(at 248.92 137.16 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005fa43531")
-		(property "Reference" "#PWR033"
-			(at 258.445 118.745 0)
+		(property "Reference" "#PWR062"
+			(at 255.27 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9312,7 +9576,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 257.175 118.745 90)
+			(at 254 137.16 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9320,7 +9584,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 252.095 118.745 0)
+			(at 248.92 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9329,7 +9593,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 252.095 118.745 0)
+			(at 248.92 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9338,7 +9602,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 252.095 118.745 0)
+			(at 248.92 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9352,23 +9616,23 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR033")
+					(reference "#PWR062")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Connector:Conn_01x04_Pin")
-		(at 247.015 116.205 0)
+		(lib_id "Connector:Conn_01x03_Pin")
+		(at 243.84 134.62 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005fa4353e")
-		(property "Reference" "J13"
-			(at 254.635 109.855 0)
+		(property "Reference" "J19"
+			(at 254.508 128.016 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9376,8 +9640,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "SpCtr"
-			(at 250.825 109.855 0)
+		(property "Value" "M5 SCL"
+			(at 247.65 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9385,8 +9649,8 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_PH_B4B-PH-K_1x04_P2.00mm_Vertical"
-			(at 247.015 116.205 0)
+		(property "Footprint" "Useful Modifications:JST_XH_B3B-XH-A_1x03_P2.54mm_Vertical"
+			(at 243.84 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9395,7 +9659,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 247.015 116.205 0)
+			(at 243.84 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9403,8 +9667,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 247.015 116.205 0)
+		(property "Description" "Generic connector, single row, 01x03, script generated"
+			(at 243.84 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9421,13 +9685,10 @@
 		(pin "3"
 			(uuid "5595909e-286e-4f0a-80ff-280f407b8774")
 		)
-		(pin "4"
-			(uuid "377f1b48-cab2-488d-a8c0-8d37e64e0312")
-		)
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "J13")
+					(reference "J19")
 					(unit 1)
 				)
 			)
@@ -9860,7 +10121,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005fa762b2")
-		(property "Reference" "#PWR012"
+		(property "Reference" "#PWR014"
 			(at 129.54 153.67 0)
 			(effects
 				(font
@@ -9910,7 +10171,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR012")
+					(reference "#PWR014")
 					(unit 1)
 				)
 			)
@@ -9926,15 +10187,15 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-000060c48de9")
 		(property "Reference" "J9"
-			(at 148.7932 150.3426 0)
+			(at 147.574 149.098 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "Serial"
-			(at 148.7932 152.654 0)
+		(property "Value" "Extra AT"
+			(at 150.622 151.638 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9998,7 +10259,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-000060c97f9f")
-		(property "Reference" "#PWR016"
+		(property "Reference" "#PWR024"
 			(at 157.48 160.02 0)
 			(effects
 				(font
@@ -10049,7 +10310,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR016")
+					(reference "#PWR024")
 					(unit 1)
 				)
 			)
@@ -10064,7 +10325,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00006251f484")
-		(property "Reference" "#PWR018"
+		(property "Reference" "#PWR033"
 			(at 165.1 127.635 0)
 			(effects
 				(font
@@ -10115,7 +10376,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR018")
+					(reference "#PWR033")
 					(unit 1)
 				)
 			)
@@ -10130,7 +10391,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00006251f903")
-		(property "Reference" "#PWR019"
+		(property "Reference" "#PWR034"
 			(at 165.1 130.175 0)
 			(effects
 				(font
@@ -10181,7 +10442,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR019")
+					(reference "#PWR034")
 					(unit 1)
 				)
 			)
@@ -10196,7 +10457,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00006251fd7f")
-		(property "Reference" "#PWR020"
+		(property "Reference" "#PWR035"
 			(at 165.1 132.715 0)
 			(effects
 				(font
@@ -10247,7 +10508,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR020")
+					(reference "#PWR035")
 					(unit 1)
 				)
 			)
@@ -10255,15 +10516,15 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 250.825 99.695 90)
+		(at 250.19 99.06 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "01f14a71-2c35-4bc7-b68b-e439109f22f5")
-		(property "Reference" "#PWR043"
-			(at 257.175 99.695 0)
+		(property "Reference" "#PWR064"
+			(at 256.54 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10272,7 +10533,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 254.635 99.695 90)
+			(at 254 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10281,7 +10542,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 250.825 99.695 0)
+			(at 250.19 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10290,7 +10551,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 250.825 99.695 0)
+			(at 250.19 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10299,7 +10560,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 250.825 99.695 0)
+			(at 250.19 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10313,7 +10574,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR043")
+					(reference "#PWR064")
 					(unit 1)
 				)
 			)
@@ -10329,7 +10590,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "058bde87-2760-4a34-b783-32c3626c8ea1")
-		(property "Reference" "#PWR092"
+		(property "Reference" "#PWR013"
 			(at 123.19 68.58 0)
 			(effects
 				(font
@@ -10379,7 +10640,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR092")
+					(reference "#PWR013")
 					(unit 1)
 				)
 			)
@@ -10460,7 +10721,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0a7d795b-0fe8-45f3-8a45-a4169507a51f")
-		(property "Reference" "#PWR090"
+		(property "Reference" "#PWR072"
 			(at 266.065 45.72 0)
 			(effects
 				(font
@@ -10510,7 +10771,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR090")
+					(reference "#PWR072")
 					(unit 1)
 				)
 			)
@@ -10614,41 +10875,23 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "R22")
+					(reference "R3")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Connector:Conn_01x05_Pin")
-		(at 209.55 114.3 0)
+		(lib_id "power:GND")
+		(at 255.27 110.49 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "11e849d9-168a-4ea6-92d2-bb5fecefbc76")
-		(property "Reference" "J101"
-			(at 218.44 106.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "RC"
-			(at 210.82 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Connector_JST:JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical"
-			(at 209.55 114.3 0)
+		(uuid "0c099bfe-22aa-4547-a10b-e3785be20df1")
+		(property "Reference" "#PWR067"
+			(at 261.62 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10656,8 +10899,16 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 209.55 114.3 0)
+		(property "Value" "GND"
+			(at 261.62 110.49 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 255.27 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10665,8 +10916,17 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Generic connector, single row, 01x05, script generated"
-			(at 209.55 114.3 0)
+		(property "Datasheet" ""
+			(at 255.27 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 255.27 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10675,24 +10935,144 @@
 			)
 		)
 		(pin "1"
-			(uuid "210717c6-4ead-4525-bde4-a3067a4f2221")
-		)
-		(pin "2"
-			(uuid "f6d16401-3ef4-4d26-aab1-7592974a236a")
-		)
-		(pin "3"
-			(uuid "7d393547-17d1-4cc4-972b-a3b6d0e0c7f8")
-		)
-		(pin "4"
-			(uuid "c847f50c-960e-4be4-abed-e5b9b415b812")
-		)
-		(pin "5"
-			(uuid "5a4ef17d-3788-4e67-8225-b88dcd36af43")
+			(uuid "f8a7c66a-1a04-4122-a8c2-b46635f4fdfe")
 		)
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "J101")
+					(reference "#PWR067")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 236.22 113.03 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "11dbdeb8-d7ac-4581-a241-1c2a773f2227")
+		(property "Reference" "#PWR052"
+			(at 232.41 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 239.395 113.4638 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 236.22 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 236.22 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 236.22 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "31898545-2731-4ea7-8e1d-7f6777308045")
+		)
+		(instances
+			(project "ControlBoardT4_DFminiSound_PowerAmp"
+				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
+					(reference "#PWR052")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 255.27 107.95 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "14a09056-6894-44ad-9cff-a584475f0e10")
+		(property "Reference" "#PWR066"
+			(at 261.62 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 261.62 107.95 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 255.27 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 255.27 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 255.27 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d443f58f-75b8-4392-92d1-aa13c733d7a8")
+		)
+		(instances
+			(project "ControlBoardT4_DFminiSound_PowerAmp"
+				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
+					(reference "#PWR066")
 					(unit 1)
 				)
 			)
@@ -10708,7 +11088,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "17e557aa-53c7-46e2-a7cf-4f61172474be")
-		(property "Reference" "#PWR013"
+		(property "Reference" "#PWR015"
 			(at 119.38 156.21 0)
 			(effects
 				(font
@@ -10759,7 +11139,72 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR013")
+					(reference "#PWR015")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 255.27 113.03 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1bc13832-1b2f-4e1b-9806-20fd41a91075")
+		(property "Reference" "#PWR068"
+			(at 261.62 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 261.62 113.03 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 255.27 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 255.27 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 255.27 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "681b54ba-a34f-4874-bb0a-f5994faa60b7")
+		)
+		(instances
+			(project "ControlBoardT4_DFminiSound_PowerAmp"
+				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
+					(reference "#PWR068")
 					(unit 1)
 				)
 			)
@@ -10851,7 +11296,7 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "R19")
+					(reference "R1")
 					(unit 1)
 				)
 			)
@@ -10942,72 +11387,7 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "R21")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 214.63 109.22 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "1f7caae5-e7d3-4c47-b4bd-b1cde52aa6b8")
-		(property "Reference" "#PWR0102"
-			(at 220.98 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 220.98 109.22 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 214.63 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 214.63 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 214.63 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "9ebedcdf-882c-4e9e-9c28-428044c59e49")
-		)
-		(instances
-			(project "ControlBoardT4_DFminiSound_PowerAmp"
-				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR0102")
+					(reference "R4")
 					(unit 1)
 				)
 			)
@@ -11023,7 +11403,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "26a89b29-8461-46e1-98f3-ace72eb652b5")
-		(property "Reference" "#PWR030"
+		(property "Reference" "#PWR046"
 			(at 211.455 94.615 0)
 			(effects
 				(font
@@ -11074,7 +11454,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR030")
+					(reference "#PWR046")
 					(unit 1)
 				)
 			)
@@ -11089,7 +11469,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "2d2db029-293c-4354-96ac-189e3f480a4d")
-		(property "Reference" "#PWR026"
+		(property "Reference" "#PWR043"
 			(at 196.85 44.45 0)
 			(effects
 				(font
@@ -11139,7 +11519,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR026")
+					(reference "#PWR043")
 					(unit 1)
 				)
 			)
@@ -11226,6 +11606,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3.3V")
+		(at 236.22 118.11 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3b55a152-7f2d-4bdf-bbce-2ef5e43cba52")
+		(property "Reference" "#PWR054"
+			(at 232.41 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 239.395 118.5438 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 236.22 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 236.22 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 236.22 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4b938fd1-f99e-47ef-9373-33a0af790438")
+		)
+		(instances
+			(project "ControlBoardT4_DFminiSound_PowerAmp"
+				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
+					(reference "#PWR054")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+12V")
 		(at 153.035 26.035 270)
 		(unit 1)
@@ -11234,7 +11681,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "3cf46b16-fc22-4437-b5f2-99f02b3f7e08")
-		(property "Reference" "#PWR087"
+		(property "Reference" "#PWR026"
 			(at 149.225 26.035 0)
 			(effects
 				(font
@@ -11285,7 +11732,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR087")
+					(reference "#PWR026")
 					(unit 1)
 				)
 			)
@@ -11437,7 +11884,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "3eaf1990-1fe7-4d84-aff4-f0cd3e88e9bc")
-		(property "Reference" "#PWR036"
+		(property "Reference" "#PWR058"
 			(at 245.11 44.45 0)
 			(effects
 				(font
@@ -11487,23 +11934,23 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR036")
+					(reference "#PWR058")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "power:+3.3V")
-		(at 108.585 106.045 0)
+		(lib_id "power:GND")
+		(at 255.27 120.65 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "4565d666-dd0c-47aa-b045-6df9b7c52767")
-		(property "Reference" "#PWR010"
-			(at 108.585 109.855 0)
+		(uuid "40bf0c5c-b6ca-4a8b-99ee-b14307ed6dbc")
+		(property "Reference" "#PWR071"
+			(at 261.62 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11511,17 +11958,16 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+3.3V"
-			(at 108.458 103.251 0)
+		(property "Value" "GND"
+			(at 261.62 120.65 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" ""
-			(at 108.585 106.045 0)
+			(at 255.27 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11530,7 +11976,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 108.585 106.045 0)
+			(at 255.27 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11539,7 +11985,153 @@
 			)
 		)
 		(property "Description" ""
-			(at 108.585 106.045 0)
+			(at 255.27 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f7800a1a-f19f-41db-b623-a0cfe88ddec4")
+		)
+		(instances
+			(project "ControlBoardT4_DFminiSound_PowerAmp"
+				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
+					(reference "#PWR071")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x06_Pin")
+		(at 207.01 113.03 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "451661f3-59dc-4826-8fac-442242d56fb1")
+		(property "Reference" "J15"
+			(at 207.645 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "RC_Signal"
+			(at 207.645 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical"
+			(at 207.01 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 207.01 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x06, script generated"
+			(at 207.01 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "9cf4d33d-5364-445b-bf95-e36fb442baca")
+		)
+		(pin "6"
+			(uuid "4ba299ce-5ede-4ade-a737-fc13facdaeed")
+		)
+		(pin "5"
+			(uuid "0c28a546-0559-4493-acea-d14d7bdf4a43")
+		)
+		(pin "3"
+			(uuid "4c63f7e9-8a36-4dc8-b147-bf415132ee3c")
+		)
+		(pin "1"
+			(uuid "d477aaa2-9171-4f87-b9b5-89bb9da4bf09")
+		)
+		(pin "2"
+			(uuid "5f264d3b-48d6-4eae-939b-8178827cc5d3")
+		)
+		(instances
+			(project "ControlBoardT4_DFminiSound_PowerAmp"
+				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
+					(reference "J15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 107.95 111.76 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4565d666-dd0c-47aa-b045-6df9b7c52767")
+		(property "Reference" "#PWR010"
+			(at 107.95 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 107.823 108.966 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 107.95 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 107.95 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 107.95 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11628,6 +12220,138 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
+		(at 236.22 120.65 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "45ba85bf-cb97-4ba9-88f5-90820c78d781")
+		(property "Reference" "#PWR055"
+			(at 232.41 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 239.395 121.0838 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 236.22 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 236.22 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 236.22 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7add3cac-44f2-4952-926d-878fae00c1bb")
+		)
+		(instances
+			(project "ControlBoardT4_DFminiSound_PowerAmp"
+				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
+					(reference "#PWR055")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 255.27 115.57 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4dc413d8-ceef-4b21-8745-8e5a1fc9d7b9")
+		(property "Reference" "#PWR069"
+			(at 261.62 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 261.62 115.57 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 255.27 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 255.27 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 255.27 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7b70b92f-c891-4df2-8022-0af6279303fa")
+		)
+		(instances
+			(project "ControlBoardT4_DFminiSound_PowerAmp"
+				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
+					(reference "#PWR069")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
 		(at 251.46 36.83 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -11636,7 +12360,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "50c520aa-261d-43fb-b9cf-7154f198e526")
-		(property "Reference" "#PWR039"
+		(property "Reference" "#PWR065"
 			(at 247.65 36.83 0)
 			(effects
 				(font
@@ -11687,7 +12411,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR039")
+					(reference "#PWR065")
 					(unit 1)
 				)
 			)
@@ -11791,7 +12515,7 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "R23")
+					(reference "R7")
 					(unit 1)
 				)
 			)
@@ -11806,7 +12530,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "560729a4-daad-4ddc-ac07-25ef1682be95")
-		(property "Reference" "Q1"
+		(property "Reference" "Q2"
 			(at 160.02 68.58 0)
 			(effects
 				(font
@@ -11872,7 +12596,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "Q1")
+					(reference "Q2")
 					(unit 1)
 				)
 			)
@@ -11887,7 +12611,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5a83b9a5-9951-4f7a-9a10-553043d12a08")
-		(property "Reference" "#PWR083"
+		(property "Reference" "#PWR039"
 			(at 194.31 142.24 0)
 			(effects
 				(font
@@ -11937,7 +12661,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR083")
+					(reference "#PWR039")
 					(unit 1)
 				)
 			)
@@ -11953,7 +12677,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5b656576-886a-4acc-ba3f-37795037bc95")
-		(property "Reference" "J8"
+		(property "Reference" "J12"
 			(at 152.4 122.6652 0)
 			(effects
 				(font
@@ -12017,7 +12741,73 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "J8")
+					(reference "J12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+12V")
+		(at 248.92 132.08 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5d37c16c-1ecd-430e-a173-63b0511242e5")
+		(property "Reference" "#PWR061"
+			(at 245.11 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+12V"
+			(at 252.1712 132.461 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 248.92 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 248.92 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 248.92 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "47d57c7c-1057-4f21-80db-1f439b15ee11")
+		)
+		(instances
+			(project "ControlBoardT4_DFminiSound_PowerAmp"
+				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
+					(reference "#PWR061")
 					(unit 1)
 				)
 			)
@@ -12032,7 +12822,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5dca4490-0472-4915-bc00-8e883606a36b")
-		(property "Reference" "J22"
+		(property "Reference" "J10"
 			(at 145.415 28.575 0)
 			(effects
 				(font
@@ -12090,7 +12880,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "J22")
+					(reference "J10")
 					(unit 1)
 				)
 			)
@@ -12181,7 +12971,7 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "R20")
+					(reference "R2")
 					(unit 1)
 				)
 			)
@@ -12270,7 +13060,7 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "R16")
+					(reference "R6")
 					(unit 1)
 				)
 			)
@@ -12285,7 +13075,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6ea4b521-b18a-44fc-8b39-92a9520a4427")
-		(property "Reference" "#PWR038"
+		(property "Reference" "#PWR060"
 			(at 245.11 69.85 0)
 			(effects
 				(font
@@ -12335,74 +13125,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR038")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 214.63 111.76 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "6f6f78c0-4436-4351-bf65-28e0c699d957")
-		(property "Reference" "#PWR0101"
-			(at 210.82 111.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 217.805 112.1938 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 214.63 111.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 214.63 111.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 214.63 111.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b6aa7b6c-204a-4260-8e32-e7dbb7048e6d")
-		)
-		(instances
-			(project "ControlBoardT4_DFminiSound_PowerAmp"
-				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR0101")
+					(reference "#PWR060")
 					(unit 1)
 				)
 			)
@@ -12417,7 +13140,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "702e2ea5-31da-4bdb-9f78-debc127f4c21")
-		(property "Reference" "#PWR096"
+		(property "Reference" "#PWR041"
 			(at 202.565 126.365 0)
 			(effects
 				(font
@@ -12468,7 +13191,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR096")
+					(reference "#PWR041")
 					(unit 1)
 				)
 			)
@@ -12483,7 +13206,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "705bff7e-95ac-4918-a2b8-b47e45874f7a")
-		(property "Reference" "#PWR095"
+		(property "Reference" "#PWR040"
 			(at 202.565 123.825 0)
 			(effects
 				(font
@@ -12534,7 +13257,72 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR095")
+					(reference "#PWR040")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 255.27 118.11 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "72b91b3b-8bce-4e43-9a12-4b9e592b85a9")
+		(property "Reference" "#PWR070"
+			(at 261.62 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 261.62 118.11 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 255.27 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 255.27 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 255.27 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "88615da6-46ca-4f8d-b60a-c3a6aaf5a234")
+		)
+		(instances
+			(project "ControlBoardT4_DFminiSound_PowerAmp"
+				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
+					(reference "#PWR070")
 					(unit 1)
 				)
 			)
@@ -12550,7 +13338,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "79de784f-7a97-4813-92e0-3904299916cc")
-		(property "Reference" "#PWR017"
+		(property "Reference" "#PWR025"
 			(at 147.32 162.56 0)
 			(effects
 				(font
@@ -12601,7 +13389,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR017")
+					(reference "#PWR025")
 					(unit 1)
 				)
 			)
@@ -12616,7 +13404,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "7a2b9bca-3fa9-4031-a323-79f11b70aa76")
-		(property "Reference" "#PWR037"
+		(property "Reference" "#PWR059"
 			(at 245.11 57.15 0)
 			(effects
 				(font
@@ -12666,7 +13454,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR037")
+					(reference "#PWR059")
 					(unit 1)
 				)
 			)
@@ -12740,32 +13528,32 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:Conn_01x03_Male")
-		(at 245.745 97.155 0)
+		(lib_id "Connector:Conn_01x06_Pin")
+		(at 250.19 113.03 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "871718d1-1657-4220-ba2d-10962042014e")
-		(property "Reference" "J15"
-			(at 244.475 98.425 0)
+		(uuid "846ab410-6276-469b-be93-5a6c161731e0")
+		(property "Reference" "J21"
+			(at 250.825 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "VOL"
-			(at 241.427 96.647 0)
+		(property "Value" "RC_GND"
+			(at 250.825 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical"
-			(at 245.745 97.155 0)
+		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical"
+			(at 250.19 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12774,7 +13562,86 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 245.745 97.155 0)
+			(at 250.19 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x06, script generated"
+			(at 250.19 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "421a3062-7924-476a-8d65-892c3e19ddce")
+		)
+		(pin "6"
+			(uuid "fe407780-1273-4269-9887-a0b408edb340")
+		)
+		(pin "5"
+			(uuid "a0168afe-8c8d-4d45-89e3-442d936ea578")
+		)
+		(pin "3"
+			(uuid "0b8f76ae-d978-41f0-ab54-95018d5f5bf7")
+		)
+		(pin "1"
+			(uuid "a0ed1776-3e46-461d-ae5d-fad536e66138")
+		)
+		(pin "2"
+			(uuid "411419ef-3e80-479e-8e18-187c14770940")
+		)
+		(instances
+			(project ""
+				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
+					(reference "J21")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x03_Male")
+		(at 245.11 96.52 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "871718d1-1657-4220-ba2d-10962042014e")
+		(property "Reference" "J20"
+			(at 254.762 90.424 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "M5 SDA"
+			(at 247.142 90.678 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Useful Modifications:JST_XH_B3B-XH-A_1x03_P2.54mm_Vertical"
+			(at 245.11 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 245.11 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12783,7 +13650,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 245.745 97.155 0)
+			(at 245.11 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12803,7 +13670,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "J15")
+					(reference "J20")
 					(unit 1)
 				)
 			)
@@ -12818,7 +13685,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "88efbcff-c149-47c1-bf11-5aa74bb1224f")
-		(property "Reference" "#PWR084"
+		(property "Reference" "#PWR019"
 			(at 135.89 31.115 0)
 			(effects
 				(font
@@ -12868,7 +13735,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR084")
+					(reference "#PWR019")
 					(unit 1)
 				)
 			)
@@ -12883,7 +13750,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "8da9e784-7c25-4bd8-af75-5c9a9738a836")
-		(property "Reference" "#PWR025"
+		(property "Reference" "#PWR042"
 			(at 196.85 31.75 0)
 			(effects
 				(font
@@ -12933,7 +13800,87 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR025")
+					(reference "#PWR042")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x06_Pin")
+		(at 231.14 113.03 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8ff82357-f975-4e00-ad29-3314deb18bf0")
+		(property "Reference" "J18"
+			(at 231.775 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "RC_3.3v"
+			(at 231.775 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical"
+			(at 231.14 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 231.14 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x06, script generated"
+			(at 231.14 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "b266e13c-8ec8-4f9e-81b9-b5a7b54c94fa")
+		)
+		(pin "6"
+			(uuid "a32f682e-fcf3-4d57-86e3-3d276816631d")
+		)
+		(pin "5"
+			(uuid "e76799df-e4cd-49c8-9abb-6b86df59359d")
+		)
+		(pin "3"
+			(uuid "6074d217-52bd-4c34-af39-ad14b08d1e8e")
+		)
+		(pin "1"
+			(uuid "688defae-7429-4adf-a791-789c84cf6259")
+		)
+		(pin "2"
+			(uuid "c688fa3b-6719-4228-bd45-5cb4306bf70b")
+		)
+		(instances
+			(project "ControlBoardT4_DFminiSound_PowerAmp"
+				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
+					(reference "J18")
 					(unit 1)
 				)
 			)
@@ -12948,7 +13895,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "922ce3e6-80e6-49b9-b8bc-f9ed4ea5fadc")
-		(property "Reference" "#PWR035"
+		(property "Reference" "#PWR057"
 			(at 245.11 31.75 0)
 			(effects
 				(font
@@ -12998,7 +13945,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR035")
+					(reference "#PWR057")
 					(unit 1)
 				)
 			)
@@ -13013,7 +13960,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "94217346-f903-46c4-8115-e008819aecb9")
-		(property "Reference" "J21"
+		(property "Reference" "J8"
 			(at 121.92 28.575 0)
 			(effects
 				(font
@@ -13071,7 +14018,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "J21")
+					(reference "J8")
 					(unit 1)
 				)
 			)
@@ -13087,7 +14034,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "96459668-5db1-4458-aa36-444265b0f70a")
-		(property "Reference" "#PWR070"
+		(property "Reference" "#PWR030"
 			(at 156.21 60.325 0)
 			(effects
 				(font
@@ -13137,7 +14084,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR070")
+					(reference "#PWR030")
 					(unit 1)
 				)
 			)
@@ -13152,7 +14099,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "985e8845-86f7-497a-8447-4e46fde3a914")
-		(property "Reference" "#PWR015"
+		(property "Reference" "#PWR018"
 			(at 125.73 28.575 0)
 			(effects
 				(font
@@ -13203,7 +14150,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR015")
+					(reference "#PWR018")
 					(unit 1)
 				)
 			)
@@ -13218,7 +14165,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "9bb03339-e142-4468-afad-245d8fe1d8f5")
-		(property "Reference" "#PWR050"
+		(property "Reference" "#PWR027"
 			(at 149.225 28.575 0)
 			(effects
 				(font
@@ -13269,7 +14216,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR050")
+					(reference "#PWR027")
 					(unit 1)
 				)
 			)
@@ -13350,7 +14297,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a0797761-da63-484f-b252-8fc1d4ed1d47")
-		(property "Reference" "#PWR027"
+		(property "Reference" "#PWR044"
 			(at 196.85 57.15 0)
 			(effects
 				(font
@@ -13400,7 +14347,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR027")
+					(reference "#PWR044")
 					(unit 1)
 				)
 			)
@@ -13483,7 +14430,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a576dcd2-4429-4a23-9ea2-71e0d5a03c62")
-		(property "Reference" "Q2"
+		(property "Reference" "Q1"
 			(at 119.38 56.515 0)
 			(effects
 				(font
@@ -13549,7 +14496,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "Q2")
+					(reference "Q1")
 					(unit 1)
 				)
 			)
@@ -13564,7 +14511,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a5fa5c7f-31b2-4969-8d6d-bbbfd96c8bf7")
-		(property "Reference" "#PWR0100"
+		(property "Reference" "#PWR029"
 			(at 153.035 47.625 0)
 			(effects
 				(font
@@ -13614,7 +14561,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR0100")
+					(reference "#PWR029")
 					(unit 1)
 				)
 			)
@@ -13629,7 +14576,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a701f150-bc5e-49dd-8e3e-8d00df6ccc32")
-		(property "Reference" "#PWR099"
+		(property "Reference" "#PWR020"
 			(at 129.54 47.625 0)
 			(effects
 				(font
@@ -13679,7 +14626,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR099")
+					(reference "#PWR020")
 					(unit 1)
 				)
 			)
@@ -13694,7 +14641,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a732eb92-27e9-48d5-a000-d83936c0a572")
-		(property "Reference" "#PWR086"
+		(property "Reference" "#PWR017"
 			(at 125.73 26.035 0)
 			(effects
 				(font
@@ -13745,7 +14692,140 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR086")
+					(reference "#PWR017")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+12V")
+		(at 250.19 93.98 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a84abc82-417f-4749-b8c2-806ab5a66125")
+		(property "Reference" "#PWR063"
+			(at 246.38 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+12V"
+			(at 253.4412 94.361 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 250.19 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 250.19 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 250.19 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "bea09000-3086-4eb6-ad1f-9f15e3201b83")
+		)
+		(instances
+			(project "ControlBoardT4_DFminiSound_PowerAmp"
+				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
+					(reference "#PWR063")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 236.22 110.49 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a9592c3c-a94a-4fb3-961c-c8c7dfce4700")
+		(property "Reference" "#PWR051"
+			(at 232.41 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 239.395 110.9238 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 236.22 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 236.22 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 236.22 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "afb54f18-7ae9-484f-bcb9-e252b608e8d9")
+		)
+		(instances
+			(project "ControlBoardT4_DFminiSound_PowerAmp"
+				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
+					(reference "#PWR051")
 					(unit 1)
 				)
 			)
@@ -13761,7 +14841,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b4a642fc-3dc5-4d2f-abe8-308e01f087d1")
-		(property "Reference" "#PWR091"
+		(property "Reference" "#PWR012"
 			(at 123.19 48.26 0)
 			(effects
 				(font
@@ -13811,7 +14891,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR091")
+					(reference "#PWR012")
 					(unit 1)
 				)
 			)
@@ -13826,7 +14906,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b6158a9c-2ea1-4e18-a668-497e76ac2b24")
-		(property "Reference" "#PWR089"
+		(property "Reference" "#PWR073"
 			(at 268.605 30.48 0)
 			(effects
 				(font
@@ -13877,74 +14957,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR089")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 250.825 94.615 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b6318488-6342-4ef3-ae15-9d0376d50db3")
-		(property "Reference" "#PWR042"
-			(at 247.015 94.615 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 254.635 95.25 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 250.825 94.615 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 250.825 94.615 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 250.825 94.615 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "94c76825-344e-485f-9488-205f08686417")
-		)
-		(instances
-			(project "ControlBoardT4_DFminiSound_PowerAmp"
-				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR042")
+					(reference "#PWR073")
 					(unit 1)
 				)
 			)
@@ -13960,7 +14973,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b8b5fe27-7bc0-45a2-a420-4ceafd7c580b")
-		(property "Reference" "#PWR024"
+		(property "Reference" "#PWR038"
 			(at 187.96 106.68 0)
 			(effects
 				(font
@@ -14011,7 +15024,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR024")
+					(reference "#PWR038")
 					(unit 1)
 				)
 			)
@@ -14285,6 +15298,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3.3V")
+		(at 236.22 115.57 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c571a31e-219d-4648-9b2d-08e456cf7f4f")
+		(property "Reference" "#PWR053"
+			(at 232.41 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 239.395 116.0038 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 236.22 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 236.22 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 236.22 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "53feb1a6-97ce-437c-8b67-16c659e8806a")
+		)
+		(instances
+			(project "ControlBoardT4_DFminiSound_PowerAmp"
+				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
+					(reference "#PWR053")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector_Generic:Conn_02x02_Odd_Even")
 		(at 188.595 123.825 0)
 		(unit 1)
@@ -14294,7 +15374,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c63e225c-3a06-4591-a063-bb1ef10a6bdb")
-		(property "Reference" "J18"
+		(property "Reference" "J13"
 			(at 189.865 118.11 0)
 			(effects
 				(font
@@ -14352,74 +15432,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "J18")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 252.095 113.665 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "cbd44d8a-6e07-4ee7-bcb8-9cdd6dc4cac5")
-		(property "Reference" "#PWR032"
-			(at 248.285 113.665 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 255.27 114.0988 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 252.095 113.665 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 252.095 113.665 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 252.095 113.665 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f6e821a7-0540-4fd0-9d1b-772bfc89bf6a")
-		)
-		(instances
-			(project "ControlBoardT4_DFminiSound_PowerAmp"
-				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR032")
+					(reference "J13")
 					(unit 1)
 				)
 			)
@@ -14566,7 +15579,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "d25b2d96-7c33-4f4b-99af-93d2e8ccc4ad")
-		(property "Reference" "#PWR094"
+		(property "Reference" "#PWR048"
 			(at 223.52 133.985 0)
 			(effects
 				(font
@@ -14616,7 +15629,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR094")
+					(reference "#PWR048")
 					(unit 1)
 				)
 			)
@@ -14624,7 +15637,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 108.585 126.365 0)
+		(at 107.95 132.08 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -14632,7 +15645,7 @@
 		(dnp no)
 		(uuid "d3943f67-022c-48ca-8e25-639fc5d2dfba")
 		(property "Reference" "#PWR011"
-			(at 108.585 132.715 0)
+			(at 107.95 138.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14641,7 +15654,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 111.76 128.905 0)
+			(at 111.125 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14649,7 +15662,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 108.585 126.365 0)
+			(at 107.95 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14658,7 +15671,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 108.585 126.365 0)
+			(at 107.95 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14667,7 +15680,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 108.585 126.365 0)
+			(at 107.95 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14772,7 +15785,7 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "R17")
+					(reference "R8")
 					(unit 1)
 				)
 			)
@@ -14787,7 +15800,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "d92e9f5e-6e58-40ee-9797-9d5dcd55e4d1")
-		(property "Reference" "#PWR069"
+		(property "Reference" "#PWR031"
 			(at 156.21 80.645 0)
 			(effects
 				(font
@@ -14837,7 +15850,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR069")
+					(reference "#PWR031")
 					(unit 1)
 				)
 			)
@@ -14994,7 +16007,7 @@
 			)
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "R18")
+					(reference "R5")
 					(unit 1)
 				)
 			)
@@ -15010,7 +16023,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e3693940-28e1-45ec-8495-707d46c843dd")
-		(property "Reference" "#PWR098"
+		(property "Reference" "#PWR021"
 			(at 130.175 166.37 0)
 			(effects
 				(font
@@ -15061,7 +16074,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR098")
+					(reference "#PWR021")
 					(unit 1)
 				)
 			)
@@ -15076,7 +16089,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "ea8bd5ea-a824-4706-96f7-bcc87237c3b5")
-		(property "Reference" "#PWR029"
+		(property "Reference" "#PWR049"
 			(at 220.98 86.36 0)
 			(effects
 				(font
@@ -15126,7 +16139,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR029")
+					(reference "#PWR049")
 					(unit 1)
 				)
 			)
@@ -15141,7 +16154,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "eba6ff51-1550-464a-8b9a-58a75c39bb8e")
-		(property "Reference" "#PWR085"
+		(property "Reference" "#PWR028"
 			(at 159.385 31.115 0)
 			(effects
 				(font
@@ -15191,7 +16204,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR085")
+					(reference "#PWR028")
 					(unit 1)
 				)
 			)
@@ -15397,7 +16410,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "f0a3198d-d8cc-49ea-8471-a37ede33ec43")
-		(property "Reference" "#PWR028"
+		(property "Reference" "#PWR045"
 			(at 196.85 69.85 0)
 			(effects
 				(font
@@ -15447,7 +16460,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR028")
+					(reference "#PWR045")
 					(unit 1)
 				)
 			)
@@ -15463,7 +16476,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f5cb9736-21ec-4d4e-8f2a-2e7e1550b062")
-		(property "Reference" "#PWR097"
+		(property "Reference" "#PWR016"
 			(at 119.38 168.91 0)
 			(effects
 				(font
@@ -15514,7 +16527,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR097")
+					(reference "#PWR016")
 					(unit 1)
 				)
 			)
@@ -15530,7 +16543,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f88d3329-9154-451a-a426-bca9f7867103")
-		(property "Reference" "J10"
+		(property "Reference" "J11"
 			(at 150.495 89.6452 0)
 			(effects
 				(font
@@ -15624,7 +16637,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "J10")
+					(reference "J11")
 					(unit 1)
 				)
 			)
@@ -15639,7 +16652,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "f897711a-c862-4963-869b-6ceea0e2e198")
-		(property "Reference" "#PWR088"
+		(property "Reference" "#PWR023"
 			(at 137.795 109.855 0)
 			(effects
 				(font
@@ -15690,7 +16703,7 @@
 		(instances
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
-					(reference "#PWR088")
+					(reference "#PWR023")
 					(unit 1)
 				)
 			)
@@ -15698,7 +16711,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_ARM_SWD_TagConnect_TC2030-NL")
-		(at 111.125 116.205 0)
+		(at 110.49 121.92 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -15706,7 +16719,7 @@
 		(dnp no)
 		(uuid "fbcf5c93-eb96-43ca-a838-6c491eae7630")
 		(property "Reference" "J6"
-			(at 118.745 106.68 0)
+			(at 118.11 112.395 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15715,7 +16728,7 @@
 			)
 		)
 		(property "Value" "ATTiny Prog"
-			(at 118.745 99.06 0)
+			(at 118.11 104.775 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15724,7 +16737,7 @@
 			)
 		)
 		(property "Footprint" "Connector:Tag-Connect_TC2030-IDC-NL_2x03_P1.27mm_Vertical"
-			(at 111.125 133.985 0)
+			(at 110.49 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15733,7 +16746,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.tag-connect.com/wp-content/uploads/bsk-pdf-manager/TC2030-CTX_1.pdf"
-			(at 111.125 131.445 0)
+			(at 110.49 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15742,7 +16755,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 111.125 116.205 0)
+			(at 110.49 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15772,6 +16785,73 @@
 			(project "ControlBoardT4_DFminiSound_PowerAmp"
 				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
 					(reference "J6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 236.22 107.95 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ff88fa14-0241-49f3-a48b-190a3c5b3aeb")
+		(property "Reference" "#PWR050"
+			(at 232.41 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 239.395 108.3838 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 236.22 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 236.22 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 236.22 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "82b6f3ea-8c70-48c5-9654-146359537bab")
+		)
+		(instances
+			(project "ControlBoardT4_DFminiSound_PowerAmp"
+				(path "/ee7e864e-15ea-4ba5-a64c-c53b37d2e4fb"
+					(reference "#PWR050")
 					(unit 1)
 				)
 			)
