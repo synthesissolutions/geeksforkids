@@ -99,7 +99,12 @@ class Steering {
      */
     void setSteeringPosition(int target) {
       // constrain and set the steering target (in scaled units)
-      steeringTargetScaled = constrain(map(target, -100, 100, steeringMinScaled, steeringMaxScaled), steeringMinScaled, steeringMaxScaled);
+      if (target <= 0) {
+        steeringTargetScaled = constrain(map(target, -100, 0, steeringMinScaled, steeringCenterScaled), steeringMinScaled, steeringCenterScaled);
+      } else {
+        steeringTargetScaled = constrain(map(target, 1, 100, steeringCenterScaled+1, steeringMaxScaled), steeringCenterScaled+1, steeringMaxScaled);
+      }
+      
 
       updateSteering();      
     }
@@ -153,11 +158,6 @@ class Steering {
     void updateSteering() {
       // Convert analog read value to scaled units
       steeringPositionScaled = map(getCurrentPosition(), 0, 1023, -100, 100);
-
-      // Use steeringPositionScaled + steeringCenterScaled to account for configuration setting
-      // add instead of subtract because configuration use > 0 for adjustments to the right but the actuator has > vaues to the left
-      steeringPositionScaled = constrain(steeringPositionScaled + steeringCenterScaled, steeringMinScaled, steeringMaxScaled);
-
       targetDeltaScaled = abs(steeringPositionScaled - steeringTargetScaled);
 
       // Are we moving already?

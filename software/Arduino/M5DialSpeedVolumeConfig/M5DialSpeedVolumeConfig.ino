@@ -173,6 +173,8 @@ void receiveEvent(int count) {
     // The Car Code version is a readonly register
     // so switch back to the default speed/volume register
     currentRegister = REGISTER_SPEED_VOLUME;
+
+    displayChanged();
   } else if (currentRegister == REGISTER_SPEED_VOLUME) {
     if (isInConfigurationMode) {
       // Do not allow switching from configuration mode back to Speed/Volume
@@ -208,8 +210,6 @@ void receiveEvent(int count) {
       currentRegister = previousRegister;
     }
   }
-
-  displayChanged();
 }
 
 void setup() {
