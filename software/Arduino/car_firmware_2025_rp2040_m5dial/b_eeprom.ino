@@ -52,12 +52,12 @@ ConfigurationEntry configurationEntries[] = {
   {"Actuator Center", 12, INTEGER_CONFIGURATION, false, 0},  // in scaled units from -100 to 100
   {"Actuator Max", 16, INTEGER_CONFIGURATION, false, 50},   // in scaled units from -100 to 100
   {"Use RC", 20, BOOLEAN_CONFIGURATION, true, 0},
-  {"RC Steering Min", 24, INTEGER_CONFIGURATION, false, 1000},  // All RC values are in PWM duty cycle microseconds
+  {"RC Steering Min", 24, INTEGER_CONFIGURATION, false, 1125},  // All RC values are in PWM duty cycle microseconds
   {"RC Steering Center", 28, INTEGER_CONFIGURATION, false, 1500},
-  {"RC Steering Max", 32, INTEGER_CONFIGURATION, false, 2000},
-  {"RC Throttle Min", 36, INTEGER_CONFIGURATION, false, 1000},
+  {"RC Steering Max", 32, INTEGER_CONFIGURATION, false, 1875},
+  {"RC Throttle Min", 36, INTEGER_CONFIGURATION, false, 1125},
   {"RC Throttle Center", 40, INTEGER_CONFIGURATION, false, 1500},
-  {"RC Throttle Max", 44, INTEGER_CONFIGURATION, false, 2000},
+  {"RC Throttle Max", 44, INTEGER_CONFIGURATION, false, 1875},
   {"Use PWM Joystick X", 48, BOOLEAN_CONFIGURATION, true, 0},
   {"Use PWM Joystick Y", 52, BOOLEAN_CONFIGURATION, true, 0},
   {"Invert Joystick X", 56, BOOLEAN_CONFIGURATION, true, 0},
