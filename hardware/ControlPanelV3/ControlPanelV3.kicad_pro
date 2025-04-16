@@ -519,7 +519,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "ControlPanelV3.step",
       "svg": "",
       "vrml": ""
     },
