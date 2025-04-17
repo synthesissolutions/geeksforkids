@@ -2120,7 +2120,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 203.454 87.884 90)
 			(effects
 				(font
@@ -2147,7 +2147,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "C25076"
+		(property "MPN" "C22775"
 			(at 203.2 88.9 90)
 			(effects
 				(font
@@ -2555,7 +2555,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 203.454 100.584 90)
 			(effects
 				(font
@@ -2582,7 +2582,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "C25076"
+		(property "MPN" "C22775"
 			(at 203.2 101.6 90)
 			(effects
 				(font
@@ -2921,7 +2921,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 203.454 75.184 90)
 			(effects
 				(font
@@ -2948,7 +2948,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "C25076"
+		(property "MPN" "C22775"
 			(at 203.2 76.2 90)
 			(effects
 				(font
