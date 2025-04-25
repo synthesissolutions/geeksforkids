@@ -2189,7 +2189,7 @@
 				)
 			)
 		)
-		(property "Value" "16R9"
+		(property "Value" "36R0"
 			(at 203.2 123.19 90)
 			(effects
 				(font
@@ -2224,7 +2224,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "C230050"
+		(property "MPN" "C5121553"
 			(at 203.2 127 90)
 			(effects
 				(font
@@ -2408,7 +2408,6 @@
 		(in_bom no)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "4fd7304c-bcc7-47ae-85e8-4323cab33b58")
 		(property "Reference" "H2"
 			(at 142.24 144.7799 0)
@@ -2420,7 +2419,7 @@
 			)
 		)
 		(property "Value" "M2.5"
-			(at 142.24 147.3199 0)
+			(at 142.24 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
