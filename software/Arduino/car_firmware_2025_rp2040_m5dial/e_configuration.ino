@@ -120,18 +120,18 @@ class Configuration {
     int getRcThrottleMax() { return eeprom->getIntegerSetting(EEPROM_RC_THROTTLE_MAX); }
 
     void readSpeedVolume() {
+      uint8_t tempConfigurationMode;
+      
       if(Wire.requestFrom(M5DIAL_I2C_ADDRESS, 4))
       {
-        m5DialConfigurationModeActive = Wire.read();
+        tempConfigurationMode = Wire.read(); // Check to make sure the value is exactly one so noisy data has a lower chance of triggering configuration mode
+        m5DialConfigurationModeActive = tempConfigurationMode == 1;
+        
         uint8_t reg = Wire.read();
 
         if (reg == REGISTER_SPEED_VOLUME) {
           speed = Wire.read();
           volume = Wire.read();
-        }
-
-        if (m5DialConfigurationModeActive) {
-          m5DialVersion++;
         }
       }
       else
@@ -240,87 +240,7 @@ class Configuration {
       }
 
     }
-/*
-    void m5DialConfigureCar() {
-      // Send all configuration data to the M5Dial
-      // Skip the Version configuration setting
-      for (int i = 1; i < NUMBER_OF_CONFIGURATION_ENTRIES; i++) {
-        Wire.beginTransmission(M5DIAL_I2C_ADDRESS);
- 
-        Wire.write(1); // Set to write mode
-        Wire.write(i); // The Register
 
-        if (configurationEntries[i].dataType == BOOLEAN_CONFIGURATION) {
-          Wire.write(configurationEntries[i].booleanValue);
-        } else {
-          uint8_t* p = (uint8_t*) &configurationEntries[i].intValue;
-          Wire.write(p[0]);
-          Wire.write(p[1]);
-        }
- 
-        Wire.endTransmission();
-
-        delay(10);
-      }
-
-      // Read the config value from the M5Dial
-      // Check to see if the value has changed and if so, save it to EEPROM
-      while (1) {
-        if(Wire.requestFrom(M5DIAL_I2C_ADDRESS, 4))
-        {
-          uint8_t configMode = Wire.read();
-          uint8_t reg = Wire.read();
-          uint8_t firstByte = Wire.read();
-          uint8_t secondByte = Wire.read();
-
-          // If the M5Dial isn't in config mode, then just continue
-          // This should never happen
-          if (!configMode) {
-            Serial.println("not in config mode");
-            delay(100);
-            continue;
-          }
-
-          // Can't set Version which is the first register
-          if (reg > EEPROM_VERSION && reg < NUMBER_OF_CONFIGURATION_ENTRIES) {
-            if (configurationEntries[reg].dataType == BOOLEAN_CONFIGURATION) {
-              if (configurationEntries[reg].booleanValue != firstByte) {
-                Serial.print("write boolean reg: ");
-                Serial.print(reg);
-                Serial.print(" new value: ");
-                Serial.println(firstByte);
-                
-                configurationEntries[reg].booleanValue = firstByte;
-                eeprom->saveBooleanValue(reg, configurationEntries[reg].booleanValue);
-              }
-            } else {
-
-              int16_t newValue = 0;
-              uint8_t* p = (uint8_t*) &newValue;
-              p[0] = firstByte;
-              p[1] = secondByte;
-
-              if (configurationEntries[reg].intValue != newValue) {
-                Serial.print("write integer reg: ");
-                Serial.print(reg);
-                Serial.print(" new value: ");
-                Serial.println(newValue);
-                configurationEntries[reg].intValue = newValue;
-                eeprom->saveIntegerValue(reg, configurationEntries[reg].intValue);
-              }
-            }
-          } else {
-            Serial.println("invalid register");
-          }
-        } else {
-          Serial.println("I2C read failed");
-        }
-                
-        delay(50);
-      }
-    }
-    */
-    
     void configureCar() {
       int selection;
       int indexToEdit;
@@ -417,6 +337,9 @@ class Configuration {
       
       Serial.print("Configuration Version: ");
       Serial.println(eeprom->getSavedConfigurationVersion());
+
+      Serial.print("Car Code Version: ");
+      Serial.println(RELEASE_VERSION);
       
       for (int i = 1; i < NUMBER_OF_CONFIGURATION_ENTRIES; i++) {
         option = 'a' + i - 1;

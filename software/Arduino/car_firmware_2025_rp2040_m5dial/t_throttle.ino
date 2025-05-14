@@ -30,6 +30,14 @@ class Throttle {
     Throttle() {
     }
 
+    // Used during a bad start scenario or when the car is being configured
+    void forceStop() {
+        digitalWrite(directionLeftPin, HIGH);
+        analogWrite(speedPwmLeftPin, THROTTLE_PWM_MIN); 
+        digitalWrite(directionRightPin, HIGH);
+        analogWrite(speedPwmRightPin, THROTTLE_PWM_MIN);   
+    }
+    
     // initial setup
     void init(int dirLeftPin, int pwmLeftPin, int dirRightPin, int pwmRightPin) {
       // set the pins
