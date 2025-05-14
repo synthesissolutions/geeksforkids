@@ -102,11 +102,11 @@ void setup(){
   pinMode(GAME_SEL_PIN, INPUT_PULLUP);
   pinMode(GAME_DEACT_PIN, INPUT_PULLUP);
 
-  pinMode(LED_1_PIN, OUTPUT);
-  pinMode(LED_2_PIN, OUTPUT);
-  pinMode(LED_3_PIN, OUTPUT);
-  pinMode(LED_4_PIN, OUTPUT);
-  pinMode(LED_5_PIN, OUTPUT);
+  pinMode(LED_1_PIN, OUTPUT_12MA);
+  pinMode(LED_2_PIN, OUTPUT_8MA);
+  pinMode(LED_3_PIN, OUTPUT_8MA);
+  pinMode(LED_4_PIN, OUTPUT_8MA);
+  pinMode(LED_5_PIN, OUTPUT_8MA);
 
   //pinMode(BUSY_PIN, INPUT_PULLUP);
 
@@ -158,6 +158,11 @@ void loop1(){
     Serial.println("C1: Sound Starting");
     setVolumeValue();
     loadSound(soundFullFilePath);
+  }
+
+  if (millis() % 9) {
+    setVolumeFromPot();
+    setVolumeValue();
   }
 }
 
