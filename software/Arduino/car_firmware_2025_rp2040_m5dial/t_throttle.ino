@@ -23,7 +23,6 @@ class Throttle {
     int currentPwmOut = 0;
 
     unsigned long lastThrottleUpdateMillis = 0;
-
   public: 
 
     // default constructor that really does nothing
@@ -81,7 +80,6 @@ class Throttle {
      * This is usually not necessary to call as it will get called by setThrottleScaled().  But it is safe to call as necessary.
      */
     void updateThrottle() {
-
       // check to see if it's time yet to actually update.  If not, don't do anything.
       if (millis() - lastThrottleUpdateMillis < THROTTLE_UPDATE_MILLIS) {
         // Note ... abs was used just in case we had a rollover in the millis() timer
@@ -89,10 +87,10 @@ class Throttle {
       }
 
       // Looks like it's time to update the throttle.  Now ... figure out the new current throttle should be.
-      if (lastThrottleUpdateMillis == 0) {
+      if (lastThrottleUpdateMillis == 0 || millis() - lastThrottleUpdateMillis > THROTTLE_UPDATE_MILLIS * 3) {
         // Case 1: just starting up.  Set the throttle to 0, and get set up for further running
+        //         or we have a very large delta - this happens when there is no drive system and the remote is used for the first time
         currentThrottleScaled = 0;
-        
       } else {
         // Case 2: not staring up, so let's do some work
         

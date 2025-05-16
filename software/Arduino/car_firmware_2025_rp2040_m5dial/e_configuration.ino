@@ -27,6 +27,7 @@ class Configuration {
     bool m5DialDetected = false;
     int16_t m5DialVersion = -1;
     bool m5DialConfigurationModeActive = false;
+    uint8_t m5DialConfigModeActiveCount = 0;
     
   public: 
     // Default constructor ... does nothing.  This allows us to delay setting the pins until we want to (via the init method).  
@@ -125,8 +126,17 @@ class Configuration {
       if(Wire.requestFrom(M5DIAL_I2C_ADDRESS, 4))
       {
         tempConfigurationMode = Wire.read(); // Check to make sure the value is exactly one so noisy data has a lower chance of triggering configuration mode
-        m5DialConfigurationModeActive = tempConfigurationMode == 1;
-        
+        if (tempConfigurationMode == 1) {
+          m5DialConfigModeActiveCount++;
+          // We need 5 consecutive configuration mode values of 1 to enter configuration mode
+          // this should eliminate issues with bad data
+          if (m5DialConfigModeActiveCount > 4) {
+            m5DialConfigurationModeActive = true;
+          }
+        } else {
+          m5DialConfigModeActiveCount = 0;
+        }
+                
         uint8_t reg = Wire.read();
 
         if (reg == REGISTER_SPEED_VOLUME) {
