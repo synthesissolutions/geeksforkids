@@ -120,6 +120,8 @@ class Configuration {
     int getRcThrottleCenter() { return eeprom->getIntegerSetting(EEPROM_RC_THROTTLE_CENTER); }
     int getRcThrottleMax() { return eeprom->getIntegerSetting(EEPROM_RC_THROTTLE_MAX); }
 
+    boolean getReverseRcChannels() { return eeprom->getBooleanSetting(EEPROM_REVERSE_RC_CHANNELS); }
+    
     void readSpeedVolume() {
       uint8_t tempConfigurationMode;
       
@@ -378,7 +380,7 @@ class Configuration {
       while(1) {
         if (Serial.available() > 0) {
           entry = Serial.read();
-          if (entry < 'a' || entry > 'w') {
+          if (entry < 'a' || entry > 'x') {
             Serial.print("Invalid Entry: ");
             Serial.println(entry);
           } else {

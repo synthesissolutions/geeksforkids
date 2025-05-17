@@ -1,6 +1,6 @@
 #include <EEPROM.h>
 
-#define NUMBER_OF_CONFIGURATION_ENTRIES 24
+#define NUMBER_OF_CONFIGURATION_ENTRIES 25
 
 #define EEPROM_VERSION              0
 #define EEPROM_ACTUATOR_MIN         1
@@ -26,9 +26,15 @@
 #define EEPROM_EXTEND_THROTTLE          21
 #define EEPROM_EXTEND_THROTTLE_TIME_MS  22
 #define EEPROM_CHILD_THROTTLE_ONLY      23
+#define EEPROM_REVERSE_RC_CHANNELS      24
 
 #define INTEGER_CONFIGURATION 1
 #define BOOLEAN_CONFIGURATION 2
+
+#define RC_DEFAULT_MIN        1125
+#define RC_DEFAULT_MAX        1875
+#define ACTUATOR_DEFAULT_MIN  -30
+#define ACTUATOR_DEFAULT_MAX  30
 
 /**
  * Eeprom Class
@@ -36,7 +42,7 @@
  * This class stores and retrievs settings from Eeprom to define the configuration for this car
  */
 
-const int CURRENT_SETTINGS_VERSION = 5;
+const int CURRENT_SETTINGS_VERSION = 6;
 
 struct ConfigurationEntry {
   String name;
@@ -48,16 +54,16 @@ struct ConfigurationEntry {
 
 ConfigurationEntry configurationEntries[] = {
   {"Version", 0, INTEGER_CONFIGURATION, false, CURRENT_SETTINGS_VERSION},
-  {"Actuator Min", 8, INTEGER_CONFIGURATION, false, -50},  // in scaled units from -100 to 100
+  {"Actuator Min", 8, INTEGER_CONFIGURATION, false, ACTUATOR_DEFAULT_MIN},  // in scaled units from -100 to 100
   {"Actuator Center", 12, INTEGER_CONFIGURATION, false, 0},  // in scaled units from -100 to 100
-  {"Actuator Max", 16, INTEGER_CONFIGURATION, false, 50},   // in scaled units from -100 to 100
+  {"Actuator Max", 16, INTEGER_CONFIGURATION, false, ACTUATOR_DEFAULT_MAX},   // in scaled units from -100 to 100
   {"Use RC", 20, BOOLEAN_CONFIGURATION, true, 0},
-  {"RC Steering Min", 24, INTEGER_CONFIGURATION, false, 1125},  // All RC values are in PWM duty cycle microseconds
+  {"RC Steering Min", 24, INTEGER_CONFIGURATION, false, RC_DEFAULT_MIN},  // All RC values are in PWM duty cycle microseconds
   {"RC Steering Center", 28, INTEGER_CONFIGURATION, false, 1500},
-  {"RC Steering Max", 32, INTEGER_CONFIGURATION, false, 1875},
-  {"RC Throttle Min", 36, INTEGER_CONFIGURATION, false, 1125},
+  {"RC Steering Max", 32, INTEGER_CONFIGURATION, false, RC_DEFAULT_MAX},
+  {"RC Throttle Min", 36, INTEGER_CONFIGURATION, false, RC_DEFAULT_MIN},
   {"RC Throttle Center", 40, INTEGER_CONFIGURATION, false, 1500},
-  {"RC Throttle Max", 44, INTEGER_CONFIGURATION, false, 1875},
+  {"RC Throttle Max", 44, INTEGER_CONFIGURATION, false, RC_DEFAULT_MAX},
   {"Use PWM Joystick X", 48, BOOLEAN_CONFIGURATION, true, 0},
   {"Use PWM Joystick Y", 52, BOOLEAN_CONFIGURATION, true, 0},
   {"Invert Joystick X", 56, BOOLEAN_CONFIGURATION, true, 0},
@@ -70,7 +76,8 @@ ConfigurationEntry configurationEntries[] = {
   {"Joystick Throttle Max", 84, INTEGER_CONFIGURATION, false, 800},
   {"Extend Throttle", 88, BOOLEAN_CONFIGURATION, false, 0},
   {"Extend Throttle Milliseconds", 92, INTEGER_CONFIGURATION, false, 500},
-  {"Child Throttle Only", 96, BOOLEAN_CONFIGURATION, false, 0}
+  {"Child Throttle Only", 96, BOOLEAN_CONFIGURATION, false, 0},
+  {"Reverse RC Channels", 100, BOOLEAN_CONFIGURATION, false, 0}
 };
     
 class Eeprom {
@@ -94,6 +101,22 @@ class Eeprom {
         
         setBooleanSetting(EEPROM_CHILD_THROTTLE_ONLY, false);
         setIntegerSetting(EEPROM_VERSION, CURRENT_SETTINGS_VERSION);
+
+        saveConfiguration();
+      } else if ((savedVersion == 4 || savedVersion == 5) && CURRENT_SETTINGS_VERSION == 6) {
+        loadConfigurationSettings();
+
+        if (savedVersion == 4) {
+          setBooleanSetting(EEPROM_CHILD_THROTTLE_ONLY, false);
+        }
+        setIntegerSetting(EEPROM_VERSION, CURRENT_SETTINGS_VERSION);
+        setIntegerSetting(EEPROM_RC_STEERING_MIN, RC_DEFAULT_MIN);
+        setIntegerSetting(EEPROM_RC_STEERING_MAX, RC_DEFAULT_MAX);
+        setIntegerSetting(EEPROM_RC_THROTTLE_MIN, RC_DEFAULT_MIN);
+        setIntegerSetting(EEPROM_RC_THROTTLE_MAX, RC_DEFAULT_MAX);
+        setIntegerSetting(EEPROM_ACTUATOR_MIN, ACTUATOR_DEFAULT_MIN);
+        setIntegerSetting(EEPROM_ACTUATOR_MAX, ACTUATOR_DEFAULT_MAX);
+        setBooleanSetting(EEPROM_REVERSE_RC_CHANNELS, false);
 
         saveConfiguration();
       } else {

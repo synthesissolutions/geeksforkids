@@ -75,7 +75,11 @@ void setup() {
   logger.addLogLine("joystick initialized");
 
   if (configuration.useRc()) {
-    remoteControl.init(PIN_RC_STEERING, PIN_RC_THROTTLE, configuration.getChildThrottleOnly());
+    if (configuration.getReverseRcChannels()) {
+      remoteControl.init(PIN_RC_THROTTLE, PIN_RC_STEERING, configuration.getChildThrottleOnly());
+    } else {
+      remoteControl.init(PIN_RC_STEERING, PIN_RC_THROTTLE, configuration.getChildThrottleOnly());
+    }
     logger.addLogLine("remote control initialized");
   }
 
@@ -115,8 +119,13 @@ void setup() {
   
   // set up the interrupt handlers
   if (configuration.useRc()) {
-    attachInterrupt(digitalPinToInterrupt(PIN_RC_STEERING), &handleRCSteeringInterrupt, CHANGE);
-    attachInterrupt(digitalPinToInterrupt(PIN_RC_THROTTLE), &handleRCThrottleInterrupt, CHANGE);    
+    if (configuration.getReverseRcChannels()) {
+      attachInterrupt(digitalPinToInterrupt(PIN_RC_THROTTLE), &handleRCSteeringInterrupt, CHANGE);
+      attachInterrupt(digitalPinToInterrupt(PIN_RC_STEERING), &handleRCThrottleInterrupt, CHANGE);
+    } else {
+      attachInterrupt(digitalPinToInterrupt(PIN_RC_STEERING), &handleRCSteeringInterrupt, CHANGE);
+      attachInterrupt(digitalPinToInterrupt(PIN_RC_THROTTLE), &handleRCThrottleInterrupt, CHANGE);
+    }
   }
 
   if (configuration.usePwmJoystickX()) {
