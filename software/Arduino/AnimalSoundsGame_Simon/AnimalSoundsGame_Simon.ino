@@ -185,12 +185,15 @@ void setGameSelection(){
 bool checkIfGameChanged(){
   byte currentGame = selectedGame;
   
-  checkTimeout();
-  
   if (digitalRead(GAME_SEL_PIN)){
     selectedGame = 0;
   }else{
     selectedGame = 1;
+  }
+
+  if (hasTimeoutOccured()){
+    deactivateGame();
+    selectedGame = 2;
   }
   
   if (currentGame != selectedGame){
@@ -388,19 +391,22 @@ void get_sequence() {
 
   for (int i = 0; i < level; i++) {
     flag = 0;
-    skip = checkIfGameChanged();
     if(skip){
       break;
+    }else{
+      skip = checkIfGameChanged();
     }
     while (flag == 0) {
-      skip = checkIfGameChanged();
       if(skip){
         break;
+      }else{
+        skip = checkIfGameChanged();
       }
       for (int j = 0; j < BUTTON_COUNT; j++){
-        skip = checkIfGameChanged();
         if(skip){
           break;
+        }else{
+          skip = checkIfGameChanged();
         }
         setVolumeFromPot();
         if (digitalRead(buttonPins[j])==LOW){
@@ -781,10 +787,12 @@ void printFolderCounts(){
   }
 }
 
-void checkTimeout(){
+bool hasTimeoutOccured(){
   unsigned long currentMillisTimeout = millis();
   if (currentMillisTimeout - previousMillisTimeout >= timeoutDuration){
-    deactivateGame();
+    return true;
+  }else{
+    return false;
   }
 }
 
