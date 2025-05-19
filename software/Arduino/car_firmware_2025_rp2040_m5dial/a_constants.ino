@@ -14,7 +14,7 @@
  ***************************************************************************************** 
  */
 
-#define             RELEASE_VERSION         "c25.03.1"
+#define             RELEASE_VERSION         "c25.05.2"
 
 const int           LOGGER_UPDATE_TIME      = 100;     // How long between updates to the monitor, in milliseconds
 const unsigned int  SERIAL_BAUD_RATE        = 57600;     // Baud rate for the serial monitor.  Make sure you set this correctly!
@@ -78,7 +78,7 @@ const int           THROTTLE_RC_MIN         = 1200;
 const int           THROTTLE_RC_CENTER      = 1500;
 const int           THROTTLE_RC_MAX         = 2000;
 const int           RC_LIMIT                = 2500;
-
+ 
 // Remote control parm ... tuning
 const int           RC_OVERRIDE_TIMEOUT     = 3000;     // The time required for the parent RC input to be at idle before returning control back to the kid, in millis
 const int           RC_STEERING_DEADZONE_LOW = -10;     // scaled units

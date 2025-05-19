@@ -75,7 +75,11 @@ void setup() {
   logger.addLogLine("joystick initialized");
 
   if (configuration.useRc()) {
-    remoteControl.init(PIN_RC_STEERING, PIN_RC_THROTTLE, configuration.getChildThrottleOnly());
+    if (configuration.getReverseRcChannels()) {
+      remoteControl.init(PIN_RC_THROTTLE, PIN_RC_STEERING, configuration.getChildThrottleOnly());
+    } else {
+      remoteControl.init(PIN_RC_STEERING, PIN_RC_THROTTLE, configuration.getChildThrottleOnly());
+    }
     logger.addLogLine("remote control initialized");
   }
 
@@ -115,8 +119,13 @@ void setup() {
   
   // set up the interrupt handlers
   if (configuration.useRc()) {
-    attachInterrupt(digitalPinToInterrupt(PIN_RC_STEERING), &handleRCSteeringInterrupt, CHANGE);
-    attachInterrupt(digitalPinToInterrupt(PIN_RC_THROTTLE), &handleRCThrottleInterrupt, CHANGE);    
+    if (configuration.getReverseRcChannels()) {
+      attachInterrupt(digitalPinToInterrupt(PIN_RC_THROTTLE), &handleRCSteeringInterrupt, CHANGE);
+      attachInterrupt(digitalPinToInterrupt(PIN_RC_STEERING), &handleRCThrottleInterrupt, CHANGE);
+    } else {
+      attachInterrupt(digitalPinToInterrupt(PIN_RC_STEERING), &handleRCSteeringInterrupt, CHANGE);
+      attachInterrupt(digitalPinToInterrupt(PIN_RC_THROTTLE), &handleRCThrottleInterrupt, CHANGE);
+    }
   }
 
   if (configuration.usePwmJoystickX()) {
@@ -143,7 +152,7 @@ void loop() {
   if (!isConfiguring && !isLogging && Serial) {
     // We have detected a Serial connection, check to see if we want logging or configuration
     Serial.println("Press c to configure or any other key to run with logging");
-    throttle.setThrottle(0);
+    throttle.forceStop();
     steering.forceStop();
 
     while (!isConfiguring && !isLogging) {
@@ -166,7 +175,7 @@ void loop() {
   
   if (isConfiguring) {
     // When configuration is active, the car cannot be driven.
-    throttle.setThrottle(0);
+    throttle.forceStop();
     steering.forceStop();
 
     configuration.configureCar();
@@ -174,7 +183,7 @@ void loop() {
     // The microcontroller will have to be reset for the car to begin running normally again
   } else if (configuration.getIsM5DialConfigurationMode()) {
     // When M5 Dial Configuration is active, the car cannot be driven.
-    throttle.setThrottle(0);
+    throttle.forceStop();
     steering.forceStop();
 
     m5DialConfiguration.m5DialConfigureCar();
@@ -188,7 +197,7 @@ void loop() {
     // To prevent this from happening, we disable the car if this is detected.
     // A full power cycle is required to break out of this condition.
     logger.addLogLine("Bad Start");
-    throttle.setThrottle(0);
+    throttle.forceStop();
     steering.forceStop();
   } else {
     // recalculate the scaled RC throttle and steering values
@@ -218,7 +227,7 @@ void loop() {
     } else if (!digitalRead(PIN_ACTIVE_SWITCH)) {
       // The Active Switch must be pulled high by the connected control system. Otherwise, we stop the car.
       logger.addLogLine("No control system connected. Force car to stop.");
-      throttle.setThrottle(0);
+      throttle.forceStop();
       steering.forceStop();
   
       // Take a few more steps so the logging can still be used without a control system attached

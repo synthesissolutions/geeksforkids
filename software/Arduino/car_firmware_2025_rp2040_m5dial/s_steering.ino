@@ -88,7 +88,7 @@ class Steering {
       return steeringTargetScaled;
     }
 
-    // Used during a bad start scenario or when the bluetooth button is pressed
+    // Used during a bad start scenario or when the car is being configured
     void forceStop() {
         digitalWrite(directionPin, HIGH);
         analogWrite(speedPwmPin, 0); 

@@ -27,6 +27,7 @@ class Configuration {
     bool m5DialDetected = false;
     int16_t m5DialVersion = -1;
     bool m5DialConfigurationModeActive = false;
+    uint8_t m5DialConfigModeActiveCount = 0;
     
   public: 
     // Default constructor ... does nothing.  This allows us to delay setting the pins until we want to (via the init method).  
@@ -119,19 +120,30 @@ class Configuration {
     int getRcThrottleCenter() { return eeprom->getIntegerSetting(EEPROM_RC_THROTTLE_CENTER); }
     int getRcThrottleMax() { return eeprom->getIntegerSetting(EEPROM_RC_THROTTLE_MAX); }
 
+    boolean getReverseRcChannels() { return eeprom->getBooleanSetting(EEPROM_REVERSE_RC_CHANNELS); }
+    
     void readSpeedVolume() {
+      uint8_t tempConfigurationMode;
+      
       if(Wire.requestFrom(M5DIAL_I2C_ADDRESS, 4))
       {
-        m5DialConfigurationModeActive = Wire.read();
+        tempConfigurationMode = Wire.read(); // Check to make sure the value is exactly one so noisy data has a lower chance of triggering configuration mode
+        if (tempConfigurationMode == 1) {
+          m5DialConfigModeActiveCount++;
+          // We need 5 consecutive configuration mode values of 1 to enter configuration mode
+          // this should eliminate issues with bad data
+          if (m5DialConfigModeActiveCount > 4) {
+            m5DialConfigurationModeActive = true;
+          }
+        } else {
+          m5DialConfigModeActiveCount = 0;
+        }
+                
         uint8_t reg = Wire.read();
 
         if (reg == REGISTER_SPEED_VOLUME) {
           speed = Wire.read();
           volume = Wire.read();
-        }
-
-        if (m5DialConfigurationModeActive) {
-          m5DialVersion++;
         }
       }
       else
@@ -240,87 +252,7 @@ class Configuration {
       }
 
     }
-/*
-    void m5DialConfigureCar() {
-      // Send all configuration data to the M5Dial
-      // Skip the Version configuration setting
-      for (int i = 1; i < NUMBER_OF_CONFIGURATION_ENTRIES; i++) {
-        Wire.beginTransmission(M5DIAL_I2C_ADDRESS);
- 
-        Wire.write(1); // Set to write mode
-        Wire.write(i); // The Register
 
-        if (configurationEntries[i].dataType == BOOLEAN_CONFIGURATION) {
-          Wire.write(configurationEntries[i].booleanValue);
-        } else {
-          uint8_t* p = (uint8_t*) &configurationEntries[i].intValue;
-          Wire.write(p[0]);
-          Wire.write(p[1]);
-        }
- 
-        Wire.endTransmission();
-
-        delay(10);
-      }
-
-      // Read the config value from the M5Dial
-      // Check to see if the value has changed and if so, save it to EEPROM
-      while (1) {
-        if(Wire.requestFrom(M5DIAL_I2C_ADDRESS, 4))
-        {
-          uint8_t configMode = Wire.read();
-          uint8_t reg = Wire.read();
-          uint8_t firstByte = Wire.read();
-          uint8_t secondByte = Wire.read();
-
-          // If the M5Dial isn't in config mode, then just continue
-          // This should never happen
-          if (!configMode) {
-            Serial.println("not in config mode");
-            delay(100);
-            continue;
-          }
-
-          // Can't set Version which is the first register
-          if (reg > EEPROM_VERSION && reg < NUMBER_OF_CONFIGURATION_ENTRIES) {
-            if (configurationEntries[reg].dataType == BOOLEAN_CONFIGURATION) {
-              if (configurationEntries[reg].booleanValue != firstByte) {
-                Serial.print("write boolean reg: ");
-                Serial.print(reg);
-                Serial.print(" new value: ");
-                Serial.println(firstByte);
-                
-                configurationEntries[reg].booleanValue = firstByte;
-                eeprom->saveBooleanValue(reg, configurationEntries[reg].booleanValue);
-              }
-            } else {
-
-              int16_t newValue = 0;
-              uint8_t* p = (uint8_t*) &newValue;
-              p[0] = firstByte;
-              p[1] = secondByte;
-
-              if (configurationEntries[reg].intValue != newValue) {
-                Serial.print("write integer reg: ");
-                Serial.print(reg);
-                Serial.print(" new value: ");
-                Serial.println(newValue);
-                configurationEntries[reg].intValue = newValue;
-                eeprom->saveIntegerValue(reg, configurationEntries[reg].intValue);
-              }
-            }
-          } else {
-            Serial.println("invalid register");
-          }
-        } else {
-          Serial.println("I2C read failed");
-        }
-                
-        delay(50);
-      }
-    }
-    */
-    
     void configureCar() {
       int selection;
       int indexToEdit;
@@ -417,6 +349,9 @@ class Configuration {
       
       Serial.print("Configuration Version: ");
       Serial.println(eeprom->getSavedConfigurationVersion());
+
+      Serial.print("Car Code Version: ");
+      Serial.println(RELEASE_VERSION);
       
       for (int i = 1; i < NUMBER_OF_CONFIGURATION_ENTRIES; i++) {
         option = 'a' + i - 1;
@@ -445,7 +380,7 @@ class Configuration {
       while(1) {
         if (Serial.available() > 0) {
           entry = Serial.read();
-          if (entry < 'a' || entry > 'w') {
+          if (entry < 'a' || entry > 'x') {
             Serial.print("Invalid Entry: ");
             Serial.println(entry);
           } else {
