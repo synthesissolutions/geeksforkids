@@ -1,3 +1,8 @@
+//Using KB240 
+//Flash Size 8MB (Sketch: 3MB, FS: 5MB)
+
+//Simon Game was modified from https://projecthub.arduino.cc/Arduino_Scuola/a-simple-simon-says-game-6f7fef
+
 #include "Arduino.h"
 
 #include <BackgroundAudio.h>
@@ -153,7 +158,7 @@ void loop1(){
 
   if (soundRequest){
     soundRequest = false;
-    Serial.println("C1: Sound Starting");
+    //Serial.println("C1: Sound Starting");
     setVolumeValue();
     loadSound(soundFullFilePath);
   }
@@ -465,7 +470,7 @@ void right_sequence() {
     level++;
   }
   
-  velocity -= 10; //increase difficulty
+  velocity = -173*pow((level-1),0.333)+1000; //increase difficulty, ramps down to 200ms from 1000ms
   updateTimeout();
 }
 
@@ -503,12 +508,8 @@ void playFolderSound(int folderNumber, int fileNumber){
     }
     if (f.isFile()) {
       if (strncmp(filePart, f.name(), 3) == 0) { //Check to see if the first 3 characters match
-        Serial.print(" --Pass ");
-        Serial.println(f.fullName());
         strcpy(fullFilePath, f.fullName());
         break;
-      } else {
-        Serial.println(" --Fail");
       }
     }
     f.close();
@@ -516,9 +517,6 @@ void playFolderSound(int folderNumber, int fileNumber){
   
   if (fullFilePath != ""){
     strcpy(soundFullFilePath, fullFilePath);
-  
-    Serial.print("C0: Requesting File: ");
-    Serial.println(soundFullFilePath); 
 
     //Setting soundRequest to true to let second core know we are ready to play a sound.
     soundRequest = true;
@@ -648,7 +646,6 @@ void pong(int count, int delayMs){
 
 void playRandomSparkleSound(){
   long randomSoundNumber = random(1, getFolderCount(SPARKLE_SOUNDS_FOLDER) + 1);
-  //myDFPlayer.playFolder(SPARKLE_SOUNDS_FOLDER, randomSoundNumber);
   playFolderSound(SPARKLE_SOUNDS_FOLDER, randomSoundNumber);
 }
 
@@ -662,7 +659,6 @@ void playWrongAnswerSound(){
   
   lastTryAgainSound = randomSoundNumber;
   
-  //myDFPlayer.playFolder(TRY_AGAIN_SOUNDS_FOLDER, randomSoundNumber);
   playFolderSound(TRY_AGAIN_SOUNDS_FOLDER,randomSoundNumber);
 }
 
@@ -676,7 +672,6 @@ void playRightAnswerSound(){
 
   lastGoodJobSound = randomSoundNumber;
   
-  //myDFPlayer.playFolder(GOOD_JOB_SOUNDS_FOLDER, randomSoundNumber);
   playFolderSound(GOOD_JOB_SOUNDS_FOLDER, randomSoundNumber);
 }
 
