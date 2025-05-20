@@ -153,8 +153,6 @@ void loop1(){
 
   if (soundRequest){
     soundRequest = false;
-    //source.setPath(soundPath);
-    //source.setFileFilter(soundFilter);
     Serial.println("C1: Sound Starting");
     setVolumeValue();
     loadSound(soundFullFilePath);
