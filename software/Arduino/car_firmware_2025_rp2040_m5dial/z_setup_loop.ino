@@ -55,8 +55,12 @@ void setup() {
   // Low will trigger the related sound
   pinMode(PIN_SOUND_4, OUTPUT);
   pinMode(PIN_SOUND_5, OUTPUT);
+  pinMode(PIN_SOUND_6, OUTPUT);
+  pinMode(PIN_SOUND_7, OUTPUT);
   digitalWrite(PIN_SOUND_4, HIGH);
   digitalWrite(PIN_SOUND_5, HIGH);
+  digitalWrite(PIN_SOUND_6, HIGH);
+  digitalWrite(PIN_SOUND_7, HIGH);
 
   // Control Connected setup
   // Each control system (joystick, control panel, etc.) must take this pin high to show they are connected

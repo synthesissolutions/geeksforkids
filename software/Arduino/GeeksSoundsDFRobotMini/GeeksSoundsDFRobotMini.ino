@@ -6,14 +6,14 @@
 DFRobotDFPlayerMini myDFPlayer;
 
 //Input Pins 
-const byte noPins = 4;  //Number of pins we are using used for looping through inPins[].
-const byte inPins[] = {3,11,1,2}; // {PA7,PC1,PA5,PA6} physical {5,13,6,7}
+const byte noPins = 8;  //Number of pins we are using used for looping through inPins[].
+const byte inPins[] = {3,11,1,2,4,10,14,0}; // {PA7,PC1,PA5,PA6,PB5,PC0,PA1,PA4} physical {8,16,6,7,9,15,20,5}
 const byte busyPin = 5;  //PB4 physical 10
 
 //Input Tracking
-byte p[] = {1,1,1,1};
-byte pOld[] = {1,1,1,1};
-byte folderSounds[] = {0,0,0,0};
+byte p[] = {1,1,1,1,1,1,1,1};
+byte pOld[] = {1,1,1,1,1,1,1,1};
+byte folderSounds[] = {0,0,0,0,0,0,0,0};
 byte isBusy = 1;
 int volume = 35;
 

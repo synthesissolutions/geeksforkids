@@ -200,6 +200,17 @@ class Joystick {
         val = 0;
       }
 
+      if (val < 0) {
+        digitalWrite(PIN_SOUND_4, LOW); // Play Left Sound
+        digitalWrite(PIN_SOUND_5, HIGH); // Make sure Right sound is off
+      } else if (val > 0) {
+        digitalWrite(PIN_SOUND_5, LOW); // Play Right Sound
+        digitalWrite(PIN_SOUND_4, HIGH); // Make sure Left sound is off
+      } else {
+        digitalWrite(PIN_SOUND_4, HIGH); // Turn off both sounds
+        digitalWrite(PIN_SOUND_5, HIGH);
+      }
+      
       return val;
     }
 
@@ -234,6 +245,21 @@ class Joystick {
       // apply the deadzone
       if (JOYSTICK_Y_AXIS_DEADZONE_LOW < val && val < JOYSTICK_Y_AXIS_DEADZONE_HIGH) {
         val = 0;
+      }
+
+      // Only play straight and back sounds if we are NOT turning left or right
+      int xAxisVal = getXAxisScaled();
+      if (xAxisVal == 0) {
+        if (val < -75) {
+          digitalWrite(PIN_SOUND_6, LOW); // Play Straight Sound
+          digitalWrite(PIN_SOUND_7, HIGH); // Make sure Back sound is off
+        } else if (val > 75) {
+          digitalWrite(PIN_SOUND_7, LOW); // Play Back Sound
+          digitalWrite(PIN_SOUND_6, HIGH); // Make sure Straight sound is off
+        } else {
+          digitalWrite(PIN_SOUND_6, HIGH); // Turn off both sounds
+          digitalWrite(PIN_SOUND_7, HIGH);
+        }        
       }
       
       return val;

@@ -14,7 +14,7 @@
  ***************************************************************************************** 
  */
 
-#define             RELEASE_VERSION         "c25.05.3"
+#define             RELEASE_VERSION         "c25.05.3 Gaige"
 
 const int           LOGGER_UPDATE_TIME      = 100;     // How long between updates to the monitor, in milliseconds
 const unsigned int  SERIAL_BAUD_RATE        = 57600;     // Baud rate for the serial monitor.  Make sure you set this correctly!
@@ -119,6 +119,8 @@ const int           PIN_STEERING_POSITION         = A2;
 // sound
 #define             PIN_SOUND_4                    8
 #define             PIN_SOUND_5                    9
+#define             PIN_SOUND_6                    12
+#define             PIN_SOUND_7                    10
 
 // Reverse Switch
 #define             PIN_REVERSE_SWITCH             18
