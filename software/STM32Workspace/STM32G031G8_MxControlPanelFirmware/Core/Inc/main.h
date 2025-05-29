@@ -55,6 +55,9 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
+void LedLightChase(int);
+void LedBlink(int);
+void SetAllLeds(GPIO_PinState);
 
 /* USER CODE END EFP */
 
@@ -63,18 +66,26 @@ void Error_Handler(void);
 #define ACTIVE_SIGNAL_GPIO_Port GPIOA
 #define RIGHT_LED_Pin GPIO_PIN_7
 #define RIGHT_LED_GPIO_Port GPIOA
+#define SOUND_B_LED_Pin GPIO_PIN_1
+#define SOUND_B_LED_GPIO_Port GPIOB
 #define REVERSE_LED_Pin GPIO_PIN_8
 #define REVERSE_LED_GPIO_Port GPIOA
 #define DRIVE_LED_Pin GPIO_PIN_6
 #define DRIVE_LED_GPIO_Port GPIOC
+#define SOUND_A_LED_Pin GPIO_PIN_11
+#define SOUND_A_LED_GPIO_Port GPIOA
 #define LEFT_LED_Pin GPIO_PIN_12
 #define LEFT_LED_GPIO_Port GPIOA
 #define LEFT_BUTTON_Pin GPIO_PIN_15
 #define LEFT_BUTTON_GPIO_Port GPIOA
+#define SOUND_A_BUTTON_Pin GPIO_PIN_3
+#define SOUND_A_BUTTON_GPIO_Port GPIOB
 #define REVERSE_BUTTON_Pin GPIO_PIN_5
 #define REVERSE_BUTTON_GPIO_Port GPIOB
 #define DRIVE_BUTTON_Pin GPIO_PIN_6
 #define DRIVE_BUTTON_GPIO_Port GPIOB
+#define SOUND_B_BUTTON_Pin GPIO_PIN_7
+#define SOUND_B_BUTTON_GPIO_Port GPIOB
 #define RIGHT_BUTTON_Pin GPIO_PIN_8
 #define RIGHT_BUTTON_GPIO_Port GPIOB
 

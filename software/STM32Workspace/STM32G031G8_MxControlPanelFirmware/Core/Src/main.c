@@ -105,6 +105,18 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
+  // Animate Button LEDs in a loop twice
+  LedLightChase(125);
+  LedLightChase(125);
+
+  // Blink all Button LEDs twice
+  LedBlink(125);
+  LedBlink(125);
+
+  // Turn on all Button LEDs
+  SetAllLeds(GPIO_PIN_SET);
+
   while (1)
   {
 	  // All Buttons are connected to GND so their logic is inverted
@@ -126,12 +138,14 @@ int main(void)
 	  }
 
 	  if (!HAL_GPIO_ReadPin(REVERSE_BUTTON_GPIO_Port, REVERSE_BUTTON_Pin)) {
+		  HAL_GPIO_WritePin(REVERSE_LED_GPIO_Port, REVERSE_LED_Pin, GPIO_PIN_SET);
 		  if (throttleOn) {
 			  pwmThrottle = THROTTLE_REVERSE;
 		  } else {
 			  pwmThrottle = THROTTLE_OFF;
 		  }
 	  } else {
+		  HAL_GPIO_WritePin(REVERSE_LED_GPIO_Port, REVERSE_LED_Pin, GPIO_PIN_RESET);
 		  if (throttleOn) {
 			  pwmThrottle = THROTTLE_FORWARD;
 		  } else {
@@ -141,6 +155,7 @@ int main(void)
 
 	  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_3, pwmSteering);
 	  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, pwmThrottle);
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -258,21 +273,41 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, ACTIVE_SIGNAL_Pin|RIGHT_LED_Pin|REVERSE_LED_Pin|LEFT_LED_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(ACTIVE_SIGNAL_GPIO_Port, ACTIVE_SIGNAL_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(DRIVE_LED_GPIO_Port, DRIVE_LED_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOA, RIGHT_LED_Pin|REVERSE_LED_Pin|SOUND_A_LED_Pin|LEFT_LED_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : ACTIVE_SIGNAL_Pin RIGHT_LED_Pin REVERSE_LED_Pin LEFT_LED_Pin */
-  GPIO_InitStruct.Pin = ACTIVE_SIGNAL_Pin|RIGHT_LED_Pin|REVERSE_LED_Pin|LEFT_LED_Pin;
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(SOUND_B_LED_GPIO_Port, SOUND_B_LED_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(DRIVE_LED_GPIO_Port, DRIVE_LED_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : ACTIVE_SIGNAL_Pin */
+  GPIO_InitStruct.Pin = ACTIVE_SIGNAL_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(ACTIVE_SIGNAL_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : RIGHT_LED_Pin REVERSE_LED_Pin SOUND_A_LED_Pin LEFT_LED_Pin */
+  GPIO_InitStruct.Pin = RIGHT_LED_Pin|REVERSE_LED_Pin|SOUND_A_LED_Pin|LEFT_LED_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : SOUND_B_LED_Pin */
+  GPIO_InitStruct.Pin = SOUND_B_LED_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(SOUND_B_LED_GPIO_Port, &GPIO_InitStruct);
+
   /*Configure GPIO pin : DRIVE_LED_Pin */
   GPIO_InitStruct.Pin = DRIVE_LED_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(DRIVE_LED_GPIO_Port, &GPIO_InitStruct);
@@ -280,13 +315,15 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin : LEFT_BUTTON_Pin */
   GPIO_InitStruct.Pin = LEFT_BUTTON_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(LEFT_BUTTON_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : REVERSE_BUTTON_Pin DRIVE_BUTTON_Pin RIGHT_BUTTON_Pin */
-  GPIO_InitStruct.Pin = REVERSE_BUTTON_Pin|DRIVE_BUTTON_Pin|RIGHT_BUTTON_Pin;
+  /*Configure GPIO pins : SOUND_A_BUTTON_Pin REVERSE_BUTTON_Pin DRIVE_BUTTON_Pin SOUND_B_BUTTON_Pin
+                           RIGHT_BUTTON_Pin */
+  GPIO_InitStruct.Pin = SOUND_A_BUTTON_Pin|REVERSE_BUTTON_Pin|DRIVE_BUTTON_Pin|SOUND_B_BUTTON_Pin
+                          |RIGHT_BUTTON_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
@@ -295,6 +332,49 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void LedLightChase(int delay)
+{
+	HAL_GPIO_WritePin(LEFT_LED_GPIO_Port, LEFT_LED_Pin, GPIO_PIN_SET);
+	HAL_Delay(delay);
+	HAL_GPIO_WritePin(LEFT_LED_GPIO_Port, LEFT_LED_Pin, GPIO_PIN_RESET);
+	HAL_Delay(delay);
+	HAL_GPIO_WritePin(DRIVE_LED_GPIO_Port, DRIVE_LED_Pin, GPIO_PIN_SET);
+	HAL_Delay(delay);
+	HAL_GPIO_WritePin(DRIVE_LED_GPIO_Port, DRIVE_LED_Pin, GPIO_PIN_RESET);
+	HAL_Delay(delay);
+	HAL_GPIO_WritePin(RIGHT_LED_GPIO_Port, RIGHT_LED_Pin, GPIO_PIN_SET);
+	HAL_Delay(delay);
+	HAL_GPIO_WritePin(RIGHT_LED_GPIO_Port, RIGHT_LED_Pin, GPIO_PIN_RESET);
+	HAL_Delay(delay);
+	HAL_GPIO_WritePin(SOUND_A_LED_GPIO_Port, SOUND_A_LED_Pin, GPIO_PIN_SET);
+	HAL_Delay(delay);
+	HAL_GPIO_WritePin(SOUND_A_LED_GPIO_Port, SOUND_A_LED_Pin, GPIO_PIN_RESET);
+	HAL_Delay(delay);
+	HAL_GPIO_WritePin(SOUND_B_LED_GPIO_Port, SOUND_B_LED_Pin, GPIO_PIN_SET);
+	HAL_Delay(delay);
+	HAL_GPIO_WritePin(SOUND_B_LED_GPIO_Port, SOUND_B_LED_Pin, GPIO_PIN_RESET);
+	HAL_Delay(delay);
+}
+
+void LedBlink(int delay)
+{
+	SetAllLeds(GPIO_PIN_SET);
+
+	HAL_Delay(delay);
+
+	SetAllLeds(GPIO_PIN_RESET);
+
+	HAL_Delay(delay);
+}
+
+void SetAllLeds(GPIO_PinState state)
+{
+	HAL_GPIO_WritePin(LEFT_LED_GPIO_Port, LEFT_LED_Pin, state);
+	HAL_GPIO_WritePin(DRIVE_LED_GPIO_Port, DRIVE_LED_Pin, state);
+	HAL_GPIO_WritePin(RIGHT_LED_GPIO_Port, RIGHT_LED_Pin, state);
+	HAL_GPIO_WritePin(SOUND_A_LED_GPIO_Port, SOUND_A_LED_Pin, state);
+	HAL_GPIO_WritePin(SOUND_B_LED_GPIO_Port, SOUND_B_LED_Pin, state);
+}
 
 /* USER CODE END 4 */
 
