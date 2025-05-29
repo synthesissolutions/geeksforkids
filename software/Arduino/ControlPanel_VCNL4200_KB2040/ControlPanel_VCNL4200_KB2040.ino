@@ -27,6 +27,8 @@
 #define ACTIVE_SIGNAL_PIN   9
 #define REVERSE_SIGNAL_PIN  2
 #define DISTANCE_POTENTIOMETER_PIN  A2
+#define SOUND1_PIN    10
+#define SOUND2_PIN    19
 
 VCNL4200Class sensorLeft(Wire);
 VCNL4200Class sensorCenter(Wire);
@@ -63,13 +65,21 @@ void setup()
 
   pinMode(ACTIVE_SIGNAL_PIN, OUTPUT);
   pinMode(REVERSE_SIGNAL_PIN, INPUT_PULLUP);
+  pinMode(SOUND1_PIN, OUTPUT);
+  pinMode(SOUND2_PIN, OUTPUT);
+
+  digitalWrite(SOUND1_PIN, true);
+  digitalWrite(SOUND2_PIN, true);
   
   // Using this PIN to light the Reverse Switch LED
   pinMode(DISTANCE_POTENTIOMETER_PIN, OUTPUT);
   
   steeringPwmConfig = new RP2040_PWM(STEERING_OUT_PIN, PWM_FREQUENCY, STEERING_STRAIGHT);
-  throttlePwmConfig = new RP2040_PWM(THROTTLE_OUT_PIN, PWM_FREQUENCY, THROTTLE_FORWARD);
+  throttlePwmConfig = new RP2040_PWM(THROTTLE_OUT_PIN, PWM_FREQUENCY, THROTTLE_OFF);
 
+  steeringPwmConfig->setPWM(STEERING_OUT_PIN, PWM_FREQUENCY, STEERING_STRAIGHT);
+  throttlePwmConfig->setPWM(THROTTLE_OUT_PIN, PWM_FREQUENCY, THROTTLE_OFF);
+  
   Wire.begin();
 
   pcaSelect(PCA_LEFT);
