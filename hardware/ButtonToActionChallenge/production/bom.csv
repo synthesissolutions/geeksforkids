@@ -1,0 +1,5 @@
+﻿Designator,Footprint,Quantity,Value,LCSC Part #
+J1,JST_PH_B4B-PH-K_1x04_P2.00mm_Vertical,1,ActionOutput,
+J2,JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical,1,Button Wires,
+J3,JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical,1,ActionOutput,
+J4,JST_PH_B4B-PH-K_1x04_P2.00mm_Vertical,1,ActionTrigger,
