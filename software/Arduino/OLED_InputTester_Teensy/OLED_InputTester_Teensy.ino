@@ -23,7 +23,7 @@ int steering = 0;
 int rcThrottle = 0;
 int rcSteering = 0;
 
-bool isAnalog = true;
+bool isAnalog = false;
 bool showRc = false;
 
 int joystickSteeringPwm = 0;
@@ -79,7 +79,7 @@ void setup() {
   
   display.display();
 
-  delay(3000);
+  delay(1500);
 
   display.clearDisplay();
     
