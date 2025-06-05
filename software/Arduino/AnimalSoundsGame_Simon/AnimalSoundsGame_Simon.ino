@@ -18,6 +18,9 @@ File fsound;
 // Read buffer that's better off not in the stack due to its size
 uint8_t filebuff[512];
 
+//Simplify startup animation and winning animation. Turn off Simon Game. 0=OFF 1=ON 
+#define MINIMIZE_FLASHING 0
+
 #define BUTTON_COUNT  5
 #define SOUND_FOLDER_COUNT  6
 
@@ -194,6 +197,10 @@ bool checkIfGameChanged(){
     selectedGame = 1;
   }
 
+  if (MINIMIZE_FLASHING == 1){
+    selectedGame = 0;
+  }
+
   if (hasTimeoutOccured()){
     deactivateGame();
     selectedGame = 2;
@@ -289,14 +296,25 @@ void AnimalSoundsGame(){
       setVolumeFromPot();
       lightButton(currentButton, true);
       delay(100);
-      lightButton(currentButton, false);
+      if(MINIMIZE_FLASHING == 0){
+        lightButton(currentButton, false);
+      }
       delay(100);
     }
     for (int i = 0; i < 5; i++) {
+        lightButton(currentButton, true);
+        delay(100);
+      if(MINIMIZE_FLASHING == 0){
+        lightButton(currentButton, false);
+        delay(100);
+      }else{
+        delay(200);
+      }
+    }
+    if(MINIMIZE_FLASHING == 1){
       lightButton(currentButton, true);
-      delay(100);
+      delay(400);
       lightButton(currentButton, false);
-      delay(100);
     }
   }else{
     // The Game is Afoot!
@@ -307,18 +325,25 @@ void AnimalSoundsGame(){
       lightButton(currentButton, true);
       playRightAnswerSound();
       delay(SOUND_DELAY_MS);
+      
       while (mp3Playing()){
         setVolumeFromPot();
         turnOnAllButtons();
-        //lightButton(currentButton, true);
-        delay(100);
-        turnOffAllButtons();
-        //lightButton(currentButton, false);
+        if(MINIMIZE_FLASHING == 0){
+          //lightButton(currentButton, true);
+          delay(100);
+          turnOffAllButtons();
+          //lightButton(currentButton, false);
+        }
         delay(100);
       }
-
+      if (MINIMIZE_FLASHING == 1){
+    delay(200);
+    turnOffAllButtons();
+      }
+    
       delay(1500);
-      
+            
       currentAnimal = -1;
       currentButton = -1;
     }else{
@@ -544,37 +569,47 @@ void startupAnimation(){
   setVolumeFromPot();
   turnOnAllButtons();
   delay(100);
-  turnOffAllButtons();
-  delay(100);
+  if (MINIMIZE_FLASHING == 0){
+    turnOffAllButtons();
+    delay(100);
 
-  chase(2, 200);
-  setVolumeFromPot();
-  
-  turnOffAllButtons();
+    chase(2, 200);
+    setVolumeFromPot();
+    
+    turnOffAllButtons();
 
-  delay(750);
-  lightButton(0, true);
-  setVolumeFromPot();
-  delay(50);
-  lightButton(0, false);
-  lightButton(1, true);
-  setVolumeFromPot();
-  delay(50);
-  lightButton(1, false);
-  lightButton(2, true);
-  setVolumeFromPot();
-  delay(50);
-  lightButton(2, false);
-  lightButton(3, true);
-  setVolumeFromPot();
-  delay(50);
-  lightButton(3, false);
-  lightButton(4, true);
-  setVolumeFromPot();
-  delay(50);
-  lightButton(4, false);
-  setVolumeFromPot();
-  delay(200);
+    delay(750);
+    lightButton(0, true);
+    setVolumeFromPot();
+    delay(50);
+    lightButton(0, false);
+    lightButton(1, true);
+    setVolumeFromPot();
+    delay(50);
+    lightButton(1, false);
+    lightButton(2, true);
+    setVolumeFromPot();
+    delay(50);
+    lightButton(2, false);
+    lightButton(3, true);
+    setVolumeFromPot();
+    delay(50);
+    lightButton(3, false);
+    lightButton(4, true);
+    setVolumeFromPot();
+    delay(50);
+    lightButton(4, false);
+    setVolumeFromPot();
+    delay(200);
+  }else{
+    setVolumeFromPot();
+    delay(150);
+    setVolumeFromPot();
+    delay(150);
+    setVolumeFromPot();
+    delay(150);
+    turnOffAllButtons();
+  }
 
   while (mp3Playing()){
     delay(10);
@@ -809,6 +844,10 @@ bool anyButtonPressed(){
       selectedGame = 0;
     }else{
       selectedGame = 1;
+    }
+    
+    if (MINIMIZE_FLASHING == 1){
+      selectedGame = 0;
     }
     
     if (currentGame != selectedGame){
