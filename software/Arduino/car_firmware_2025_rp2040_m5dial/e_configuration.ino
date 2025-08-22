@@ -188,11 +188,6 @@ class Configuration {
             // Send all configuration data to the M5Dial
       // Skip the Version configuration setting
       for (int i = 1; i < NUMBER_OF_CONFIGURATION_ENTRIES; i++) {
-        // Currently, the M5Dial doesn't know about any configuration entries past EEPROM_CHILD_THROTTLE_ONLY (23)
-        // so we can't send those values to it without causing issues later with an invalid register being set.
-        if (i > 23) {
-          break;
-        }
         Wire.beginTransmission(M5DIAL_I2C_ADDRESS);
  
         Wire.write(1); // Set to write mode

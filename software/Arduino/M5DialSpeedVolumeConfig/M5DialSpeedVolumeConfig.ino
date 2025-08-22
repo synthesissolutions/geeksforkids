@@ -2,6 +2,9 @@
 #include <Wire.h>
 #include <Preferences.h>
 
+// Uses Version 2.1.3 of M5Stack Board Package
+// Uses Version 1.0.2 of M5Dial Library
+
 #define REGISTER_VERSION              0
 #define REGISTER_ACTUATOR_MIN         1
 #define REGISTER_ACTUATOR_CENTER      2
@@ -26,6 +29,7 @@
 #define REGISTER_EXTEND_THROTTLE          21
 #define REGISTER_EXTEND_THROTTLE_TIME_MS  22
 #define REGISTER_CHILD_THROTTLE_ONLY      23
+#define EEPROM_REVERSE_RC_CHANNELS        24
 #define REGISTER_CAR_CODE_VERSION         98
 #define REGISTER_SPEED_VOLUME             99
 
@@ -44,7 +48,7 @@ struct MenuOption {
 
 MenuOption menuOptions[] = {
   {"Lin Actuator", 4, {BACK_MENU_ITEM, REGISTER_ACTUATOR_MIN, REGISTER_ACTUATOR_CENTER, REGISTER_ACTUATOR_MAX}},
-  {"Remote Ctrl", 8, {BACK_MENU_ITEM, REGISTER_USE_RC, REGISTER_RC_STEERING_MIN, REGISTER_RC_STEERING_CENTER, REGISTER_RC_STEERING_MAX, REGISTER_RC_THROTTLE_MIN, REGISTER_RC_THROTTLE_CENTER, REGISTER_RC_THROTTLE_MAX}},
+  {"Remote Ctrl", 9, {BACK_MENU_ITEM, REGISTER_USE_RC, REGISTER_RC_STEERING_MIN, REGISTER_RC_STEERING_CENTER, REGISTER_RC_STEERING_MAX, REGISTER_RC_THROTTLE_MIN, REGISTER_RC_THROTTLE_CENTER, REGISTER_RC_THROTTLE_MAX, EEPROM_REVERSE_RC_CHANNELS}},
   {"Analog/PWM", 3, {BACK_MENU_ITEM, REGISTER_USE_PWM_JOYSTICK_X, REGISTER_USE_PWM_JOYSTICK_Y}},
   {"Direction", 3, {BACK_MENU_ITEM, REGISTER_INVERT_JOYSTICK_X, REGISTER_INVERT_JOYSTICK_Y}},
   {"Steering", 4, {BACK_MENU_ITEM, REGISTER_JOYSTICK_STEERING_MIN, REGISTER_JOYSTICK_STEERING_CENTER, REGISTER_JOYSTICK_STEERING_MAX}},
@@ -87,7 +91,8 @@ ConfigurationEntry configurationEntries[] = {
   {"Throttle Max", false, 0, 1023, INTEGER_CONFIGURATION, false, 800},
   {"Extend Throttle", false, 0, 0, BOOLEAN_CONFIGURATION, false, 0},
   {"Ext Throttle Ms", false, 0, 5000, INTEGER_CONFIGURATION, false, 500},
-  {"Child Throt Only", false, 0, 0, BOOLEAN_CONFIGURATION, false, 0}
+  {"Child Throt Only", false, 0, 0, BOOLEAN_CONFIGURATION, false, 0},
+  {"Reverse RC Channels", false, 0, 0, BOOLEAN_CONFIGURATION, false, 0} 
 };
 
 Preferences preferences;
@@ -105,7 +110,7 @@ char carVersion[30];
 
 const uint16_t currentVersion = 1;
 
-#define M5DIAL_VERSION        "d25.03.1"
+#define M5DIAL_VERSION        "d25.08.1"
 #define PREFERENCES_VERSION   "version"
 #define PREFERENCES_NAMESPACE "settings"
 #define PREFERENCES_SPEED     "speed"
@@ -129,7 +134,7 @@ void requestEvent() {
   if (currentRegister == REGISTER_SPEED_VOLUME) {  
     Wire.write((uint8_t) speed);
     Wire.write((uint8_t) volume);
-  } else if (currentRegister <= REGISTER_CHILD_THROTTLE_ONLY) {
+  } else if (currentRegister <= EEPROM_REVERSE_RC_CHANNELS) {
     if (configurationEntries[currentRegister].dataType == BOOLEAN_CONFIGURATION) {
       Wire.write(configurationEntries[currentRegister].booleanValue);
       Wire.write(0);
@@ -189,7 +194,7 @@ void receiveEvent(int count) {
     // version of the configuration that the M5Dial is using
 
     // For now we will let the car decide what to do with a version mismatch
-  } else if (currentRegister <= REGISTER_CHILD_THROTTLE_ONLY) {
+  } else if (currentRegister <= EEPROM_REVERSE_RC_CHANNELS ) {
     // In theory, the car should never set the register in read only mode
     // that should be controlled by the M5Dial
     
