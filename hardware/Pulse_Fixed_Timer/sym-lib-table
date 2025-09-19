@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "Pulse_Fixed_Timer")(type "KiCad")(uri "${KIPRJMOD}/Pulse_Fixed_Timer.kicad_sym")(options "")(descr ""))
+)
