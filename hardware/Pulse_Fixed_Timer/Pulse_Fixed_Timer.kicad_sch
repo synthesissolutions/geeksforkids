@@ -4613,7 +4613,7 @@
 		)
 		(uuid "1b3ec735-c3c2-401f-8c4e-7d6e4d1393b0")
 	)
-	(text "- 555 Timer in monostable configuration\n- Pulse period determined by T_Rfix, T_Rpot, and T_Cset\n- Pulse period adjustment performed by T_Rpot\nTpulse = 1.1*(RA||RB||RC)*T_Cset\nTA = 1.1*RA*T_Cset = 1.1*500e3*10e-6 = 5.5s\nTB = 1.1*(RA||RB)*T_Cset = 1.1*(500e3/2)*10e-6 = 2.75s\nTC = 1.1*(RA||RB||RC)*T_Cset = 1.1*(500e3/3)*10e-6 = 1.83s\n"
+	(text "- 555 Timer in monostable configuration\n- Pulse period determined by T_Rfix, T_Rpot, and T_Cset\n- Pulse period adjustment performed by T_Rpot\nTpulse = 1.1*(RA||RB||RC)*T_Cset\nTA = 1.1*RA*T_Cset = 1.1*510e3*10e-6 = 5.61s\nTB = 1.1*(RA||RB)*T_Cset = 1.1*(510e3/2)*10e-6 = 2.81s\nTC = 1.1*(RA||RB||RC)*T_Cset = 1.1*(510e3/3)*10e-6 = 1.87s\n"
 		(exclude_from_sim no)
 		(at 17.78 132.08 0)
 		(effects
@@ -7017,7 +7017,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "500k"
+		(property "Value" "510k"
 			(at 134.62 162.56 90)
 			(effects
 				(font
@@ -7053,7 +7053,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "C23192"
 			(at 129.54 165.1 0)
 			(effects
 				(font
@@ -7180,7 +7180,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "500k"
+		(property "Value" "510k"
 			(at 134.62 172.72 90)
 			(effects
 				(font
@@ -7216,7 +7216,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "C23192"
 			(at 129.54 175.26 0)
 			(effects
 				(font
@@ -11355,7 +11355,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "500k"
+		(property "Value" "510k"
 			(at 134.62 167.64 90)
 			(effects
 				(font
@@ -11391,7 +11391,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "C23192"
 			(at 129.54 170.18 0)
 			(effects
 				(font
