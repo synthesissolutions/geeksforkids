@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20231120)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(uuid "610b18ea-8acf-49b9-8edb-0c285f9722dc")
 	(paper "A4")
 	(title_block
@@ -13,7 +13,9 @@
 	)
 	(lib_symbols
 		(symbol "Device:C"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0.254)
 			)
@@ -86,7 +88,7 @@
 			(symbol "C_0_1"
 				(polyline
 					(pts
-						(xy -2.032 -0.762) (xy 2.032 -0.762)
+						(xy -2.032 0.762) (xy 2.032 0.762)
 					)
 					(stroke
 						(width 0.508)
@@ -98,7 +100,7 @@
 				)
 				(polyline
 					(pts
-						(xy -2.032 0.762) (xy 2.032 0.762)
+						(xy -2.032 -0.762) (xy 2.032 -0.762)
 					)
 					(stroke
 						(width 0.508)
@@ -147,11 +149,16 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Device:L"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -218,32 +225,8 @@
 			)
 			(symbol "L_0_1"
 				(arc
-					(start 0 -2.54)
-					(mid 0.6323 -1.905)
-					(end 0 -1.27)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 0 -1.27)
-					(mid 0.6323 -0.635)
-					(end 0 0)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 0 0)
-					(mid 0.6323 0.635)
+					(start 0 2.54)
+					(mid 0.6323 1.905)
 					(end 0 1.27)
 					(stroke
 						(width 0)
@@ -255,8 +238,32 @@
 				)
 				(arc
 					(start 0 1.27)
-					(mid 0.6323 1.905)
-					(end 0 2.54)
+					(mid 0.6323 0.635)
+					(end 0 0)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 0)
+					(mid 0.6323 -0.635)
+					(end 0 -1.27)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 -1.27)
+					(mid 0.6323 -1.905)
+					(end 0 -2.54)
 					(stroke
 						(width 0)
 						(type default)
@@ -304,9 +311,12 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Device:R_US"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0)
 			)
@@ -377,18 +387,6 @@
 			(symbol "R_US_0_1"
 				(polyline
 					(pts
-						(xy 0 -2.286) (xy 0 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
 						(xy 0 2.286) (xy 0 2.54)
 					)
 					(stroke
@@ -401,7 +399,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
+						(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 					)
 					(stroke
 						(width 0)
@@ -425,7 +423,19 @@
 				)
 				(polyline
 					(pts
-						(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
+						(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -2.286) (xy 0 -2.54)
 					)
 					(stroke
 						(width 0)
@@ -474,12 +484,17 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "PCM_4ms_Power-symbol:GND"
 			(power)
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0) hide)
+				(offset 0)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -544,7 +559,8 @@
 			(symbol "GND_1_1"
 				(pin power_in line
 					(at 0 0 270)
-					(length 0) hide
+					(length 0)
+					(hide yes)
 					(name "GND"
 						(effects
 							(font
@@ -561,12 +577,17 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "PCM_4ms_Power-symbol:PWR_FLAG"
 			(power)
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0) hide)
+				(offset 0)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -648,6 +669,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Regulator_Switching:TPS54302"
 			(exclude_from_sim no)
@@ -732,42 +754,6 @@
 			)
 			(symbol "TPS54302_1_1"
 				(pin power_in line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_out line
-					(at 10.16 0 180)
-					(length 2.54)
-					(name "SW"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
 					(at -10.16 2.54 0)
 					(length 2.54)
 					(name "VIN"
@@ -778,24 +764,6 @@
 						)
 					)
 					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at 10.16 -2.54 180)
-					(length 2.54)
-					(name "FB"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -821,6 +789,24 @@
 						)
 					)
 				)
+				(pin power_in line
+					(at 0 -7.62 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
 				(pin passive line
 					(at 10.16 2.54 180)
 					(length 2.54)
@@ -839,13 +825,54 @@
 						)
 					)
 				)
+				(pin power_out line
+					(at 10.16 0 180)
+					(length 2.54)
+					(name "SW"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 10.16 -2.54 180)
+					(length 2.54)
+					(name "FB"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "power:+12V"
 			(power)
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0) hide)
+				(offset 0)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -917,7 +944,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 0) (xy 0 2.54)
+						(xy 0 2.54) (xy 0.762 1.27)
 					)
 					(stroke
 						(width 0)
@@ -929,7 +956,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 2.54) (xy 0.762 1.27)
+						(xy 0 0) (xy 0 2.54)
 					)
 					(stroke
 						(width 0)
@@ -943,7 +970,8 @@
 			(symbol "+12V_1_1"
 				(pin power_in line
 					(at 0 0 90)
-					(length 0) hide
+					(length 0)
+					(hide yes)
 					(name "+12V"
 						(effects
 							(font
@@ -960,12 +988,17 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "power:+5V"
 			(power)
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0) hide)
+				(offset 0)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -1037,7 +1070,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 0) (xy 0 2.54)
+						(xy 0 2.54) (xy 0.762 1.27)
 					)
 					(stroke
 						(width 0)
@@ -1049,7 +1082,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 2.54) (xy 0.762 1.27)
+						(xy 0 0) (xy 0 2.54)
 					)
 					(stroke
 						(width 0)
@@ -1063,7 +1096,8 @@
 			(symbol "+5V_1_1"
 				(pin power_in line
 					(at 0 0 90)
-					(length 0) hide
+					(length 0)
+					(hide yes)
 					(name "+5V"
 						(effects
 							(font
@@ -1080,7 +1114,728 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
+	)
+	(rectangle
+		(start 59.69 123.19)
+		(end 82.55 138.43)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 12f63f11-817b-4d37-b5b0-1614692fa103)
+	)
+	(rectangle
+		(start 24.13 133.35)
+		(end 82.55 135.89)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 549c9a0d-882c-47ae-8eaf-62539e7c7d5c)
+	)
+	(rectangle
+		(start 24.13 21.59)
+		(end 82.55 85.09)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 7892f3a1-7569-436d-bd25-8839ac3040ff)
+	)
+	(rectangle
+		(start 24.13 130.81)
+		(end 82.55 133.35)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 816da9cf-0f8f-4f22-aa80-c5397bdcf157)
+	)
+	(rectangle
+		(start 24.13 90.17)
+		(end 82.55 105.41)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 819844b7-0e2c-463e-94d8-07c5c1b22bf4)
+	)
+	(rectangle
+		(start 158.75 21.59)
+		(end 271.78 90.17)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 96eec3d2-2a5f-4b32-8ebc-efdad2b29fba)
+	)
+	(rectangle
+		(start 24.13 123.19)
+		(end 82.55 125.73)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid b580e387-0ad3-4dea-85b3-947f28b4efe6)
+	)
+	(rectangle
+		(start 24.13 128.27)
+		(end 82.55 130.81)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid bcf12794-7205-4fc8-b726-852fbdb5f83a)
+	)
+	(rectangle
+		(start 92.71 21.59)
+		(end 149.86 96.52)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid d223f170-d78f-4bd0-8c94-13c18bf6ec62)
+	)
+	(rectangle
+		(start 24.13 154.94)
+		(end 124.46 193.04)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid d5d1fb91-82e2-4606-984d-699953e47016)
+	)
+	(rectangle
+		(start 24.13 125.73)
+		(end 82.55 128.27)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid d727a69c-87a1-4351-ac96-91556c21188a)
+	)
+	(rectangle
+		(start 24.13 135.89)
+		(end 82.55 138.43)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid f360995f-9344-474a-9db0-400202d67c3c)
+	)
+	(text "C_{O} > 60µF"
+		(exclude_from_sim no)
+		(at 222.25 48.26 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "06662b59-1a5e-4aab-a947-c87af08015fd")
+	)
+	(text "Sunlord MWSA0603S-100MT:  \nL = 10µH, ESR = 68mΩ, and I_{L(MAX)} = 	4.5A_{RMS}."
+		(exclude_from_sim no)
+		(at 161.29 81.28 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "095aa9bc-a6ab-469f-88cd-c3a9c398ec6c")
+	)
+	(text "R_{ESR} < 5mΩ"
+		(exclude_from_sim no)
+		(at 247.65 63.5 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0f2ac545-7a26-44d6-9471-05f068bc94ed")
+	)
+	(text "Inductor Selection"
+		(exclude_from_sim no)
+		(at 175.26 31.75 0)
+		(effects
+			(font
+				(size 1.905 1.905)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+		(uuid "13a87e91-5f5c-48e3-93a8-e245e5a86dad")
+	)
+	(text "Output Voltage"
+		(exclude_from_sim no)
+		(at 25.4 130.81 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "1f0ea946-1522-4efc-9fe3-d85146729eee")
+	)
+	(text "These yield I_{L(MAX)} = 3.02 A_{RMS} and I_{L(PK)} = 3.62 A."
+		(exclude_from_sim no)
+		(at 161.29 74.93 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "22274102-188b-4d11-b00c-f8b6fb428cf9")
+	)
+	(text "Output Voltage Ripple"
+		(exclude_from_sim no)
+		(at 25.4 138.43 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "22705dd1-59fb-4337-b0ca-47c759962f29")
+	)
+	(text "In addition, the datasheet reccomends using a 0.1µF \nparallel capacitor to reject any high frequency noise. "
+		(exclude_from_sim no)
+		(at 95.25 39.37 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "27379d9e-98ae-4564-ae28-ea224a6c523e")
+	)
+	(text "Note that if lower output ripple is required, a larger \ninductor value should be used."
+		(exclude_from_sim no)
+		(at 161.29 87.63 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2c420c2b-fccd-4e41-91d4-4b7e8a8ee02c")
+	)
+	(text "The TPS54302 was selected for this application due \nto its low cost, wide input voltage range, relatively \nflat efficiency curve, and standard package.\n\nThis IC has integrated n-channel mosfets to help \nreduce part count. It requires an external inductor. \n\nUnder light loads (peak inductor current < 500mA), \nIC enters pulse skipping mode for better efficiency.\n\nThe enable pin can be configured to set a custom \nUVLO threshold if desired. \n\nThe device is protected from overcurrent conditions by \ncycle-by-cycle current limiting on both the high-side \nand the low-side mosfet.\n"
+		(exclude_from_sim no)
+		(at 26.67 60.96 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "350d1ffe-4950-4f77-8c62-0adc2ebd4e59")
+	)
+	(text "IC Selection"
+		(exclude_from_sim no)
+		(at 41.91 26.67 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+			(justify left bottom)
+		)
+		(uuid "37f49d5e-f53a-4af6-b146-92e0cff591a8")
+	)
+	(text "Undervoltage Lockout Set Point"
+		(exclude_from_sim no)
+		(at 95.25 85.09 0)
+		(effects
+			(font
+				(size 1.905 1.905)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+		(uuid "3c6f1c95-5a91-4239-a56f-a24837dd977b")
+	)
+	(text "Input Voltage Range"
+		(exclude_from_sim no)
+		(at 25.4 128.27 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "43186a5d-c393-4be9-968f-1e6a8755db33")
+	)
+	(text "This yields L_MIN = 9.42µH. The closes standard value \nis 10uH. To determine the necessary current rating:"
+		(exclude_from_sim no)
+		(at 161.29 52.07 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "43611630-0f8a-4bcb-a6c2-1ea6d764550a")
+	)
+	(text "TPS54302 Features"
+		(exclude_from_sim no)
+		(at 35.56 66.04 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+			(justify left bottom)
+		)
+		(uuid "4b59862b-7ef2-409c-afa5-210bd9748f5f")
+	)
+	(text "Since we want to be able to power this rail off of USB \nvoltage in addition to the battery, the default UVLO \nthreshold will be acceptable. As a result, we leave the \nEN pin floating."
+		(exclude_from_sim no)
+		(at 95.25 93.98 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4d720276-8ba0-4f63-bcef-dd3b8dcd9639")
+	)
+	(text "15mVpp"
+		(exclude_from_sim no)
+		(at 67.31 138.43 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4e3ed29a-1ede-49a3-9343-e88c42a15e1f")
+	)
+	(text "The datasheet reccommends a 100kΩ resistor for the \nhigh side of the feedback divider for a good balance \nof noise rejection and current consumption. "
+		(exclude_from_sim no)
+		(at 95.25 68.58 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5055530e-7400-48fe-ab51-1976746f9923")
+	)
+	(text "Use 2x MuRata GRM32ER61C476KE15L:\n	C = 47µF, R_{ESR} = 3mΩ, X5R\n	16V Rating, I_{C(RMS)} = 4.5A_{rms}"
+		(exclude_from_sim no)
+		(at 217.17 87.63 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5e0ad09d-64bc-4780-8573-24ef84b76805")
+	)
+	(text "Capacitor Selection"
+		(exclude_from_sim no)
+		(at 231.14 31.75 0)
+		(effects
+			(font
+				(size 1.905 1.905)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+		(uuid "5eb33edd-a14c-4841-b9b8-d13154b97fb4")
+	)
+	(text "3A"
+		(exclude_from_sim no)
+		(at 69.85 133.35 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5ee608f3-b62e-4f00-b56a-75bbfd52ca9c")
+	)
+	(text "The datasheet reccomends at least 10µF of bulk \ncapacitance. Use 3x10µF, 5mOhm capacitors \nreccommended by TI WEBENCH (CL32A106KBJNNNE)."
+		(exclude_from_sim no)
+		(at 95.25 34.29 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "60075de9-2f8f-45b2-aac2-cb43ed1fa497")
+	)
+	(text "Feedback Divider"
+		(exclude_from_sim no)
+		(at 95.25 60.96 0)
+		(effects
+			(font
+				(size 1.905 1.905)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+		(uuid "67130589-eb69-4ea8-85a3-d95280324b63")
+	)
+	(text "Simulation Results"
+		(exclude_from_sim no)
+		(at 58.42 161.29 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+			(justify left bottom)
+		)
+		(uuid "6bcd93c1-c74f-42e7-bf63-d0511534ef5c")
+	)
+	(text "References"
+		(exclude_from_sim no)
+		(at 43.18 95.25 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+			(justify left bottom)
+		)
+		(uuid "7b717666-17d0-45c7-b593-f2d760fde245")
+	)
+	(text "Output Filter"
+		(exclude_from_sim no)
+		(at 204.47 27.94 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+			(justify left bottom)
+		)
+		(uuid "7ba1c4fc-6e05-40f8-8f83-f954acb2dc9e")
+	)
+	(text "WEBENCH Simulation"
+		(exclude_from_sim no)
+		(at 26.67 102.87 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+			(href "https://webench.ti.com/appinfo/webench/scripts/SDP.cgi?ID=C70D57B1E19C514F")
+		)
+		(uuid "7fa0af0c-1c94-4302-8c7c-33f52beb1aad")
+	)
+	(text "Buck Converter Basic Calculations"
+		(exclude_from_sim no)
+		(at 26.67 97.79 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+			(href "https://www.ti.com/lit/an/slva477b/slva477b.pdf?ts=1686926909614&ref_url=https%253A%252F%252Fwww.google.com%252F")
+		)
+		(uuid "8cdc4285-9f4b-4cdd-945c-7f0d718101b3")
+	)
+	(text "6V to 24V"
+		(exclude_from_sim no)
+		(at 66.04 128.27 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8df07fc0-e532-4851-9bcf-3e7ec2be64ad")
+	)
+	(text "Use this equation to calculate the minimum inductance. \nAssume K_IND = 0.35 is acceptable if using ceramic C_{O}. "
+		(exclude_from_sim no)
+		(at 161.29 38.1 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "90709dce-84f3-4df5-8ce3-25a16c3ad083")
+	)
+	(text "5%"
+		(exclude_from_sim no)
+		(at 69.85 135.89 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "92a8af39-5afb-4397-9c07-1238ee0a8076")
+	)
+	(text "Input Capacitor Selection"
+		(exclude_from_sim no)
+		(at 95.25 26.67 0)
+		(effects
+			(font
+				(size 1.905 1.905)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+		(uuid "934c7f95-5245-4aae-9e3b-cfc48fb71594")
+	)
+	(text "Design Parameters"
+		(exclude_from_sim no)
+		(at 36.83 120.65 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+			(justify left bottom)
+		)
+		(uuid "97ab3a54-8438-4222-8a20-0450f3df6db3")
+	)
+	(text "There are three criteria that dictate the minimum C_{O}.\n "
+		(exclude_from_sim no)
+		(at 218.44 38.1 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9a9130e4-dd27-455d-9c2c-216aee9f2cf3")
+	)
+	(text "Parameter"
+		(exclude_from_sim no)
+		(at 36.83 125.73 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9b481680-64ce-4239-a741-6fa5277fca38")
+	)
+	(text "5.0V"
+		(exclude_from_sim no)
+		(at 68.58 130.81 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9c2bbe2b-3e15-4799-a26f-42ced016815c")
+	)
+	(text "R_{3} = 13.5kΩ"
+		(exclude_from_sim no)
+		(at 124.46 73.66 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a3494d30-d7ce-49ff-b095-dc11f62f828b")
+	)
+	(text "C_{O} > 25.5µF"
+		(exclude_from_sim no)
+		(at 255.27 48.26 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a968250a-9ffe-4480-8244-f78e8270cbc9")
+	)
+	(text "To meet all three criteria, we must choose C_{O} > 63uF."
+		(exclude_from_sim no)
+		(at 218.44 52.07 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b4a68ee9-fcd1-4cf5-8c06-0aa28709907d")
+	)
+	(text "Additionally, we must determine the maximum ESR\nto maintain the output ripple requirement: "
+		(exclude_from_sim no)
+		(at 218.44 57.15 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b9d2a848-1fad-4051-b7b2-da93262909e5")
+	)
+	(text "I_{COUT(RMS)} = 286mA"
+		(exclude_from_sim no)
+		(at 234.95 80.01 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "bceb0942-9042-4aa6-9cce-cae1d17379c4")
+	)
+	(text "Bootstrap Capacitor Selection"
+		(exclude_from_sim no)
+		(at 95.25 44.45 0)
+		(effects
+			(font
+				(size 1.905 1.905)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+		(uuid "bd903f9c-ac55-4938-8596-2289b271b40d")
+	)
+	(text "Peak Output Current"
+		(exclude_from_sim no)
+		(at 25.4 133.35 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ca10ac7b-e712-4da7-a606-171ac4f49be6")
+	)
+	(text "Transient Response, 3A Load Step"
+		(exclude_from_sim no)
+		(at 25.4 135.89 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ca95440a-e4e8-449d-822a-6b311505a38d")
+	)
+	(text "Value"
+		(exclude_from_sim no)
+		(at 68.58 125.73 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "cc7c9871-7f95-41ce-95f8-86c038a11f72")
+	)
+	(text "TPS54302 Datasheet"
+		(exclude_from_sim no)
+		(at 26.67 100.33 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+			(href "https://www.ti.com/lit/ds/symlink/tps54302.pdf?ts=1686959832194&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FTPS54302%253FkeyMatch%253DTPS54302%2526tisearch%253Dsearch-everything%2526usecase%253DGPN-ALT")
+		)
+		(uuid "d709c735-75f1-477a-ad55-704b67590a83")
+	)
+	(text "C_{O} > 63µF"
+		(exclude_from_sim no)
+		(at 240.03 48.26 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d7483884-7401-458c-a9c6-00381db5523a")
+	)
+	(text "Input Voltage: 4.5V to 28V\nOutput Voltage: 0.6V - 28V (adjustble)\nOutput Current: up to 3A\nShutdown Current: 2µA\nQuiescent Current: 45µA\nSwitching Frequency: 400kHz (fixed)\nSoft Start Ramp Time: 5ms\n"
+		(exclude_from_sim no)
+		(at 26.67 82.55 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e41b525f-f2fe-419a-8e18-87d04bb050df")
+	)
+	(text "Lastly, we must calculate the ripple current: "
+		(exclude_from_sim no)
+		(at 218.44 68.58 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e436426e-fca7-4481-bd9b-01cbec93383a")
+	)
+	(text "Both of these resistors should be 1% tolerance or \nbetter, and have a power rating of at least 1mW."
+		(exclude_from_sim no)
+		(at 95.25 80.01 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f86caaef-f0bf-4eba-8a58-cca4f21015d5")
+	)
+	(text "A 0.1µF ceramic capacitor must be connected between \nthe BOOT and SW pin. TI recommends using a ceramic \ncapacitor for this purpose. This cap should be rated \nto 50V or more, and be X7R. GRM188R71H104KA93D \nis widely available and meets these requirements. "
+		(exclude_from_sim no)
+		(at 95.25 55.88 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "fa08eb76-cf23-4228-bb32-def0c2fa86ae")
 	)
 	(junction
 		(at 97.79 116.84)
@@ -1675,150 +2430,6 @@
 			(type default)
 		)
 		(uuid "f742b5d4-bdfb-489c-821b-b05aff8b5651")
-	)
-	(rectangle
-		(start 59.69 123.19)
-		(end 82.55 138.43)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 12f63f11-817b-4d37-b5b0-1614692fa103)
-	)
-	(rectangle
-		(start 24.13 133.35)
-		(end 82.55 135.89)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 549c9a0d-882c-47ae-8eaf-62539e7c7d5c)
-	)
-	(rectangle
-		(start 24.13 21.59)
-		(end 82.55 85.09)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 7892f3a1-7569-436d-bd25-8839ac3040ff)
-	)
-	(rectangle
-		(start 24.13 130.81)
-		(end 82.55 133.35)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 816da9cf-0f8f-4f22-aa80-c5397bdcf157)
-	)
-	(rectangle
-		(start 24.13 90.17)
-		(end 82.55 105.41)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 819844b7-0e2c-463e-94d8-07c5c1b22bf4)
-	)
-	(rectangle
-		(start 158.75 21.59)
-		(end 271.78 90.17)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 96eec3d2-2a5f-4b32-8ebc-efdad2b29fba)
-	)
-	(rectangle
-		(start 24.13 123.19)
-		(end 82.55 125.73)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid b580e387-0ad3-4dea-85b3-947f28b4efe6)
-	)
-	(rectangle
-		(start 24.13 128.27)
-		(end 82.55 130.81)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid bcf12794-7205-4fc8-b726-852fbdb5f83a)
-	)
-	(rectangle
-		(start 92.71 21.59)
-		(end 149.86 96.52)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid d223f170-d78f-4bd0-8c94-13c18bf6ec62)
-	)
-	(rectangle
-		(start 24.13 154.94)
-		(end 124.46 193.04)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid d5d1fb91-82e2-4606-984d-699953e47016)
-	)
-	(rectangle
-		(start 24.13 125.73)
-		(end 82.55 128.27)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid d727a69c-87a1-4351-ac96-91556c21188a)
-	)
-	(rectangle
-		(start 24.13 135.89)
-		(end 82.55 138.43)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid f360995f-9344-474a-9db0-400202d67c3c)
 	)
 	(image
 		(at 102.87 176.53)
@@ -5573,585 +6184,8 @@
 			"5frNMO0AAAAASUVORK5CYII="
 		)
 	)
-	(text "C_{O} > 60µF"
-		(exclude_from_sim no)
-		(at 222.25 48.26 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "06662b59-1a5e-4aab-a947-c87af08015fd")
-	)
-	(text "Sunlord MWSA0603S-100MT:  \nL = 10µH, ESR = 68mΩ, and I_{L(MAX)} = 	4.5A_{RMS}."
-		(exclude_from_sim no)
-		(at 161.29 81.28 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "095aa9bc-a6ab-469f-88cd-c3a9c398ec6c")
-	)
-	(text "R_{ESR} < 5mΩ"
-		(exclude_from_sim no)
-		(at 247.65 63.5 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "0f2ac545-7a26-44d6-9471-05f068bc94ed")
-	)
-	(text "Inductor Selection"
-		(exclude_from_sim no)
-		(at 175.26 31.75 0)
-		(effects
-			(font
-				(size 1.905 1.905)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "13a87e91-5f5c-48e3-93a8-e245e5a86dad")
-	)
-	(text "Output Voltage"
-		(exclude_from_sim no)
-		(at 25.4 130.81 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "1f0ea946-1522-4efc-9fe3-d85146729eee")
-	)
-	(text "These yield I_{L(MAX)} = 3.02 A_{RMS} and I_{L(PK)} = 3.62 A."
-		(exclude_from_sim no)
-		(at 161.29 74.93 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "22274102-188b-4d11-b00c-f8b6fb428cf9")
-	)
-	(text "Output Voltage Ripple"
-		(exclude_from_sim no)
-		(at 25.4 138.43 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "22705dd1-59fb-4337-b0ca-47c759962f29")
-	)
-	(text "In addition, the datasheet reccomends using a 0.1µF \nparallel capacitor to reject any high frequency noise. "
-		(exclude_from_sim no)
-		(at 95.25 39.37 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "27379d9e-98ae-4564-ae28-ea224a6c523e")
-	)
-	(text "Note that if lower output ripple is required, a larger \ninductor value should be used."
-		(exclude_from_sim no)
-		(at 161.29 87.63 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "2c420c2b-fccd-4e41-91d4-4b7e8a8ee02c")
-	)
-	(text "The TPS54302 was selected for this application due \nto its low cost, wide input voltage range, relatively \nflat efficiency curve, and standard package.\n\nThis IC has integrated n-channel mosfets to help \nreduce part count. It requires an external inductor. \n\nUnder light loads (peak inductor current < 500mA), \nIC enters pulse skipping mode for better efficiency.\n\nThe enable pin can be configured to set a custom \nUVLO threshold if desired. \n\nThe device is protected from overcurrent conditions by \ncycle-by-cycle current limiting on both the high-side \nand the low-side mosfet.\n"
-		(exclude_from_sim no)
-		(at 26.67 60.96 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "350d1ffe-4950-4f77-8c62-0adc2ebd4e59")
-	)
-	(text "IC Selection"
-		(exclude_from_sim no)
-		(at 41.91 26.67 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-			)
-			(justify left bottom)
-		)
-		(uuid "37f49d5e-f53a-4af6-b146-92e0cff591a8")
-	)
-	(text "Undervoltage Lockout Set Point"
-		(exclude_from_sim no)
-		(at 95.25 85.09 0)
-		(effects
-			(font
-				(size 1.905 1.905)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "3c6f1c95-5a91-4239-a56f-a24837dd977b")
-	)
-	(text "Input Voltage Range"
-		(exclude_from_sim no)
-		(at 25.4 128.27 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "43186a5d-c393-4be9-968f-1e6a8755db33")
-	)
-	(text "This yields L_MIN = 9.42µH. The closes standard value \nis 10uH. To determine the necessary current rating:"
-		(exclude_from_sim no)
-		(at 161.29 52.07 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "43611630-0f8a-4bcb-a6c2-1ea6d764550a")
-	)
-	(text "TPS54302 Features"
-		(exclude_from_sim no)
-		(at 35.56 66.04 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-			)
-			(justify left bottom)
-		)
-		(uuid "4b59862b-7ef2-409c-afa5-210bd9748f5f")
-	)
-	(text "Since we want to be able to power this rail off of USB \nvoltage in addition to the battery, the default UVLO \nthreshold will be acceptable. As a result, we leave the \nEN pin floating."
-		(exclude_from_sim no)
-		(at 95.25 93.98 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "4d720276-8ba0-4f63-bcef-dd3b8dcd9639")
-	)
-	(text "15mVpp"
-		(exclude_from_sim no)
-		(at 67.31 138.43 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "4e3ed29a-1ede-49a3-9343-e88c42a15e1f")
-	)
-	(text "The datasheet reccommends a 100kΩ resistor for the \nhigh side of the feedback divider for a good balance \nof noise rejection and current consumption. "
-		(exclude_from_sim no)
-		(at 95.25 68.58 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "5055530e-7400-48fe-ab51-1976746f9923")
-	)
-	(text "Use 2x MuRata GRM32ER61C476KE15L:\n	C = 47µF, R_{ESR} = 3mΩ, X5R\n	16V Rating, I_{C(RMS)} = 4.5A_{rms}"
-		(exclude_from_sim no)
-		(at 217.17 87.63 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "5e0ad09d-64bc-4780-8573-24ef84b76805")
-	)
-	(text "Capacitor Selection"
-		(exclude_from_sim no)
-		(at 231.14 31.75 0)
-		(effects
-			(font
-				(size 1.905 1.905)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "5eb33edd-a14c-4841-b9b8-d13154b97fb4")
-	)
-	(text "3A"
-		(exclude_from_sim no)
-		(at 69.85 133.35 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "5ee608f3-b62e-4f00-b56a-75bbfd52ca9c")
-	)
-	(text "The datasheet reccomends at least 10µF of bulk \ncapacitance. Use 3x10µF, 5mOhm capacitors \nreccommended by TI WEBENCH (CL32A106KBJNNNE)."
-		(exclude_from_sim no)
-		(at 95.25 34.29 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "60075de9-2f8f-45b2-aac2-cb43ed1fa497")
-	)
-	(text "Feedback Divider"
-		(exclude_from_sim no)
-		(at 95.25 60.96 0)
-		(effects
-			(font
-				(size 1.905 1.905)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "67130589-eb69-4ea8-85a3-d95280324b63")
-	)
-	(text "Simulation Results"
-		(exclude_from_sim no)
-		(at 58.42 161.29 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-			)
-			(justify left bottom)
-		)
-		(uuid "6bcd93c1-c74f-42e7-bf63-d0511534ef5c")
-	)
-	(text "References"
-		(exclude_from_sim no)
-		(at 43.18 95.25 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-			)
-			(justify left bottom)
-		)
-		(uuid "7b717666-17d0-45c7-b593-f2d760fde245")
-	)
-	(text "Output Filter"
-		(exclude_from_sim no)
-		(at 204.47 27.94 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-			)
-			(justify left bottom)
-		)
-		(uuid "7ba1c4fc-6e05-40f8-8f83-f954acb2dc9e")
-	)
-	(text "WEBENCH Simulation"
-		(exclude_from_sim no)
-		(at 26.67 102.87 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-			(href "https://webench.ti.com/appinfo/webench/scripts/SDP.cgi?ID=C70D57B1E19C514F")
-		)
-		(uuid "7fa0af0c-1c94-4302-8c7c-33f52beb1aad")
-	)
-	(text "Buck Converter Basic Calculations"
-		(exclude_from_sim no)
-		(at 26.67 97.79 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-			(href "https://www.ti.com/lit/an/slva477b/slva477b.pdf?ts=1686926909614&ref_url=https%253A%252F%252Fwww.google.com%252F")
-		)
-		(uuid "8cdc4285-9f4b-4cdd-945c-7f0d718101b3")
-	)
-	(text "6V to 24V"
-		(exclude_from_sim no)
-		(at 66.04 128.27 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "8df07fc0-e532-4851-9bcf-3e7ec2be64ad")
-	)
-	(text "Use this equation to calculate the minimum inductance. \nAssume K_IND = 0.35 is acceptable if using ceramic C_{O}. "
-		(exclude_from_sim no)
-		(at 161.29 38.1 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "90709dce-84f3-4df5-8ce3-25a16c3ad083")
-	)
-	(text "5%"
-		(exclude_from_sim no)
-		(at 69.85 135.89 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "92a8af39-5afb-4397-9c07-1238ee0a8076")
-	)
-	(text "Input Capacitor Selection"
-		(exclude_from_sim no)
-		(at 95.25 26.67 0)
-		(effects
-			(font
-				(size 1.905 1.905)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "934c7f95-5245-4aae-9e3b-cfc48fb71594")
-	)
-	(text "Design Parameters"
-		(exclude_from_sim no)
-		(at 36.83 120.65 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-			)
-			(justify left bottom)
-		)
-		(uuid "97ab3a54-8438-4222-8a20-0450f3df6db3")
-	)
-	(text "There are three criteria that dictate the minimum C_{O}.\n "
-		(exclude_from_sim no)
-		(at 218.44 38.1 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "9a9130e4-dd27-455d-9c2c-216aee9f2cf3")
-	)
-	(text "Parameter"
-		(exclude_from_sim no)
-		(at 36.83 125.73 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "9b481680-64ce-4239-a741-6fa5277fca38")
-	)
-	(text "5.0V"
-		(exclude_from_sim no)
-		(at 68.58 130.81 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "9c2bbe2b-3e15-4799-a26f-42ced016815c")
-	)
-	(text "R_{3} = 13.5kΩ"
-		(exclude_from_sim no)
-		(at 124.46 73.66 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a3494d30-d7ce-49ff-b095-dc11f62f828b")
-	)
-	(text "C_{O} > 25.5µF"
-		(exclude_from_sim no)
-		(at 255.27 48.26 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a968250a-9ffe-4480-8244-f78e8270cbc9")
-	)
-	(text "To meet all three criteria, we must choose C_{O} > 63uF."
-		(exclude_from_sim no)
-		(at 218.44 52.07 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "b4a68ee9-fcd1-4cf5-8c06-0aa28709907d")
-	)
-	(text "Additionally, we must determine the maximum ESR\nto maintain the output ripple requirement: "
-		(exclude_from_sim no)
-		(at 218.44 57.15 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "b9d2a848-1fad-4051-b7b2-da93262909e5")
-	)
-	(text "I_{COUT(RMS)} = 286mA"
-		(exclude_from_sim no)
-		(at 234.95 80.01 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "bceb0942-9042-4aa6-9cce-cae1d17379c4")
-	)
-	(text "Bootstrap Capacitor Selection"
-		(exclude_from_sim no)
-		(at 95.25 44.45 0)
-		(effects
-			(font
-				(size 1.905 1.905)
-				(thickness 0.254)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "bd903f9c-ac55-4938-8596-2289b271b40d")
-	)
-	(text "Peak Output Current"
-		(exclude_from_sim no)
-		(at 25.4 133.35 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ca10ac7b-e712-4da7-a606-171ac4f49be6")
-	)
-	(text "Transient Response, 3A Load Step"
-		(exclude_from_sim no)
-		(at 25.4 135.89 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ca95440a-e4e8-449d-822a-6b311505a38d")
-	)
-	(text "Value"
-		(exclude_from_sim no)
-		(at 68.58 125.73 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "cc7c9871-7f95-41ce-95f8-86c038a11f72")
-	)
-	(text "TPS54302 Datasheet"
-		(exclude_from_sim no)
-		(at 26.67 100.33 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-			(href "https://www.ti.com/lit/ds/symlink/tps54302.pdf?ts=1686959832194&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FTPS54302%253FkeyMatch%253DTPS54302%2526tisearch%253Dsearch-everything%2526usecase%253DGPN-ALT")
-		)
-		(uuid "d709c735-75f1-477a-ad55-704b67590a83")
-	)
-	(text "C_{O} > 63µF"
-		(exclude_from_sim no)
-		(at 240.03 48.26 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "d7483884-7401-458c-a9c6-00381db5523a")
-	)
-	(text "Input Voltage: 4.5V to 28V\nOutput Voltage: 0.6V - 28V (adjustble)\nOutput Current: up to 3A\nShutdown Current: 2µA\nQuiescent Current: 45µA\nSwitching Frequency: 400kHz (fixed)\nSoft Start Ramp Time: 5ms\n"
-		(exclude_from_sim no)
-		(at 26.67 82.55 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "e41b525f-f2fe-419a-8e18-87d04bb050df")
-	)
-	(text "Lastly, we must calculate the ripple current: "
-		(exclude_from_sim no)
-		(at 218.44 68.58 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "e436426e-fca7-4481-bd9b-01cbec93383a")
-	)
-	(text "Both of these resistors should be 1% tolerance or \nbetter, and have a power rating of at least 1mW."
-		(exclude_from_sim no)
-		(at 95.25 80.01 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f86caaef-f0bf-4eba-8a58-cca4f21015d5")
-	)
-	(text "A 0.1µF ceramic capacitor must be connected between \nthe BOOT and SW pin. TI recommends using a ceramic \ncapacitor for this purpose. This cap should be rated \nto 50V or more, and be X7R. GRM188R71H104KA93D \nis widely available and meets these requirements. "
-		(exclude_from_sim no)
-		(at 95.25 55.88 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "fa08eb76-cf23-4228-bb32-def0c2fa86ae")
-	)
 	(label "BOOT"
 		(at 195.58 113.03 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6162,7 +6196,6 @@
 	)
 	(label "EN"
 		(at 158.75 121.92 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6173,7 +6206,6 @@
 	)
 	(label "SW"
 		(at 195.58 119.38 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6184,7 +6216,6 @@
 	)
 	(label "FB"
 		(at 205.74 133.35 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6202,7 +6233,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "01576716-8636-4fc9-a9a1-794acfa12ca4")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0106"
 			(at 176.53 135.89 0)
 			(effects
 				(font
@@ -6284,7 +6315,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1189516f-c4a0-4ed0-be8c-c5a4164aeeaa")
-		(property "Reference" "#FLG?"
+		(property "Reference" "#FLG01"
 			(at 121.92 113.665 0)
 			(effects
 				(font
@@ -6355,7 +6386,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1e358e1d-03cd-4a6b-908d-b2e86978a08c")
-		(property "Reference" "C?"
+		(property "Reference" "C20"
 			(at 199.39 106.68 90)
 			(effects
 				(font
@@ -6456,7 +6487,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "20b0f01d-bd31-4bca-9f19-70008eda2e2c")
-		(property "Reference" "C?"
+		(property "Reference" "C23"
 			(at 273.05 125.73 0)
 			(effects
 				(font
@@ -6561,7 +6592,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "231d6882-e92c-4e72-ae92-7e37334331f9")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0109"
 			(at 269.24 120.65 0)
 			(effects
 				(font
@@ -6638,7 +6669,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "23d0ec2e-c74f-4918-96c1-34dcf50163dc")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0105"
 			(at 144.78 149.86 0)
 			(effects
 				(font
@@ -6719,7 +6750,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "3068e16d-6a61-4a7a-9e7d-999f9da16b58")
-		(property "Reference" "C?"
+		(property "Reference" "C17"
 			(at 110.49 138.43 0)
 			(effects
 				(font
@@ -6823,7 +6854,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "381dd8b1-fd83-42fc-b857-e0876856d07d")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0102"
 			(at 106.68 152.4 0)
 			(effects
 				(font
@@ -6905,7 +6936,7 @@
 		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "5190c3da-0a84-41d1-8565-ec0b1603a374")
-		(property "Reference" "R?"
+		(property "Reference" "R20"
 			(at 147.32 136.525 0)
 			(effects
 				(font
@@ -7009,7 +7040,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "54dd1c78-a1ce-4951-b466-de3cb4defe18")
-		(property "Reference" "C?"
+		(property "Reference" "C16"
 			(at 93.98 123.19 0)
 			(effects
 				(font
@@ -7113,7 +7144,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5b7e0b4d-ced1-4a5f-8ac5-9590e22edb94")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0100"
 			(at 97.79 118.11 0)
 			(effects
 				(font
@@ -7194,7 +7225,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "636d8b72-3be6-42ad-a4fe-524f1d291b34")
-		(property "Reference" "C?"
+		(property "Reference" "C22"
 			(at 256.54 125.73 0)
 			(effects
 				(font
@@ -7299,7 +7330,7 @@
 		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "71d80484-d800-486e-b520-8d208134c329")
-		(property "Reference" "R?"
+		(property "Reference" "R19"
 			(at 147.32 123.825 0)
 			(effects
 				(font
@@ -7403,7 +7434,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7232b762-6f4b-44e4-a20e-330e9f4f422c")
-		(property "Reference" "R?"
+		(property "Reference" "R21"
 			(at 238.76 126.365 0)
 			(effects
 				(font
@@ -7506,7 +7537,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "7bdf8038-c474-4d53-9b1c-2cb142e120cd")
-		(property "Reference" "C?"
+		(property "Reference" "C18"
 			(at 118.11 123.19 0)
 			(effects
 				(font
@@ -7611,7 +7642,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "89fb4a58-5007-4981-9c36-74f96c28178b")
-		(property "Reference" "R?"
+		(property "Reference" "R23"
 			(at 238.76 150.495 0)
 			(effects
 				(font
@@ -7714,7 +7745,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "96aa5b98-9693-41be-9fed-169b7715ed42")
-		(property "Reference" "C?"
+		(property "Reference" "C19"
 			(at 133.35 123.19 0)
 			(effects
 				(font
@@ -7819,7 +7850,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a431db5e-9c17-4031-b0b6-7ca5ad98e67a")
-		(property "Reference" "U?"
+		(property "Reference" "U4"
 			(at 176.53 110.49 0)
 			(effects
 				(font
@@ -7933,7 +7964,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a43cb10b-6405-4cc9-939f-94a6a3414505")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0104"
 			(at 129.54 137.16 0)
 			(effects
 				(font
@@ -8014,7 +8045,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a9690d03-240a-4b1e-a249-1d454d0f59fa")
-		(property "Reference" "C?"
+		(property "Reference" "C21"
 			(at 224.79 126.365 0)
 			(effects
 				(font
@@ -8118,7 +8149,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "bdf6d1a1-a049-4ba2-bb2e-41f314164398")
-		(property "Reference" "L?"
+		(property "Reference" "L1"
 			(at 212.09 114.3 90)
 			(effects
 				(font
@@ -8219,7 +8250,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "cec1a386-f3d0-4880-a7ee-0aa33b3bb50d")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0108"
 			(at 252.73 139.7 0)
 			(effects
 				(font
@@ -8300,7 +8331,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "d26bbd76-52ec-4437-862c-5a2e80ffb552")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0107"
 			(at 236.22 163.83 0)
 			(effects
 				(font
@@ -8381,7 +8412,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "d38311a8-3002-4e88-b192-107672628c3a")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0110"
 			(at 269.24 139.7 0)
 			(effects
 				(font
@@ -8462,7 +8493,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "d7aab88a-c6b2-4612-9c7c-4f8695e5d45a")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0103"
 			(at 114.3 137.16 0)
 			(effects
 				(font
@@ -8543,7 +8574,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e3ebb40b-9cab-4fbd-be42-772e9cb1b067")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0101"
 			(at 97.79 137.16 0)
 			(effects
 				(font
@@ -8625,7 +8656,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e56b8046-bbba-4ce2-b09e-c9fc6c9be8b6")
-		(property "Reference" "R?"
+		(property "Reference" "R22"
 			(at 238.76 139.065 0)
 			(effects
 				(font

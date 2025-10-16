@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20231120)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(uuid "d02e40c9-ccec-400e-b892-2088ebe3bbd0")
 	(paper "A4")
 	(title_block
@@ -14,7 +14,9 @@
 	(lib_symbols
 		(symbol "Connector:Screw_Terminal_01x02"
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -91,9 +93,10 @@
 						(type background)
 					)
 				)
-				(circle
-					(center 0 -2.54)
-					(radius 0.635)
+				(polyline
+					(pts
+						(xy -0.5334 0.3302) (xy 0.3302 -0.508)
+					)
 					(stroke
 						(width 0.1524)
 						(type default)
@@ -116,7 +119,7 @@
 				)
 				(polyline
 					(pts
-						(xy -0.5334 0.3302) (xy 0.3302 -0.508)
+						(xy -0.3556 0.508) (xy 0.508 -0.3302)
 					)
 					(stroke
 						(width 0.1524)
@@ -138,10 +141,9 @@
 						(type none)
 					)
 				)
-				(polyline
-					(pts
-						(xy -0.3556 0.508) (xy 0.508 -0.3302)
-					)
+				(circle
+					(center 0 0)
+					(radius 0.635)
 					(stroke
 						(width 0.1524)
 						(type default)
@@ -151,7 +153,7 @@
 					)
 				)
 				(circle
-					(center 0 0)
+					(center 0 -2.54)
 					(radius 0.635)
 					(stroke
 						(width 0.1524)
@@ -198,9 +200,12 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Device:C"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0.254)
 			)
@@ -273,7 +278,7 @@
 			(symbol "C_0_1"
 				(polyline
 					(pts
-						(xy -2.032 -0.762) (xy 2.032 -0.762)
+						(xy -2.032 0.762) (xy 2.032 0.762)
 					)
 					(stroke
 						(width 0.508)
@@ -285,7 +290,7 @@
 				)
 				(polyline
 					(pts
-						(xy -2.032 0.762) (xy 2.032 0.762)
+						(xy -2.032 -0.762) (xy 2.032 -0.762)
 					)
 					(stroke
 						(width 0.508)
@@ -334,11 +339,16 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Device:C_Polarized_US"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0.254) hide)
+				(offset 0.254)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -443,9 +453,9 @@
 					)
 				)
 				(arc
-					(start 2.032 -1.27)
+					(start -2.032 -1.27)
 					(mid 0 -0.5572)
-					(end -2.032 -1.27)
+					(end 2.032 -1.27)
 					(stroke
 						(width 0.508)
 						(type default)
@@ -493,9 +503,12 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Device:FerriteBead"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0)
 			)
@@ -566,7 +579,7 @@
 			(symbol "FerriteBead_0_1"
 				(polyline
 					(pts
-						(xy 0 -1.27) (xy 0 -1.2192)
+						(xy -2.7686 0.4064) (xy -1.7018 2.2606) (xy 2.7686 -0.3048) (xy 1.6764 -2.159) (xy -2.7686 0.4064)
 					)
 					(stroke
 						(width 0)
@@ -590,7 +603,7 @@
 				)
 				(polyline
 					(pts
-						(xy -2.7686 0.4064) (xy -1.7018 2.2606) (xy 2.7686 -0.3048) (xy 1.6764 -2.159) (xy -2.7686 0.4064)
+						(xy 0 -1.27) (xy 0 -1.2192)
 					)
 					(stroke
 						(width 0)
@@ -639,9 +652,12 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Device:R_US"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0)
 			)
@@ -712,18 +728,6 @@
 			(symbol "R_US_0_1"
 				(polyline
 					(pts
-						(xy 0 -2.286) (xy 0 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
 						(xy 0 2.286) (xy 0 2.54)
 					)
 					(stroke
@@ -736,7 +740,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
+						(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 					)
 					(stroke
 						(width 0)
@@ -760,7 +764,19 @@
 				)
 				(polyline
 					(pts
-						(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
+						(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -2.286) (xy 0 -2.54)
 					)
 					(stroke
 						(width 0)
@@ -809,6 +825,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Electronics_Caddy:TPA3110D2"
 			(exclude_from_sim no)
@@ -881,6 +898,24 @@
 			)
 			(symbol "TPA3110D2_1_1"
 				(pin input line
+					(at -2.54 0 0)
+					(length 2.54)
+					(name "PBTL"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "14"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
 					(at -2.54 -2.54 0)
 					(length 2.54)
 					(name "~{SD}"
@@ -898,53 +933,17 @@
 						)
 					)
 				)
-				(pin input line
-					(at -2.54 -15.24 0)
+				(pin open_collector line
+					(at -2.54 -5.08 0)
 					(length 2.54)
-					(name "PLIMIT"
+					(name "~{FAULT}"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "10"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -2.54 -29.21 0)
-					(length 2.54)
-					(name "RINN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "11"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -2.54 -26.67 0)
-					(length 2.54)
-					(name "RINP"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "12"
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -971,52 +970,16 @@
 					)
 				)
 				(pin input line
-					(at -2.54 0 0)
+					(at -2.54 -10.16 0)
 					(length 2.54)
-					(name "PBTL"
+					(name "GAIN0"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "14"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_out line
-					(at 19.05 5.08 270)
-					(length 2.54)
-					(name "PVCCR"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "15"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_out line
-					(at 21.59 5.08 270)
-					(length 2.54)
-					(name "PVCCR"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "16"
+					(number "5"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1025,88 +988,16 @@
 					)
 				)
 				(pin input line
-					(at 33.02 -31.75 180)
+					(at -2.54 -12.7 0)
 					(length 2.54)
-					(name "BSPR"
+					(name "GAIN1"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "17"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at 33.02 -26.67 180)
-					(length 2.54)
-					(name "OUTPR"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "18"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 21.59 -38.1 90)
-					(length 2.54)
-					(name "PGND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "19"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin open_collector line
-					(at -2.54 -5.08 0)
-					(length 2.54)
-					(name "~{FAULT}"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at 33.02 -24.13 180)
-					(length 2.54)
-					(name "OUTNR"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "20"
+					(number "6"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1115,160 +1006,16 @@
 					)
 				)
 				(pin input line
-					(at 33.02 -20.32 180)
+					(at -2.54 -15.24 0)
 					(length 2.54)
-					(name "BSNR"
+					(name "PLIMIT"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "21"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at 33.02 -12.7 180)
-					(length 2.54)
-					(name "BSNL"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "22"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at 33.02 -7.62 180)
-					(length 2.54)
-					(name "OUTNL"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "23"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 19.05 -38.1 90)
-					(length 2.54)
-					(name "PGND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "24"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at 33.02 -5.08 180)
-					(length 2.54)
-					(name "OUTPL"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "25"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at 33.02 -1.27 180)
-					(length 2.54)
-					(name "BSPL"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "26"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 12.7 5.08 270)
-					(length 2.54)
-					(name "PVCCL"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "27"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 15.24 5.08 270)
-					(length 2.54)
-					(name "PVCCL"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "28"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 13.97 -38.1 90)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "29"
+					(number "10"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1313,16 +1060,16 @@
 					)
 				)
 				(pin input line
-					(at -2.54 -10.16 0)
+					(at -2.54 -26.67 0)
 					(length 2.54)
-					(name "GAIN0"
+					(name "RINP"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "5"
+					(number "12"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1331,16 +1078,34 @@
 					)
 				)
 				(pin input line
-					(at -2.54 -12.7 0)
+					(at -2.54 -29.21 0)
 					(length 2.54)
-					(name "GAIN1"
+					(name "RINN"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "6"
+					(number "11"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at -2.54 -33.02 0)
+					(length 2.54)
+					(name "GVDD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1384,17 +1149,269 @@
 						)
 					)
 				)
-				(pin power_out line
-					(at -2.54 -33.02 0)
+				(pin power_in line
+					(at 12.7 5.08 270)
 					(length 2.54)
-					(name "GVDD"
+					(name "PVCCL"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "9"
+					(number "27"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 13.97 -38.1 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "29"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 15.24 5.08 270)
+					(length 2.54)
+					(name "PVCCL"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "28"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at 19.05 5.08 270)
+					(length 2.54)
+					(name "PVCCR"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "15"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 19.05 -38.1 90)
+					(length 2.54)
+					(name "PGND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "24"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at 21.59 5.08 270)
+					(length 2.54)
+					(name "PVCCR"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "16"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 21.59 -38.1 90)
+					(length 2.54)
+					(name "PGND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "19"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 33.02 -1.27 180)
+					(length 2.54)
+					(name "BSPL"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "26"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 33.02 -5.08 180)
+					(length 2.54)
+					(name "OUTPL"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "25"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 33.02 -7.62 180)
+					(length 2.54)
+					(name "OUTNL"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "23"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 33.02 -12.7 180)
+					(length 2.54)
+					(name "BSNL"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "22"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 33.02 -20.32 180)
+					(length 2.54)
+					(name "BSNR"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "21"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 33.02 -24.13 180)
+					(length 2.54)
+					(name "OUTNR"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "20"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 33.02 -26.67 180)
+					(length 2.54)
+					(name "OUTPR"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "18"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 33.02 -31.75 180)
+					(length 2.54)
+					(name "BSPR"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "17"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1403,12 +1420,17 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "PCM_4ms_Power-symbol:GND"
 			(power)
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0) hide)
+				(offset 0)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -1473,7 +1495,8 @@
 			(symbol "GND_1_1"
 				(pin power_in line
 					(at 0 0 270)
-					(length 0) hide
+					(length 0)
+					(hide yes)
 					(name "GND"
 						(effects
 							(font
@@ -1490,12 +1513,17 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "power:+12V"
 			(power)
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0) hide)
+				(offset 0)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -1567,7 +1595,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 0) (xy 0 2.54)
+						(xy 0 2.54) (xy 0.762 1.27)
 					)
 					(stroke
 						(width 0)
@@ -1579,7 +1607,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 2.54) (xy 0.762 1.27)
+						(xy 0 0) (xy 0 2.54)
 					)
 					(stroke
 						(width 0)
@@ -1593,7 +1621,8 @@
 			(symbol "+12V_1_1"
 				(pin power_in line
 					(at 0 0 90)
-					(length 0) hide
+					(length 0)
+					(hide yes)
 					(name "+12V"
 						(effects
 							(font
@@ -1610,12 +1639,17 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "power:+12VA"
 			(power)
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0) hide)
+				(offset 0)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -1687,7 +1721,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 0) (xy 0 2.54)
+						(xy 0 2.54) (xy 0.762 1.27)
 					)
 					(stroke
 						(width 0)
@@ -1699,7 +1733,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 2.54) (xy 0.762 1.27)
+						(xy 0 0) (xy 0 2.54)
 					)
 					(stroke
 						(width 0)
@@ -1713,7 +1747,8 @@
 			(symbol "+12VA_1_1"
 				(pin power_in line
 					(at 0 0 90)
-					(length 0) hide
+					(length 0)
+					(hide yes)
 					(name "+12VA"
 						(effects
 							(font
@@ -1730,7 +1765,641 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
+	)
+	(rectangle
+		(start 238.76 130.81)
+		(end 279.4 161.29)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 07b20bc3-e597-42a9-b87e-c1b02531f35c)
+	)
+	(rectangle
+		(start 29.21 105.41)
+		(end 38.1 118.11)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 1aab9255-8bc2-4740-a326-6dd2e00934fc)
+	)
+	(rectangle
+		(start 167.64 17.78)
+		(end 274.32 55.88)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 1de486c5-8c9a-491e-9c0f-99525e764632)
+	)
+	(rectangle
+		(start 97.79 151.13)
+		(end 133.35 179.07)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 23fde511-d2e3-4a30-9533-dc303d89cdcb)
+	)
+	(rectangle
+		(start 29.21 115.57)
+		(end 82.55 118.11)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 40d4c707-5d2a-4f03-bd10-36cc47b5d34c)
+	)
+	(rectangle
+		(start 24.13 128.27)
+		(end 88.9 193.04)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 61988adc-2abf-49ea-b884-41de97c2cd47)
+	)
+	(rectangle
+		(start 100.33 17.78)
+		(end 158.75 55.88)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 79f2c892-b4b2-43db-953a-fe423db7a529)
+	)
+	(rectangle
+		(start 38.1 105.41)
+		(end 46.99 118.11)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 80bad754-87c9-4826-a349-9224443746ae)
+	)
+	(rectangle
+		(start 24.13 17.78)
+		(end 88.9 55.88)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 99eaf535-18b6-48df-b759-b4f3064e9f00)
+	)
+	(rectangle
+		(start 181.61 130.81)
+		(end 233.68 161.29)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 9fbacfd5-5643-4436-aab3-f819afe057f5)
+	)
+	(rectangle
+		(start 29.21 105.41)
+		(end 82.55 118.11)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid a2c3cba4-e008-4010-8fa9-98ae9aa2b9c7)
+	)
+	(rectangle
+		(start 24.13 59.69)
+		(end 88.9 124.46)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid aeb715e4-66a3-42bc-bfa2-56b8657476f9)
+	)
+	(rectangle
+		(start 46.99 105.41)
+		(end 63.5 118.11)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid b9aefc7a-35b7-48ea-9629-1ce7b76751c7)
+	)
+	(rectangle
+		(start 29.21 110.49)
+		(end 82.55 118.11)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid cafa2eb5-3c27-456d-bb4b-6e0e71bdde50)
+	)
+	(rectangle
+		(start 29.21 113.03)
+		(end 82.55 118.11)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid e01232b5-6e58-4085-91f5-933828bfb85f)
+	)
+	(rectangle
+		(start 29.21 107.95)
+		(end 82.55 118.11)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid e5cdc6e3-fc4c-4bdd-a08b-70e57e0e5794)
+	)
+	(text "30 kOhm"
+		(exclude_from_sim no)
+		(at 68.58 113.03 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0733bf93-f64e-4047-9524-51eef96993f9")
+	)
+	(text "Route DC GND side of C4012 \nalongside AUDIO_IN trace"
+		(exclude_from_sim no)
+		(at 113.03 140.97 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "1a3eccb1-f31f-4a07-a6ee-c9a1bd09fde3")
+	)
+	(text "Use gain table to determine Z_{I}, \n     account for 20% tolerance\nAssume f_{c} = 20 Hz"
+		(exclude_from_sim no)
+		(at 113.03 134.62 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "20564366-5668-41e7-adcc-a2c34f8c369d")
+	)
+	(text "Use RXXX-XXX for power limiting"
+		(exclude_from_sim no)
+		(at 110.49 92.71 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "28cfa630-f3b7-421e-abee-0e7156ad644a")
+	)
+	(text "Amplifier Gain Control"
+		(exclude_from_sim no)
+		(at 35.56 66.04 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+			(justify left bottom)
+		)
+		(uuid "30954b2a-98b2-4a08-9a28-434f7617071f")
+	)
+	(text "0"
+		(exclude_from_sim no)
+		(at 41.91 115.57 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "36df1622-6359-4005-8166-76a980a44abb")
+	)
+	(text "1"
+		(exclude_from_sim no)
+		(at 41.91 113.03 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3fdedcdf-6d4e-4ad7-ae3a-3cad5481fe8b")
+	)
+	(text "0"
+		(exclude_from_sim no)
+		(at 33.02 110.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4af70951-547b-4dc8-a243-246a8854e2ec")
+	)
+	(text "GAIN0"
+		(exclude_from_sim no)
+		(at 30.48 107.95 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4cb826f7-967a-48f8-8d43-665866260e9c")
+	)
+	(text "Output Power Limiting"
+		(exclude_from_sim no)
+		(at 35.56 135.89 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+			(justify left bottom)
+		)
+		(uuid "50d15054-7ee0-4095-849f-8bf031e323c0")
+	)
+	(text "32 dB"
+		(exclude_from_sim no)
+		(at 52.07 115.57 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "527bbda6-7283-40d7-ad63-d119bb63db42")
+	)
+	(text "0"
+		(exclude_from_sim no)
+		(at 41.91 110.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5843a4d6-eee4-43d2-afef-4cc1bb949c09")
+	)
+	(text "1"
+		(exclude_from_sim no)
+		(at 41.91 118.11 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "63622410-90d0-41e6-ba4d-d789129ae8c0")
+	)
+	(text "C_{I} = 1 / (2*pi*Z_{I}*f_{c})"
+		(exclude_from_sim no)
+		(at 116.84 127 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "66df39d9-42c8-4450-81e7-03f7e44eef53")
+	)
+	(text "Use RXXX-XXX for gain control"
+		(exclude_from_sim no)
+		(at 110.49 90.17 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6d8c7fa3-f5fa-49a3-aeab-d4584e63b2b8")
+	)
+	(text "20 dB"
+		(exclude_from_sim no)
+		(at 52.07 110.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8025f43f-fe71-484e-b5c5-2e140369e70e")
+	)
+	(text "* INSERT TABLE / CALCULATIONS"
+		(exclude_from_sim no)
+		(at 39.37 186.69 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8b2e65f0-bdaa-4871-9dfa-072a64640a1b")
+	)
+	(text "SD Input"
+		(exclude_from_sim no)
+		(at 106.68 158.75 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+			(justify left bottom)
+		)
+		(uuid "982a299e-7358-48d1-a144-6f0e4b0f6ab9")
+	)
+	(text "Audio Input"
+		(exclude_from_sim no)
+		(at 196.85 137.16 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+			(justify left bottom)
+		)
+		(uuid "9af44520-69bb-476e-b24b-302ca17125d8")
+	)
+	(text "Note: Gain and input impedance have +/-20% tolerance"
+		(exclude_from_sim no)
+		(at 29.21 121.92 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9c508497-28c6-4e56-9c5b-614246eff3f0")
+	)
+	(text "1"
+		(exclude_from_sim no)
+		(at 33.02 118.11 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9e5633bc-ac86-4a9f-a247-21e5a2aa074a")
+	)
+	(text "0"
+		(exclude_from_sim no)
+		(at 33.02 113.03 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a0c5aa98-d256-47b5-8595-7f19fa4963c6")
+	)
+	(text "26 dB"
+		(exclude_from_sim no)
+		(at 52.07 113.03 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "aee165fe-5960-4273-b650-644ef9e7289b")
+	)
+	(text "VBATT Voltage Range: 8 V to 26 V\n30-W into a 4-Ω Mono Load at 10% THD+N (PVCC = 16V)\n90% Efficient Class-D Amp Eliminates Need for Heat Sinks\nFilter-Free Operation\nAdjustable Power Limiter\nSpeaker DC Current Protection\nRobust Pin-to-Pin Short Circuit Protection and \n     Thermal Protection With Auto Recovery Option\nExcellent THD+N / Pop-Free Performance\nFour Selectable, Fixed Gain Settings\nDifferential Inputs\nDigital Inputs compatible with TTL logic"
+		(exclude_from_sim no)
+		(at 27.94 49.53 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b0cb94ab-c37b-48b7-aaf9-9819ade4f9e8")
+	)
+	(text "Amplifier Features"
+		(exclude_from_sim no)
+		(at 40.64 24.13 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+			(justify left bottom)
+		)
+		(uuid "b4a71de6-755e-4a92-aa4f-f7b3084dd1d4")
+	)
+	(text "Amplifier Gain"
+		(exclude_from_sim no)
+		(at 48.26 107.95 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ba843e27-1cef-42d3-94bd-03506a018f49")
+	)
+	(text "Power Input"
+		(exclude_from_sim no)
+		(at 247.65 137.16 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+			(justify left bottom)
+		)
+		(uuid "bc37d35d-edea-4407-a0c1-2f84d897fcac")
+	)
+	(text "36 dB"
+		(exclude_from_sim no)
+		(at 52.07 118.11 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "bd10e605-4192-4154-853f-514204ff5909")
+	)
+	(text "4Ohm, 20W"
+		(exclude_from_sim no)
+		(at 73.66 140.97 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "cc672c45-09f2-494b-b5cb-e0696d8f8d05")
+	)
+	(text "TPA3110D2 Datasheet"
+		(exclude_from_sim no)
+		(at 46.99 53.34 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+			(href "https://www.ti.com/lit/ds/symlink/tpa3110d2.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1690057414294&ref_url=https%253A%252F%252Fwww.ti.com%252Fgeneral%252Fdocs%252Fsuppproductinfo.tsp%253FdistId%253D10%2526gotoUrl%253Dhttps%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Ftpa3110d2")
+		)
+		(uuid "d7605262-6c33-4a49-9298-c32e5e63653f")
+	)
+	(text "AVCC Input Filter"
+		(exclude_from_sim no)
+		(at 113.03 24.13 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+			(justify left bottom)
+		)
+		(uuid "db9a0144-9edc-4886-a386-e8869f848a1d")
+	)
+	(text "15 kOhm"
+		(exclude_from_sim no)
+		(at 68.58 115.57 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e2f86b07-f84f-4135-9ee9-46f5a15ca19a")
+	)
+	(text "9 kOhm"
+		(exclude_from_sim no)
+		(at 69.85 118.11 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e4754c66-d1aa-41e0-8643-12a35f5fb002")
+	)
+	(text "Place next to PVCCR Pins"
+		(exclude_from_sim no)
+		(at 241.3 31.75 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e6250921-8576-488e-a9bd-5d3072074748")
+	)
+	(text "1"
+		(exclude_from_sim no)
+		(at 33.02 115.57 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "eb25b434-fcc0-4d5b-a8f4-33148142e517")
+	)
+	(text "GAIN1"
+		(exclude_from_sim no)
+		(at 39.37 107.95 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ed871e2e-fe82-48cc-824c-99509ce0595d")
+	)
+	(text "60 kOhm"
+		(exclude_from_sim no)
+		(at 68.58 110.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ee0cccfb-f222-4d49-a0bd-ef7eff9f7e8b")
+	)
+	(text "Input Impedance"
+		(exclude_from_sim no)
+		(at 64.77 107.95 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ef3dcdf4-e9cd-46b9-b3ba-b71f7bdc6746")
+	)
+	(text "Power Supply Decoupling Capacitors"
+		(exclude_from_sim no)
+		(at 185.42 24.13 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+			(justify left bottom)
+		)
+		(uuid "f2769493-73e3-4fc1-96c4-3755502820d6")
+	)
+	(text "Place next to PVCCL Pins"
+		(exclude_from_sim no)
+		(at 184.15 31.75 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "fe8c7087-aee3-47ea-8d10-413273e3b754")
 	)
 	(junction
 		(at 213.36 83.82)
@@ -3122,642 +3791,8 @@
 		)
 		(uuid "ffa6aef5-7964-488d-a4ec-ef70f2e978da")
 	)
-	(rectangle
-		(start 238.76 130.81)
-		(end 279.4 161.29)
-		(stroke
-			(width 0)
-			(type dash)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 07b20bc3-e597-42a9-b87e-c1b02531f35c)
-	)
-	(rectangle
-		(start 29.21 105.41)
-		(end 38.1 118.11)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 1aab9255-8bc2-4740-a326-6dd2e00934fc)
-	)
-	(rectangle
-		(start 167.64 17.78)
-		(end 274.32 55.88)
-		(stroke
-			(width 0)
-			(type dash)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 1de486c5-8c9a-491e-9c0f-99525e764632)
-	)
-	(rectangle
-		(start 97.79 151.13)
-		(end 133.35 179.07)
-		(stroke
-			(width 0)
-			(type dash)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 23fde511-d2e3-4a30-9533-dc303d89cdcb)
-	)
-	(rectangle
-		(start 29.21 115.57)
-		(end 82.55 118.11)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 40d4c707-5d2a-4f03-bd10-36cc47b5d34c)
-	)
-	(rectangle
-		(start 24.13 128.27)
-		(end 88.9 193.04)
-		(stroke
-			(width 0)
-			(type dash)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 61988adc-2abf-49ea-b884-41de97c2cd47)
-	)
-	(rectangle
-		(start 100.33 17.78)
-		(end 158.75 55.88)
-		(stroke
-			(width 0)
-			(type dash)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 79f2c892-b4b2-43db-953a-fe423db7a529)
-	)
-	(rectangle
-		(start 38.1 105.41)
-		(end 46.99 118.11)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 80bad754-87c9-4826-a349-9224443746ae)
-	)
-	(rectangle
-		(start 24.13 17.78)
-		(end 88.9 55.88)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 99eaf535-18b6-48df-b759-b4f3064e9f00)
-	)
-	(rectangle
-		(start 181.61 130.81)
-		(end 233.68 161.29)
-		(stroke
-			(width 0)
-			(type dash)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 9fbacfd5-5643-4436-aab3-f819afe057f5)
-	)
-	(rectangle
-		(start 29.21 105.41)
-		(end 82.55 118.11)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid a2c3cba4-e008-4010-8fa9-98ae9aa2b9c7)
-	)
-	(rectangle
-		(start 24.13 59.69)
-		(end 88.9 124.46)
-		(stroke
-			(width 0)
-			(type dash)
-		)
-		(fill
-			(type none)
-		)
-		(uuid aeb715e4-66a3-42bc-bfa2-56b8657476f9)
-	)
-	(rectangle
-		(start 46.99 105.41)
-		(end 63.5 118.11)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid b9aefc7a-35b7-48ea-9629-1ce7b76751c7)
-	)
-	(rectangle
-		(start 29.21 110.49)
-		(end 82.55 118.11)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid cafa2eb5-3c27-456d-bb4b-6e0e71bdde50)
-	)
-	(rectangle
-		(start 29.21 113.03)
-		(end 82.55 118.11)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid e01232b5-6e58-4085-91f5-933828bfb85f)
-	)
-	(rectangle
-		(start 29.21 107.95)
-		(end 82.55 118.11)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid e5cdc6e3-fc4c-4bdd-a08b-70e57e0e5794)
-	)
-	(text "30 kOhm"
-		(exclude_from_sim no)
-		(at 68.58 113.03 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "0733bf93-f64e-4047-9524-51eef96993f9")
-	)
-	(text "Route DC GND side of C4012 \nalongside AUDIO_IN trace"
-		(exclude_from_sim no)
-		(at 113.03 140.97 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "1a3eccb1-f31f-4a07-a6ee-c9a1bd09fde3")
-	)
-	(text "Use gain table to determine Z_{I}, \n     account for 20% tolerance\nAssume f_{c} = 20 Hz"
-		(exclude_from_sim no)
-		(at 113.03 134.62 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "20564366-5668-41e7-adcc-a2c34f8c369d")
-	)
-	(text "Use RXXX-XXX for power limiting"
-		(exclude_from_sim no)
-		(at 110.49 92.71 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "28cfa630-f3b7-421e-abee-0e7156ad644a")
-	)
-	(text "Amplifier Gain Control"
-		(exclude_from_sim no)
-		(at 35.56 66.04 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-			)
-			(justify left bottom)
-		)
-		(uuid "30954b2a-98b2-4a08-9a28-434f7617071f")
-	)
-	(text "0"
-		(exclude_from_sim no)
-		(at 41.91 115.57 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "36df1622-6359-4005-8166-76a980a44abb")
-	)
-	(text "1"
-		(exclude_from_sim no)
-		(at 41.91 113.03 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "3fdedcdf-6d4e-4ad7-ae3a-3cad5481fe8b")
-	)
-	(text "0"
-		(exclude_from_sim no)
-		(at 33.02 110.49 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "4af70951-547b-4dc8-a243-246a8854e2ec")
-	)
-	(text "GAIN0"
-		(exclude_from_sim no)
-		(at 30.48 107.95 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "4cb826f7-967a-48f8-8d43-665866260e9c")
-	)
-	(text "Output Power Limiting"
-		(exclude_from_sim no)
-		(at 35.56 135.89 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-			)
-			(justify left bottom)
-		)
-		(uuid "50d15054-7ee0-4095-849f-8bf031e323c0")
-	)
-	(text "32 dB"
-		(exclude_from_sim no)
-		(at 52.07 115.57 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "527bbda6-7283-40d7-ad63-d119bb63db42")
-	)
-	(text "0"
-		(exclude_from_sim no)
-		(at 41.91 110.49 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "5843a4d6-eee4-43d2-afef-4cc1bb949c09")
-	)
-	(text "1"
-		(exclude_from_sim no)
-		(at 41.91 118.11 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "63622410-90d0-41e6-ba4d-d789129ae8c0")
-	)
-	(text "C_{I} = 1 / (2*pi*Z_{I}*f_{c})"
-		(exclude_from_sim no)
-		(at 116.84 127 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "66df39d9-42c8-4450-81e7-03f7e44eef53")
-	)
-	(text "Use RXXX-XXX for gain control"
-		(exclude_from_sim no)
-		(at 110.49 90.17 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "6d8c7fa3-f5fa-49a3-aeab-d4584e63b2b8")
-	)
-	(text "20 dB"
-		(exclude_from_sim no)
-		(at 52.07 110.49 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "8025f43f-fe71-484e-b5c5-2e140369e70e")
-	)
-	(text "* INSERT TABLE / CALCULATIONS"
-		(exclude_from_sim no)
-		(at 39.37 186.69 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "8b2e65f0-bdaa-4871-9dfa-072a64640a1b")
-	)
-	(text "SD Input"
-		(exclude_from_sim no)
-		(at 106.68 158.75 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-			)
-			(justify left bottom)
-		)
-		(uuid "982a299e-7358-48d1-a144-6f0e4b0f6ab9")
-	)
-	(text "Audio Input"
-		(exclude_from_sim no)
-		(at 196.85 137.16 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-			)
-			(justify left bottom)
-		)
-		(uuid "9af44520-69bb-476e-b24b-302ca17125d8")
-	)
-	(text "Note: Gain and input impedance have +/-20% tolerance"
-		(exclude_from_sim no)
-		(at 29.21 121.92 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "9c508497-28c6-4e56-9c5b-614246eff3f0")
-	)
-	(text "1"
-		(exclude_from_sim no)
-		(at 33.02 118.11 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "9e5633bc-ac86-4a9f-a247-21e5a2aa074a")
-	)
-	(text "0"
-		(exclude_from_sim no)
-		(at 33.02 113.03 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a0c5aa98-d256-47b5-8595-7f19fa4963c6")
-	)
-	(text "26 dB"
-		(exclude_from_sim no)
-		(at 52.07 113.03 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "aee165fe-5960-4273-b650-644ef9e7289b")
-	)
-	(text "VBATT Voltage Range: 8 V to 26 V\n30-W into a 4-Ω Mono Load at 10% THD+N (PVCC = 16V)\n90% Efficient Class-D Amp Eliminates Need for Heat Sinks\nFilter-Free Operation\nAdjustable Power Limiter\nSpeaker DC Current Protection\nRobust Pin-to-Pin Short Circuit Protection and \n     Thermal Protection With Auto Recovery Option\nExcellent THD+N / Pop-Free Performance\nFour Selectable, Fixed Gain Settings\nDifferential Inputs\nDigital Inputs compatible with TTL logic"
-		(exclude_from_sim no)
-		(at 27.94 49.53 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "b0cb94ab-c37b-48b7-aaf9-9819ade4f9e8")
-	)
-	(text "Amplifier Features"
-		(exclude_from_sim no)
-		(at 40.64 24.13 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-			)
-			(justify left bottom)
-		)
-		(uuid "b4a71de6-755e-4a92-aa4f-f7b3084dd1d4")
-	)
-	(text "Amplifier Gain"
-		(exclude_from_sim no)
-		(at 48.26 107.95 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ba843e27-1cef-42d3-94bd-03506a018f49")
-	)
-	(text "Power Input"
-		(exclude_from_sim no)
-		(at 247.65 137.16 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-			)
-			(justify left bottom)
-		)
-		(uuid "bc37d35d-edea-4407-a0c1-2f84d897fcac")
-	)
-	(text "36 dB"
-		(exclude_from_sim no)
-		(at 52.07 118.11 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "bd10e605-4192-4154-853f-514204ff5909")
-	)
-	(text "4Ohm, 20W"
-		(exclude_from_sim no)
-		(at 73.66 140.97 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "cc672c45-09f2-494b-b5cb-e0696d8f8d05")
-	)
-	(text "TPA3110D2 Datasheet"
-		(exclude_from_sim no)
-		(at 46.99 53.34 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-			(href "https://www.ti.com/lit/ds/symlink/tpa3110d2.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1690057414294&ref_url=https%253A%252F%252Fwww.ti.com%252Fgeneral%252Fdocs%252Fsuppproductinfo.tsp%253FdistId%253D10%2526gotoUrl%253Dhttps%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Ftpa3110d2")
-		)
-		(uuid "d7605262-6c33-4a49-9298-c32e5e63653f")
-	)
-	(text "AVCC Input Filter"
-		(exclude_from_sim no)
-		(at 113.03 24.13 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-			)
-			(justify left bottom)
-		)
-		(uuid "db9a0144-9edc-4886-a386-e8869f848a1d")
-	)
-	(text "15 kOhm"
-		(exclude_from_sim no)
-		(at 68.58 115.57 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "e2f86b07-f84f-4135-9ee9-46f5a15ca19a")
-	)
-	(text "9 kOhm"
-		(exclude_from_sim no)
-		(at 69.85 118.11 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "e4754c66-d1aa-41e0-8643-12a35f5fb002")
-	)
-	(text "Place next to PVCCR Pins"
-		(exclude_from_sim no)
-		(at 241.3 31.75 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "e6250921-8576-488e-a9bd-5d3072074748")
-	)
-	(text "1"
-		(exclude_from_sim no)
-		(at 33.02 115.57 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "eb25b434-fcc0-4d5b-a8f4-33148142e517")
-	)
-	(text "GAIN1"
-		(exclude_from_sim no)
-		(at 39.37 107.95 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ed871e2e-fe82-48cc-824c-99509ce0595d")
-	)
-	(text "60 kOhm"
-		(exclude_from_sim no)
-		(at 68.58 110.49 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ee0cccfb-f222-4d49-a0bd-ef7eff9f7e8b")
-	)
-	(text "Input Impedance"
-		(exclude_from_sim no)
-		(at 64.77 107.95 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ef3dcdf4-e9cd-46b9-b3ba-b71f7bdc6746")
-	)
-	(text "Power Supply Decoupling Capacitors"
-		(exclude_from_sim no)
-		(at 185.42 24.13 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-			)
-			(justify left bottom)
-		)
-		(uuid "f2769493-73e3-4fc1-96c4-3755502820d6")
-	)
-	(text "Place next to PVCCL Pins"
-		(exclude_from_sim no)
-		(at 184.15 31.75 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "fe8c7087-aee3-47ea-8d10-413273e3b754")
-	)
 	(label "GAIN1"
 		(at 74.93 85.09 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3768,7 +3803,6 @@
 	)
 	(label "GVDD"
 		(at 151.13 111.76 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3779,7 +3813,6 @@
 	)
 	(label "GAIN1"
 		(at 147.32 91.44 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3790,7 +3823,6 @@
 	)
 	(label "GAIN0"
 		(at 147.32 88.9 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3801,7 +3833,6 @@
 	)
 	(label "GAIN0"
 		(at 54.61 85.09 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3812,7 +3843,6 @@
 	)
 	(label "AUDIO_OUT_P"
 		(at 212.09 86.36 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3823,7 +3853,6 @@
 	)
 	(label "BSP"
 		(at 203.2 91.44 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3834,7 +3863,6 @@
 	)
 	(label "AUDIO_OUT_FILT_N"
 		(at 251.46 105.41 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3845,7 +3873,6 @@
 	)
 	(label "BSN"
 		(at 203.2 110.49 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3856,7 +3883,6 @@
 	)
 	(label "AUDIO_IN_1_N"
 		(at 142.24 107.95 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3867,7 +3893,6 @@
 	)
 	(label "AUDIO_OUT_FILT_P"
 		(at 251.46 83.82 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3878,7 +3903,6 @@
 	)
 	(label "PLIMIT"
 		(at 147.32 93.98 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3889,7 +3913,6 @@
 	)
 	(label "AUDIO_OUT_N"
 		(at 212.09 105.41 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3900,7 +3923,6 @@
 	)
 	(label "PLIMIT"
 		(at 71.12 154.94 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3911,7 +3933,6 @@
 	)
 	(label "AUDIO_IN_1_P"
 		(at 142.24 105.41 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3922,7 +3943,6 @@
 	)
 	(label "BSN"
 		(at 203.2 99.06 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3933,7 +3953,6 @@
 	)
 	(label "~{SD_2}"
 		(at 147.32 81.28 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3944,7 +3963,6 @@
 	)
 	(label "GVDD"
 		(at 41.91 142.24 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3955,7 +3973,6 @@
 	)
 	(label "BSP"
 		(at 203.2 80.01 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3966,7 +3983,6 @@
 	)
 	(label "PBTL"
 		(at 147.32 78.74 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4028,7 +4044,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0219dbb2-3e98-4d3c-bda4-15ce6f1af5d4")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR079"
 			(at 63.5 102.87 0)
 			(effects
 				(font
@@ -4105,7 +4121,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "04b1e3fd-0e88-4940-ba37-d529c15d39b0")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR086"
 			(at 148.59 128.27 0)
 			(effects
 				(font
@@ -4183,7 +4199,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0c511b22-fb73-4ef0-9bcd-9cf2d8be7026")
-		(property "Reference" "C?"
+		(property "Reference" "C9"
 			(at 208.28 72.39 90)
 			(effects
 				(font
@@ -4272,7 +4288,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0d532f9f-66a7-44d5-aecb-7bfc9699561f")
-		(property "Reference" "R?"
+		(property "Reference" "R14"
 			(at 66.04 90.17 0)
 			(effects
 				(font
@@ -4362,7 +4378,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "165518f6-5add-4731-82a3-a2dfd7384659")
-		(property "Reference" "U?"
+		(property "Reference" "U3"
 			(at 173.99 93.98 0)
 			(effects
 				(font
@@ -4534,7 +4550,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "18f53d0c-d0e7-445a-a277-d93972d748fd")
-		(property "Reference" "C?"
+		(property "Reference" "C8"
 			(at 208.28 39.37 0)
 			(effects
 				(font
@@ -4625,7 +4641,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1df8be78-0d8e-4a08-91a8-ee8d5c42e260")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR084"
 			(at 143.51 38.1 0)
 			(effects
 				(font
@@ -4703,7 +4719,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "208f5c67-29c1-408a-a1f0-b66142f96827")
-		(property "Reference" "R?"
+		(property "Reference" "R9"
 			(at 45.72 77.47 0)
 			(effects
 				(font
@@ -4793,7 +4809,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "21bb2e0e-d943-4a03-979e-53fa4af6e716")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR098"
 			(at 247.65 53.34 0)
 			(effects
 				(font
@@ -4871,7 +4887,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2746bc18-d327-4d0f-82a6-d0d6d5e6828c")
-		(property "Reference" "C?"
+		(property "Reference" "C7"
 			(at 194.31 39.37 0)
 			(effects
 				(font
@@ -4962,7 +4978,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2a11cf74-9846-44a4-b5d6-4e23b6ac10b2")
-		(property "Reference" "C?"
+		(property "Reference" "C1"
 			(at 66.04 160.02 0)
 			(effects
 				(font
@@ -5053,7 +5069,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2ab2f9e0-468a-4e71-80a3-5e7ff36891be")
-		(property "Reference" "C?"
+		(property "Reference" "C5"
 			(at 152.4 115.57 0)
 			(effects
 				(font
@@ -5143,7 +5159,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "2b2f2b16-2c97-4e59-b1ab-a301249828be")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR077"
 			(at 62.23 172.72 0)
 			(effects
 				(font
@@ -5220,7 +5236,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "2efc02ae-f7f4-451d-ade0-35eb4685d84c")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR081"
 			(at 114.3 38.1 0)
 			(effects
 				(font
@@ -5298,7 +5314,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2f78da51-914e-4e5a-8ce0-4dbe34362bef")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR083"
 			(at 134.62 73.66 0)
 			(effects
 				(font
@@ -5375,7 +5391,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "323b62f5-afa9-4499-aebe-f6f210ad4442")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR087"
 			(at 147.32 97.79 0)
 			(effects
 				(font
@@ -5453,7 +5469,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "35192b36-3fd7-405b-bce3-d2bb0fd9c441")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR078"
 			(at 63.5 77.47 0)
 			(effects
 				(font
@@ -5531,7 +5547,7 @@
 		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "384313b0-6f4f-4dbe-9182-365acc3cb568")
-		(property "Reference" "R?"
+		(property "Reference" "R10"
 			(at 45.72 90.17 0)
 			(effects
 				(font
@@ -5621,7 +5637,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "3c98015b-8604-4d51-8129-29c50f31e6d3")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR090"
 			(at 176.53 52.07 0)
 			(effects
 				(font
@@ -5699,7 +5715,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4c6d9832-4a42-45e9-a2ce-54a328a5e783")
-		(property "Reference" "C?"
+		(property "Reference" "C15"
 			(at 265.43 40.64 0)
 			(effects
 				(font
@@ -5789,7 +5805,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "532e47ea-5174-4cdd-8040-b2244f173185")
-		(property "Reference" "C?"
+		(property "Reference" "C11"
 			(at 234.95 88.265 0)
 			(effects
 				(font
@@ -5879,7 +5895,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5acc4118-3a82-40cb-a94f-8df89fbf2ed6")
-		(property "Reference" "FB?"
+		(property "Reference" "FB2"
 			(at 222.25 110.49 90)
 			(effects
 				(font
@@ -5967,7 +5983,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "659a2052-70b8-4747-9741-448fae56d354")
-		(property "Reference" "C?"
+		(property "Reference" "C3"
 			(at 128.27 114.3 90)
 			(effects
 				(font
@@ -6055,7 +6071,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "69877b5b-8834-46d3-8f8c-c40631354e56")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR099"
 			(at 261.62 53.34 0)
 			(effects
 				(font
@@ -6132,7 +6148,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6c980416-18d2-491d-901c-2c66895fb52c")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR092"
 			(at 182.88 128.27 0)
 			(effects
 				(font
@@ -6209,7 +6225,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "7328d688-b64d-4bdb-86fd-f7c39fa911bb")
-		(property "Reference" "C?"
+		(property "Reference" "C12"
 			(at 234.95 98.425 0)
 			(effects
 				(font
@@ -6367,7 +6383,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7aa25cef-08bd-4e88-b5ba-fecaefdd9c8f")
-		(property "Reference" "C?"
+		(property "Reference" "C6"
 			(at 180.34 38.735 0)
 			(effects
 				(font
@@ -6458,7 +6474,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "823cb7cc-f5ff-4f12-ae24-45f7630aac7f")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR091"
 			(at 182.88 71.12 0)
 			(effects
 				(font
@@ -6535,7 +6551,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "87a42f27-4adf-461a-9476-7e0981ee5cd6")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR094"
 			(at 204.47 52.07 0)
 			(effects
 				(font
@@ -6613,7 +6629,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "88dc1cb0-79ed-4e07-8131-82a0e7c02946")
-		(property "Reference" "R?"
+		(property "Reference" "R17"
 			(at 137.16 73.66 0)
 			(effects
 				(font
@@ -6704,7 +6720,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8adec4e9-d6d7-47bf-bed1-52496de00c00")
-		(property "Reference" "C?"
+		(property "Reference" "C14"
 			(at 251.46 40.64 0)
 			(effects
 				(font
@@ -6794,7 +6810,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "8f4cc005-d09d-4592-821f-142f161637ae")
-		(property "Reference" "C?"
+		(property "Reference" "C10"
 			(at 208.28 114.3 90)
 			(effects
 				(font
@@ -6882,7 +6898,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "8fc9f04e-5770-44fb-b6fe-a8569b491050")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR076"
 			(at 49.53 172.72 0)
 			(effects
 				(font
@@ -6959,7 +6975,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "97ca1c06-50c3-4ed2-99e5-7d1c104013db")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR093"
 			(at 190.5 52.07 0)
 			(effects
 				(font
@@ -7036,7 +7052,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a35d9db1-ea8d-4032-95a2-67018981624c")
-		(property "Reference" "FB?"
+		(property "Reference" "FB1"
 			(at 222.25 76.2 90)
 			(effects
 				(font
@@ -7125,7 +7141,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "adcc5d7e-044c-42c3-b893-b430818d4601")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR074"
 			(at 43.18 77.47 0)
 			(effects
 				(font
@@ -7203,7 +7219,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "affba84a-2b53-4cfe-a725-2f15b722a2ad")
-		(property "Reference" "C?"
+		(property "Reference" "C13"
 			(at 237.49 40.005 0)
 			(effects
 				(font
@@ -7294,7 +7310,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b0055d62-1963-4ddc-a524-c1961c61fc6f")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR095"
 			(at 233.68 38.1 0)
 			(effects
 				(font
@@ -7372,7 +7388,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b2f2e9a9-f048-48a0-807b-f4b28811865d")
-		(property "Reference" "C?"
+		(property "Reference" "C2"
 			(at 128.27 95.25 90)
 			(effects
 				(font
@@ -7460,7 +7476,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b4a35ebe-b8e3-49bf-89ac-220e89c7b819")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR080"
 			(at 113.03 118.11 0)
 			(effects
 				(font
@@ -7538,7 +7554,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b5144adb-e04e-445d-9e5d-01cbb04db9c0")
-		(property "Reference" "R?"
+		(property "Reference" "R15"
 			(at 124.46 30.48 90)
 			(effects
 				(font
@@ -7627,7 +7643,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b74c9a0c-8716-4e49-a091-d3758f490230")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR088"
 			(at 170.18 71.12 0)
 			(effects
 				(font
@@ -7704,7 +7720,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b7cc5851-5f6e-4f6c-b9cc-1cd1377f30b9")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR096"
 			(at 233.68 53.34 0)
 			(effects
 				(font
@@ -7782,7 +7798,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "beeb8968-a4cc-402f-84c9-96741d8c4aa5")
-		(property "Reference" "R?"
+		(property "Reference" "R11"
 			(at 52.07 147.32 0)
 			(effects
 				(font
@@ -7873,7 +7889,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c350fcd7-d25c-4506-a495-1ac07852446e")
-		(property "Reference" "C?"
+		(property "Reference" "C4"
 			(at 138.43 41.275 0)
 			(effects
 				(font
@@ -7963,7 +7979,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "c94e3a8a-e256-4f76-a8c8-8034d1c139dd")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR075"
 			(at 43.18 102.87 0)
 			(effects
 				(font
@@ -8041,7 +8057,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "caba1ebc-0034-4e9d-a851-0a62b0acf151")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR085"
 			(at 146.05 71.12 0)
 			(effects
 				(font
@@ -8119,7 +8135,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "cc4e468f-d92a-464e-bc2d-804f1466a6c8")
-		(property "Reference" "R?"
+		(property "Reference" "R18"
 			(at 148.59 71.12 0)
 			(effects
 				(font
@@ -8209,7 +8225,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "d2130a75-a8b2-4945-91a6-6eaae04fc129")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR082"
 			(at 134.62 53.34 0)
 			(effects
 				(font
@@ -8287,7 +8303,7 @@
 		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "e6ac6c49-7761-4d58-a69d-c32970714f8e")
-		(property "Reference" "R?"
+		(property "Reference" "R13"
 			(at 66.04 78.105 0)
 			(effects
 				(font
@@ -8377,7 +8393,7 @@
 		(on_board yes)
 		(dnp yes)
 		(uuid "e9003c1a-28ae-4026-9026-748d3f86c344")
-		(property "Reference" "R?"
+		(property "Reference" "R12"
 			(at 52.07 160.655 90)
 			(effects
 				(font
@@ -8467,7 +8483,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "ea922cc8-b5cc-46b3-89c7-ad0c50a10e7c")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR097"
 			(at 246.38 101.6 0)
 			(effects
 				(font
@@ -8545,7 +8561,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f224511e-7e9e-4e4c-abd4-e34b2c1c84a2")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR089"
 			(at 176.53 38.1 0)
 			(effects
 				(font
@@ -8623,7 +8639,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "fac4631a-94a5-48a5-8f15-4be0c4a3b4e0")
-		(property "Reference" "R?"
+		(property "Reference" "R16"
 			(at 127 74.93 90)
 			(effects
 				(font
