@@ -1,4 +1,0 @@
-(sym_lib_table
-  (version 7)
-  (lib (name "Brushed_DC_Motor_Driver_Parts")(type "KiCad")(uri "${KIPRJMOD}/Brushed_DC_Motor_Driver_Parts.kicad_sym")(options "")(descr ""))
-)
