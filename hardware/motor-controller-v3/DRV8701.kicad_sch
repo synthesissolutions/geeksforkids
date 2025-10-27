@@ -4080,7 +4080,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C33129541.pdfV"
 			(at 250.19 143.51 0)
 			(effects
 				(font
@@ -4089,7 +4089,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "N-MOSFET transistor, source (pins 1-3)/gate/drain (pin 5), SO-8/SO-8F/SO-8FL/SON-8/PowerPAK-8/TDSON-8/VSON-8"
+		(property "Description" "MOSFET N-CH 60V 69A PDFN5X6-8L"
 			(at 250.19 143.51 0)
 			(effects
 				(font
@@ -4337,7 +4337,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C33129541.pdf"
 			(at 270.51 118.11 0)
 			(effects
 				(font
@@ -4346,7 +4346,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "N-MOSFET transistor, source (pins 1-3)/gate/drain (pin 5), SO-8/SO-8F/SO-8FL/SON-8/PowerPAK-8/TDSON-8/VSON-8"
+		(property "Description" "MOSFET N-CH 60V 69A PDFN5X6-8L"
 			(at 270.51 118.11 0)
 			(effects
 				(font
@@ -4593,7 +4593,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C33129541.pdf"
 			(at 270.51 105.41 0)
 			(effects
 				(font
@@ -4602,7 +4602,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "N-MOSFET transistor, source (pins 1-3)/gate/drain (pin 5), SO-8/SO-8F/SO-8FL/SON-8/PowerPAK-8/TDSON-8/VSON-8"
+		(property "Description" "MOSFET N-CH 60V 69A PDFN5X6-8L"
 			(at 270.51 105.41 0)
 			(effects
 				(font
@@ -6091,7 +6091,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C33129541.pdf"
 			(at 250.19 130.81 0)
 			(effects
 				(font
@@ -6100,7 +6100,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "N-MOSFET transistor, source (pins 1-3)/gate/drain (pin 5), SO-8/SO-8F/SO-8FL/SON-8/PowerPAK-8/TDSON-8/VSON-8"
+		(property "Description" "MOSFET N-CH 60V 69A PDFN5X6-8L"
 			(at 250.19 130.81 0)
 			(effects
 				(font

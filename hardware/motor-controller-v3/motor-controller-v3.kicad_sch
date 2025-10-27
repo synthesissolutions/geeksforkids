@@ -3356,28 +3356,6 @@
 		)
 		(uuid "63504af1-3366-4c18-9c0e-780850ab7280")
 	)
-	(text_box "UPDATE SERIES RESISTOR VALUES!"
-		(exclude_from_sim no)
-		(at 321.31 208.28 0)
-		(size 63.5 3.81)
-		(margins 0.9525 0.9525 0.9525 0.9525)
-		(stroke
-			(width 0)
-			(type solid)
-			(color 255 4 0 1)
-		)
-		(fill
-			(type color)
-			(color 255 239 0 1)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(color 255 37 1 1)
-			)
-		)
-		(uuid "99802cf4-4680-407b-84c5-84f4bb9d300c")
-	)
 	(junction
 		(at 73.66 123.19)
 		(diameter 0)
@@ -6303,7 +6281,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "4.7kΩ"
+		(property "Value" "130Ω"
 			(at 341.63 184.1499 0)
 			(effects
 				(font
@@ -6321,7 +6299,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C23162.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C22796.pdf"
 			(at 339.09 182.88 0)
 			(effects
 				(font
@@ -6330,7 +6308,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RES 4.7kΩ ±1% 100mW 0603"
+		(property "Description" "RES 130Ω ±1% 100mW 0603"
 			(at 339.09 182.88 0)
 			(effects
 				(font
@@ -6339,7 +6317,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "C23162"
+		(property "MPN" "C22796"
 			(at 339.09 182.88 0)
 			(effects
 				(font
@@ -7000,7 +6978,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "M2.5"
+		(property "Value" "M2"
 			(at 212.09 243.8399 0)
 			(effects
 				(font
@@ -7009,7 +6987,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_Pad_Via"
+		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_Pad_Via"
 			(at 209.55 243.84 0)
 			(effects
 				(font
@@ -7949,7 +7927,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "M3"
+		(property "Value" "M2.5"
 			(at 166.37 243.8399 0)
 			(effects
 				(font
@@ -7958,7 +7936,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
+		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_Pad_Via"
 			(at 163.83 243.84 0)
 			(effects
 				(font
@@ -8016,7 +7994,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "M3"
+		(property "Value" "M2.5"
 			(at 189.23 243.8399 0)
 			(effects
 				(font
@@ -8025,7 +8003,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
+		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_Pad_Via"
 			(at 186.69 243.84 0)
 			(effects
 				(font
@@ -8202,6 +8180,84 @@
 			(project "motor-controller-v3"
 				(path "/8badd534-6f39-4fa0-90cd-9d3408a5706c"
 					(reference "#PWR0137")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_US")
+		(at 386.08 130.81 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "713c3046-4033-4d09-bbe3-f26fccb6397b")
+		(property "Reference" "R106"
+			(at 388.62 129.5399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "130Ω"
+			(at 388.62 132.0799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 387.096 131.064 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C22796.pdf"
+			(at 386.08 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RES 130Ω ±1% 100mW 0603"
+			(at 386.08 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "C22796"
+			(at 386.08 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "76750dfb-c22d-4d73-a279-2aff3deb8432")
+		)
+		(pin "2"
+			(uuid "2db70b78-ab30-4418-b595-dac304193662")
+		)
+		(instances
+			(project "motor-controller-v3"
+				(path "/8badd534-6f39-4fa0-90cd-9d3408a5706c"
+					(reference "R106")
 					(unit 1)
 				)
 			)
@@ -9104,7 +9160,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "4.7kΩ"
+		(property "Value" "56Ω"
 			(at 341.63 129.5399 0)
 			(effects
 				(font
@@ -9122,7 +9178,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C23162.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C25196.pdf"
 			(at 339.09 128.27 0)
 			(effects
 				(font
@@ -9131,7 +9187,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RES 4.7kΩ ±1% 100mW 0603"
+		(property "Description" "RES 56Ω ±1% 100mW 0603"
 			(at 339.09 128.27 0)
 			(effects
 				(font
@@ -9140,7 +9196,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "C23162"
+		(property "MPN" "C25196"
 			(at 339.09 128.27 0)
 			(effects
 				(font
@@ -9468,7 +9524,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "M3"
+		(property "Value" "M2.5"
 			(at 154.94 243.8399 0)
 			(effects
 				(font
@@ -9477,7 +9533,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
+		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_Pad_Via"
 			(at 152.4 243.84 0)
 			(effects
 				(font
@@ -10004,7 +10060,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "M3"
+		(property "Value" "M2.5"
 			(at 177.8 243.8399 0)
 			(effects
 				(font
@@ -10013,7 +10069,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
+		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_Pad_Via"
 			(at 175.26 243.84 0)
 			(effects
 				(font
@@ -10191,84 +10247,6 @@
 			(project "motor-controller-v3"
 				(path "/8badd534-6f39-4fa0-90cd-9d3408a5706c"
 					(reference "#PWR0125")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_US")
-		(at 386.08 130.81 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ba028dc7-a741-4fbc-9a0d-83700674492d")
-		(property "Reference" "R106"
-			(at 388.62 129.5399 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "4.7kΩ"
-			(at 388.62 132.0799 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 387.096 131.064 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C23162.pdf"
-			(at 386.08 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "RES 4.7kΩ ±1% 100mW 0603"
-			(at 386.08 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "C23162"
-			(at 386.08 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a9af0034-ee2c-4ba3-a4e5-34d0b4549184")
-		)
-		(pin "2"
-			(uuid "7b4d57b8-496b-458c-ba7b-eef0922559d5")
-		)
-		(instances
-			(project "motor-controller-v3"
-				(path "/8badd534-6f39-4fa0-90cd-9d3408a5706c"
-					(reference "R106")
 					(unit 1)
 				)
 			)
@@ -11953,7 +11931,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "M2.5"
+		(property "Value" "M2"
 			(at 200.66 243.8399 0)
 			(effects
 				(font
@@ -11962,7 +11940,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_Pad_Via"
+		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_Pad_Via"
 			(at 198.12 243.84 0)
 			(effects
 				(font
@@ -12228,7 +12206,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "4.7kΩ"
+		(property "Value" "130Ω"
 			(at 388.62 184.1499 0)
 			(effects
 				(font
@@ -12246,7 +12224,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C23162.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C22796.pdf"
 			(at 386.08 182.88 0)
 			(effects
 				(font
@@ -12255,7 +12233,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RES 4.7kΩ ±1% 100mW 0603"
+		(property "Description" "RES 130Ω ±1% 100mW 0603"
 			(at 386.08 182.88 0)
 			(effects
 				(font
@@ -12264,7 +12242,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "C23162"
+		(property "MPN" "C22796"
 			(at 386.08 182.88 0)
 			(effects
 				(font

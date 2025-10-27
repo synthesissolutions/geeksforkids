@@ -37,9 +37,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 1.0,
-          "height": 1.7,
-          "width": 1.7
+          "drill": 0.0,
+          "height": 1.5,
+          "width": 1.5
         },
         "silk_line_width": 0.1524,
         "silk_text_italic": false,
@@ -195,6 +195,8 @@
         0.2032,
         0.254,
         0.3048,
+        0.762,
+        1.0,
         4.445
       ],
       "tuning_pattern_settings": {
@@ -547,7 +549,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "./",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "motor-controller-v3.step",
@@ -658,7 +660,7 @@
     },
     "net_format_name": "",
     "page_layout_descr_file": "default.kicad_wks",
-    "plot_directory": "./motor-controller-v3-SCM",
+    "plot_directory": "",
     "space_save_all_events": true,
     "spice_adjust_passive_values": false,
     "spice_current_sheet_as_root": false,
