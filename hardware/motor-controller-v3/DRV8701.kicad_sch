@@ -1834,7 +1834,7 @@
 		)
 		(uuid "138206bd-6d9f-4509-8b31-688f10865183")
 	)
-	(text "Choosing R_{SENSE} = 1mOhm"
+	(text "Choosing R_{SENSE} = 5mOhm"
 		(exclude_from_sim no)
 		(at 19.558 105.41 0)
 		(effects
@@ -1966,7 +1966,7 @@
 		)
 		(uuid "8be41e80-46cd-437a-9d61-da5c5953140e")
 	)
-	(text "For I_{CHOP} = 40A, \nV_{REF} must be set to 0.85V. \nUse R_{U} = 4.7k, R_{D} = 1.0k (0.842V typ.)"
+	(text "For I_{CHOP} = 30A, \nV_{REF} must be set to 3.05V. \nUse R_{U} = 2.7k, R_{D} = 4.7k (3.05V typ.)"
 		(exclude_from_sim no)
 		(at 19.558 116.84 0)
 		(effects
@@ -2154,7 +2154,7 @@
 		)
 		(uuid "ec9056f1-8b9d-4a5c-98a5-8e007538bec0")
 	)
-	(text "V_{CSA_OUT} = R_{SENSE}*A_{V}*I + V_{OFFSET}\nV_{CSA_OUT} = 0.020*I + 0.05\n"
+	(text "V_{CSA_OUT} = R_{SENSE}*A_{V}*I + V_{OFFSET}\nV_{CSA_OUT} = 0.1*I + 0.05\n"
 		(exclude_from_sim no)
 		(at 19.558 123.19 0)
 		(effects
@@ -2323,6 +2323,28 @@
 			(href "https://www.ti.com/lit/an/slvaft0/slvaft0.pdf?ts=1760884154025&ref_url=https%253A%252F%252Fwww.google.com%252F")
 		)
 		(uuid "9c58a422-fbf9-41b9-bda7-9dd2bd8e511c")
+	)
+	(text_box "NOTE: ADJUST R_{SENSE} AND V_{REF} DIVIDER VALUES BASED ON EXPECTED STALL CURRENT!"
+		(exclude_from_sim no)
+		(at 276.86 158.75 0)
+		(size 48.26 5.08)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type solid)
+			(color 255 11 0 1)
+		)
+		(fill
+			(type color)
+			(color 255 245 0 1)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(color 255 2 0 1)
+			)
+		)
+		(uuid "ac0077cb-cd2b-4d5f-a9bf-f17734d5bc20")
 	)
 	(text_box "Place as close to IC as possible"
 		(exclude_from_sim no)
@@ -4044,6 +4066,93 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_US")
+		(at 146.05 127 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "211bc2a3-0ef0-4405-80ad-54211f2123be")
+		(property "Reference" "R201"
+			(at 148.59 125.7299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "2.7kΩ"
+			(at 148.59 128.2699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 147.066 127.254 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C13167.pdf"
+			(at 146.05 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RES 2.7kΩ ±1% 100mW 0603"
+			(at 146.05 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "C13167"
+			(at 146.05 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "36963d78-1714-4109-8477-d0d8e8b3aad2")
+		)
+		(pin "2"
+			(uuid "9d38be13-5c57-4bdf-a9ed-1d154332c731")
+		)
+		(instances
+			(project "motor-controller-v3"
+				(path "/8badd534-6f39-4fa0-90cd-9d3408a5706c/1e77bfad-3228-4556-8142-adf30d6281a1"
+					(reference "R301")
+					(unit 1)
+				)
+				(path "/8badd534-6f39-4fa0-90cd-9d3408a5706c/c775f4d9-5223-441f-9f29-9274669ee026"
+					(reference "R201")
+					(unit 1)
+				)
+				(path "/8badd534-6f39-4fa0-90cd-9d3408a5706c/f2e74c70-2200-49df-b8d7-7ed4de3fa0d4"
+					(reference "R401")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Transistor_FET:Q_NMOS_SSSGD_AvalancheRated")
 		(at 250.19 143.51 0)
 		(unit 1)
@@ -4215,7 +4324,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_US")
-		(at 146.05 127 0)
+		(at 146.05 137.16 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4223,8 +4332,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3e78871e-c933-4a8b-91f1-6a661e89e892")
-		(property "Reference" "R201"
-			(at 148.59 125.7299 0)
+		(property "Reference" "R202"
+			(at 148.59 135.8899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4233,7 +4342,7 @@
 			)
 		)
 		(property "Value" "4.7kΩ"
-			(at 148.59 128.2699 0)
+			(at 148.59 138.4299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4242,7 +4351,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 147.066 127.254 90)
+			(at 147.066 137.414 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4251,7 +4360,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C23162.pdf"
-			(at 146.05 127 0)
+			(at 146.05 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4260,7 +4369,7 @@
 			)
 		)
 		(property "Description" "RES 4.7kΩ ±1% 100mW 0603"
-			(at 146.05 127 0)
+			(at 146.05 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4269,7 +4378,7 @@
 			)
 		)
 		(property "MPN" "C23162"
-			(at 146.05 127 0)
+			(at 146.05 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4284,17 +4393,17 @@
 			(uuid "e44270ca-990a-4d02-8e27-68f46f195276")
 		)
 		(instances
-			(project "brushed-dc-motor-driver"
+			(project "motor-controller-v3"
 				(path "/8badd534-6f39-4fa0-90cd-9d3408a5706c/1e77bfad-3228-4556-8142-adf30d6281a1"
-					(reference "R301")
+					(reference "R302")
 					(unit 1)
 				)
 				(path "/8badd534-6f39-4fa0-90cd-9d3408a5706c/c775f4d9-5223-441f-9f29-9274669ee026"
-					(reference "R201")
+					(reference "R202")
 					(unit 1)
 				)
 				(path "/8badd534-6f39-4fa0-90cd-9d3408a5706c/f2e74c70-2200-49df-b8d7-7ed4de3fa0d4"
-					(reference "R401")
+					(reference "R402")
 					(unit 1)
 				)
 			)
@@ -5302,7 +5411,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1mΩ"
+		(property "Value" "5mΩ"
 			(at 265.43 163.195 0)
 			(effects
 				(font
@@ -5311,7 +5420,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
+		(property "Footprint" "motor-controller-v3:DSLR-M_K-3"
 			(at 263.906 161.544 90)
 			(effects
 				(font
@@ -5320,7 +5429,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C5224158.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C41382686.pdf"
 			(at 262.89 161.29 0)
 			(effects
 				(font
@@ -5329,7 +5438,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RES 1mΩ ±1% 6W 2512"
+		(property "Description" "RES 5mΩ ±1% 5W 2512"
 			(at 262.89 161.29 0)
 			(effects
 				(font
@@ -5338,7 +5447,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "C5224158"
+		(property "MPN" "C41382686"
 			(at 262.89 161.29 0)
 			(effects
 				(font
@@ -6318,93 +6427,6 @@
 				)
 				(path "/8badd534-6f39-4fa0-90cd-9d3408a5706c/f2e74c70-2200-49df-b8d7-7ed4de3fa0d4"
 					(reference "C401")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_US")
-		(at 146.05 137.16 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "fd6acdc5-e86e-4c63-9286-14603a656afe")
-		(property "Reference" "R202"
-			(at 148.59 135.8899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "1kΩ"
-			(at 148.59 138.4299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 147.066 137.414 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C21190.pdf"
-			(at 146.05 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "RES 1kΩ ±1% 100mW 0603"
-			(at 146.05 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "C21190"
-			(at 146.05 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "aec2d944-a6dd-407c-a1c4-8a6109d8cbfc")
-		)
-		(pin "2"
-			(uuid "9bd89857-be73-45f5-9087-5d0ac53931cf")
-		)
-		(instances
-			(project "brushed-dc-motor-driver"
-				(path "/8badd534-6f39-4fa0-90cd-9d3408a5706c/1e77bfad-3228-4556-8142-adf30d6281a1"
-					(reference "R302")
-					(unit 1)
-				)
-				(path "/8badd534-6f39-4fa0-90cd-9d3408a5706c/c775f4d9-5223-441f-9f29-9274669ee026"
-					(reference "R202")
-					(unit 1)
-				)
-				(path "/8badd534-6f39-4fa0-90cd-9d3408a5706c/f2e74c70-2200-49df-b8d7-7ed4de3fa0d4"
-					(reference "R402")
 					(unit 1)
 				)
 			)
