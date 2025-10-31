@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "motor-controller-v3-parts")(type "KiCad")(uri "${KIPRJMOD}/motor-controller-v3-parts.kicad_sym")(options "")(descr ""))
+)
