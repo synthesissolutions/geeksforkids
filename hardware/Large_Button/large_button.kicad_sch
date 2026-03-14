@@ -2112,7 +2112,7 @@
 				)
 			)
 		)
-		(property "Value" "100Ω"
+		(property "Value" "150Ω"
 			(at 203.2 85.09 90)
 			(effects
 				(font
@@ -2147,7 +2147,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "C22775"
+		(property "MPN" "C2907103"
 			(at 203.2 88.9 90)
 			(effects
 				(font
@@ -2189,7 +2189,7 @@
 				)
 			)
 		)
-		(property "Value" "36R0"
+		(property "Value" "68R0"
 			(at 203.2 123.19 90)
 			(effects
 				(font
@@ -2224,7 +2224,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "C5121553"
+		(property "MPN" "C2930448"
 			(at 203.2 127 90)
 			(effects
 				(font
@@ -2546,7 +2546,7 @@
 				)
 			)
 		)
-		(property "Value" "100Ω"
+		(property "Value" "150Ω"
 			(at 203.2 97.79 90)
 			(effects
 				(font
@@ -2581,7 +2581,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "C22775"
+		(property "MPN" "C2907103"
 			(at 203.2 101.6 90)
 			(effects
 				(font
@@ -2611,7 +2611,7 @@
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
@@ -2912,7 +2912,7 @@
 				)
 			)
 		)
-		(property "Value" "100Ω"
+		(property "Value" "150Ω"
 			(at 203.2 72.39 90)
 			(effects
 				(font
@@ -2947,7 +2947,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "C22775"
+		(property "MPN" "C2907103"
 			(at 203.2 76.2 90)
 			(effects
 				(font
@@ -3183,7 +3183,7 @@
 		(at 190.5 127 180)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "b0000fdb-f2c8-47cd-b9a5-6dc1817d827e")
