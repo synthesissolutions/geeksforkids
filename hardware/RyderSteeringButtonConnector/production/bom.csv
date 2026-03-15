@@ -1,0 +1,4 @@
+﻿Designator,Footprint,Quantity,Value,LCSC Part #
+J1,JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal,1,Conn_01x04_Pin,C160403
+J2,JST_SH_SM05B-SRSS-TB_1x05-1MP_P1.00mm_Horizontal,1,Conn_01x05_Pin,C136657
+"J3, J4, J5",JST_SH_BM03B-SRSS-TB_1x03-1MP_P1.00mm_Vertical,3,Conn_01x03_Pin,C160389
