@@ -2648,6 +2648,316 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "TactileButton:PTS526_SM15_SMTR2_LFS"
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "SW"
+				(at 40.64 10.16 0)
+				(effects
+					(font
+						(size 1.524 1.524)
+					)
+				)
+			)
+			(property "Value" "PTS526 SM15 SMTR2 LFS"
+				(at 40.64 7.62 0)
+				(effects
+					(font
+						(size 1.524 1.524)
+					)
+				)
+			)
+			(property "Footprint" "SON4_PTS526 SM15 SMTR2 LFS_CNK"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "PTS526 SM15 SMTR2 LFS"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "PTS526 SM15 SMTR2 LFS"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "SON4_PTS526 SM15 SMTR2 LFS_CNK SON4_PTS526 SM15 SMTR2 LFS_CNK-M SON4_PTS526 SM15 SMTR2 LFS_CNK-L"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "PTS526_SM15_SMTR2_LFS_0_1"
+				(polyline
+					(pts
+						(xy 7.62 5.08) (xy 7.62 -12.7)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 0) (xy 15.24 0)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 -7.62) (xy 15.24 -7.62)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 -12.7) (xy 73.66 -12.7)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 15.24 0) (xy 15.24 -7.62)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 15.24 -3.81) (xy 38.1 -3.81)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 38.1 -3.81) (xy 44.45 -2.54)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 66.04 0) (xy 66.04 -7.62)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 66.04 -3.81) (xy 43.18 -3.81)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 66.04 -7.62) (xy 73.66 -7.62)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 73.66 5.08) (xy 7.62 5.08)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 73.66 0) (xy 66.04 0)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 73.66 -12.7) (xy 73.66 5.08)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin unspecified line
+					(at 0 0 0)
+					(length 7.62)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 0 -7.62 0)
+					(length 7.62)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 81.28 0 180)
+					(length 7.62)
+					(name "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 81.28 -7.62 180)
+					(length 7.62)
+					(name "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "power:+3.3V"
 			(power)
 			(pin_names
@@ -3220,6 +3530,16 @@
 	)
 	(wire
 		(pts
+			(xy 165.1 147.32) (xy 170.18 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "96bc2e4d-74dd-49e5-ac27-06e4398e01ab")
+	)
+	(wire
+		(pts
 			(xy 22.606 47.498) (xy 36.576 47.498)
 		)
 		(stroke
@@ -3300,6 +3620,16 @@
 	)
 	(wire
 		(pts
+			(xy 175.26 147.32) (xy 177.8 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "df5c92e7-9f3f-4612-9da6-f286a8faf929")
+	)
+	(wire
+		(pts
 			(xy 26.162 111.76) (xy 46.482 111.76)
 		)
 		(stroke
@@ -3317,6 +3647,16 @@
 			(type default)
 		)
 		(uuid "e9022769-ace5-473d-a306-6cd53f316234")
+	)
+	(wire
+		(pts
+			(xy 156.21 147.32) (xy 160.02 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f2ea528b-88b3-4b1f-ae76-7dbddf417246")
 	)
 	(label "RESET"
 		(at 195.326 62.23 0)
@@ -3463,28 +3803,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "USER_LED"
-		(shape input)
-		(at 111.76 31.75 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "42f8adb9-6712-4ace-9d16-b317fe3a14a2")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 100.0553 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
 				(hide yes)
 			)
 		)
@@ -3704,9 +4022,9 @@
 			)
 		)
 	)
-	(global_label "USER_LED"
+	(global_label "RightLED"
 		(shape input)
-		(at 177.8 138.43 0)
+		(at 177.8 147.32 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3716,12 +4034,78 @@
 		)
 		(uuid "6f0f80e4-3406-4a9b-8562-0b53f5a92b35")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 189.5047 138.43 0)
+			(at 188.4766 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "LeftLED"
+		(shape input)
+		(at 177.8 138.43 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "7307e92f-a3cd-4561-853d-e72fa1a19b39")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 187.1462 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "ConfigButton"
+		(shape input)
+		(at 111.76 39.37 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "78542c0c-e011-4846-965d-6594a8ec3994")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 97.2131 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "RightLED"
+		(shape input)
+		(at 111.76 29.21 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "8572ae65-4c33-4f21-b3e6-d89a151b3d1c")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 101.0834 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -3789,6 +4173,28 @@
 			)
 		)
 	)
+	(global_label "ConfigButton"
+		(shape input)
+		(at 137.16 173.99 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "9dd872bc-a772-49e1-b63a-9a08b974bfad")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 151.7069 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "Sound1"
 		(shape input)
 		(at 60.706 55.626 270)
@@ -3846,6 +4252,50 @@
 		(uuid "adc63c71-1681-4938-a4ec-cb20ce0f9f72")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 68.326 62.0504 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "ConfigButton"
+		(shape input)
+		(at 137.16 181.61 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ae12a4a4-2a18-4b21-9928-c8ded00b5576")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 151.7069 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "LeftLED"
+		(shape input)
+		(at 111.76 31.75 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "ba43f1e6-08bc-4675-af93-18cd1d6c1215")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 102.4138 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5885,16 +6335,16 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3.3V")
-		(at 231.14 96.52 270)
+		(lib_id "power:GND")
+		(at 55.88 181.61 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "10877979-b10c-40aa-b097-0faadea1c1ae")
-		(property "Reference" "#PWR08"
-			(at 227.33 96.52 0)
+		(uuid "20dcfb00-f719-423f-89cb-20b3a9036f66")
+		(property "Reference" "#PWR015"
+			(at 49.53 181.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5902,8 +6352,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+3V3"
-			(at 237.744 96.52 90)
+		(property "Value" "GND"
+			(at 50.292 181.61 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5911,7 +6361,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 231.14 96.52 0)
+			(at 55.88 181.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5920,7 +6370,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 231.14 96.52 0)
+			(at 55.88 181.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5929,7 +6379,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 231.14 96.52 0)
+			(at 55.88 181.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5937,12 +6387,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "488fb225-6526-452d-9940-93dffe81132d")
+			(uuid "d62df2b8-5072-47b6-b010-07851c00f705")
 		)
 		(instances
 			(project "RyderDriveByWireMicrocontroller"
 				(path "/9f9e59c8-5537-42f3-b491-699a31f131c6"
-					(reference "#PWR08")
+					(reference "#PWR015")
 					(unit 1)
 				)
 			)
@@ -6091,6 +6541,92 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:LED_Small")
+		(at 162.56 147.32 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "335c6873-9ef4-43fa-978c-181a7855affc")
+		(property "Reference" "D2"
+			(at 162.6235 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LED_Small"
+			(at 162.6235 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
+			(at 162.56 147.32 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 162.56 147.32 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Light emitting diode, small symbol"
+			(at 162.56 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 162.56 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "C965799"
+			(at 162.56 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "1ab0831b-a7c7-4f84-8bca-01c735475c41")
+		)
+		(pin "1"
+			(uuid "682a28c6-a8ce-4d44-b94e-eefab0d49f48")
+		)
+		(instances
+			(project "RyderDriveByWireMicrocontroller"
+				(path "/9f9e59c8-5537-42f3-b491-699a31f131c6"
+					(reference "D2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:Conn_01x02_Male")
 		(at 221.996 39.116 0)
 		(unit 1)
@@ -6158,6 +6694,82 @@
 		)
 	)
 	(symbol
+		(lib_id "TactileButton:PTS526_SM15_SMTR2_LFS")
+		(at 55.88 173.99 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "546a89c9-e068-47c2-bbff-97e9d1e975db")
+		(property "Reference" "SW1"
+			(at 96.52 163.83 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Value" "PTS526 SM15 SMTR2 LFS"
+			(at 96.52 166.37 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Footprint" "Useful Modifications:SON4_PTS526 SM15 SMTR2 LFS_CNK"
+			(at 55.88 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "PTS526 SM15 SMTR2 LFS"
+			(at 55.88 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 55.88 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c7d9f50d-c6de-4bef-a84e-2cb3b1543360")
+		)
+		(pin "3"
+			(uuid "e0188d26-d56b-48c4-9ba9-22eddbeae0f0")
+		)
+		(pin "4"
+			(uuid "d4c67806-6f10-44d1-b74f-926803698616")
+		)
+		(pin "2"
+			(uuid "08bd5cc7-977f-460d-9ccd-58721af9a2d4")
+		)
+		(instances
+			(project ""
+				(path "/9f9e59c8-5537-42f3-b491-699a31f131c6"
+					(reference "SW1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Mechanical:MountingHole")
 		(at 255.27 148.59 0)
 		(unit 1)
@@ -6215,6 +6827,134 @@
 			(project "RyderDriveByWireMicrocontroller"
 				(path "/9f9e59c8-5537-42f3-b491-699a31f131c6"
 					(reference "H4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 231.14 96.52 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "69d1433a-364c-4887-ae12-2b6d5786bb8a")
+		(property "Reference" "#PWR017"
+			(at 227.33 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 236.728 96.266 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 231.14 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 231.14 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 231.14 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "cfa21fa7-f4e7-4714-b0e3-6cd3d8b18e7c")
+		)
+		(instances
+			(project "RyderDriveByWireMicrocontroller"
+				(path "/9f9e59c8-5537-42f3-b491-699a31f131c6"
+					(reference "#PWR017")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 55.88 173.99 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6fc99bdb-90a6-47e6-8576-ce0d0fae4c1f")
+		(property "Reference" "#PWR014"
+			(at 49.53 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 50.292 173.99 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 55.88 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 55.88 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 55.88 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ec80070d-a54e-433a-a94d-d1ae156e9417")
+		)
+		(instances
+			(project "RyderDriveByWireMicrocontroller"
+				(path "/9f9e59c8-5537-42f3-b491-699a31f131c6"
+					(reference "#PWR014")
 					(unit 1)
 				)
 			)
@@ -6573,6 +7313,70 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+5V")
+		(at 257.81 96.52 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a4bc3ecf-16bb-4a1b-931d-13e9531a963a")
+		(property "Reference" "#PWR08"
+			(at 254 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 263.398 96.266 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 257.81 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 257.81 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 257.81 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d11dd59d-f509-4b0b-9bc9-8aed97e03c1f")
+		)
+		(instances
+			(project "RyderDriveByWireMicrocontroller"
+				(path "/9f9e59c8-5537-42f3-b491-699a31f131c6"
+					(reference "#PWR08")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Mechanical:MountingHole")
 		(at 255.27 137.16 0)
 		(unit 1)
@@ -6630,6 +7434,84 @@
 			(project "DriveByWireInputAltSTM32QFN28"
 				(path "/9f9e59c8-5537-42f3-b491-699a31f131c6"
 					(reference "H3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "R_Small_1")
+		(lib_id "Device:R_Small")
+		(at 172.72 147.32 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c4dbdb08-04a9-4a4b-b112-b00935490509")
+		(property "Reference" "R3"
+			(at 172.72 142.24 90)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "470"
+			(at 172.72 144.78 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 172.72 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 172.72 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 172.72 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "C2909361"
+			(at 172.72 147.32 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4a0ee723-573a-405f-949d-70ddc250e485")
+		)
+		(pin "2"
+			(uuid "ed1dd925-ccb8-4779-8312-899dc892f5af")
+		)
+		(instances
+			(project "RyderDriveByWireMicrocontroller"
+				(path "/9f9e59c8-5537-42f3-b491-699a31f131c6"
+					(reference "R3")
 					(unit 1)
 				)
 			)
@@ -6694,6 +7576,70 @@
 			(project "DriveByWireInputAltSTM32QFN28"
 				(path "/9f9e59c8-5537-42f3-b491-699a31f131c6"
 					(reference "#PWR07")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 156.21 147.32 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d849fd83-c1a6-4923-bd6c-3a4c8eb32b15")
+		(property "Reference" "#PWR013"
+			(at 149.86 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 150.622 147.32 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 156.21 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 156.21 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 156.21 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "96df1fe6-cb5b-4854-8b4c-f3e8acea495a")
+		)
+		(instances
+			(project "RyderDriveByWireMicrocontroller"
+				(path "/9f9e59c8-5537-42f3-b491-699a31f131c6"
+					(reference "#PWR013")
 					(unit 1)
 				)
 			)
@@ -6843,70 +7789,6 @@
 			(project "DriveByWireInputAltSTM32QFN28"
 				(path "/9f9e59c8-5537-42f3-b491-699a31f131c6"
 					(reference "H2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 257.81 96.52 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ea658bb4-eebc-43a7-8aee-1f0f852c640a")
-		(property "Reference" "#PWR011"
-			(at 254 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3V3"
-			(at 264.414 96.52 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 257.81 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 257.81 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 257.81 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "7b4c0fbb-e971-4526-8906-1c2dba30b79d")
-		)
-		(instances
-			(project "RyderDriveByWireMicrocontroller"
-				(path "/9f9e59c8-5537-42f3-b491-699a31f131c6"
-					(reference "#PWR011")
 					(unit 1)
 				)
 			)
