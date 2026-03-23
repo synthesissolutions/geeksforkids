@@ -4913,7 +4913,7 @@
 				)
 			)
 		)
-		(property "MPN" "C145961"
+		(property "MPN" "C7433440"
 			(at 226.06 96.52 0)
 			(effects
 				(font
@@ -5058,7 +5058,7 @@
 				)
 			)
 		)
-		(property "MPN" "C145961"
+		(property "MPN" "C7433440"
 			(at 156.21 99.06 0)
 			(effects
 				(font
@@ -6748,6 +6748,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "C49234134"
+			(at 55.88 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "c7d9f50d-c6de-4bef-a84e-2cb3b1543360")
 		)
@@ -7726,69 +7735,6 @@
 			(project ""
 				(path "/9f9e59c8-5537-42f3-b491-699a31f131c6"
 					(reference "J7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Mechanical:MountingHole")
-		(at 221.234 137.16 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e2d7c135-41f5-4b71-b076-e9008d2b4dc0")
-		(property "Reference" "H2"
-			(at 224.79 135.8899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "MountingHole"
-			(at 224.79 138.4299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5"
-			(at 221.234 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 221.234 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 221.234 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(instances
-			(project "DriveByWireInputAltSTM32QFN28"
-				(path "/9f9e59c8-5537-42f3-b491-699a31f131c6"
-					(reference "H2")
 					(unit 1)
 				)
 			)
