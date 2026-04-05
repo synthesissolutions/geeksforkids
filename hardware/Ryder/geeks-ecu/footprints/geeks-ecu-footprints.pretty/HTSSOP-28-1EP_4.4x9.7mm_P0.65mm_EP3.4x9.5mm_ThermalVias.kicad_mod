@@ -461,6 +461,7 @@
 		(drill 0.3)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "375c3ca2-5358-4fa5-ad84-63a98b02afca")
 	)
 	(pad "29" thru_hole circle
@@ -469,6 +470,7 @@
 		(drill 0.3)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "f2e9eca3-5fbb-4d4b-b08a-f5519ba3d16a")
 	)
 	(pad "29" thru_hole circle
@@ -477,6 +479,7 @@
 		(drill 0.3)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "cb36ce19-1822-4f58-ae04-6dc5e3336cef")
 	)
 	(pad "29" thru_hole circle
@@ -485,6 +488,7 @@
 		(drill 0.3)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "878a0271-4057-412f-89d8-4378985f8269")
 	)
 	(pad "29" thru_hole circle
@@ -493,6 +497,7 @@
 		(drill 0.3)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "50e7d7e8-f519-4a5f-b182-8f0af8e69d23")
 	)
 	(pad "29" thru_hole circle
@@ -501,6 +506,7 @@
 		(drill 0.3)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "c7a552d5-216d-42ef-ab56-2cc321a623d6")
 	)
 	(pad "29" thru_hole circle
@@ -509,6 +515,7 @@
 		(drill 0.3)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "e117c840-6501-4c77-8ca2-e6f5cff770eb")
 	)
 	(pad "29" thru_hole circle
@@ -517,6 +524,7 @@
 		(drill 0.3)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "f30cf826-e8b0-4fdc-98a6-4d294b6891d1")
 	)
 	(pad "29" thru_hole circle
@@ -525,18 +533,21 @@
 		(drill 0.3)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "5dc1d384-2cc9-4bb6-82e7-0b05a3b390ad")
 	)
 	(pad "29" smd rect
 		(at 0 0)
 		(size 3.4 9.5)
 		(layers "F.Cu" "F.Mask")
+		(zone_connect 2)
 		(uuid "bbf2a0a9-b200-4fe6-be6f-416b3d934069")
 	)
 	(pad "29" smd rect
 		(at 0 0)
 		(size 3.4 9.5)
 		(layers "B.Cu" "B.Mask")
+		(zone_connect 2)
 		(uuid "d00588b7-fe4c-4cfe-860d-bba1573467d7")
 	)
 	(pad "29" thru_hole circle
@@ -545,6 +556,7 @@
 		(drill 0.3)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "ca12d767-f740-482c-b0cf-02b30315e203")
 	)
 	(pad "29" thru_hole circle
@@ -553,6 +565,7 @@
 		(drill 0.3)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "4616ac19-a809-4067-b122-a4b79c392b22")
 	)
 	(pad "29" thru_hole circle
@@ -561,6 +574,7 @@
 		(drill 0.3)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "1ede974a-0bc8-490f-9d29-9bd7c1e482ab")
 	)
 	(pad "29" thru_hole circle
@@ -569,6 +583,7 @@
 		(drill 0.3)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "4273dc48-4a9c-444d-8889-b0e53ae6b0c5")
 	)
 	(pad "29" thru_hole circle
@@ -577,6 +592,7 @@
 		(drill 0.3)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "99edbe7a-ee24-4c29-9334-f828390ad6dc")
 	)
 	(pad "29" thru_hole circle
@@ -585,6 +601,7 @@
 		(drill 0.3)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "68737e4c-3013-4162-b36c-a2047f17a3f8")
 	)
 	(pad "29" thru_hole circle
@@ -593,6 +610,7 @@
 		(drill 0.3)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "a445d86f-d382-4429-99ea-8058dae4ffde")
 	)
 	(pad "29" thru_hole circle
@@ -601,6 +619,7 @@
 		(drill 0.3)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "c1d96bf4-8889-422f-acd2-eb30d80f4430")
 	)
 	(pad "29" thru_hole circle
@@ -609,6 +628,7 @@
 		(drill 0.3)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "e35d8f9f-e44e-4724-9d12-5cd7f82241fc")
 	)
 	(embedded_fonts no)

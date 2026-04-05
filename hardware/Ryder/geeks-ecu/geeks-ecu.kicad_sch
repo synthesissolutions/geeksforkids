@@ -1881,7 +1881,7 @@
 		(uuid 0c2e4f82-0944-4ee5-a504-1d01d4ea2203)
 	)
 	(rectangle
-		(start 369.57 154.94)
+		(start 369.57 152.4)
 		(end 394.97 220.98)
 		(stroke
 			(width 0)
@@ -1941,7 +1941,7 @@
 	)
 	(text "MOTORS"
 		(exclude_from_sim no)
-		(at 382.016 153.67 0)
+		(at 382.016 151.13 0)
 		(effects
 			(font
 				(size 2.54 2.54)
@@ -1963,7 +1963,7 @@
 	)
 	(text "REAR WHEEL MOTORS"
 		(exclude_from_sim no)
-		(at 382.016 184.15 0)
+		(at 382.016 181.61 0)
 		(effects
 			(font
 				(size 1.2192 1.2192)
@@ -1985,7 +1985,7 @@
 	)
 	(text "FRONT WHEEL MOTORS"
 		(exclude_from_sim no)
-		(at 382.27 159.258 0)
+		(at 382.27 156.718 0)
 		(effects
 			(font
 				(size 1.2192 1.2192)
@@ -2173,10 +2173,10 @@
 		(uuid "303b2259-07d4-4235-8b1e-d81a7a7b99dd")
 	)
 	(junction
-		(at 372.11 165.1)
+		(at 374.65 162.56)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "5cf5a8c6-0f78-48ec-9877-1d2c9c15eb40")
+		(uuid "329803e5-4c88-40ac-8749-374ed84006d9")
 	)
 	(junction
 		(at 90.17 76.2)
@@ -2191,6 +2191,12 @@
 		(uuid "716e2e14-8ec6-4814-a288-a3c319eb60c3")
 	)
 	(junction
+		(at 374.65 165.1)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8d983956-1ead-42db-9e29-3214e609ec7b")
+	)
+	(junction
 		(at 45.72 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2201,12 +2207,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9e61b229-6f26-4ff2-9f74-389b853cca56")
-	)
-	(junction
-		(at 374.65 162.56)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a605af0e-6472-4d2b-a286-d05595eb0085")
 	)
 	(junction
 		(at 374.65 187.96)
@@ -2227,16 +2227,16 @@
 		(uuid "bc8feb91-952d-4d62-95eb-36e32414a43a")
 	)
 	(junction
+		(at 374.65 190.5)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c11c36bf-d7e1-4650-b454-95939cea7b8d")
+	)
+	(junction
 		(at 289.56 190.5)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d4fbb52f-ebc3-4a12-b021-e1888fbd7d0a")
-	)
-	(junction
-		(at 372.11 190.5)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "fee71aab-ccac-4122-b1ac-669524f6c49e")
 	)
 	(junction
 		(at 118.11 49.53)
@@ -2262,6 +2262,16 @@
 	)
 	(wire
 		(pts
+			(xy 374.65 165.1) (xy 377.19 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "00f3ef9e-2c47-4d72-9280-9fe9f954e0f4")
+	)
+	(wire
+		(pts
 			(xy 292.1 182.88) (xy 292.1 157.48)
 		)
 		(stroke
@@ -2272,7 +2282,7 @@
 	)
 	(wire
 		(pts
-			(xy 374.65 162.56) (xy 377.19 162.56)
+			(xy 337.82 162.56) (xy 374.65 162.56)
 		)
 		(stroke
 			(width 0)
@@ -2332,13 +2342,13 @@
 	)
 	(wire
 		(pts
-			(xy 377.19 170.18) (xy 372.11 170.18)
+			(xy 377.19 193.04) (xy 374.65 193.04)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "180427d9-09c3-4188-ad85-bb25c89cf004")
+		(uuid "150a827b-6110-48d5-bdba-418384a6e5ff")
 	)
 	(wire
 		(pts
@@ -2352,23 +2362,23 @@
 	)
 	(wire
 		(pts
-			(xy 372.11 195.58) (xy 372.11 190.5)
+			(xy 374.65 190.5) (xy 377.19 190.5)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1beb7cbd-a783-433e-bfde-890b12b1bb9a")
+		(uuid "1b95189a-28c3-42a9-a8ed-60cbc11eeb6d")
 	)
 	(wire
 		(pts
-			(xy 377.19 195.58) (xy 372.11 195.58)
+			(xy 374.65 187.96) (xy 377.19 187.96)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1ea0a9b8-3ba9-4b0f-a3bf-d363538e00eb")
+		(uuid "1daea78f-6c53-47cc-adf8-d5ba17f0bec3")
 	)
 	(wire
 		(pts
@@ -2402,16 +2412,6 @@
 	)
 	(wire
 		(pts
-			(xy 337.82 187.96) (xy 374.65 187.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "27c656a2-0f54-4a6a-9b3d-0c708699355f")
-	)
-	(wire
-		(pts
 			(xy 234.95 78.74) (xy 299.72 78.74)
 		)
 		(stroke
@@ -2442,7 +2442,7 @@
 	)
 	(wire
 		(pts
-			(xy 337.82 190.5) (xy 372.11 190.5)
+			(xy 337.82 190.5) (xy 374.65 190.5)
 		)
 		(stroke
 			(width 0)
@@ -2469,16 +2469,6 @@
 			(type default)
 		)
 		(uuid "38600469-7b09-465b-974e-5382dee1fdec")
-	)
-	(wire
-		(pts
-			(xy 337.82 162.56) (xy 374.65 162.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3c49009b-4698-4013-8ebc-38765d1f8660")
 	)
 	(wire
 		(pts
@@ -2682,16 +2672,6 @@
 	)
 	(wire
 		(pts
-			(xy 337.82 165.1) (xy 372.11 165.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6307ff7e-8479-4a43-8093-057815197947")
-	)
-	(wire
-		(pts
 			(xy 289.56 215.9) (xy 289.56 190.5)
 		)
 		(stroke
@@ -2732,6 +2712,16 @@
 	)
 	(wire
 		(pts
+			(xy 374.65 185.42) (xy 374.65 187.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "69b3220d-eee8-4be3-8834-a2862f0aa6c3")
+	)
+	(wire
+		(pts
 			(xy 234.95 81.28) (xy 299.72 81.28)
 		)
 		(stroke
@@ -2739,6 +2729,16 @@
 			(type default)
 		)
 		(uuid "6af4cb90-20ab-446f-8da2-86f30ed088ca")
+	)
+	(wire
+		(pts
+			(xy 374.65 160.02) (xy 374.65 162.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7416ed2d-927f-4991-a350-8ee9633fa053")
 	)
 	(wire
 		(pts
@@ -2762,7 +2762,7 @@
 	)
 	(wire
 		(pts
-			(xy 374.65 187.96) (xy 377.19 187.96)
+			(xy 374.65 185.42) (xy 377.19 185.42)
 		)
 		(stroke
 			(width 0)
@@ -2799,6 +2799,16 @@
 			(type default)
 		)
 		(uuid "8244ed87-125b-468e-964c-2a520adc10ea")
+	)
+	(wire
+		(pts
+			(xy 374.65 165.1) (xy 374.65 167.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "84dc18f0-d6c0-46b7-b8a5-99e058252a54")
 	)
 	(wire
 		(pts
@@ -2922,7 +2932,7 @@
 	)
 	(wire
 		(pts
-			(xy 372.11 190.5) (xy 377.19 190.5)
+			(xy 337.82 187.96) (xy 374.65 187.96)
 		)
 		(stroke
 			(width 0)
@@ -2959,6 +2969,16 @@
 			(type default)
 		)
 		(uuid "b10ef195-23fe-4c2d-a1cc-b91e62a5fe88")
+	)
+	(wire
+		(pts
+			(xy 374.65 193.04) (xy 374.65 190.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b1409aed-4675-42c9-a890-0fb5f71ea3b9")
 	)
 	(wire
 		(pts
@@ -3032,6 +3052,16 @@
 	)
 	(wire
 		(pts
+			(xy 374.65 160.02) (xy 377.19 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bab1ec8e-f668-418b-8112-9a7660d252f6")
+	)
+	(wire
+		(pts
 			(xy 234.95 48.26) (xy 299.72 48.26)
 		)
 		(stroke
@@ -3052,16 +3082,6 @@
 	)
 	(wire
 		(pts
-			(xy 377.19 167.64) (xy 374.65 167.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "be04a823-17b8-4bee-8e27-d928eb144257")
-	)
-	(wire
-		(pts
 			(xy 337.82 213.36) (xy 377.19 213.36)
 		)
 		(stroke
@@ -3072,13 +3092,23 @@
 	)
 	(wire
 		(pts
-			(xy 372.11 165.1) (xy 377.19 165.1)
+			(xy 337.82 165.1) (xy 374.65 165.1)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "bf5df2ee-f05a-4dc2-9bdd-fed7112ed9ba")
+	)
+	(wire
+		(pts
+			(xy 374.65 167.64) (xy 377.19 167.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bfd1a1c0-df7c-440b-9012-fa11f5609f25")
 	)
 	(wire
 		(pts
@@ -3182,6 +3212,16 @@
 	)
 	(wire
 		(pts
+			(xy 374.65 162.56) (xy 377.19 162.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "de8ee23b-ddbd-4bc2-a216-08211988bac2")
+	)
+	(wire
+		(pts
 			(xy 118.11 46.99) (xy 118.11 49.53)
 		)
 		(stroke
@@ -3189,26 +3229,6 @@
 			(type default)
 		)
 		(uuid "e122fa59-2771-4536-9dc8-16d38b026ee9")
-	)
-	(wire
-		(pts
-			(xy 377.19 193.04) (xy 374.65 193.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e73fe70b-9116-48f9-9e30-c961005d77fa")
-	)
-	(wire
-		(pts
-			(xy 374.65 167.64) (xy 374.65 162.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e7be1c4a-c6d0-4655-8468-e3bb436fa46a")
 	)
 	(wire
 		(pts
@@ -3262,16 +3282,6 @@
 	)
 	(wire
 		(pts
-			(xy 372.11 170.18) (xy 372.11 165.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f509708e-85cc-4f9d-a0cb-cca9124d4792")
-	)
-	(wire
-		(pts
 			(xy 234.95 160.02) (xy 299.72 160.02)
 		)
 		(stroke
@@ -3299,16 +3309,6 @@
 			(type default)
 		)
 		(uuid "fb1c47cc-9944-48dd-b691-bd340ec59847")
-	)
-	(wire
-		(pts
-			(xy 374.65 193.04) (xy 374.65 187.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fda80172-9978-4ffd-b27d-baa9933a6e1a")
 	)
 	(label "LS_C_CTRL"
 		(at 153.67 180.34 180)
@@ -3540,7 +3540,7 @@
 		)
 		(uuid "688998ff-cdd3-475b-ac03-8e1305875d1d")
 	)
-	(label "DAC_I2C_SDA"
+	(label "I2C_SDA"
 		(at 257.81 134.62 0)
 		(effects
 			(font
@@ -3690,7 +3690,7 @@
 		)
 		(uuid "ba47906f-fa3c-4fe6-a19c-870fb56250e0")
 	)
-	(label "DAC_I2C_SCL"
+	(label "I2C_SCL"
 		(at 257.81 132.08 0)
 		(effects
 			(font
@@ -3887,15 +3887,6 @@
 			)
 		)
 		(property "Description" "Open Hardware logo, small"
-			(at 92.71 254 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Enable" "0"
 			(at 92.71 254 0)
 			(effects
 				(font
@@ -4491,7 +4482,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 382.27 193.04 0)
+		(at 382.27 190.5 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4499,7 +4490,7 @@
 		(dnp no)
 		(uuid "22dbb6f1-667f-4c11-8006-d125c7cbe49f")
 		(property "Reference" "J110"
-			(at 384.81 193.294 0)
+			(at 384.81 190.754 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4508,7 +4499,7 @@
 			)
 		)
 		(property "Value" "5.08mm"
-			(at 384.81 195.834 0)
+			(at 384.81 193.294 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4517,7 +4508,7 @@
 			)
 		)
 		(property "Footprint" "geeks-ecu-footprints:TerminalBlock_CUI_TB007-508-02_1x02_P5.08mm_Horizontal"
-			(at 382.27 193.04 0)
+			(at 382.27 190.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4526,7 +4517,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C3816270.pdf"
-			(at 382.27 193.04 0)
+			(at 382.27 190.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4535,7 +4526,7 @@
 			)
 		)
 		(property "Description" "TERM BLK 2POS 5.08mm"
-			(at 382.27 193.04 0)
+			(at 382.27 190.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4544,7 +4535,7 @@
 			)
 		)
 		(property "MPN" "C3816270"
-			(at 382.27 193.04 0)
+			(at 382.27 190.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5929,7 +5920,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 382.27 167.64 0)
+		(at 382.27 165.1 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5937,7 +5928,7 @@
 		(dnp no)
 		(uuid "db3970ae-9b68-4ff8-ab3f-e608974ca14f")
 		(property "Reference" "J108"
-			(at 384.81 167.894 0)
+			(at 384.81 165.354 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5946,7 +5937,7 @@
 			)
 		)
 		(property "Value" "5.08mm"
-			(at 384.81 170.434 0)
+			(at 384.81 167.894 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5955,7 +5946,7 @@
 			)
 		)
 		(property "Footprint" "geeks-ecu-footprints:TerminalBlock_CUI_TB007-508-02_1x02_P5.08mm_Horizontal"
-			(at 382.27 167.64 0)
+			(at 382.27 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5964,7 +5955,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C3816270.pdf"
-			(at 382.27 167.64 0)
+			(at 382.27 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5973,7 +5964,7 @@
 			)
 		)
 		(property "Description" "TERM BLK 2POS 5.08mm"
-			(at 382.27 167.64 0)
+			(at 382.27 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5982,7 +5973,7 @@
 			)
 		)
 		(property "MPN" "C3816270"
-			(at 382.27 167.64 0)
+			(at 382.27 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6086,7 +6077,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 382.27 187.96 0)
+		(at 382.27 185.42 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6094,7 +6085,7 @@
 		(dnp no)
 		(uuid "ef547289-cf89-4056-ba67-04af6be07b6e")
 		(property "Reference" "J109"
-			(at 384.81 187.706 0)
+			(at 384.81 185.166 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6103,7 +6094,7 @@
 			)
 		)
 		(property "Value" "5.08mm"
-			(at 384.81 190.2459 0)
+			(at 384.81 187.7059 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6112,7 +6103,7 @@
 			)
 		)
 		(property "Footprint" "geeks-ecu-footprints:TerminalBlock_CUI_TB007-508-02_1x02_P5.08mm_Horizontal"
-			(at 382.27 187.96 0)
+			(at 382.27 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6121,7 +6112,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C3816270.pdf"
-			(at 382.27 187.96 0)
+			(at 382.27 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6130,7 +6121,7 @@
 			)
 		)
 		(property "Description" "TERM BLK 2POS 5.08mm"
-			(at 382.27 187.96 0)
+			(at 382.27 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6139,7 +6130,7 @@
 			)
 		)
 		(property "MPN" "C3816270"
-			(at 382.27 187.96 0)
+			(at 382.27 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6231,7 +6222,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 382.27 162.56 0)
+		(at 382.27 160.02 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6239,7 +6230,7 @@
 		(dnp no)
 		(uuid "fb564479-c4ea-409d-b396-5c93d28e3457")
 		(property "Reference" "J107"
-			(at 384.81 162.306 0)
+			(at 384.81 159.766 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6248,7 +6239,7 @@
 			)
 		)
 		(property "Value" "5.08mm"
-			(at 384.81 164.846 0)
+			(at 384.81 162.306 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6257,7 +6248,7 @@
 			)
 		)
 		(property "Footprint" "geeks-ecu-footprints:TerminalBlock_CUI_TB007-508-02_1x02_P5.08mm_Horizontal"
-			(at 382.27 162.56 0)
+			(at 382.27 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6266,7 +6257,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C3816270.pdf"
-			(at 382.27 162.56 0)
+			(at 382.27 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6275,7 +6266,7 @@
 			)
 		)
 		(property "Description" "TERM BLK 2POS 5.08mm"
-			(at 382.27 162.56 0)
+			(at 382.27 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6284,7 +6275,7 @@
 			)
 		)
 		(property "MPN" "C3816270"
-			(at 382.27 162.56 0)
+			(at 382.27 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)

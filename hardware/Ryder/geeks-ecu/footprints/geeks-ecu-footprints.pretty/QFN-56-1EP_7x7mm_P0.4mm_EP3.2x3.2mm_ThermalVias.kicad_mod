@@ -794,6 +794,7 @@
 		(property pad_prop_heatsink)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "c7790d4c-8513-409c-926a-42d1bbe8da68")
 	)
 	(pad "57" thru_hole circle
@@ -803,6 +804,7 @@
 		(property pad_prop_heatsink)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "8437fcd6-5c1c-4c48-8c91-11ae4e9945bf")
 	)
 	(pad "57" thru_hole circle
@@ -812,6 +814,7 @@
 		(property pad_prop_heatsink)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "5b47a186-3a2c-4d1d-9bab-b1652210f28b")
 	)
 	(pad "57" thru_hole circle
@@ -821,6 +824,7 @@
 		(property pad_prop_heatsink)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "d69fee7e-006d-4126-81f2-f2639996440d")
 	)
 	(pad "57" thru_hole circle
@@ -830,6 +834,7 @@
 		(property pad_prop_heatsink)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "13cc7dbe-2c16-46ee-92d0-14198a1279a5")
 	)
 	(pad "57" smd rect
@@ -855,6 +860,7 @@
 		(property pad_prop_heatsink)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "9d8ad206-115e-4ef8-9fda-f4080100d617")
 	)
 	(pad "57" thru_hole circle
@@ -864,6 +870,7 @@
 		(property pad_prop_heatsink)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "903beefc-4538-4f7e-a5ba-0cebf32b1bb8")
 	)
 	(pad "57" thru_hole circle
@@ -873,6 +880,7 @@
 		(property pad_prop_heatsink)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "5b123250-3349-4b41-a755-75baf52f2b9c")
 	)
 	(pad "57" thru_hole circle
@@ -882,6 +890,7 @@
 		(property pad_prop_heatsink)
 		(layers "*.Cu")
 		(remove_unused_layers no)
+		(zone_connect 2)
 		(uuid "74301092-bb88-4b74-a082-a18c494c063b")
 	)
 	(embedded_fonts no)
