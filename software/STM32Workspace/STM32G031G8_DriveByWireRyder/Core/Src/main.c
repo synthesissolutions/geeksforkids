@@ -45,6 +45,8 @@
 // range below.
 #define STEERING_LEFT 200
 #define STEERING_RIGHT 800
+
+#define CONFIG_THRESHOLD 1000
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -91,6 +93,10 @@ int main(void)
 	uint16_t pwmThrottle = THROTTLE_OFF;
 	int throttleOn = 0;
 
+	uint32_t configPressStartTime;
+	uint8_t isConfigPressed = 0;
+	uint8_t isInConfig = 0;
+
 	uint32_t sensorData[2];
 	uint32_t prevRawCosData;
 	uint32_t rawSinData;
@@ -136,6 +142,22 @@ int main(void)
 		prevRawCosData = rawCosData;
 		rawCosData = sensorData[1];
 
+	  	if (! HAL_GPIO_ReadPin(CONFIG_BUTTON_GPIO_Port, CONFIG_BUTTON_Pin)) {
+	  		if (!isConfigPressed) {
+	  			isConfigPressed = 1;
+	  			configPressStartTime = HAL_GetTick();
+	  		}
+	  		HAL_GPIO_WritePin(LED_LEFT_GPIO_Port, LED_LEFT_Pin, GPIO_PIN_SET);
+
+	  		if (HAL_GetTick() - configPressStartTime > CONFIG_THRESHOLD) {
+	  			isInConfig = 1;
+	  			HAL_GPIO_WritePin(LED_RIGHT_GPIO_Port, LED_RIGHT_Pin, GPIO_PIN_SET);
+	  		}
+	  	} else {
+	  		isConfigPressed = 0;
+	  		HAL_GPIO_WritePin(LED_LEFT_GPIO_Port, LED_LEFT_Pin, GPIO_PIN_RESET);
+	  	}
+
 		/*
 		if (rawSinData < MIN_SIN_SENSOR) {
 			finalData += rawCosData - prevRawCosData;
@@ -165,7 +187,7 @@ int main(void)
 
 		HAL_ADC_Start_DMA(&hadc1, sensorData, 2);
 
-		throttleOn = ! HAL_GPIO_ReadPin(GO_BUTON_GPIO_Port, GO_BUTON_Pin);
+		throttleOn = ! HAL_GPIO_ReadPin(GO_BUTTON_GPIO_Port, GO_BUTTON_Pin);
 
 		// No longer using the reverse switch on the steering column
 		if (throttleOn) {
@@ -391,11 +413,11 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : GO_BUTON_Pin */
-  GPIO_InitStruct.Pin = GO_BUTON_Pin;
+  /*Configure GPIO pin : GO_BUTTON_Pin */
+  GPIO_InitStruct.Pin = GO_BUTTON_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(GO_BUTON_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GO_BUTTON_GPIO_Port, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 
