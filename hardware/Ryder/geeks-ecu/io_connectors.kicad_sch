@@ -3154,131 +3154,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "power:+BATT"
-			(power)
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "#PWR"
-				(at 0 -3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Value" "+BATT"
-				(at 0 3.556 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Power symbol creates a global label with name \"+BATT\""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "global power battery"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "+BATT_0_1"
-				(polyline
-					(pts
-						(xy -0.762 1.27) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 2.54) (xy 0.762 1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "+BATT_1_1"
-				(pin power_in line
-					(at 0 0 90)
-					(length 0)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "power:GND"
 			(power)
 			(pin_numbers
@@ -3722,50 +3597,6 @@
 		)
 		(uuid "8475cbce-66ed-4a27-9e51-5f99fca4cff2")
 	)
-	(text_box "DO ANY DRIVE SYSTEMS USE 5V LOGIC?"
-		(exclude_from_sim no)
-		(at 238.76 29.21 0)
-		(size 45.72 3.81)
-		(margins 0.9525 0.9525 0.9525 0.9525)
-		(stroke
-			(width 0)
-			(type solid)
-			(color 255 11 0 1)
-		)
-		(fill
-			(type color)
-			(color 255 245 0 1)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(color 255 2 0 1)
-			)
-		)
-		(uuid "912ae76b-7020-4074-8608-585a2ed9c7e7")
-	)
-	(text_box "DOUBLE CHECK THAT THIS CONNECTOR IS CONFIGURED CORRECTLY!"
-		(exclude_from_sim no)
-		(at 212.09 187.96 0)
-		(size 72.39 3.81)
-		(margins 0.9525 0.9525 0.9525 0.9525)
-		(stroke
-			(width 0)
-			(type solid)
-			(color 255 11 0 1)
-		)
-		(fill
-			(type color)
-			(color 255 245 0 1)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(color 255 2 0 1)
-			)
-		)
-		(uuid "ac236adc-68ff-452a-b783-9a38aaf9691b")
-	)
 	(junction
 		(at 96.52 99.06)
 		(diameter 0)
@@ -3881,7 +3712,7 @@
 		(uuid "676a9dd9-abe9-4881-8afc-1457da2aab81")
 	)
 	(junction
-		(at 275.59 234.95)
+		(at 276.86 218.44)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "68232a25-86ec-4c4e-abe6-a21f99957759")
@@ -3951,12 +3782,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "962d44b7-9434-4729-a9c8-c4295a69aaaa")
-	)
-	(junction
-		(at 262.89 203.2)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9e8ad48a-8cb8-4287-8e6f-907e832628c9")
 	)
 	(junction
 		(at 203.2 69.85)
@@ -4043,7 +3868,7 @@
 		(uuid "df9b02b3-a13a-40ab-b2d2-44ca1440f1ac")
 	)
 	(junction
-		(at 262.89 224.79)
+		(at 264.16 208.28)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "eabadb28-11e7-441d-a67e-50f76bcfdf06")
@@ -4073,16 +3898,14 @@
 		(uuid "f58a1ec2-e38c-4d7b-8dc7-b80dc49d475e")
 	)
 	(junction
-		(at 275.59 213.36)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f76bffc8-cbba-451c-85f8-9ea37ffc0ff3")
-	)
-	(junction
 		(at 190.5 64.77)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "fe9b2007-55ad-42af-a5ee-1b60ae620150")
+	)
+	(no_connect
+		(at 237.49 205.74)
+		(uuid "10cf641a-13f2-4342-aaad-a20e99ad4126")
 	)
 	(no_connect
 		(at 100.33 152.4)
@@ -4112,7 +3935,7 @@
 	)
 	(wire
 		(pts
-			(xy 262.89 223.52) (xy 262.89 224.79)
+			(xy 264.16 207.01) (xy 264.16 208.28)
 		)
 		(stroke
 			(width 0)
@@ -4252,16 +4075,6 @@
 	)
 	(wire
 		(pts
-			(xy 275.59 213.36) (xy 262.89 213.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "101431d7-c328-4f90-ad29-a5f6645e1999")
-	)
-	(wire
-		(pts
 			(xy 125.73 167.64) (xy 125.73 168.91)
 		)
 		(stroke
@@ -4282,16 +4095,6 @@
 	)
 	(wire
 		(pts
-			(xy 262.89 212.09) (xy 262.89 213.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "133ae554-7b5d-4a16-9bf1-73ad97b9bae2")
-	)
-	(wire
-		(pts
 			(xy 237.49 153.67) (xy 237.49 156.21)
 		)
 		(stroke
@@ -4309,16 +4112,6 @@
 			(type default)
 		)
 		(uuid "1594b9cf-f142-4419-8824-4584db269818")
-	)
-	(wire
-		(pts
-			(xy 234.95 203.2) (xy 234.95 205.74)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "175747db-db3a-4866-be08-0ec21449ecc1")
 	)
 	(wire
 		(pts
@@ -4369,16 +4162,6 @@
 			(type default)
 		)
 		(uuid "1ac039f4-a045-4599-8e52-3bd5f1c3ffb5")
-	)
-	(wire
-		(pts
-			(xy 262.89 203.2) (xy 275.59 203.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1b5c003f-5f2d-47aa-baa4-211809927cfc")
 	)
 	(wire
 		(pts
@@ -4459,16 +4242,6 @@
 			(type default)
 		)
 		(uuid "1ed04b19-1dfc-42a1-bccf-4f23377e48b7")
-	)
-	(wire
-		(pts
-			(xy 275.59 204.47) (xy 275.59 203.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2268c1c8-e40e-4f58-84e7-ee17fa7e154d")
 	)
 	(wire
 		(pts
@@ -4852,16 +4625,6 @@
 	)
 	(wire
 		(pts
-			(xy 262.89 203.2) (xy 262.89 204.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4fdecf16-bd19-4361-8d6e-929e5522e1db")
-	)
-	(wire
-		(pts
 			(xy 384.81 104.14) (xy 384.81 105.41)
 		)
 		(stroke
@@ -5082,7 +4845,7 @@
 	)
 	(wire
 		(pts
-			(xy 262.89 224.79) (xy 275.59 224.79)
+			(xy 264.16 208.28) (xy 276.86 208.28)
 		)
 		(stroke
 			(width 0)
@@ -5162,7 +4925,7 @@
 	)
 	(wire
 		(pts
-			(xy 262.89 233.68) (xy 262.89 234.95)
+			(xy 264.16 217.17) (xy 264.16 218.44)
 		)
 		(stroke
 			(width 0)
@@ -5232,16 +4995,6 @@
 	)
 	(wire
 		(pts
-			(xy 262.89 201.93) (xy 262.89 203.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6fdf480e-36b0-4e90-b54b-ba55935b6a8d")
-	)
-	(wire
-		(pts
 			(xy 358.14 116.84) (xy 358.14 114.3)
 		)
 		(stroke
@@ -5249,16 +5002,6 @@
 			(type default)
 		)
 		(uuid "70e02d78-9367-4e8a-8f93-5b05f0fbe233")
-	)
-	(wire
-		(pts
-			(xy 275.59 212.09) (xy 275.59 213.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7345841a-52d6-4212-a5ee-4207b109fd89")
 	)
 	(wire
 		(pts
@@ -5612,16 +5355,6 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 205.74) (xy 237.49 205.74)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9153d20c-411e-4f75-bfbd-62646476e943")
-	)
-	(wire
-		(pts
 			(xy 80.01 59.69) (xy 76.2 59.69)
 		)
 		(stroke
@@ -5722,7 +5455,7 @@
 	)
 	(wire
 		(pts
-			(xy 262.89 224.79) (xy 262.89 226.06)
+			(xy 264.16 208.28) (xy 264.16 209.55)
 		)
 		(stroke
 			(width 0)
@@ -5752,7 +5485,7 @@
 	)
 	(wire
 		(pts
-			(xy 275.59 226.06) (xy 275.59 224.79)
+			(xy 276.86 209.55) (xy 276.86 208.28)
 		)
 		(stroke
 			(width 0)
@@ -5852,7 +5585,7 @@
 	)
 	(wire
 		(pts
-			(xy 275.59 233.68) (xy 275.59 234.95)
+			(xy 276.86 217.17) (xy 276.86 218.44)
 		)
 		(stroke
 			(width 0)
@@ -6042,7 +5775,7 @@
 	)
 	(wire
 		(pts
-			(xy 275.59 234.95) (xy 275.59 236.22)
+			(xy 276.86 218.44) (xy 276.86 219.71)
 		)
 		(stroke
 			(width 0)
@@ -6482,16 +6215,6 @@
 	)
 	(wire
 		(pts
-			(xy 275.59 213.36) (xy 275.59 214.63)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f5405d7b-c821-44e9-9158-280b0632c0a5")
-	)
-	(wire
-		(pts
 			(xy 198.12 45.72) (xy 198.12 44.45)
 		)
 		(stroke
@@ -6592,7 +6315,7 @@
 	)
 	(wire
 		(pts
-			(xy 275.59 234.95) (xy 262.89 234.95)
+			(xy 276.86 218.44) (xy 264.16 218.44)
 		)
 		(stroke
 			(width 0)
@@ -7261,85 +6984,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 275.59 208.28 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "0fa19592-274b-46dc-ba01-b259832425bb")
-		(property "Reference" "C420"
-			(at 271.78 207.0099 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "0.1uF"
-			(at 271.78 209.5499 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 274.6248 212.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C14663.pdf"
-			(at 275.59 208.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "CAP CER 100nF 50V X7R 0603"
-			(at 275.59 208.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "C14663"
-			(at 275.59 208.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "42435108-4b7a-456e-98c7-cd52eb595317")
-		)
-		(pin "1"
-			(uuid "afe40a9f-d4e5-4bac-a211-9ae7741561d1")
-		)
-		(instances
-			(project "geeks-ecu"
-				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/75652050-2907-4906-b92b-af5ffa0f2373"
-					(reference "C420")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 97.79 179.07 0)
 		(mirror y)
@@ -7740,72 +7384,6 @@
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/75652050-2907-4906-b92b-af5ffa0f2373"
 					(reference "#PWR0464")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+BATT")
-		(at 234.95 203.2 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "262e41ee-b275-43d8-8e24-d89ceb456f55")
-		(property "Reference" "#PWR0444"
-			(at 234.95 207.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "VBAT"
-			(at 234.95 199.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 234.95 203.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 234.95 203.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 234.95 203.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "2ea2a82e-10e7-4d1c-8cbc-1b906b4be88a")
-		)
-		(instances
-			(project "geeks-ecu"
-				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/75652050-2907-4906-b92b-af5ffa0f2373"
-					(reference "#PWR0444")
 					(unit 1)
 				)
 			)
@@ -9748,7 +9326,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 262.89 229.87 0)
+		(at 264.16 213.36 0)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9757,7 +9335,7 @@
 		(dnp no)
 		(uuid "53c6fee2-19d8-4795-9f76-21bf5034939f")
 		(property "Reference" "C417"
-			(at 259.588 228.6 0)
+			(at 260.858 212.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9766,7 +9344,7 @@
 			)
 		)
 		(property "Value" "1uF"
-			(at 259.588 231.14 0)
+			(at 260.858 214.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9775,7 +9353,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 263.8552 226.06 0)
+			(at 265.1252 209.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9784,7 +9362,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2210171730_Samsung-Electro-Mechanics-CL10B105KB8NQNC_C5199872.pdf"
-			(at 262.89 229.87 0)
+			(at 264.16 213.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9793,7 +9371,7 @@
 			)
 		)
 		(property "Description" "CAP CER 1uF 50V X7R 0603"
-			(at 262.89 229.87 0)
+			(at 264.16 213.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9802,7 +9380,7 @@
 			)
 		)
 		(property "MPN" "C5199872"
-			(at 262.89 229.87 0)
+			(at 264.16 213.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12412,72 +11990,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 275.59 214.63 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "912c502b-d917-42eb-8000-7fa10682fb05")
-		(property "Reference" "#PWR0458"
-			(at 275.59 220.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 275.59 218.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 275.59 214.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 275.59 214.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 275.59 214.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "383e3b14-0212-4c1b-841a-bc2ef4ea99bf")
-		)
-		(instances
-			(project "geeks-ecu"
-				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/75652050-2907-4906-b92b-af5ffa0f2373"
-					(reference "#PWR0458")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+5V")
 		(at 125.73 105.41 0)
 		(mirror y)
@@ -13924,7 +13436,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 275.59 229.87 0)
+		(at 276.86 213.36 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -13933,7 +13445,7 @@
 		(dnp no)
 		(uuid "b4ff2d74-fc1f-45b7-8feb-a9641844bac1")
 		(property "Reference" "C421"
-			(at 271.78 228.5999 0)
+			(at 273.05 212.0899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13942,7 +13454,7 @@
 			)
 		)
 		(property "Value" "0.1uF"
-			(at 271.78 231.1399 0)
+			(at 273.05 214.6299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13951,7 +13463,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 274.6248 233.68 0)
+			(at 275.8948 217.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13960,7 +13472,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C14663.pdf"
-			(at 275.59 229.87 0)
+			(at 276.86 213.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13969,7 +13481,7 @@
 			)
 		)
 		(property "Description" "CAP CER 100nF 50V X7R 0603"
-			(at 275.59 229.87 0)
+			(at 276.86 213.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13978,7 +13490,7 @@
 			)
 		)
 		(property "MPN" "C14663"
-			(at 275.59 229.87 0)
+			(at 276.86 213.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16080,7 +15592,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 275.59 236.22 0)
+		(at 276.86 219.71 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -16089,7 +15601,7 @@
 		(dnp no)
 		(uuid "e7a701be-6cf5-41ff-94a0-402cebaea8e0")
 		(property "Reference" "#PWR0459"
-			(at 275.59 242.57 0)
+			(at 276.86 226.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16098,7 +15610,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 275.59 240.03 0)
+			(at 276.86 223.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16106,7 +15618,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 275.59 236.22 0)
+			(at 276.86 219.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16115,7 +15627,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 275.59 236.22 0)
+			(at 276.86 219.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16124,7 +15636,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 275.59 236.22 0)
+			(at 276.86 219.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16218,72 +15730,6 @@
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/75652050-2907-4906-b92b-af5ffa0f2373"
 					(reference "C426")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+BATT")
-		(at 262.89 201.93 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "eea434d2-a12c-4b18-a987-dfcfefb6b3f5")
-		(property "Reference" "#PWR0453"
-			(at 262.89 205.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "VBAT"
-			(at 262.89 198.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 262.89 201.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 262.89 201.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 262.89 201.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "7ab9d0b2-403d-472f-8eb2-f6c42178a45d")
-		)
-		(instances
-			(project "geeks-ecu"
-				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/75652050-2907-4906-b92b-af5ffa0f2373"
-					(reference "#PWR0453")
 					(unit 1)
 				)
 			)
@@ -16429,85 +15875,6 @@
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/75652050-2907-4906-b92b-af5ffa0f2373"
 					(reference "#PWR0452")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 262.89 208.28 0)
-		(mirror x)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "f1aaa6e3-c16c-4edf-ab3f-64a2157037d3")
-		(property "Reference" "C416"
-			(at 259.588 207.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "1uF"
-			(at 259.588 209.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 263.8552 204.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2210171730_Samsung-Electro-Mechanics-CL10B105KB8NQNC_C5199872.pdf"
-			(at 262.89 208.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "CAP CER 1uF 50V X7R 0603"
-			(at 262.89 208.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "C5199872"
-			(at 262.89 208.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "cef5fd88-550f-4039-af1c-8dac6153fc2f")
-		)
-		(pin "2"
-			(uuid "b1554ac8-e995-4783-8d3c-7712de789620")
-		)
-		(instances
-			(project "geeks-ecu"
-				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/75652050-2907-4906-b92b-af5ffa0f2373"
-					(reference "C416")
 					(unit 1)
 				)
 			)
@@ -16673,7 +16040,7 @@
 	)
 	(symbol
 		(lib_id "power:VAA")
-		(at 262.89 223.52 0)
+		(at 264.16 207.01 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -16681,7 +16048,7 @@
 		(dnp no)
 		(uuid "f79a5bd4-9f2a-4db6-8ca0-a74cd0c3e044")
 		(property "Reference" "#PWR0454"
-			(at 262.89 227.33 0)
+			(at 264.16 210.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16690,7 +16057,7 @@
 			)
 		)
 		(property "Value" "VSYS"
-			(at 262.89 219.71 0)
+			(at 264.16 203.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16698,7 +16065,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 262.89 223.52 0)
+			(at 264.16 207.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16707,7 +16074,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 262.89 223.52 0)
+			(at 264.16 207.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16716,7 +16083,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 262.89 223.52 0)
+			(at 264.16 207.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
