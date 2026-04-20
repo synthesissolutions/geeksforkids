@@ -13,16 +13,15 @@
       "shapes": 1.0,
       "tracks": 1.0,
       "vias": 1.0,
-      "zones": 0.5899999737739563
+      "zones": 0.6
     },
     "prototype_zone_fills": false,
-    "ratsnest_display_mode": 0,
     "selection_filter": {
       "dimensions": true,
       "footprints": true,
       "graphics": true,
       "keepouts": true,
-      "lockedItems": true,
+      "lockedItems": false,
       "otherItems": true,
       "pads": true,
       "text": true,
@@ -38,6 +37,7 @@
       "grid",
       "footprints_front",
       "footprints_back",
+      "footprint_values",
       "footprint_references",
       "tracks",
       "drc_errors",
@@ -46,26 +46,28 @@
       "pads",
       "zones",
       "drc_warnings",
-      "shapes"
+      "drc_exclusions",
+      "locked_item_shadows",
+      "conflict_shadows",
+      "shapes",
+      "board_outline_area",
+      "ly_points"
     ],
     "visible_layers": "ffffffff_ffffffff_ffffffff_ffffffff",
-    "zone_display_mode": 1
+    "zone_display_mode": 0
   },
   "git": {
     "integration_disabled": false,
-    "repo_password": "",
     "repo_type": "",
     "repo_username": "",
     "ssh_key": ""
   },
   "meta": {
-    "filename": "Pulse_Fixed_Timer.kicad_prl",
+    "filename": "Joystick_Actuator.kicad_prl",
     "version": 5
   },
   "net_inspector_panel": {
     "col_hidden": [
-      false,
-      false,
       false,
       false,
       false,
@@ -87,23 +89,19 @@
       6,
       7,
       8,
-      9,
-      10,
-      11
+      9
     ],
     "col_widths": [
-      162,
-      147,
-      98,
+      186,
+      171,
+      112,
       79,
-      91,
-      99,
-      91,
+      112,
+      112,
+      112,
       83,
-      91,
-      91,
-      91,
-      91
+      112,
+      112
     ],
     "custom_group_rules": [],
     "expanded_rows": [],
