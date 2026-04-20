@@ -1,0 +1,4 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "Joystick_Actuator") (type "KiCad") (uri "${KIPRJMOD}/Joystick_Actuator.pretty") (options "") (descr ""))
+)
