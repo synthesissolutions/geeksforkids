@@ -1766,6 +1766,105 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Mechanical:MountingHole"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "H"
+				(at 0 5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MountingHole"
+				(at 0 3.175 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Mounting Hole without connection"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "mounting hole"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "MountingHole*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "MountingHole_0_1"
+				(circle
+					(center 0 0)
+					(radius 1.27)
+					(stroke
+						(width 1.27)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Regulator_Linear:XC6206PxxxMR"
 			(pin_names
 				(offset 0.254)
@@ -2796,6 +2895,18 @@
 		(uuid "436a5c74-9b53-438d-8796-8ec993736070")
 	)
 	(rectangle
+		(start 137.16 152.4)
+		(end 172.72 187.96)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid "55156b66-d050-43df-a537-eb161904b701")
+	)
+	(rectangle
 		(start 22.86 78.74)
 		(end 137.16 142.24)
 		(stroke
@@ -2862,6 +2973,16 @@
 			)
 		)
 		(uuid "44f10543-4434-4129-979b-2d2e77ee7e0a")
+	)
+	(text "Mounting Holes"
+		(exclude_from_sim no)
+		(at 146.05 154.94 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "5ce97b6d-3b7d-438f-a070-5070c0590e41")
 	)
 	(text "3.3V Regulator"
 		(exclude_from_sim no)
@@ -2994,6 +3115,10 @@
 		(uuid "f2d2f367-8197-4efa-9495-4ea2a66bc28a")
 	)
 	(no_connect
+		(at 96.52 170.18)
+		(uuid "16939d6b-bffb-4048-8852-01d138c47af4")
+	)
+	(no_connect
 		(at 162.56 124.46)
 		(uuid "1a10d957-7830-43d5-8c99-5f2ec249ed3f")
 	)
@@ -3020,10 +3145,6 @@
 	(no_connect
 		(at 240.03 124.46)
 		(uuid "7040b6c0-6fa9-41aa-91bc-1708ca57e2ff")
-	)
-	(no_connect
-		(at 118.11 170.18)
-		(uuid "8e73085a-52c1-40d6-9c36-8b9ce0af28fd")
 	)
 	(no_connect
 		(at 193.04 109.22)
@@ -3140,16 +3261,6 @@
 			(type default)
 		)
 		(uuid "1c60082a-8cc7-4241-9c30-9fb0da0af425")
-	)
-	(wire
-		(pts
-			(xy 96.52 170.18) (xy 102.87 170.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1d490fcb-4ec6-4cdf-8d52-42ddf099fcfd")
 	)
 	(wire
 		(pts
@@ -3683,7 +3794,7 @@
 	)
 	(global_label "ACTION_OUT"
 		(shape input)
-		(at 193.04 116.84 0)
+		(at 193.04 137.16 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3693,7 +3804,7 @@
 		)
 		(uuid "06cc239d-8708-425b-8fb8-6b2e671f2d21")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 207.2134 116.84 0)
+			(at 207.2134 137.16 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3755,7 +3866,7 @@
 	)
 	(global_label "X_OUT"
 		(shape input)
-		(at 193.04 134.62 0)
+		(at 193.04 116.84 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3765,7 +3876,7 @@
 		)
 		(uuid "28671fe6-b56a-4dfd-ae3a-113f930863fc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 201.8309 134.62 0)
+			(at 201.8309 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3995,7 +4106,7 @@
 	)
 	(global_label "Y_OUT"
 		(shape input)
-		(at 193.04 137.16 0)
+		(at 193.04 134.62 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4005,7 +4116,7 @@
 		)
 		(uuid "7d9e1050-df47-4cea-a332-c409dd90a501")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 201.71 137.16 0)
+			(at 201.71 134.62 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4424,6 +4535,17 @@
 				)
 			)
 		)
+		(property "MPN" "C965555"
+			(at 45.72 170.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "4"
 			(uuid "9fd4b6fa-10b4-472f-a757-619d01891ab4")
 		)
@@ -4684,83 +4806,6 @@
 			(project "Joystick_Actuator"
 				(path "/fe3925d7-7b95-448b-9ae1-25ff1c880fe6"
 					(reference "C2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 110.49 177.8 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "31950252-95d5-4f3a-9c6e-6a93a0771cd9")
-		(property "Reference" "#PWR024"
-			(at 110.49 184.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 110.49 181.864 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 110.49 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 110.49 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 110.49 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "7c08199e-5bd1-4505-97e9-41d516a86041")
-		)
-		(instances
-			(project "Joystick_Actuator"
-				(path "/fe3925d7-7b95-448b-9ae1-25ff1c880fe6"
-					(reference "#PWR024")
 					(unit 1)
 				)
 			)
@@ -5344,6 +5389,83 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 142.24 160.02 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4ddefbd8-468f-47e6-95e8-210a7a47479b")
+		(property "Reference" "H1"
+			(at 144.78 158.7499 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 144.78 161.2899 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.5mm"
+			(at 142.24 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 142.24 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 142.24 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(instances
+			(project "Joystick_Actuator"
+				(path "/fe3925d7-7b95-448b-9ae1-25ff1c880fe6"
+					(reference "H1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 62.23 50.8 0)
 		(unit 1)
@@ -5899,6 +6021,17 @@
 			)
 		)
 		(property "Description" "RGB LED with integrated controller, 2.0 x 2.0 mm, 12 mA"
+			(at 67.31 170.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C965555"
 			(at 67.31 170.18 0)
 			(hide yes)
 			(show_name no)
@@ -6809,6 +6942,83 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 142.24 166.37 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9b3083d9-21d2-4ced-9b66-959e33012b66")
+		(property "Reference" "H2"
+			(at 144.78 165.0999 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 144.78 167.6399 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.5mm"
+			(at 142.24 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 142.24 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 142.24 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(instances
+			(project "Joystick_Actuator"
+				(path "/fe3925d7-7b95-448b-9ae1-25ff1c880fe6"
+					(reference "H2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C_Small")
 		(at 154.94 46.99 0)
 		(unit 1)
@@ -6956,6 +7166,17 @@
 				)
 			)
 		)
+		(property "MPN" "C965555"
+			(at 88.9 170.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "4"
 			(uuid "9913a6c9-bf91-4c56-8476-e2bcbe984754")
 		)
@@ -7088,7 +7309,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Connector:Tag-Connect_TC2030-IDC-FP_2x03_P1.27mm_Vertical"
+		(property "Footprint" "Connector:Tag-Connect_TC2030-IDC-NL_2x03_P1.27mm_Vertical"
 			(at 232.41 137.16 0)
 			(hide yes)
 			(show_name no)
@@ -7464,6 +7685,83 @@
 			(project "Joystick_Actuator"
 				(path "/fe3925d7-7b95-448b-9ae1-25ff1c880fe6"
 					(reference "#PWR019")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 142.24 172.72 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "dacbe019-6408-4e75-83d1-8c16b95e035e")
+		(property "Reference" "H3"
+			(at 144.78 171.4499 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 144.78 173.9899 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.5mm"
+			(at 142.24 172.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 142.24 172.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 142.24 172.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(instances
+			(project "Joystick_Actuator"
+				(path "/fe3925d7-7b95-448b-9ae1-25ff1c880fe6"
+					(reference "H3")
 					(unit 1)
 				)
 			)
@@ -7971,93 +8269,6 @@
 		)
 	)
 	(symbol
-		(lib_id "LED:WS2812B-2020")
-		(at 110.49 170.18 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "e3391348-2008-4e31-881d-019e0e29ca34")
-		(property "Reference" "D4"
-			(at 114.808 160.528 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "WS2812B-2020"
-			(at 121.158 163.068 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "LED_SMD:LED_WS2812B-2020_PLCC4_2.0x2.0mm"
-			(at 111.76 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Datasheet" "https://cdn-shop.adafruit.com/product-files/4684/4684_WS2812B-2020_V1.3_EN.pdf"
-			(at 113.03 179.705 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Description" "RGB LED with integrated controller, 2.0 x 2.0 mm, 12 mA"
-			(at 110.49 170.18 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "4"
-			(uuid "203e9128-ae1f-4b68-915c-edeb055f855d")
-		)
-		(pin "3"
-			(uuid "30c7e102-69fc-4c81-b57a-5113ed9becb1")
-		)
-		(pin "1"
-			(uuid "ecdb5c7d-4a20-4868-976c-64c88dfcdb4b")
-		)
-		(pin "2"
-			(uuid "5c145584-ca20-4eb6-81ae-154745a07b31")
-		)
-		(instances
-			(project "Joystick_Actuator"
-				(path "/fe3925d7-7b95-448b-9ae1-25ff1c880fe6"
-					(reference "D4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "MCU_Microchip_ATtiny:ATtiny1616-M")
 		(at 177.8 119.38 0)
 		(unit 1)
@@ -8355,83 +8566,6 @@
 			(project "Joystick_Actuator"
 				(path "/fe3925d7-7b95-448b-9ae1-25ff1c880fe6"
 					(reference "#PWR017")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 110.49 162.56 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "f90cfc30-2e52-4ebd-9cf5-6ec9b21e1db2")
-		(property "Reference" "#PWR031"
-			(at 110.49 166.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 110.49 158.496 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 110.49 162.56 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 110.49 162.56 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 110.49 162.56 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "aa644c2c-0fe4-4381-b9b3-19ddfb5ada61")
-		)
-		(instances
-			(project "Joystick_Actuator"
-				(path "/fe3925d7-7b95-448b-9ae1-25ff1c880fe6"
-					(reference "#PWR031")
 					(unit 1)
 				)
 			)

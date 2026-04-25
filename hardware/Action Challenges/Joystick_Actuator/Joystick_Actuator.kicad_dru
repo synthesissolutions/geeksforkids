@@ -1,0 +1,27 @@
+(version 1)
+(rule Minimum_clearance_1
+	(constraint clearance (min 0.15mm))
+)
+(rule Minimum_annular_width_1
+	(constraint annular_width (min 0.15mm))
+)
+(rule Via_style_1
+	(constraint via_diameter (min 0.5mm) (max 6mm))
+	(constraint hole_size (min 0.25mm) (max 4mm))
+	(condition "A.Via_Type == 'Through'")
+)
+(rule Hole_to_hole_distance_1
+	(constraint hole_to_hole (min 0.25mm))
+)
+(rule Copper_to_edge_clearance_1
+	(constraint edge_clearance (min 0.25mm))
+)
+(rule Copper_to_hole_clearance_1
+	(constraint hole_clearance (min 0.5mm))
+)
+(rule Soldermask_expansion_1
+	(constraint solder_mask_expansion (min 0.025mm))
+)
+(rule Minimum_soldermask_sliver_1
+	(constraint solder_mask_sliver (min 0.1mm))
+)
