@@ -4785,7 +4785,7 @@
 				)
 			)
 		)
-		(property "MPN" " C15195"
+		(property "MPN" "C15195"
 			(at 223.52 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -5861,7 +5861,7 @@
 				)
 			)
 		)
-		(property "MPN" " C15195"
+		(property "MPN" "C15195"
 			(at 223.52 39.37 0)
 			(hide yes)
 			(show_name no)
@@ -6130,6 +6130,17 @@
 				)
 			)
 		)
+		(property "MPN" "C1525"
+			(at 92.71 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "c5029112-000e-449a-82be-e0159638aa72")
 		)
@@ -6356,6 +6367,17 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 130.81 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C52923"
 			(at 130.81 46.99 0)
 			(hide yes)
 			(show_name no)
@@ -6849,6 +6871,17 @@
 				)
 			)
 		)
+		(property "MPN" "C1525"
+			(at 71.12 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "7e609f7a-ce55-4cdf-a55d-b580fcb0de18")
 		)
@@ -7075,6 +7108,17 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 154.94 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C52923"
 			(at 154.94 46.99 0)
 			(hide yes)
 			(show_name no)
@@ -7433,7 +7477,7 @@
 				)
 			)
 		)
-		(property "MPN" " C15195"
+		(property "MPN" "C15195"
 			(at 203.2 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -7962,7 +8006,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" "10u"
 			(at 64.77 48.2662 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7973,7 +8017,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 62.23 46.99 0)
 			(hide yes)
 			(show_name no)
@@ -7996,6 +8040,17 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 62.23 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C19702"
 			(at 62.23 46.99 0)
 			(hide yes)
 			(show_name no)
@@ -8326,6 +8381,17 @@
 			)
 		)
 		(property "Description" "20MHz, 16kB Flash, 2kB SRAM, 256B EEPROM, VQFN-20"
+			(at 177.8 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C507118"
 			(at 177.8 119.38 0)
 			(hide yes)
 			(show_name no)
