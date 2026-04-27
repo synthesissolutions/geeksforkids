@@ -1,25 +1,27 @@
 (footprint "USB_Micro-B_XKB_U254-051T-4BH83-F1S"
-	(version 20241229)
+	(version 20260206)
 	(generator "pcbnew")
-	(generator_version "9.0")
+	(generator_version "10.0")
 	(layer "F.Cu")
 	(descr "XKB Connectivity, USB Micro-B, right-angle, SMT, https://datasheet.lcsc.com/lcsc/2206091745_XKB-Connectivity-U254-051T-4BH83-F1S_C397452.pdf")
 	(tags "USB Micro-B Receptacle SMD")
 	(property "Reference" "REF**"
 		(at 0 -4.5 0)
 		(layer "F.SilkS")
-		(uuid "2ee4e5c1-8a09-4239-878c-1961f27a273b")
+		(hide yes)
+		(uuid "601beb16-1252-4d31-be50-5819738e57ff")
 		(effects
 			(font
 				(size 1 1)
-				(thickness 0.15)
+				(thickness 0.167)
 			)
 		)
 	)
-	(property "Value" "USB_Micro-B_XKB_U254-051T-4BH83-F1S"
+	(property "Value" "USB Micro-B"
 		(at 0 4 0)
 		(layer "F.Fab")
-		(uuid "65bcbf1a-192d-47ca-864c-3a7da7198a80")
+		(hide yes)
+		(uuid "5d82901e-476b-4bf4-a8e1-7c46b85abb2c")
 		(effects
 			(font
 				(size 1 1)
@@ -27,33 +29,47 @@
 			)
 		)
 	)
-	(property "Datasheet" ""
+	(property "Datasheet" "https://www.lcsc.com/datasheet/C397452.pdf"
 		(at 0 0 0)
-		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "4c3e8ef5-d83c-4266-9a82-f0990b9bf159")
+		(uuid "6f27a02e-d78b-4251-b8c4-6ea1a0c46641")
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 1 1)
 				(thickness 0.15)
 			)
 		)
 	)
-	(property "Description" ""
+	(property "Description" "CONN RCPT Micro-B 5POS SMD"
 		(at 0 0 0)
-		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "54acb1bf-05b3-475d-a925-6666f3904c62")
+		(uuid "19d97779-a151-4a2f-a3c0-932c09a33c6d")
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 1 1)
 				(thickness 0.15)
 			)
 		)
 	)
+	(property "MPN" "C397452"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "ce41c0d4-fb31-423c-ba13-db4400ac820c")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property ki_fp_filters "USB*Micro*B*")
+	(sheetname "/MCU/")
+	(sheetfile "RP2040.kicad_sch")
 	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
 	(fp_line
 		(start -3.845 -1.16)
 		(end -3.845 1.33)
@@ -62,7 +78,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "f8ebe8c5-b1f0-46cc-a0e8-2316db7915b3")
+		(uuid "5678586c-1d46-4e0a-abb1-4d18905d5085")
 	)
 	(fp_line
 		(start -1.7 -3.6)
@@ -72,7 +88,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "23e56340-ce23-4348-b56e-3b8f112fe8e0")
+		(uuid "9aa13fb6-669d-418d-8ba6-0b16540d573a")
 	)
 	(fp_line
 		(start -1.3 -3.15)
@@ -82,7 +98,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "b1c49a8c-8655-4e91-96ec-1cf5239e7534")
+		(uuid "05c0202b-21c5-4e1f-a672-9ba37cdbf876")
 	)
 	(fp_line
 		(start -0.9 -3.6)
@@ -92,7 +108,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "c895a53e-e800-4141-a2bf-9f290b3649bb")
+		(uuid "f2574485-6ec4-40d3-b6e8-e01c374c6caa")
 	)
 	(fp_line
 		(start 3.845 -1.16)
@@ -102,7 +118,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "01c303d5-617f-4e31-b9a3-fb3380dc4a56")
+		(uuid "8ec8c349-7156-4809-ba66-c864ab279fd3")
 	)
 	(fp_line
 		(start -5 1.84)
@@ -112,7 +128,7 @@
 			(type solid)
 		)
 		(layer "Dwgs.User")
-		(uuid "d5461d16-cb17-4ac4-8bdb-824eb99aded0")
+		(uuid "be566151-8802-437a-a324-78bbba01d5d9")
 	)
 	(fp_line
 		(start -4.65 -3.46)
@@ -122,7 +138,7 @@
 			(type solid)
 		)
 		(layer "F.CrtYd")
-		(uuid "e5afaf9b-9d55-41da-aac3-bbd556db0774")
+		(uuid "5ced5215-dd9c-4fc1-b8d2-27d1f8e5f9b5")
 	)
 	(fp_line
 		(start -4.65 3.04)
@@ -132,7 +148,7 @@
 			(type solid)
 		)
 		(layer "F.CrtYd")
-		(uuid "ed61c117-f7cc-4ccf-a765-551136012bc9")
+		(uuid "d8c57bae-c223-4898-a686-4d0b57a0456f")
 	)
 	(fp_line
 		(start -4.65 3.04)
@@ -142,7 +158,7 @@
 			(type solid)
 		)
 		(layer "F.CrtYd")
-		(uuid "06f2fcf4-4a12-4235-bb7e-067a6f21f24e")
+		(uuid "c1ca69e4-b3e1-46b2-ac6f-8c5f380a844e")
 	)
 	(fp_line
 		(start 4.65 3.04)
@@ -152,7 +168,7 @@
 			(type solid)
 		)
 		(layer "F.CrtYd")
-		(uuid "289da737-d19a-446b-a04a-8663ec97632d")
+		(uuid "8e06aaab-9b50-462f-95f7-df7738d99832")
 	)
 	(fp_line
 		(start -3.725 -2.54)
@@ -162,7 +178,7 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "8fc0a8ec-9967-45af-b7bf-aacd0a034b00")
+		(uuid "23ed6313-6a69-41f6-a257-e3db2642de01")
 	)
 	(fp_line
 		(start -3.725 2.54)
@@ -172,7 +188,7 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "2bd33259-b55e-48f1-a978-877808b14c7c")
+		(uuid "04716c9d-b5a4-4e16-b034-954929befd08")
 	)
 	(fp_line
 		(start -3.725 2.54)
@@ -182,7 +198,7 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "adc21d55-66a7-45c3-a49b-f8736baa8e12")
+		(uuid "5b3d916c-1b25-4f1b-aa99-41769aa898ec")
 	)
 	(fp_line
 		(start -1.6 -2.54)
@@ -192,7 +208,7 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "40c1c509-30f0-40e3-af2d-45cd42f6d024")
+		(uuid "7f26f2ed-6d82-4f79-a8eb-e88aca42c85e")
 	)
 	(fp_line
 		(start -1.3 -2.04)
@@ -202,7 +218,7 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "85cd977f-9887-4348-967d-95cc45a4361e")
+		(uuid "49e6fb9d-a52b-41ec-a5bd-8fe467006c42")
 	)
 	(fp_line
 		(start 3.725 2.54)
@@ -212,24 +228,23 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "5a2daecd-a356-439b-9bc9-3d43c3e98549")
+		(uuid "339a862c-980b-474f-9ace-309f2be6e404")
 	)
 	(fp_text user "PCB Edge"
-		(at 0 1.5 0)
+		(at 0 1 0)
 		(layer "Dwgs.User")
-		(uuid "5e1c7548-5d68-4638-a81f-7ca3a6ef5e35")
+		(uuid "554d3517-3ce6-4ce2-b72b-0936e4c8b566")
 		(effects
 			(font
-				(size 0.5 0.5)
-				(thickness 0.08)
+				(size 1 1)
+				(thickness 0.15)
 			)
 		)
 	)
 	(fp_text user "${REFERENCE}"
-		(at 0 0 0)
-		(unlocked yes)
+		(at 0 -0.6 0)
 		(layer "F.Fab")
-		(uuid "29df116f-cb65-418d-b0f7-09824d2e25ec")
+		(uuid "6b0ab5ae-b9ce-45ce-a6ca-6dd661902e8c")
 		(effects
 			(font
 				(size 1 1)
@@ -242,44 +257,44 @@
 		(size 0.6 0.6)
 		(drill 0.6)
 		(layers "*.Cu" "*.Mask")
-		(uuid "b65c8a49-8b8e-46e6-bc47-6d47248a9a96")
+		(uuid "f81973b7-0bd6-4fc9-bbae-16c79b568953")
 	)
 	(pad "" np_thru_hole circle
 		(at 2 -1.96)
 		(size 0.6 0.6)
 		(drill 0.6)
 		(layers "*.Cu" "*.Mask")
-		(uuid "59283ca7-13cc-4ebf-8067-905503a61136")
+		(uuid "6a41387f-dea9-4fd2-8f0f-65cf417dabe3")
 	)
 	(pad "1" smd rect
 		(at -1.3 -2.285)
 		(size 0.4 1.35)
 		(layers "F.Cu" "F.Mask" "F.Paste")
-		(uuid "b89fb75f-2e0d-4e9e-9382-0a042858cd8a")
+		(uuid "6cf8fa7b-c478-4052-bf7a-e8e61c735bf3")
 	)
 	(pad "2" smd rect
 		(at -0.65 -2.285)
 		(size 0.4 1.35)
 		(layers "F.Cu" "F.Mask" "F.Paste")
-		(uuid "e4c73d6c-8673-42c3-8298-035272d014fe")
+		(uuid "c25255aa-c3bb-46b7-ae86-d1c555701cfd")
 	)
 	(pad "3" smd rect
 		(at 0 -2.285)
 		(size 0.4 1.35)
 		(layers "F.Cu" "F.Mask" "F.Paste")
-		(uuid "12f88356-523b-4719-816b-6e1f2c771e57")
+		(uuid "b3a99b65-9dd9-4dd9-8659-8b38045d3323")
 	)
 	(pad "4" smd rect
 		(at 0.65 -2.285)
 		(size 0.4 1.35)
 		(layers "F.Cu" "F.Mask" "F.Paste")
-		(uuid "2d9fbacb-58e2-4f50-9e2a-7db7ab7af05b")
+		(uuid "495e92a9-89f8-40b5-9a70-c185f1d64504")
 	)
 	(pad "5" smd rect
 		(at 1.3 -2.285)
 		(size 0.4 1.35)
 		(layers "F.Cu" "F.Mask" "F.Paste")
-		(uuid "cc446331-c6a1-40ae-9262-2967d0aec6be")
+		(uuid "1dfb656c-79fb-4e83-b63d-dd9efcad01b5")
 	)
 	(pad "6" smd custom
 		(at -3.1 -2.16)
@@ -299,7 +314,7 @@
 				(fill yes)
 			)
 		)
-		(uuid "29388ac8-c0ca-45f2-8597-fb4333c86704")
+		(uuid "2476fdf7-2e54-4b6e-ba8f-611034e7ef25")
 	)
 	(pad "6" thru_hole oval
 		(at -2.825 0.39)
@@ -308,19 +323,19 @@
 		(property pad_prop_heatsink)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "cc82b8ad-801a-4f35-85cd-b8698f276902")
+		(uuid "da9af6e4-2eb0-46ab-aefe-8f037560fa90")
 	)
 	(pad "6" smd rect
 		(at -1.2 0.39)
 		(size 1.9 1.9)
 		(layers "F.Cu" "F.Mask" "F.Paste")
-		(uuid "5f091db5-9c63-4a6b-8288-76858457472a")
+		(uuid "ec8b5bf3-5d10-448a-8f1d-78f3e9adfac0")
 	)
 	(pad "6" smd rect
 		(at 1.2 0.39)
 		(size 1.9 1.9)
 		(layers "F.Cu" "F.Mask" "F.Paste")
-		(uuid "7f752c6e-a86a-41b2-999c-a0148df8f193")
+		(uuid "fbebd6b1-783f-4346-a31a-7dede1310cd6")
 	)
 	(pad "6" thru_hole oval
 		(at 2.825 0.39)
@@ -329,7 +344,7 @@
 		(property pad_prop_heatsink)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "ed5379de-71af-4540-9146-f9f88938f968")
+		(uuid "b240d829-40e7-4b63-8636-ecb1e1bdac42")
 	)
 	(pad "6" smd custom
 		(at 3.1 -2.16)
@@ -349,7 +364,7 @@
 				(fill yes)
 			)
 		)
-		(uuid "28e1d8e7-5f78-4c84-b432-34424d880a4e")
+		(uuid "5b80d714-c645-4a89-953e-570c95db2af8")
 	)
 	(embedded_fonts no)
 	(model "${KICAD9_3DMODEL_DIR}/Connector_USB.3dshapes/USB_Micro-B_XKB_U254-051T-4BH83-F1S.step"

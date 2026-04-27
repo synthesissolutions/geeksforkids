@@ -12,6 +12,129 @@
 		(comment 1 "Geeks for Kids")
 	)
 	(lib_symbols
+		(symbol "Connector:TestPoint_Small"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.762)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "TP"
+				(at 0 3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TestPoint_Small"
+				(at 0 2.032 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "test point"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "test point tp"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Pin* Test*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "TestPoint_Small_0_1"
+				(circle
+					(center 0 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "TestPoint_Small_1_1"
+				(pin passive line
+					(at 0 0 90)
+					(length 0)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Connector_Generic:Conn_01x02"
 			(pin_names
 				(offset 1.016)
@@ -3122,17 +3245,6 @@
 		)
 		(uuid "abfe1824-9690-4256-8f0d-61bef373e554")
 	)
-	(text "RED"
-		(exclude_from_sim no)
-		(at 399.542 181.864 0)
-		(effects
-			(font
-				(size 1.2192 1.2192)
-			)
-			(justify left bottom)
-		)
-		(uuid "02dca06d-fa44-4c8c-988e-a4c1cf9adba2")
-	)
 	(text "BUCK-BOOST CONVERTER"
 		(exclude_from_sim no)
 		(at 17.78 20.574 0)
@@ -3143,6 +3255,17 @@
 			(justify left bottom)
 		)
 		(uuid "0ddf60e5-ac88-4d6d-9ef1-cdde6429104d")
+	)
+	(text "YELLOW"
+		(exclude_from_sim no)
+		(at 399.542 181.61 0)
+		(effects
+			(font
+				(size 1.2192 1.2192)
+			)
+			(justify left bottom)
+		)
+		(uuid "11355922-4b6e-4207-b1d7-2ff681a00614")
 	)
 	(text "DESIGN NOTES"
 		(exclude_from_sim no)
@@ -3166,7 +3289,18 @@
 		)
 		(uuid "84b31761-3b54-42d0-86ac-7ebd3723734b")
 	)
-	(text "RED"
+	(text "YELLOW"
+		(exclude_from_sim no)
+		(at 398.272 90.17 0)
+		(effects
+			(font
+				(size 1.2192 1.2192)
+			)
+			(justify left bottom)
+		)
+		(uuid "8b4f0ac1-ef5e-4dc9-b5b9-b2c42103e512")
+	)
+	(text "YELLOW"
 		(exclude_from_sim no)
 		(at 398.272 45.72 0)
 		(effects
@@ -3176,6 +3310,17 @@
 			(justify left bottom)
 		)
 		(uuid "b87179d9-ce3c-458b-935f-de9b471fa989")
+	)
+	(text "YELLOW"
+		(exclude_from_sim no)
+		(at 399.542 134.62 0)
+		(effects
+			(font
+				(size 1.2192 1.2192)
+			)
+			(justify left bottom)
+		)
+		(uuid "ca7fe30a-a562-48dc-b760-1d0371f126d7")
 	)
 	(text "OUTPUT CONNECTORS"
 		(exclude_from_sim no)
@@ -3187,28 +3332,6 @@
 			(justify left bottom)
 		)
 		(uuid "cddd4e49-e8dc-421c-a923-1839e9f29e14")
-	)
-	(text "RED"
-		(exclude_from_sim no)
-		(at 398.272 90.424 0)
-		(effects
-			(font
-				(size 1.2192 1.2192)
-			)
-			(justify left bottom)
-		)
-		(uuid "cfbd129b-0d1b-4f59-9f70-e4535ee58be8")
-	)
-	(text "RED"
-		(exclude_from_sim no)
-		(at 399.796 135.128 0)
-		(effects
-			(font
-				(size 1.2192 1.2192)
-			)
-			(justify left bottom)
-		)
-		(uuid "d7098d49-0217-448e-98c6-028f2f0531e5")
 	)
 	(text_box "\nIC Notes: \n\nThe LM5176 is a synchronous four-switch buck-boost DC/DC controller capable of regulating the output voltage at, above, or below the input voltage. \n\n • Input Voltage Range: 4.2 V to 55 V\n • Output Voltage Range: 0.8 V to 55 V\n • VOUT short protection\n • High efficiency buck-boost transition\n • Adjustable switching frequency\n • Optional frequency sync and dithering\n • Integrated 2-A MOSFET gate drivers\n • Cycle-by-cycle current limit and optional hiccup\n • Optional input or output average current limiting\n • Programmable input UVLO and soft start\n • Power Good and output overvoltage protection"
 		(exclude_from_sim no)
@@ -3493,6 +3616,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "64aa0dcf-8c9a-43c0-b827-e3c44726e4e5")
+	)
+	(junction
+		(at 275.59 95.25)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "64e441ca-a3f9-4f55-b7e6-ad30dab89171")
 	)
 	(junction
 		(at 243.84 161.29)
@@ -5724,6 +5853,16 @@
 	)
 	(wire
 		(pts
+			(xy 275.59 95.25) (xy 270.51 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ca38e4d3-0cd5-4f09-852e-6ab3c6279ee8")
+	)
+	(wire
+		(pts
 			(xy 58.42 189.23) (xy 58.42 191.77)
 		)
 		(stroke
@@ -5794,7 +5933,7 @@
 	)
 	(wire
 		(pts
-			(xy 284.48 95.25) (xy 270.51 95.25)
+			(xy 284.48 95.25) (xy 275.59 95.25)
 		)
 		(stroke
 			(width 0)
@@ -8424,7 +8563,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 324.8152 93.98 0)
 			(hide yes)
 			(show_name no)
@@ -8517,7 +8656,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 26.924 167.894 90)
 			(hide yes)
 			(show_name no)
@@ -8609,7 +8748,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 375.6152 146.05 0)
 			(hide yes)
 			(show_name no)
@@ -8757,7 +8896,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "0cfe5db5-f009-45b1-85ab-4f0e4e02b742")
-		(property "Reference" "C214"
+		(property "Reference" "C215"
 			(at 247.65 182.8799 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8779,7 +8918,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 244.8052 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -8832,7 +8971,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
-					(reference "C214")
+					(reference "C215")
 					(unit 1)
 				)
 			)
@@ -8869,7 +9008,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 143.51 202.2348 0)
 			(hide yes)
 			(show_name no)
@@ -8962,7 +9101,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:CP_Elec_8x10"
+		(property "Footprint" "geeks-ecu-footprints:CP_Elec_8x10"
 			(at 284.48 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -9055,7 +9194,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 96.774 190.754 90)
 			(hide yes)
 			(show_name no)
@@ -9193,99 +9332,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
-		(at 400.05 92.71 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "1191e7b3-e680-4c01-98d5-f1e37b1076cb")
-		(property "Reference" "J202"
-			(at 402.59 92.7099 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "JST XH"
-			(at 402.59 95.2499 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "geeks-ecu-footprints:JST_XH_B2B-XH-AM_1x02_P2.50mm_Vertical"
-			(at 400.05 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C158012.pdf"
-			(at 400.05 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "CONN HEADER TH 2POS 2.5mm"
-			(at 400.05 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "C495685"
-			(at 400.05 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "bc94406c-ed63-4dce-8458-6678075ddd01")
-		)
-		(pin "1"
-			(uuid "5d9b93f9-306e-4a67-8887-b052374f66b1")
-		)
-		(instances
-			(project "geeks-ecu"
-				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
-					(reference "J202")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R_US")
 		(at 85.09 187.96 0)
 		(mirror y)
@@ -9319,7 +9365,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 84.074 188.214 90)
 			(hide yes)
 			(show_name no)
@@ -9412,7 +9458,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_2512_6332Metric"
 			(at 206.756 141.224 90)
 			(hide yes)
 			(show_name no)
@@ -9483,7 +9529,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "145ecc51-7ac6-4b94-b50c-89ac47caa199")
-		(property "Reference" "#PWR0245"
+		(property "Reference" "#PWR0249"
 			(at 392.43 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -9543,7 +9589,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
-					(reference "#PWR0245")
+					(reference "#PWR0249")
 					(unit 1)
 				)
 			)
@@ -9561,7 +9607,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "150fb0ac-e374-452c-b7ec-14a3cf7670a5")
-		(property "Reference" "C215"
+		(property "Reference" "C214"
 			(at 246.38 100.3299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9583,7 +9629,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0805_2012Metric"
 			(at 243.5352 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -9636,7 +9682,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
-					(reference "C215")
+					(reference "C214")
 					(unit 1)
 				)
 			)
@@ -9654,7 +9700,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1639878a-6703-4656-b2db-2554ba7e4eae")
-		(property "Reference" "#PWR0216"
+		(property "Reference" "#PWR0215"
 			(at 205.74 156.21 0)
 			(hide yes)
 			(show_name no)
@@ -9714,7 +9760,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
-					(reference "#PWR0216")
+					(reference "#PWR0215")
 					(unit 1)
 				)
 			)
@@ -9909,7 +9955,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123F"
+		(property "Footprint" "geeks-ecu-footprints:D_SOD-123F"
 			(at 243.84 166.37 0)
 			(hide yes)
 			(show_name no)
@@ -10310,7 +10356,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "2a71798c-cd7e-466f-8714-7aed659f4e9a")
-		(property "Reference" "#PWR0215"
+		(property "Reference" "#PWR0216"
 			(at 205.74 175.26 0)
 			(hide yes)
 			(show_name no)
@@ -10370,7 +10416,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
-					(reference "#PWR0215")
+					(reference "#PWR0216")
 					(unit 1)
 				)
 			)
@@ -10409,7 +10455,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0805_2012Metric"
 			(at 100.6348 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -10736,7 +10782,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_DFN_QFN:PQFN-8-EP_6x5mm_P1.27mm_Generic"
+		(property "Footprint" "geeks-ecu-footprints:PQFN-8-EP_6x5mm_P1.27mm_Generic"
 			(at 215.9 120.65 0)
 			(hide yes)
 			(show_name no)
@@ -10838,7 +10884,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 109.5248 196.85 0)
 			(hide yes)
 			(show_name no)
@@ -10930,7 +10976,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 358.4448 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -11023,7 +11069,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 57.404 195.834 90)
 			(hide yes)
 			(show_name no)
@@ -11113,7 +11159,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 147.574 157.734 90)
 			(hide yes)
 			(show_name no)
@@ -11362,7 +11408,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 324.8152 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -11530,7 +11576,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+		(property "Footprint" "geeks-ecu-footprints:SOT-23-5"
 			(at 344.17 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -11709,7 +11755,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 214.3252 172.72 0)
 			(hide yes)
 			(show_name no)
@@ -11801,7 +11847,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0805_2012Metric"
 			(at 113.3348 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -11894,7 +11940,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_DFN_QFN:PQFN-8-EP_6x5mm_P1.27mm_Generic"
+		(property "Footprint" "geeks-ecu-footprints:PQFN-8-EP_6x5mm_P1.27mm_Generic"
 			(at 194.31 120.65 0)
 			(hide yes)
 			(show_name no)
@@ -11996,7 +12042,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_DFN_QFN:PQFN-8-EP_6x5mm_P1.27mm_Generic"
+		(property "Footprint" "geeks-ecu-footprints:PQFN-8-EP_6x5mm_P1.27mm_Generic"
 			(at 215.9 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -12254,7 +12300,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0805_2012Metric"
 			(at 271.4752 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -12346,7 +12392,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 134.366 212.344 90)
 			(hide yes)
 			(show_name no)
@@ -12593,7 +12639,7 @@
 				)
 			)
 		)
-		(property "Footprint" "NetTie:NetTie-2_SMD_Pad0.5mm"
+		(property "Footprint" "geeks-ecu-footprints:NetTie-2_SMD_Pad0.5mm"
 			(at 195.58 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -12797,6 +12843,99 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector_Generic:Conn_01x02")
+		(at 401.32 184.15 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5e251d0f-07ff-4178-883a-2cd207d4e5ab")
+		(property "Reference" "J204"
+			(at 403.86 184.1499 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "JST XH"
+			(at 403.86 186.6899 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:JST_XH_B2B-XH-AM_1x02_P2.50mm_Vertical"
+			(at 401.32 184.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C495547.pdf"
+			(at 401.32 184.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CONN HEADER TH 2POS 2.5mm"
+			(at 401.32 184.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C495547"
+			(at 401.32 184.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "117d1696-2afd-4167-80ca-eb8c6bbc58bc")
+		)
+		(pin "1"
+			(uuid "3cbb8c03-c8fe-46fa-87fd-d1fff713e4cb")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
+					(reference "J204")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:D_Schottky")
 		(at 264.16 166.37 90)
 		(unit 1)
@@ -12829,7 +12968,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123F"
+		(property "Footprint" "geeks-ecu-footprints:D_SOD-123F"
 			(at 264.16 166.37 0)
 			(hide yes)
 			(show_name no)
@@ -12900,7 +13039,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "63283d73-365f-4482-b28b-5db012149cfb")
-		(property "Reference" "#PWR0246"
+		(property "Reference" "#PWR0250"
 			(at 392.43 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -12960,7 +13099,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
-					(reference "#PWR0246")
+					(reference "#PWR0250")
 					(unit 1)
 				)
 			)
@@ -12998,7 +13137,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+		(property "Footprint" "geeks-ecu-footprints:SOT-23-5"
 			(at 344.17 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -13100,7 +13239,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 322.834 161.544 90)
 			(hide yes)
 			(show_name no)
@@ -13192,7 +13331,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 358.4448 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -13363,7 +13502,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 40.9448 186.69 0)
 			(hide yes)
 			(show_name no)
@@ -13532,7 +13671,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+		(property "Footprint" "geeks-ecu-footprints:SOT-23-5"
 			(at 344.17 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -13633,7 +13772,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 375.6152 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -13726,7 +13865,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 123.4948 199.39 0)
 			(hide yes)
 			(show_name no)
@@ -13786,99 +13925,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
-		(at 401.32 137.16 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "79ba28c5-cbf3-43be-8edd-45601a3d7f89")
-		(property "Reference" "J203"
-			(at 403.86 137.1599 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "JST XH"
-			(at 403.86 139.6999 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "geeks-ecu-footprints:JST_XH_B2B-XH-AM_1x02_P2.50mm_Vertical"
-			(at 401.32 137.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C158012.pdf"
-			(at 401.32 137.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "CONN HEADER TH 2POS 2.5mm"
-			(at 401.32 137.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "C495685"
-			(at 401.32 137.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "db0ea706-3db9-4954-8594-4104cdfeeef6")
-		)
-		(pin "1"
-			(uuid "501ae160-e1c4-40db-8c18-2cc36e3cc5f9")
-		)
-		(instances
-			(project "geeks-ecu"
-				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
-					(reference "J203")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "geeks-ecu-sym:TMI6240")
 		(at 344.17 186.69 0)
 		(unit 1)
@@ -13910,7 +13956,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+		(property "Footprint" "geeks-ecu-footprints:SOT-23-5"
 			(at 344.17 186.69 0)
 			(hide yes)
 			(show_name no)
@@ -14088,7 +14134,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 227.6348 165.1 0)
 			(hide yes)
 			(show_name no)
@@ -14180,7 +14226,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 284.226 198.374 90)
 			(hide yes)
 			(show_name no)
@@ -14272,7 +14318,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0805_2012Metric"
 			(at 86.6648 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -14500,7 +14546,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "88496cc2-9f70-43fd-90c5-b29f2afd8b87")
-		(property "Reference" "C217"
+		(property "Reference" "C216"
 			(at 260.35 100.3299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14522,7 +14568,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0805_2012Metric"
 			(at 257.5052 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -14575,7 +14621,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
-					(reference "C217")
+					(reference "C216")
 					(unit 1)
 				)
 			)
@@ -14615,7 +14661,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 322.834 71.374 90)
 			(hide yes)
 			(show_name no)
@@ -14707,7 +14753,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 160.9852 147.32 0)
 			(hide yes)
 			(show_name no)
@@ -14800,7 +14846,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 70.1548 194.31 0)
 			(hide yes)
 			(show_name no)
@@ -14894,7 +14940,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+		(property "Footprint" "geeks-ecu-footprints:SOT-23"
 			(at 389.89 165.1 0)
 			(hide yes)
 			(show_name no)
@@ -14988,7 +15034,7 @@
 				)
 			)
 		)
-		(property "Footprint" "NetTie:NetTie-2_SMD_Pad0.5mm"
+		(property "Footprint" "geeks-ecu-footprints:NetTie-2_SMD_Pad0.5mm"
 			(at 195.58 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -15068,7 +15114,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 375.6152 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -15139,7 +15185,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "991b6901-2221-452a-81e3-ae6e278e01eb")
-		(property "Reference" "#PWR0249"
+		(property "Reference" "#PWR0243"
 			(at 374.65 64.77 0)
 			(hide yes)
 			(show_name no)
@@ -15199,7 +15245,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
-					(reference "#PWR0249")
+					(reference "#PWR0243")
 					(unit 1)
 				)
 			)
@@ -15317,7 +15363,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 322.834 115.824 90)
 			(hide yes)
 			(show_name no)
@@ -15455,6 +15501,99 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector_Generic:Conn_01x02")
+		(at 400.05 48.26 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9ed6a8b8-bc56-4159-b5c0-c6a13828aade")
+		(property "Reference" "J201"
+			(at 402.59 48.2599 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "JST XH"
+			(at 402.59 50.7999 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:JST_XH_B2B-XH-AM_1x02_P2.50mm_Vertical"
+			(at 400.05 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C495547.pdf"
+			(at 400.05 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CONN HEADER TH 2POS 2.5mm"
+			(at 400.05 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C495547"
+			(at 400.05 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "b1a9a11c-387a-482f-b615-d682b3dc57b3")
+		)
+		(pin "1"
+			(uuid "d1ff9772-5072-4671-a133-501b0e3506ef")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
+					(reference "J201")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+12V")
 		(at 284.48 92.71 0)
 		(unit 1)
@@ -15563,7 +15702,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123F"
+		(property "Footprint" "geeks-ecu-footprints:D_SOD-123F"
 			(at 139.7 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -15655,7 +15794,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 375.6152 193.04 0)
 			(hide yes)
 			(show_name no)
@@ -15747,7 +15886,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 358.4448 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -15996,7 +16135,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 322.834 207.264 90)
 			(hide yes)
 			(show_name no)
@@ -16245,7 +16384,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 324.8152 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -16414,7 +16553,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_APV_APH1265"
+		(property "Footprint" "geeks-ecu-footprints:L_APV_APH1265"
 			(at 205.74 113.03 0)
 			(hide yes)
 			(show_name no)
@@ -16474,99 +16613,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
-		(at 400.05 48.26 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b5c593a7-e66e-458e-90bd-f1a425ec5878")
-		(property "Reference" "J201"
-			(at 402.59 48.2599 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "JST XH"
-			(at 402.59 50.7999 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "geeks-ecu-footprints:JST_XH_B2B-XH-AM_1x02_P2.50mm_Vertical"
-			(at 400.05 48.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C158012.pdf"
-			(at 400.05 48.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "CONN HEADER TH 2POS 2.5mm"
-			(at 400.05 48.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "C495685"
-			(at 400.05 48.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "c6cf4ac3-ce48-4b3a-89f4-a65b737cb277")
-		)
-		(pin "1"
-			(uuid "0c247db6-5001-48ec-b2d7-4c0567f1e454")
-		)
-		(instances
-			(project "geeks-ecu"
-				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
-					(reference "J201")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 382.27 74.93 0)
 		(mirror y)
@@ -16578,7 +16624,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b84ec6fe-8172-4ad0-920a-68200afbdcf9")
-		(property "Reference" "#PWR0243"
+		(property "Reference" "#PWR0247"
 			(at 382.27 81.28 0)
 			(hide yes)
 			(show_name no)
@@ -16638,7 +16684,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
-					(reference "#PWR0243")
+					(reference "#PWR0247")
 					(unit 1)
 				)
 			)
@@ -16677,7 +16723,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 284.226 185.674 90)
 			(hide yes)
 			(show_name no)
@@ -16770,7 +16816,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 324.8152 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -16917,7 +16963,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c09634dc-da1a-4b5a-91a6-5de8457b39ca")
-		(property "Reference" "C216"
+		(property "Reference" "C217"
 			(at 267.97 198.1199 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16939,7 +16985,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 265.1252 203.2 0)
 			(hide yes)
 			(show_name no)
@@ -16992,7 +17038,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
-					(reference "C216")
+					(reference "C217")
 					(unit 1)
 				)
 			)
@@ -17032,7 +17078,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 57.4548 189.23 0)
 			(hide yes)
 			(show_name no)
@@ -17103,7 +17149,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c416aa1a-a3e3-44ed-9cac-cb084896c8a5")
-		(property "Reference" "#PWR0251"
+		(property "Reference" "#PWR0245"
 			(at 374.65 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -17163,7 +17209,86 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
-					(reference "#PWR0251")
+					(reference "#PWR0245")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 275.59 95.25 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "c5fdd15f-9ec2-4222-8848-cccc0b922127")
+		(property "Reference" "TP201"
+			(at 272.796 93.726 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 276.86 96.5199 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 280.67 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 280.67 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 275.59 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "09d1e5c2-d7f6-4542-b996-3ea6599b810d")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
+					(reference "TP201")
 					(unit 1)
 				)
 			)
@@ -17433,7 +17558,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 152.654 137.414 90)
 			(hide yes)
 			(show_name no)
@@ -17526,7 +17651,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:CP_Elec_8x10"
+		(property "Footprint" "geeks-ecu-footprints:CP_Elec_8x10"
 			(at 73.66 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -17618,7 +17743,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 358.4448 93.98 0)
 			(hide yes)
 			(show_name no)
@@ -17712,7 +17837,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+		(property "Footprint" "geeks-ecu-footprints:SOT-23"
 			(at 388.62 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -17864,7 +17989,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "dacf7085-fa53-4fdb-a6fc-e5e836c1f7b0")
-		(property "Reference" "#PWR0244"
+		(property "Reference" "#PWR0248"
 			(at 383.54 170.18 0)
 			(hide yes)
 			(show_name no)
@@ -17924,7 +18049,100 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
-					(reference "#PWR0244")
+					(reference "#PWR0248")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x02")
+		(at 401.32 137.16 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "dcb152b8-a96b-46af-80f7-eab8ad15a94c")
+		(property "Reference" "J203"
+			(at 403.86 137.1599 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "JST XH"
+			(at 403.86 139.6999 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:JST_XH_B2B-XH-AM_1x02_P2.50mm_Vertical"
+			(at 401.32 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C495547.pdf"
+			(at 401.32 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CONN HEADER TH 2POS 2.5mm"
+			(at 401.32 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C495547"
+			(at 401.32 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "fc2a82fa-b2c5-4a99-882f-2ec6a2f4ec86")
+		)
+		(pin "1"
+			(uuid "1d55f056-bd21-4224-b7ff-de75258f6b2b")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
+					(reference "J203")
 					(unit 1)
 				)
 			)
@@ -17942,7 +18160,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "dd60e091-e2e0-42dd-84f6-fd71c265258d")
-		(property "Reference" "#PWR0252"
+		(property "Reference" "#PWR0246"
 			(at 374.65 200.66 0)
 			(hide yes)
 			(show_name no)
@@ -18002,7 +18220,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
-					(reference "#PWR0252")
+					(reference "#PWR0246")
 					(unit 1)
 				)
 			)
@@ -18042,7 +18260,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_DFN_QFN:PQFN-8-EP_6x5mm_P1.27mm_Generic"
+		(property "Footprint" "geeks-ecu-footprints:PQFN-8-EP_6x5mm_P1.27mm_Generic"
 			(at 194.31 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -18105,6 +18323,99 @@
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
 					(reference "Q201")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x02")
+		(at 400.05 92.71 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e76a5f4d-3382-4ff8-a305-7da8d26efcd6")
+		(property "Reference" "J202"
+			(at 402.59 92.7099 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "JST XH"
+			(at 402.59 95.2499 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:JST_XH_B2B-XH-AM_1x02_P2.50mm_Vertical"
+			(at 400.05 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C495547.pdf"
+			(at 400.05 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CONN HEADER TH 2POS 2.5mm"
+			(at 400.05 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C495547"
+			(at 400.05 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "46092dcb-482c-43ef-bf41-0d60413aa29d")
+		)
+		(pin "1"
+			(uuid "5b434645-ea65-40fe-ac3f-a99c3f891009")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
+					(reference "J202")
 					(unit 1)
 				)
 			)
@@ -18188,99 +18499,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
-		(at 401.32 184.15 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "eddb580a-3d54-4d67-a29b-c51121e487ee")
-		(property "Reference" "J204"
-			(at 403.86 184.1499 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "JST XH"
-			(at 403.86 186.6899 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "geeks-ecu-footprints:JST_XH_B2B-XH-AM_1x02_P2.50mm_Vertical"
-			(at 401.32 184.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C158012.pdf"
-			(at 401.32 184.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "CONN HEADER TH 2POS 2.5mm"
-			(at 401.32 184.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "C495685"
-			(at 401.32 184.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "66102d73-25be-41d2-9683-53a8fb4037c3")
-		)
-		(pin "1"
-			(uuid "eb38b10c-b69c-42af-aa5f-bfa096817882")
-		)
-		(instances
-			(project "geeks-ecu"
-				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
-					(reference "J204")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 393.7 189.23 0)
 		(mirror y)
@@ -18292,7 +18510,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f149551b-57d3-4c8d-be68-e873e1580c36")
-		(property "Reference" "#PWR0248"
+		(property "Reference" "#PWR0252"
 			(at 393.7 195.58 0)
 			(hide yes)
 			(show_name no)
@@ -18352,7 +18570,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
-					(reference "#PWR0248")
+					(reference "#PWR0252")
 					(unit 1)
 				)
 			)
@@ -18391,7 +18609,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 147.066 212.344 90)
 			(hide yes)
 			(show_name no)
@@ -18462,7 +18680,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "fadf6b84-d0aa-4f40-82e2-cc5028cc524c")
-		(property "Reference" "#PWR0247"
+		(property "Reference" "#PWR0251"
 			(at 393.7 148.59 0)
 			(hide yes)
 			(show_name no)
@@ -18522,7 +18740,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
-					(reference "#PWR0247")
+					(reference "#PWR0251")
 					(unit 1)
 				)
 			)
@@ -18540,7 +18758,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "fb0a8c53-8075-4ea1-b095-ea83804f9a5a")
-		(property "Reference" "#PWR0250"
+		(property "Reference" "#PWR0244"
 			(at 374.65 109.22 0)
 			(hide yes)
 			(show_name no)
@@ -18600,7 +18818,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/d37f46ef-594c-442d-9e1c-e8be24fd25de"
-					(reference "#PWR0250")
+					(reference "#PWR0244")
 					(unit 1)
 				)
 			)
@@ -18640,7 +18858,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 26.924 180.594 90)
 			(hide yes)
 			(show_name no)

@@ -1,4 +1,4 @@
 (fp_lib_table
-  (version 7)
-  (lib (name "geeks-ecu-footprints")(type "KiCad")(uri "${KIPRJMOD}/footprints/geeks-ecu-footprints.pretty")(options "")(descr ""))
+	(version 7)
+	(lib (name "geeks-ecu-footprints") (type "KiCad") (uri "${KIPRJMOD}/footprints/geeks-ecu-footprints.pretty") (options "") (descr ""))
 )

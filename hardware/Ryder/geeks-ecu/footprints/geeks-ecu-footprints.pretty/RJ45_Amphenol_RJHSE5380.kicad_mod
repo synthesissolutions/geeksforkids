@@ -1,25 +1,27 @@
 (footprint "RJ45_Amphenol_RJHSE5380"
-	(version 20241229)
+	(version 20260206)
 	(generator "pcbnew")
-	(generator_version "9.0")
+	(generator_version "10.0")
 	(layer "F.Cu")
 	(descr "Shielded, https://www.amphenolcanada.com/ProductSearch/drawings/AC/RJHSE538X.pdf")
 	(tags "RJ45 8p8c ethernet cat5")
 	(property "Reference" "REF**"
 		(at 3.56 -9.5 0)
 		(layer "F.SilkS")
-		(uuid "38503cf6-cf8b-41fd-8e7d-95e82733aefd")
+		(hide yes)
+		(uuid "b82d2990-074d-4e09-9fd8-5c23bda4b708")
 		(effects
 			(font
 				(size 1 1)
-				(thickness 0.15)
+				(thickness 0.167)
 			)
 		)
 	)
-	(property "Value" "RJ45_Amphenol_RJHSE5380"
+	(property "Value" "RJ45"
 		(at 3.56 9.5 0)
 		(layer "F.Fab")
-		(uuid "f1570f67-675e-4797-b66f-a033c4d32836")
+		(hide yes)
+		(uuid "6a71234a-d54b-4047-9175-72d4c7382c7b")
 		(effects
 			(font
 				(size 1 1)
@@ -29,31 +31,33 @@
 	)
 	(property "Datasheet" ""
 		(at 0 0 0)
-		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "03aff2a6-6794-43f2-a586-4f4d698df617")
+		(uuid "c87ac9f3-8a8d-4cc9-b6ce-a9092f49db11")
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 1 1)
 				(thickness 0.15)
 			)
 		)
 	)
-	(property "Description" ""
+	(property "Description" "RJ connector, 8P8C (8 positions 8 connected), Shielded"
 		(at 0 0 0)
-		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "a8dec559-508f-4b56-bc08-7fe5ab67f77d")
+		(uuid "94c9c01c-75d9-4219-bced-37b903a9deae")
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 1 1)
 				(thickness 0.15)
 			)
 		)
 	)
+	(property ki_fp_filters "8P8C* RJ31* RJ32* RJ33* RJ34* RJ35* RJ41* RJ45* RJ49* RJ61*")
+	(sheetname "/IO Connectors/")
+	(sheetfile "io_connectors.kicad_sch")
 	(attr through_hole)
+	(duplicate_pad_numbers_are_jumpers no)
 	(fp_line
 		(start -5.5 -1.2)
 		(end -5 -0.7)
@@ -62,7 +66,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "13f0de14-0ede-41b9-8faf-d5d53ba06435")
+		(uuid "7fd356f2-389f-42a7-acc4-8b5edbe165b8")
 	)
 	(fp_line
 		(start -5.5 -0.2)
@@ -72,7 +76,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "3d5fb039-c57a-4120-9e86-ce80186d2d52")
+		(uuid "4f482411-27f7-4ded-afa3-4d546b2ddd1e")
 	)
 	(fp_line
 		(start -5 -0.7)
@@ -82,7 +86,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "0774a906-79dc-42b8-bf0e-84f9fa73f612")
+		(uuid "9d518ea4-f9a5-4a18-b06d-37bcd782e03c")
 	)
 	(fp_line
 		(start -4.805 -8.11)
@@ -92,7 +96,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "2de56557-cf2d-422f-8958-60e6c44d1865")
+		(uuid "7f609867-8441-44b9-871b-43bc634b07e1")
 	)
 	(fp_line
 		(start -4.805 7.86)
@@ -102,7 +106,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "d4f7d9d2-9ff2-4812-b1ae-d5455ecc2462")
+		(uuid "2c36ea3d-cb3f-48b5-951c-8bd8ebbe831d")
 	)
 	(fp_line
 		(start -4.76 -8.11)
@@ -112,7 +116,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "96bfb524-175d-46a8-bdbc-6d0448df27c2")
+		(uuid "1f8c1792-1eb3-4f97-b8e0-c8f6bb2d54f8")
 	)
 	(fp_line
 		(start -4.76 7.86)
@@ -122,7 +126,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "bde0e668-e884-4bf5-9cf6-5fa29df287e5")
+		(uuid "dba1d6d6-3723-4f7b-b598-b3b82a0271c8")
 	)
 	(fp_line
 		(start 11.925 -8.11)
@@ -132,7 +136,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "37718642-fa12-46e3-bfa7-ad1125597c0a")
+		(uuid "67a72886-816d-47cf-8a12-4647ef03f253")
 	)
 	(fp_line
 		(start 11.925 7.86)
@@ -142,7 +146,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "8b2d2350-f231-4a93-9399-dfe326dd1673")
+		(uuid "83abeeef-b60a-4dff-b8b1-d85b00e30751")
 	)
 	(fp_line
 		(start -6.22 -8.5)
@@ -152,7 +156,7 @@
 			(type solid)
 		)
 		(layer "F.CrtYd")
-		(uuid "11315862-51e1-4bfd-9136-d9174ac17ae2")
+		(uuid "8d210e78-50c8-4de1-a8df-0f2fc2eeac7b")
 	)
 	(fp_line
 		(start -6.22 -8.5)
@@ -162,7 +166,7 @@
 			(type solid)
 		)
 		(layer "F.CrtYd")
-		(uuid "259b0dcc-b003-4be4-9dc4-79016a3d5b9e")
+		(uuid "39de49eb-7724-4056-8763-35a13695b36a")
 	)
 	(fp_line
 		(start -6.22 8.25)
@@ -172,7 +176,7 @@
 			(type solid)
 		)
 		(layer "F.CrtYd")
-		(uuid "b94226e0-efdc-4fb8-bff9-8f53c02aa060")
+		(uuid "6dc0ee4a-c1be-489b-8b99-bdfa594bb71f")
 	)
 	(fp_line
 		(start 13.34 -8.5)
@@ -182,7 +186,7 @@
 			(type solid)
 		)
 		(layer "F.CrtYd")
-		(uuid "47969966-2d47-48d1-947d-ccb0167ff60f")
+		(uuid "8dc39d6f-98d2-4f32-8706-e3fe70f0f0ad")
 	)
 	(fp_line
 		(start -4.695 -7)
@@ -192,7 +196,7 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "5df2e96e-5eea-47d4-8eff-eb4a3fdee9f0")
+		(uuid "01adcde9-c82c-4086-862f-692b3de65fa7")
 	)
 	(fp_line
 		(start -4.695 -7)
@@ -202,7 +206,7 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "0aa7bd5d-f863-488b-b0f9-a92ee99f9241")
+		(uuid "cec54194-5403-42d4-b068-6d7ee2379587")
 	)
 	(fp_line
 		(start -4.695 7.75)
@@ -212,7 +216,7 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "9486de23-06d3-498d-8dc8-006001fd0d49")
+		(uuid "af75918d-4357-473f-ab36-576f99effc87")
 	)
 	(fp_line
 		(start -3.695 -8)
@@ -222,7 +226,7 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "07fab374-2ad8-4b2d-85b3-cca22dd28aa9")
+		(uuid "b18b4ef0-1704-48eb-b9e8-e0002d47a18f")
 	)
 	(fp_line
 		(start 11.815 -8)
@@ -232,12 +236,12 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "503fa74f-3150-49e3-b7e8-664e2525ee83")
+		(uuid "2172e4f9-90ee-4d65-ae18-037c3a52f581")
 	)
 	(fp_text user "${REFERENCE}"
 		(at 3.56 -6 0)
 		(layer "F.Fab")
-		(uuid "40522698-c48a-43f4-aefd-e4f004bcbc28")
+		(uuid "59b83998-4030-4f9a-aee5-fd5336d0ded4")
 		(effects
 			(font
 				(size 1 1)
@@ -250,14 +254,14 @@
 		(size 3.25 3.25)
 		(drill 3.25)
 		(layers "*.Cu" "*.Mask")
-		(uuid "49f4beb8-0b4e-443e-9469-fa7fcad1dadd")
+		(uuid "43de4fc6-db77-4bc9-bae7-2e6df0f5d3d0")
 	)
 	(pad "" np_thru_hole circle
 		(at 9.91 -2.54)
 		(size 3.25 3.25)
 		(drill 3.25)
 		(layers "*.Cu" "*.Mask")
-		(uuid "09aa2cf5-a7ab-4501-943e-7dee90d435af")
+		(uuid "3df2f78d-b972-4b3f-ae34-212cc7d21f80")
 	)
 	(pad "1" thru_hole rect
 		(at 0 0)
@@ -265,7 +269,7 @@
 		(drill 0.89)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "bb0c2773-bf36-4307-a793-19b0c9d478fd")
+		(uuid "247550d8-c03b-4a63-9908-8417e09770b7")
 	)
 	(pad "2" thru_hole circle
 		(at 1.016 1.78)
@@ -273,7 +277,7 @@
 		(drill 0.89)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "39b118e9-077d-48bf-be33-f3f8c5a3da4e")
+		(uuid "60bb6363-6692-421a-a9c9-1e1382903875")
 	)
 	(pad "3" thru_hole circle
 		(at 2.032 0)
@@ -281,7 +285,7 @@
 		(drill 0.89)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "2d4d5389-9de9-4bbf-a161-521e2c91839d")
+		(uuid "8ea605f9-4460-4122-b238-5f6681e37cc1")
 	)
 	(pad "4" thru_hole circle
 		(at 3.048 1.78)
@@ -289,7 +293,7 @@
 		(drill 0.89)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "59bd412e-256e-48dd-a090-ae127d5cdfc0")
+		(uuid "c83225f9-6385-4c04-8e9c-a4d8435095f4")
 	)
 	(pad "5" thru_hole circle
 		(at 4.064 0)
@@ -297,7 +301,7 @@
 		(drill 0.89)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "304c90cd-d1cc-4cfb-898e-79d7d7338d3c")
+		(uuid "c71dd91c-64d0-4e51-ab77-1409fe2188c5")
 	)
 	(pad "6" thru_hole circle
 		(at 5.08 1.78)
@@ -305,7 +309,7 @@
 		(drill 0.89)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "3db4039d-4538-4456-89e7-c51a98e81ad1")
+		(uuid "1f51a203-d71e-4e64-9946-be81cd3eeccc")
 	)
 	(pad "7" thru_hole circle
 		(at 6.096 0)
@@ -313,7 +317,7 @@
 		(drill 0.89)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "438d2dce-3c8b-4179-bbab-3e6f7ecfd0d0")
+		(uuid "33e97732-2a0c-4e1b-989c-0f22b7195229")
 	)
 	(pad "8" thru_hole circle
 		(at 7.112 1.78)
@@ -321,7 +325,7 @@
 		(drill 0.89)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "0bbcba01-da42-43b7-9fd3-52384f210fc2")
+		(uuid "41f755ac-1d28-406d-af92-4fa91f4fe039")
 	)
 	(pad "SH" thru_hole circle
 		(at -4.57 0.89)
@@ -329,7 +333,7 @@
 		(drill 1.57)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "a80c52a5-617b-4e78-83bd-cbcbb33fa639")
+		(uuid "7d7f612f-d0d0-4b34-8cf7-cf464e4db32c")
 	)
 	(pad "SH" thru_hole circle
 		(at 11.69 0.89)
@@ -337,7 +341,7 @@
 		(drill 1.57)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "383a7a8e-8ff3-4ce8-8722-8c132c260cc0")
+		(uuid "55fe409f-fd1a-47e9-ad03-c7000b5aa5aa")
 	)
 	(embedded_fonts no)
 	(model "${KICAD9_3DMODEL_DIR}/Connector_RJ.3dshapes/RJ45_Amphenol_RJHSE5380.step"

@@ -1,0 +1,301 @@
+(footprint "L_TechFuse_SL1050"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "Inductor, TechFuse, SL1050, 11.0x10.5x5.0mm, ( http://www.sealand-pptc.com/product_view.php?r=77), generated with kicad-footprint-generator gen_inductor.py")
+	(tags "high-current power shielded")
+	(property "Reference" "REF**"
+		(at 0 -6.2 180)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "61f03000-03cd-40b3-a14f-ca442c13d7a8")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.167)
+			)
+		)
+	)
+	(property "Value" "4.7uH"
+		(at 0 6.2 180)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "c2550fb1-be10-44de-82dd-d7e22ad71c21")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" "https://lcsc.com/datasheet/lcsc_datasheet_2410121929_TECHFUSE-SL1050-4R7M_C22463842.pdf"
+		(at 0 0 180)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d2450baf-256e-48ba-bdf4-7e242d008cbc")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "10A 4.7uH ±20% 15A SMD,11x10.5mm Inductors (SMD) ROHS"
+		(at 0 0 180)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "b7817240-e004-44ba-8de8-8b7db8d0cfcd")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "MPN" "C22463842"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "1579f735-f02b-43cc-a07c-511d1d114c03")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property ki_fp_filters "Choke_* *Coil* Inductor_* L_*")
+	(sheetname "/Low Voltage Power Converters/")
+	(sheetfile "power_converters.kicad_sch")
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -5.61 -5.36)
+		(end 5.61 -5.36)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "89684d32-43a2-4a3f-ad04-ca8f4ea0522f")
+	)
+	(fp_line
+		(start -5.61 -2.26)
+		(end -5.61 -5.36)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "2afbfb8e-214a-43fa-a30a-3d930585835f")
+	)
+	(fp_line
+		(start -5.61 5.36)
+		(end -5.61 2.26)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "d679adb5-dcf7-4320-bda2-63da1830e561")
+	)
+	(fp_line
+		(start 5.61 -5.36)
+		(end 5.61 -2.26)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "b7decb41-5f3b-4d5b-96f3-e042fd217aac")
+	)
+	(fp_line
+		(start 5.61 2.26)
+		(end 5.61 5.36)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "4e6ea8d4-6a66-428f-a9c6-80d12c353a39")
+	)
+	(fp_line
+		(start 5.61 5.36)
+		(end -5.61 5.36)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "59000dbd-a737-4c22-8cfb-99057274966c")
+	)
+	(fp_line
+		(start -6.5 -2.25)
+		(end -5.75 -2.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "7856ed69-82d9-4660-be23-9fa609947dcb")
+	)
+	(fp_line
+		(start -6.5 2.25)
+		(end -6.5 -2.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "75104e6c-1de2-4c33-b05c-85460573189f")
+	)
+	(fp_line
+		(start -5.75 -5.5)
+		(end 5.75 -5.5)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "90a9f11f-d9aa-477d-aa04-04b5b0255f14")
+	)
+	(fp_line
+		(start -5.75 -2.25)
+		(end -5.75 -5.5)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "547ad2dd-8b7f-4c78-a796-d38b94f24a7a")
+	)
+	(fp_line
+		(start -5.75 2.25)
+		(end -6.5 2.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "a28c574b-19f3-4f87-8042-93a0fda401c2")
+	)
+	(fp_line
+		(start -5.75 5.5)
+		(end -5.75 2.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "2debbbe2-8037-4f16-9d00-350cd2e0e76d")
+	)
+	(fp_line
+		(start 5.75 -5.5)
+		(end 5.75 -2.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "ffa9db93-37a7-4591-bf6d-8117c34bb054")
+	)
+	(fp_line
+		(start 5.75 -2.25)
+		(end 6.5 -2.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "9eb05e63-8916-474c-92b8-659ca3d3640d")
+	)
+	(fp_line
+		(start 5.75 2.25)
+		(end 5.75 5.5)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "f325746d-165c-43fb-8a9b-c9852d127989")
+	)
+	(fp_line
+		(start 5.75 5.5)
+		(end -5.75 5.5)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "d2e6541a-2667-48b5-9578-316abb70001a")
+	)
+	(fp_line
+		(start 6.5 -2.25)
+		(end 6.5 2.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "541f7dcf-5ebb-4f73-95f9-cab4f75362b8")
+	)
+	(fp_line
+		(start 6.5 2.25)
+		(end 5.75 2.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "f955bc72-a14b-483d-b063-0dcbc15795da")
+	)
+	(fp_rect
+		(start -5.5 -5.25)
+		(end 5.5 5.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "3b9d6bd5-2567-40e0-8318-09471c1f2503")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0 180)
+		(layer "F.Fab")
+		(uuid "d789421a-ff9e-40ca-8ff9-c693a355445c")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd roundrect
+		(at -4.625 0)
+		(size 3.25 4)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.076923)
+		(uuid "08c2cf3f-f357-4bef-879f-3bb7905e6206")
+	)
+	(pad "2" smd roundrect
+		(at 4.625 0)
+		(size 3.25 4)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.076923)
+		(uuid "b843718b-eda5-4365-9a01-0067f8ad5d61")
+	)
+	(embedded_fonts no)
+	(model "${KICAD9_3DMODEL_DIR}/Inductor_SMD.3dshapes/L_TechFuse_SL1050.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

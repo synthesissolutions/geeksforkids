@@ -1,25 +1,27 @@
 (footprint "JST_XH_B2B-XH-AM_1x02_P2.50mm_Vertical"
-	(version 20241229)
+	(version 20260206)
 	(generator "pcbnew")
-	(generator_version "9.0")
+	(generator_version "10.0")
 	(layer "F.Cu")
 	(descr "JST XH series connector, B2B-XH-AM, with boss (http://www.jst-mfg.com/product/pdf/eng/eXH.pdf), generated with kicad-footprint-generator")
 	(tags "connector JST XH vertical boss")
 	(property "Reference" "REF**"
 		(at 1.25 -3.55 0)
 		(layer "F.SilkS")
-		(uuid "d6045d49-1b11-48d3-b81f-ffba242436a3")
+		(hide yes)
+		(uuid "3149f83f-c7b3-4ee0-8082-86d87ca00059")
 		(effects
 			(font
 				(size 1 1)
-				(thickness 0.15)
+				(thickness 0.167)
 			)
 		)
 	)
-	(property "Value" "JST_XH_B2B-XH-AM_1x02_P2.50mm_Vertical"
+	(property "Value" "JST XH"
 		(at 1.25 4.6 0)
 		(layer "F.Fab")
-		(uuid "482817ee-4956-475f-a4cb-7e22fccea500")
+		(hide yes)
+		(uuid "cc81145c-139b-4f34-8f65-bd17661c6674")
 		(effects
 			(font
 				(size 1 1)
@@ -27,31 +29,47 @@
 			)
 		)
 	)
-	(property "Datasheet" ""
+	(property "Datasheet" "https://www.lcsc.com/datasheet/C158012.pdf"
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "1c210c9c-681e-432d-80a4-df9b81a0c4e7")
+		(uuid "478f6728-27f5-4f27-82cb-d327bf49e98c")
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 1 1)
 				(thickness 0.15)
 			)
 		)
 	)
-	(property "Description" ""
+	(property "Description" "CONN HEADER TH 2POS 2.5mm"
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "6049d38b-314f-4ff4-8121-da163d73ffec")
+		(uuid "dadf9a31-caff-4d90-ba96-2c079271514d")
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 1 1)
 				(thickness 0.15)
 			)
 		)
 	)
+	(property "MPN" "C495685"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "a1733f16-e539-4ac4-bd58-af63ef7a9278")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property ki_fp_filters "Connector*:*_1x??_*")
+	(sheetname "/12V Buck-Boost Converter/")
+	(sheetfile "LM5176.kicad_sch")
 	(attr through_hole)
+	(duplicate_pad_numbers_are_jumpers no)
 	(fp_line
 		(start -2.85 -2.75)
 		(end -2.85 -1.5)
@@ -60,7 +78,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "24247085-3612-4c53-870a-eb8af5e6d511")
+		(uuid "45131372-6681-4fb2-88e2-5c416b8c7047")
 	)
 	(fp_line
 		(start -2.55 -0.2)
@@ -70,7 +88,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "ad4a8d8a-cc52-42f7-baa2-cfbc6054f739")
+		(uuid "10599995-eb38-4eaa-90c3-d26cb57ec8c7")
 	)
 	(fp_line
 		(start -1.8 -0.2)
@@ -80,7 +98,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "50eeb09c-4608-4a38-a7f5-19953c7fa62a")
+		(uuid "c4b9090d-52aa-46d9-a1e1-a066b29db4a8")
 	)
 	(fp_line
 		(start -1.6 -2.75)
@@ -90,7 +108,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "a21dde28-c87c-401b-8a6f-b35b304810a0")
+		(uuid "5179db31-9b33-4c8f-903a-a6f4499643c6")
 	)
 	(fp_line
 		(start 1.25 2.75)
@@ -100,7 +118,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "1f041259-d7dd-4f99-ae9e-eb0cec83cee6")
+		(uuid "21b3a3e2-ac90-42c7-a4a4-5d06849cac55")
 	)
 	(fp_line
 		(start 4.3 -0.2)
@@ -110,7 +128,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "59cab7fb-8ae6-48d5-b8ff-14e1c177a3fb")
+		(uuid "b928c04f-0481-42e8-8297-a4f3a93c1655")
 	)
 	(fp_line
 		(start 4.3 2.75)
@@ -120,7 +138,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "301ef616-02eb-4718-a61e-521260ce0f72")
+		(uuid "c6ed610c-df63-4982-af03-d5851da734e2")
 	)
 	(fp_line
 		(start 5.05 -0.2)
@@ -130,7 +148,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "33534a16-f875-43f5-a00b-8b8026ab2ac9")
+		(uuid "7b91fd24-53df-4221-a803-924dfd36d088")
 	)
 	(fp_rect
 		(start -2.56 -2.46)
@@ -141,7 +159,7 @@
 		)
 		(fill no)
 		(layer "F.SilkS")
-		(uuid "5bd21d77-125c-42af-9408-fc799362d4a0")
+		(uuid "687232dc-c0cc-471d-b284-6525f31f3db7")
 	)
 	(fp_rect
 		(start -2.55 -2.45)
@@ -152,7 +170,7 @@
 		)
 		(fill no)
 		(layer "F.SilkS")
-		(uuid "bf0c7d02-48be-4146-9ca5-f1ef2bcd2eba")
+		(uuid "f2e57627-e9fa-4b39-a87c-eb7e02f45c37")
 	)
 	(fp_rect
 		(start 0.75 -2.45)
@@ -163,7 +181,7 @@
 		)
 		(fill no)
 		(layer "F.SilkS")
-		(uuid "98a434c3-d12d-4f17-93a9-3a707ded4efd")
+		(uuid "8cadde05-a5f6-4745-b789-6f0c5a6fd49d")
 	)
 	(fp_rect
 		(start 3.25 -2.45)
@@ -174,7 +192,7 @@
 		)
 		(fill no)
 		(layer "F.SilkS")
-		(uuid "21b15fbb-895f-4397-b550-19eecb30ccae")
+		(uuid "74d3b43e-17cc-42fc-bc38-88a655db1f3d")
 	)
 	(fp_rect
 		(start -2.95 -2.85)
@@ -185,7 +203,7 @@
 		)
 		(fill no)
 		(layer "F.CrtYd")
-		(uuid "f124e5a9-bbb7-4dd5-b0c0-49f201244b2a")
+		(uuid "3cd44c67-7fa9-4d6f-a9f1-802558f97b45")
 	)
 	(fp_line
 		(start -0.625 -2.35)
@@ -195,7 +213,7 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "cfabe594-941e-45c2-b450-f3d8fe5e2f96")
+		(uuid "799b2ec6-4697-4217-bc6f-8b5c13b9d4a4")
 	)
 	(fp_line
 		(start 0 -1.35)
@@ -205,7 +223,7 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "96ed7cac-3e76-4e7e-a231-55642dcb5cd1")
+		(uuid "5c9c3ece-9788-4301-88ce-e635795a85ff")
 	)
 	(fp_rect
 		(start -2.45 -2.35)
@@ -216,12 +234,12 @@
 		)
 		(fill no)
 		(layer "F.Fab")
-		(uuid "545365d4-3008-44b4-a12c-95d7751ed82b")
+		(uuid "7490b2a2-c2b7-4b8c-99dd-e9ffbc5372c9")
 	)
 	(fp_text user "${REFERENCE}"
-		(at 1.25 2.7 0)
+		(at 1.35 2.025 0)
 		(layer "F.Fab")
-		(uuid "be81a95c-4dd4-4067-a332-8df21ab305d5")
+		(uuid "a4e81be3-651f-4d6b-86ba-011f9086ca19")
 		(effects
 			(font
 				(size 1 1)
@@ -234,7 +252,7 @@
 		(size 1.2 1.2)
 		(drill 1.2)
 		(layers "*.Cu" "*.Mask")
-		(uuid "46a2521c-b223-4118-8fb5-4a30be586de9")
+		(uuid "e16cd558-1ab0-472e-b08c-c962105283a1")
 	)
 	(pad "1" thru_hole roundrect
 		(at 0 0)
@@ -243,7 +261,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(roundrect_rratio 0.147059)
-		(uuid "823ede83-8440-4474-b8b1-4eb2a7465d4c")
+		(uuid "a6751744-f5e9-434f-b7ef-4b9ba71372f1")
 	)
 	(pad "2" thru_hole oval
 		(at 2.5 0)
@@ -251,7 +269,7 @@
 		(drill 1)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "f19586b7-77bc-4b99-b524-eceb01929b55")
+		(uuid "48e6f082-6be6-4ea4-9bab-356097f855d5")
 	)
 	(embedded_fonts no)
 	(model "${KICAD9_3DMODEL_DIR}/Connector_JST.3dshapes/JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical.step"

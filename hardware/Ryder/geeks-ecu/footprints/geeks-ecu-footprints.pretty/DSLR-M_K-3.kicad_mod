@@ -1,14 +1,15 @@
 (footprint "DSLR-M_K-3"
-	(version 20241229)
+	(version 20260206)
 	(generator "pcbnew")
-	(generator_version "9.0")
+	(generator_version "10.0")
 	(layer "F.Cu")
 	(descr "Resistor SMD 2512 (6332 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 	(tags "resistor")
 	(property "Reference" "REF**"
 		(at 0 -2.63 0)
 		(layer "F.SilkS")
-		(uuid "fc1d38d1-8bff-4c20-a333-bda8d932ff65")
+		(hide yes)
+		(uuid "d3635c5d-3382-4b35-9de1-e2b375717df0")
 		(effects
 			(font
 				(size 1 1)
@@ -19,7 +20,8 @@
 	(property "Value" "DSLR-M_K-3"
 		(at 0 2.63 0)
 		(layer "F.Fab")
-		(uuid "b71393bf-e1bd-41f8-9f12-7b2da7c80b49")
+		(hide yes)
+		(uuid "77b802f7-e224-45ae-ac4b-4e7f92141324")
 		(effects
 			(font
 				(size 1 1)
@@ -31,7 +33,7 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "9c6744c0-9a67-40e4-a24e-0cb9325cf086")
+		(uuid "5b926c16-06ff-4f5b-ab30-03c506d8db46")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -43,7 +45,7 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "003f5467-0f0e-4af3-9a05-63f398fb4814")
+		(uuid "a6738f00-8051-4f2e-8a1b-3ce635bfba3a")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -52,6 +54,7 @@
 		)
 	)
 	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
 	(fp_line
 		(start -1.27 -1.71)
 		(end 1.27 -1.71)
@@ -60,7 +63,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "357ea4e2-14bc-433c-a160-d9291d1f9e73")
+		(uuid "11fd51bf-1a6c-479c-a288-72e7d69bd356")
 	)
 	(fp_line
 		(start -1.27 1.71)
@@ -70,7 +73,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "1617935e-66b1-4ee5-bfe0-f9ad336c9e4e")
+		(uuid "baeedf95-e3d4-410b-bee1-d89745c53099")
 	)
 	(fp_line
 		(start -3.83 -1.93)
@@ -80,7 +83,7 @@
 			(type solid)
 		)
 		(layer "F.CrtYd")
-		(uuid "47cfcffb-5fc1-48f9-99b2-325b56ad4a4a")
+		(uuid "5720d95a-cc43-4d8c-b702-095ef3e95b8c")
 	)
 	(fp_line
 		(start -3.83 1.93)
@@ -90,7 +93,7 @@
 			(type solid)
 		)
 		(layer "F.CrtYd")
-		(uuid "e03c39d3-98bd-407e-90da-39412b78c15a")
+		(uuid "998c26c3-a7f7-4a71-90be-9cd4b93c82de")
 	)
 	(fp_line
 		(start 3.83 -1.93)
@@ -100,7 +103,7 @@
 			(type solid)
 		)
 		(layer "F.CrtYd")
-		(uuid "4c1a59a8-2038-4f62-b3ae-300c9378eac0")
+		(uuid "227c30b1-dfa2-4ebf-880e-89a74df79373")
 	)
 	(fp_line
 		(start 3.83 1.93)
@@ -110,7 +113,7 @@
 			(type solid)
 		)
 		(layer "F.CrtYd")
-		(uuid "70a7779b-b490-488b-a8b4-c443669784f7")
+		(uuid "147ad400-e707-48d9-8e36-02ab57c88f5a")
 	)
 	(fp_line
 		(start -3.15 -1.6)
@@ -120,7 +123,7 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "31fa0074-efd8-4133-b0f4-87e85a1b1b77")
+		(uuid "7f5c82c1-b4ae-44ef-8cb1-a8fe1cc4dcb1")
 	)
 	(fp_line
 		(start -3.15 1.6)
@@ -130,7 +133,7 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "f2cb572f-1158-4776-9fd4-3b2339e2fe1d")
+		(uuid "d97ffe38-2836-47d0-9697-9173ec32f0d9")
 	)
 	(fp_line
 		(start 3.15 -1.6)
@@ -140,7 +143,7 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "c3287387-e75d-4378-afe8-5d68c58e94ad")
+		(uuid "1862f553-b2cb-436f-9bcb-aa0ffbdc44a3")
 	)
 	(fp_line
 		(start 3.15 1.6)
@@ -150,12 +153,12 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "c411fb09-5ae3-49a2-8b2c-6b53ab07dc84")
+		(uuid "9e9d83a5-5295-416f-99a7-d792a7080b13")
 	)
 	(fp_text user "${REFERENCE}"
 		(at 0 0 0)
 		(layer "F.Fab")
-		(uuid "a09f6ef1-8a22-452b-9e07-b568b9e51cdd")
+		(uuid "a3e88549-30f1-431c-8896-33a8dca24eae")
 		(effects
 			(font
 				(size 1 1)
@@ -168,14 +171,14 @@
 		(size 1.8 3.4)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.204082)
-		(uuid "4bed2a5e-249f-488f-9ec6-361c20664793")
+		(uuid "6a20f89d-bd7c-4dc2-97ba-8181fb0c51c1")
 	)
 	(pad "2" smd roundrect
 		(at 2.6 0)
 		(size 1.8 3.4)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.204082)
-		(uuid "8829ff71-2a88-40ae-a692-7ff086f170da")
+		(uuid "353b7d4a-429a-4054-a91a-3d99d5c7be2c")
 	)
 	(embedded_fonts no)
 	(model "${KICAD9_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_2512_6332Metric.step"

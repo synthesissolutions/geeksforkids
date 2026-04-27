@@ -221,6 +221,129 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Connector:TestPoint_Small"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.762)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "TP"
+				(at 0 3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TestPoint_Small"
+				(at 0 2.032 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "test point"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "test point tp"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Pin* Test*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "TestPoint_Small_0_1"
+				(circle
+					(center 0 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "TestPoint_Small_1_1"
+				(pin passive line
+					(at 0 0 90)
+					(length 0)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Connector:USB_B_Micro"
 			(pin_names
 				(offset 1.016)
@@ -6565,6 +6688,12 @@
 		(uuid "0d36366e-183f-433b-a8f8-4104371564bd")
 	)
 	(junction
+		(at 327.66 114.3)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "19199619-b3de-42fd-bd5c-37299a287d13")
+	)
+	(junction
 		(at 255.27 245.11)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6589,16 +6718,16 @@
 		(uuid "214035bf-39c2-443c-a4f6-82682ed26c54")
 	)
 	(junction
+		(at 93.98 35.56)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2214d38a-2805-4203-8e2f-1651f2ae3ebc")
+	)
+	(junction
 		(at 302.26 43.18)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "2cf9c067-b891-45bb-b93f-4a45800ed884")
-	)
-	(junction
-		(at 354.33 127)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "30f071d7-2149-469a-a59e-ce9a71eb8054")
 	)
 	(junction
 		(at 281.94 245.11)
@@ -6611,6 +6740,18 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3205bdd7-a07d-4e78-86c7-ea9387594f41")
+	)
+	(junction
+		(at 88.9 157.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3674cae9-0dbc-4d6a-9d86-d48262608486")
+	)
+	(junction
+		(at 341.63 133.35)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "460fd6a3-4b87-457b-93c8-904bd1bb5c43")
 	)
 	(junction
 		(at 336.55 205.74)
@@ -6673,10 +6814,10 @@
 		(uuid "5d03f709-1874-4797-8dfd-c1ec917b8f3e")
 	)
 	(junction
-		(at 375.92 133.35)
+		(at 97.79 59.69)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "5f8d7a57-144a-46d2-81c4-7e880ca59699")
+		(uuid "5debd7fb-88d3-4b3c-9f96-3813d1517431")
 	)
 	(junction
 		(at 110.49 35.56)
@@ -6697,10 +6838,28 @@
 		(uuid "69369261-6156-4082-a1d8-2bb4f5f16ec2")
 	)
 	(junction
+		(at 368.3 129.54)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6f893412-e335-4151-b991-94015c1237f8")
+	)
+	(junction
+		(at 378.46 133.35)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "71f27da0-b645-4a95-a8ef-ac32a3c03909")
+	)
+	(junction
 		(at 228.6 245.11)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "754ae05d-7ac3-4481-8c60-61ffcbd11d34")
+	)
+	(junction
+		(at 337.82 116.84)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7e2f3fdc-ae7d-4701-a74f-1695251b9163")
 	)
 	(junction
 		(at 60.96 97.79)
@@ -6733,16 +6892,16 @@
 		(uuid "84d2b8e2-a403-4f14-b45e-4eef0fe84a4d")
 	)
 	(junction
-		(at 334.01 114.3)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "86542259-ba97-47f6-870f-47933940df8d")
-	)
-	(junction
 		(at 279.4 144.78)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8d0c0d6a-e06f-435e-b5cd-be10bac685f4")
+	)
+	(junction
+		(at 105.41 62.23)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8de31ed5-0335-425b-abfb-a6ec4005b355")
 	)
 	(junction
 		(at 297.18 149.86)
@@ -6761,6 +6920,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9599d05b-7e62-484d-bcb0-72de4b4ff127")
+	)
+	(junction
+		(at 87.63 238.76)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9b756b7b-c6d1-409f-ab1f-c988e708478c")
 	)
 	(junction
 		(at 307.34 82.55)
@@ -6799,12 +6964,6 @@
 		(uuid "ae87c322-5053-40ab-af1b-aac8579bba77")
 	)
 	(junction
-		(at 364.49 129.54)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b0852322-2540-49dc-b701-63c9c000ed20")
-	)
-	(junction
 		(at 289.56 43.18)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6821,12 +6980,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b8e9d1de-c50f-4507-9f0f-ba79eb72c0ad")
-	)
-	(junction
-		(at 344.17 116.84)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b9f70e44-b687-44db-8167-87fdb263b14f")
 	)
 	(junction
 		(at 247.65 149.86)
@@ -6869,6 +7022,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d11245ac-cb26-4823-b13f-e82755379dce")
+	)
+	(junction
+		(at 358.14 127)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d2228ec5-0f70-40db-aad1-fb2c6748045f")
 	)
 	(junction
 		(at 99.06 195.58)
@@ -6923,6 +7082,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e56c06c9-55df-4240-8e07-3c118b8246f6")
+	)
+	(junction
+		(at 347.98 119.38)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e59f8fa9-ddd4-43a9-9153-6b8951a58584")
 	)
 	(junction
 		(at 74.93 35.56)
@@ -7171,6 +7336,16 @@
 			(type default)
 		)
 		(uuid "04ac3205-1d68-4347-b3c9-631545c29e95")
+	)
+	(wire
+		(pts
+			(xy 97.79 66.04) (xy 97.79 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0583b943-fe2d-4078-afb3-405c058d1765")
 	)
 	(wire
 		(pts
@@ -7501,6 +7676,16 @@
 			(type default)
 		)
 		(uuid "1a2eab70-e74f-4556-92d5-ef0d13a31684")
+	)
+	(wire
+		(pts
+			(xy 341.63 133.35) (xy 378.46 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1a588bae-86ed-4f27-bfe4-b80a155009c8")
 	)
 	(wire
 		(pts
@@ -7854,6 +8039,16 @@
 	)
 	(wire
 		(pts
+			(xy 347.98 119.38) (xy 382.27 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2e83bbbc-d99a-4995-bc83-33ba690dab9d")
+	)
+	(wire
+		(pts
 			(xy 302.26 34.29) (xy 302.26 33.02)
 		)
 		(stroke
@@ -8004,6 +8199,26 @@
 	)
 	(wire
 		(pts
+			(xy 88.9 157.48) (xy 101.6 157.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3d33f85b-f7d2-499d-ac0f-fd8e7098b328")
+	)
+	(wire
+		(pts
+			(xy 337.82 116.84) (xy 382.27 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3d3d9ebb-386b-4194-9ec7-f5cc2782dea9")
+	)
+	(wire
+		(pts
 			(xy 245.11 111.76) (xy 245.11 113.03)
 		)
 		(stroke
@@ -8054,7 +8269,7 @@
 	)
 	(wire
 		(pts
-			(xy 80.01 238.76) (xy 92.71 238.76)
+			(xy 80.01 238.76) (xy 87.63 238.76)
 		)
 		(stroke
 			(width 0)
@@ -8174,7 +8389,7 @@
 	)
 	(wire
 		(pts
-			(xy 325.12 114.3) (xy 334.01 114.3)
+			(xy 325.12 114.3) (xy 327.66 114.3)
 		)
 		(stroke
 			(width 0)
@@ -8334,7 +8549,7 @@
 	)
 	(wire
 		(pts
-			(xy 325.12 127) (xy 354.33 127)
+			(xy 325.12 127) (xy 358.14 127)
 		)
 		(stroke
 			(width 0)
@@ -8484,6 +8699,16 @@
 	)
 	(wire
 		(pts
+			(xy 327.66 114.3) (xy 382.27 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5abd9a77-062f-4cc4-ada9-b2f38643e54d")
+	)
+	(wire
+		(pts
 			(xy 193.04 139.7) (xy 238.76 139.7)
 		)
 		(stroke
@@ -8501,6 +8726,16 @@
 			(type default)
 		)
 		(uuid "5bc99ad5-9517-459a-aa60-93cd10518d6a")
+	)
+	(wire
+		(pts
+			(xy 368.3 129.54) (xy 382.27 129.54)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5c0e8a49-6c14-43a6-9079-e6080838b712")
 	)
 	(wire
 		(pts
@@ -8654,7 +8889,7 @@
 	)
 	(wire
 		(pts
-			(xy 334.01 110.49) (xy 334.01 114.3)
+			(xy 327.66 110.49) (xy 327.66 114.3)
 		)
 		(stroke
 			(width 0)
@@ -8674,7 +8909,17 @@
 	)
 	(wire
 		(pts
-			(xy 344.17 110.49) (xy 344.17 116.84)
+			(xy 87.63 238.76) (xy 92.71 238.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "66193f74-1307-491e-9f5b-5b3f80e31b9c")
+	)
+	(wire
+		(pts
+			(xy 337.82 110.49) (xy 337.82 116.84)
 		)
 		(stroke
 			(width 0)
@@ -8704,7 +8949,7 @@
 	)
 	(wire
 		(pts
-			(xy 364.49 101.6) (xy 364.49 102.87)
+			(xy 368.3 101.6) (xy 368.3 102.87)
 		)
 		(stroke
 			(width 0)
@@ -8714,7 +8959,7 @@
 	)
 	(wire
 		(pts
-			(xy 325.12 129.54) (xy 364.49 129.54)
+			(xy 325.12 129.54) (xy 368.3 129.54)
 		)
 		(stroke
 			(width 0)
@@ -8964,17 +9209,7 @@
 	)
 	(wire
 		(pts
-			(xy 364.49 129.54) (xy 382.27 129.54)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "764e4d9a-2895-46ba-9678-1b6e12091ab4")
-	)
-	(wire
-		(pts
-			(xy 67.31 157.48) (xy 101.6 157.48)
+			(xy 67.31 157.48) (xy 88.9 157.48)
 		)
 		(stroke
 			(width 0)
@@ -9034,7 +9269,7 @@
 	)
 	(wire
 		(pts
-			(xy 375.92 110.49) (xy 375.92 133.35)
+			(xy 378.46 110.49) (xy 378.46 133.35)
 		)
 		(stroke
 			(width 0)
@@ -9164,6 +9399,16 @@
 	)
 	(wire
 		(pts
+			(xy 358.14 127) (xy 382.27 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7f7c9338-26f9-49d9-9b9e-69c42f35445d")
+	)
+	(wire
+		(pts
 			(xy 101.6 147.32) (xy 142.24 147.32)
 		)
 		(stroke
@@ -9234,7 +9479,7 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 62.23) (xy 134.62 62.23)
+			(xy 85.09 62.23) (xy 105.41 62.23)
 		)
 		(stroke
 			(width 0)
@@ -9381,16 +9626,6 @@
 			(type default)
 		)
 		(uuid "89ccea73-671f-4d8a-aafe-4bf33361f6ff")
-	)
-	(wire
-		(pts
-			(xy 344.17 116.84) (xy 382.27 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "89d91f7d-e7b5-4c21-b703-a134617e7f9d")
 	)
 	(wire
 		(pts
@@ -9544,16 +9779,6 @@
 	)
 	(wire
 		(pts
-			(xy 375.92 133.35) (xy 393.7 133.35)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8f9640e7-5687-4322-8f61-a0ff97040940")
-	)
-	(wire
-		(pts
 			(xy 27.94 111.76) (xy 27.94 110.49)
 		)
 		(stroke
@@ -9584,7 +9809,7 @@
 	)
 	(wire
 		(pts
-			(xy 364.49 110.49) (xy 364.49 129.54)
+			(xy 368.3 110.49) (xy 368.3 129.54)
 		)
 		(stroke
 			(width 0)
@@ -9634,7 +9859,7 @@
 	)
 	(wire
 		(pts
-			(xy 193.04 149.86) (xy 215.9 149.86)
+			(xy 193.04 149.86) (xy 218.44 149.86)
 		)
 		(stroke
 			(width 0)
@@ -9904,7 +10129,7 @@
 	)
 	(wire
 		(pts
-			(xy 344.17 101.6) (xy 344.17 102.87)
+			(xy 337.82 101.6) (xy 337.82 102.87)
 		)
 		(stroke
 			(width 0)
@@ -9914,7 +10139,7 @@
 	)
 	(wire
 		(pts
-			(xy 354.33 101.6) (xy 354.33 102.87)
+			(xy 358.14 101.6) (xy 358.14 102.87)
 		)
 		(stroke
 			(width 0)
@@ -10024,6 +10249,16 @@
 	)
 	(wire
 		(pts
+			(xy 347.98 110.49) (xy 347.98 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a64c79de-332a-4c8c-a18c-5011df70a547")
+	)
+	(wire
+		(pts
 			(xy 218.44 142.24) (xy 193.04 142.24)
 		)
 		(stroke
@@ -10051,6 +10286,16 @@
 			(type default)
 		)
 		(uuid "a7e71c04-c286-4106-9d5b-e329d1677928")
+	)
+	(wire
+		(pts
+			(xy 347.98 101.6) (xy 347.98 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aaad8a30-f322-4a71-8dd2-f8c8f81ece1c")
 	)
 	(wire
 		(pts
@@ -10084,7 +10329,7 @@
 	)
 	(wire
 		(pts
-			(xy 375.92 101.6) (xy 375.92 102.87)
+			(xy 378.46 101.6) (xy 378.46 102.87)
 		)
 		(stroke
 			(width 0)
@@ -10174,7 +10419,7 @@
 	)
 	(wire
 		(pts
-			(xy 334.01 101.6) (xy 334.01 102.87)
+			(xy 327.66 101.6) (xy 327.66 102.87)
 		)
 		(stroke
 			(width 0)
@@ -10194,7 +10439,7 @@
 	)
 	(wire
 		(pts
-			(xy 74.93 35.56) (xy 99.06 35.56)
+			(xy 74.93 35.56) (xy 93.98 35.56)
 		)
 		(stroke
 			(width 0)
@@ -10331,6 +10576,16 @@
 			(type default)
 		)
 		(uuid "bbdbbbf5-7821-4dd3-a00c-2cecc0bcb328")
+	)
+	(wire
+		(pts
+			(xy 97.79 59.69) (xy 134.62 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bc778978-f918-4c60-afc0-b7d8cf21b77f")
 	)
 	(wire
 		(pts
@@ -10574,6 +10829,16 @@
 	)
 	(wire
 		(pts
+			(xy 93.98 35.56) (xy 99.06 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c854304c-b655-43e1-a8bc-626505a0b04d")
+	)
+	(wire
+		(pts
 			(xy 170.18 93.98) (xy 170.18 91.44)
 		)
 		(stroke
@@ -10664,7 +10929,7 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 59.69) (xy 134.62 59.69)
+			(xy 87.63 59.69) (xy 97.79 59.69)
 		)
 		(stroke
 			(width 0)
@@ -10914,6 +11179,16 @@
 	)
 	(wire
 		(pts
+			(xy 378.46 133.35) (xy 393.7 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e4a7ea19-5cc3-4001-9b90-343133b1e343")
+	)
+	(wire
+		(pts
 			(xy 247.65 148.59) (xy 247.65 149.86)
 		)
 		(stroke
@@ -10994,7 +11269,7 @@
 	)
 	(wire
 		(pts
-			(xy 325.12 119.38) (xy 382.27 119.38)
+			(xy 325.12 119.38) (xy 347.98 119.38)
 		)
 		(stroke
 			(width 0)
@@ -11021,16 +11296,6 @@
 			(type default)
 		)
 		(uuid "ea0f8b8a-3894-45e0-adc7-8c4250342d3f")
-	)
-	(wire
-		(pts
-			(xy 334.01 114.3) (xy 382.27 114.3)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ea5a157d-a046-4850-8141-b3244e376e29")
 	)
 	(wire
 		(pts
@@ -11154,17 +11419,7 @@
 	)
 	(wire
 		(pts
-			(xy 354.33 127) (xy 382.27 127)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f4d68f5a-d8eb-4d2b-b61f-63e08c9d3eba")
-	)
-	(wire
-		(pts
-			(xy 331.47 133.35) (xy 375.92 133.35)
+			(xy 331.47 133.35) (xy 341.63 133.35)
 		)
 		(stroke
 			(width 0)
@@ -11284,7 +11539,7 @@
 	)
 	(wire
 		(pts
-			(xy 325.12 116.84) (xy 344.17 116.84)
+			(xy 325.12 116.84) (xy 337.82 116.84)
 		)
 		(stroke
 			(width 0)
@@ -11294,7 +11549,7 @@
 	)
 	(wire
 		(pts
-			(xy 354.33 110.49) (xy 354.33 127)
+			(xy 358.14 110.49) (xy 358.14 127)
 		)
 		(stroke
 			(width 0)
@@ -11331,6 +11586,16 @@
 			(type default)
 		)
 		(uuid "fbd15d39-7fbd-4603-a63d-da04488738e1")
+	)
+	(wire
+		(pts
+			(xy 105.41 62.23) (xy 134.62 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fc23bbde-ef51-4bf9-a257-28b53f8ebced")
 	)
 	(wire
 		(pts
@@ -12637,7 +12902,7 @@
 		)
 		(uuid "c948850d-75a9-4930-b6fe-07229dbbeb24")
 	)
-	(hierarchical_label "FAN_H{slash}L"
+	(hierarchical_label "H{slash}L"
 		(shape input)
 		(at 382.27 119.38 0)
 		(effects
@@ -12737,6 +13002,164 @@
 		(uuid "faedf73d-632c-4270-9e0a-d39ed2fc153c")
 	)
 	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 218.44 149.86 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "00010352-e1d3-4ceb-bd9f-af06b94c75ec")
+		(property "Reference" "TP402"
+			(at 220.218 149.86 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 219.71 151.1299 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 223.52 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 223.52 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 218.44 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5485cd81-0bec-4882-af2a-e3dffeb7007f")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
+					(reference "TP402")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 341.63 133.35 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "00499e5a-318a-49d1-b9ab-f4b0a6a672f3")
+		(property "Reference" "TP409"
+			(at 338.836 131.826 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 342.9 134.6199 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 346.71 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 346.71 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 341.63 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7eda0c30-c67e-446d-94ab-db381159ebab")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
+					(reference "TP409")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:VAA")
 		(at 289.56 193.04 0)
 		(unit 1)
@@ -12747,7 +13170,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "0181c031-21ee-47d6-935f-684befdcb1f7")
-		(property "Reference" "#PWR0342"
+		(property "Reference" "#PWR0457"
 			(at 289.56 196.85 0)
 			(hide yes)
 			(show_name no)
@@ -12807,7 +13230,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0342")
+					(reference "#PWR0457")
 					(unit 1)
 				)
 			)
@@ -12825,7 +13248,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "035262c8-c4a7-416d-8bfd-5ea1e830d2b9")
-		(property "Reference" "C307"
+		(property "Reference" "C407"
 			(at 38.1 191.7699 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12847,7 +13270,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 40.9448 196.85 0)
 			(hide yes)
 			(show_name no)
@@ -12900,7 +13323,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C307")
+					(reference "C407")
 					(unit 1)
 				)
 			)
@@ -12918,7 +13341,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "0a75209e-a1ea-4fcc-8d27-f267ca151a0e")
-		(property "Reference" "#PWR0375"
+		(property "Reference" "#PWR0476"
 			(at 367.03 203.2 0)
 			(hide yes)
 			(show_name no)
@@ -12978,7 +13401,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0375")
+					(reference "#PWR0476")
 					(unit 1)
 				)
 			)
@@ -12995,7 +13418,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "0a8999f8-3954-4451-b873-c2d05cc78be0")
-		(property "Reference" "#PWR0303"
+		(property "Reference" "#PWR0403"
 			(at 29.21 190.5 0)
 			(hide yes)
 			(show_name no)
@@ -13055,7 +13478,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0303")
+					(reference "#PWR0403")
 					(unit 1)
 				)
 			)
@@ -13072,7 +13495,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "0a9070a8-7060-4453-b0e9-33685ade5c79")
-		(property "Reference" "R313"
+		(property "Reference" "R414"
 			(at 247.65 115.5699 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13094,7 +13517,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 246.126 117.094 90)
 			(hide yes)
 			(show_name no)
@@ -13147,7 +13570,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R313")
+					(reference "R414")
 					(unit 1)
 				)
 			)
@@ -13164,7 +13587,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "0d3ea3f6-0dcb-496b-a32d-25e0bffbed7a")
-		(property "Reference" "D302"
+		(property "Reference" "D402"
 			(at 169.926 230.632 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13186,7 +13609,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_WS2812B-2020_PLCC4_2.0x2.0mm"
+		(property "Footprint" "geeks-ecu-footprints:LED_WS2812B-2020_PLCC4_2.0x2.0mm"
 			(at 168.91 247.65 0)
 			(hide yes)
 			(show_name no)
@@ -13247,7 +13670,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "D302")
+					(reference "D402")
 					(unit 1)
 				)
 			)
@@ -13264,7 +13687,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "0de4d087-6640-45ca-ae18-2cdc1800d3c5")
-		(property "Reference" "C324"
+		(property "Reference" "C423"
 			(at 266.7 36.8299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13286,7 +13709,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 263.8552 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -13339,7 +13762,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C324")
+					(reference "C423")
 					(unit 1)
 				)
 			)
@@ -13357,7 +13780,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "0df29ff8-661c-4b4c-889b-107e1b863d93")
-		(property "Reference" "#PWR0352"
+		(property "Reference" "#PWR0451"
 			(at 262.89 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -13417,7 +13840,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0352")
+					(reference "#PWR0451")
 					(unit 1)
 				)
 			)
@@ -13425,7 +13848,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 344.17 101.6 0)
+		(at 337.82 101.6 0)
 		(mirror y)
 		(unit 1)
 		(body_style 1)
@@ -13435,8 +13858,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "0f20127b-b9ec-48c1-a957-136a388f32be")
-		(property "Reference" "#PWR0374"
-			(at 344.17 105.41 0)
+		(property "Reference" "#PWR0470"
+			(at 337.82 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13447,7 +13870,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 344.17 97.536 0)
+			(at 337.82 97.536 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13457,7 +13880,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 344.17 101.6 0)
+			(at 337.82 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13468,7 +13891,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 344.17 101.6 0)
+			(at 337.82 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13479,7 +13902,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 344.17 101.6 0)
+			(at 337.82 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13495,7 +13918,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0374")
+					(reference "#PWR0470")
 					(unit 1)
 				)
 			)
@@ -13512,7 +13935,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "10a2b42f-8975-4d60-a2a8-432e924a5c81")
-		(property "Reference" "#PWR0336"
+		(property "Reference" "#PWR0437"
 			(at 177.8 92.71 0)
 			(hide yes)
 			(show_name no)
@@ -13572,7 +13995,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0336")
+					(reference "#PWR0437")
 					(unit 1)
 				)
 			)
@@ -13589,7 +14012,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "119f8b9e-637f-4095-a8b6-2ec13da70913")
-		(property "Reference" "C323"
+		(property "Reference" "C422"
 			(at 259.08 238.7599 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13611,7 +14034,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 256.2352 243.84 0)
 			(hide yes)
 			(show_name no)
@@ -13664,7 +14087,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C323")
+					(reference "C422")
 					(unit 1)
 				)
 			)
@@ -13681,7 +14104,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "11bf070b-cda1-47e8-8c06-f83f98d7db20")
-		(property "Reference" "#PWR0319"
+		(property "Reference" "#PWR0420"
 			(at 92.71 257.81 0)
 			(hide yes)
 			(show_name no)
@@ -13741,7 +14164,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0319")
+					(reference "#PWR0420")
 					(unit 1)
 				)
 			)
@@ -13758,7 +14181,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "12788bfa-ee95-4673-9374-923b28372a9c")
-		(property "Reference" "#PWR0356"
+		(property "Reference" "#PWR0454"
 			(at 279.4 146.05 0)
 			(hide yes)
 			(show_name no)
@@ -13818,7 +14241,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0356")
+					(reference "#PWR0454")
 					(unit 1)
 				)
 			)
@@ -13835,7 +14258,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "153af098-aeaf-40cf-b295-d7dbb13bde88")
-		(property "Reference" "#PWR0334"
+		(property "Reference" "#PWR0435"
 			(at 167.64 255.27 0)
 			(hide yes)
 			(show_name no)
@@ -13895,7 +14318,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0334")
+					(reference "#PWR0435")
 					(unit 1)
 				)
 			)
@@ -13912,7 +14335,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "1936c143-0b8f-4c0f-b1de-5e39f4e105e2")
-		(property "Reference" "#PWR0335"
+		(property "Reference" "#PWR0436"
 			(at 173.99 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -13972,7 +14395,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0335")
+					(reference "#PWR0436")
 					(unit 1)
 				)
 			)
@@ -13990,7 +14413,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "1a2626f9-d012-4739-9852-63aa6b1a63b1")
-		(property "Reference" "R320"
+		(property "Reference" "R420"
 			(at 289.56 153.6699 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14012,7 +14435,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 291.084 155.194 90)
 			(hide yes)
 			(show_name no)
@@ -14065,7 +14488,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R320")
+					(reference "R420")
 					(unit 1)
 				)
 			)
@@ -14082,7 +14505,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "1cee8b9d-ecf4-4487-97ba-40f6a0badf1a")
-		(property "Reference" "C320"
+		(property "Reference" "C419"
 			(at 241.3 36.8299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14104,7 +14527,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 238.4552 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -14157,7 +14580,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C320")
+					(reference "C419")
 					(unit 1)
 				)
 			)
@@ -14174,7 +14597,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "1de99514-4eb2-40ed-8c16-9a53ef624ba4")
-		(property "Reference" "C331"
+		(property "Reference" "C431"
 			(at 323.85 86.3599 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14196,7 +14619,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 321.0052 91.44 0)
 			(hide yes)
 			(show_name no)
@@ -14249,7 +14672,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C331")
+					(reference "C431")
 					(unit 1)
 				)
 			)
@@ -14266,7 +14689,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "1e5ef4cc-4c3e-4fe9-89cc-81e97854f374")
-		(property "Reference" "R316"
+		(property "Reference" "R416"
 			(at 260.35 143.51 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14288,7 +14711,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 258.826 145.034 90)
 			(hide yes)
 			(show_name no)
@@ -14341,7 +14764,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R316")
+					(reference "R416")
 					(unit 1)
 				)
 			)
@@ -14359,7 +14782,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "234804fa-c898-43eb-8777-b3a8b3befff1")
-		(property "Reference" "C334"
+		(property "Reference" "C434"
 			(at 384.048 54.61 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14381,7 +14804,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 388.3152 52.07 0)
 			(hide yes)
 			(show_name no)
@@ -14434,7 +14857,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C334")
+					(reference "C434")
 					(unit 1)
 				)
 			)
@@ -14451,7 +14874,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "23f5657c-d7e5-4085-9f4b-2dc63cad1bb6")
-		(property "Reference" "C329"
+		(property "Reference" "C428"
 			(at 306.07 36.8299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14473,7 +14896,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 303.2252 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -14526,7 +14949,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C329")
+					(reference "C428")
 					(unit 1)
 				)
 			)
@@ -14543,7 +14966,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "2415e4c9-896a-4b3d-bdc6-fd72c68babca")
-		(property "Reference" "C308"
+		(property "Reference" "C408"
 			(at 96.52 243.8399 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14565,7 +14988,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 93.6752 248.92 0)
 			(hide yes)
 			(show_name no)
@@ -14618,7 +15041,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C308")
+					(reference "C408")
 					(unit 1)
 				)
 			)
@@ -14635,7 +15058,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "268be898-ba20-4264-818a-f57403abf798")
-		(property "Reference" "U306"
+		(property "Reference" "U406"
 			(at 370.332 35.306 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14657,7 +15080,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-563"
+		(property "Footprint" "geeks-ecu-footprints:SOT-563"
 			(at 369.57 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -14724,7 +15147,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "U306")
+					(reference "U406")
 					(unit 1)
 				)
 			)
@@ -14742,7 +15165,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "2716f1f0-e608-421a-8f83-6a88f3fbe7be")
-		(property "Reference" "#PWR0362"
+		(property "Reference" "#PWR0462"
 			(at 302.26 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -14802,7 +15225,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0362")
+					(reference "#PWR0462")
 					(unit 1)
 				)
 			)
@@ -14820,7 +15243,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "28a8118c-3ad0-4515-8677-735e05a8624c")
-		(property "Reference" "#PWR0382"
+		(property "Reference" "#PWR0484"
 			(at 397.51 218.44 0)
 			(hide yes)
 			(show_name no)
@@ -14880,7 +15303,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0382")
+					(reference "#PWR0484")
 					(unit 1)
 				)
 			)
@@ -14897,7 +15320,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "292c096b-e463-4293-8aa3-56138f0e8547")
-		(property "Reference" "#PWR0358"
+		(property "Reference" "#PWR0456"
 			(at 284.48 115.57 0)
 			(hide yes)
 			(show_name no)
@@ -14957,7 +15380,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0358")
+					(reference "#PWR0456")
 					(unit 1)
 				)
 			)
@@ -14974,7 +15397,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "2d20a9c1-4bdd-4e05-84a3-5e08b15dd4a8")
-		(property "Reference" "#PWR0305"
+		(property "Reference" "#PWR0405"
 			(at 39.37 257.81 0)
 			(hide yes)
 			(show_name no)
@@ -15034,7 +15457,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0305")
+					(reference "#PWR0405")
 					(unit 1)
 				)
 			)
@@ -15052,7 +15475,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "2d882583-4029-4ee0-89e3-fa07b4d1251d")
-		(property "Reference" "R306"
+		(property "Reference" "R406"
 			(at 96.52 40.6399 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15074,7 +15497,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 98.044 42.164 90)
 			(hide yes)
 			(show_name no)
@@ -15127,7 +15550,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R306")
+					(reference "R406")
 					(unit 1)
 				)
 			)
@@ -15145,7 +15568,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "2e9d9d5c-0f4f-4aaa-895e-72611ea3e687")
-		(property "Reference" "#PWR0350"
+		(property "Reference" "#PWR0450"
 			(at 257.81 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -15205,7 +15628,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0350")
+					(reference "#PWR0450")
 					(unit 1)
 				)
 			)
@@ -15222,7 +15645,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "3225a6d1-87e3-4c3b-bbca-73435735003c")
-		(property "Reference" "#PWR0313"
+		(property "Reference" "#PWR0413"
 			(at 59.69 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -15282,7 +15705,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0313")
+					(reference "#PWR0413")
 					(unit 1)
 				)
 			)
@@ -15299,7 +15722,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "32779175-4eff-40ae-840b-2fa739db28b0")
-		(property "Reference" "SW302"
+		(property "Reference" "SW402"
 			(at 81.28 243.8399 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15321,7 +15744,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Button_Switch_SMD:SW_SPST_TS-1088-xR020"
+		(property "Footprint" "geeks-ecu-footprints:SW_SPST_TS-1088-xR020"
 			(at 74.93 245.11 0)
 			(hide yes)
 			(show_name no)
@@ -15374,7 +15797,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "SW302")
+					(reference "SW402")
 					(unit 1)
 				)
 			)
@@ -15391,7 +15814,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "34764ae5-c480-4fb7-b3f5-a4ae738ed828")
-		(property "Reference" "#PWR0301"
+		(property "Reference" "#PWR0401"
 			(at 27.94 113.03 0)
 			(hide yes)
 			(show_name no)
@@ -15451,7 +15874,86 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0301")
+					(reference "#PWR0401")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 52.07 238.76 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "3544c9f7-7067-4fbc-a752-288f205ea6ac")
+		(property "Reference" "TP404"
+			(at 53.34 238.76 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 53.34 240.0299 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 57.15 238.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 57.15 238.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 52.07 238.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "933ddd48-adaf-494d-a5db-df66f4d90152")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
+					(reference "TP404")
 					(unit 1)
 				)
 			)
@@ -15468,7 +15970,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "367f1dea-4af1-434f-8cfa-d4634067db87")
-		(property "Reference" "#PWR0333"
+		(property "Reference" "#PWR0434"
 			(at 167.64 234.95 0)
 			(hide yes)
 			(show_name no)
@@ -15528,7 +16030,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0333")
+					(reference "#PWR0434")
 					(unit 1)
 				)
 			)
@@ -15545,7 +16047,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "36fd21d6-ab3b-4e1e-91ff-cb802a398431")
-		(property "Reference" "C315"
+		(property "Reference" "C415"
 			(at 215.9 36.8299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15567,7 +16069,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 213.0552 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -15620,7 +16122,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C315")
+					(reference "C415")
 					(unit 1)
 				)
 			)
@@ -15637,7 +16139,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "382410d8-bf85-4180-8d8e-354dd283214e")
-		(property "Reference" "#PWR0314"
+		(property "Reference" "#PWR0414"
 			(at 59.69 172.72 0)
 			(hide yes)
 			(show_name no)
@@ -15697,7 +16199,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0314")
+					(reference "#PWR0414")
 					(unit 1)
 				)
 			)
@@ -15705,7 +16207,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_US")
-		(at 334.01 106.68 0)
+		(at 327.66 106.68 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -15714,8 +16216,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "3d6e5f6e-eddb-4ae5-999c-1dd580e90572")
-		(property "Reference" "R327"
-			(at 336.55 105.4099 0)
+		(property "Reference" "R423"
+			(at 330.2 105.4099 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15726,7 +16228,7 @@
 			)
 		)
 		(property "Value" "10kΩ"
-			(at 336.55 107.9499 0)
+			(at 330.2 107.9499 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15736,8 +16238,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 335.026 106.934 90)
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
+			(at 328.676 106.934 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15748,7 +16250,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C25804.pdf"
-			(at 334.01 106.68 0)
+			(at 327.66 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15759,7 +16261,7 @@
 			)
 		)
 		(property "Description" "RES 10kΩ ±1% 100mW 0603"
-			(at 334.01 106.68 0)
+			(at 327.66 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15770,7 +16272,7 @@
 			)
 		)
 		(property "MPN" "C25804"
-			(at 334.01 106.68 0)
+			(at 327.66 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15789,7 +16291,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R327")
+					(reference "R423")
 					(unit 1)
 				)
 			)
@@ -15806,7 +16308,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "3deae4ae-1816-4a37-bcbe-04cd0ee9a1c7")
-		(property "Reference" "#PWR0302"
+		(property "Reference" "#PWR0402"
 			(at 29.21 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -15866,7 +16368,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0302")
+					(reference "#PWR0402")
 					(unit 1)
 				)
 			)
@@ -15883,7 +16385,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "3ffa7513-e1fa-4849-abb9-d9f3ee49ac0f")
-		(property "Reference" "#PWR0317"
+		(property "Reference" "#PWR0418"
 			(at 80.01 232.41 0)
 			(hide yes)
 			(show_name no)
@@ -15943,7 +16445,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0317")
+					(reference "#PWR0418")
 					(unit 1)
 				)
 			)
@@ -15961,7 +16463,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "404171fb-83e5-4fc6-a20b-2eecb2604612")
-		(property "Reference" "#PWR0337"
+		(property "Reference" "#PWR0438"
 			(at 185.42 85.09 0)
 			(hide yes)
 			(show_name no)
@@ -16021,7 +16523,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0337")
+					(reference "#PWR0438")
 					(unit 1)
 				)
 			)
@@ -16038,7 +16540,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "423308c1-622d-45f6-838a-dc0ed14d7c4a")
-		(property "Reference" "J303"
+		(property "Reference" "J403"
 			(at 402.336 200.66 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16058,7 +16560,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal"
+		(property "Footprint" "geeks-ecu-footprints:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal"
 			(at 397.51 200.66 0)
 			(hide yes)
 			(show_name no)
@@ -16109,7 +16611,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "J303")
+					(reference "J403")
 					(unit 1)
 				)
 			)
@@ -16127,7 +16629,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "42546190-0110-4d58-bc68-012a0f10f734")
-		(property "Reference" "#PWR0307"
+		(property "Reference" "#PWR0407"
 			(at 40.64 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -16187,7 +16689,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0307")
+					(reference "#PWR0407")
 					(unit 1)
 				)
 			)
@@ -16204,7 +16706,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "444179ed-a025-4e63-be3a-725337c85489")
-		(property "Reference" "#PWR0444"
+		(property "Reference" "#PWR0417"
 			(at 74.93 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -16264,7 +16766,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0444")
+					(reference "#PWR0417")
 					(unit 1)
 				)
 			)
@@ -16281,7 +16783,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "44f27afc-a825-4fd6-b834-70e6917196e0")
-		(property "Reference" "U304"
+		(property "Reference" "U404"
 			(at 167.64 138.43 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16508,7 +17010,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "U304")
+					(reference "U404")
 					(unit 1)
 				)
 			)
@@ -16526,7 +17028,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4523c0e9-f751-4fa2-b675-22d7876d2c03")
-		(property "Reference" "C303"
+		(property "Reference" "C403"
 			(at 25.908 191.77 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16548,7 +17050,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 30.1752 189.23 0)
 			(hide yes)
 			(show_name no)
@@ -16601,7 +17103,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C303")
+					(reference "C403")
 					(unit 1)
 				)
 			)
@@ -16619,7 +17121,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "47d7db8b-4f14-40c3-be7e-18b3091d1264")
-		(property "Reference" "#PWR0365"
+		(property "Reference" "#PWR0466"
 			(at 314.96 167.64 0)
 			(hide yes)
 			(show_name no)
@@ -16679,7 +17181,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0365")
+					(reference "#PWR0466")
 					(unit 1)
 				)
 			)
@@ -16697,7 +17199,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4813d6de-e573-4ea9-a6a1-7ca7326db4c7")
-		(property "Reference" "#PWR0361"
+		(property "Reference" "#PWR0461"
 			(at 297.18 166.37 0)
 			(hide yes)
 			(show_name no)
@@ -16757,7 +17259,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0361")
+					(reference "#PWR0461")
 					(unit 1)
 				)
 			)
@@ -16774,7 +17276,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4bd2c446-5ee8-4d5b-8308-fef836ea8904")
-		(property "Reference" "C319"
+		(property "Reference" "C429"
 			(at 306.07 207.0099 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16796,7 +17298,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 303.2252 212.09 0)
 			(hide yes)
 			(show_name no)
@@ -16849,7 +17351,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C319")
+					(reference "C429")
 					(unit 1)
 				)
 			)
@@ -16867,7 +17369,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4d26b2f8-ca71-4020-adb7-6bb216f8f8d8")
-		(property "Reference" "C429"
+		(property "Reference" "C409"
 			(at 106.68 40.64 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16889,7 +17391,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 111.4552 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -16942,7 +17444,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C429")
+					(reference "C409")
 					(unit 1)
 				)
 			)
@@ -16959,7 +17461,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4d676a21-4149-43ef-ba21-eb8e53185f87")
-		(property "Reference" "#PWR0338"
+		(property "Reference" "#PWR0439"
 			(at 193.04 234.95 0)
 			(hide yes)
 			(show_name no)
@@ -17019,7 +17521,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0338")
+					(reference "#PWR0439")
 					(unit 1)
 				)
 			)
@@ -17036,7 +17538,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4e19b744-60ac-46cb-8d02-0f23a1db0c67")
-		(property "Reference" "#PWR0304"
+		(property "Reference" "#PWR0404"
 			(at 33.02 72.39 0)
 			(hide yes)
 			(show_name no)
@@ -17096,7 +17598,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0304")
+					(reference "#PWR0404")
 					(unit 1)
 				)
 			)
@@ -17113,7 +17615,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "50569cbb-bc5b-4f6b-bc57-337a612b4751")
-		(property "Reference" "#PWR0373"
+		(property "Reference" "#PWR0474"
 			(at 359.41 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -17173,7 +17675,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0373")
+					(reference "#PWR0474")
 					(unit 1)
 				)
 			)
@@ -17192,7 +17694,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "508dce89-1cdf-4139-91fd-c2dd19ec052a")
-		(property "Reference" "D305"
+		(property "Reference" "D405"
 			(at 347.98 210.8199 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17214,7 +17716,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-882"
+		(property "Footprint" "geeks-ecu-footprints:D_SOD-882"
 			(at 350.52 212.09 0)
 			(hide yes)
 			(show_name no)
@@ -17267,7 +17769,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "D305")
+					(reference "D405")
 					(unit 1)
 				)
 			)
@@ -17285,7 +17787,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "53088f72-b4fd-439b-bb62-ff8ebd3cceca")
-		(property "Reference" "R305"
+		(property "Reference" "R405"
 			(at 91.44 186.6899 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17307,7 +17809,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 92.964 188.214 90)
 			(hide yes)
 			(show_name no)
@@ -17360,7 +17862,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R305")
+					(reference "R405")
 					(unit 1)
 				)
 			)
@@ -17377,7 +17879,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "531c5371-9197-4dd4-bd9e-e31eb1d39abf")
-		(property "Reference" "C313"
+		(property "Reference" "C413"
 			(at 190.5 36.8299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17399,7 +17901,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 187.6552 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -17452,7 +17954,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C313")
+					(reference "C413")
 					(unit 1)
 				)
 			)
@@ -17469,7 +17971,7 @@
 		(in_pos_files yes)
 		(dnp yes)
 		(uuid "53cd8933-1bcf-4590-a783-81de54aa45eb")
-		(property "Reference" "R317"
+		(property "Reference" "R411"
 			(at 220.98 195.5799 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17491,7 +17993,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 219.456 197.104 90)
 			(hide yes)
 			(show_name no)
@@ -17544,7 +18046,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R317")
+					(reference "R411")
 					(unit 1)
 				)
 			)
@@ -17561,7 +18063,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "55f345e3-dc42-45ad-bbfc-cf9982ba795d")
-		(property "Reference" "#PWR0346"
+		(property "Reference" "#PWR0463"
 			(at 302.26 219.71 0)
 			(hide yes)
 			(show_name no)
@@ -17621,7 +18123,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0346")
+					(reference "#PWR0463")
 					(unit 1)
 				)
 			)
@@ -17639,7 +18141,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "56f7090e-4f39-4aa3-8bd2-fd216a86ab70")
-		(property "Reference" "#PWR0351"
+		(property "Reference" "#PWR0449"
 			(at 255.27 252.73 0)
 			(hide yes)
 			(show_name no)
@@ -17699,7 +18201,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0351")
+					(reference "#PWR0449")
 					(unit 1)
 				)
 			)
@@ -17716,7 +18218,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "56ff43cb-ad2f-48a1-9e9c-7efd9ff0da67")
-		(property "Reference" "JP302"
+		(property "Reference" "JP402"
 			(at 285.75 147.32 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17737,7 +18239,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
+		(property "Footprint" "geeks-ecu-footprints:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
 			(at 285.75 149.86 0)
 			(hide yes)
 			(show_name no)
@@ -17779,7 +18281,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "JP302")
+					(reference "JP402")
 					(unit 1)
 				)
 			)
@@ -17796,7 +18298,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "57ea29cf-18de-41a3-b2a2-eda2c54308f8")
-		(property "Reference" "#PWR0322"
+		(property "Reference" "#PWR0423"
 			(at 99.06 212.09 0)
 			(hide yes)
 			(show_name no)
@@ -17856,7 +18358,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0322")
+					(reference "#PWR0423")
 					(unit 1)
 				)
 			)
@@ -17873,7 +18375,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "58b604c7-3e1a-4d5b-bd63-d7ee47278cd0")
-		(property "Reference" "#PWR0329"
+		(property "Reference" "#PWR0430"
 			(at 153.67 36.83 0)
 			(hide yes)
 			(show_name no)
@@ -17933,7 +18435,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0329")
+					(reference "#PWR0430")
 					(unit 1)
 				)
 			)
@@ -17950,7 +18452,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5a18d0a2-5bbc-4a3d-a51d-f12f9260d44c")
-		(property "Reference" "#PWR0332"
+		(property "Reference" "#PWR0433"
 			(at 167.64 193.04 0)
 			(hide yes)
 			(show_name no)
@@ -18010,7 +18512,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0332")
+					(reference "#PWR0433")
 					(unit 1)
 				)
 			)
@@ -18027,7 +18529,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5b9fa05e-9770-4300-9a8c-e2b32acc2835")
-		(property "Reference" "#PWR0330"
+		(property "Reference" "#PWR0431"
 			(at 153.67 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -18087,7 +18589,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0330")
+					(reference "#PWR0431")
 					(unit 1)
 				)
 			)
@@ -18105,7 +18607,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5c0a711f-d363-40b0-a105-533d7fe2d34a")
-		(property "Reference" "U302"
+		(property "Reference" "U402"
 			(at 75.692 37.592 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18127,7 +18629,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
+		(property "Footprint" "geeks-ecu-footprints:SOT-23-6"
 			(at 73.66 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -18195,7 +18697,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "U302")
+					(reference "U402")
 					(unit 1)
 				)
 			)
@@ -18213,7 +18715,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5e0ae240-3e78-4ae6-9bec-5dbecf011b33")
-		(property "Reference" "R307"
+		(property "Reference" "R407"
 			(at 96.52 199.3899 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18235,7 +18737,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 98.044 200.914 90)
 			(hide yes)
 			(show_name no)
@@ -18288,7 +18790,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R307")
+					(reference "R407")
 					(unit 1)
 				)
 			)
@@ -18307,7 +18809,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "616786fd-2fc7-4ec7-9c8e-572c8af807e5")
-		(property "Reference" "D304"
+		(property "Reference" "D404"
 			(at 334.01 210.8199 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18329,7 +18831,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-882"
+		(property "Footprint" "geeks-ecu-footprints:D_SOD-882"
 			(at 336.55 212.09 0)
 			(hide yes)
 			(show_name no)
@@ -18382,7 +18884,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "D304")
+					(reference "D404")
 					(unit 1)
 				)
 			)
@@ -18400,7 +18902,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "61f340c0-9de2-4502-b567-0b3ff8419f1e")
-		(property "Reference" "#PWR0309"
+		(property "Reference" "#PWR0409"
 			(at 41.91 205.74 0)
 			(hide yes)
 			(show_name no)
@@ -18460,7 +18962,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0309")
+					(reference "#PWR0409")
 					(unit 1)
 				)
 			)
@@ -18477,7 +18979,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "63047616-8340-40f4-8c85-0d1efeb39d61")
-		(property "Reference" "R302"
+		(property "Reference" "R402"
 			(at 43.18 67.3099 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18499,7 +19001,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 41.656 68.834 90)
 			(hide yes)
 			(show_name no)
@@ -18552,7 +19054,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R302")
+					(reference "R402")
 					(unit 1)
 				)
 			)
@@ -18570,7 +19072,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6419d5be-cc3e-40c5-b912-aa6ff8ac3909")
-		(property "Reference" "R308"
+		(property "Reference" "R408"
 			(at 120.65 104.14 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18590,7 +19092,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 120.396 108.204 90)
 			(hide yes)
 			(show_name no)
@@ -18643,7 +19145,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R308")
+					(reference "R408")
 					(unit 1)
 				)
 			)
@@ -18660,7 +19162,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "647fdd99-3008-4d1f-aeb8-e91fda68149f")
-		(property "Reference" "#PWR0310"
+		(property "Reference" "#PWR0410"
 			(at 45.72 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -18720,7 +19222,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0310")
+					(reference "#PWR0410")
 					(unit 1)
 				)
 			)
@@ -18728,7 +19230,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_US")
-		(at 354.33 106.68 0)
+		(at 358.14 106.68 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -18737,8 +19239,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "659a38a5-c84b-41a2-a0e8-1e3ac19fd1a2")
-		(property "Reference" "R325"
-			(at 356.87 105.4099 0)
+		(property "Reference" "R426"
+			(at 360.68 105.4099 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -18749,7 +19251,7 @@
 			)
 		)
 		(property "Value" "10kΩ"
-			(at 356.87 107.9499 0)
+			(at 360.68 107.9499 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -18759,8 +19261,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 355.346 106.934 90)
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
+			(at 359.156 106.934 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18771,7 +19273,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C25804.pdf"
-			(at 354.33 106.68 0)
+			(at 358.14 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18782,7 +19284,7 @@
 			)
 		)
 		(property "Description" "RES 10kΩ ±1% 100mW 0603"
-			(at 354.33 106.68 0)
+			(at 358.14 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18793,7 +19295,7 @@
 			)
 		)
 		(property "MPN" "C25804"
-			(at 354.33 106.68 0)
+			(at 358.14 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18812,7 +19314,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R325")
+					(reference "R426")
 					(unit 1)
 				)
 			)
@@ -18820,7 +19322,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 334.01 101.6 0)
+		(at 327.66 101.6 0)
 		(mirror y)
 		(unit 1)
 		(body_style 1)
@@ -18830,8 +19332,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "661ac445-ba27-45fc-9ff8-edcaf9b885e7")
-		(property "Reference" "#PWR0378"
-			(at 334.01 105.41 0)
+		(property "Reference" "#PWR0468"
+			(at 327.66 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18842,7 +19344,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 334.01 97.536 0)
+			(at 327.66 97.536 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -18852,7 +19354,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 334.01 101.6 0)
+			(at 327.66 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18863,7 +19365,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 334.01 101.6 0)
+			(at 327.66 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18874,7 +19376,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 334.01 101.6 0)
+			(at 327.66 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18890,7 +19392,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0378")
+					(reference "#PWR0468")
 					(unit 1)
 				)
 			)
@@ -18908,7 +19410,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "670bc66e-b00c-432b-8370-10c6825740e3")
-		(property "Reference" "R309"
+		(property "Reference" "R409"
 			(at 120.65 114.554 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18928,7 +19430,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 120.396 110.744 90)
 			(hide yes)
 			(show_name no)
@@ -18981,7 +19483,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R309")
+					(reference "R409")
 					(unit 1)
 				)
 			)
@@ -18998,7 +19500,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "67a50829-befb-4e06-bbcb-f08ae7d6eefa")
-		(property "Reference" "#PWR0379"
+		(property "Reference" "#PWR0481"
 			(at 381 200.66 0)
 			(hide yes)
 			(show_name no)
@@ -19058,7 +19560,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0379")
+					(reference "#PWR0481")
 					(unit 1)
 				)
 			)
@@ -19066,7 +19568,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 364.49 101.6 0)
+		(at 368.3 101.6 0)
 		(mirror y)
 		(unit 1)
 		(body_style 1)
@@ -19076,8 +19578,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "686c9dd8-2461-4506-ac90-72fcbd124fc5")
-		(property "Reference" "#PWR0369"
-			(at 364.49 105.41 0)
+		(property "Reference" "#PWR0479"
+			(at 368.3 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19088,7 +19590,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 364.49 97.536 0)
+			(at 368.3 97.536 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -19098,7 +19600,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 364.49 101.6 0)
+			(at 368.3 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19109,7 +19611,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 364.49 101.6 0)
+			(at 368.3 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19120,7 +19622,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 364.49 101.6 0)
+			(at 368.3 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19136,7 +19638,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0369")
+					(reference "#PWR0479")
 					(unit 1)
 				)
 			)
@@ -19154,7 +19656,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "69b92b3f-249b-47a6-9b98-a069981f173f")
-		(property "Reference" "#PWR0377"
+		(property "Reference" "#PWR0478"
 			(at 368.3 64.77 0)
 			(hide yes)
 			(show_name no)
@@ -19214,7 +19716,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0377")
+					(reference "#PWR0478")
 					(unit 1)
 				)
 			)
@@ -19231,7 +19733,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "69f8a156-d62f-40ff-b377-1ce07f870a18")
-		(property "Reference" "D301"
+		(property "Reference" "D401"
 			(at 144.526 230.632 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19253,7 +19755,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_WS2812B-2020_PLCC4_2.0x2.0mm"
+		(property "Footprint" "geeks-ecu-footprints:LED_WS2812B-2020_PLCC4_2.0x2.0mm"
 			(at 143.51 247.65 0)
 			(hide yes)
 			(show_name no)
@@ -19314,7 +19816,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "D301")
+					(reference "D401")
 					(unit 1)
 				)
 			)
@@ -19332,7 +19834,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6a928cf2-e2a7-42fb-9c24-234fadb5679d")
-		(property "Reference" "C301"
+		(property "Reference" "C401"
 			(at 24.638 114.3 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19354,7 +19856,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 28.9052 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -19407,7 +19909,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C301")
+					(reference "C401")
 					(unit 1)
 				)
 			)
@@ -19424,7 +19926,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6af0eb87-bf9f-473a-8a6b-19002ffb60ca")
-		(property "Reference" "Y301"
+		(property "Reference" "Y401"
 			(at 63.5 148.4062 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19444,7 +19946,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Oscillator:Oscillator_SMD_EuroQuartz_XO32-4Pin_3.2x2.5mm"
+		(property "Footprint" "geeks-ecu-footprints:Oscillator_SMD_EuroQuartz_XO32-4Pin_3.2x2.5mm"
 			(at 77.47 166.37 0)
 			(hide yes)
 			(show_name no)
@@ -19503,7 +20005,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "Y301")
+					(reference "Y401")
 					(unit 1)
 				)
 			)
@@ -19520,7 +20022,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6bc59fbf-6668-420d-83a0-6c2cb5222451")
-		(property "Reference" "C318"
+		(property "Reference" "C418"
 			(at 232.41 238.7599 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19542,7 +20044,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 229.5652 243.84 0)
 			(hide yes)
 			(show_name no)
@@ -19595,7 +20097,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C318")
+					(reference "C418")
 					(unit 1)
 				)
 			)
@@ -19612,7 +20114,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6c662abb-6ce9-49f9-93d9-a701b50b24fc")
-		(property "Reference" "R310"
+		(property "Reference" "R410"
 			(at 191.77 62.738 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19632,7 +20134,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 192.024 67.564 90)
 			(hide yes)
 			(show_name no)
@@ -19685,7 +20187,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R310")
+					(reference "R410")
 					(unit 1)
 				)
 			)
@@ -19702,7 +20204,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6de76488-9b7b-4ac2-a73c-8bb56a829d68")
-		(property "Reference" "C330"
+		(property "Reference" "C430"
 			(at 310.642 86.36 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19724,7 +20226,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 306.3748 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -19777,7 +20279,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C330")
+					(reference "C430")
 					(unit 1)
 				)
 			)
@@ -19795,7 +20297,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6e9146c9-5c6c-4d32-88f2-18a90d295a0e")
-		(property "Reference" "R301"
+		(property "Reference" "R401"
 			(at 36.83 232.4099 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19817,7 +20319,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 38.354 233.934 90)
 			(hide yes)
 			(show_name no)
@@ -19870,7 +20372,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R301")
+					(reference "R401")
 					(unit 1)
 				)
 			)
@@ -19887,7 +20389,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "71c54196-d145-46bc-a4af-73fa9933b1d7")
-		(property "Reference" "R321"
+		(property "Reference" "R421"
 			(at 297.18 115.5699 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19909,7 +20411,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 295.656 117.094 90)
 			(hide yes)
 			(show_name no)
@@ -19962,7 +20464,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R321")
+					(reference "R421")
 					(unit 1)
 				)
 			)
@@ -19979,7 +20481,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "73010398-e56e-487e-8d83-50d9d8d34138")
-		(property "Reference" "R322"
+		(property "Reference" "R422"
 			(at 299.72 153.6699 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20001,7 +20503,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 298.196 155.194 90)
 			(hide yes)
 			(show_name no)
@@ -20054,7 +20556,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R322")
+					(reference "R422")
 					(unit 1)
 				)
 			)
@@ -20071,7 +20573,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "74e4c1ae-ee3e-472c-b085-fa57d75f6b10")
-		(property "Reference" "#PWR0345"
+		(property "Reference" "#PWR0447"
 			(at 245.11 115.57 0)
 			(hide yes)
 			(show_name no)
@@ -20131,7 +20633,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0345")
+					(reference "#PWR0447")
 					(unit 1)
 				)
 			)
@@ -20148,7 +20650,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "752b412e-5887-47a6-b4ee-5861d76ff384")
-		(property "Reference" "#PWR0363"
+		(property "Reference" "#PWR0464"
 			(at 307.34 85.09 0)
 			(hide yes)
 			(show_name no)
@@ -20208,7 +20710,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0363")
+					(reference "#PWR0464")
 					(unit 1)
 				)
 			)
@@ -20225,7 +20727,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7634b9d7-aa47-4e5e-880d-64a61b059935")
-		(property "Reference" "C321"
+		(property "Reference" "C420"
 			(at 245.872 238.76 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20247,7 +20749,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 241.6048 236.22 0)
 			(hide yes)
 			(show_name no)
@@ -20300,7 +20802,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C321")
+					(reference "C420")
 					(unit 1)
 				)
 			)
@@ -20317,7 +20819,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7859c61b-6fa6-4b26-9bc8-63ce2cbb1009")
-		(property "Reference" "C325"
+		(property "Reference" "C424"
 			(at 272.542 238.76 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20339,7 +20841,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 268.2748 236.22 0)
 			(hide yes)
 			(show_name no)
@@ -20392,7 +20894,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C325")
+					(reference "C424")
 					(unit 1)
 				)
 			)
@@ -20410,7 +20912,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "79d2be06-df62-462a-b878-7e56b6f1a812")
-		(property "Reference" "#PWR0381"
+		(property "Reference" "#PWR0483"
 			(at 383.54 198.12 0)
 			(hide yes)
 			(show_name no)
@@ -20470,7 +20972,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0381")
+					(reference "#PWR0483")
 					(unit 1)
 				)
 			)
@@ -20488,7 +20990,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "79e495bf-be44-4db4-9fee-0c192c0a253c")
-		(property "Reference" "C310"
+		(property "Reference" "C410"
 			(at 119.38 40.6399 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20510,7 +21012,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 122.2248 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -20563,7 +21065,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C310")
+					(reference "C410")
 					(unit 1)
 				)
 			)
@@ -20580,7 +21082,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7f213c3c-879f-4ad5-bf79-43976ac015ee")
-		(property "Reference" "#PWR0326"
+		(property "Reference" "#PWR0427"
 			(at 140.97 53.34 0)
 			(hide yes)
 			(show_name no)
@@ -20640,7 +21142,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0326")
+					(reference "#PWR0427")
 					(unit 1)
 				)
 			)
@@ -20658,7 +21160,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7f7d6025-f7c0-41a1-9365-1d334b18a36d")
-		(property "Reference" "#PWR0368"
+		(property "Reference" "#PWR0469"
 			(at 336.55 223.52 0)
 			(hide yes)
 			(show_name no)
@@ -20718,7 +21220,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0368")
+					(reference "#PWR0469")
 					(unit 1)
 				)
 			)
@@ -20736,7 +21238,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "81efc5eb-f344-401c-81d5-bf90ec11966c")
-		(property "Reference" "C304"
+		(property "Reference" "C404"
 			(at 29.21 59.6899 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20758,7 +21260,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0805_2012Metric"
 			(at 32.0548 64.77 0)
 			(hide yes)
 			(show_name no)
@@ -20811,7 +21313,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C304")
+					(reference "C404")
 					(unit 1)
 				)
 			)
@@ -20829,7 +21331,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "825e920c-4499-4a52-ab22-3a4fa0c319fb")
-		(property "Reference" "SW301"
+		(property "Reference" "SW401"
 			(at 40.64 243.8399 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20851,7 +21353,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Button_Switch_SMD:SW_SPST_TS-1088-xR020"
+		(property "Footprint" "geeks-ecu-footprints:SW_SPST_TS-1088-xR020"
 			(at 34.29 245.11 0)
 			(hide yes)
 			(show_name no)
@@ -20904,7 +21406,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "SW301")
+					(reference "SW401")
 					(unit 1)
 				)
 			)
@@ -20921,7 +21423,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "82bab0eb-86a4-4b03-b086-16a380fb7ed3")
-		(property "Reference" "#PWR0355"
+		(property "Reference" "#PWR0453"
 			(at 276.86 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -20981,7 +21483,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0355")
+					(reference "#PWR0453")
 					(unit 1)
 				)
 			)
@@ -20999,7 +21501,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "83b71968-8656-4392-9d58-52e18dff840c")
-		(property "Reference" "C306"
+		(property "Reference" "C406"
 			(at 38.1 156.2099 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21021,7 +21523,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 40.9448 161.29 0)
 			(hide yes)
 			(show_name no)
@@ -21074,7 +21576,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C306")
+					(reference "C406")
 					(unit 1)
 				)
 			)
@@ -21091,7 +21593,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "83c9c91b-0e1e-4ffa-a052-c0986ff27a7d")
-		(property "Reference" "#PWR0353"
+		(property "Reference" "#PWR0443"
 			(at 218.44 218.44 0)
 			(hide yes)
 			(show_name no)
@@ -21151,7 +21653,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0353")
+					(reference "#PWR0443")
 					(unit 1)
 				)
 			)
@@ -21169,7 +21671,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "8637b136-35c3-429f-8a0d-bb6b14148827")
-		(property "Reference" "C302"
+		(property "Reference" "C402"
 			(at 25.908 156.21 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21191,7 +21693,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 30.1752 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -21244,7 +21746,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C302")
+					(reference "C402")
 					(unit 1)
 				)
 			)
@@ -21262,7 +21764,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "8a14dbe3-6879-41c5-beb2-6cad5460ca3f")
-		(property "Reference" "#PWR0308"
+		(property "Reference" "#PWR0408"
 			(at 41.91 170.18 0)
 			(hide yes)
 			(show_name no)
@@ -21322,7 +21824,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0308")
+					(reference "#PWR0408")
 					(unit 1)
 				)
 			)
@@ -21340,7 +21842,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "8f98a3fe-f24e-447d-899b-7dc8b17927bd")
-		(property "Reference" "U301"
+		(property "Reference" "U401"
 			(at 57.658 103.886 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21362,7 +21864,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_SON:WSON-8-1EP_6x5mm_P1.27mm_EP3.4x4.3mm"
+		(property "Footprint" "geeks-ecu-footprints:WSON-8-1EP_6x5mm_P1.27mm_EP3.4x4.3mm"
 			(at 60.96 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -21436,7 +21938,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "U301")
+					(reference "U401")
 					(unit 1)
 				)
 			)
@@ -21453,7 +21955,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "91f30663-cb99-4169-9476-0165f99207c4")
-		(property "Reference" "#PWR0315"
+		(property "Reference" "#PWR0415"
 			(at 60.96 99.06 0)
 			(hide yes)
 			(show_name no)
@@ -21513,7 +22015,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0315")
+					(reference "#PWR0415")
 					(unit 1)
 				)
 			)
@@ -21530,7 +22032,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "9338e466-9634-4df1-ac30-2d22566c7d8f")
-		(property "Reference" "#PWR0324"
+		(property "Reference" "#PWR0425"
 			(at 123.19 53.34 0)
 			(hide yes)
 			(show_name no)
@@ -21590,7 +22092,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0324")
+					(reference "#PWR0425")
 					(unit 1)
 				)
 			)
@@ -21608,7 +22110,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "974eee0f-9136-4008-a7c4-0b6e8ca958bd")
-		(property "Reference" "C335"
+		(property "Reference" "C435"
 			(at 396.24 54.6099 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21630,7 +22132,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 399.0848 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -21683,7 +22185,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C335")
+					(reference "C435")
 					(unit 1)
 				)
 			)
@@ -21701,7 +22203,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "98612360-6490-4007-aa6d-eba9e474862d")
-		(property "Reference" "#PWR0344"
+		(property "Reference" "#PWR0444"
 			(at 228.6 252.73 0)
 			(hide yes)
 			(show_name no)
@@ -21761,7 +22263,86 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0344")
+					(reference "#PWR0444")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 97.79 59.69 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "991a501f-df97-438c-90f8-1c2d2dc032e2")
+		(property "Reference" "TP405"
+			(at 94.996 58.166 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 99.06 60.9599 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 102.87 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 102.87 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 97.79 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d787c4e5-294c-41df-b76a-319d1da7a598")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
+					(reference "TP405")
 					(unit 1)
 				)
 			)
@@ -21778,7 +22359,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "9b1a822c-5cba-40a2-804c-2c856c934c05")
-		(property "Reference" "#PWR0312"
+		(property "Reference" "#PWR0412"
 			(at 57.15 210.82 0)
 			(hide yes)
 			(show_name no)
@@ -21838,7 +22419,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0312")
+					(reference "#PWR0412")
 					(unit 1)
 				)
 			)
@@ -21856,7 +22437,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9b36d1c3-793d-424b-934e-580bc9fcdf15")
-		(property "Reference" "#SYM301"
+		(property "Reference" "#SYM401"
 			(at 228.6 200.406 0)
 			(hide yes)
 			(show_name no)
@@ -21914,7 +22495,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#SYM301")
+					(reference "#SYM401")
 					(unit 1)
 				)
 			)
@@ -21932,7 +22513,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "9ba24914-b7dc-480a-b37a-dc51e0008caf")
-		(property "Reference" "#PWR0348"
+		(property "Reference" "#PWR0448"
 			(at 247.65 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -21992,7 +22573,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0348")
+					(reference "#PWR0448")
 					(unit 1)
 				)
 			)
@@ -22009,7 +22590,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "9e008dfb-eca6-41e1-8389-7d8cd6172bd8")
-		(property "Reference" "R311"
+		(property "Reference" "R418"
 			(at 292.1 196.8499 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22031,7 +22612,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 290.576 198.374 90)
 			(hide yes)
 			(show_name no)
@@ -22084,7 +22665,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R311")
+					(reference "R418")
 					(unit 1)
 				)
 			)
@@ -22101,7 +22682,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a064ee6e-958b-49d1-86d9-6efc30032bf4")
-		(property "Reference" "#PWR0376"
+		(property "Reference" "#PWR0477"
 			(at 368.3 39.37 0)
 			(hide yes)
 			(show_name no)
@@ -22161,7 +22742,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0376")
+					(reference "#PWR0477")
 					(unit 1)
 				)
 			)
@@ -22179,7 +22760,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a13050fc-07b7-4298-b4c7-d94e81fc619f")
-		(property "Reference" "#PWR0359"
+		(property "Reference" "#PWR0459"
 			(at 292.1 166.37 0)
 			(hide yes)
 			(show_name no)
@@ -22239,7 +22820,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0359")
+					(reference "#PWR0459")
 					(unit 1)
 				)
 			)
@@ -22257,7 +22838,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a389c33d-9d19-4fca-b642-728212a883fd")
-		(property "Reference" "C305"
+		(property "Reference" "C405"
 			(at 36.83 114.2999 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22279,7 +22860,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 39.6748 119.38 0)
 			(hide yes)
 			(show_name no)
@@ -22332,7 +22913,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C305")
+					(reference "C405")
 					(unit 1)
 				)
 			)
@@ -22349,7 +22930,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a3e68739-6d04-42b2-9e2c-5b1e2d9f729a")
-		(property "Reference" "R312"
+		(property "Reference" "R419"
 			(at 292.1 207.0099 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22371,7 +22952,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 290.576 208.534 90)
 			(hide yes)
 			(show_name no)
@@ -22424,7 +23005,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R312")
+					(reference "R419")
 					(unit 1)
 				)
 			)
@@ -22442,7 +23023,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a723fb7a-2f0d-46f3-af1a-14218f5e105e")
-		(property "Reference" "#PWR0349"
+		(property "Reference" "#PWR0445"
 			(at 234.95 115.57 0)
 			(hide yes)
 			(show_name no)
@@ -22502,7 +23083,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0349")
+					(reference "#PWR0445")
 					(unit 1)
 				)
 			)
@@ -22520,7 +23101,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a7a8155b-1a8c-4eee-968f-f3ea3e43f676")
-		(property "Reference" "#PWR0340"
+		(property "Reference" "#PWR0441"
 			(at 198.12 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -22580,7 +23161,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0340")
+					(reference "#PWR0441")
 					(unit 1)
 				)
 			)
@@ -22588,7 +23169,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_US")
-		(at 375.92 106.68 0)
+		(at 378.46 106.68 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -22597,8 +23178,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ab0963cf-f4f3-4d20-b0b2-abeb857998f3")
-		(property "Reference" "R323"
-			(at 378.46 105.4099 0)
+		(property "Reference" "R428"
+			(at 381 105.4099 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -22609,7 +23190,7 @@
 			)
 		)
 		(property "Value" "10kΩ"
-			(at 378.46 107.9499 0)
+			(at 381 107.9499 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -22619,8 +23200,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 376.936 106.934 90)
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
+			(at 379.476 106.934 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22631,7 +23212,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C25804.pdf"
-			(at 375.92 106.68 0)
+			(at 378.46 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22642,7 +23223,7 @@
 			)
 		)
 		(property "Description" "RES 10kΩ ±1% 100mW 0603"
-			(at 375.92 106.68 0)
+			(at 378.46 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22653,7 +23234,7 @@
 			)
 		)
 		(property "MPN" "C25804"
-			(at 375.92 106.68 0)
+			(at 378.46 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22672,7 +23253,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R323")
+					(reference "R428")
 					(unit 1)
 				)
 			)
@@ -22689,7 +23270,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "acd48a79-8b8d-47bb-bceb-9e6501045df2")
-		(property "Reference" "#PWR0372"
+		(property "Reference" "#PWR0473"
 			(at 354.33 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -22749,7 +23330,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0372")
+					(reference "#PWR0473")
 					(unit 1)
 				)
 			)
@@ -22766,7 +23347,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "adffd696-2a44-466c-a783-c2ed6042873b")
-		(property "Reference" "#PWR0325"
+		(property "Reference" "#PWR0426"
 			(at 139.7 186.69 0)
 			(hide yes)
 			(show_name no)
@@ -22826,7 +23407,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0325")
+					(reference "#PWR0426")
 					(unit 1)
 				)
 			)
@@ -22843,7 +23424,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "aeb383b4-59ea-4b54-8a00-696ffce7f82b")
-		(property "Reference" "#PWR0343"
+		(property "Reference" "#PWR0458"
 			(at 289.56 219.71 0)
 			(hide yes)
 			(show_name no)
@@ -22903,7 +23484,85 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0343")
+					(reference "#PWR0458")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 347.98 101.6 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "af5d7ac8-6354-4f84-8a2e-568f1b245f6b")
+		(property "Reference" "#PWR0471"
+			(at 347.98 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 347.98 97.536 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 347.98 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 347.98 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 347.98 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ec4d805b-a0ea-4075-9cbc-8460c05207c3")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
+					(reference "#PWR0471")
 					(unit 1)
 				)
 			)
@@ -22921,7 +23580,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b001f95e-1272-4299-81cd-2a2d93f02a08")
-		(property "Reference" "U303"
+		(property "Reference" "U403"
 			(at 140.97 27.94 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22941,7 +23600,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+		(property "Footprint" "geeks-ecu-footprints:SOT-23-5"
 			(at 142.24 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -23005,7 +23664,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "U303")
+					(reference "U403")
 					(unit 1)
 				)
 			)
@@ -23013,7 +23672,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 354.33 101.6 0)
+		(at 358.14 101.6 0)
 		(mirror y)
 		(unit 1)
 		(body_style 1)
@@ -23023,8 +23682,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b2a2e907-521f-46ab-900a-e83ff1976c0e")
-		(property "Reference" "#PWR0371"
-			(at 354.33 105.41 0)
+		(property "Reference" "#PWR0475"
+			(at 358.14 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23035,7 +23694,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 354.33 97.536 0)
+			(at 358.14 97.536 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -23045,7 +23704,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 354.33 101.6 0)
+			(at 358.14 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23056,7 +23715,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 354.33 101.6 0)
+			(at 358.14 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23067,7 +23726,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 354.33 101.6 0)
+			(at 358.14 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23083,7 +23742,99 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0371")
+					(reference "#PWR0475")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_US")
+		(at 347.98 106.68 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "b4fd55c6-c1bf-46eb-93f5-7e575c94902f")
+		(property "Reference" "R425"
+			(at 350.52 105.4099 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10kΩ"
+			(at 350.52 107.9499 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
+			(at 348.996 106.934 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C25804.pdf"
+			(at 347.98 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "RES 10kΩ ±1% 100mW 0603"
+			(at 347.98 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C25804"
+			(at 347.98 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "97808948-6390-4dbc-8b4c-abb77e583e08")
+		)
+		(pin "1"
+			(uuid "58f0355b-cbde-4fe9-bd12-52bbc7ddebaf")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
+					(reference "R425")
 					(unit 1)
 				)
 			)
@@ -23101,7 +23852,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b5479d31-a3a2-4c43-96fa-4336ce772113")
-		(property "Reference" "C333"
+		(property "Reference" "C433"
 			(at 363.22 189.2299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23123,7 +23874,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 366.0648 194.31 0)
 			(hide yes)
 			(show_name no)
@@ -23176,7 +23927,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C333")
+					(reference "C433")
 					(unit 1)
 				)
 			)
@@ -23193,7 +23944,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b56365d8-98fa-4354-a590-e67c7391a612")
-		(property "Reference" "C327"
+		(property "Reference" "C426"
 			(at 285.75 238.7599 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23215,7 +23966,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 282.9052 243.84 0)
 			(hide yes)
 			(show_name no)
@@ -23268,7 +24019,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C327")
+					(reference "C426")
 					(unit 1)
 				)
 			)
@@ -23286,7 +24037,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b5f4dfb1-6fed-450d-b56f-5cac723a26e5")
-		(property "Reference" "#PWR0383"
+		(property "Reference" "#PWR0485"
 			(at 400.05 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -23346,7 +24097,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0383")
+					(reference "#PWR0485")
 					(unit 1)
 				)
 			)
@@ -23363,7 +24114,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b959d9ea-8427-43c4-8930-2a9a95ea698e")
-		(property "Reference" "#PWR0380"
+		(property "Reference" "#PWR0482"
 			(at 387.35 53.34 0)
 			(hide yes)
 			(show_name no)
@@ -23423,7 +24174,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0380")
+					(reference "#PWR0482")
 					(unit 1)
 				)
 			)
@@ -23440,7 +24191,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ba269f98-759f-45c9-b55f-f216d17c929a")
-		(property "Reference" "#PWR0347"
+		(property "Reference" "#PWR0446"
 			(at 242.57 237.49 0)
 			(hide yes)
 			(show_name no)
@@ -23500,7 +24251,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0347")
+					(reference "#PWR0446")
 					(unit 1)
 				)
 			)
@@ -23518,7 +24269,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ba9a98b2-50af-4073-994d-1ba9a19d8bce")
-		(property "Reference" "J301"
+		(property "Reference" "J401"
 			(at 43.18 31.75 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23603,7 +24354,84 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "J301")
+					(reference "J401")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 97.79 67.31 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "baef6abe-9faf-4bc0-9d90-e14b8c809362")
+		(property "Reference" "#PWR0486"
+			(at 97.79 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 97.79 71.12 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 97.79 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 97.79 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 97.79 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "fb3e351b-c807-447e-ac3b-28bd047fc0be")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
+					(reference "#PWR0486")
 					(unit 1)
 				)
 			)
@@ -23620,7 +24448,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "bba00a20-5214-45f1-b7aa-bd334bc22c8e")
-		(property "Reference" "#PWR0331"
+		(property "Reference" "#PWR0432"
 			(at 162.56 92.71 0)
 			(hide yes)
 			(show_name no)
@@ -23680,7 +24508,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0331")
+					(reference "#PWR0432")
 					(unit 1)
 				)
 			)
@@ -23697,7 +24525,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "bd44f492-a76f-4999-b219-bd900895d2c8")
-		(property "Reference" "R319"
+		(property "Reference" "R417"
 			(at 287.02 115.5699 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23719,7 +24547,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 285.496 117.094 90)
 			(hide yes)
 			(show_name no)
@@ -23772,7 +24600,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R319")
+					(reference "R417")
 					(unit 1)
 				)
 			)
@@ -23789,7 +24617,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "bf6789c1-e9ac-47c7-8563-39e6ed73a8f7")
-		(property "Reference" "#PWR0316"
+		(property "Reference" "#PWR0416"
 			(at 60.96 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -23849,7 +24677,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0316")
+					(reference "#PWR0416")
 					(unit 1)
 				)
 			)
@@ -23866,7 +24694,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c177c510-659e-4739-aef4-0212ec437eae")
-		(property "Reference" "#PWR0318"
+		(property "Reference" "#PWR0419"
 			(at 80.01 257.81 0)
 			(hide yes)
 			(show_name no)
@@ -23926,7 +24754,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0318")
+					(reference "#PWR0419")
 					(unit 1)
 				)
 			)
@@ -23934,7 +24762,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_US")
-		(at 344.17 106.68 0)
+		(at 337.82 106.68 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -23943,8 +24771,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c804d7b4-23b6-4bde-8685-b2195a09d19c")
-		(property "Reference" "R326"
-			(at 346.71 105.4099 0)
+		(property "Reference" "R424"
+			(at 340.36 105.4099 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -23955,7 +24783,7 @@
 			)
 		)
 		(property "Value" "10kΩ"
-			(at 346.71 107.9499 0)
+			(at 340.36 107.9499 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -23965,8 +24793,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 345.186 106.934 90)
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
+			(at 338.836 106.934 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23977,7 +24805,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C25804.pdf"
-			(at 344.17 106.68 0)
+			(at 337.82 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23988,7 +24816,7 @@
 			)
 		)
 		(property "Description" "RES 10kΩ ±1% 100mW 0603"
-			(at 344.17 106.68 0)
+			(at 337.82 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23999,7 +24827,7 @@
 			)
 		)
 		(property "MPN" "C25804"
-			(at 344.17 106.68 0)
+			(at 337.82 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -24018,7 +24846,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R326")
+					(reference "R424")
 					(unit 1)
 				)
 			)
@@ -24035,7 +24863,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c82be171-c562-4548-8f7e-c74a2c0ce711")
-		(property "Reference" "C328"
+		(property "Reference" "C427"
 			(at 293.37 36.8299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -24057,7 +24885,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 290.5252 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -24110,7 +24938,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C328")
+					(reference "C427")
 					(unit 1)
 				)
 			)
@@ -24127,7 +24955,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c8b4a8c1-bcf6-4685-9c1d-512bb3e7dfed")
-		(property "Reference" "#PWR0320"
+		(property "Reference" "#PWR0421"
 			(at 93.98 186.69 0)
 			(hide yes)
 			(show_name no)
@@ -24187,7 +25015,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0320")
+					(reference "#PWR0421")
 					(unit 1)
 				)
 			)
@@ -24204,7 +25032,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c900d9c3-6c1e-4180-80c6-6b162636f76b")
-		(property "Reference" "#PWR0354"
+		(property "Reference" "#PWR0452"
 			(at 269.24 237.49 0)
 			(hide yes)
 			(show_name no)
@@ -24264,7 +25092,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0354")
+					(reference "#PWR0452")
 					(unit 1)
 				)
 			)
@@ -24281,7 +25109,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "cba1b351-55a5-4ca5-99cc-f5ad54e91ce3")
-		(property "Reference" "R318"
+		(property "Reference" "R412"
 			(at 220.98 205.7399 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -24303,7 +25131,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 219.456 207.264 90)
 			(hide yes)
 			(show_name no)
@@ -24356,7 +25184,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R318")
+					(reference "R412")
 					(unit 1)
 				)
 			)
@@ -24373,7 +25201,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ccb5000b-8619-4b09-9b20-cbf683638ed5")
-		(property "Reference" "#PWR0323"
+		(property "Reference" "#PWR0424"
 			(at 110.49 53.34 0)
 			(hide yes)
 			(show_name no)
@@ -24433,7 +25261,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0323")
+					(reference "#PWR0424")
 					(unit 1)
 				)
 			)
@@ -24450,7 +25278,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ccf71f34-bf1a-453e-8f7d-1839446a7bce")
-		(property "Reference" "#PWR0364"
+		(property "Reference" "#PWR0465"
 			(at 314.96 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -24510,7 +25338,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0364")
+					(reference "#PWR0465")
 					(unit 1)
 				)
 			)
@@ -24528,7 +25356,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "cf027e3d-3cdf-4a9c-9cf6-159fa1afb20d")
-		(property "Reference" "#PWR0370"
+		(property "Reference" "#PWR0472"
 			(at 350.52 223.52 0)
 			(hide yes)
 			(show_name no)
@@ -24588,7 +25416,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0370")
+					(reference "#PWR0472")
 					(unit 1)
 				)
 			)
@@ -24605,7 +25433,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "cf7c5462-410c-488a-a5df-5fad88946316")
-		(property "Reference" "#PWR0306"
+		(property "Reference" "#PWR0406"
 			(at 40.64 80.01 0)
 			(hide yes)
 			(show_name no)
@@ -24665,7 +25493,86 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0306")
+					(reference "#PWR0406")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 88.9 157.48 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "cf87856e-14f1-4131-8a12-8dba37a35448")
+		(property "Reference" "TP401"
+			(at 85.852 155.956 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 90.17 158.7499 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 93.98 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 93.98 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 88.9 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "718f88ac-2c59-4cf8-8294-caa9aa86b86e")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
+					(reference "TP401")
 					(unit 1)
 				)
 			)
@@ -24682,7 +25589,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d33b52fc-e2fd-4cfc-acf7-b2379070ffe4")
-		(property "Reference" "D303"
+		(property "Reference" "D403"
 			(at 195.326 230.632 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -24704,7 +25611,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_WS2812B-2020_PLCC4_2.0x2.0mm"
+		(property "Footprint" "geeks-ecu-footprints:LED_WS2812B-2020_PLCC4_2.0x2.0mm"
 			(at 194.31 247.65 0)
 			(hide yes)
 			(show_name no)
@@ -24765,7 +25672,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "D303")
+					(reference "D403")
 					(unit 1)
 				)
 			)
@@ -24783,7 +25690,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d4059c98-4e00-4071-ad18-4c8eae9b25c2")
-		(property "Reference" "#PWR0366"
+		(property "Reference" "#PWR0467"
 			(at 320.04 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -24843,7 +25750,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0366")
+					(reference "#PWR0467")
 					(unit 1)
 				)
 			)
@@ -24861,7 +25768,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d59bcf71-a6b8-4865-bc97-12dfac3ccdd1")
-		(property "Reference" "#PWR0360"
+		(property "Reference" "#PWR0460"
 			(at 294.64 115.57 0)
 			(hide yes)
 			(show_name no)
@@ -24921,7 +25828,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0360")
+					(reference "#PWR0460")
 					(unit 1)
 				)
 			)
@@ -24938,7 +25845,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d7edd8ad-34b8-4714-8150-76dabdc63b43")
-		(property "Reference" "#PWR0311"
+		(property "Reference" "#PWR0411"
 			(at 57.15 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -24998,7 +25905,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0311")
+					(reference "#PWR0411")
 					(unit 1)
 				)
 			)
@@ -25016,7 +25923,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d869d342-0673-4100-8ad3-db0d750266ec")
-		(property "Reference" "R304"
+		(property "Reference" "R404"
 			(at 77.47 232.4099 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25038,7 +25945,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 78.994 233.934 90)
 			(hide yes)
 			(show_name no)
@@ -25091,7 +25998,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R304")
+					(reference "R404")
 					(unit 1)
 				)
 			)
@@ -25099,7 +26006,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_US")
-		(at 364.49 106.68 0)
+		(at 368.3 106.68 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -25108,8 +26015,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d8874098-0fa1-4b65-9fd0-c8aa03e1d178")
-		(property "Reference" "R324"
-			(at 367.03 105.4099 0)
+		(property "Reference" "R427"
+			(at 370.84 105.4099 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -25120,7 +26027,7 @@
 			)
 		)
 		(property "Value" "10kΩ"
-			(at 367.03 107.9499 0)
+			(at 370.84 107.9499 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -25130,8 +26037,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 365.506 106.934 90)
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
+			(at 369.316 106.934 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25142,7 +26049,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C25804.pdf"
-			(at 364.49 106.68 0)
+			(at 368.3 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25153,7 +26060,7 @@
 			)
 		)
 		(property "Description" "RES 10kΩ ±1% 100mW 0603"
-			(at 364.49 106.68 0)
+			(at 368.3 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25164,7 +26071,7 @@
 			)
 		)
 		(property "MPN" "C25804"
-			(at 364.49 106.68 0)
+			(at 368.3 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25183,7 +26090,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R324")
+					(reference "R427")
 					(unit 1)
 				)
 			)
@@ -25201,7 +26108,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d8945e4e-8d79-48a0-812b-3a1d5b583cbe")
-		(property "Reference" "#PWR0357"
+		(property "Reference" "#PWR0455"
 			(at 281.94 252.73 0)
 			(hide yes)
 			(show_name no)
@@ -25261,7 +26168,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0357")
+					(reference "#PWR0455")
 					(unit 1)
 				)
 			)
@@ -25278,7 +26185,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d9e0d755-2f47-40ef-a410-851b0d29e144")
-		(property "Reference" "C312"
+		(property "Reference" "C412"
 			(at 188.722 72.39 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25300,7 +26207,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 184.4548 69.85 0)
 			(hide yes)
 			(show_name no)
@@ -25353,7 +26260,86 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C312")
+					(reference "C412")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 93.98 35.56 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "db696bfe-4f91-4dbe-bac4-97a3d4c35f9d")
+		(property "Reference" "TP407"
+			(at 91.186 34.036 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 95.25 36.8299 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 99.06 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 99.06 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 93.98 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ee39392b-01e6-443f-8bed-35504cb6e296")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
+					(reference "TP407")
 					(unit 1)
 				)
 			)
@@ -25370,7 +26356,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "dcc74065-3855-439c-8216-64df0932d701")
-		(property "Reference" "#PWR0321"
+		(property "Reference" "#PWR0422"
 			(at 99.06 53.34 0)
 			(hide yes)
 			(show_name no)
@@ -25430,7 +26416,86 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0321")
+					(reference "#PWR0422")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 87.63 238.76 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "dd88c390-722c-456d-93ae-a7a58da21af6")
+		(property "Reference" "TP403"
+			(at 84.836 237.236 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 88.9 240.0299 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 92.71 238.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 92.71 238.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 87.63 238.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "187a6154-52e8-4029-9314-677994b6b56b")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
+					(reference "TP403")
 					(unit 1)
 				)
 			)
@@ -25447,7 +26512,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "dea24417-e6e7-410b-8cf1-98b6809f320d")
-		(property "Reference" "#PWR0341"
+		(property "Reference" "#PWR0442"
 			(at 215.9 237.49 0)
 			(hide yes)
 			(show_name no)
@@ -25507,7 +26572,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0341")
+					(reference "#PWR0442")
 					(unit 1)
 				)
 			)
@@ -25524,7 +26589,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e305f06a-91e3-47d8-b0ed-2740fe06557f")
-		(property "Reference" "#PWR0327"
+		(property "Reference" "#PWR0428"
 			(at 142.24 234.95 0)
 			(hide yes)
 			(show_name no)
@@ -25584,7 +26649,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0327")
+					(reference "#PWR0428")
 					(unit 1)
 				)
 			)
@@ -25602,7 +26667,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e472407b-3fde-4ee6-8ea8-f18f46546a78")
-		(property "Reference" "J302"
+		(property "Reference" "J402"
 			(at 53.34 191.7699 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25624,7 +26689,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Connector:Tag-Connect_TC2030-IDC-NL_2x03_P1.27mm_Vertical"
+		(property "Footprint" "geeks-ecu-footprints:Tag-Connect_TC2030-IDC-NL_2x03_P1.27mm_Vertical"
 			(at 59.69 210.82 0)
 			(hide yes)
 			(show_name no)
@@ -25678,7 +26743,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "J302")
+					(reference "J402")
 					(unit 1)
 				)
 			)
@@ -25695,7 +26760,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e7fa6280-265c-487b-804d-75b01f5562aa")
-		(property "Reference" "R314"
+		(property "Reference" "R415"
 			(at 250.19 143.51 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25717,7 +26782,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 248.666 145.034 90)
 			(hide yes)
 			(show_name no)
@@ -25770,7 +26835,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R314")
+					(reference "R415")
 					(unit 1)
 				)
 			)
@@ -25787,7 +26852,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e82c6723-4b03-41ae-9b78-21a291aeabe8")
-		(property "Reference" "R303"
+		(property "Reference" "R403"
 			(at 76.2 102.8699 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25809,7 +26874,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 74.676 104.394 90)
 			(hide yes)
 			(show_name no)
@@ -25862,7 +26927,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R303")
+					(reference "R403")
 					(unit 1)
 				)
 			)
@@ -25879,7 +26944,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "eb229d3c-48c8-44cc-b31c-cbd65416ed3c")
-		(property "Reference" "#PWR0328"
+		(property "Reference" "#PWR0429"
 			(at 142.24 255.27 0)
 			(hide yes)
 			(show_name no)
@@ -25939,7 +27004,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0328")
+					(reference "#PWR0429")
 					(unit 1)
 				)
 			)
@@ -25956,7 +27021,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "eb30405a-8319-47bd-8799-a1d1c0875d1b")
-		(property "Reference" "R315"
+		(property "Reference" "R413"
 			(at 237.49 115.5699 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25978,7 +27043,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
 			(at 235.966 117.094 90)
 			(hide yes)
 			(show_name no)
@@ -26031,7 +27096,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R315")
+					(reference "R413")
 					(unit 1)
 				)
 			)
@@ -26048,7 +27113,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ec95022d-a835-48e7-a9f8-37eff9bc005b")
-		(property "Reference" "#PWR0339"
+		(property "Reference" "#PWR0440"
 			(at 193.04 255.27 0)
 			(hide yes)
 			(show_name no)
@@ -26108,7 +27173,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0339")
+					(reference "#PWR0440")
 					(unit 1)
 				)
 			)
@@ -26125,7 +27190,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ed4e4e9e-0f9d-4bc8-b606-2720edfdec85")
-		(property "Reference" "JP301"
+		(property "Reference" "JP401"
 			(at 285.75 142.24 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26146,7 +27211,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
+		(property "Footprint" "geeks-ecu-footprints:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
 			(at 285.75 144.78 0)
 			(hide yes)
 			(show_name no)
@@ -26188,7 +27253,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "JP301")
+					(reference "JP401")
 					(unit 1)
 				)
 			)
@@ -26205,7 +27270,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f2d53184-d41d-4817-bd14-ad539b4c247d")
-		(property "Reference" "C326"
+		(property "Reference" "C425"
 			(at 280.162 36.83 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26227,7 +27292,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 275.8948 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -26280,7 +27345,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C326")
+					(reference "C425")
 					(unit 1)
 				)
 			)
@@ -26297,7 +27362,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f3ccb00a-83da-45cf-b3c5-07b39ddea023")
-		(property "Reference" "C314"
+		(property "Reference" "C414"
 			(at 203.2 36.8299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26319,7 +27384,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 200.3552 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -26372,7 +27437,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C314")
+					(reference "C414")
 					(unit 1)
 				)
 			)
@@ -26389,7 +27454,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f4d67bfc-d766-432b-8422-6eb3a909bfd1")
-		(property "Reference" "C316"
+		(property "Reference" "C416"
 			(at 219.202 238.76 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26411,7 +27476,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 214.9348 236.22 0)
 			(hide yes)
 			(show_name no)
@@ -26464,7 +27529,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C316")
+					(reference "C416")
 					(unit 1)
 				)
 			)
@@ -26481,7 +27546,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f4eea014-8558-4e8d-8466-361bea65aec2")
-		(property "Reference" "U305"
+		(property "Reference" "U405"
 			(at 303.022 107.188 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26503,7 +27568,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_DFN_QFN:QFN-24-1EP_4x4mm_P0.5mm_EP2.7x2.7mm"
+		(property "Footprint" "geeks-ecu-footprints:QFN-24-1EP_4x4mm_P0.5mm_EP2.7x2.7mm"
 			(at 349.25 161.29 0)
 			(hide yes)
 			(show_name no)
@@ -26625,7 +27690,86 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "U305")
+					(reference "U405")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 97.79 66.04 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "f80f9a07-74d6-4ca4-b90f-070045f20834")
+		(property "Reference" "TP408"
+			(at 94.996 64.516 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 99.06 67.3099 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 102.87 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 102.87 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 97.79 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "58a353a5-c3b0-43d4-aeb9-5b540d48ee2b")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
+					(reference "TP408")
 					(unit 1)
 				)
 			)
@@ -26642,7 +27786,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f92f29ca-068b-432a-bea3-370f53e6d2fc")
-		(property "Reference" "C311"
+		(property "Reference" "C411"
 			(at 177.292 36.83 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26664,7 +27808,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 173.0248 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -26717,7 +27861,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C311")
+					(reference "C411")
 					(unit 1)
 				)
 			)
@@ -26725,7 +27869,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 375.92 101.6 0)
+		(at 378.46 101.6 0)
 		(mirror y)
 		(unit 1)
 		(body_style 1)
@@ -26735,8 +27879,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "fabc4bba-9a34-48aa-94f7-0800531f1416")
-		(property "Reference" "#PWR0367"
-			(at 375.92 105.41 0)
+		(property "Reference" "#PWR0480"
+			(at 378.46 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26747,7 +27891,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 375.92 97.536 0)
+			(at 378.46 97.536 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -26757,7 +27901,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 375.92 101.6 0)
+			(at 378.46 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26768,7 +27912,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 375.92 101.6 0)
+			(at 378.46 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26779,7 +27923,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 375.92 101.6 0)
+			(at 378.46 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26795,7 +27939,86 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "#PWR0367")
+					(reference "#PWR0480")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 105.41 62.23 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "fc487fdb-665c-4698-8abb-c5d8ab81d351")
+		(property "Reference" "TP406"
+			(at 102.616 60.706 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 106.68 63.4999 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 110.49 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 110.49 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 105.41 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "00709a6a-8cf4-4144-8c73-300feb485331")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
+					(reference "TP406")
 					(unit 1)
 				)
 			)
@@ -26812,7 +28035,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "fd169b80-a49b-45eb-a67b-3a2e2ce2c9f0")
-		(property "Reference" "C317"
+		(property "Reference" "C417"
 			(at 228.6 36.8299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26834,7 +28057,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 225.7552 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -26887,7 +28110,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C317")
+					(reference "C417")
 					(unit 1)
 				)
 			)
@@ -26904,7 +28127,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "fed7f990-2979-4a0b-b457-205842be83a3")
-		(property "Reference" "C322"
+		(property "Reference" "C421"
 			(at 254 36.8299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26926,7 +28149,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 251.1552 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -26979,7 +28202,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C322")
+					(reference "C421")
 					(unit 1)
 				)
 			)
@@ -26997,7 +28220,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ff92a432-08ba-4790-a860-2b157584f35b")
-		(property "Reference" "C332"
+		(property "Reference" "C432"
 			(at 351.028 189.23 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -27019,7 +28242,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
 			(at 355.2952 186.69 0)
 			(hide yes)
 			(show_name no)
@@ -27072,7 +28295,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "C332")
+					(reference "C432")
 					(unit 1)
 				)
 			)

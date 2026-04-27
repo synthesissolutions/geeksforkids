@@ -1,12 +1,25 @@
 (footprint "Keystone_3568"
-	(version 20241229)
+	(version 20260206)
 	(generator "pcbnew")
-	(generator_version "9.0")
+	(generator_version "10.0")
 	(layer "F.Cu")
 	(property "Reference" "REF**"
 		(at -5.075 -4.385 0)
 		(layer "F.SilkS")
-		(uuid "eb649f28-4716-429b-a98c-c70e1fbf9e7a")
+		(hide yes)
+		(uuid "51466850-ed23-4224-8887-82064f16fc74")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.167)
+			)
+		)
+	)
+	(property "Value" "30A"
+		(at -0.1 0.2 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "282db629-2107-4191-bd26-618cf35f332a")
 		(effects
 			(font
 				(size 1 1)
@@ -14,10 +27,11 @@
 			)
 		)
 	)
-	(property "Value" "Keystone_3568"
-		(at -2.535 4.365 0)
+	(property "Datasheet" "https://www.keyelco.com/userAssets/file/M65p41.pdf"
+		(at 0 0 0)
 		(layer "F.Fab")
-		(uuid "89fc154d-eaa6-4fc5-a28f-fd050116d91c")
+		(hide yes)
+		(uuid "6ac0f982-fc36-47d9-89ee-2d28aa67e8a6")
 		(effects
 			(font
 				(size 1 1)
@@ -25,31 +39,35 @@
 			)
 		)
 	)
-	(property "Datasheet" ""
+	(property "Description" "FUSE BLOCK BLADE 500V 30A PCB"
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "4b952b0c-8043-4d07-bd8d-6cbaefb0bd6a")
+		(uuid "0cbf801a-591a-46a6-91f1-e2e1b51f3f4b")
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 1 1)
 				(thickness 0.15)
 			)
 		)
 	)
-	(property "Description" ""
+	(property "MPN" "3568"
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "29014012-aa52-4d22-a847-296d70117f2e")
+		(uuid "68c4ede7-11a0-45aa-bb76-ead02864cdd5")
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 1 1)
 				(thickness 0.15)
 			)
 		)
 	)
+	(property ki_fp_filters "*Fuse*")
+	(sheetname "/")
+	(sheetfile "geeks-ecu.kicad_sch")
 	(attr through_hole)
+	(duplicate_pad_numbers_are_jumpers no)
 	(fp_line
 		(start -8 -3.365)
 		(end 8 -3.365)
@@ -58,7 +76,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "d22de397-510a-47d3-bde7-5a0e2813c720")
+		(uuid "acc632f6-315c-417b-9902-1292ba593d3c")
 	)
 	(fp_line
 		(start -8 3.365)
@@ -68,7 +86,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "1efc50ee-4526-4aad-ad8c-ba3805694a3e")
+		(uuid "eb63c20c-8799-43b6-b28f-8732646500aa")
 	)
 	(fp_line
 		(start 8 -3.365)
@@ -78,7 +96,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "5ca092d0-80da-4c84-b06d-f7d5a02f783e")
+		(uuid "16760067-6795-4879-b9ac-62d3b0a05711")
 	)
 	(fp_line
 		(start 8 3.365)
@@ -88,7 +106,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "ba717aab-1dba-446b-8d8e-584d9d432ee8")
+		(uuid "bb7a4733-8d35-47b4-92a9-762620083b22")
 	)
 	(fp_line
 		(start -8.25 -3.615)
@@ -98,7 +116,7 @@
 			(type solid)
 		)
 		(layer "F.CrtYd")
-		(uuid "a0858d2f-8be8-464b-9252-4a411e657072")
+		(uuid "5cfb59f9-2d32-4dc1-91a1-de7996cdcdf8")
 	)
 	(fp_line
 		(start -8.25 3.615)
@@ -108,7 +126,7 @@
 			(type solid)
 		)
 		(layer "F.CrtYd")
-		(uuid "41ce9e15-01b5-408a-b42b-d7d51f63e204")
+		(uuid "22425f93-e943-4ea0-b635-ecee8f300683")
 	)
 	(fp_line
 		(start 8.25 -3.615)
@@ -118,7 +136,7 @@
 			(type solid)
 		)
 		(layer "F.CrtYd")
-		(uuid "0e673a63-b322-490b-97dc-59ce079363d1")
+		(uuid "8525d86f-d61c-4a51-b0ba-3155c3f9828f")
 	)
 	(fp_line
 		(start 8.25 3.615)
@@ -128,7 +146,7 @@
 			(type solid)
 		)
 		(layer "F.CrtYd")
-		(uuid "1b2c9742-0d59-4b96-a9cf-eaa83ab083b2")
+		(uuid "633ddb06-56f8-4142-b96e-57e9008c4beb")
 	)
 	(fp_line
 		(start -8 -3.365)
@@ -138,7 +156,7 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "5502e1af-0283-47f4-b223-b6d2ebcb73ad")
+		(uuid "0eedf936-e74c-438f-9e47-b583b4f6bedd")
 	)
 	(fp_line
 		(start -8 3.365)
@@ -148,7 +166,7 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "db13f855-5937-4f15-b04e-213a46f5010b")
+		(uuid "97ea3e5b-1e41-419b-b561-335512baba72")
 	)
 	(fp_line
 		(start 8 -3.365)
@@ -158,7 +176,7 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "a422b29d-7315-43ba-b988-3447ddce574e")
+		(uuid "8dbe077e-aad8-43ba-bfc6-d2ebb44b5364")
 	)
 	(fp_line
 		(start 8 3.365)
@@ -168,7 +186,7 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "e7c63a75-1fb2-4fe1-80a9-87a4102f7c2a")
+		(uuid "be8b1f5b-bc87-4abf-a87e-b45867823ba8")
 	)
 	(pad "1" thru_hole circle
 		(at -4.95 -1.7)
@@ -177,7 +195,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(solder_mask_margin 0.102)
-		(uuid "36ad17cc-0710-4d15-8b15-5ab0e8a2a4a0")
+		(uuid "cffaea2f-c31e-46bf-9c94-2b93dd80f16a")
 	)
 	(pad "1" thru_hole circle
 		(at -4.95 1.7)
@@ -186,7 +204,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(solder_mask_margin 0.102)
-		(uuid "478852dc-5ae0-4618-8512-84130529a8e4")
+		(uuid "5e432114-30c5-457e-92ed-f2f18f99a29f")
 	)
 	(pad "2" thru_hole circle
 		(at 4.95 -1.7)
@@ -195,7 +213,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(solder_mask_margin 0.102)
-		(uuid "e7d83dd7-dfac-4a66-ad47-c25ea4d195d7")
+		(uuid "fd1d2964-c4ca-425e-a6bf-00a67e1ce373")
 	)
 	(pad "2" thru_hole circle
 		(at 4.95 1.7)
@@ -204,7 +222,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(solder_mask_margin 0.102)
-		(uuid "7d146b3d-2507-427f-ac63-f8c37ca09c73")
+		(uuid "133e87db-b3ef-48fd-a5fe-99600106ad63")
 	)
 	(embedded_fonts no)
 	(model "${KIPRJMOD}/3Dmodels/3568.step"

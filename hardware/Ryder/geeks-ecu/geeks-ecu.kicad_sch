@@ -477,6 +477,129 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Connector:TestPoint_Small"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.762)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "TP"
+				(at 0 3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TestPoint_Small"
+				(at 0 2.032 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "test point"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "test point tp"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Pin* Test*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "TestPoint_Small_0_1"
+				(circle
+					(center 0 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "TestPoint_Small_1_1"
+				(pin passive line
+					(at 0 0 90)
+					(length 0)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Connector_Generic:Conn_01x03"
 			(pin_names
 				(offset 1.016)
@@ -2289,8 +2412,8 @@
 		(uuid "0c2e4f82-0944-4ee5-a504-1d01d4ea2203")
 	)
 	(rectangle
-		(start 369.57 152.4)
-		(end 394.97 220.98)
+		(start 370.84 152.4)
+		(end 396.24 220.98)
 		(stroke
 			(width 0)
 			(type dash)
@@ -2313,8 +2436,8 @@
 		(uuid "2d5f904d-116d-4026-a10c-8a5002dc11b0")
 	)
 	(rectangle
-		(start 369.57 121.92)
-		(end 394.97 142.24)
+		(start 370.84 121.92)
+		(end 396.24 142.24)
 		(stroke
 			(width 0)
 			(type dash)
@@ -2338,7 +2461,7 @@
 	)
 	(text "STEERING MOTOR"
 		(exclude_from_sim no)
-		(at 381.508 209.55 0)
+		(at 382.778 209.55 0)
 		(effects
 			(font
 				(size 1.2192 1.2192)
@@ -2349,7 +2472,7 @@
 	)
 	(text "MOTORS"
 		(exclude_from_sim no)
-		(at 382.016 151.13 0)
+		(at 383.286 151.13 0)
 		(effects
 			(font
 				(size 2.54 2.54)
@@ -2360,7 +2483,7 @@
 	)
 	(text "SPEAKERS"
 		(exclude_from_sim no)
-		(at 382.016 120.65 0)
+		(at 383.286 120.65 0)
 		(effects
 			(font
 				(size 2.54 2.54)
@@ -2371,7 +2494,7 @@
 	)
 	(text "REAR WHEEL MOTORS"
 		(exclude_from_sim no)
-		(at 382.016 181.61 0)
+		(at 383.286 181.61 0)
 		(effects
 			(font
 				(size 1.2192 1.2192)
@@ -2393,7 +2516,7 @@
 	)
 	(text "FRONT WHEEL MOTORS"
 		(exclude_from_sim no)
-		(at 382.27 156.718 0)
+		(at 383.54 156.718 0)
 		(effects
 			(font
 				(size 1.2192 1.2192)
@@ -2512,116 +2635,6 @@
 		)
 		(uuid "72623c9f-4a9e-4a35-be3b-a3c3dd2ea685")
 	)
-	(text_box "increase annular ring size on screw terminals and relay?"
-		(exclude_from_sim no)
-		(at 217.17 234.95 0)
-		(size 43.18 7.62)
-		(margins 0.9525 0.9525 0.9525 0.9525)
-		(stroke
-			(width 0)
-			(type solid)
-			(color 255 11 0 1)
-		)
-		(fill
-			(type color)
-			(color 255 245 0 1)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(color 255 2 0 1)
-			)
-		)
-		(uuid "7339f02f-a1e9-442c-bf5a-9d110403f7b2")
-	)
-	(text_box "Add silkscreen marks for connectors and testpoints for signals"
-		(exclude_from_sim no)
-		(at 241.3 223.52 0)
-		(size 43.18 7.62)
-		(margins 0.9525 0.9525 0.9525 0.9525)
-		(stroke
-			(width 0)
-			(type solid)
-			(color 255 11 0 1)
-		)
-		(fill
-			(type color)
-			(color 255 245 0 1)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(color 255 2 0 1)
-			)
-		)
-		(uuid "737e9285-d497-4620-b3d6-3e2778ccba0a")
-	)
-	(text_box "ADJUST V_{REF} DIVIDER VALUES TO LIMIT MAX CURRENT FOR STEERING MOTOR! Split onto separate SCM page\n"
-		(exclude_from_sim no)
-		(at 251.46 256.54 0)
-		(size 57.15 5.9929)
-		(margins 0.9525 0.9525 0.9525 0.9525)
-		(stroke
-			(width 0)
-			(type solid)
-			(color 255 11 0 1)
-		)
-		(fill
-			(type color)
-			(color 255 245 0 1)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(color 255 2 0 1)
-			)
-		)
-		(uuid "899e02fe-927a-4bb7-b8f0-1928bc4cbf0b")
-	)
-	(text_box "DOUBLE CHECK THAT ALL XH CONNECTORS HAVE ALIGNMENT PIN. CONFIRM CONNECTOR COLORS, AND NO POTENTIAL FOR PLUGGING IN WRONG CONNECTOR."
-		(exclude_from_sim no)
-		(at 251.46 247.65 0)
-		(size 57.15 7.62)
-		(margins 0.9525 0.9525 0.9525 0.9525)
-		(stroke
-			(width 0)
-			(type solid)
-			(color 255 11 0 1)
-		)
-		(fill
-			(type color)
-			(color 255 245 0 1)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(color 255 2 0 1)
-			)
-		)
-		(uuid "a11e799f-b812-4f2a-b28c-d74e15628b5a")
-	)
-	(text_box "Make steering FB connector Red!\nMake 12V Yellow, 5V Red, 3.3V Orange"
-		(exclude_from_sim no)
-		(at 262.89 234.95 0)
-		(size 43.18 7.62)
-		(margins 0.9525 0.9525 0.9525 0.9525)
-		(stroke
-			(width 0)
-			(type solid)
-			(color 255 11 0 1)
-		)
-		(fill
-			(type color)
-			(color 255 245 0 1)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(color 255 2 0 1)
-			)
-		)
-		(uuid "be7b4a68-73d5-4303-a788-66e847895bc6")
-	)
 	(text_box "Kill Switch"
 		(exclude_from_sim no)
 		(at 52.07 52.07 0)
@@ -2642,34 +2655,136 @@
 		(uuid "eb9b4b2c-66ae-4695-80b2-f4b79b07c044")
 	)
 	(junction
-		(at 287.02 170.18)
+		(at 366.1036 215.9)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "03d2dd4d-953d-4150-b168-092fbb3799db")
+	)
+	(junction
+		(at 361.95 162.56)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0469e376-624f-4a9a-afb5-942f414631d0")
+	)
+	(junction
+		(at 281.94 170.18)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "047c586f-e821-4f80-ae58-fa21e13efcc6")
 	)
 	(junction
-		(at 292.1 182.88)
+		(at 245.11 38.1)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "08709cfd-2839-4855-97b6-a2b804361d0e")
+	)
+	(junction
+		(at 287.02 182.88)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "0a5bb3db-d815-49e4-9639-2a44262ffc47")
 	)
 	(junction
-		(at 289.56 165.1)
+		(at 245.11 87.63)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0bba59c3-5585-434e-bfde-f2dfb1120439")
+	)
+	(junction
+		(at 284.48 165.1)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "136aab2a-a682-43c3-9163-99ba8e365410")
 	)
 	(junction
-		(at 287.02 195.58)
+		(at 375.92 187.96)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "19852dca-42fc-4769-aff8-50a073d6496f")
+	)
+	(junction
+		(at 245.11 43.18)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1d3e244a-5364-464c-a00b-f76da05f7163")
+	)
+	(junction
+		(at 245.11 213.36)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "235dad37-b084-4f5c-b9d9-6d2f4b7080c4")
+	)
+	(junction
+		(at 245.11 92.71)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2434f33b-39d9-44ba-a69b-70da228e7403")
+	)
+	(junction
+		(at 245.11 100.33)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "26eaecab-1058-42a9-9b6d-116f770fc94f")
+	)
+	(junction
+		(at 361.8092 128.27)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2a0ba3fd-8b42-4e32-9998-23a41d9d04d5")
+	)
+	(junction
+		(at 50.8 40.64)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2c94af4a-fdb6-4bc2-b121-6f65081aa6d5")
+	)
+	(junction
+		(at 281.94 195.58)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "303b2259-07d4-4235-8b1e-d81a7a7b99dd")
 	)
 	(junction
-		(at 374.65 162.56)
+		(at 361.95 213.36)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "329803e5-4c88-40ac-8749-374ed84006d9")
+		(uuid "388f8212-81a3-48fe-8697-17371c268c57")
+	)
+	(junction
+		(at 367.03 165.1)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3ddde195-92de-4b18-a2f6-047a89e5db2c")
+	)
+	(junction
+		(at 367.03 135.89)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4274f741-89fa-4b17-a23a-91b3d6f721fa")
+	)
+	(junction
+		(at 162.56 177.8)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "57ad9f02-6b75-4a4f-bdf1-144481455722")
+	)
+	(junction
+		(at 361.8092 133.35)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "57f2f4c1-fb52-4980-aa83-205d167293dd")
+	)
+	(junction
+		(at 245.11 123.19)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "59198463-e7ce-43b4-b45c-445d550b1be7")
+	)
+	(junction
+		(at 240.03 132.08)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5ab578bd-e18b-46c8-935e-26d8fe04cd15")
 	)
 	(junction
 		(at 90.17 76.2)
@@ -2678,16 +2793,94 @@
 		(uuid "6191b839-d209-4c4e-8ea1-651d5d4a842b")
 	)
 	(junction
+		(at 240.03 125.73)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6316a8bd-715a-419d-bc7a-9dcbc7b3190f")
+	)
+	(junction
+		(at 245.11 157.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "652ed439-3f70-4dbc-a0e2-1b7f30ced000")
+	)
+	(junction
+		(at 375.92 162.56)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6a8da815-fd6e-4322-a9e4-cfd89755bda5")
+	)
+	(junction
+		(at 240.03 53.34)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6eec1648-0d24-4982-bb06-d99d6d5fb377")
+	)
+	(junction
+		(at 245.11 187.96)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6f896b6d-c6b0-4fab-a993-c20ab4c04b4e")
+	)
+	(junction
+		(at 240.03 73.66)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "70b12543-494f-45ab-a457-c1162767ba6f")
+	)
+	(junction
 		(at 90.17 59.69)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "716e2e14-8ec6-4814-a288-a3c319eb60c3")
 	)
 	(junction
-		(at 374.65 165.1)
+		(at 240.03 165.1)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "8d983956-1ead-42db-9e29-3214e609ec7b")
+		(uuid "71c48008-30a6-4c43-a7d7-1136b25099de")
+	)
+	(junction
+		(at 245.11 71.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "763b8492-1bf7-40f0-94fe-4b060903c89e")
+	)
+	(junction
+		(at 240.03 45.72)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "797a295f-0e1e-4583-b061-3493cd90b5c1")
+	)
+	(junction
+		(at 240.03 160.02)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7b9b5c22-e3d4-46bc-b314-899ba6bb90fa")
+	)
+	(junction
+		(at 375.92 190.5)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7ff72ce0-95e7-4050-b64c-fa7bcb922872")
+	)
+	(junction
+		(at 240.03 140.97)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "83893a23-2abc-4941-a1c7-fabc3b4caa3b")
+	)
+	(junction
+		(at 240.03 90.17)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "900c54f8-dc32-4c60-9504-41fb584a57ee")
+	)
+	(junction
+		(at 162.56 182.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9058b67d-ad70-4ecb-8ee7-fbd2fbc59dcf")
 	)
 	(junction
 		(at 45.72 40.64)
@@ -2696,19 +2889,73 @@
 		(uuid "9701953b-6911-443d-be2e-a3ec77556598")
 	)
 	(junction
+		(at 45.72 43.18)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9a0940c3-aeb2-4f14-8e52-996e636ee036")
+	)
+	(junction
+		(at 245.11 134.62)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9a5da9ae-2df9-474a-b146-fc385c0a90bb")
+	)
+	(junction
 		(at 90.17 46.99)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9e61b229-6f26-4ff2-9f74-389b853cca56")
 	)
 	(junction
-		(at 374.65 187.96)
+		(at 157.48 175.26)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "af681af1-fbd1-4e59-8d16-d3aa8fd88cdf")
+		(uuid "9eff6721-2d37-4a10-a142-60f8ce460100")
 	)
 	(junction
-		(at 292.1 157.48)
+		(at 375.92 165.1)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a7962bf2-3d17-4f59-853c-a9b9c07b1b1c")
+	)
+	(junction
+		(at 157.48 180.34)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a83ace93-e200-4f4c-8cd1-29bc6f066a37")
+	)
+	(junction
+		(at 118.11 52.07)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "abfc424a-bed5-4436-8aaf-076b76febd0d")
+	)
+	(junction
+		(at 240.03 40.64)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ade33524-6ee7-4cf5-9e41-6a83e0028789")
+	)
+	(junction
+		(at 366.8892 130.81)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ae1e6bcc-7d56-48c3-b9ee-02f12e9c8ccf")
+	)
+	(junction
+		(at 245.11 162.56)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b593d83b-db55-4c34-9777-aa925b834f98")
+	)
+	(junction
+		(at 245.11 48.26)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b9b287ef-723c-4eba-a89c-f68f82c2dd1f")
+	)
+	(junction
+		(at 287.02 157.48)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "bc45100e-d106-44c4-8781-f96424fd3ce8")
@@ -2720,16 +2967,82 @@
 		(uuid "bc8feb91-952d-4d62-95eb-36e32414a43a")
 	)
 	(junction
-		(at 374.65 190.5)
+		(at 240.03 120.65)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "c11c36bf-d7e1-4650-b454-95939cea7b8d")
+		(uuid "bfdb6844-4c13-4909-b851-2c09a63611ea")
 	)
 	(junction
-		(at 289.56 190.5)
+		(at 240.03 81.28)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c8472020-6472-4641-8eb5-a48af629aef4")
+	)
+	(junction
+		(at 240.03 97.79)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ce3a0a43-e4fe-42c5-b6ef-ad530246cd4f")
+	)
+	(junction
+		(at 240.03 185.42)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ce9107b3-5cfd-4512-a918-4097e22f2ea9")
+	)
+	(junction
+		(at 240.03 210.82)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "cee9beb3-9b6a-4059-a14f-a70d89711180")
+	)
+	(junction
+		(at 245.11 170.18)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d0971d7b-16a4-4fdc-b6bf-52a12a39bb56")
+	)
+	(junction
+		(at 284.48 190.5)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d4fbb52f-ebc3-4a12-b021-e1888fbd7d0a")
+	)
+	(junction
+		(at 367.03 190.5)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d9a7c791-09a0-45e3-848d-924f26b46d3a")
+	)
+	(junction
+		(at 245.11 143.51)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "dfdf0505-7b0d-4291-be70-49dabcc7372a")
+	)
+	(junction
+		(at 113.03 49.53)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e5365272-0722-4181-89e4-755572d2cabb")
+	)
+	(junction
+		(at 240.03 102.87)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ecd7111a-0d4d-43db-a2e7-928ead39e6cf")
+	)
+	(junction
+		(at 245.11 78.74)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f8578a4a-d2fc-481c-8ea8-d6a207235214")
+	)
+	(junction
+		(at 361.95 187.96)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ff58c5ba-5b13-4afd-b408-676c31b05b15")
 	)
 	(junction
 		(at 118.11 49.53)
@@ -2738,24 +3051,24 @@
 		(uuid "ff5ee59f-5ac1-4f36-940f-2f18f4f826f2")
 	)
 	(no_connect
-		(at 299.72 218.44)
+		(at 294.64 218.44)
 		(uuid "04101629-2d4d-4600-b0c1-1e4fcf4842e1")
 	)
 	(no_connect
-		(at 299.72 193.04)
+		(at 294.64 193.04)
 		(uuid "2169c108-420d-4991-84d9-13ba38948eb0")
 	)
 	(no_connect
-		(at 299.72 167.64)
+		(at 294.64 167.64)
 		(uuid "4bd6cbc9-7a97-435c-b96f-52b8641c064f")
 	)
 	(no_connect
-		(at 299.72 118.11)
+		(at 294.64 118.11)
 		(uuid "c7b9a822-bf33-4b07-914e-93a1aecbaeb8")
 	)
 	(wire
 		(pts
-			(xy 374.65 165.1) (xy 377.19 165.1)
+			(xy 375.92 165.1) (xy 378.46 165.1)
 		)
 		(stroke
 			(width 0)
@@ -2765,7 +3078,7 @@
 	)
 	(wire
 		(pts
-			(xy 292.1 182.88) (xy 292.1 157.48)
+			(xy 287.02 182.88) (xy 287.02 157.48)
 		)
 		(stroke
 			(width 0)
@@ -2775,7 +3088,7 @@
 	)
 	(wire
 		(pts
-			(xy 337.82 162.56) (xy 374.65 162.56)
+			(xy 332.74 162.56) (xy 361.95 162.56)
 		)
 		(stroke
 			(width 0)
@@ -2785,7 +3098,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 40.64) (xy 299.72 40.64)
+			(xy 229.87 40.64) (xy 240.03 40.64)
 		)
 		(stroke
 			(width 0)
@@ -2805,7 +3118,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 66.04) (xy 299.72 66.04)
+			(xy 229.87 66.04) (xy 294.64 66.04)
 		)
 		(stroke
 			(width 0)
@@ -2815,7 +3128,17 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 165.1) (xy 289.56 165.1)
+			(xy 240.03 132.08) (xy 294.64 132.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0f602790-be3e-4a57-a8b1-482d0a15e38a")
+	)
+	(wire
+		(pts
+			(xy 229.87 165.1) (xy 240.03 165.1)
 		)
 		(stroke
 			(width 0)
@@ -2835,7 +3158,17 @@
 	)
 	(wire
 		(pts
-			(xy 377.19 193.04) (xy 374.65 193.04)
+			(xy 240.03 125.73) (xy 294.64 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1410431f-6bbc-4705-bf70-f8e3cb683104")
+	)
+	(wire
+		(pts
+			(xy 378.46 193.04) (xy 375.92 193.04)
 		)
 		(stroke
 			(width 0)
@@ -2845,7 +3178,27 @@
 	)
 	(wire
 		(pts
-			(xy 299.72 208.28) (xy 292.1 208.28)
+			(xy 162.56 177.8) (xy 172.72 177.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "16ac602f-caa0-4bd5-83c7-759b3783ea7b")
+	)
+	(wire
+		(pts
+			(xy 50.8 40.64) (xy 54.61 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "16e6f8a1-5c8a-4763-b399-ac0f3fcd9801")
+	)
+	(wire
+		(pts
+			(xy 294.64 208.28) (xy 287.02 208.28)
 		)
 		(stroke
 			(width 0)
@@ -2855,7 +3208,7 @@
 	)
 	(wire
 		(pts
-			(xy 374.65 190.5) (xy 377.19 190.5)
+			(xy 375.92 190.5) (xy 378.46 190.5)
 		)
 		(stroke
 			(width 0)
@@ -2865,7 +3218,7 @@
 	)
 	(wire
 		(pts
-			(xy 374.65 187.96) (xy 377.19 187.96)
+			(xy 375.92 187.96) (xy 378.46 187.96)
 		)
 		(stroke
 			(width 0)
@@ -2875,7 +3228,17 @@
 	)
 	(wire
 		(pts
-			(xy 299.72 220.98) (xy 287.02 220.98)
+			(xy 240.03 81.28) (xy 294.64 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1ead2df2-40d7-4635-b28a-975285a44e07")
+	)
+	(wire
+		(pts
+			(xy 294.64 220.98) (xy 281.94 220.98)
 		)
 		(stroke
 			(width 0)
@@ -2885,7 +3248,7 @@
 	)
 	(wire
 		(pts
-			(xy 287.02 195.58) (xy 287.02 170.18)
+			(xy 281.94 195.58) (xy 281.94 170.18)
 		)
 		(stroke
 			(width 0)
@@ -2895,7 +3258,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 38.1) (xy 299.72 38.1)
+			(xy 229.87 38.1) (xy 245.11 38.1)
 		)
 		(stroke
 			(width 0)
@@ -2905,13 +3268,33 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 78.74) (xy 299.72 78.74)
+			(xy 240.03 120.65) (xy 294.64 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "26631db5-e2e9-4f25-b2c5-6f02138e8d57")
+	)
+	(wire
+		(pts
+			(xy 229.87 78.74) (xy 245.11 78.74)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "2861ae2e-f36f-4281-a7dd-abb8329cb4e8")
+	)
+	(wire
+		(pts
+			(xy 240.03 73.66) (xy 294.64 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "286e7e47-6ab0-45da-a18b-986cb2cc8c3c")
 	)
 	(wire
 		(pts
@@ -2925,7 +3308,7 @@
 	)
 	(wire
 		(pts
-			(xy 118.11 175.26) (xy 177.8 175.26)
+			(xy 113.03 175.26) (xy 157.48 175.26)
 		)
 		(stroke
 			(width 0)
@@ -2935,7 +3318,27 @@
 	)
 	(wire
 		(pts
-			(xy 337.82 190.5) (xy 374.65 190.5)
+			(xy 240.03 160.02) (xy 294.64 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "304e712c-58eb-4abd-8973-1c008f83cb03")
+	)
+	(wire
+		(pts
+			(xy 367.03 165.1) (xy 375.92 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "30ad980b-0b66-491a-998d-fff8529354ab")
+	)
+	(wire
+		(pts
+			(xy 332.74 190.5) (xy 367.03 190.5)
 		)
 		(stroke
 			(width 0)
@@ -2955,7 +3358,37 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 157.48) (xy 292.1 157.48)
+			(xy 245.11 134.62) (xy 294.64 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "33babd95-c83b-4409-8c05-32d2953dd20c")
+	)
+	(wire
+		(pts
+			(xy 245.11 87.63) (xy 294.64 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3444c247-a487-4320-8a33-9025b295d056")
+	)
+	(wire
+		(pts
+			(xy 245.11 100.33) (xy 294.64 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "358eaa05-7491-4ae1-8cae-47317acbd590")
+	)
+	(wire
+		(pts
+			(xy 229.87 157.48) (xy 245.11 157.48)
 		)
 		(stroke
 			(width 0)
@@ -2965,13 +3398,33 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 60.96) (xy 299.72 60.96)
+			(xy 229.87 60.96) (xy 294.64 60.96)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "38600469-7b09-465b-974e-5382dee1fdec")
+	)
+	(wire
+		(pts
+			(xy 45.72 43.18) (xy 50.8 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3b08333c-7cde-463c-a0a9-2d800aaecce3")
+	)
+	(wire
+		(pts
+			(xy 245.11 157.48) (xy 287.02 157.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3bb4d85b-10c6-441b-9efd-ff323876a3de")
 	)
 	(wire
 		(pts
@@ -2995,7 +3448,17 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 187.96) (xy 299.72 187.96)
+			(xy 245.11 71.12) (xy 294.64 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3e789059-af12-4ac4-a4f3-8b9148bea247")
+	)
+	(wire
+		(pts
+			(xy 229.87 187.96) (xy 245.11 187.96)
 		)
 		(stroke
 			(width 0)
@@ -3015,7 +3478,17 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 49.53) (xy 118.11 49.53)
+			(xy 240.03 45.72) (xy 294.64 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "41a47941-a633-4fdc-b067-5f9cbb352f1a")
+	)
+	(wire
+		(pts
+			(xy 107.95 49.53) (xy 113.03 49.53)
 		)
 		(stroke
 			(width 0)
@@ -3025,7 +3498,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 102.87) (xy 299.72 102.87)
+			(xy 229.87 102.87) (xy 240.03 102.87)
 		)
 		(stroke
 			(width 0)
@@ -3035,7 +3508,7 @@
 	)
 	(wire
 		(pts
-			(xy 292.1 208.28) (xy 292.1 182.88)
+			(xy 287.02 208.28) (xy 287.02 182.88)
 		)
 		(stroke
 			(width 0)
@@ -3045,7 +3518,7 @@
 	)
 	(wire
 		(pts
-			(xy 337.82 133.35) (xy 377.19 133.35)
+			(xy 332.74 133.35) (xy 378.46 133.35)
 		)
 		(stroke
 			(width 0)
@@ -3065,6 +3538,16 @@
 	)
 	(wire
 		(pts
+			(xy 245.11 78.74) (xy 294.64 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "47e985b0-6f7b-4a27-a37c-40815f51e851")
+	)
+	(wire
+		(pts
 			(xy 68.58 73.66) (xy 66.04 73.66)
 		)
 		(stroke
@@ -3075,13 +3558,23 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 71.12) (xy 299.72 71.12)
+			(xy 245.11 43.18) (xy 294.64 43.18)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "496d4422-1343-4eaf-bcd0-65459f9eedcd")
+		(uuid "4eb7268f-e347-46a8-a283-63b83688ecda")
+	)
+	(wire
+		(pts
+			(xy 240.03 53.34) (xy 294.64 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4f81bba4-69cb-4837-9fdc-b89f31878c73")
 	)
 	(wire
 		(pts
@@ -3095,7 +3588,17 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 97.79) (xy 299.72 97.79)
+			(xy 245.11 213.36) (xy 294.64 213.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "517728f4-4783-4eda-9d63-9735a1ebf2b0")
+	)
+	(wire
+		(pts
+			(xy 229.87 97.79) (xy 240.03 97.79)
 		)
 		(stroke
 			(width 0)
@@ -3105,7 +3608,27 @@
 	)
 	(wire
 		(pts
-			(xy 292.1 157.48) (xy 299.72 157.48)
+			(xy 229.87 73.66) (xy 240.03 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "55f326dc-e957-43a1-95bc-cb329c526c50")
+	)
+	(wire
+		(pts
+			(xy 229.87 71.12) (xy 245.11 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "56564d1c-aca2-4ba7-9d8c-16c7217f5697")
+	)
+	(wire
+		(pts
+			(xy 287.02 157.48) (xy 294.64 157.48)
 		)
 		(stroke
 			(width 0)
@@ -3115,7 +3638,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 40.64) (xy 54.61 40.64)
+			(xy 45.72 40.64) (xy 50.8 40.64)
 		)
 		(stroke
 			(width 0)
@@ -3125,7 +3648,17 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 210.82) (xy 299.72 210.82)
+			(xy 240.03 102.87) (xy 294.64 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "582fe2f4-0bb1-4ff5-9cae-f619169227ae")
+	)
+	(wire
+		(pts
+			(xy 229.87 210.82) (xy 240.03 210.82)
 		)
 		(stroke
 			(width 0)
@@ -3135,13 +3668,23 @@
 	)
 	(wire
 		(pts
-			(xy 118.11 180.34) (xy 177.8 180.34)
+			(xy 113.03 180.34) (xy 157.48 180.34)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "5cec3c71-a5a5-4ea5-9f2d-1342a5ccbe86")
+	)
+	(wire
+		(pts
+			(xy 361.95 187.96) (xy 375.92 187.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5d6ccab6-4c97-4fb8-9a2b-68acb97ec9b9")
 	)
 	(wire
 		(pts
@@ -3155,7 +3698,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 92.71) (xy 299.72 92.71)
+			(xy 229.87 92.71) (xy 245.11 92.71)
 		)
 		(stroke
 			(width 0)
@@ -3165,7 +3708,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 45.72) (xy 299.72 45.72)
+			(xy 229.87 45.72) (xy 240.03 45.72)
 		)
 		(stroke
 			(width 0)
@@ -3175,7 +3718,7 @@
 	)
 	(wire
 		(pts
-			(xy 289.56 215.9) (xy 289.56 190.5)
+			(xy 284.48 215.9) (xy 284.48 190.5)
 		)
 		(stroke
 			(width 0)
@@ -3185,7 +3728,7 @@
 	)
 	(wire
 		(pts
-			(xy 289.56 190.5) (xy 289.56 165.1)
+			(xy 284.48 190.5) (xy 284.48 165.1)
 		)
 		(stroke
 			(width 0)
@@ -3215,7 +3758,7 @@
 	)
 	(wire
 		(pts
-			(xy 374.65 185.42) (xy 374.65 187.96)
+			(xy 375.92 185.42) (xy 375.92 187.96)
 		)
 		(stroke
 			(width 0)
@@ -3225,7 +3768,17 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 81.28) (xy 299.72 81.28)
+			(xy 245.11 48.26) (xy 294.64 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6abc65e0-4700-4e4f-bd3f-665c7abf3bac")
+	)
+	(wire
+		(pts
+			(xy 229.87 81.28) (xy 240.03 81.28)
 		)
 		(stroke
 			(width 0)
@@ -3235,7 +3788,7 @@
 	)
 	(wire
 		(pts
-			(xy 374.65 160.02) (xy 374.65 162.56)
+			(xy 375.92 160.02) (xy 375.92 162.56)
 		)
 		(stroke
 			(width 0)
@@ -3245,7 +3798,7 @@
 	)
 	(wire
 		(pts
-			(xy 289.56 165.1) (xy 299.72 165.1)
+			(xy 284.48 165.1) (xy 294.64 165.1)
 		)
 		(stroke
 			(width 0)
@@ -3265,7 +3818,17 @@
 	)
 	(wire
 		(pts
-			(xy 374.65 185.42) (xy 377.19 185.42)
+			(xy 240.03 90.17) (xy 294.64 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7ab63cbc-8e6e-4994-8508-4191f55f2dfe")
+	)
+	(wire
+		(pts
+			(xy 375.92 185.42) (xy 378.46 185.42)
 		)
 		(stroke
 			(width 0)
@@ -3285,7 +3848,27 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 185.42) (xy 299.72 185.42)
+			(xy 240.03 210.82) (xy 294.64 210.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7cebf112-1dc1-4998-8f83-296100e9f03d")
+	)
+	(wire
+		(pts
+			(xy 157.48 175.26) (xy 172.72 175.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "81451b38-f593-48ce-a12f-4d3c19445a56")
+	)
+	(wire
+		(pts
+			(xy 229.87 185.42) (xy 240.03 185.42)
 		)
 		(stroke
 			(width 0)
@@ -3315,7 +3898,7 @@
 	)
 	(wire
 		(pts
-			(xy 374.65 165.1) (xy 374.65 167.64)
+			(xy 375.92 165.1) (xy 375.92 167.64)
 		)
 		(stroke
 			(width 0)
@@ -3325,7 +3908,27 @@
 	)
 	(wire
 		(pts
-			(xy 337.82 130.81) (xy 377.19 130.81)
+			(xy 240.03 40.64) (xy 294.64 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "87c7cb08-8bb1-494d-b289-422c6eac9062")
+	)
+	(wire
+		(pts
+			(xy 245.11 123.19) (xy 294.64 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8864b6ab-18f4-4ad7-b333-5978b3788e6d")
+	)
+	(wire
+		(pts
+			(xy 332.74 130.81) (xy 378.46 130.81)
 		)
 		(stroke
 			(width 0)
@@ -3345,7 +3948,7 @@
 	)
 	(wire
 		(pts
-			(xy 299.72 215.9) (xy 289.56 215.9)
+			(xy 294.64 215.9) (xy 284.48 215.9)
 		)
 		(stroke
 			(width 0)
@@ -3365,7 +3968,27 @@
 	)
 	(wire
 		(pts
-			(xy 287.02 195.58) (xy 299.72 195.58)
+			(xy 361.95 213.36) (xy 378.46 213.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9480a9f7-e963-40d0-8f78-7e5c15121eed")
+	)
+	(wire
+		(pts
+			(xy 240.03 140.97) (xy 294.64 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "94e89b7d-819a-4197-b2f7-0b8e06f7011d")
+	)
+	(wire
+		(pts
+			(xy 281.94 195.58) (xy 294.64 195.58)
 		)
 		(stroke
 			(width 0)
@@ -3375,23 +3998,13 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 100.33) (xy 299.72 100.33)
+			(xy 229.87 100.33) (xy 245.11 100.33)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "96083812-96bc-4fb0-b5d9-f765605bc8bd")
-	)
-	(wire
-		(pts
-			(xy 118.11 177.8) (xy 177.8 177.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "97b50f5c-4b2c-4038-8164-809ee2979944")
 	)
 	(wire
 		(pts
@@ -3405,6 +4018,16 @@
 	)
 	(wire
 		(pts
+			(xy 240.03 97.79) (xy 294.64 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9d72d1f2-670e-4a1d-a718-5fc8af14dd9c")
+	)
+	(wire
+		(pts
 			(xy 45.72 43.18) (xy 43.18 43.18)
 		)
 		(stroke
@@ -3415,7 +4038,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 120.65) (xy 299.72 120.65)
+			(xy 229.87 120.65) (xy 240.03 120.65)
 		)
 		(stroke
 			(width 0)
@@ -3425,7 +4048,27 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 87.63) (xy 299.72 87.63)
+			(xy 245.11 187.96) (xy 294.64 187.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a43526ca-43c6-4a6f-ab55-49c9ef18010b")
+	)
+	(wire
+		(pts
+			(xy 367.03 190.5) (xy 375.92 190.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a5eaf5d5-ebdd-4697-9cf5-ddf06abfd031")
+	)
+	(wire
+		(pts
+			(xy 229.87 87.63) (xy 245.11 87.63)
 		)
 		(stroke
 			(width 0)
@@ -3435,7 +4078,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 140.97) (xy 299.72 140.97)
+			(xy 229.87 140.97) (xy 240.03 140.97)
 		)
 		(stroke
 			(width 0)
@@ -3445,7 +4088,7 @@
 	)
 	(wire
 		(pts
-			(xy 337.82 187.96) (xy 374.65 187.96)
+			(xy 332.74 187.96) (xy 361.95 187.96)
 		)
 		(stroke
 			(width 0)
@@ -3455,7 +4098,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 134.62) (xy 299.72 134.62)
+			(xy 229.87 134.62) (xy 245.11 134.62)
 		)
 		(stroke
 			(width 0)
@@ -3465,7 +4108,17 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 170.18) (xy 287.02 170.18)
+			(xy 240.03 165.1) (xy 284.48 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ada09cce-10df-4e94-bb2f-075b3c8f49c6")
+	)
+	(wire
+		(pts
+			(xy 229.87 170.18) (xy 245.11 170.18)
 		)
 		(stroke
 			(width 0)
@@ -3475,17 +4128,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 73.66) (xy 299.72 73.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b10ef195-23fe-4c2d-a1cc-b91e62a5fe88")
-	)
-	(wire
-		(pts
-			(xy 374.65 193.04) (xy 374.65 190.5)
+			(xy 375.92 193.04) (xy 375.92 190.5)
 		)
 		(stroke
 			(width 0)
@@ -3495,7 +4138,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 53.34) (xy 299.72 53.34)
+			(xy 229.87 53.34) (xy 240.03 53.34)
 		)
 		(stroke
 			(width 0)
@@ -3505,7 +4148,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 63.5) (xy 299.72 63.5)
+			(xy 229.87 63.5) (xy 294.64 63.5)
 		)
 		(stroke
 			(width 0)
@@ -3515,7 +4158,17 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 213.36) (xy 299.72 213.36)
+			(xy 366.1036 215.9) (xy 378.46 215.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b3e39765-a3c0-40d5-b4d6-d67f6bb2428e")
+	)
+	(wire
+		(pts
+			(xy 229.87 213.36) (xy 245.11 213.36)
 		)
 		(stroke
 			(width 0)
@@ -3525,7 +4178,7 @@
 	)
 	(wire
 		(pts
-			(xy 287.02 220.98) (xy 287.02 195.58)
+			(xy 281.94 220.98) (xy 281.94 195.58)
 		)
 		(stroke
 			(width 0)
@@ -3535,7 +4188,7 @@
 	)
 	(wire
 		(pts
-			(xy 287.02 170.18) (xy 299.72 170.18)
+			(xy 281.94 170.18) (xy 294.64 170.18)
 		)
 		(stroke
 			(width 0)
@@ -3545,7 +4198,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 132.08) (xy 299.72 132.08)
+			(xy 229.87 132.08) (xy 240.03 132.08)
 		)
 		(stroke
 			(width 0)
@@ -3565,7 +4218,7 @@
 	)
 	(wire
 		(pts
-			(xy 374.65 160.02) (xy 377.19 160.02)
+			(xy 375.92 160.02) (xy 378.46 160.02)
 		)
 		(stroke
 			(width 0)
@@ -3575,7 +4228,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 48.26) (xy 299.72 48.26)
+			(xy 229.87 48.26) (xy 245.11 48.26)
 		)
 		(stroke
 			(width 0)
@@ -3595,7 +4248,7 @@
 	)
 	(wire
 		(pts
-			(xy 337.82 213.36) (xy 377.19 213.36)
+			(xy 332.74 213.36) (xy 361.95 213.36)
 		)
 		(stroke
 			(width 0)
@@ -3605,7 +4258,7 @@
 	)
 	(wire
 		(pts
-			(xy 337.82 165.1) (xy 374.65 165.1)
+			(xy 332.74 165.1) (xy 367.03 165.1)
 		)
 		(stroke
 			(width 0)
@@ -3615,7 +4268,7 @@
 	)
 	(wire
 		(pts
-			(xy 374.65 167.64) (xy 377.19 167.64)
+			(xy 375.92 167.64) (xy 378.46 167.64)
 		)
 		(stroke
 			(width 0)
@@ -3625,7 +4278,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 43.18) (xy 299.72 43.18)
+			(xy 229.87 43.18) (xy 245.11 43.18)
 		)
 		(stroke
 			(width 0)
@@ -3645,7 +4298,7 @@
 	)
 	(wire
 		(pts
-			(xy 337.82 215.9) (xy 377.19 215.9)
+			(xy 332.74 215.9) (xy 366.1036 215.9)
 		)
 		(stroke
 			(width 0)
@@ -3655,13 +4308,23 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 90.17) (xy 299.72 90.17)
+			(xy 229.87 90.17) (xy 240.03 90.17)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "c3c0e563-a67e-443a-a4e7-3ac36ad9203b")
+	)
+	(wire
+		(pts
+			(xy 113.03 52.07) (xy 118.11 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c58250c8-fafa-499d-8bf2-d53ec3573b8c")
 	)
 	(wire
 		(pts
@@ -3675,6 +4338,26 @@
 	)
 	(wire
 		(pts
+			(xy 162.56 182.88) (xy 172.72 182.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c641b2c1-c03e-4d99-b908-d6d8dec94ca0")
+	)
+	(wire
+		(pts
+			(xy 240.03 185.42) (xy 294.64 185.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c76c16b1-5a68-4495-8186-200ee311a01f")
+	)
+	(wire
+		(pts
 			(xy 68.58 46.99) (xy 90.17 46.99)
 		)
 		(stroke
@@ -3685,7 +4368,17 @@
 	)
 	(wire
 		(pts
-			(xy 337.82 135.89) (xy 377.19 135.89)
+			(xy 113.03 177.8) (xy 162.56 177.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ca13aad1-9fa6-40f9-9476-c23679caa5bc")
+	)
+	(wire
+		(pts
+			(xy 332.74 135.89) (xy 378.46 135.89)
 		)
 		(stroke
 			(width 0)
@@ -3695,7 +4388,17 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 143.51) (xy 299.72 143.51)
+			(xy 245.11 170.18) (xy 281.94 170.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ce6cc634-b907-4fec-ba3b-8d7206f04258")
+	)
+	(wire
+		(pts
+			(xy 229.87 143.51) (xy 245.11 143.51)
 		)
 		(stroke
 			(width 0)
@@ -3715,7 +4418,7 @@
 	)
 	(wire
 		(pts
-			(xy 292.1 182.88) (xy 299.72 182.88)
+			(xy 287.02 182.88) (xy 294.64 182.88)
 		)
 		(stroke
 			(width 0)
@@ -3725,7 +4428,37 @@
 	)
 	(wire
 		(pts
-			(xy 374.65 162.56) (xy 377.19 162.56)
+			(xy 245.11 162.56) (xy 294.64 162.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "da525af3-dca7-4fa3-b886-6ee6ff2b3fbe")
+	)
+	(wire
+		(pts
+			(xy 245.11 143.51) (xy 294.64 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "db05763d-6391-49e4-b351-b7c0e4ccdb54")
+	)
+	(wire
+		(pts
+			(xy 245.11 92.71) (xy 294.64 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "db09e8f5-449c-44ad-82e5-06ad92b41858")
+	)
+	(wire
+		(pts
+			(xy 375.92 162.56) (xy 378.46 162.56)
 		)
 		(stroke
 			(width 0)
@@ -3745,7 +4478,17 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 162.56) (xy 299.72 162.56)
+			(xy 361.95 162.56) (xy 375.92 162.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e73efd7d-65c8-4b8a-8e55-54a04aff1136")
+	)
+	(wire
+		(pts
+			(xy 229.87 162.56) (xy 245.11 162.56)
 		)
 		(stroke
 			(width 0)
@@ -3755,7 +4498,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 125.73) (xy 299.72 125.73)
+			(xy 229.87 125.73) (xy 240.03 125.73)
 		)
 		(stroke
 			(width 0)
@@ -3765,7 +4508,7 @@
 	)
 	(wire
 		(pts
-			(xy 289.56 190.5) (xy 299.72 190.5)
+			(xy 284.48 190.5) (xy 294.64 190.5)
 		)
 		(stroke
 			(width 0)
@@ -3775,7 +4518,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 58.42) (xy 299.72 58.42)
+			(xy 229.87 58.42) (xy 294.64 58.42)
 		)
 		(stroke
 			(width 0)
@@ -3795,7 +4538,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 123.19) (xy 299.72 123.19)
+			(xy 229.87 123.19) (xy 245.11 123.19)
 		)
 		(stroke
 			(width 0)
@@ -3805,7 +4548,17 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 160.02) (xy 299.72 160.02)
+			(xy 157.48 180.34) (xy 172.72 180.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f395432f-ed23-451b-bd65-02ceecb89a93")
+	)
+	(wire
+		(pts
+			(xy 229.87 160.02) (xy 240.03 160.02)
 		)
 		(stroke
 			(width 0)
@@ -3815,7 +4568,7 @@
 	)
 	(wire
 		(pts
-			(xy 337.82 128.27) (xy 377.19 128.27)
+			(xy 332.74 128.27) (xy 378.46 128.27)
 		)
 		(stroke
 			(width 0)
@@ -3825,7 +4578,17 @@
 	)
 	(wire
 		(pts
-			(xy 118.11 182.88) (xy 177.8 182.88)
+			(xy 113.03 49.53) (xy 118.11 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fa51a899-3eb0-4102-8241-4f286650d53f")
+	)
+	(wire
+		(pts
+			(xy 113.03 182.88) (xy 162.56 182.88)
 		)
 		(stroke
 			(width 0)
@@ -3833,8 +4596,18 @@
 		)
 		(uuid "fb1c47cc-9944-48dd-b691-bd340ec59847")
 	)
+	(wire
+		(pts
+			(xy 245.11 38.1) (xy 294.64 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fbd782af-1b45-4549-bad4-fd1667ab5b64")
+	)
 	(label "LS_C_CTRL"
-		(at 153.67 180.34 180)
+		(at 148.59 180.34 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3844,7 +4617,7 @@
 		(uuid "04ca1b84-ac76-41b1-b61d-0081dd3e433f")
 	)
 	(label "SW_FORWARD"
-		(at 257.81 90.17 0)
+		(at 252.73 90.17 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3854,7 +4627,7 @@
 		(uuid "0bde4dbd-e72a-416e-99ab-bf53c62d6e60")
 	)
 	(label "STEERING_MOTOR_OUT_B"
-		(at 342.9 215.9 0)
+		(at 335.6236 215.9 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3864,7 +4637,7 @@
 		(uuid "0ecaebf5-9238-424f-a9bd-66bf32f8bb3b")
 	)
 	(label "ACTION_CHALLENGE_TRIG1"
-		(at 257.81 78.74 0)
+		(at 252.73 78.74 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3874,7 +4647,7 @@
 		(uuid "0f09e58d-79a8-4ec8-b382-76206ee84827")
 	)
 	(label "SPKPR"
-		(at 351.79 135.89 0)
+		(at 335.28 135.89 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3884,7 +4657,7 @@
 		(uuid "0feeb339-5e79-4803-ba04-7338be8bb5ab")
 	)
 	(label "REAR_MOTOR_DIR"
-		(at 257.81 185.42 0)
+		(at 252.73 185.42 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3894,7 +4667,7 @@
 		(uuid "11882a85-8a07-49bc-b33f-8866de7c0d9d")
 	)
 	(label "DAC_I2S_BCK"
-		(at 257.81 120.65 0)
+		(at 252.73 120.65 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3904,7 +4677,7 @@
 		(uuid "189bcea7-f182-42e6-9e2d-ad6dd4f9229a")
 	)
 	(label "SPKNR"
-		(at 351.79 133.35 0)
+		(at 335.28 133.35 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3914,7 +4687,7 @@
 		(uuid "1a0704b9-d0d9-4b76-a85d-33206bcd51bb")
 	)
 	(label "LS_A_CTRL"
-		(at 153.67 175.26 180)
+		(at 148.59 175.26 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3924,7 +4697,7 @@
 		(uuid "1d93450e-7248-4097-a221-3add15fb8f44")
 	)
 	(label "FRONT_MOTOR_OUT_B"
-		(at 341.63 165.1 0)
+		(at 335.28 165.1 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3934,7 +4707,7 @@
 		(uuid "2150ca2d-05e7-484c-b23f-4eea8cbdfca4")
 	)
 	(label "GPIO_EXPANDER_SPARE"
-		(at 257.81 102.87 0)
+		(at 252.73 102.87 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3944,7 +4717,7 @@
 		(uuid "23b17eff-8794-4fc4-8a5a-e0f8fec22366")
 	)
 	(label "SPKNL"
-		(at 351.79 130.81 0)
+		(at 335.28 130.81 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3964,7 +4737,7 @@
 		(uuid "2b5e0a4e-4360-4fbe-97f4-2de3848f16e9")
 	)
 	(label "DRIVE_SOUND_A"
-		(at 257.81 45.72 0)
+		(at 252.73 45.72 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3974,7 +4747,7 @@
 		(uuid "36dad96f-bf2a-44f2-9ffa-32c3466e15fb")
 	)
 	(label "SPKPL"
-		(at 351.79 128.27 0)
+		(at 335.28 128.27 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3984,7 +4757,7 @@
 		(uuid "3a287774-abd2-4b33-baa5-e5f912c88ed6")
 	)
 	(label "DAC_I2S_LRCK"
-		(at 257.81 123.19 0)
+		(at 252.73 123.19 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3994,7 +4767,7 @@
 		(uuid "42649eb9-bc83-4d0f-9fee-88268f239871")
 	)
 	(label "DAC_MUTE"
-		(at 257.81 140.97 0)
+		(at 252.73 140.97 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4004,7 +4777,7 @@
 		(uuid "4342c783-d948-497f-b510-40c4611f2712")
 	)
 	(label "SW_REVERSE"
-		(at 257.81 87.63 0)
+		(at 252.73 87.63 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4014,7 +4787,7 @@
 		(uuid "4dbb2762-3033-46b5-9dab-59dadcb7dd4d")
 	)
 	(label "REAR_MOTOR_OUT_A"
-		(at 342.9 187.96 0)
+		(at 336.55 187.96 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4024,7 +4797,7 @@
 		(uuid "588be897-fac8-4736-a9fc-392e780f7e75")
 	)
 	(label "REMOTE_PWM_STEERING"
-		(at 257.81 60.96 0)
+		(at 252.73 60.96 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4034,7 +4807,7 @@
 		(uuid "61f1b00b-4c2a-4d00-9fd6-f92c29cea416")
 	)
 	(label "REAR_MOTOR_OUT_B"
-		(at 342.9 190.5 0)
+		(at 336.55 190.5 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4044,7 +4817,7 @@
 		(uuid "62365500-e9c2-47bd-b8e8-2067e1af93ad")
 	)
 	(label "ACTION_CHALLENGE_TRIG2"
-		(at 257.81 81.28 0)
+		(at 252.73 81.28 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4064,7 +4837,7 @@
 		(uuid "688998ff-cdd3-475b-ac03-8e1305875d1d")
 	)
 	(label "I2C_SDA"
-		(at 257.81 134.62 0)
+		(at 252.73 134.62 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4074,7 +4847,7 @@
 		(uuid "6951760d-4499-4876-9646-de25cdc4ae86")
 	)
 	(label "RP2040_SPARE1"
-		(at 257.81 97.79 0)
+		(at 252.73 97.79 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4084,7 +4857,7 @@
 		(uuid "722cb3c3-31a3-4af9-b24b-383fcab82d05")
 	)
 	(label "FRONT_MOTOR_OUT_A"
-		(at 341.63 162.56 0)
+		(at 335.28 162.56 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4094,7 +4867,7 @@
 		(uuid "8290de73-2a53-4e46-a043-5a08119a064b")
 	)
 	(label "M5_SCL"
-		(at 257.81 71.12 0)
+		(at 252.73 71.12 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4104,7 +4877,7 @@
 		(uuid "846e30f1-b452-4ece-a29b-a6f72fd49dce")
 	)
 	(label "DRIVE_PWM_THROTTLE"
-		(at 257.81 40.64 0)
+		(at 252.73 40.64 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4114,7 +4887,7 @@
 		(uuid "86fc3093-a2d9-48ef-8798-28b5e9204ba0")
 	)
 	(label "~{MOTOR_SLEEP}"
-		(at 257.81 157.48 0)
+		(at 252.73 157.48 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4124,7 +4897,7 @@
 		(uuid "889f30f1-f1bd-4e0a-a092-dc8b723193f2")
 	)
 	(label "REMOTE_PWM_EXTRA"
-		(at 257.81 66.04 0)
+		(at 252.73 66.04 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4144,7 +4917,7 @@
 		(uuid "90dcad13-2da5-4f98-98db-03426f99cebe")
 	)
 	(label "DAC_I2S_DIN"
-		(at 257.81 125.73 0)
+		(at 252.73 125.73 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4154,7 +4927,7 @@
 		(uuid "936e35ef-cfa2-4e67-a73a-6e9b9f22369e")
 	)
 	(label "RP2040_SPARE2"
-		(at 257.81 100.33 0)
+		(at 252.73 100.33 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4163,8 +4936,8 @@
 		)
 		(uuid "99af0f9c-2068-4ff8-8544-8e52d7c5b639")
 	)
-	(label "FAN_H{slash}L"
-		(at 257.81 92.71 0)
+	(label "H{slash}L"
+		(at 252.73 92.71 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4174,7 +4947,7 @@
 		(uuid "9e1b84ca-f9ce-4c19-8265-a87c7dd5ea7f")
 	)
 	(label "FRONT_MOTOR_DIR"
-		(at 257.81 160.02 0)
+		(at 252.73 160.02 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4184,7 +4957,7 @@
 		(uuid "a369acf0-2cf3-4512-b465-c55fbe06f4d7")
 	)
 	(label "DRIVE_ACTIVE_SW"
-		(at 257.81 38.1 0)
+		(at 252.73 38.1 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4194,7 +4967,7 @@
 		(uuid "a4a35fbc-cf39-4bf8-84d9-50651e1a340a")
 	)
 	(label "LS_D_CTRL"
-		(at 153.67 182.88 180)
+		(at 148.59 182.88 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4204,7 +4977,7 @@
 		(uuid "a929f6cc-516c-47af-bf38-a6fce638ac11")
 	)
 	(label "~{MOTOR_FAULT}"
-		(at 257.81 170.18 0)
+		(at 252.73 170.18 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4214,7 +4987,7 @@
 		(uuid "ba47906f-fa3c-4fe6-a19c-870fb56250e0")
 	)
 	(label "I2C_SCL"
-		(at 257.81 132.08 0)
+		(at 252.73 132.08 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4224,7 +4997,7 @@
 		(uuid "bc45339f-2fa6-4491-9cc7-485bf0db25e1")
 	)
 	(label "STEERING_MOTOR_PWM"
-		(at 257.81 213.36 0)
+		(at 252.73 213.36 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4234,7 +5007,7 @@
 		(uuid "bc7f8c48-5e3c-4149-aaf5-648c17fcdbd7")
 	)
 	(label "STEERING_FEEDBACK"
-		(at 257.81 53.34 0)
+		(at 252.73 53.34 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4244,7 +5017,7 @@
 		(uuid "c1d892b8-3f99-4635-81e9-dff09462ecf8")
 	)
 	(label "STEERING_MOTOR_OUT_A"
-		(at 342.9 213.36 0)
+		(at 335.6236 213.36 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4254,7 +5027,7 @@
 		(uuid "ccec2d64-dd6a-41b5-92bc-04e2429b9bf2")
 	)
 	(label "REAR_MOTOR_PWM"
-		(at 257.81 187.96 0)
+		(at 252.73 187.96 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4264,7 +5037,7 @@
 		(uuid "d362de94-ab38-4b9b-88dc-5c6fed85b7f0")
 	)
 	(label "LS_B_CTRL"
-		(at 153.67 177.8 180)
+		(at 148.59 177.8 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4274,7 +5047,7 @@
 		(uuid "e9243cb8-1973-484e-9e0c-993e0b8122d6")
 	)
 	(label "M5_SDA"
-		(at 257.81 73.66 0)
+		(at 252.73 73.66 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4284,7 +5057,7 @@
 		(uuid "eafb4979-d39e-437d-bdcb-2f60febff2b9")
 	)
 	(label "FRONT_MOTOR_PWM"
-		(at 257.81 162.56 0)
+		(at 252.73 162.56 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4294,7 +5067,7 @@
 		(uuid "eb169fb0-ceff-4ab5-898b-d9aa3bd3f06b")
 	)
 	(label "AMP_SD"
-		(at 257.81 143.51 0)
+		(at 252.73 143.51 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4304,7 +5077,7 @@
 		(uuid "ecea2b90-f996-43db-8246-843585e135f6")
 	)
 	(label "DRIVE_PWM_STEERING"
-		(at 257.81 43.18 0)
+		(at 252.73 43.18 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4314,7 +5087,7 @@
 		(uuid "ecf5a99d-0309-4343-8f96-fcb67377fe4b")
 	)
 	(label "STEERING_MOTOR_DIR"
-		(at 257.81 210.82 0)
+		(at 252.73 210.82 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4324,7 +5097,7 @@
 		(uuid "ef31e4f2-654d-4969-ac30-a0a9e7e0e8e1")
 	)
 	(label "REMOTE_PWM_CLOSE_OUT"
-		(at 257.81 63.5 0)
+		(at 252.73 63.5 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4334,7 +5107,7 @@
 		(uuid "f3059ca5-2014-438d-8887-36f481993b9d")
 	)
 	(label "~{MOTOR_CHOPPING}"
-		(at 257.81 165.1 0)
+		(at 252.73 165.1 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4344,7 +5117,7 @@
 		(uuid "f4d065c7-7fef-47e6-a409-2fd61818e1bb")
 	)
 	(label "DRIVE_SOUND_B"
-		(at 257.81 48.26 0)
+		(at 252.73 48.26 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4354,7 +5127,7 @@
 		(uuid "f996f460-adb1-4acf-ad39-b065701c8baf")
 	)
 	(label "REMOTE_PWM_THROTTLE"
-		(at 257.81 58.42 0)
+		(at 252.73 58.42 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4362,6 +5135,85 @@
 			(justify left bottom)
 		)
 		(uuid "fcb31522-6c38-44f7-b548-1d6634f1ef73")
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 157.48 175.26 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "004b059a-fa1b-46d6-bba6-44df94f2ba09")
+		(property "Reference" "TP101"
+			(at 154.432 173.736 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 158.75 176.5299 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 162.56 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 162.56 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 157.48 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "3b88ff62-853c-44b2-85b6-c0a4eb25262f")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP101")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "Graphic:Logo_Open_Hardware_Small")
@@ -4451,7 +5303,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "05cd3977-3e7e-46ba-b1af-694976119c0d")
-		(property "Reference" "#PWR01"
+		(property "Reference" "#PWR0109"
 			(at 85.09 73.66 0)
 			(hide yes)
 			(show_name no)
@@ -4511,7 +5363,86 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
-					(reference "#PWR01")
+					(reference "#PWR0109")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 245.11 87.63 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "06907e34-f703-45c6-8d3a-e7513e1cae3c")
+		(property "Reference" "TP126"
+			(at 241.046 86.106 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 246.38 88.8999 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 250.19 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 250.19 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 245.11 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c0c44d2d-ad99-4fab-b63c-17a73c6cd044")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP126")
 					(unit 1)
 				)
 			)
@@ -4548,7 +5479,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Fiducial:Fiducial_1mm_Mask2mm"
+		(property "Footprint" "geeks-ecu-footprints:Fiducial_1mm_Mask2mm"
 			(at 113.03 255.27 0)
 			(hide yes)
 			(show_name no)
@@ -4687,6 +5618,85 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 245.11 157.48 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "08753be5-584b-49a4-814c-21d41752ee11")
+		(property "Reference" "TP116"
+			(at 240.792 155.956 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 246.38 158.7499 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 250.19 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 250.19 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 245.11 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7a668bba-a29d-41b6-b7d7-4a3ac4091a71")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP116")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Mechanical:MountingHole_Pad")
 		(at 58.42 252.73 0)
 		(unit 1)
@@ -4720,7 +5730,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
+		(property "Footprint" "geeks-ecu-footprints:MountingHole_3.2mm_M3_Pad_Via"
 			(at 58.42 252.73 0)
 			(hide yes)
 			(show_name no)
@@ -4796,7 +5806,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Fiducial:Fiducial_1mm_Mask2mm"
+		(property "Footprint" "geeks-ecu-footprints:Fiducial_1mm_Mask2mm"
 			(at 138.43 255.27 0)
 			(hide yes)
 			(show_name no)
@@ -4839,8 +5849,87 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 240.03 185.42 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "0c295fe0-fa2c-4d6b-bbc0-7619c5d62771")
+		(property "Reference" "TP111"
+			(at 237.236 183.896 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 241.3 186.6899 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 245.11 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 245.11 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 240.03 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "bcc5f979-5bd0-4154-b0dd-8c2984777f76")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP111")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 382.27 133.35 0)
+		(at 383.54 133.35 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4850,7 +5939,7 @@
 		(dnp no)
 		(uuid "0c70788f-5686-4fdb-b956-ab74ae239462")
 		(property "Reference" "J106"
-			(at 384.81 133.604 0)
+			(at 386.08 133.604 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4861,7 +5950,7 @@
 			)
 		)
 		(property "Value" "5.08mm"
-			(at 384.81 136.144 0)
+			(at 386.08 136.144 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4872,7 +5961,7 @@
 			)
 		)
 		(property "Footprint" "geeks-ecu-footprints:TerminalBlock_CUI_TB007-508-02_1x02_P5.08mm_Horizontal"
-			(at 382.27 133.35 0)
+			(at 383.54 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4883,7 +5972,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C3816270.pdf"
-			(at 382.27 133.35 0)
+			(at 383.54 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4894,7 +5983,7 @@
 			)
 		)
 		(property "Description" "TERM BLK 2POS 5.08mm"
-			(at 382.27 133.35 0)
+			(at 383.54 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4905,7 +5994,7 @@
 			)
 		)
 		(property "MPN" "C3816270"
-			(at 382.27 133.35 0)
+			(at 383.54 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5062,7 +6151,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
+		(property "Footprint" "geeks-ecu-footprints:MountingHole_3.2mm_M3_Pad_Via"
 			(at 69.85 252.73 0)
 			(hide yes)
 			(show_name no)
@@ -5102,6 +6191,85 @@
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
 					(reference "H105")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 245.11 213.36 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "10ddf226-9abf-4ca7-b43b-7c74409dff82")
+		(property "Reference" "TP120"
+			(at 242.316 211.836 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 246.38 214.6299 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 250.19 213.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 250.19 213.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 245.11 213.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b939899c-8d9b-4ab1-b282-45e85f08a0d2")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP120")
 					(unit 1)
 				)
 			)
@@ -5198,8 +6366,87 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 245.11 38.1 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "206eefd7-f63f-4772-809b-2e015f652064")
+		(property "Reference" "TP140"
+			(at 241.046 36.576 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 246.38 39.3699 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 250.19 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 250.19 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 245.11 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "eef9ef2d-a8b4-4c09-a054-03af45f97abe")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP140")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 382.27 190.5 0)
+		(at 383.54 190.5 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5209,7 +6456,7 @@
 		(dnp no)
 		(uuid "22dbb6f1-667f-4c11-8006-d125c7cbe49f")
 		(property "Reference" "J110"
-			(at 384.81 190.754 0)
+			(at 386.08 190.754 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5220,7 +6467,7 @@
 			)
 		)
 		(property "Value" "5.08mm"
-			(at 384.81 193.294 0)
+			(at 386.08 193.294 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5231,7 +6478,7 @@
 			)
 		)
 		(property "Footprint" "geeks-ecu-footprints:TerminalBlock_CUI_TB007-508-02_1x02_P5.08mm_Horizontal"
-			(at 382.27 190.5 0)
+			(at 383.54 190.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5242,7 +6489,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C3816270.pdf"
-			(at 382.27 190.5 0)
+			(at 383.54 190.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5253,7 +6500,7 @@
 			)
 		)
 		(property "Description" "TERM BLK 2POS 5.08mm"
-			(at 382.27 190.5 0)
+			(at 383.54 190.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5264,7 +6511,7 @@
 			)
 		)
 		(property "MPN" "C3816270"
-			(at 382.27 190.5 0)
+			(at 383.54 190.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5290,6 +6537,85 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 50.8 40.64 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "22fe6800-796b-4525-8209-48abf12cb4a1")
+		(property "Reference" "TP143"
+			(at 48.006 39.116 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 52.07 41.9099 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 55.88 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 55.88 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 50.8 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "65eb3fca-36ce-4416-ad08-6c7a646b2b8b")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP143")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 45.72 45.72 0)
 		(mirror y)
@@ -5301,7 +6627,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "2fd323b9-5368-4fb3-87a4-6d51d5b356e3")
-		(property "Reference" "#PWR0105"
+		(property "Reference" "#PWR0104"
 			(at 45.72 52.07 0)
 			(hide yes)
 			(show_name no)
@@ -5361,7 +6687,402 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
-					(reference "#PWR0105")
+					(reference "#PWR0104")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 361.95 213.36 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "3131f583-7aa3-4887-9f2c-2a828f6d1eae")
+		(property "Reference" "TP153"
+			(at 359.156 211.836 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 363.22 214.6299 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 367.03 213.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 367.03 213.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 361.95 213.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5ed770dc-1b4b-40be-996f-51b990d3cdd6")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP153")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 361.8092 133.35 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "317961cc-eb9b-40a0-a6b4-59d04b48add1")
+		(property "Reference" "TP147"
+			(at 359.0152 131.826 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 363.0792 134.6199 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 366.8892 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 366.8892 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 361.8092 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "cdd54e47-97f7-461b-86e6-b02a8c638557")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP147")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 240.03 73.66 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "35b5d320-54d2-48b6-bfab-c952e4e44111")
+		(property "Reference" "TP129"
+			(at 235.966 72.136 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 241.3 74.9299 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 245.11 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 245.11 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 240.03 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "43fde68d-9325-4a98-b85f-6a853a131d25")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP129")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 245.11 48.26 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "35cd54cb-1934-49c1-a64c-bce379c0a77e")
+		(property "Reference" "TP136"
+			(at 241.046 46.736 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 246.38 49.5299 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 250.19 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 250.19 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 245.11 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "22a7737b-01a0-4652-96da-134e154164c0")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP136")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 245.11 78.74 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "37ddb5a7-58a7-4daa-8ccc-201f9e98f50b")
+		(property "Reference" "TP128"
+			(at 241.046 77.216 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 246.38 80.0099 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 250.19 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 250.19 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 245.11 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2280e502-30ad-4cac-82bf-13ddc4544408")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP128")
 					(unit 1)
 				)
 			)
@@ -5369,7 +7090,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 382.27 128.27 0)
+		(at 383.54 128.27 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5379,7 +7100,7 @@
 		(dnp no)
 		(uuid "3ad978d7-b9a8-4e02-9640-37e161f50827")
 		(property "Reference" "J105"
-			(at 384.81 128.016 0)
+			(at 386.08 128.016 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5390,7 +7111,7 @@
 			)
 		)
 		(property "Value" "5.08mm"
-			(at 384.81 130.556 0)
+			(at 386.08 130.556 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5401,7 +7122,7 @@
 			)
 		)
 		(property "Footprint" "geeks-ecu-footprints:TerminalBlock_CUI_TB007-508-02_1x02_P5.08mm_Horizontal"
-			(at 382.27 128.27 0)
+			(at 383.54 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5412,7 +7133,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C3816270.pdf"
-			(at 382.27 128.27 0)
+			(at 383.54 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5423,7 +7144,7 @@
 			)
 		)
 		(property "Description" "TERM BLK 2POS 5.08mm"
-			(at 382.27 128.27 0)
+			(at 383.54 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5434,7 +7155,7 @@
 			)
 		)
 		(property "MPN" "C3816270"
-			(at 382.27 128.27 0)
+			(at 383.54 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5454,6 +7175,164 @@
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
 					(reference "J105")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 245.11 187.96 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "3e0e4b35-4587-44e6-9bcd-b2bad2f12566")
+		(property "Reference" "TP119"
+			(at 242.316 186.436 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 246.38 189.2299 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 250.19 187.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 250.19 187.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 245.11 187.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "019c86da-768a-4368-ba41-9191a1949adc")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP119")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 240.03 53.34 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "3ec8cc6a-4eda-4dd6-8a2a-a57320908fb2")
+		(property "Reference" "TP135"
+			(at 235.966 51.816 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 241.3 54.6099 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 245.11 53.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 245.11 53.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 240.03 53.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f4e29ee6-6fd0-4dc4-bc3a-5462d30db7ec")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP135")
 					(unit 1)
 				)
 			)
@@ -5560,7 +7439,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "1N4007"
+		(property "Value" "1N4148W"
 			(at 92.964 68.326 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5571,7 +7450,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123"
+		(property "Footprint" "geeks-ecu-footprints:D_SOD-123"
 			(at 90.17 67.31 0)
 			(hide yes)
 			(show_name no)
@@ -5625,6 +7504,243 @@
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
 					(reference "D101")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 240.03 140.97 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "417465ad-5c21-4d42-bd0b-7b0537630f57")
+		(property "Reference" "TP108"
+			(at 237.236 139.446 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 241.3 142.2399 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 245.11 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 245.11 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 240.03 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "de356dc9-6566-4ed9-a1fe-499670049295")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP108")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 240.03 125.73 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "436ec34e-55fb-445b-a2ff-ee311d8236f5")
+		(property "Reference" "TP106"
+			(at 235.712 124.206 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 241.3 126.9999 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 245.11 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 245.11 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 240.03 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9f0c0717-c92a-4815-80ee-f090acbd0ccf")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP106")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 245.11 170.18 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "45b3e00b-6b17-4dd8-805b-2781d5f3d607")
+		(property "Reference" "TP118"
+			(at 240.792 168.656 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 246.38 171.4499 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 250.19 170.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 250.19 170.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 245.11 170.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "831f99b5-3a6a-49e4-8420-870e488c57d8")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP118")
 					(unit 1)
 				)
 			)
@@ -5727,6 +7843,164 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 240.03 81.28 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "49c9ae9e-1789-4a4a-94f2-d8cd48d78b23")
+		(property "Reference" "TP127"
+			(at 235.966 79.756 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 241.3 82.5499 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 245.11 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 245.11 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 240.03 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6a003752-1a16-4713-8ee4-0b148c8261be")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP127")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 367.03 165.1 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "5421fc1b-06c4-4f5d-b872-dbad4f056654")
+		(property "Reference" "TP150"
+			(at 364.236 163.576 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 368.3 166.3699 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 372.11 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 372.11 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 367.03 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a75a4616-7d4b-4f19-b1a6-9428564f3451")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP150")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+BATT")
 		(at 45.72 39.37 0)
 		(mirror y)
@@ -5738,7 +8012,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "54a57f4d-fb9f-4977-af3e-f79a063168f7")
-		(property "Reference" "#PWR0104"
+		(property "Reference" "#PWR0103"
 			(at 45.72 43.18 0)
 			(hide yes)
 			(show_name no)
@@ -5798,7 +8072,323 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
-					(reference "#PWR0104")
+					(reference "#PWR0103")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 245.11 43.18 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "5513a838-6476-4723-bb05-3454db06d8dd")
+		(property "Reference" "TP138"
+			(at 241.046 41.656 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 246.38 44.4499 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 250.19 43.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 250.19 43.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 245.11 43.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c822521c-5981-466c-b324-d08e490c82ec")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP138")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 361.95 162.56 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "55648ebc-a05d-481a-9a30-c7b140b06900")
+		(property "Reference" "TP149"
+			(at 359.156 161.036 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 363.22 163.8299 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 367.03 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 367.03 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 361.95 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "67b5cb87-3260-4b11-a29d-cd0fd305a832")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP149")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 366.1036 215.9 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "59e1d7c8-e096-48d0-aee2-d375986e50f3")
+		(property "Reference" "TP154"
+			(at 363.5636 214.376 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 367.3736 217.1699 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 371.1836 215.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 371.1836 215.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 366.1036 215.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "51f54d2a-f0bb-4f2f-9af1-4ebcefccc561")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP154")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 245.11 134.62 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "5b467803-ef79-4a55-9c9a-2a14b53c3a98")
+		(property "Reference" "TP114"
+			(at 243.078 133.096 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 246.38 135.8899 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 250.19 134.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 250.19 134.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 245.11 134.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f4910f49-321c-4588-a625-622c44732b34")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP114")
 					(unit 1)
 				)
 			)
@@ -5882,6 +8472,85 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 245.11 143.51 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "60cd81d5-8bce-439d-925f-ec21240e120f")
+		(property "Reference" "TP115"
+			(at 241.554 141.986 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 246.38 144.7799 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 250.19 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 250.19 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 245.11 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "219cc258-34d3-49d2-ba41-178d71bde881")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP115")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 35.56 255.27 0)
 		(unit 1)
@@ -5959,6 +8628,164 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 366.8892 130.81 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "6aa4ccf1-9e2b-4bc2-811f-bc6c46cf0547")
+		(property "Reference" "TP146"
+			(at 364.0952 129.286 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 368.1592 132.0799 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 371.9692 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 371.9692 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 366.8892 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "4f155bd0-b275-46c7-b28e-76c2c3f2e119")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP146")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 162.56 177.8 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "70a0578f-975b-4019-93c1-77b440569e7c")
+		(property "Reference" "TP103"
+			(at 159.512 176.276 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 163.83 179.0699 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 167.64 177.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 167.64 177.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 162.56 177.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a95f11ef-b613-46c3-a2ad-838e81204dd6")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP103")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Mechanical:Fiducial")
 		(at 151.13 255.27 0)
 		(unit 1)
@@ -5989,7 +8816,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Fiducial:Fiducial_1mm_Mask2mm"
+		(property "Footprint" "geeks-ecu-footprints:Fiducial_1mm_Mask2mm"
 			(at 151.13 255.27 0)
 			(hide yes)
 			(show_name no)
@@ -6065,7 +8892,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
+		(property "Footprint" "geeks-ecu-footprints:MountingHole_3.2mm_M3_Pad_Via"
 			(at 35.56 252.73 0)
 			(hide yes)
 			(show_name no)
@@ -6141,7 +8968,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Fiducial:Fiducial_1mm_Mask2mm"
+		(property "Footprint" "geeks-ecu-footprints:Fiducial_1mm_Mask2mm"
 			(at 163.83 255.27 0)
 			(hide yes)
 			(show_name no)
@@ -6184,6 +9011,322 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 157.48 180.34 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "77754e4c-dcce-4495-9d24-3486021f2e09")
+		(property "Reference" "TP102"
+			(at 154.432 178.816 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 158.75 181.6099 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 162.56 180.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 162.56 180.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 157.48 180.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7c3d09ce-ea1a-46e1-b7e9-d5e90abcbbd1")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP102")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 240.03 165.1 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "7856ee5b-a1de-4b95-9475-a004b0a7f37b")
+		(property "Reference" "TP110"
+			(at 235.712 163.576 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 241.3 166.3699 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 245.11 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 245.11 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 240.03 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a265a13c-c133-470d-b999-549c24a32840")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP110")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 245.11 92.71 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "7bc79487-7672-4e75-a3c6-91b123c8622a")
+		(property "Reference" "TP124"
+			(at 241.046 91.186 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 246.38 93.9799 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 250.19 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 250.19 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 245.11 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5967fb03-2922-4154-98b5-2bcb6f78380c")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP124")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 240.03 102.87 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "7cdeec4b-cece-4f30-9502-e3da177fa796")
+		(property "Reference" "TP121"
+			(at 235.966 101.346 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 241.3 104.1399 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 245.11 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 245.11 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 240.03 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7423621c-c353-4016-9575-6474bf7fa477")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP121")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
 		(at 38.1 40.64 0)
 		(mirror y)
@@ -6217,7 +9360,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "geeks-ecu-footprints:TerminalBlock_CUI_TB007-508-02_1x02_P5.08mm_Horizontal"
+		(property "Footprint" "geeks-ecu-footprints:TerminalBlock_CUI_TB005-762-02BE_1x02_P7.62mm_Horizontal"
 			(at 38.1 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -6277,6 +9420,243 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 240.03 90.17 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "7fb221ee-c370-4537-b821-32f9a2d1de1e")
+		(property "Reference" "TP125"
+			(at 235.966 88.646 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 241.3 91.4399 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 245.11 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 245.11 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 240.03 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5cf5304f-0fd2-44f7-8137-0412d6c64479")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP125")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 240.03 40.64 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "81e4777b-0e64-4e2f-9a55-5eb76b2f7ae5")
+		(property "Reference" "TP139"
+			(at 235.966 39.116 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 241.3 41.9099 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 245.11 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 245.11 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 240.03 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d6314c98-cb9e-4db5-94ba-a4b671343dba")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP139")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 361.8092 128.27 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "83a75a98-d45f-40a3-bfd0-3a39ff5629de")
+		(property "Reference" "TP145"
+			(at 359.0152 126.746 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 363.0792 129.5399 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 366.8892 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 366.8892 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 361.8092 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "775bd026-7b14-42cc-8bf9-187483e285d4")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP145")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 46.99 255.27 0)
 		(unit 1)
@@ -6287,7 +9667,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "83e9174d-6d6f-4673-94c8-6c9af2c1db5f")
-		(property "Reference" "#PWR0103"
+		(property "Reference" "#PWR0105"
 			(at 46.99 261.62 0)
 			(hide yes)
 			(show_name no)
@@ -6347,7 +9727,86 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
-					(reference "#PWR0103")
+					(reference "#PWR0105")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 240.03 45.72 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "85626979-2e9f-4d7f-a217-a9a546a888e6")
+		(property "Reference" "TP137"
+			(at 235.966 44.196 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 241.3 46.9899 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 245.11 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 245.11 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 240.03 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "97547abc-ec0f-4f88-9ae9-614c53367a57")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP137")
 					(unit 1)
 				)
 			)
@@ -6431,6 +9890,322 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 240.03 132.08 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "8c68141e-8e71-4042-bf88-01074330054e")
+		(property "Reference" "TP107"
+			(at 238.252 130.556 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 241.3 133.3499 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 245.11 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 245.11 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 240.03 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a72bb9da-797b-4698-a7ec-f006ac4cf9df")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP107")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 240.03 210.82 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "93108c67-e36b-45cf-bebd-655361c18cf3")
+		(property "Reference" "TP112"
+			(at 237.744 209.296 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 241.3 212.0899 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 245.11 210.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 245.11 210.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 240.03 210.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2bde5289-1a7a-4b25-afaa-87922eb1df00")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP112")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 245.11 123.19 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "947a1a62-0bc8-4619-adac-cd082eb194d5")
+		(property "Reference" "TP113"
+			(at 241.554 121.666 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 246.38 124.4599 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 250.19 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 250.19 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 245.11 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7cbaa516-8295-4855-bd6d-26df78bf55ae")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP113")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 240.03 97.79 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "98386ba3-f8bb-452b-aac9-64b168847d31")
+		(property "Reference" "TP123"
+			(at 235.966 96.266 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 241.3 99.0599 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 245.11 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 245.11 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 240.03 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f3ae0ede-90b3-445c-a248-44251882f600")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP123")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Mechanical:Fiducial")
 		(at 125.73 255.27 0)
 		(unit 1)
@@ -6461,7 +10236,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Fiducial:Fiducial_1mm_Mask2mm"
+		(property "Footprint" "geeks-ecu-footprints:Fiducial_1mm_Mask2mm"
 			(at 125.73 255.27 0)
 			(hide yes)
 			(show_name no)
@@ -6537,7 +10312,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
+		(property "Footprint" "geeks-ecu-footprints:MountingHole_3.2mm_M3_Pad_Via"
 			(at 24.13 252.73 0)
 			(hide yes)
 			(show_name no)
@@ -6583,6 +10358,243 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 245.11 71.12 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "a3e435c8-871a-4401-8dd1-ed10fceb12c9")
+		(property "Reference" "TP130"
+			(at 241.046 69.596 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 246.38 72.3899 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 250.19 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 250.19 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 245.11 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d398056c-e675-4d3b-98b2-ec0e2b28362e")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP130")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 240.03 160.02 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "a5dbc53c-b7db-4e17-9bf5-5f6f179235c9")
+		(property "Reference" "TP109"
+			(at 237.236 158.496 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 241.3 161.2899 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 245.11 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 245.11 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 240.03 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2e4a7616-fb8a-4834-a313-9fc00a83f02f")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP109")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 245.11 162.56 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "ae5458bd-b3b3-45cd-8aef-66f0533e528b")
+		(property "Reference" "TP117"
+			(at 242.316 161.036 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 246.38 163.8299 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 250.19 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 250.19 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 245.11 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "fe0973a7-0335-4eb4-ad5c-7670ec98b3f0")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP117")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 69.85 255.27 0)
 		(unit 1)
@@ -6593,7 +10605,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b0524620-bc9d-4887-9e94-139e3142e7a2")
-		(property "Reference" "#PWR0107"
+		(property "Reference" "#PWR0108"
 			(at 69.85 261.62 0)
 			(hide yes)
 			(show_name no)
@@ -6653,7 +10665,165 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
-					(reference "#PWR0107")
+					(reference "#PWR0108")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 367.03 190.5 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "b743b7ec-9994-4b6a-b2b4-4da6dcc0b0c8")
+		(property "Reference" "TP152"
+			(at 364.236 188.976 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 368.3 191.7699 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 372.11 190.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 372.11 190.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 367.03 190.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9a8b8586-07bd-4b91-94f5-80661a32cd75")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP152")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 113.03 49.53 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "bd597b99-49eb-4aa4-b673-faa0584d3682")
+		(property "Reference" "TP141"
+			(at 110.236 48.006 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 114.3 50.7999 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 118.11 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 118.11 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 113.03 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "3fbaf095-f95b-4ffd-98ad-b6a4eebf20a9")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP141")
 					(unit 1)
 				)
 			)
@@ -6690,7 +10860,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Fiducial:Fiducial_1mm_Mask2mm"
+		(property "Footprint" "geeks-ecu-footprints:Fiducial_1mm_Mask2mm"
 			(at 176.53 255.27 0)
 			(hide yes)
 			(show_name no)
@@ -6734,7 +10904,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 382.27 213.36 0)
+		(at 383.54 213.36 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6745,7 +10915,7 @@
 		(fields_autoplaced yes)
 		(uuid "c38cd3ec-6c6b-4e9e-9186-79087f0bc1be")
 		(property "Reference" "J111"
-			(at 384.81 213.3599 0)
+			(at 386.08 213.3599 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6756,7 +10926,7 @@
 			)
 		)
 		(property "Value" "5.08mm"
-			(at 384.81 215.8999 0)
+			(at 386.08 215.8999 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6767,7 +10937,7 @@
 			)
 		)
 		(property "Footprint" "geeks-ecu-footprints:TerminalBlock_CUI_TB007-508-02_1x02_P5.08mm_Horizontal"
-			(at 382.27 213.36 0)
+			(at 383.54 213.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6778,7 +10948,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C3816270.pdf"
-			(at 382.27 213.36 0)
+			(at 383.54 213.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6789,7 +10959,7 @@
 			)
 		)
 		(property "Description" "TERM BLK 2POS 5.08mm"
-			(at 382.27 213.36 0)
+			(at 383.54 213.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6800,7 +10970,7 @@
 			)
 		)
 		(property "MPN" "C3816270"
-			(at 382.27 213.36 0)
+			(at 383.54 213.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6837,7 +11007,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c57dc344-d255-4d75-b23c-77ab75c0b894")
-		(property "Reference" "#PWR0108"
+		(property "Reference" "#PWR0107"
 			(at 74.93 73.66 0)
 			(hide yes)
 			(show_name no)
@@ -6897,7 +11067,481 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
-					(reference "#PWR0108")
+					(reference "#PWR0107")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 367.03 135.89 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "c78e8342-d2fe-42f8-8277-c4b056f8e0d7")
+		(property "Reference" "TP148"
+			(at 364.236 134.366 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 368.3 137.1599 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 372.11 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 372.11 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 367.03 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "3ebff8bf-7af5-469f-9b38-6a8e438e82c6")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP148")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 162.56 182.88 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "d09a815f-c841-4e1b-8c0d-6d531dbea040")
+		(property "Reference" "TP104"
+			(at 159.512 181.356 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 163.83 184.1499 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 167.64 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 167.64 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 162.56 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d476dd95-948e-4539-b2bc-59993b046626")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP104")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 113.03 52.07 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "d341ac7a-8832-4e91-8246-738e7459f601")
+		(property "Reference" "TP142"
+			(at 106.172 52.07 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 114.3 53.3399 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 118.11 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 118.11 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 113.03 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "908fc5f0-1b46-4a54-99ee-6a149d5b2c6e")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP142")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 240.03 120.65 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "d3676fbb-6348-4516-9db3-49abc0e2d465")
+		(property "Reference" "TP105"
+			(at 235.966 119.126 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 241.3 121.9199 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 245.11 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 245.11 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 240.03 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c44f69f4-13be-44f2-a8b3-293d592ca1f9")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP105")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 361.95 187.96 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "d809da20-2a55-4b6a-8bec-c59d59381abf")
+		(property "Reference" "TP151"
+			(at 359.156 186.436 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 363.22 189.2299 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 367.03 187.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 367.03 187.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 361.95 187.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "57a08298-c33a-4fd9-b33c-5b397f3e06ce")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP151")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 245.11 100.33 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "db200edb-a81b-4f1d-9103-1ba13165bc8c")
+		(property "Reference" "TP122"
+			(at 241.046 98.806 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 246.38 101.5999 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 250.19 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 250.19 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 245.11 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b2856a07-16fd-4ab2-a6ca-63b02ca6575c")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP122")
 					(unit 1)
 				)
 			)
@@ -6905,7 +11549,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 382.27 165.1 0)
+		(at 383.54 165.1 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6915,7 +11559,7 @@
 		(dnp no)
 		(uuid "db3970ae-9b68-4ff8-ab3f-e608974ca14f")
 		(property "Reference" "J108"
-			(at 384.81 165.354 0)
+			(at 386.08 165.354 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6926,7 +11570,7 @@
 			)
 		)
 		(property "Value" "5.08mm"
-			(at 384.81 167.894 0)
+			(at 386.08 167.894 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6937,7 +11581,7 @@
 			)
 		)
 		(property "Footprint" "geeks-ecu-footprints:TerminalBlock_CUI_TB007-508-02_1x02_P5.08mm_Horizontal"
-			(at 382.27 165.1 0)
+			(at 383.54 165.1 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6948,7 +11592,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C3816270.pdf"
-			(at 382.27 165.1 0)
+			(at 383.54 165.1 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6959,7 +11603,7 @@
 			)
 		)
 		(property "Description" "TERM BLK 2POS 5.08mm"
-			(at 382.27 165.1 0)
+			(at 383.54 165.1 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6970,7 +11614,7 @@
 			)
 		)
 		(property "MPN" "C3816270"
-			(at 382.27 165.1 0)
+			(at 383.54 165.1 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6990,6 +11634,85 @@
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
 					(reference "J108")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 50.8 43.18 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "dd288204-cf2a-4179-9c1e-5c27c0bf9090")
+		(property "Reference" "TP144"
+			(at 52.07 43.18 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 52.07 44.4499 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:TestPoint_Pad_D1.0mm"
+			(at 55.88 43.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 55.88 43.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 50.8 43.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "90760e44-dab2-48c4-9a65-260a1d2f76ef")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
+					(reference "TP144")
 					(unit 1)
 				)
 			)
@@ -7100,7 +11823,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e4ff79ef-00f2-4a9f-ba57-482ad0b8334b")
-		(property "Reference" "R330"
+		(property "Reference" "R101"
 			(at 82.55 60.9599 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7122,7 +11845,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+		(property "Footprint" "geeks-ecu-footprints:R_1206_3216Metric"
 			(at 84.074 62.484 90)
 			(hide yes)
 			(show_name no)
@@ -7175,7 +11898,7 @@
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
-					(reference "R330")
+					(reference "R101")
 					(unit 1)
 				)
 			)
@@ -7183,7 +11906,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 382.27 185.42 0)
+		(at 383.54 185.42 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7193,7 +11916,7 @@
 		(dnp no)
 		(uuid "ef547289-cf89-4056-ba67-04af6be07b6e")
 		(property "Reference" "J109"
-			(at 384.81 185.166 0)
+			(at 386.08 185.166 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7204,7 +11927,7 @@
 			)
 		)
 		(property "Value" "5.08mm"
-			(at 384.81 187.7059 0)
+			(at 386.08 187.7059 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7215,7 +11938,7 @@
 			)
 		)
 		(property "Footprint" "geeks-ecu-footprints:TerminalBlock_CUI_TB007-508-02_1x02_P5.08mm_Horizontal"
-			(at 382.27 185.42 0)
+			(at 383.54 185.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7226,7 +11949,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C3816270.pdf"
-			(at 382.27 185.42 0)
+			(at 383.54 185.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7237,7 +11960,7 @@
 			)
 		)
 		(property "Description" "TERM BLK 2POS 5.08mm"
-			(at 382.27 185.42 0)
+			(at 383.54 185.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7248,7 +11971,7 @@
 			)
 		)
 		(property "MPN" "C3816270"
-			(at 382.27 185.42 0)
+			(at 383.54 185.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7307,7 +12030,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
+		(property "Footprint" "geeks-ecu-footprints:MountingHole_3.2mm_M3_Pad_Via"
 			(at 46.99 252.73 0)
 			(hide yes)
 			(show_name no)
@@ -7354,7 +12077,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 382.27 160.02 0)
+		(at 383.54 160.02 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7364,7 +12087,7 @@
 		(dnp no)
 		(uuid "fb564479-c4ea-409d-b396-5c93d28e3457")
 		(property "Reference" "J107"
-			(at 384.81 159.766 0)
+			(at 386.08 159.766 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7375,7 +12098,7 @@
 			)
 		)
 		(property "Value" "5.08mm"
-			(at 384.81 162.306 0)
+			(at 386.08 162.306 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7386,7 +12109,7 @@
 			)
 		)
 		(property "Footprint" "geeks-ecu-footprints:TerminalBlock_CUI_TB007-508-02_1x02_P5.08mm_Horizontal"
-			(at 382.27 160.02 0)
+			(at 383.54 160.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7397,7 +12120,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C3816270.pdf"
-			(at 382.27 160.02 0)
+			(at 383.54 160.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7408,7 +12131,7 @@
 			)
 		)
 		(property "Description" "TERM BLK 2POS 5.08mm"
-			(at 382.27 160.02 0)
+			(at 383.54 160.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7419,7 +12142,7 @@
 			)
 		)
 		(property "MPN" "C3816270"
-			(at 382.27 160.02 0)
+			(at 383.54 160.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7522,7 +12245,7 @@
 		)
 	)
 	(sheet
-		(at 299.72 154.94)
+		(at 294.64 154.94)
 		(size 38.1 17.78)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7538,7 +12261,7 @@
 		)
 		(uuid "3a2e6c58-8b80-4753-9346-5dd3398baf63")
 		(property "Sheetname" "DC Motor Controller - Front Wheels"
-			(at 299.72 154.2284 0)
+			(at 294.64 154.2284 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7549,7 +12272,7 @@
 			)
 		)
 		(property "Sheetfile" "DRV8701.kicad_sch"
-			(at 299.72 173.3046 0)
+			(at 294.64 173.3046 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7560,7 +12283,7 @@
 			)
 		)
 		(pin "DIR" input
-			(at 299.72 160.02 180)
+			(at 294.64 160.02 180)
 			(uuid "af71324f-f80c-44c0-bde8-d5505563c901")
 			(effects
 				(font
@@ -7570,7 +12293,7 @@
 			)
 		)
 		(pin "PWM" input
-			(at 299.72 162.56 180)
+			(at 294.64 162.56 180)
 			(uuid "296d2d9f-7fbd-4626-96eb-a6ff21e4f36f")
 			(effects
 				(font
@@ -7580,7 +12303,7 @@
 			)
 		)
 		(pin "~{CHOPPING}" output
-			(at 299.72 165.1 180)
+			(at 294.64 165.1 180)
 			(uuid "cb171111-9345-4114-acb3-ab9408019833")
 			(effects
 				(font
@@ -7590,7 +12313,7 @@
 			)
 		)
 		(pin "~{FAULT}" output
-			(at 299.72 170.18 180)
+			(at 294.64 170.18 180)
 			(uuid "ab05518b-1e48-4b5b-9432-5dc01ab029a8")
 			(effects
 				(font
@@ -7600,7 +12323,7 @@
 			)
 		)
 		(pin "~{SLEEP}" input
-			(at 299.72 157.48 180)
+			(at 294.64 157.48 180)
 			(uuid "37febcf1-1a2b-40ea-a1e6-ce078f9f41d6")
 			(effects
 				(font
@@ -7610,7 +12333,7 @@
 			)
 		)
 		(pin "CSA_OUT" output
-			(at 299.72 167.64 180)
+			(at 294.64 167.64 180)
 			(uuid "096afdc3-4d15-470e-9049-0a68b2c803c1")
 			(effects
 				(font
@@ -7620,7 +12343,7 @@
 			)
 		)
 		(pin "MOTOR_OUT_A" output
-			(at 337.82 162.56 0)
+			(at 332.74 162.56 0)
 			(uuid "8ee4117f-8c82-4f05-9883-70ce1e537610")
 			(effects
 				(font
@@ -7630,7 +12353,7 @@
 			)
 		)
 		(pin "MOTOR_OUT_B" output
-			(at 337.82 165.1 0)
+			(at 332.74 165.1 0)
 			(uuid "6a6e473a-ef10-4b66-992b-7a1784836cd1")
 			(effects
 				(font
@@ -7648,7 +12371,7 @@
 		)
 	)
 	(sheet
-		(at 177.8 33.02)
+		(at 172.72 33.02)
 		(size 57.15 190.5)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7664,7 +12387,7 @@
 		)
 		(uuid "4c53d881-07b3-429d-bd4a-274b24239b07")
 		(property "Sheetname" "MCU"
-			(at 177.8 32.3084 0)
+			(at 172.72 32.3084 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7675,7 +12398,7 @@
 			)
 		)
 		(property "Sheetfile" "RP2040.kicad_sch"
-			(at 177.8 224.1046 0)
+			(at 172.72 224.1046 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7686,7 +12409,7 @@
 			)
 		)
 		(pin "FRONT_MOTOR_DIR" output
-			(at 234.95 160.02 0)
+			(at 229.87 160.02 0)
 			(uuid "28142c4a-2519-49b6-bad3-3f54e1c605c4")
 			(effects
 				(font
@@ -7696,7 +12419,7 @@
 			)
 		)
 		(pin "FRONT_MOTOR_PWM" output
-			(at 234.95 162.56 0)
+			(at 229.87 162.56 0)
 			(uuid "c6e6631e-bcc6-4882-bdc2-80917cef23a7")
 			(effects
 				(font
@@ -7706,7 +12429,7 @@
 			)
 		)
 		(pin "REAR_MOTOR_DIR" output
-			(at 234.95 185.42 0)
+			(at 229.87 185.42 0)
 			(uuid "c6438b90-7ff9-4d74-aacd-90515536bb49")
 			(effects
 				(font
@@ -7716,7 +12439,7 @@
 			)
 		)
 		(pin "REAR_MOTOR_PWM" output
-			(at 234.95 187.96 0)
+			(at 229.87 187.96 0)
 			(uuid "271b1cf0-6cd5-4594-b23d-16edfb46d78e")
 			(effects
 				(font
@@ -7726,7 +12449,7 @@
 			)
 		)
 		(pin "STEERING_MOTOR_DIR" output
-			(at 234.95 210.82 0)
+			(at 229.87 210.82 0)
 			(uuid "4194a2aa-667a-4ee1-b889-00cddb06f5c4")
 			(effects
 				(font
@@ -7736,7 +12459,7 @@
 			)
 		)
 		(pin "STEERING_MOTOR_PWM" output
-			(at 234.95 213.36 0)
+			(at 229.87 213.36 0)
 			(uuid "71430f17-3564-484e-a02b-254bb4490520")
 			(effects
 				(font
@@ -7746,7 +12469,7 @@
 			)
 		)
 		(pin "ACTION_CHALLENGE_TRIG1" input
-			(at 234.95 78.74 0)
+			(at 229.87 78.74 0)
 			(uuid "1f6bdd0e-1012-4f22-aa40-177b94e7e28d")
 			(effects
 				(font
@@ -7756,7 +12479,7 @@
 			)
 		)
 		(pin "ACTION_CHALLENGE_TRIG2" input
-			(at 234.95 81.28 0)
+			(at 229.87 81.28 0)
 			(uuid "f6186ce5-c830-49b1-ad60-0760a9603f72")
 			(effects
 				(font
@@ -7766,7 +12489,7 @@
 			)
 		)
 		(pin "AMP_SD" output
-			(at 234.95 143.51 0)
+			(at 229.87 143.51 0)
 			(uuid "0340db06-f27a-4e02-8ded-c73d7c8f864d")
 			(effects
 				(font
@@ -7776,7 +12499,7 @@
 			)
 		)
 		(pin "DAC_I2S_BCK" output
-			(at 234.95 120.65 0)
+			(at 229.87 120.65 0)
 			(uuid "aa832f56-0376-4b06-8719-3475554dc2a8")
 			(effects
 				(font
@@ -7786,7 +12509,7 @@
 			)
 		)
 		(pin "DAC_I2S_DIN" output
-			(at 234.95 125.73 0)
+			(at 229.87 125.73 0)
 			(uuid "ce8652e3-4c9c-417e-b256-1ec267389770")
 			(effects
 				(font
@@ -7796,7 +12519,7 @@
 			)
 		)
 		(pin "DAC_I2S_LRCK" output
-			(at 234.95 123.19 0)
+			(at 229.87 123.19 0)
 			(uuid "66f802a1-554f-457f-94d0-a6a2fe574c0e")
 			(effects
 				(font
@@ -7806,7 +12529,7 @@
 			)
 		)
 		(pin "DAC_MUTE" output
-			(at 234.95 140.97 0)
+			(at 229.87 140.97 0)
 			(uuid "fae2e576-1a48-4d52-b505-2821d3fac9c2")
 			(effects
 				(font
@@ -7816,7 +12539,7 @@
 			)
 		)
 		(pin "DRIVE_ACTIVE_SW" input
-			(at 234.95 38.1 0)
+			(at 229.87 38.1 0)
 			(uuid "a8d0445d-c031-4f63-928b-483aa13d0412")
 			(effects
 				(font
@@ -7826,7 +12549,7 @@
 			)
 		)
 		(pin "DRIVE_PWM_STEERING" input
-			(at 234.95 43.18 0)
+			(at 229.87 43.18 0)
 			(uuid "4007ecc8-0625-4631-8f9a-7531c6702910")
 			(effects
 				(font
@@ -7836,7 +12559,7 @@
 			)
 		)
 		(pin "DRIVE_PWM_THROTTLE" input
-			(at 234.95 40.64 0)
+			(at 229.87 40.64 0)
 			(uuid "56cd66df-3d77-4013-83c1-69850f162f1c")
 			(effects
 				(font
@@ -7846,7 +12569,7 @@
 			)
 		)
 		(pin "DRIVE_SOUND_A" input
-			(at 234.95 45.72 0)
+			(at 229.87 45.72 0)
 			(uuid "f3189d6a-a6c5-481c-9234-349a89a61ab4")
 			(effects
 				(font
@@ -7856,7 +12579,7 @@
 			)
 		)
 		(pin "DRIVE_SOUND_B" input
-			(at 234.95 48.26 0)
+			(at 229.87 48.26 0)
 			(uuid "fbff3757-c08b-4bd9-999f-4b94fd20f0c5")
 			(effects
 				(font
@@ -7865,8 +12588,8 @@
 				(justify right)
 			)
 		)
-		(pin "FAN_H{slash}L" input
-			(at 234.95 92.71 0)
+		(pin "H{slash}L" input
+			(at 229.87 92.71 0)
 			(uuid "c6f9c77f-90ff-4438-b3a3-03b69f5a6882")
 			(effects
 				(font
@@ -7876,7 +12599,7 @@
 			)
 		)
 		(pin "I2C_SCL" output
-			(at 234.95 132.08 0)
+			(at 229.87 132.08 0)
 			(uuid "63b43a4f-da64-4aa3-94ca-579f2c39d2de")
 			(effects
 				(font
@@ -7886,7 +12609,7 @@
 			)
 		)
 		(pin "I2C_SDA" bidirectional
-			(at 234.95 134.62 0)
+			(at 229.87 134.62 0)
 			(uuid "dffb09de-432c-49c6-978a-5b7fcdc9bbac")
 			(effects
 				(font
@@ -7896,7 +12619,7 @@
 			)
 		)
 		(pin "LS_A_CTRL" output
-			(at 177.8 175.26 180)
+			(at 172.72 175.26 180)
 			(uuid "3b0d2602-5f58-4593-b693-3eff43ce3192")
 			(effects
 				(font
@@ -7906,7 +12629,7 @@
 			)
 		)
 		(pin "LS_B_CTRL" output
-			(at 177.8 177.8 180)
+			(at 172.72 177.8 180)
 			(uuid "499b46a9-9b46-4aee-b99e-70bc2e24f570")
 			(effects
 				(font
@@ -7916,7 +12639,7 @@
 			)
 		)
 		(pin "LS_C_CTRL" output
-			(at 177.8 180.34 180)
+			(at 172.72 180.34 180)
 			(uuid "73dec8f5-6687-460a-b515-de18aaba4d30")
 			(effects
 				(font
@@ -7926,7 +12649,7 @@
 			)
 		)
 		(pin "LS_D_CTRL" output
-			(at 177.8 182.88 180)
+			(at 172.72 182.88 180)
 			(uuid "8133a698-d4bb-4f44-9d74-953f4f7fb283")
 			(effects
 				(font
@@ -7936,7 +12659,7 @@
 			)
 		)
 		(pin "M5_SCL" output
-			(at 234.95 71.12 0)
+			(at 229.87 71.12 0)
 			(uuid "e04a5fbe-67d9-44b2-aaee-2dd79103783d")
 			(effects
 				(font
@@ -7946,7 +12669,7 @@
 			)
 		)
 		(pin "M5_SDA" bidirectional
-			(at 234.95 73.66 0)
+			(at 229.87 73.66 0)
 			(uuid "d91d4750-7f7b-4e2d-a158-c43d2293022d")
 			(effects
 				(font
@@ -7956,7 +12679,7 @@
 			)
 		)
 		(pin "REMOTE_PWM_CLOSE_OUT" input
-			(at 234.95 63.5 0)
+			(at 229.87 63.5 0)
 			(uuid "751eab44-533a-44af-ae1b-60a14c128107")
 			(effects
 				(font
@@ -7966,7 +12689,7 @@
 			)
 		)
 		(pin "REMOTE_PWM_EXTRA" input
-			(at 234.95 66.04 0)
+			(at 229.87 66.04 0)
 			(uuid "e92e4dc5-7511-4125-92aa-0d2f9d6481fb")
 			(effects
 				(font
@@ -7976,7 +12699,7 @@
 			)
 		)
 		(pin "REMOTE_PWM_STEERING" input
-			(at 234.95 60.96 0)
+			(at 229.87 60.96 0)
 			(uuid "0d056c76-9cf9-46c3-801b-86ba75ea148c")
 			(effects
 				(font
@@ -7986,7 +12709,7 @@
 			)
 		)
 		(pin "REMOTE_PWM_THROTTLE" input
-			(at 234.95 58.42 0)
+			(at 229.87 58.42 0)
 			(uuid "70a0d92f-ee85-46df-84eb-d7ebe5612fc3")
 			(effects
 				(font
@@ -7996,7 +12719,7 @@
 			)
 		)
 		(pin "STEERING_FEEDBACK" input
-			(at 234.95 53.34 0)
+			(at 229.87 53.34 0)
 			(uuid "51085084-1386-40a2-86f8-ef784da07b0d")
 			(effects
 				(font
@@ -8006,7 +12729,7 @@
 			)
 		)
 		(pin "SW_FORWARD" input
-			(at 234.95 90.17 0)
+			(at 229.87 90.17 0)
 			(uuid "ff2afbc7-9da9-4d71-a67c-e27db8edd110")
 			(effects
 				(font
@@ -8016,7 +12739,7 @@
 			)
 		)
 		(pin "SW_REVERSE" input
-			(at 234.95 87.63 0)
+			(at 229.87 87.63 0)
 			(uuid "241646e1-1e85-4a77-906c-9415f5c9b258")
 			(effects
 				(font
@@ -8026,7 +12749,7 @@
 			)
 		)
 		(pin "~{MOTOR_FAULT}" input
-			(at 234.95 170.18 0)
+			(at 229.87 170.18 0)
 			(uuid "0f275c1e-c4ad-4a7e-bae2-31d4f536a065")
 			(effects
 				(font
@@ -8036,7 +12759,7 @@
 			)
 		)
 		(pin "~{MOTOR_SLEEP}" output
-			(at 234.95 157.48 0)
+			(at 229.87 157.48 0)
 			(uuid "9d34009d-95fe-41ff-8caa-e380b01cd7e8")
 			(effects
 				(font
@@ -8046,7 +12769,7 @@
 			)
 		)
 		(pin "GPIO_EXPANDER_SPARE" bidirectional
-			(at 234.95 102.87 0)
+			(at 229.87 102.87 0)
 			(uuid "13071571-c3aa-464e-8ba4-2da1cc40b9a3")
 			(effects
 				(font
@@ -8056,7 +12779,7 @@
 			)
 		)
 		(pin "RP2040_SPARE1" bidirectional
-			(at 234.95 97.79 0)
+			(at 229.87 97.79 0)
 			(uuid "77ea398c-c94a-4a6e-8b29-464ffed1f573")
 			(effects
 				(font
@@ -8066,7 +12789,7 @@
 			)
 		)
 		(pin "RP2040_SPARE2" bidirectional
-			(at 234.95 100.33 0)
+			(at 229.87 100.33 0)
 			(uuid "2517787b-13fe-4768-a55a-3f6be51ec958")
 			(effects
 				(font
@@ -8076,7 +12799,7 @@
 			)
 		)
 		(pin "~{MOTOR_CHOPPING}" input
-			(at 234.95 165.1 0)
+			(at 229.87 165.1 0)
 			(uuid "bf6fc741-ed97-4585-9177-d19a3e287d77")
 			(effects
 				(font
@@ -8094,7 +12817,7 @@
 		)
 	)
 	(sheet
-		(at 299.72 115.57)
+		(at 294.64 115.57)
 		(size 38.1 30.48)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8110,7 +12833,7 @@
 		)
 		(uuid "6352ac4c-f953-4db5-9c6b-d1181af31aec")
 		(property "Sheetname" "Audio"
-			(at 299.72 114.8584 0)
+			(at 294.64 114.8584 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8121,7 +12844,7 @@
 			)
 		)
 		(property "Sheetfile" "audio.kicad_sch"
-			(at 299.72 146.6346 0)
+			(at 294.64 146.6346 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8132,7 +12855,7 @@
 			)
 		)
 		(pin "AMP_SD" input
-			(at 299.72 143.51 180)
+			(at 294.64 143.51 180)
 			(uuid "db610146-e406-40cd-a397-71fc112129ed")
 			(effects
 				(font
@@ -8142,7 +12865,7 @@
 			)
 		)
 		(pin "DAC_I2C_SCL" input
-			(at 299.72 132.08 180)
+			(at 294.64 132.08 180)
 			(uuid "c86564b7-d03b-425c-b736-d9b40a10c26e")
 			(effects
 				(font
@@ -8152,7 +12875,7 @@
 			)
 		)
 		(pin "DAC_I2S_MCK" input
-			(at 299.72 118.11 180)
+			(at 294.64 118.11 180)
 			(uuid "ed978e80-8cce-4e37-9d4d-11cbe440db00")
 			(effects
 				(font
@@ -8162,7 +12885,7 @@
 			)
 		)
 		(pin "DAC_I2S_LRCK" input
-			(at 299.72 123.19 180)
+			(at 294.64 123.19 180)
 			(uuid "893d8227-5c00-4efd-af8d-1d2c1232e35a")
 			(effects
 				(font
@@ -8172,7 +12895,7 @@
 			)
 		)
 		(pin "DAC_I2S_DIN" input
-			(at 299.72 125.73 180)
+			(at 294.64 125.73 180)
 			(uuid "1522e319-84ee-4c1c-987a-14ffa2e4f99b")
 			(effects
 				(font
@@ -8182,7 +12905,7 @@
 			)
 		)
 		(pin "DAC_I2S_BCK" input
-			(at 299.72 120.65 180)
+			(at 294.64 120.65 180)
 			(uuid "bf46a761-d973-49be-8118-6344f3af97de")
 			(effects
 				(font
@@ -8192,7 +12915,7 @@
 			)
 		)
 		(pin "DAC_MUTE" input
-			(at 299.72 140.97 180)
+			(at 294.64 140.97 180)
 			(uuid "7e9caeb0-6890-4725-a345-ff2af12a76ae")
 			(effects
 				(font
@@ -8202,7 +12925,7 @@
 			)
 		)
 		(pin "DAC_I2C_SDA" bidirectional
-			(at 299.72 134.62 180)
+			(at 294.64 134.62 180)
 			(uuid "01a79008-6720-4961-82c1-1f3e80019e49")
 			(effects
 				(font
@@ -8212,7 +12935,7 @@
 			)
 		)
 		(pin "SPKNL" output
-			(at 337.82 130.81 0)
+			(at 332.74 130.81 0)
 			(uuid "4297d314-53d6-41ce-8b90-778fc5a4950c")
 			(effects
 				(font
@@ -8222,7 +12945,7 @@
 			)
 		)
 		(pin "SPKNR" output
-			(at 337.82 133.35 0)
+			(at 332.74 133.35 0)
 			(uuid "785fa246-9d84-43e1-a911-b7ed5624a6f0")
 			(effects
 				(font
@@ -8232,7 +12955,7 @@
 			)
 		)
 		(pin "SPKPL" output
-			(at 337.82 128.27 0)
+			(at 332.74 128.27 0)
 			(uuid "6bdf6620-d7a6-40d2-a58e-8fb4ea89cf74")
 			(effects
 				(font
@@ -8242,7 +12965,7 @@
 			)
 		)
 		(pin "SPKPR" output
-			(at 337.82 135.89 0)
+			(at 332.74 135.89 0)
 			(uuid "e2119f72-fce4-4dec-8f3f-457c8ebaa9bf")
 			(effects
 				(font
@@ -8260,7 +12983,7 @@
 		)
 	)
 	(sheet
-		(at 299.72 180.34)
+		(at 294.64 180.34)
 		(size 38.1 17.78)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8276,7 +12999,7 @@
 		)
 		(uuid "680c60af-52ab-47b1-8b00-2b709c644fd1")
 		(property "Sheetname" "DC Motor Controller - Rear Wheels"
-			(at 299.72 179.6284 0)
+			(at 294.64 179.6284 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8287,7 +13010,7 @@
 			)
 		)
 		(property "Sheetfile" "DRV8701.kicad_sch"
-			(at 299.72 198.7046 0)
+			(at 294.64 198.7046 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8298,7 +13021,7 @@
 			)
 		)
 		(pin "DIR" input
-			(at 299.72 185.42 180)
+			(at 294.64 185.42 180)
 			(uuid "18a43cbd-afe4-4ab1-a430-92dd444ae018")
 			(effects
 				(font
@@ -8308,7 +13031,7 @@
 			)
 		)
 		(pin "PWM" input
-			(at 299.72 187.96 180)
+			(at 294.64 187.96 180)
 			(uuid "4ca9d6d8-a2c3-4c6c-ba66-177905d6bca9")
 			(effects
 				(font
@@ -8318,7 +13041,7 @@
 			)
 		)
 		(pin "~{CHOPPING}" output
-			(at 299.72 190.5 180)
+			(at 294.64 190.5 180)
 			(uuid "db4c4a24-ce8d-4592-80f5-09cc8220365b")
 			(effects
 				(font
@@ -8328,7 +13051,7 @@
 			)
 		)
 		(pin "~{FAULT}" output
-			(at 299.72 195.58 180)
+			(at 294.64 195.58 180)
 			(uuid "dc3b4372-4e17-4a73-a170-6be9ff6e666e")
 			(effects
 				(font
@@ -8338,7 +13061,7 @@
 			)
 		)
 		(pin "~{SLEEP}" input
-			(at 299.72 182.88 180)
+			(at 294.64 182.88 180)
 			(uuid "5b0815b7-8531-49ea-bef6-76f30420acc0")
 			(effects
 				(font
@@ -8348,7 +13071,7 @@
 			)
 		)
 		(pin "CSA_OUT" output
-			(at 299.72 193.04 180)
+			(at 294.64 193.04 180)
 			(uuid "39a8e482-e871-4b85-a73f-c555496700c9")
 			(effects
 				(font
@@ -8358,7 +13081,7 @@
 			)
 		)
 		(pin "MOTOR_OUT_A" output
-			(at 337.82 187.96 0)
+			(at 332.74 187.96 0)
 			(uuid "ba18f3d1-b8ba-431b-b4c3-cdcd3d56fcf2")
 			(effects
 				(font
@@ -8368,7 +13091,7 @@
 			)
 		)
 		(pin "MOTOR_OUT_B" output
-			(at 337.82 190.5 0)
+			(at 332.74 190.5 0)
 			(uuid "4a74cd8b-7e5c-43b5-8373-fd757ed2c713")
 			(effects
 				(font
@@ -8386,7 +13109,7 @@
 		)
 	)
 	(sheet
-		(at 299.72 34.29)
+		(at 294.64 34.29)
 		(size 38.1 72.39)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8402,7 +13125,7 @@
 		)
 		(uuid "75652050-2907-4906-b92b-af5ffa0f2373")
 		(property "Sheetname" "IO Connectors"
-			(at 299.72 33.5784 0)
+			(at 294.64 33.5784 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8413,7 +13136,7 @@
 			)
 		)
 		(property "Sheetfile" "io_connectors.kicad_sch"
-			(at 299.72 107.2646 0)
+			(at 294.64 107.2646 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8424,7 +13147,7 @@
 			)
 		)
 		(pin "ACTION_CHALLENGE_TRIG1" output
-			(at 299.72 78.74 180)
+			(at 294.64 78.74 180)
 			(uuid "8d9c5f88-0910-4ab5-a851-d96c9e0762c4")
 			(effects
 				(font
@@ -8434,7 +13157,7 @@
 			)
 		)
 		(pin "ACTION_CHALLENGE_TRIG2" output
-			(at 299.72 81.28 180)
+			(at 294.64 81.28 180)
 			(uuid "bf29bd12-a577-4715-aab3-6d3a7fe81477")
 			(effects
 				(font
@@ -8444,7 +13167,7 @@
 			)
 		)
 		(pin "DRIVE_ACTIVE_SW" output
-			(at 299.72 38.1 180)
+			(at 294.64 38.1 180)
 			(uuid "0760765e-4abc-45f1-a903-a373e2956d5f")
 			(effects
 				(font
@@ -8454,7 +13177,7 @@
 			)
 		)
 		(pin "DRIVE_PWM_STEERING" output
-			(at 299.72 43.18 180)
+			(at 294.64 43.18 180)
 			(uuid "499bbba2-f354-4695-9c46-1538c4437a22")
 			(effects
 				(font
@@ -8464,7 +13187,7 @@
 			)
 		)
 		(pin "DRIVE_PWM_THROTTLE" output
-			(at 299.72 40.64 180)
+			(at 294.64 40.64 180)
 			(uuid "ec3e7961-7d3a-4212-8059-b2de79c7d48a")
 			(effects
 				(font
@@ -8474,7 +13197,7 @@
 			)
 		)
 		(pin "DRIVE_SOUND_A" output
-			(at 299.72 45.72 180)
+			(at 294.64 45.72 180)
 			(uuid "a4d3b01f-f13d-4ba1-9111-90a5ce1a38f2")
 			(effects
 				(font
@@ -8484,7 +13207,7 @@
 			)
 		)
 		(pin "DRIVE_SOUND_B" output
-			(at 299.72 48.26 180)
+			(at 294.64 48.26 180)
 			(uuid "f277c8f3-14d7-4491-a585-810422e90a3b")
 			(effects
 				(font
@@ -8493,8 +13216,8 @@
 				(justify left)
 			)
 		)
-		(pin "FAN_H{slash}L" input
-			(at 299.72 92.71 180)
+		(pin "H{slash}L" input
+			(at 294.64 92.71 180)
 			(uuid "0b409408-4dab-435e-9665-bd53542d8134")
 			(effects
 				(font
@@ -8504,7 +13227,7 @@
 			)
 		)
 		(pin "GPIO_EXPANDER_SPARE" bidirectional
-			(at 299.72 102.87 180)
+			(at 294.64 102.87 180)
 			(uuid "97a2083d-0d77-426b-ab44-0a76840b5030")
 			(effects
 				(font
@@ -8514,7 +13237,7 @@
 			)
 		)
 		(pin "M5_SCL" input
-			(at 299.72 71.12 180)
+			(at 294.64 71.12 180)
 			(uuid "0932645d-6c95-48d5-ada6-29dea7223098")
 			(effects
 				(font
@@ -8524,7 +13247,7 @@
 			)
 		)
 		(pin "M5_SDA" bidirectional
-			(at 299.72 73.66 180)
+			(at 294.64 73.66 180)
 			(uuid "59074b9c-d10d-4035-a63b-abc66067c9da")
 			(effects
 				(font
@@ -8534,7 +13257,7 @@
 			)
 		)
 		(pin "REMOTE_PWM_CLOSE_OUT" input
-			(at 299.72 63.5 180)
+			(at 294.64 63.5 180)
 			(uuid "8fda9176-64cf-4389-a9f4-e4c0cd489729")
 			(effects
 				(font
@@ -8544,7 +13267,7 @@
 			)
 		)
 		(pin "REMOTE_PWM_EXTRA" input
-			(at 299.72 66.04 180)
+			(at 294.64 66.04 180)
 			(uuid "8ab17a66-eb0d-45cc-8154-bb54ebea1bac")
 			(effects
 				(font
@@ -8554,7 +13277,7 @@
 			)
 		)
 		(pin "REMOTE_PWM_STEERING" input
-			(at 299.72 60.96 180)
+			(at 294.64 60.96 180)
 			(uuid "7b2dfd78-6888-4ff1-a454-c2dc904e9343")
 			(effects
 				(font
@@ -8564,7 +13287,7 @@
 			)
 		)
 		(pin "REMOTE_PWM_THROTTLE" input
-			(at 299.72 58.42 180)
+			(at 294.64 58.42 180)
 			(uuid "d0c0cb7e-4bbf-4d17-8ba7-508c7fd1207a")
 			(effects
 				(font
@@ -8574,7 +13297,7 @@
 			)
 		)
 		(pin "RP2040_SPARE1" bidirectional
-			(at 299.72 97.79 180)
+			(at 294.64 97.79 180)
 			(uuid "49296289-d95b-404d-b9a4-e91e25e233ac")
 			(effects
 				(font
@@ -8584,7 +13307,7 @@
 			)
 		)
 		(pin "RP2040_SPARE2" bidirectional
-			(at 299.72 100.33 180)
+			(at 294.64 100.33 180)
 			(uuid "a124b625-3699-4907-8e03-c738e2732011")
 			(effects
 				(font
@@ -8594,7 +13317,7 @@
 			)
 		)
 		(pin "STEERING_FEEDBACK" output
-			(at 299.72 53.34 180)
+			(at 294.64 53.34 180)
 			(uuid "34538ab9-6ad5-4cf5-8f97-f120d1680fb9")
 			(effects
 				(font
@@ -8604,7 +13327,7 @@
 			)
 		)
 		(pin "SW_FORWARD" input
-			(at 299.72 90.17 180)
+			(at 294.64 90.17 180)
 			(uuid "532bdb0a-e85d-48df-9056-06bb9353498d")
 			(effects
 				(font
@@ -8614,7 +13337,7 @@
 			)
 		)
 		(pin "SW_REVERSE" input
-			(at 299.72 87.63 180)
+			(at 294.64 87.63 180)
 			(uuid "7640e3c4-826d-41ea-9e1e-46e0d248063b")
 			(effects
 				(font
@@ -8632,7 +13355,7 @@
 		)
 	)
 	(sheet
-		(at 80.01 195.58)
+		(at 74.93 195.58)
 		(size 38.1 17.78)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8648,7 +13371,7 @@
 		)
 		(uuid "984ed624-40a7-43db-8724-402d8a770cb7")
 		(property "Sheetname" "Low Voltage Power Converters"
-			(at 80.01 194.8684 0)
+			(at 74.93 194.8684 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8659,7 +13382,7 @@
 			)
 		)
 		(property "Sheetfile" "power_converters.kicad_sch"
-			(at 80.01 213.9446 0)
+			(at 74.93 213.9446 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8678,7 +13401,7 @@
 		)
 	)
 	(sheet
-		(at 299.72 205.74)
+		(at 294.64 205.74)
 		(size 38.1 17.78)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8694,7 +13417,7 @@
 		)
 		(uuid "b4f4e654-6dda-4791-ac03-f1cd740c8e7b")
 		(property "Sheetname" "DC Motor Controller - Steering"
-			(at 299.72 205.0284 0)
+			(at 294.64 205.0284 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8704,8 +13427,8 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "DRV8701.kicad_sch"
-			(at 299.72 224.1046 0)
+		(property "Sheetfile" "DRV8701_LowCurrent.kicad_sch"
+			(at 294.64 224.1046 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8716,7 +13439,7 @@
 			)
 		)
 		(pin "DIR" input
-			(at 299.72 210.82 180)
+			(at 294.64 210.82 180)
 			(uuid "7e22f0f5-e8f6-4cda-9cbf-0ddc55f5f652")
 			(effects
 				(font
@@ -8726,7 +13449,7 @@
 			)
 		)
 		(pin "PWM" input
-			(at 299.72 213.36 180)
+			(at 294.64 213.36 180)
 			(uuid "a2ec9948-ba06-433b-bacc-ac864c6596b9")
 			(effects
 				(font
@@ -8736,7 +13459,7 @@
 			)
 		)
 		(pin "~{CHOPPING}" output
-			(at 299.72 215.9 180)
+			(at 294.64 215.9 180)
 			(uuid "b3d9b8d0-59d4-4872-831f-1c151b33b663")
 			(effects
 				(font
@@ -8746,7 +13469,7 @@
 			)
 		)
 		(pin "~{FAULT}" output
-			(at 299.72 220.98 180)
+			(at 294.64 220.98 180)
 			(uuid "29b27721-8ecc-4a65-af2a-b990a9e09b9f")
 			(effects
 				(font
@@ -8756,7 +13479,7 @@
 			)
 		)
 		(pin "~{SLEEP}" input
-			(at 299.72 208.28 180)
+			(at 294.64 208.28 180)
 			(uuid "fe9e7e0a-6153-40ef-b49a-0a3f1c3c1da1")
 			(effects
 				(font
@@ -8766,7 +13489,7 @@
 			)
 		)
 		(pin "CSA_OUT" output
-			(at 299.72 218.44 180)
+			(at 294.64 218.44 180)
 			(uuid "3dc6f133-fee1-454b-a825-72b23cdd44ca")
 			(effects
 				(font
@@ -8776,7 +13499,7 @@
 			)
 		)
 		(pin "MOTOR_OUT_A" output
-			(at 337.82 213.36 0)
+			(at 332.74 213.36 0)
 			(uuid "5ca2d9a3-7fdb-4383-95fd-5e238a699319")
 			(effects
 				(font
@@ -8786,7 +13509,7 @@
 			)
 		)
 		(pin "MOTOR_OUT_B" output
-			(at 337.82 215.9 0)
+			(at 332.74 215.9 0)
 			(uuid "0c5cb337-2bd0-4c89-bee2-e2690242f130")
 			(effects
 				(font
@@ -8804,7 +13527,7 @@
 		)
 	)
 	(sheet
-		(at 80.01 156.21)
+		(at 74.93 156.21)
 		(size 38.1 31.75)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8820,7 +13543,7 @@
 		)
 		(uuid "d37f46ef-594c-442d-9e1c-e8be24fd25de")
 		(property "Sheetname" "12V Buck-Boost Converter"
-			(at 80.01 155.4984 0)
+			(at 74.93 155.4984 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8831,7 +13554,7 @@
 			)
 		)
 		(property "Sheetfile" "LM5176.kicad_sch"
-			(at 80.01 188.5446 0)
+			(at 74.93 188.5446 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8842,7 +13565,7 @@
 			)
 		)
 		(pin "LS_A_CTRL" input
-			(at 118.11 175.26 0)
+			(at 113.03 175.26 0)
 			(uuid "5a464c81-3fb2-462d-b2fd-1da6be445f4d")
 			(effects
 				(font
@@ -8852,7 +13575,7 @@
 			)
 		)
 		(pin "LS_B_CTRL" input
-			(at 118.11 177.8 0)
+			(at 113.03 177.8 0)
 			(uuid "f61a1878-a946-4a22-9bd4-08ee011171c1")
 			(effects
 				(font
@@ -8862,7 +13585,7 @@
 			)
 		)
 		(pin "LS_C_CTRL" input
-			(at 118.11 180.34 0)
+			(at 113.03 180.34 0)
 			(uuid "5e2fc57f-c398-49ce-b5d7-840567d3066e")
 			(effects
 				(font
@@ -8872,7 +13595,7 @@
 			)
 		)
 		(pin "LS_D_CTRL" input
-			(at 118.11 182.88 0)
+			(at 113.03 182.88 0)
 			(uuid "135ff4d7-bdc3-447c-88e4-2f0211071cd4")
 			(effects
 				(font
