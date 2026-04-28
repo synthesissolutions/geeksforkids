@@ -13068,6 +13068,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 218.44 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "5485cd81-0bec-4882-af2a-e3dffeb7007f")
 		)
@@ -13137,6 +13148,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 341.63 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 341.63 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -13304,6 +13326,17 @@
 			)
 		)
 		(property "MPN" "C14663"
+			(at 41.91 193.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 41.91 193.04 0)
 			(hide yes)
 			(show_name no)
@@ -13561,6 +13594,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 245.11 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "88eef5cd-740b-490d-a339-828d198f2d97")
 		)
@@ -13645,6 +13689,17 @@
 			)
 		)
 		(property "MPN" "C965555"
+			(at 167.64 240.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 167.64 240.03 0)
 			(hide yes)
 			(show_name no)
@@ -13743,6 +13798,17 @@
 			)
 		)
 		(property "MPN" "C14663"
+			(at 262.89 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 262.89 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -14078,6 +14144,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 255.27 240.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "f995f43f-fc46-47d0-a75a-f6057b8da31e")
 		)
@@ -14402,99 +14479,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_US")
-		(at 292.1 154.94 0)
-		(mirror y)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "1a2626f9-d012-4739-9852-63aa6b1a63b1")
-		(property "Reference" "R420"
-			(at 289.56 153.6699 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10kΩ"
-			(at 289.56 156.2099 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
-			(at 291.084 155.194 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C25804.pdf"
-			(at 292.1 154.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "RES 10kΩ ±1% 100mW 0603"
-			(at 292.1 154.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "C25804v"
-			(at 292.1 154.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "b38c0657-4543-451d-9028-0eb6fa350e73")
-		)
-		(pin "2"
-			(uuid "3394f876-4962-4f71-ab48-8127898856cb")
-		)
-		(instances
-			(project "geeks-ecu"
-				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R420")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
 		(at 237.49 38.1 0)
 		(unit 1)
@@ -14561,6 +14545,17 @@
 			)
 		)
 		(property "MPN" "C14663"
+			(at 237.49 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 237.49 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -14663,6 +14658,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 320.04 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "76ba04f1-c72c-4dc1-8167-fcad178aed8a")
 		)
@@ -14700,7 +14706,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "2.2k"
+		(property "Value" "2.2kΩ"
 			(at 260.35 146.05 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14722,7 +14728,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C4190.pdf?spm=wm.sxq.inf.ggs___wm.ssy.bg.0.xh&lcsc_vid=ElldVlQDQlVXA1BeQgUMVlBQEVdaUVcARVFWXlFXRlcxVlNRQFJdXlVTRlVZVDsOAxUeFF5JWBYZEEoKFBINSQcJGk4dAgUUFAk%3D"
 			(at 257.81 144.78 0)
 			(hide yes)
 			(show_name no)
@@ -14733,7 +14739,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "RES 2.2kΩ ±1% 100mW 0603"
 			(at 257.81 144.78 0)
 			(hide yes)
 			(show_name no)
@@ -14744,7 +14750,18 @@
 				)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "C4190"
+			(at 257.81 144.78 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 257.81 144.78 0)
 			(hide yes)
 			(show_name no)
@@ -14765,6 +14782,109 @@
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
 					(reference "R416")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_US")
+		(at 297.18 154.94 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "20bf765e-4879-4dbb-a45c-8ce6227b6677")
+		(property "Reference" "R422"
+			(at 299.72 153.6699 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10kΩ"
+			(at 299.72 156.2099 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
+			(at 298.196 155.194 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C25804.pdf"
+			(at 297.18 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "RES 10kΩ ±1% 100mW 0603"
+			(at 297.18 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C25804"
+			(at 297.18 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
+			(at 297.18 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "3ab8b9fd-db62-4031-8c3b-a645b53e3499")
+		)
+		(pin "1"
+			(uuid "ef55bf1c-de9d-4e5c-a03f-0a6cd1c50714")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
+					(reference "R422")
 					(unit 1)
 				)
 			)
@@ -14838,6 +14958,17 @@
 			)
 		)
 		(property "MPN" "C5199872"
+			(at 387.35 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 387.35 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -14940,6 +15071,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 302.26 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "d6161d15-914f-4c4d-9ecc-d7f30ae4084b")
 		)
@@ -15022,6 +15164,17 @@
 			)
 		)
 		(property "MPN" "C14663"
+			(at 92.71 245.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 92.71 245.11 0)
 			(hide yes)
 			(show_name no)
@@ -15116,6 +15269,17 @@
 			)
 		)
 		(property "MPN" "C99269"
+			(at 368.3 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 368.3 46.99 0)
 			(hide yes)
 			(show_name no)
@@ -15541,6 +15705,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 99.06 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "4b95b0f5-45a7-4148-a46c-4ce3aa4f65f5")
 		)
@@ -15629,6 +15804,110 @@
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
 					(reference "#PWR0450")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_US")
+		(at 292.1 154.94 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "2ee4769f-661c-4954-ae69-9c8b800539bc")
+		(property "Reference" "R420"
+			(at 289.56 153.6699 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10kΩ"
+			(at 289.56 156.2099 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
+			(at 291.084 155.194 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C25804.pdf"
+			(at 292.1 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "RES 10kΩ ±1% 100mW 0603"
+			(at 292.1 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C25804"
+			(at 292.1 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
+			(at 292.1 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "38422d8a-5ad6-4557-bcd1-58bb59c17420")
+		)
+		(pin "1"
+			(uuid "d8514346-24a0-4fb7-8898-241ba319de82")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
+					(reference "R420")
 					(unit 1)
 				)
 			)
@@ -15788,6 +16067,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 80.01 245.11 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "69a6a766-93be-4dde-be0d-f5a7167aabd2")
 		)
@@ -15937,6 +16227,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 52.07 238.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 52.07 238.76 0)
 			(hide yes)
 			(show_name no)
@@ -16113,6 +16414,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 212.09 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "9a8e724e-ad62-47c4-9789-bbd3b1586c17")
 		)
@@ -16272,6 +16584,17 @@
 			)
 		)
 		(property "MPN" "C25804"
+			(at 327.66 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 327.66 106.68 0)
 			(hide yes)
 			(show_name no)
@@ -16571,7 +16894,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C160404.pdf?spm=wm.sxq.inf.ggs___wm.ssy.bg.1.xh&lcsc_vid=ElldVlQDQlVXA1BeQgUMVlBQEVdaUVcARVFWXlFXRlcxVlNRQFJdXlxWRFVcVzsOAxUeFF5JWBYZEEoKFBINSQcJGk4dAgUUFAk%3D"
 			(at 397.51 200.66 0)
 			(hide yes)
 			(show_name no)
@@ -16582,7 +16905,29 @@
 				)
 			)
 		)
-		(property "Description" "Generic connectable mounting pin connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
+		(property "Description" "CONN HEADER SMD R/A 4POS 1mm"
+			(at 397.51 200.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C160404"
+			(at 397.51 200.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 397.51 200.66 0)
 			(hide yes)
 			(show_name no)
@@ -16826,6 +17171,28 @@
 			)
 		)
 		(property "Description" "A microcontroller by Raspberry Pi"
+			(at 167.64 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C2040"
+			(at 167.64 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 167.64 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -17094,6 +17461,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 29.21 193.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "46a9f648-6d6c-42ce-b799-3c55aed28fcb")
 		)
@@ -17342,6 +17720,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 302.26 208.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "33cd5fbb-50ec-4b39-bae6-780ef87edd5a")
 		)
@@ -17425,6 +17814,17 @@
 			)
 		)
 		(property "MPN" "C2932476"
+			(at 110.49 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 110.49 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -17738,7 +18138,7 @@
 				)
 			)
 		)
-		(property "Description" "Bidirectional transient-voltage-suppression diode"
+		(property "Description" "ESD DIODE 5VWM 10VC 13VC 15VC DFN1006-2L"
 			(at 350.52 212.09 0)
 			(hide yes)
 			(show_name no)
@@ -17750,6 +18150,17 @@
 			)
 		)
 		(property "MPN" "C110694"
+			(at 350.52 212.09 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 350.52 212.09 90)
 			(hide yes)
 			(show_name no)
@@ -17853,6 +18264,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 93.98 187.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "b0e1ce96-73eb-45ce-973f-879358499923")
 		)
@@ -17945,6 +18367,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 186.69 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "a33877b7-f7d2-4501-ba69-553a709782b3")
 		)
@@ -18027,6 +18460,17 @@
 			)
 		)
 		(property "MPN" "C25804"
+			(at 218.44 196.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 218.44 196.85 0)
 			(hide yes)
 			(show_name no)
@@ -18262,6 +18706,17 @@
 			)
 		)
 		(property "Description" "Solder Jumper, 2-pole, open"
+			(at 285.75 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 285.75 149.86 0)
 			(hide yes)
 			(show_name no)
@@ -18676,6 +19131,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 74.93 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "5"
 			(uuid "55d62fe2-980f-46fd-9856-29dadf45ed2d")
 		)
@@ -18781,6 +19247,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 99.06 200.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "f80c737e-74b9-4886-82df-41649566a8ec")
 		)
@@ -18853,7 +19330,7 @@
 				)
 			)
 		)
-		(property "Description" "Bidirectional transient-voltage-suppression diode"
+		(property "Description" "ESD DIODE 5VWM 10VC 13VC 15VC DFN1006-2L"
 			(at 336.55 212.09 0)
 			(hide yes)
 			(show_name no)
@@ -18865,6 +19342,17 @@
 			)
 		)
 		(property "MPN" "C110694"
+			(at 336.55 212.09 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 336.55 212.09 90)
 			(hide yes)
 			(show_name no)
@@ -19045,6 +19533,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 40.64 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "cd3cf4f4-8dc7-4a14-8151-25e8fe50b191")
 		)
@@ -19126,6 +19625,17 @@
 			)
 		)
 		(property "MPN" "C25190"
+			(at 120.65 109.22 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 120.65 109.22 90)
 			(hide yes)
 			(show_name no)
@@ -19305,6 +19815,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 358.14 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "8c826751-af17-452a-8b2a-0fcd630eb548")
 		)
@@ -19464,6 +19985,17 @@
 			)
 		)
 		(property "MPN" "C25190"
+			(at 120.65 111.76 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 120.65 111.76 90)
 			(hide yes)
 			(show_name no)
@@ -19801,6 +20333,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 142.24 240.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "4"
 			(uuid "3069c1b6-47f6-40d0-97fa-ef8ce3661e94")
 		)
@@ -19900,6 +20443,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 27.94 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "c7e98e64-85e9-4ea6-80ec-c1b9da905dce")
 		)
@@ -19980,6 +20534,17 @@
 			)
 		)
 		(property "MPN" "C37635414"
+			(at 59.69 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 59.69 157.48 0)
 			(hide yes)
 			(show_name no)
@@ -20088,6 +20653,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 228.6 240.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "65f792b4-f926-4801-b68f-61bfce849271")
 		)
@@ -20169,6 +20745,17 @@
 		)
 		(property "MPN" "C109318"
 			(at 191.77 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
+			(at 191.77 68.58 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20260,6 +20847,17 @@
 			)
 		)
 		(property "MPN" "C5199872"
+			(at 307.34 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 307.34 87.63 0)
 			(hide yes)
 			(show_name no)
@@ -20363,6 +20961,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 39.37 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "7097521e-3b2e-41ea-a99f-3723fba3a420")
 		)
@@ -20455,6 +21064,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 294.64 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "2859b5b6-a362-42b9-9a4f-46d17cfb9aa8")
 		)
@@ -20465,98 +21085,6 @@
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
 					(reference "R421")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_US")
-		(at 297.18 154.94 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "73010398-e56e-487e-8d83-50d9d8d34138")
-		(property "Reference" "R422"
-			(at 299.72 153.6699 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10kΩ"
-			(at 299.72 156.2099 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
-			(at 298.196 155.194 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C25804.pdf"
-			(at 297.18 154.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "RES 10kΩ ±1% 100mW 0603"
-			(at 297.18 154.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "C25804v"
-			(at 297.18 154.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "638d8481-321b-43bf-91c2-04a1c5bf0684")
-		)
-		(pin "2"
-			(uuid "655a5b81-ee28-4354-9b55-47935e347012")
-		)
-		(instances
-			(project "geeks-ecu"
-				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/4c53d881-07b3-429d-bd4a-274b24239b07"
-					(reference "R422")
 					(unit 1)
 				)
 			)
@@ -20793,6 +21321,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 242.57 240.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "08506614-3ac4-429d-b319-e5676befb02b")
 		)
@@ -20875,6 +21414,17 @@
 			)
 		)
 		(property "MPN" "C5199872"
+			(at 269.24 240.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 269.24 240.03 0)
 			(hide yes)
 			(show_name no)
@@ -21046,6 +21596,17 @@
 			)
 		)
 		(property "MPN" "C14663"
+			(at 123.19 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 123.19 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -21304,6 +21865,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 33.02 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "b60e2a7b-3264-4b74-9f45-8666a0bf4b34")
 		)
@@ -21387,6 +21959,17 @@
 			)
 		)
 		(property "MPN" "C720477"
+			(at 39.37 245.11 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 39.37 245.11 90)
 			(hide yes)
 			(show_name no)
@@ -21567,6 +22150,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 41.91 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "df49556b-0f6f-4ad6-a6f5-725cd96304d7")
 		)
@@ -21737,6 +22331,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 29.21 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "e58a8c23-9ddd-4329-bb7c-5cd9616b67b0")
 		)
@@ -21897,7 +22502,18 @@
 				)
 			)
 		)
-		(property "MPN`" "C190862"
+		(property "MPN" "C190862"
+			(at 60.96 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 60.96 118.11 0)
 			(hide yes)
 			(show_name no)
@@ -22176,6 +22792,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 400.05 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "3b69d407-43af-4867-b4dc-f1ee41e0111c")
 		)
@@ -22326,6 +22953,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 97.79 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 97.79 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -22656,6 +23294,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 289.56 198.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "3b063402-30d0-4d92-9624-51e3e89a9c35")
 		)
@@ -22904,6 +23553,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 40.64 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "7accf708-6f56-4aa3-9cc0-9c2f5f2cd9e3")
 		)
@@ -22986,6 +23646,17 @@
 			)
 		)
 		(property "MPN" "C25804"
+			(at 289.56 208.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 289.56 208.28 0)
 			(hide yes)
 			(show_name no)
@@ -23234,6 +23905,17 @@
 			)
 		)
 		(property "MPN" "C25804"
+			(at 378.46 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 378.46 106.68 0)
 			(hide yes)
 			(show_name no)
@@ -23646,6 +24328,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 140.97 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "5419b9fa-9ed1-4b0d-9eb7-bde1c042245e")
 		)
@@ -23825,6 +24518,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 347.98 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "97808948-6390-4dbc-8b4c-abb77e583e08")
 		)
@@ -23918,6 +24622,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 367.03 190.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "ebaafd90-c45a-4f8b-8117-0e156dd77420")
 		)
@@ -24000,6 +24715,17 @@
 			)
 		)
 		(property "MPN" "C14663"
+			(at 281.94 240.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 281.94 240.03 0)
 			(hide yes)
 			(show_name no)
@@ -24333,6 +25059,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 43.18 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "6"
 			(uuid "a40e129c-ccec-4bbc-8770-bf6ca27a989a")
 		)
@@ -24591,6 +25328,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 284.48 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "c9ad69a5-2ee4-4edf-9000-6de70df10146")
 		)
@@ -24837,6 +25585,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 337.82 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "1aee7868-5a31-4e60-bdc5-b4c8815ef5b1")
 		)
@@ -24919,6 +25678,17 @@
 			)
 		)
 		(property "MPN" "C14663"
+			(at 289.56 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 289.56 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -25165,6 +25935,17 @@
 			)
 		)
 		(property "MPN" "C25804"
+			(at 218.44 207.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 218.44 207.01 0)
 			(hide yes)
 			(show_name no)
@@ -25566,6 +26347,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 88.9 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "718f88ac-2c59-4cf8-8294-caa9aa86b86e")
 		)
@@ -25647,6 +26439,17 @@
 			)
 		)
 		(property "MPN" "C965555"
+			(at 193.04 240.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 193.04 240.03 0)
 			(hide yes)
 			(show_name no)
@@ -25989,6 +26792,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 80.01 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "d9a0f8fa-1f1d-471e-b41c-e8ed921658f4")
 		)
@@ -26071,6 +26885,17 @@
 			)
 		)
 		(property "MPN" "C25804"
+			(at 368.3 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 368.3 106.68 0)
 			(hide yes)
 			(show_name no)
@@ -26251,6 +27076,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 185.42 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "3076e46d-d5a5-4648-a4f9-ae2e960a70bc")
 		)
@@ -26323,6 +27159,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 93.98 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 93.98 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -26479,6 +27326,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 87.63 238.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 87.63 238.76 0)
 			(hide yes)
 			(show_name no)
@@ -26722,6 +27580,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 59.69 193.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "8ee8b94c-b424-4b1f-a280-a591510d29e3")
 		)
@@ -26771,7 +27640,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "2.2k"
+		(property "Value" "2.2kΩ"
 			(at 250.19 146.05 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26793,7 +27662,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C4190.pdf?spm=wm.sxq.inf.ggs___wm.ssy.bg.0.xh&lcsc_vid=ElldVlQDQlVXA1BeQgUMVlBQEVdaUVcARVFWXlFXRlcxVlNRQFJdXlVTRlVZVDsOAxUeFF5JWBYZEEoKFBINSQcJGk4dAgUUFAk%3D"
 			(at 247.65 144.78 0)
 			(hide yes)
 			(show_name no)
@@ -26804,7 +27673,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "RES 2.2kΩ ±1% 100mW 0603"
 			(at 247.65 144.78 0)
 			(hide yes)
 			(show_name no)
@@ -26815,7 +27684,18 @@
 				)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "C4190"
+			(at 247.65 144.78 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 247.65 144.78 0)
 			(hide yes)
 			(show_name no)
@@ -26908,6 +27788,17 @@
 			)
 		)
 		(property "MPN" "C25804"
+			(at 73.66 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 73.66 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -27087,6 +27978,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 234.95 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "ef0dda3e-ac5f-4c4a-8502-adf9e71962f3")
 		)
@@ -27244,6 +28146,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 285.75 144.78 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "11790c3b-eb21-456f-895c-b21dd5bff490")
 		)
@@ -27326,6 +28239,17 @@
 			)
 		)
 		(property "MPN" "C5199872"
+			(at 276.86 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 276.86 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -27428,6 +28352,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 199.39 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "2b0c7b36-288d-4abd-b91b-ac67fdc133de")
 		)
@@ -27520,6 +28455,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 215.9 240.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "88816622-19b7-465b-ad40-eec07142f063")
 		)
@@ -27602,6 +28548,17 @@
 			)
 		)
 		(property "MPN" "C148077"
+			(at 314.96 134.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 314.96 134.62 0)
 			(hide yes)
 			(show_name no)
@@ -27763,6 +28720,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 97.79 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "58a353a5-c3b0-43d4-aeb9-5b540d48ee2b")
 		)
@@ -27842,6 +28810,17 @@
 			)
 		)
 		(property "MPN" "C5199872"
+			(at 173.99 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 173.99 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -28012,6 +28991,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 105.41 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "00709a6a-8cf4-4144-8c73-300feb485331")
 		)
@@ -28091,6 +29081,17 @@
 			)
 		)
 		(property "MPN" "C14663"
+			(at 224.79 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 224.79 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -28193,6 +29194,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 250.19 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "a2e120f5-9029-4e65-b9e3-eb0c3224ca6a")
 		)
@@ -28276,6 +29288,17 @@
 			)
 		)
 		(property "MPN" "C5199872"
+			(at 354.33 190.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 354.33 190.5 0)
 			(hide yes)
 			(show_name no)

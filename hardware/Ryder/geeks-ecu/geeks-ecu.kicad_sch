@@ -5203,6 +5203,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 157.48 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "3b88ff62-853c-44b2-85b6-c0a4eb25262f")
 		)
@@ -5436,6 +5447,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 245.11 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "c0c44d2d-ad99-4fab-b63c-17a73c6cd044")
 		)
@@ -5502,6 +5524,17 @@
 			)
 		)
 		(property "Description" "Fiducial Marker"
+			(at 113.03 255.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 113.03 255.27 0)
 			(hide yes)
 			(show_name no)
@@ -5599,6 +5632,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 60.96 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "bfed1732-818a-48b9-9a3d-3c5f5b9bbf3d")
 		)
@@ -5674,6 +5718,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 245.11 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 245.11 157.48 0)
 			(hide yes)
 			(show_name no)
@@ -5763,6 +5818,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 58.42 252.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "dbc20e40-fa66-41fe-b6f2-023ee10891a3")
 		)
@@ -5839,6 +5905,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 138.43 255.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
@@ -5905,6 +5982,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 240.03 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 240.03 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -6004,6 +6092,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 383.54 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "18ed21b7-f97e-4228-b076-358c1b0d91c8")
 		)
@@ -6025,9 +6124,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0e507824-5adf-41dd-9ced-0d2cda519ba3")
@@ -6087,6 +6186,17 @@
 		)
 		(property "MPN" "J115F11A24VDCS6.9"
 			(at 100.33 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
+			(at 100.33 54.61 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6184,6 +6294,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 69.85 252.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "169d4262-cb9e-45a7-93ed-a2a9ac92966b")
 		)
@@ -6263,6 +6384,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 245.11 213.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "b939899c-8d9b-4ab1-b282-45e85f08a0d2")
 		)
@@ -6317,7 +6449,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.keyelco.com/userAssets/file/M65p41.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C5249699.pdf?spm=wm.sxq.inf.ggs___wm.ssy.bg.0.xh&lcsc_vid=ElldVlQDQlVXA1BeQgUMVlBQEVdaUVcARVFWXlFXRlcxVlNRQFJdXl1UR1dYVjsOAxUeFF5JWBYZEEoKFBINSQcJGk4eFQsCAgIaSgADAwAHC0slRldeU1RSWQkaCgg%3D"
 			(at 58.42 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -6339,7 +6471,18 @@
 				)
 			)
 		)
-		(property "MPN" "3568"
+		(property "MPN" "C5249699"
+			(at 58.42 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 58.42 40.64 90)
 			(hide yes)
 			(show_name no)
@@ -6422,6 +6565,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 245.11 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 245.11 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -6521,6 +6675,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 383.54 190.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "06779c85-ca33-4060-bf31-98e8a98202db")
 		)
@@ -6593,6 +6758,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 50.8 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 50.8 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -6760,6 +6936,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 361.95 213.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "5ed770dc-1b4b-40be-996f-51b990d3cdd6")
 		)
@@ -6829,6 +7016,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 361.8092 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 361.8092 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -6918,6 +7116,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 240.03 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "43fde68d-9325-4a98-b85f-6a853a131d25")
 		)
@@ -6997,6 +7206,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 245.11 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "22a7737b-01a0-4652-96da-134e154164c0")
 		)
@@ -7066,6 +7286,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 245.11 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 245.11 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -7165,6 +7396,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 383.54 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "71dd94a3-d3ac-40a3-bd88-cdf557de6a6e")
 		)
@@ -7247,6 +7489,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 245.11 187.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "019c86da-768a-4368-ba41-9191a1949adc")
 		)
@@ -7316,6 +7569,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 240.03 53.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 240.03 53.34 0)
 			(hide yes)
 			(show_name no)
@@ -7494,6 +7758,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 90.17 67.31 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "67481989-6194-45e7-9a55-148335c4b8f0")
 		)
@@ -7566,6 +7841,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 240.03 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 240.03 140.97 0)
 			(hide yes)
 			(show_name no)
@@ -7655,6 +7941,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 240.03 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "9f0c0717-c92a-4815-80ee-f090acbd0ccf")
 		)
@@ -7724,6 +8021,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 245.11 170.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 245.11 170.18 0)
 			(hide yes)
 			(show_name no)
@@ -7824,6 +8132,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 78.74 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "6aeb51b3-4d7a-4939-99fc-927e7cf91f3d")
 		)
@@ -7909,6 +8228,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 240.03 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "6a003752-1a16-4713-8ee4-0b148c8261be")
 		)
@@ -7978,6 +8308,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 367.03 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 367.03 165.1 0)
 			(hide yes)
 			(show_name no)
@@ -8145,6 +8486,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 245.11 43.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "c822521c-5981-466c-b324-d08e490c82ec")
 		)
@@ -8214,6 +8566,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 361.95 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 361.95 162.56 0)
 			(hide yes)
 			(show_name no)
@@ -8303,6 +8666,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 366.1036 215.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "51f54d2a-f0bb-4f2f-9af1-4ebcefccc561")
 		)
@@ -8372,6 +8746,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 245.11 134.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 245.11 134.62 0)
 			(hide yes)
 			(show_name no)
@@ -8538,6 +8923,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 245.11 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "219cc258-34d3-49d2-ba41-178d71bde881")
 		)
@@ -8694,6 +9090,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 366.8892 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "4f155bd0-b275-46c7-b28e-76c2c3f2e119")
 		)
@@ -8763,6 +9170,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 162.56 177.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 162.56 177.8 0)
 			(hide yes)
 			(show_name no)
@@ -8849,6 +9267,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 151.13 255.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
@@ -8915,6 +9344,17 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
+			(at 35.56 252.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 35.56 252.73 0)
 			(hide yes)
 			(show_name no)
@@ -9001,6 +9441,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 163.83 255.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
@@ -9067,6 +9518,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 157.48 180.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 157.48 180.34 0)
 			(hide yes)
 			(show_name no)
@@ -9156,6 +9618,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 240.03 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "a265a13c-c133-470d-b999-549c24a32840")
 		)
@@ -9235,6 +9708,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 245.11 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "5967fb03-2922-4154-98b5-2bcb6f78380c")
 		)
@@ -9304,6 +9788,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 240.03 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 240.03 102.87 0)
 			(hide yes)
 			(show_name no)
@@ -9404,6 +9899,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 38.1 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "ca2cb960-d988-41aa-aee5-f1e794db9d2f")
 		)
@@ -9476,6 +9982,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 240.03 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 240.03 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -9565,6 +10082,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 240.03 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "d6314c98-cb9e-4db5-94ba-a4b671343dba")
 		)
@@ -9634,6 +10162,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 361.8092 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 361.8092 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -9800,6 +10339,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 240.03 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "97547abc-ec0f-4f88-9ae9-614c53367a57")
 		)
@@ -9956,6 +10506,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 240.03 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "a72bb9da-797b-4698-a7ec-f006ac4cf9df")
 		)
@@ -10025,6 +10586,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 240.03 210.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 240.03 210.82 0)
 			(hide yes)
 			(show_name no)
@@ -10114,6 +10686,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 245.11 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "7cbaa516-8295-4855-bd6d-26df78bf55ae")
 		)
@@ -10183,6 +10766,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 240.03 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 240.03 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -10269,6 +10863,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 125.73 255.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(instances
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da"
@@ -10335,6 +10940,17 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
+			(at 24.13 252.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 24.13 252.73 0)
 			(hide yes)
 			(show_name no)
@@ -10424,6 +11040,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 245.11 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "d398056c-e675-4d3b-98b2-ec0e2b28362e")
 		)
@@ -10503,6 +11130,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 240.03 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "2e4a7616-fb8a-4834-a313-9fc00a83f02f")
 		)
@@ -10572,6 +11210,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 245.11 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 245.11 162.56 0)
 			(hide yes)
 			(show_name no)
@@ -10738,6 +11387,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 367.03 190.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "9a8b8586-07bd-4b91-94f5-80661a32cd75")
 		)
@@ -10817,6 +11477,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 113.03 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "3fbaf095-f95b-4ffd-98ad-b6a4eebf20a9")
 		)
@@ -10883,6 +11554,17 @@
 			)
 		)
 		(property "Description" "Fiducial Marker"
+			(at 176.53 255.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 176.53 255.27 0)
 			(hide yes)
 			(show_name no)
@@ -10970,6 +11652,17 @@
 			)
 		)
 		(property "MPN" "C3816270"
+			(at 383.54 213.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 383.54 213.36 0)
 			(hide yes)
 			(show_name no)
@@ -11140,6 +11833,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 367.03 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "3ebff8bf-7af5-469f-9b38-6a8e438e82c6")
 		)
@@ -11209,6 +11913,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 162.56 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 162.56 182.88 0)
 			(hide yes)
 			(show_name no)
@@ -11298,6 +12013,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 113.03 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "908fc5f0-1b46-4a54-99ee-6a149d5b2c6e")
 		)
@@ -11367,6 +12093,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 240.03 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 240.03 120.65 0)
 			(hide yes)
 			(show_name no)
@@ -11456,6 +12193,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 361.95 187.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "57a08298-c33a-4fd9-b33c-5b397f3e06ce")
 		)
@@ -11525,6 +12273,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 245.11 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 245.11 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -11624,6 +12383,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 383.54 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "a518b0f9-25e0-4a40-90ac-463b118a6001")
 		)
@@ -11696,6 +12466,17 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 50.8 43.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 50.8 43.18 0)
 			(hide yes)
 			(show_name no)
@@ -11786,6 +12567,17 @@
 			)
 		)
 		(property "MPN" "C3816270"
+			(at 125.73 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 125.73 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -11889,6 +12681,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 85.09 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "211658fe-8509-4451-9bb0-a7926b50c316")
 		)
@@ -11981,6 +12784,17 @@
 				)
 			)
 		)
+		(property "MPN`" ""
+			(at 383.54 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "b741545b-83a3-4a1c-a51f-aebf684db0e4")
 		)
@@ -12053,6 +12867,17 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
+			(at 46.99 252.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 46.99 252.73 0)
 			(hide yes)
 			(show_name no)
@@ -12142,6 +12967,17 @@
 			)
 		)
 		(property "MPN" "C3816270"
+			(at 383.54 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
 			(at 383.54 160.02 0)
 			(hide yes)
 			(show_name no)
