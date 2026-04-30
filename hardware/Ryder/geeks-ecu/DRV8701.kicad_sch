@@ -4987,7 +4987,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "69a50f40-5ae4-44bf-ab88-0f47ec3dfbfc")
 		(property "Reference" "NT602"
@@ -6742,7 +6742,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "dac196fb-48a3-45a4-98de-1444fa52c443")
 		(property "Reference" "NT601"

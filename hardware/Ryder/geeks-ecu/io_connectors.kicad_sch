@@ -6962,6 +6962,107 @@
 		(uuid "c5f3d74d-04a3-45ab-b1b1-d0410d7ff73b")
 	)
 	(symbol
+		(lib_id "Device:R_US")
+		(at 72.39 59.69 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "02edcad5-583d-415d-b19a-7f530f33d2bd")
+		(property "Reference" "R503"
+			(at 72.39 54.61 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1kΩ"
+			(at 72.39 57.15 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
+			(at 72.644 58.674 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C21190.pdf?spm=wm.sxq.inf.ggs&lcsc_vid=ElldVlQDQlVXA1BeQgUMVlBQEVdaUVcARVFWXlFXRlcxVlNRQFJaVlFVR1hZVTsOAxUeFF5JWBYZEEoKFBINSQcJGk4eFQsCAgIaSgADAwAHC0slRFBfUVJRWQkaCgg%3D"
+			(at 72.39 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "RES 1kΩ ±1% 100mW 0603"
+			(at 72.39 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C21190"
+			(at 72.39 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
+			(at 72.39 59.69 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "8daec56e-4301-4791-adfb-69e6c591722b")
+		)
+		(pin "1"
+			(uuid "c10ebe8b-f2f2-4cd5-918b-6ac4c9a62214")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/75652050-2907-4906-b92b-af5ffa0f2373"
+					(reference "R503")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3.3V")
 		(at 384.81 44.45 0)
 		(unit 1)
@@ -9477,7 +9578,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "38c3cb4d-5bc9-4ba1-bf07-ab7b2e3df3c4")
 		(property "Reference" "J503"
@@ -9833,108 +9934,6 @@
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/75652050-2907-4906-b92b-af5ffa0f2373"
 					(reference "#PWR0528")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_US")
-		(at 72.39 59.69 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "4056af2d-47f7-46a9-a4ad-5117aab1e3ed")
-		(property "Reference" "R503"
-			(at 72.39 54.61 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 72.39 57.15 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
-			(at 72.644 58.674 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 72.39 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "RES 1kΩ ±1% 62.5mW 0402"
-			(at 72.39 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "C11702"
-			(at 72.39 59.69 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN`" ""
-			(at 72.39 59.69 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "e3eca9ce-8e88-4e23-85d4-b605c83832da")
-		)
-		(pin "2"
-			(uuid "a246024a-9b55-4476-aea8-b9537570ca25")
-		)
-		(instances
-			(project "geeks-ecu"
-				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/75652050-2907-4906-b92b-af5ffa0f2373"
-					(reference "R503")
 					(unit 1)
 				)
 			)
@@ -11237,108 +11236,6 @@
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/75652050-2907-4906-b92b-af5ffa0f2373"
 					(reference "#PWR0546")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_US")
-		(at 72.39 99.06 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "69f783f0-2fd5-4324-8e90-d610d11caf48")
-		(property "Reference" "R504"
-			(at 72.39 93.98 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 72.39 96.52 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
-			(at 72.644 98.044 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 72.39 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "RES 1kΩ ±1% 62.5mW 0402"
-			(at 72.39 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "C11702"
-			(at 72.39 99.06 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN`" ""
-			(at 72.39 99.06 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "d49e91d6-66b4-4aa3-a96a-d878a0184cfe")
-		)
-		(pin "2"
-			(uuid "54643e1e-a4ad-4ae8-bcae-57def5c168b5")
-		)
-		(instances
-			(project "geeks-ecu"
-				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/75652050-2907-4906-b92b-af5ffa0f2373"
-					(reference "R504")
 					(unit 1)
 				)
 			)
@@ -15176,6 +15073,107 @@
 			(project "geeks-ecu"
 				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/75652050-2907-4906-b92b-af5ffa0f2373"
 					(reference "J508")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_US")
+		(at 72.39 99.06 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "a9aafd97-bc0c-4e0e-b39c-5fa70fc6927a")
+		(property "Reference" "R504"
+			(at 72.39 93.98 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1kΩ"
+			(at 72.39 96.52 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "geeks-ecu-footprints:R_0603_1608Metric"
+			(at 72.644 98.044 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C21190.pdf?spm=wm.sxq.inf.ggs&lcsc_vid=ElldVlQDQlVXA1BeQgUMVlBQEVdaUVcARVFWXlFXRlcxVlNRQFJaVlFVR1hZVTsOAxUeFF5JWBYZEEoKFBINSQcJGk4eFQsCAgIaSgADAwAHC0slRFBfUVJRWQkaCgg%3D"
+			(at 72.39 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "RES 1kΩ ±1% 100mW 0603"
+			(at 72.39 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C21190"
+			(at 72.39 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN`" ""
+			(at 72.39 99.06 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "c3a98487-9272-4f41-9909-8e933767c5f1")
+		)
+		(pin "1"
+			(uuid "21797eba-2277-4ec0-b23e-c92f06790ea8")
+		)
+		(instances
+			(project "geeks-ecu"
+				(path "/f2eba3ec-213e-460f-84b8-405fb1bcb4da/75652050-2907-4906-b92b-af5ffa0f2373"
+					(reference "R504")
 					(unit 1)
 				)
 			)

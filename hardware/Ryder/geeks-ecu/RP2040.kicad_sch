@@ -17780,7 +17780,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "geeks-ecu-footprints:C_0603_1608Metric"
+		(property "Footprint" "geeks-ecu-footprints:C_0805_2012Metric"
 			(at 111.4552 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -18659,7 +18659,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "56ff43cb-ad2f-48a1-9e9c-7efd9ff0da67")
 		(property "Reference" "JP402"
@@ -27521,7 +27521,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e472407b-3fde-4ee6-8ea8-f18f46546a78")
@@ -28089,7 +28089,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "ed4e4e9e-0f9d-4bc8-b606-2720edfdec85")
 		(property "Reference" "JP401"

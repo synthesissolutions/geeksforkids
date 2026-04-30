@@ -12247,7 +12247,7 @@
 				)
 			)
 		)
-		(property "Value" "0.1uF"
+		(property "Value" "100nF"
 			(at 248.92 175.26 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13625,7 +13625,7 @@
 				)
 			)
 		)
-		(property "Value" "0.1uF"
+		(property "Value" "100nF"
 			(at 248.92 165.1 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13726,7 +13726,7 @@
 				)
 			)
 		)
-		(property "Value" "0.1uF"
+		(property "Value" "100nF"
 			(at 248.92 170.18 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17137,7 +17137,7 @@
 				)
 			)
 		)
-		(property "Value" "0.1uF"
+		(property "Value" "100nF"
 			(at 248.92 180.34 90)
 			(show_name no)
 			(do_not_autoplace no)

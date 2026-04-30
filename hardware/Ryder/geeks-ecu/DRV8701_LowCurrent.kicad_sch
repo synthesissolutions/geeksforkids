@@ -4904,7 +4904,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "50925626-8875-48dd-baa8-131e721c8b6c")
 		(property "Reference" "NT801"
@@ -4952,17 +4952,6 @@
 		)
 		(property "Description" ""
 			(at 256.54 165.1 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN`" ""
-			(at 256.54 165.1 0)
-			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5897,7 +5886,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "907d9af7-422f-442f-99be-8e6d13b781da")
 		(property "Reference" "NT802"

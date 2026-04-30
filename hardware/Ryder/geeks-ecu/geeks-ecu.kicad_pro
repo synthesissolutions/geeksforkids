@@ -726,7 +726,7 @@
         "uuid": "f2eba3ec-213e-460f-84b8-405fb1bcb4da"
       }
     ],
-    "used_designators": "R216,R420,R422,R802,R909,Q501-502,C306,C931,C939",
+    "used_designators": "R216,R420,R422,R503-504,R802,R909,Q501-502,C306,C931,C939",
     "variants": []
   },
   "sheets": [
