@@ -43,6 +43,7 @@ uint8_t filebuff[512];
 
 #define RANDOM_SEED_PIN   A2  //  Unconnected
 
+//Define values for each type of sounds being used in each folder 
 #define ANIMAL_SOUNDS_FOLDER    1
 #define ANIMAL_NAMES_FOLDER     2
 #define SPARKLE_SOUNDS_FOLDER   3
@@ -60,7 +61,7 @@ unsigned long debounceDelay = 50;    // the debounce time; increase if the outpu
 unsigned long previousMillisBlink = 0;    // Used for timing lights that need to blink while waiting for input
 unsigned long previousMillisTimeout = 0;    // Used for checking for inactivity and turning the system off
 const unsigned long timeoutDuration = 120000;
-byte folderSounds[] = {0,0,0,0,0,0};
+byte folderSounds[] = {0,0,0,0,0,0}; //Used to keep track of file counts in each folder
 int folderVal = 0;
 int fileCount = 0;
 bool soundPlaying = false;
@@ -94,6 +95,7 @@ byte selectedGame = -1;
 
 bool ledBlinkState = false; //Used at the beginning of simon game to allow input while blinking
 
+//Setup for core playing the game
 void setup(){
   // if analog input pin 0 is unconnected, random analog
   // noise will cause the call to randomSeed() to generate
@@ -143,12 +145,14 @@ void setup(){
   deactivateGame();
 }
 
+//Setup for Core playing sounds
 void setup1(){
   
   //Serial.begin(115200);
   BMP.begin();
 }
 
+//Main loop for playing sounds
 void loop1(){
   
   if(fsound){
@@ -166,17 +170,19 @@ void loop1(){
     loadSound(soundFullFilePath);
   }
 
-  if (millis() % 9) {
+  if (millis() % 9 == 0) {
     setVolumeFromPot();
     setVolumeValue();
   }
 }
 
+//Main loop for playing games
 void loop(){
   setVolumeFromPot();
   setGameSelection();
 }
 
+//Sets which game is active 
 void setGameSelection(){
 
   checkIfGameChanged();
@@ -188,24 +194,29 @@ void setGameSelection(){
   }
 }
 
+//Checks the digital game select pin to see if the game selection has changed and checks for timeout condition.
 bool checkIfGameChanged(){
   byte currentGame = selectedGame;
   
+  //Select Game based of Game Select PIN
   if (digitalRead(GAME_SEL_PIN)){
-    selectedGame = 0;
+    selectedGame = 0; //Animal Sounds Game
   }else{
-    selectedGame = 1;
+    selectedGame = 1; //Simon Game
   }
 
+  //Only allow Animal Game if MINIMIZE_FLASHING is true
   if (MINIMIZE_FLASHING == 1){
-    selectedGame = 0;
-  }
-
-  if (hasTimeoutOccured()){
-    deactivateGame();
-    selectedGame = 2;
+    selectedGame = 0; //Animal Sounds Game
   }
   
+  //Deactivate system if timeout has occured 
+  if (hasTimeoutOccured()){
+    deactivateGame();
+    selectedGame = 2; //Deactivation
+  }
+  
+  //Reset game variables if the game selection has changed
   if (currentGame != selectedGame){
     ResetGameVariables();
     return true;
@@ -214,6 +225,7 @@ bool checkIfGameChanged(){
   }
 }
 
+//Soft Shutdown of game when buttons have not been pressed for a while.
 void deactivateGame(){
   fsound.close(); //Close any currently playing sound
   soundRequest = false; //Stop any current sound requests
@@ -228,6 +240,7 @@ void deactivateGame(){
   updateTimeout();
 }
 
+//Set game variables to the inital state
 void ResetGameVariables(){
   currentAnimal = -1;
   currentButton = -1;
@@ -243,6 +256,7 @@ void ResetGameVariables(){
   updateTimeout();
 }
 
+//Main execution of the Animal Sounds Game
 void AnimalSoundsGame(){
   // Game Play
   // Play Start Sound?
@@ -297,23 +311,19 @@ void AnimalSoundsGame(){
       lightButton(currentButton, true);
       delay(100);
       if(MINIMIZE_FLASHING == 0){
-        lightButton(currentButton, false);
-      }
+	     lightButton(currentButton, false);
+	  }
       delay(100);
     }
     for (int i = 0; i < 5; i++) {
-        lightButton(currentButton, true);
-        delay(100);
+      lightButton(currentButton, true);
+      delay(100);
       if(MINIMIZE_FLASHING == 0){
-        lightButton(currentButton, false);
-        delay(100);
-      }else{
-        delay(200);
-      }
+         lightButton(currentButton, false);
+	  }
+      delay(100);
     }
     if(MINIMIZE_FLASHING == 1){
-      lightButton(currentButton, true);
-      delay(400);
       lightButton(currentButton, false);
     }
   }else{
@@ -325,25 +335,23 @@ void AnimalSoundsGame(){
       lightButton(currentButton, true);
       playRightAnswerSound();
       delay(SOUND_DELAY_MS);
-      
       while (mp3Playing()){
         setVolumeFromPot();
         turnOnAllButtons();
         if(MINIMIZE_FLASHING == 0){
-          //lightButton(currentButton, true);
-          delay(100);
-          turnOffAllButtons();
-          //lightButton(currentButton, false);
+           //lightButton(currentButton, true);
+           delay(100);
+           turnOffAllButtons();
+           //lightButton(currentButton, false);
         }
         delay(100);
       }
       if (MINIMIZE_FLASHING == 1){
-    delay(200);
-    turnOffAllButtons();
-      }
-    
+	    turnOffAllButtons();
+	  }
+
       delay(1500);
-            
+      
       currentAnimal = -1;
       currentButton = -1;
     }else{
@@ -372,6 +380,7 @@ void AnimalSoundsGame(){
   }
 }
 
+//Main execution of the Simon game
 void SimonGame(){
   if (level == 1){
     //Serial.println("Level 1");
@@ -395,6 +404,7 @@ void SimonGame(){
   checkIfGameChanged();
 }
 
+//Shows the current sequence of the Simon game based on level
 void show_sequence() {
 
   turnOffAllButtons();
@@ -413,6 +423,7 @@ void show_sequence() {
   checkIfGameChanged();
 }
 
+//Gets the sequence back from the user and compairs it to the generated sequence
 void get_sequence() {
   int flag = 0; //this flag indicates if the sequence is correct
   bool skip = false; //If the game changes or timesout we need to skip playing the game
@@ -461,6 +472,7 @@ void get_sequence() {
   }
 }
 
+//Generate a sequence for a Simon Game
 void generate_sequence() {
   randomSeed(millis());
 
@@ -469,6 +481,7 @@ void generate_sequence() {
   }
 }
 
+//Play the "Animation" and sound when a user selects an incorrect button while playing Simon Game
 void wrong_sequence() {
   playFolderSound(SIMON_SOUNDS_FOLDER,6);
   for (int i = 0; i < 3; i++) {
@@ -482,6 +495,7 @@ void wrong_sequence() {
   updateTimeout();
 }
 
+//Play the "Animation" and sound when a user selects a correct button while playing Simon Game
 void right_sequence() {
   turnOffAllButtons();
   delay(250);
@@ -499,6 +513,7 @@ void right_sequence() {
   updateTimeout();
 }
 
+//Takes in a FolderNumber and FileNumber builds a file path, sets soundRequest to true to let the other core know to play a sound.
 void playFolderSound(int folderNumber, int fileNumber){
   char holder[5]; //String to hold the numbers we are converting to a string
   char path[10] = "/0";  //String to hold the folder path padding with 0 because all folders start with 0
@@ -548,14 +563,17 @@ void playFolderSound(int folderNumber, int fileNumber){
   } 
 }
 
+//Reads a potentiometer to set the volume of the sounds
 void setVolumeFromPot(){
   // Reading potentiometer value (range is 0 - 1023)
   volumeRead = static_cast<float>(analogRead(VOLUME_PIN));
+  //force the low end of the pot to zero so that the sound can be fully turned off
   if (volumeRead < 5.0){
     volumeRead = 0;
   }
 }
 
+//Sets the volume for the sounds if the volume has changed update the 
 void setVolumeValue(){
   if (volumeRead != volumeOut){
     volumeOut = volumeRead;
@@ -563,6 +581,7 @@ void setVolumeValue(){
   }
 }
 
+//Animation for the start up of the system
 void startupAnimation(){
   playRandomSparkleSound();
 
@@ -573,34 +592,34 @@ void startupAnimation(){
     turnOffAllButtons();
     delay(100);
 
-    chase(2, 200);
+	chase(2, 200);
     setVolumeFromPot();
-    
-    turnOffAllButtons();
+	  
+	turnOffAllButtons();
 
-    delay(750);
-    lightButton(0, true);
-    setVolumeFromPot();
-    delay(50);
-    lightButton(0, false);
-    lightButton(1, true);
-    setVolumeFromPot();
-    delay(50);
-    lightButton(1, false);
-    lightButton(2, true);
-    setVolumeFromPot();
-    delay(50);
-    lightButton(2, false);
-    lightButton(3, true);
-    setVolumeFromPot();
-    delay(50);
-    lightButton(3, false);
-    lightButton(4, true);
-    setVolumeFromPot();
-    delay(50);
-    lightButton(4, false);
-    setVolumeFromPot();
-    delay(200);
+	delay(750);
+	lightButton(0, true);
+	setVolumeFromPot();
+	delay(50);
+	lightButton(0, false);
+	lightButton(1, true);
+	setVolumeFromPot();
+	delay(50);
+	lightButton(1, false);
+	lightButton(2, true);
+	setVolumeFromPot();
+	delay(50);
+	lightButton(2, false);
+	lightButton(3, true);
+	setVolumeFromPot();
+	delay(50);
+	lightButton(3, false);
+	lightButton(4, true);
+	setVolumeFromPot();
+	delay(50);
+	lightButton(4, false);
+	setVolumeFromPot();
+	delay(200);
   }else{
     setVolumeFromPot();
     delay(150);
@@ -617,18 +636,21 @@ void startupAnimation(){
   }
 }
 
+//Turns On all the lights on all buttons
 void turnOnAllButtons(){
   for (int i = 0; i < BUTTON_COUNT; i++){
     lightButton(i, true);
   }
 }
 
+//Turns off all the lights on all buttons
 void turnOffAllButtons(){
   for (int i = 0; i < BUTTON_COUNT; i++){
     lightButton(i, false);
   }
 }
 
+//Light up all buttons based on bool passed in
 void lightButtons(bool button1, bool button2, bool button3, bool button4, bool button5){
   lightButton(0, button1);
   lightButton(1, button2);
@@ -637,10 +659,12 @@ void lightButtons(bool button1, bool button2, bool button3, bool button4, bool b
   lightButton(4, button5);
 }
 
+//Light up a specific a specific button (0-4) based on a bool
 void lightButton(int buttonNumber, bool isLit){
   digitalWrite(ledPins[buttonNumber], isLit);
 }
 
+//Chase light animation count is for number loops delayMs is for delay time between each light
 void chase(int count, int delayMs){
   for (int i = 0; i < count; i++){
     lightButtons(true, false, false, false, false);
@@ -664,6 +688,7 @@ void chase(int count, int delayMs){
   }
 }
 
+//Pong Light animation count is for number loops delayMs is for delay time between each light
 void pong(int count, int delayMs){
   for (int i = 0; i < count; i++){
     lightButtons(true, false, false, false, true);
@@ -679,11 +704,13 @@ void pong(int count, int delayMs){
   }
 }
 
+//Plays a random "Sparkle" Sound 
 void playRandomSparkleSound(){
   long randomSoundNumber = random(1, getFolderCount(SPARKLE_SOUNDS_FOLDER) + 1);
   playFolderSound(SPARKLE_SOUNDS_FOLDER, randomSoundNumber);
 }
 
+//Plays random "Wrong Answer" Sound keeps track of last sound to not repeat two in a row
 void playWrongAnswerSound(){
   int randomSoundNumber;
   
@@ -697,6 +724,7 @@ void playWrongAnswerSound(){
   playFolderSound(TRY_AGAIN_SOUNDS_FOLDER,randomSoundNumber);
 }
 
+//Plays random "Right Answer" Sound keeps track of last sound to not repeat two in a row
 void playRightAnswerSound(){
   int randomSoundNumber;
   
@@ -710,6 +738,7 @@ void playRightAnswerSound(){
   playFolderSound(GOOD_JOB_SOUNDS_FOLDER, randomSoundNumber);
 }
 
+//Continue Playing Active Sound adds more to the file buffer to contiue playing a sound run from loop1
 void playActiveSound(){
   // Stuff the buffer with as much as it will take, only doing full sector reads for performance
   while (fsound && BMP.availableForWrite() > 512) {
@@ -721,6 +750,7 @@ void playActiveSound(){
   }
 }
 
+//Open a file from the full path and start playing the sound
 void loadSound(const char *fullpath){
   //Serial.print("");
   fsound = LittleFS.open(fullpath, "r");
@@ -757,15 +787,23 @@ void setFolderFileCounts(const char *dirname){
   }
 }
 
+//Check to see if a file is actively playing.
 bool mp3Playing(){
-  return soundPlaying;
+  if (BMP.done()){
+    return false;
+  }else{
+    return true;
+  }
+  //return soundPlaying;
   //return !digitalRead(BUSY_PIN); //busy when busy Pin is Low
 }
 
+//Returns the nubmer of sounds stored in a folder 
 int getFolderCount(int folder){
   return folderSounds[folder - 1];
 }
 
+//loops through the buttons and returns the fist button found that is pressed
 int getFirstButtonPressed(){
   updateTimeout();
 
@@ -779,6 +817,7 @@ int getFirstButtonPressed(){
   return -1;
 }
 
+//Checks to see if button press is incorrect in Animal Sounds Game
 bool incorrectButtonPressed(int buttonNumber){
   for (int i = 0; i < BUTTON_COUNT; i++)  {
     if (i == buttonNumber) continue;
@@ -792,6 +831,7 @@ bool incorrectButtonPressed(int buttonNumber){
   return false;
 }
 
+//Checks to see if button press is correct in Animal Sounds Game
 bool correctButtonPressed(int buttonNumber){
   int pin = buttonPins[buttonNumber];
   
@@ -809,12 +849,14 @@ bool correctButtonPressed(int buttonNumber){
   return false;
 }
 
+//Prints folder counts to the serial output for testing and troubleshooting
 void printFolderCounts(){
   for(int i = 0; i < SOUND_FOLDER_COUNT; i++){
     Serial.print("index: ");Serial.print(i);Serial.print(" folder: ");Serial.print(i+1);Serial.print(" Value: ");Serial.println(folderSounds[i]);
   }
 }
 
+//Checks if the game timeout has occured to see if we need to soft shutdown the game
 bool hasTimeoutOccured(){
   unsigned long currentMillisTimeout = millis();
   if (currentMillisTimeout - previousMillisTimeout >= timeoutDuration){
@@ -824,11 +866,13 @@ bool hasTimeoutOccured(){
   }
 }
 
+//Updates the Timeout Millis to the current time so Timeout doesn't occur
 void updateTimeout(){
   unsigned long currentMillisTimeout = millis();
   previousMillisTimeout = currentMillisTimeout;
 }
 
+//Checks if any button has been pressed used to enable the game if soft shutdown has occured
 bool anyButtonPressed(){
   bool buttonPressed = false;
   byte currentGame = selectedGame;
