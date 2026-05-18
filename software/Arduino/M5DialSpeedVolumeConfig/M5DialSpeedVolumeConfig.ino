@@ -32,6 +32,8 @@
 #define EEPROM_REVERSE_RC_CHANNELS        24
 #define REGISTER_CAR_CODE_VERSION         98
 #define REGISTER_SPEED_VOLUME             99
+#define REGISTER_PCB_TEMPERATURE          100
+#define REGISTER_BATTERY_VOLTAGE          101
 
 #define BACK_MENU_ITEM                    -1
 
@@ -97,10 +99,17 @@ ConfigurationEntry configurationEntries[] = {
 
 Preferences preferences;
 
+#define SCREEN_COUNT    3
+#define SCREEN1_VOLTAGE 1
+#define SCREEN2_SPEED   2
+#define SCREEN3_VOLUME  3
+
 long oldPosition = -999;
 uint8_t speed = 50; 
 uint8_t volume = 75;
-bool showSpeed = true;
+float carBatteryVoltage = 0.0;
+float pcbTemperature = 0.0; // in Celsius
+int currentScreen = SCREEN1_VOLTAGE;
 uint8_t currentRegister = REGISTER_SPEED_VOLUME;
 bool isInConfigurationMode = false;
 
@@ -110,7 +119,7 @@ char carVersion[30];
 
 const uint16_t currentVersion = 1;
 
-#define M5DIAL_VERSION        "d25.08.1"
+#define M5DIAL_VERSION        "d26.05.1a"
 #define PREFERENCES_VERSION   "version"
 #define PREFERENCES_NAMESPACE "settings"
 #define PREFERENCES_SPEED     "speed"
@@ -188,6 +197,34 @@ void receiveEvent(int count) {
       speed = Wire.read();
       volume = Wire.read();
     }
+  } else if (currentRegister == REGISTER_PCB_TEMPERATURE) {
+    if (isInConfigurationMode) {
+      // Do not allow switching from configuration mode back
+      currentRegister = previousRegister;
+    } else if (isWriteFlag && count == 4) {
+      // The temperature is sent as an Integer for simplicity, need to divide by 100 here
+      int16_t rawTemperature;
+      uint8_t* p = (uint8_t*) &rawTemperature;
+      p[0] = Wire.read();
+      p[1] = Wire.read();
+      pcbTemperature = (float)rawTemperature / 100.0;
+      // Switch back to default register
+      currentRegister = REGISTER_SPEED_VOLUME;
+    }
+  } else if (currentRegister == REGISTER_BATTERY_VOLTAGE) {
+    if (isInConfigurationMode) {
+      // Do not allow switching from configuration mode back
+      currentRegister = previousRegister;
+    } else if (isWriteFlag && count == 4) {
+      // The voltage is sent as an Integer for simplicity, need to divide by 100 here
+      int16_t rawVoltage;
+      uint8_t* p = (uint8_t*) &rawVoltage;
+      p[0] = Wire.read();
+      p[1] = Wire.read();
+      carBatteryVoltage = (float)rawVoltage / 100.0;
+      // Switch back to default register
+      currentRegister = REGISTER_SPEED_VOLUME;
+    }
   } else if (currentRegister == REGISTER_VERSION) {
     // We do not allow the Version value to be overwritten by the car
     // This is simply to set the proper register for the car to retrieve the
@@ -250,6 +287,23 @@ void setup() {
     Wire.onReceive(receiveEvent);
 }
 
+
+void drawVoltage() {
+    M5Dial.Display.setTextColor(GREEN);
+    M5Dial.Display.setTextDatum(middle_center);
+
+    M5Dial.Display.setTextSize(1);
+    M5Dial.Display.drawString("Voltage", 
+                              M5Dial.Display.width() /2, 
+                              M5Dial.Display.height() / 6);
+
+    M5Dial.Display.setTextSize(2);
+    M5Dial.Display.drawString(String(carBatteryVoltage, 2),
+                              M5Dial.Display.width() / 2,
+                              M5Dial.Display.height() / 2);
+
+}
+
 void drawSpeed() {
     M5Dial.Display.setTextColor(GREEN);
     M5Dial.Display.setTextDatum(middle_center);
@@ -259,7 +313,7 @@ void drawSpeed() {
                               M5Dial.Display.width() /2, 
                               M5Dial.Display.height() / 6);
 
-    M5Dial.Display.setTextSize(3);
+    M5Dial.Display.setTextSize(2);
     M5Dial.Display.drawString(String(speed),
                               M5Dial.Display.width() / 2,
                               M5Dial.Display.height() / 2);
@@ -275,10 +329,19 @@ void drawVolume() {
                               M5Dial.Display.width() /2, 
                               M5Dial.Display.height() / 6);
 
-    M5Dial.Display.setTextSize(3);
+    M5Dial.Display.setTextSize(2);
     M5Dial.Display.drawString(String(volume),
                               M5Dial.Display.width() / 2,
                               M5Dial.Display.height() / 2);
+}
+
+void drawPcbTemperature() {
+    M5Dial.Display.setTextColor(DARKCYAN);
+    M5Dial.Display.setTextDatum(middle_center);
+    M5Dial.Display.setTextSize(1);
+    M5Dial.Display.drawString(String(pcbTemperature, 2), 
+                              M5Dial.Display.width() /2, 
+                              M5Dial.Display.height()  - (M5Dial.Display.height() / 5));  
 }
 
 void drawM5DialVersion() {
@@ -303,9 +366,15 @@ void drawCarVersion() {
 }
 
 void displayChanged() {
-    M5Dial.Speaker.tone(8000, 20);
+    if (currentScreen != SCREEN1_VOLTAGE) {
+      M5Dial.Speaker.tone(8000, 20);
+    }
+    
     M5Dial.Display.clear();
-    if (showSpeed) {
+    if (currentScreen == SCREEN1_VOLTAGE) {
+      drawVoltage();
+      drawPcbTemperature();
+    } else if (currentScreen == SCREEN2_SPEED) {
       drawSpeed();      
       drawCarVersion();
     } else {
@@ -320,11 +389,11 @@ void loop() {
     if (newPosition != oldPosition) {
       long delta = newPosition - oldPosition;
       oldPosition = newPosition;
-      if (showSpeed) {
+      if (currentScreen == SCREEN2_SPEED) {
         speed += delta;
         speed = constrain(speed, 1, 100);
         preferences.putShort(PREFERENCES_SPEED, speed);
-      } else {
+      } else if (currentScreen == SCREEN3_VOLUME) {
         volume += delta;
         volume = constrain(volume, 1, 100);
         preferences.putShort(PREFERENCES_VOLUME, volume);
@@ -334,12 +403,21 @@ void loop() {
     }
 
     if (M5Dial.BtnA.wasPressed()) {
-      showSpeed = !showSpeed;
+      currentScreen++;
+      if (currentScreen > SCREEN_COUNT) {
+        currentScreen = SCREEN1_VOLTAGE;
+      }
       displayChanged();
     }
     if (M5Dial.BtnA.pressedFor(3000)) {
       isInConfigurationMode = true;
       configurationLoop();
+    }
+
+    // If the Voltage is being displayed, we need to force an update
+    // periodically.
+    if (currentScreen == SCREEN1_VOLTAGE && millis() % 1000 == 0) {
+      displayChanged();
     }
 }
 

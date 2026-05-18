@@ -65,7 +65,7 @@ class Joystick {
       this->yAxisPin = yAxisPin; 
       pinMode(xAxisPin, INPUT);
       pinMode(yAxisPin, INPUT);
-      pinMode(PIN_REVERSE_SWITCH, INPUT_PULLUP);
+      //pinMode(PIN_REVERSE_SWITCH, INPUT_PULLUP);
     }
 
     void initAveragingArrays() {

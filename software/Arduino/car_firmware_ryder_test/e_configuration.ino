@@ -4,9 +4,15 @@
  * This class serves to interpret the eeprom settings to define the configuration for this car
  */
 #include <Wire.h>
+#include <SparkFunTMP102.h>
 
 #define REGISTER_CAR_CODE_VERSION         98
 #define REGISTER_SPEED_VOLUME             99
+#define REGISTER_PCB_TEMPERATURE          100
+#define REGISTER_BATTERY_VOLTAGE          101
+
+TMP102 tempSensor;
+boolean tempSensorAvailable = false;
 
 struct M5DialCurrentConfiguration {
   boolean success;
@@ -40,35 +46,67 @@ class Configuration {
     void init(Eeprom *e) {
       eeprom = e;
 
-      Wire.setSDA(PIN_M5DIAL_I2C_SDA);
-      Wire.setSCL(PIN_M5DIAL_I2C_SCL);
+      Wire1.setSDA(PIN_M5DIAL_I2C_SDA);
+      Wire1.setSCL(PIN_M5DIAL_I2C_SCL);
+      Wire1.begin();
+
+      Wire.setSDA(PIN_I2C_SDA);
+      Wire.setSCL(PIN_I2C_SCL);
       Wire.begin();
 
-      Wire1.setSDA(PIN_I2C_SDA);
-      Wire1.setSCL(PIN_I2C_SCL);
-      Wire1.begin();
+      if (tempSensor.begin(TEMP_SENSOR_I2C_ADDRESS, Wire)) {
+        tempSensorAvailable = true;
+        // set the number of consecutive faults before triggering alarm.
+        // 0-3: 0:1 fault, 1:2 faults, 2:4 faults, 3:6 faults.
+        tempSensor.setFault(0);  // Trigger alarm immediately
+        
+        // set the polarity of the Alarm. (0:Active LOW, 1:Active HIGH).
+        tempSensor.setAlertPolarity(1); // Active HIGH
+        
+        // set the sensor in Comparator Mode (0) or Interrupt Mode (1).
+        tempSensor.setAlertMode(0); // Comparator Mode.
+        
+        // set the Conversion Rate (how quickly the sensor gets a new reading)
+        //0-3: 0:0.25Hz, 1:1Hz, 2:4Hz, 3:8Hz
+        tempSensor.setConversionRate(2);
+        
+        //set Extended Mode.
+        //0:12-bit Temperature(-55C to +128C) 1:13-bit Temperature(-55C to +150C)
+        tempSensor.setExtendedMode(0);
+      
+        //set T_HIGH, the upper limit to trigger the alert on
+        //sensor0.setHighTempF(85.0);  // set T_HIGH in F
+        tempSensor.setHighTempC(75); // set T_HIGH in C
+        
+        //set T_LOW, the lower limit to shut turn off the alert
+        //sensor0.setLowTempF(84.0);  // set T_LOW in F
+        tempSensor.setLowTempC(74); // set T_LOW in C
+      }
+      
+      pinMode(PIN_BATTERY_VOLTAGER_DIVIDER, INPUT);
+      pinMode(PIN_REVISION_DIVIDER, INPUT);
     }
 
     void detectM5Dial() {
-      Wire.beginTransmission(M5DIAL_I2C_ADDRESS);
+      Wire1.beginTransmission(M5DIAL_I2C_ADDRESS);
 
-      Wire.write(0); // Set to read mode
-      Wire.write(EEPROM_VERSION); // The Register
+      Wire1.write(0); // Set to read mode
+      Wire1.write(EEPROM_VERSION); // The Register
       
-      Wire.endTransmission();
+      Wire1.endTransmission();
 
       delay(5);
       
-      if(Wire.requestFrom(M5DIAL_I2C_ADDRESS, 4))
+      if(Wire1.requestFrom(M5DIAL_I2C_ADDRESS, 4))
       {
         uint8_t* p = (uint8_t*) &m5DialVersion;
 
-        bool configMode = Wire.read();
-        uint8_t reg = Wire.read();
+        bool configMode = Wire1.read();
+        uint8_t reg = Wire1.read();
 
         if (reg == EEPROM_VERSION) {
-          p[0] = Wire.read();
-          p[1] = Wire.read();
+          p[0] = Wire1.read();
+          p[1] = Wire1.read();
           m5DialDetected = true;        
         }
       }
@@ -78,12 +116,14 @@ class Configuration {
     void update() {
       if (m5DialDetected) {
         readSpeedVolume();
-        writeVolume(); // Send the selected volume to the DAC handling audio output
+        //writeVolume(); // Send the selected volume to the DAC handling audio output
   
         if (!versionSent) {
           versionSent = true;
           writeVersion();
-        }        
+        }
+        writePcbTemperature();
+        writeBatteryVoltage();
       } else {
         detectM5Dial();
       }
@@ -121,13 +161,38 @@ class Configuration {
     int getRcThrottleMax() { return eeprom->getIntegerSetting(EEPROM_RC_THROTTLE_MAX); }
 
     boolean getReverseRcChannels() { return eeprom->getBooleanSetting(EEPROM_REVERSE_RC_CHANNELS); }
-    
+
+    float getBatteryVoltage() {
+      if (!tempSensorAvailable) {
+        return 0;
+      }
+      
+      int rawDivider = analogRead(PIN_BATTERY_VOLTAGER_DIVIDER);
+
+      return (float)rawDivider / DIVIDER_ONE_VOLT;
+    }
+
+    int getPcbRevision() {
+      int rawDivider = analogRead(PIN_REVISION_DIVIDER);
+
+      // TODO figure this out for real
+      if (rawDivider < 20) {
+        return 1;
+      }
+
+      return 2;
+    }
+
+    float getPcbTemperature() {
+      return tempSensor.readTempC();
+    }
+
     void readSpeedVolume() {
       uint8_t tempConfigurationMode;
       
-      if(Wire.requestFrom(M5DIAL_I2C_ADDRESS, 4))
+      if(Wire1.requestFrom(M5DIAL_I2C_ADDRESS, 4))
       {
-        tempConfigurationMode = Wire.read(); // Check to make sure the value is exactly one so noisy data has a lower chance of triggering configuration mode
+        tempConfigurationMode = Wire1.read(); // Check to make sure the value is exactly one so noisy data has a lower chance of triggering configuration mode
         if (tempConfigurationMode == 1) {
           m5DialConfigModeActiveCount++;
           // We need 5 consecutive configuration mode values of 1 to enter configuration mode
@@ -139,11 +204,11 @@ class Configuration {
           m5DialConfigModeActiveCount = 0;
         }
                 
-        uint8_t reg = Wire.read();
+        uint8_t reg = Wire1.read();
 
         if (reg == REGISTER_SPEED_VOLUME) {
-          speed = Wire.read();
-          volume = Wire.read();
+          speed = Wire1.read();
+          volume = Wire1.read();
         }
       }
       else
@@ -154,19 +219,39 @@ class Configuration {
       }
     }
 
-    void writeVersion() {
-      Wire.beginTransmission(M5DIAL_I2C_ADDRESS);
-      Wire.write(1);
-      Wire.write(REGISTER_CAR_CODE_VERSION);
-      Wire.write(RELEASE_VERSION);
-      Wire.endTransmission();
+
+    void writePcbTemperature() {
+      // Send temperature as integer in Celsius for simplicity
+      // multiple by 100 on this end
+      int16_t pcbTemp = (int16_t)(getPcbTemperature() * 100);
+      Wire1.beginTransmission(M5DIAL_I2C_ADDRESS);
+      Wire1.write(1);
+      Wire1.write(REGISTER_PCB_TEMPERATURE);
+      uint8_t* p = (uint8_t*) &pcbTemp;
+      Wire1.write(p[0]);
+      Wire1.write(p[1]);
+      Wire1.endTransmission();
+    }
+    
+    void writeBatteryVoltage() {
+      // Send battery voltage as integer for simplicity
+      // multiple by 100 on this end
+      int16_t batteryVoltage = (int16_t)(getBatteryVoltage() * 100);
+      Wire1.beginTransmission(M5DIAL_I2C_ADDRESS);
+      Wire1.write(1);
+      Wire1.write(REGISTER_BATTERY_VOLTAGE);
+      uint8_t* p = (uint8_t*) &batteryVoltage;
+      Wire1.write(p[0]);
+      Wire1.write(p[1]);
+      Wire1.endTransmission();
     }
 
-    void writeVolume() {
-      //TODO: Set Volume through the AUDIO DAC over I2S
-//      Wire1.beginTransmission(ATTINY_SPEED_CONTROL_I2C_ADDRESS);
-//      Wire1.write(volume);
-//      Wire1.endTransmission();
+    void writeVersion() {
+      Wire1.beginTransmission(M5DIAL_I2C_ADDRESS);
+      Wire1.write(1);
+      Wire1.write(REGISTER_CAR_CODE_VERSION);
+      Wire1.write(RELEASE_VERSION);
+      Wire1.endTransmission();
     }
 
     float getSpeedMultiplier() {
@@ -186,26 +271,28 @@ class Configuration {
     boolean getChildThrottleOnly() { return eeprom->getBooleanSetting(EEPROM_CHILD_THROTTLE_ONLY); }
 
     void sendConfigurationsToM5Dial() {
-            // Send all configuration data to the M5Dial
+      // Send all configuration data to the M5Dial
       // Skip the Version configuration setting
       for (int i = 1; i < NUMBER_OF_CONFIGURATION_ENTRIES; i++) {
-        Wire.beginTransmission(M5DIAL_I2C_ADDRESS);
+        Wire1.beginTransmission(M5DIAL_I2C_ADDRESS);
  
-        Wire.write(1); // Set to write mode
-        Wire.write(i); // The Register
+        Wire1.write(1); // Set to write mode
+        Wire1.write(i); // The Register
 
         if (configurationEntries[i].dataType == BOOLEAN_CONFIGURATION) {
-          Wire.write(configurationEntries[i].booleanValue);
+          Wire1.write(configurationEntries[i].booleanValue);
         } else {
           uint8_t* p = (uint8_t*) &configurationEntries[i].intValue;
-          Wire.write(p[0]);
-          Wire.write(p[1]);
+          Wire1.write(p[0]);
+          Wire1.write(p[1]);
         }
  
-        Wire.endTransmission();
+        Wire1.endTransmission();
 
         delay(10);
       }
+
+      // Send 
     }
 
     M5DialCurrentConfiguration readCurrentM5DialConfiguration() {
@@ -399,7 +486,12 @@ class Configuration {
     }
 
     void getStatus(char * status) {
-      sprintf(status, "[Configuration] M5Deteced: %s Dial Config: %s %i Version: %i  Invert Joy X:%s Y:%s Joy Steering:%i %i %i  Speed:%i Volume: %i RC:%s %s Min/C/Max:%i %i %i", 
+      sprintf(status, "[Configuration] PCB Rev: %i Battery: %.2f PCB Temp: %.2f c Speed:%i Volume: %i  M5Det: %s Dial Cfg: %s %i Version: %i\n\t\tInvert Joy X:%s Y:%s Joy Steering:%i %i %i RC:%s %s Min/C/Max:%i %i %i", 
+        getPcbRevision(),
+        getBatteryVoltage(),
+        getPcbTemperature(),
+        speed,
+        volume,
         m5DialDetected ? "true" : "false",
         m5DialConfigurationModeActive ? "true" : "false",
         m5DialVersion,
@@ -409,8 +501,6 @@ class Configuration {
         getJoystickSteeringMin(),
         getJoystickSteeringCenter(),
         getJoystickSteeringMax(),
-        speed,
-        volume,
         useRc() ? "true" : "false",
         getChildThrottleOnly() ? "true" : "false",
         getSteeringMin(),

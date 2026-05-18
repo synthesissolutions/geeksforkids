@@ -14,7 +14,7 @@
  ***************************************************************************************** 
  */
 
-#define             RELEASE_VERSION         "c26.05.1"
+#define             RELEASE_VERSION         "c26.05.1 Alpha"
 
 const int           LOGGER_UPDATE_TIME      = 100;     // How long between updates to the monitor, in milliseconds
 const unsigned int  SERIAL_BAUD_RATE        = 57600;     // Baud rate for the serial monitor.  Make sure you set this correctly!
@@ -56,7 +56,7 @@ const boolean       JOYSTICK_INVERT_Y_AXIS  = false;
 const unsigned long THROTTLE_UPDATE_MILLIS  = 10;         // 10 = ~ 100Hz.  How often the throttle position is updated.
 const float         THROTTLE_CHANGE_RATE    = 200.0;      // Units are scaledUnits/sec.  100.0 means that we can go from full forward to full reverse in 0.5 second. 
 const int           THROTTLE_PWM_MIN        = 0;          // Throttle PWM is handled with analogWrite which expects a value from 0 to 255, 0 = stopped, 255 = full speed
-const int           THROTTLE_PWM_MAX        = 254;
+const int           THROTTLE_PWM_MAX        = 180;
 
 // Min/Max Speed Configuration
 const int           SPEED_CONFIGURATION_MIN_SPEED = 15;   // The min/max settings here control what the min/max speed percentages controlled by the speed potentiometer
@@ -68,7 +68,7 @@ const int           STEERING_CENTER         = 50;
 const int           STEERING_MAX            = 75;        // tuned to maximum wheel turn amount
 const int           STEERING_STOP_DELTA     = 5;          // How close to target before stopping so we don't oscillate between 2 numbers.  IN SCALED UNITS: -100 to 100
 const int           STEERING_START_DELTA    = 10;          // How close to target before starting so we don't oscillate between 2 numbers   IN SCALED UNITS: -100 to 100
-const int           STEERING_SPEED          = 240;        // PWM Value from 0 - 254 with 254 = max speed
+const int           STEERING_SPEED          = 100;        // PWM Value from 0 - 254 with 254 = max speed
 
 // Remote control PWM parms ... probably best to leave these alone!
 const int           STEERING_RC_MIN         = 1000;
@@ -85,6 +85,9 @@ const int           RC_STEERING_DEADZONE_LOW = -10;     // scaled units
 const int           RC_STEERING_DEADZONE_HIGH = 10;     // scaled units
 const int           RC_THROTTLE_DEADZONE_LOW = -10;     // scaled units
 const int           RC_THROTTLE_DEADZONE_HIGH = 10;     // scaled units 
+
+// Battery Voltage Divider
+const float         DIVIDER_ONE_VOLT          = 29.9;     // 1v == analog read from voltage divider of 30 out of 1023 from ADC
 
 // I2C Addresses
 #define             M5DIAL_I2C_ADDRESS  0x55
@@ -138,10 +141,13 @@ const int           PIN_STEERING_POSITION         = A1;
 //#define             PIN_REVERSE_SWITCH             18
 
 // RC ... aka the parent remote control inputs NEW
-const int           PIN_RC_STEERING            = 7; //REMOTE_PWM_STEERING
-const int           PIN_RC_THROTTLE            = 5; //REMOTE_PWM_THROTTLE
-const int           PIN_RC_CLOSE_OUT           = 9; //REMOTE_PWM_CLOSE_OUT
-const int           PIN_RC_EXTRA               = 11; //REMOTE_PWM_THROTTLE
+//const int           PIN_RC_STEERING            = 7; //REMOTE_PWM_STEERING
+//const int           PIN_RC_THROTTLE            = 5; //REMOTE_PWM_THROTTLE
+//const int           PIN_RC_CLOSE_OUT           = 9; //REMOTE_PWM_CLOSE_OUT
+//const int           PIN_RC_EXTRA               = 11; //REMOTE_PWM_THROTTLE
+// Because of layout issue on PCB, adjusting PIN assignment for RC
+const int           PIN_RC_STEERING            = 11; //REMOTE_PWM_STEERING
+const int           PIN_RC_THROTTLE            = 9; //REMOTE_PWM_THROTTLE
 
 // GPIO EXPANDER
 #define PIN_GPIO_EXPANDER_INT   12 //GPIO_EXPANDER_INT
@@ -154,6 +160,12 @@ const int           PIN_RC_EXTRA               = 11; //REMOTE_PWM_THROTTLE
 
 //INDICATOR LED PIN
 #define             PIN_INDICATOR_LED_DIN    19 //LED_DIN
+
+// Battery Voltage Divider
+#define             PIN_BATTERY_VOLTAGER_DIVIDER  A2
+
+// PCB Revision Pin
+#define             PIN_REVISION_DIVIDER          A3
 
 //SPARE RP2040 PINS
 #define             PIN_RP2040_SPARE_1       25 //RP2040_SPARE1

@@ -6,15 +6,13 @@
  *   changes to the steering as appropriate.
  */
 
-//TODO Talk to William to Update Motor driving code correctly from new board changes
-
-#define CURRENT_POSITION_READINGS 10
+#define CURRENT_POSITION_READINGS 5
 
 class Steering {
   private:
 
-    int directionPin;
-    int speedPwmPin;
+    int forwardPin;
+    int reversePin;
     int currentPositionPin;
 
     int steeringTargetScaled = 0;          // scaled units (-100 to 100)
@@ -35,20 +33,19 @@ class Steering {
     /*
      * run the motor ... direction is based on the current position and the target
      */
-    void runMotor() {
+    void runMotor() {    
       // How we set the pins is based on the direction we need to go
       if (steeringPositionScaled < steeringTargetScaled) {
         // turn left
-        digitalWrite(directionPin, HIGH);
+        digitalWrite(forwardPin, LOW);
+        analogWrite(reversePin, STEERING_SPEED);
       } else {
         // turn right
-        digitalWrite(directionPin, LOW);
+        analogWrite(forwardPin, STEERING_SPEED);
+        digitalWrite(reversePin, LOW);
       }
 
-      // make sure the motor power is on
-      analogWrite(speedPwmPin, STEERING_SPEED);
-
-      // and make note that we're moving
+      // note that we're moving
       isMoving = true;
     }
 
@@ -56,9 +53,10 @@ class Steering {
      * stop the motor
      */
     void stopMotor() {
+        // TODO need to decide on coast vs. brake, probably doesn't matter for linear actuator though
         isMoving = false;
-        digitalWrite(directionPin, HIGH);
-        analogWrite(speedPwmPin, 0); 
+        digitalWrite(forwardPin, LOW);
+        digitalWrite(reversePin, LOW); 
     }
 
   public: 
@@ -67,17 +65,19 @@ class Steering {
     }
 
     // initial setup
-    void init(int pinDir, int pinPwm, int pinPosition) {
+    void init(int pinForward, int pinReverse, int pinPosition) {
       // set the pins
-      directionPin = pinDir;
-      speedPwmPin = pinPwm;
+      forwardPin = pinForward;
+      reversePin = pinReverse;
       currentPositionPin = pinPosition;
 
       // set the pins to be output and set the speed
-      pinMode(directionPin, OUTPUT);
-      pinMode(speedPwmPin, OUTPUT);
+      pinMode(forwardPin, OUTPUT);
+      pinMode(reversePin, OUTPUT);
 
-      analogWrite(speedPwmPin, 0);
+      // Set to coast as default
+      digitalWrite(forwardPin, LOW);
+      digitalWrite(reversePin, LOW);
     }
 
     void initAveragingArrays() {
@@ -92,8 +92,8 @@ class Steering {
 
     // Used during a bad start scenario or when the car is being configured
     void forceStop() {
-        digitalWrite(directionPin, HIGH);
-        analogWrite(speedPwmPin, 0); 
+        digitalWrite(forwardPin, LOW);
+        digitalWrite(reversePin, LOW);
     }
     
     /*

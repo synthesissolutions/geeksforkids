@@ -15,10 +15,10 @@ class Throttle {
 
   private:
 
-    int directionLeftPin;
-    int speedPwmLeftPin;
-    int directionRightPin;
-    int speedPwmRightPin;
+    int frontForwardPin;
+    int frontReversePin;
+    int rearForwardPin;
+    int rearReversePin;
 
     int throttleTargetScaled = 0;
     float currentThrottleScaled = 0;
@@ -33,25 +33,26 @@ class Throttle {
 
     // Used during a bad start scenario or when the car is being configured
     void forceStop() {
-        digitalWrite(directionLeftPin, HIGH);
-        analogWrite(speedPwmLeftPin, THROTTLE_PWM_MIN); 
-        digitalWrite(directionRightPin, HIGH);
-        analogWrite(speedPwmRightPin, THROTTLE_PWM_MIN);   
+      // Set both Pins HIGH for brake, LOW for coast
+        digitalWrite(frontForwardPin, HIGH);
+        digitalWrite(frontReversePin, HIGH);
+        digitalWrite(rearForwardPin, HIGH);
+        digitalWrite(rearReversePin, HIGH);
     }
     
     // initial setup
     void init(int dirLeftPin, int pwmLeftPin, int dirRightPin, int pwmRightPin) {
       // set the pins
-      directionLeftPin = dirLeftPin;
-      speedPwmLeftPin = pwmLeftPin;
-      directionRightPin = dirRightPin;
-      speedPwmRightPin = pwmRightPin;
+      frontForwardPin = dirLeftPin;
+      frontReversePin = pwmLeftPin;
+      rearForwardPin = dirRightPin;
+      rearReversePin = pwmRightPin;
 
       // set the pin modes
-      pinMode(directionLeftPin, OUTPUT);
-      pinMode(speedPwmLeftPin, OUTPUT);
-      pinMode(directionRightPin, OUTPUT);
-      pinMode(speedPwmRightPin, OUTPUT);
+      pinMode(frontForwardPin, OUTPUT);
+      pinMode(frontReversePin, OUTPUT);
+      pinMode(rearForwardPin, OUTPUT);
+      pinMode(rearReversePin, OUTPUT);
 
       // and do an initial update to get the timer kicked off
       updateThrottle();
@@ -119,22 +120,24 @@ class Throttle {
       // now set the direction and the throttle
       if (int(currentThrottleScaled)==0) {
         // stop
-        digitalWrite(directionLeftPin, HIGH);
-        analogWrite(speedPwmLeftPin, THROTTLE_PWM_MIN); 
-        digitalWrite(directionRightPin, HIGH);
-        analogWrite(speedPwmRightPin, THROTTLE_PWM_MIN);                
+        // TODO decide on brake vs. coast behavior
+        // TODO decide whether or not to use the switch on dash for brake vs. coast
+        digitalWrite(frontForwardPin, HIGH);
+        digitalWrite(frontReversePin, HIGH); 
+        digitalWrite(rearForwardPin, HIGH);
+        digitalWrite(rearReversePin, HIGH);                
       } else if (currentThrottleScaled<0) {
         //reverse
-        digitalWrite(directionLeftPin, LOW);
-        analogWrite(speedPwmLeftPin, currentPwmOut);   
-        digitalWrite(directionRightPin, LOW);
-        analogWrite(speedPwmRightPin, currentPwmOut);             
+        digitalWrite(frontForwardPin, LOW);
+        analogWrite(frontReversePin, currentPwmOut);   
+        digitalWrite(rearForwardPin, LOW);
+        analogWrite(rearReversePin, currentPwmOut);             
       } else if (currentThrottleScaled>0) {
         //forward
-        digitalWrite(directionLeftPin, HIGH);
-        analogWrite(speedPwmLeftPin, currentPwmOut);       
-        digitalWrite(directionRightPin, HIGH);
-        analogWrite(speedPwmRightPin, currentPwmOut);       
+        analogWrite(frontForwardPin, currentPwmOut);       
+        digitalWrite(frontReversePin, LOW);
+        analogWrite(rearForwardPin, currentPwmOut);       
+        digitalWrite(rearReversePin, LOW);
       }
 
       lastThrottleUpdateMillis = millis();
