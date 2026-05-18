@@ -7,10 +7,16 @@
 
 #include <BackgroundAudio.h>
 #include <LittleFS.h>
+#include <Adafruit_PCM51xx.h>
 #include <I2S.h>
 
-I2S audio(OUTPUT, 7, 9);  //i2s(OUTPUT, pBCLK, pDOUT);   pLRC (pBCLK+1)
+#define BCLK D16 // BITCLOCK
+#define WS   D17 // LRCLOCK
+#define DOUT D18 // DATA
+
+I2S audio(OUTPUT, BCLK, DOUT);
 BackgroundAudioMP3Class<RawDataBuffer<16 * 1024>> BMP(audio);
+Adafruit_PCM51xx pcm;
 
 // The file we're currently playing
 File fsound;
@@ -102,7 +108,218 @@ void setup(){
   // different seed numbers each time the sketch runs.
   // randomSeed() will then shuffle the random function.
   randomSeed(analogRead(RANDOM_SEED_PIN));
+
+  Serial.begin(115200);
+
+  while (!Serial) delay(1);
+
+  Wire.setSDA(20); // Set SDA to GP0
+  Wire.setSCL(21); // Set SCL to GP1
+  Wire.begin();   // Initialize I2C
+
+  // I2C mode (default)
+  if (!pcm.begin()) {
+    Serial.println(F("Could not find PCM51xx, check wiring!"));
+    while (1) delay(10);
+  }
+
+  Serial.println(F("PCM51xx initialized successfully!"));
+
+  pcm.resetRegisters();
+  Serial.println("PCM Registers have been reset");
   
+  // Set I2S format to I2S
+  Serial.println(F("Setting I2S format"));
+  pcm.setI2SFormat(PCM51XX_I2S_FORMAT_I2S);
+  
+  // Read and display current format
+  pcm51xx_i2s_format_t format = pcm.getI2SFormat();
+  Serial.print(F("Current I2S format: "));
+  switch (format) {
+    case PCM51XX_I2S_FORMAT_I2S:
+      Serial.println(F("I2S"));
+      break;
+    case PCM51XX_I2S_FORMAT_TDM:
+      Serial.println(F("TDM/DSP"));
+      break;
+    case PCM51XX_I2S_FORMAT_RTJ:
+      Serial.println(F("Right Justified"));
+      break;
+    case PCM51XX_I2S_FORMAT_LTJ:
+      Serial.println(F("Left Justified"));
+      break;
+    default:
+      Serial.println(F("Unknown"));
+      break;
+  }
+  
+  // Set I2S word length to 32-bit
+  Serial.println(F("Setting I2S word length"));
+  pcm.setI2SSize(PCM51XX_I2S_SIZE_16BIT);
+  
+  // Read and display current word length
+  pcm51xx_i2s_size_t size = pcm.getI2SSize();
+  Serial.print(F("Current I2S word length: "));
+  switch (size) {
+    case PCM51XX_I2S_SIZE_16BIT:
+      Serial.println(F("16 bits"));
+      break;
+    case PCM51XX_I2S_SIZE_20BIT:
+      Serial.println(F("20 bits"));
+      break;
+    case PCM51XX_I2S_SIZE_24BIT:
+      Serial.println(F("24 bits"));
+      break;
+    case PCM51XX_I2S_SIZE_32BIT:
+      Serial.println(F("32 bits"));
+      break;
+    default:
+      Serial.println(F("Unknown"));
+      break;
+  }
+
+  // Set error detection bits
+  if (!pcm.ignoreFSDetect(true) || !pcm.ignoreBCKDetect(true) || !pcm.ignoreSCKDetect(true) || 
+      !pcm.ignoreClockHalt(true) || !pcm.ignoreClockMissing(true) || !pcm.disableClockAutoset(false) || 
+      !pcm.ignorePLLUnlock(true)) {
+    Serial.println(F("Error detection failed to configure"));
+  }
+  
+  // Enable PLL
+  Serial.println(F("Enabling PLL"));
+  pcm.enablePLL(true);
+  
+  // Check PLL status
+  bool pllEnabled = pcm.isPLLEnabled();
+  Serial.print(F("PLL enabled: "));
+  Serial.println(pllEnabled ? F("Yes") : F("No"));
+  
+  // Set PLL reference to BCK
+  Serial.println(F("Setting PLL reference"));
+  pcm.setPLLReference(PCM51XX_PLL_REF_BCK);
+  
+  // Read and display current PLL reference
+  pcm51xx_pll_ref_t pllRef = pcm.getPLLReference();
+  Serial.print(F("Current PLL reference: "));
+  switch (pllRef) {
+    case PCM51XX_PLL_REF_SCK:
+      Serial.println(F("SCK"));
+      break;
+    case PCM51XX_PLL_REF_BCK:
+      Serial.println(F("BCK"));
+      break;
+    case PCM51XX_PLL_REF_GPIO:
+      Serial.println(F("GPIO"));
+      break;
+    default:
+      Serial.println(F("Unknown"));
+      break;
+  }
+
+  if (pcm.isPLLLocked()) {
+    Serial.println("PLL Is Locked");
+  } else {
+    Serial.println("**** PLL Is NOT Locked ****");
+  }
+  
+  // Set DAC clock source to PLL
+  Serial.println(F("Setting DAC source"));
+  pcm.setDACSource(PCM51XX_DAC_CLK_PLL);
+  
+  // Read and display current DAC source
+  pcm51xx_dac_clk_src_t dacSource = pcm.getDACSource();
+  Serial.print(F("Current DAC source: "));
+  switch (dacSource) {
+    case PCM51XX_DAC_CLK_MASTER:
+      Serial.println(F("Master clock (auto-select)"));
+      break;
+    case PCM51XX_DAC_CLK_PLL:
+      Serial.println(F("PLL clock"));
+      break;
+    case PCM51XX_DAC_CLK_SCK:
+      Serial.println(F("SCK clock"));
+      break;
+    case PCM51XX_DAC_CLK_BCK:
+      Serial.println(F("BCK clock"));
+      break;
+    default:
+      Serial.println(F("Unknown"));
+      break;
+  }  
+
+  // Test auto mute (default turn off)
+  Serial.println(F("Setting auto mute"));
+  pcm.setAutoMute(false);
+  
+  // Read and display current auto mute status
+  bool autoMuteEnabled = pcm.getAutoMute();
+  Serial.print(F("Auto mute: "));
+  Serial.println(autoMuteEnabled ? F("Enabled") : F("Disabled"));
+  
+  // Test mute (default do not mute)
+  Serial.println(F("Setting mute"));
+  pcm.mute(false);
+  
+  // Read and display current mute status
+  bool muteEnabled = pcm.isMuted();
+  Serial.print(F("Mute: "));
+  Serial.println(muteEnabled ? F("Enabled") : F("Disabled"));
+
+  // Check DSP boot status and power state
+  Serial.print(F("DSP boot done: "));
+  Serial.println(pcm.getDSPBootDone() ? F("Yes") : F("No"));
+  
+  pcm51xx_power_state_t powerState = pcm.getPowerState();
+  Serial.print(F("Power state: "));
+  switch (powerState) {
+    case PCM51XX_POWER_POWERDOWN:
+      Serial.println(F("Powerdown"));
+      break;
+    case PCM51XX_POWER_WAIT_CP_VALID:
+      Serial.println(F("Wait for CP voltage valid"));
+      break;
+    case PCM51XX_POWER_CALIBRATION_1:
+    case PCM51XX_POWER_CALIBRATION_2:
+      Serial.println(F("Calibration"));
+      break;
+    case PCM51XX_POWER_VOLUME_RAMP_UP:
+      Serial.println(F("Volume ramp up"));
+      break;
+    case PCM51XX_POWER_RUN_PLAYING:
+      Serial.println(F("Run (Playing)"));
+      break;
+    case PCM51XX_POWER_LINE_SHORT:
+      Serial.println(F("Line output short / Low impedance"));
+      break;
+    case PCM51XX_POWER_VOLUME_RAMP_DOWN:
+      Serial.println(F("Volume ramp down"));
+      break;
+    case PCM51XX_POWER_STANDBY:
+      Serial.println(F("Standby"));
+      break;
+    default:
+      Serial.println(F("Unknown"));
+      break;
+  }
+  
+  // Check PLL lock status
+  bool pllLocked = pcm.isPLLLocked();
+  Serial.print(F("PLL locked: "));
+  Serial.println(pllLocked ? F("Yes") : F("No"));
+  
+  // Set volume to -6dB on both channels
+  Serial.println(F("Setting volume"));
+  pcm.setVolumeDB(0, 0);
+  
+  // Read and display current volume
+  float leftVol, rightVol;
+  pcm.getVolumeDB(&leftVol, &rightVol);
+  Serial.print(F("Current volume - Left: "));
+  Serial.print(leftVol, 1);
+  Serial.print(F("dB, Right: "));
+  Serial.print(rightVol, 1);
+  Serial.println(F("dB"));
+
   pinMode(BUTTON_1_PIN, INPUT_PULLUP);
   pinMode(BUTTON_2_PIN, INPUT_PULLUP);
   pinMode(BUTTON_3_PIN, INPUT_PULLUP);
@@ -120,10 +337,6 @@ void setup(){
 
   //pinMode(BUSY_PIN, INPUT_PULLUP);
 
-  Serial.begin(115200);
-
-  //while (!Serial) delay(1);
-  
   Serial.println("C0: FS init start.");
   if (!LittleFS.begin()) {
     Serial.println("C0: FS init Error.");
@@ -142,7 +355,7 @@ void setup(){
   //check the game selection pin so it isn't -1
   checkIfGameChanged();
   //Start Game deactivated
-  deactivateGame();
+  //deactivateGame();
 }
 
 //Setup for Core playing sounds
@@ -165,7 +378,7 @@ void loop1(){
 
   if (soundRequest){
     soundRequest = false;
-    //Serial.println("C1: Sound Starting");
+    Serial.println("C1: Sound Starting");
     setVolumeValue();
     loadSound(soundFullFilePath);
   }
@@ -202,7 +415,8 @@ bool checkIfGameChanged(){
   if (digitalRead(GAME_SEL_PIN)){
     selectedGame = 0; //Animal Sounds Game
   }else{
-    selectedGame = 1; //Simon Game
+    selectedGame = 0; //Animal Sounds Game
+    //selectedGame = 1; //Simon Game
   }
 
   //Only allow Animal Game if MINIMIZE_FLASHING is true
@@ -212,8 +426,8 @@ bool checkIfGameChanged(){
   
   //Deactivate system if timeout has occured 
   if (hasTimeoutOccured()){
-    deactivateGame();
-    selectedGame = 2; //Deactivation
+    //deactivateGame();
+    //selectedGame = 2; //Deactivation
   }
   
   //Reset game variables if the game selection has changed
@@ -383,7 +597,7 @@ void AnimalSoundsGame(){
 //Main execution of the Simon game
 void SimonGame(){
   if (level == 1){
-    //Serial.println("Level 1");
+    Serial.println("Level 1");
     generate_sequence(); //generate a sequence;
   }
 
@@ -454,7 +668,7 @@ void get_sequence() {
             //wait for button release before moving forward.
           }
           your_sequence[i] = j;
-          //Serial.print(j);
+          Serial.print(j);
           flag = 1;
           delay(200);
           if (your_sequence[i] != sequence[i]){
@@ -515,6 +729,8 @@ void right_sequence() {
 
 //Takes in a FolderNumber and FileNumber builds a file path, sets soundRequest to true to let the other core know to play a sound.
 void playFolderSound(int folderNumber, int fileNumber){
+  //fileNumber = 3;
+  
   char holder[5]; //String to hold the numbers we are converting to a string
   char path[10] = "/0";  //String to hold the folder path padding with 0 because all folders start with 0
   char filePart[10] = "";
@@ -752,7 +968,8 @@ void playActiveSound(){
 
 //Open a file from the full path and start playing the sound
 void loadSound(const char *fullpath){
-  //Serial.print("");
+  Serial.print("loadSound");
+  Serial.print(fullpath);
   fsound = LittleFS.open(fullpath, "r");
   auto p = fsound.position();
   p = p & ~511; // Ensure on a sector boundary, MP3 will resync appropriately
@@ -837,8 +1054,8 @@ bool correctButtonPressed(int buttonNumber){
   
   // Will go LOW if pressed
   if (!digitalRead(pin)){
+    Serial.println("Button Pressed");
     return true;
-    //Serial.println("Button Pressed");
     //if (millis() - lastDebounceTime > debounceDelay)
     //{
       //lastDebounceTime = millis();
