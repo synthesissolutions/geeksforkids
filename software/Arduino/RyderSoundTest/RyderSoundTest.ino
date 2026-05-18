@@ -27,7 +27,7 @@ uint8_t filebuff[512];
 //Simplify startup animation and winning animation. Turn off Simon Game. 0=OFF 1=ON 
 #define MINIMIZE_FLASHING 0
 
-#define BUTTON_COUNT  5
+#define BUTTON_COUNT  4
 #define SOUND_FOLDER_COUNT  6
 
 #define VOLUME_PIN    A0
@@ -59,8 +59,8 @@ uint8_t filebuff[512];
 
 #define SOUND_DELAY_MS    250
 
-int buttonPins[] = {BUTTON_1_PIN, BUTTON_2_PIN, BUTTON_3_PIN, BUTTON_4_PIN, BUTTON_5_PIN};
-int ledPins[] = {LED_1_PIN, LED_2_PIN, LED_3_PIN, LED_4_PIN, LED_5_PIN};
+int buttonPins[] = {BUTTON_1_PIN, BUTTON_2_PIN, BUTTON_3_PIN, BUTTON_5_PIN};
+int ledPins[] = {LED_1_PIN, LED_2_PIN, LED_3_PIN,  LED_5_PIN};
 
 unsigned long lastDebounceTime = 0;  // the last time the output pin was toggled
 unsigned long debounceDelay = 50;    // the debounce time; increase if the output flickers
@@ -323,7 +323,7 @@ void setup(){
   pinMode(BUTTON_1_PIN, INPUT_PULLUP);
   pinMode(BUTTON_2_PIN, INPUT_PULLUP);
   pinMode(BUTTON_3_PIN, INPUT_PULLUP);
-  pinMode(BUTTON_4_PIN, INPUT_PULLUP);
+  //pinMode(BUTTON_4_PIN, INPUT_PULLUP);
   pinMode(BUTTON_5_PIN, INPUT_PULLUP);
   
   pinMode(GAME_SEL_PIN, INPUT_PULLUP);
