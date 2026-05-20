@@ -17,6 +17,8 @@ Steering steering;
 Throttle throttle;
 RemoteControl remoteControl;
 Logger logger;
+GpioExpander gpioExpander;
+Led led;
 
 boolean isLogging = false;
 boolean isConfiguring = false;
@@ -51,26 +53,21 @@ boolean badStartMessageDisplayed = false;
  * Arduino defined setup function.  Automatically run once at restart of the device.
  */
 void setup() {
-  // Force Sound Output Pins High
-  // Low will trigger the related sound
-  pinMode(PIN_SOUND_4, OUTPUT);
-  pinMode(PIN_SOUND_5, OUTPUT);
-  digitalWrite(PIN_SOUND_4, HIGH);
-  digitalWrite(PIN_SOUND_5, HIGH);
-
   // Control Connected setup
   // Each control system (joystick, control panel, etc.) must take this pin high to show they are connected
   pinMode(PIN_ACTIVE_SWITCH, INPUT_PULLDOWN);
   
   // set up the logger
-  logger.init(LOGGER_UPDATE_TIME, &eeprom, &configuration, &joystick, &remoteControl, &steering, &throttle);
+  logger.init(LOGGER_UPDATE_TIME, &eeprom, &configuration, &joystick, &remoteControl, &steering, &throttle, &gpioExpander, &led);
 
   eeprom.init();
   logger.addLogLine("Eeprom initialized");
     
   configuration.init(&eeprom);
   logger.addLogLine("configuration initialized");
-    
+
+  gpioExpander.init();
+
   joystick.init(PIN_JOYSTICK_STEERING, PIN_JOYSTICK_THROTTLE);
   logger.addLogLine("joystick initialized");
 
@@ -82,6 +79,10 @@ void setup() {
     }
     logger.addLogLine("remote control initialized");
   }
+
+  led.init();
+  led.setPowerPixel(255, 0, 0);
+  led.setStatusPixel(0, 255, 0);
 
   throttle.init(PIN_THROTTLE_DIRECTION_FRONT, PIN_THROTTLE_PWM_FRONT, PIN_THROTTLE_DIRECTION_REAR, PIN_THROTTLE_PWM_REAR);
   logger.addLogLine("throttle initialized");
@@ -111,11 +112,15 @@ void setup() {
   remoteControl.setThrottleRange(configuration.getRcThrottleMin(), configuration.getRcThrottleCenter(), configuration.getRcThrottleMax());
   remoteControl.initAveragingArrays();
 
+  led.showPixels();
   delay(250); // give time for external device like M5Dial to startup
 
   configuration.update();
 
   delay(10);
+
+  // All motors have been initialized to a non-moving state, ready to enable to the motor drivers`
+  gpioExpander.setMotorSleep(HIGH);
   
   // set up the interrupt handlers
   if (configuration.useRc()) {
@@ -151,6 +156,9 @@ void setup() {
 void loop() {
   if (!isConfiguring && !isLogging && Serial) {
     // We have detected a Serial connection, check to see if we want logging or configuration
+    led.setStatusPixel(0, 0, 255);
+    led.showPixels();
+    delay(10);
     Serial.println("Press c to configure or any other key to run with logging");
     throttle.forceStop();
     steering.forceStop();
@@ -177,6 +185,10 @@ void loop() {
     // When configuration is active, the car cannot be driven.
     throttle.forceStop();
     steering.forceStop();
+
+    led.setStatusPixel(128, 0, 128);
+    led.showPixels();
+    delay(10);
 
     configuration.configureCar();
     // We will never return from this method.
@@ -291,7 +303,8 @@ void loop() {
   if (loopCount % 5 == 0) {
     configuration.update();
   }
-  
+
+  led.showPixels();
   delay(LOOP_DELAY_MILLIS);
   loopCount++;
 }

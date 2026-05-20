@@ -10,17 +10,9 @@
 
 /*
 
-- add file for Neopixels
-  - set pwr neopixel on startup
-  - set stat neopixel when car is moving
-  - set error neopixel to yellow if no drive system is connected
-  - add the ability to show multiple error conditions - changing color each second to cycle through error conditions
-- add file and code to deal with setting/reading values from GPIO expander
+- set error neopixel to yellow if no drive system is connected
+- add the ability to show multiple error conditions - changing color each second to cycle through error conditions
 - figure out sound files/code ...
-- enable all power outputs
-- set motor sleep at appropriate times?
-- read H/L speed from dash and provide getter
-- read Forward/Reverse from dash and provide getter
 - trigger sounds for sounds A & B from drive system
 - trigger sounds from action challenge 1 and 2
 

@@ -54,6 +54,9 @@ class Throttle {
       pinMode(rearForwardPin, OUTPUT);
       pinMode(rearReversePin, OUTPUT);
 
+      // make sure the motors are all off
+      forceStop();
+
       // and do an initial update to get the timer kicked off
       updateThrottle();
     }
