@@ -20,6 +20,7 @@ Logger logger;
 GpioExpander gpioExpander;
 Led led;
 SoundButtons soundButtons;
+SoundProcessing soundProcessing;
 
 boolean isLogging = false;
 boolean isConfiguring = false;
@@ -59,7 +60,7 @@ void setup() {
   pinMode(PIN_ACTIVE_SWITCH, INPUT_PULLDOWN);
   
   // set up the logger
-  logger.init(LOGGER_UPDATE_TIME, &eeprom, &configuration, &joystick, &remoteControl, &steering, &throttle, &gpioExpander, &led, &soundButtons);
+  logger.init(LOGGER_UPDATE_TIME, &eeprom, &configuration, &joystick, &remoteControl, &steering, &throttle, &gpioExpander, &led, &soundButtons, &soundProcessing);
 
   eeprom.init();
   logger.addLogLine("Eeprom initialized");
@@ -70,6 +71,8 @@ void setup() {
   gpioExpander.init();
 
   soundButtons.init(&gpioExpander);
+
+  soundProcessing.init();
 
   joystick.init(PIN_JOYSTICK_STEERING, PIN_JOYSTICK_THROTTLE);
   logger.addLogLine("joystick initialized");
