@@ -1,4 +1,4 @@
- /**
+/**
  * Led Class
  * 
  * This class provides an interface to the 3 NeoPixels and 2 External LED strips

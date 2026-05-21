@@ -134,8 +134,8 @@ const int           PIN_STEERING_PWM              = 2; //STERRING_MOTOR_PWM
 const int           PIN_STEERING_POSITION         = A1;
 
 // sound NEW
-#define             PIN_SOUND_4                    22 //DRIVE_SOUND_A
-#define             PIN_SOUND_5                    24 //DRIVE_SOUND_B
+#define             DRIVE_SOUND_A                    22
+#define             DRIVE_SOUND_B                    24
 
 // Reverse Switch old --New moved to GPIO EXPANDER
 //#define             PIN_REVERSE_SWITCH             18

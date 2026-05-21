@@ -15,7 +15,7 @@ class Logger {
     unsigned long lastUpdateTime;
     unsigned long updateDeltaT;
 
-    unsigned int txSpeed = SERIAL_BAUD_RATE;
+    unsigned int txSpeed = SERIAL_BAUD_RATE; 
 
     char lines[LOGGER_LINE_COUNT][LOGGER_LINE_LENGTH];
     char statusLine[LOGGER_LINE_LENGTH];
@@ -29,6 +29,7 @@ class Logger {
     Throttle *throttle;
     GpioExpander *gpioExpander;
     Led *led;
+    SoundButtons *soundButtons;
 
   public: 
     // Default constructor ... does nothing.  This allows us to delay setting the pins until we want to (via the init method).
@@ -38,7 +39,7 @@ class Logger {
     /*
      * Set up the logging.  An updateTime of 0 will turn logging off.  Very much tied to knowing what objects we're going to log status for!!!
      */
-    void init(int updateTime, Eeprom *e, Configuration *c, Joystick *j, RemoteControl *r, Steering *st, Throttle *t, GpioExpander *g, Led *l) {
+    void init(int updateTime, Eeprom *e, Configuration *c, Joystick *j, RemoteControl *r, Steering *st, Throttle *t, GpioExpander *g, Led *l, SoundButtons *sb) {
 
       Serial.begin(txSpeed);
 
@@ -50,6 +51,7 @@ class Logger {
       throttle = t;
       gpioExpander = g;
       led = l;
+      soundButtons = sb;
       
       updateDeltaT = updateTime;
       lastUpdateTime = millis();
@@ -110,6 +112,10 @@ class Logger {
         Serial.println();
 
         gpioExpander->getStatus(statusLine);
+        Serial.write(statusLine, strlen(statusLine));
+        Serial.println();
+
+        soundButtons->getStatus(statusLine);
         Serial.write(statusLine, strlen(statusLine));
         Serial.println();
 
