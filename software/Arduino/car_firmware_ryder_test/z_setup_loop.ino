@@ -21,6 +21,7 @@ GpioExpander gpioExpander;
 Led led;
 SoundButtons soundButtons;
 SoundProcessing soundProcessing;
+SoundProcessingPcm soundProcessingPcm;
 
 boolean isLogging = false;
 boolean isConfiguring = false;
@@ -54,13 +55,19 @@ boolean badStartMessageDisplayed = false;
 /*
  * Arduino defined setup function.  Automatically run once at restart of the device.
  */
+void setup1() {
+  soundProcessing.init();
+}
 void setup() {
   // Control Connected setup
   // Each control system (joystick, control panel, etc.) must take this pin high to show they are connected
   pinMode(PIN_ACTIVE_SWITCH, INPUT_PULLDOWN);
-  
+  Wire.setSDA(PIN_I2C_SDA);
+  Wire.setSCL(PIN_I2C_SCL);
+  Wire.begin();   // Initialize I2C
+      
   // set up the logger
-  logger.init(LOGGER_UPDATE_TIME, &eeprom, &configuration, &joystick, &remoteControl, &steering, &throttle, &gpioExpander, &led, &soundButtons, &soundProcessing);
+  logger.init(LOGGER_UPDATE_TIME, &eeprom, &configuration, &joystick, &remoteControl, &steering, &throttle, &gpioExpander, &led, &soundButtons, &soundProcessingPcm);
 
   eeprom.init();
   logger.addLogLine("Eeprom initialized");
@@ -68,11 +75,10 @@ void setup() {
   configuration.init(&eeprom);
   logger.addLogLine("configuration initialized");
 
+  soundProcessingPcm.init();
   gpioExpander.init();
 
   soundButtons.init(&gpioExpander);
-
-  soundProcessing.init();
 
   joystick.init(PIN_JOYSTICK_STEERING, PIN_JOYSTICK_THROTTLE);
   logger.addLogLine("joystick initialized");
