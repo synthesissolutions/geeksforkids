@@ -12,8 +12,9 @@ class SoundProcessingPcm {
     bool pcmAvailable = false;
     bool pllEnabled = false;
     bool pllLocked = false;
-    bool pllLocked2 = false;
     bool dspBootDone = false;
+    int rawVolume = 0;
+    float volumeDb = 0.0;
   
   public:
     // Default constructor ... does nothing.  This allows us to delay setting the pins until we want to (via the init method).
@@ -24,10 +25,6 @@ class SoundProcessingPcm {
      * init - initialize the joystick instance with the pins for x and y axes
      */
     void init() {
-      //Wire.setSDA(20); // Set SDA to GP0
-      //Wire.setSCL(21); // Set SCL to GP1
-      //Wire.begin();   // Initialize I2C
-
       // I2C mode (default)
       if (pcm.begin()) {
         pcmAvailable = true;
@@ -57,16 +54,35 @@ class SoundProcessingPcm {
         pcm.setAutoMute(false);
         pcm.mute(false);
         dspBootDone = pcm.getDSPBootDone();
-        pcm.setVolumeDB(0, 0);            
+        pcm.setVolumeDB(0, 0);
       }
 
     }
 
+    // the volume recieved will be a number from 1 to 100
+    // convert to log scale
+    void setVolume(int volume) {
+      //Serial.print(volume);
+      rawVolume = volume;
+      //Serial.print(" ");
+      //Serial.print(rawVolume);
+      int normalizedVolume = min(max(1, volume), 100);
+      //Serial.print(" ");
+      //Serial.print(normalizedVolume);
+      float logVolume = log(normalizedVolume / 100.0) * 20.0;
+      //Serial.print(" ");
+      //Serial.println(logVolume);
+      pcm.setVolumeDB(logVolume, logVolume);
+      volumeDb = logVolume;
+    }
+
     void getStatus(char * status) {
-      sprintf(status, "[Sound Processing PCM] PCM Avail: %s PLL Enabled: %s PLL Locked: %s PLL Locked2: %s DSP Boot Done: %s",
+      sprintf(status, "[Sound Processing PCM] PCM Avail: %s PLL Enabled: %s PLL Locked: %s PLL Locked2: %s DSP Boot Done: %s Volume DB: %   f Raw Volume: %i",
         pcmAvailable ? "Yes" : "*no*",
         pllEnabled ? "Yes" : "*no*",
         pllLocked ? "Yes" : "*no*",
-        dspBootDone ? "Yes" : "*no*");
+        dspBootDone ? "Yes" : "*no*",
+        volumeDb,
+        rawVolume);
     }
 };

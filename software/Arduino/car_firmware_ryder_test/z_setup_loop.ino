@@ -63,7 +63,6 @@ void setup1() {
 }
 
 void loop1() {
-  /*
   if (soundButtons.getSoundAButtonPressed()) {
     soundProcessing.playSoundButtonA();
   } else if (soundButtons.getSoundBButtonPressed()) {
@@ -73,11 +72,10 @@ void loop1() {
   } else if (soundButtons.getTrigger2Activated()) {
     soundProcessing.playActionTrigger2();
   }
-  */
 
   if (millis() - tempMillis > 10000) {
     tempMillis = millis();
-    soundProcessing.playSoundButtonA();
+    //soundProcessing.playSoundButtonA();
   }
 
   soundProcessing.processSoundRequests();
@@ -333,7 +331,7 @@ void loop() {
   // When Configuration is active we use the Serial output for logging message directly from that module
   if (isLogging) {
     // Only write the log messages if there is an active serial connection
-    //logger.writeLog();
+    logger.writeLog();
   }
 
   // Don't need to update the configuration every time through the loop
@@ -341,6 +339,7 @@ void loop() {
     configuration.update();
   }
 
+  soundProcessingPcm.setVolume(configuration.getVolume());
   led.showPixels();
   soundButtons.processSoundButtons();
   delay(LOOP_DELAY_MILLIS);

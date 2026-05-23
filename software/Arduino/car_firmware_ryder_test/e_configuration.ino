@@ -116,7 +116,6 @@ class Configuration {
     void update() {
       if (m5DialDetected) {
         readSpeedVolume();
-        //writeVolume(); // Send the selected volume to the DAC handling audio output
   
         if (!versionSent) {
           versionSent = true;
@@ -254,6 +253,10 @@ class Configuration {
       Wire1.endTransmission();
     }
 
+    int getVolume() {
+      return (int)volume;
+    }
+    
     float getSpeedMultiplier() {
       return constrain(map(speed, 1, 100, SPEED_CONFIGURATION_MIN_SPEED, SPEED_CONFIGURATION_MAX_SPEED), SPEED_CONFIGURATION_MIN_SPEED, SPEED_CONFIGURATION_MAX_SPEED) / 100.0;
     }

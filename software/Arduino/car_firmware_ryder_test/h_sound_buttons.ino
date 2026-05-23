@@ -40,8 +40,7 @@ class SoundButtons {
     }
 
     bool getSoundAButtonPressed() {
-      return true;
-      //return soundButtonA;
+      return soundButtonA;
     }
 
     bool getSoundBButtonPressed() {

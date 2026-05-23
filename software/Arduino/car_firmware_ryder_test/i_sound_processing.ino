@@ -54,11 +54,16 @@ class SoundProcessing {
         soundProcessingAvailable = true;
       }
 
-      while (!Serial) delay(1);
+      //while (!Serial) delay(1);
       setFolderFileCounts("/");
-      printFolderCounts();
+      //printFolderCounts();
     }
 
+    // Set volume receives a number from 1 to 100 representing the volume requested
+    void setVolume(uint8_t volume) {
+      uint8_t normalizedVolume = max(volume, 100);
+    }
+    
     void processSoundRequests() {
       if(fsound){
         soundPlaying = true;
