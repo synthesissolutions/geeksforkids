@@ -12,6 +12,8 @@
 class SoundButtons {
   private:
     GpioExpander *gpioExpander;
+    bool soundButtonA = true;
+    bool soundButtonB = false;
     bool trigger1Pressed = false;
     bool trigger2Pressed = false;
   
@@ -31,16 +33,27 @@ class SoundButtons {
     }
 
     void processSoundButtons() {
-      if (!digitalRead(DRIVE_SOUND_A)) {
-        // Trigger sound A
-      }
-
-      if (!digitalRead(DRIVE_SOUND_B)) {
-        // Trigger sound B
-      }
-
+      soundButtonA = !digitalRead(DRIVE_SOUND_A);
+      soundButtonB = !digitalRead(DRIVE_SOUND_B);
       trigger1Pressed = !gpioExpander->getActionTrigger1();
       trigger2Pressed = !gpioExpander->getActionTrigger2();
+    }
+
+    bool getSoundAButtonPressed() {
+      return true;
+      //return soundButtonA;
+    }
+
+    bool getSoundBButtonPressed() {
+      return soundButtonB;
+    }
+
+    bool getTrigger1Activated() {
+      return trigger1Pressed;
+    }
+
+    bool getTrigger2Activated() {
+      return trigger2Pressed;
     }
 
     void getStatus(char * status) {

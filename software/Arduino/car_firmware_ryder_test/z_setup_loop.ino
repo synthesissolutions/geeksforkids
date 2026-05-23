@@ -52,12 +52,37 @@ boolean rcInControl = false;
 boolean joystickInControl = false;
 boolean badStartMessageDisplayed = false;
 
+long tempMillis;
+
 /*
  * Arduino defined setup function.  Automatically run once at restart of the device.
  */
 void setup1() {
   soundProcessing.init();
+  tempMillis = millis();
 }
+
+void loop1() {
+  /*
+  if (soundButtons.getSoundAButtonPressed()) {
+    soundProcessing.playSoundButtonA();
+  } else if (soundButtons.getSoundBButtonPressed()) {
+    soundProcessing.playSoundButtonB();
+  } else if (soundButtons.getTrigger1Activated()) {
+    soundProcessing.playActionTrigger1();
+  } else if (soundButtons.getTrigger2Activated()) {
+    soundProcessing.playActionTrigger2();
+  }
+  */
+
+  if (millis() - tempMillis > 10000) {
+    tempMillis = millis();
+    soundProcessing.playSoundButtonA();
+  }
+
+  soundProcessing.processSoundRequests();
+}
+
 void setup() {
   // Control Connected setup
   // Each control system (joystick, control panel, etc.) must take this pin high to show they are connected
@@ -67,7 +92,7 @@ void setup() {
   Wire.begin();   // Initialize I2C
       
   // set up the logger
-  logger.init(LOGGER_UPDATE_TIME, &eeprom, &configuration, &joystick, &remoteControl, &steering, &throttle, &gpioExpander, &led, &soundButtons, &soundProcessingPcm);
+  logger.init(LOGGER_UPDATE_TIME, &eeprom, &configuration, &joystick, &remoteControl, &steering, &throttle, &gpioExpander, &led, &soundButtons, &soundProcessingPcm, &soundProcessing);
 
   eeprom.init();
   logger.addLogLine("Eeprom initialized");
@@ -308,7 +333,7 @@ void loop() {
   // When Configuration is active we use the Serial output for logging message directly from that module
   if (isLogging) {
     // Only write the log messages if there is an active serial connection
-    logger.writeLog();
+    //logger.writeLog();
   }
 
   // Don't need to update the configuration every time through the loop
