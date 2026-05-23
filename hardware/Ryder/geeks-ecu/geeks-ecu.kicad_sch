@@ -2635,10 +2635,10 @@
 		)
 		(uuid "72623c9f-4a9e-4a35-be3b-a3c3dd2ea685")
 	)
-	(text_box "TODO: FIX RC CONNECTOR!!!!!"
+	(text_box "TODO: \nFIX RC CONNECTOR\nFix GPIO Expander I2C pins\nFix Amp inputs switched LOL\nFix LinAct Current Limit?"
 		(exclude_from_sim no)
-		(at 208.28 231.14 0)
-		(size 86.36 33.02)
+		(at 193.04 228.6 0)
+		(size 104.14 34.2416)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
 			(width 0)
@@ -2651,7 +2651,7 @@
 		)
 		(effects
 			(font
-				(size 6.35 6.35)
+				(size 3.81 3.81)
 				(thickness 1.27)
 				(bold yes)
 				(color 255 0 0 1)
