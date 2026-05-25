@@ -18,7 +18,27 @@
    5. Sparkfun TMP102 Temperature Sensor Library v. 1.1.2
    6. Background Audio by Earle Philhower III Library v.1.3.2
    7. Adafruit PCM51xx DAC Library v. 1.0.0
+
+
+   Tools Menu Configuration
+   ------------------------
    
+   1. Board: Generic RP2040 - from the RP2040 Board Manager in #2 above.
+   2. Unless otherwise menntioned, keep default configuration
+   3. Flash Size 16mb - Sketch: 4mb File System: 12mb
+   4. Boot Stage 2: W25Q128JV QSPI /4
+
+
+   Audio File System
+   -----------------
+   
+   1. Download and install the LittleFS plugin to create the filesystem https://github.com/earlephilhower/arduino-pico-littlefs-plugin
+   2. Select Pico LittleFS Data Upload from the Tools menu
+      This will create the 12mb file system using the files in the Data folder for this Arduino sketch.
+      This could take several minutes.
+   3. You do not need to recreate the filesystem unless you modify the data folder. You do NOT need to recreate the filesystem if you are
+      just updating the Arduino code and deploying to the device unless you accidentally upload the code with the wrong Flash Size settings.
+
 
    File Orgnaization
    -----------------
