@@ -10,12 +10,8 @@
 
 /*
 
-- trigger sounds from action challenge 1 and 2 - done? need to verify
-- figure out why sound buttons are triggering two sounds
 - figure out why the RC is locking out the child drive system permanently
-- update sound files
-- add notes to explain the Arduino Tools menu configuration needed to build, plus versions of all libraries used
 - figure out why the SoundProcessing status isn't printing properly - not urgent
 - add the ability to show multiple error conditions - changing color each second to cycle through error conditions - not urgent
 
- */
+ */  

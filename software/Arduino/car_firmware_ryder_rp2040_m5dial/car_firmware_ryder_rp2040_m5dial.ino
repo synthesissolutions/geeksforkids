@@ -6,6 +6,20 @@
 
    -------------------------------------------------------------
 
+   Arduino Configuration
+   ---------------------
+
+   Tested with the following versions
+   
+   1. Test under Arduino IDE v. 1.8.19
+   2. RP2040 Board Manager Earle Philhower III v. 4.5.1
+   3. Adafruit NeoPixel Library v. 1.12.3
+   4. Adafruit AW9523 GPIO Expander Library v. 1.0.5
+   5. Sparkfun TMP102 Temperature Sensor Library v. 1.1.2
+   6. Background Audio by Earle Philhower III Library v.1.3.2
+   7. Adafruit PCM51xx DAC Library v. 1.0.0
+   
+
    File Orgnaization
    -----------------
 

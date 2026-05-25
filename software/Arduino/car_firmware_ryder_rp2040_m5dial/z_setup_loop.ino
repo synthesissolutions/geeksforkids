@@ -59,23 +59,19 @@ long tempMillis;
  */
 void setup1() {
   soundProcessing.init();
-  tempMillis = millis();
 }
 
 void loop1() {
-  if (soundButtons.getSoundAButtonPressed()) {
-    soundProcessing.playSoundButtonA();
-  } else if (soundButtons.getSoundBButtonPressed()) {
-    soundProcessing.playSoundButtonB();
-  } else if (soundButtons.getTrigger1Activated()) {
-    soundProcessing.playActionTrigger1();
-  } else if (soundButtons.getTrigger2Activated()) {
-    soundProcessing.playActionTrigger2();
-  }
-
-  if (millis() - tempMillis > 10000) {
-    tempMillis = millis();
-    //soundProcessing.playSoundButtonA();
+  if (!soundProcessing.mp3Playing()) {
+    if (soundButtons.getSoundAButtonPressed()) {
+      soundProcessing.playSoundButtonA();
+    } else if (soundButtons.getSoundBButtonPressed()) {
+      soundProcessing.playSoundButtonB();
+    } else if (soundButtons.getTrigger1Activated()) {
+      soundProcessing.playActionTrigger1();
+    } else if (soundButtons.getTrigger2Activated()) {
+      soundProcessing.playActionTrigger2();
+    }
   }
 
   soundProcessing.processSoundRequests();
