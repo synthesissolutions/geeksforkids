@@ -56,7 +56,7 @@ const boolean       JOYSTICK_INVERT_Y_AXIS  = false;
 const unsigned long THROTTLE_UPDATE_MILLIS  = 10;         // 10 = ~ 100Hz.  How often the throttle position is updated.
 const float         THROTTLE_CHANGE_RATE    = 200.0;      // Units are scaledUnits/sec.  100.0 means that we can go from full forward to full reverse in 0.5 second. 
 const int           THROTTLE_PWM_MIN        = 0;          // Throttle PWM is handled with analogWrite which expects a value from 0 to 255, 0 = stopped, 255 = full speed
-const int           THROTTLE_PWM_MAX        = 180;
+const int           THROTTLE_PWM_MAX        = 190;        // Set max Throttle to approximately 75% of maximum to avoid excessive speed.
 
 // Min/Max Speed Configuration
 const int           SPEED_CONFIGURATION_MIN_SPEED = 15;   // The min/max settings here control what the min/max speed percentages controlled by the speed potentiometer
@@ -68,7 +68,7 @@ const int           STEERING_CENTER         = 50;
 const int           STEERING_MAX            = 75;        // tuned to maximum wheel turn amount
 const int           STEERING_STOP_DELTA     = 5;          // How close to target before stopping so we don't oscillate between 2 numbers.  IN SCALED UNITS: -100 to 100
 const int           STEERING_START_DELTA    = 10;          // How close to target before starting so we don't oscillate between 2 numbers   IN SCALED UNITS: -100 to 100
-const int           STEERING_SPEED          = 100;        // PWM Value from 0 - 254 with 254 = max speed
+const int           STEERING_SPEED          = 120;        // PWM Value from 0 - 254 with 254 = max speed
 
 // Remote control PWM parms ... probably best to leave these alone!
 const int           STEERING_RC_MIN         = 1000;

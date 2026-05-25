@@ -10,18 +10,12 @@
 
 /*
 
-- set error neopixel to yellow if no drive system is connected
-- add the ability to show multiple error conditions - changing color each second to cycle through error conditions - not urgent
 - trigger sounds from action challenge 1 and 2 - done? need to verify
-- figure out why sound buttons are trigger two sounds
+- figure out why sound buttons are triggering two sounds
 - figure out why the RC is locking out the child drive system permanently
-- add configuration to define usage of the forward/reverse/park switch
-- update m5dial code to support forward/reverse/park switch configuration
-- add back in brake when stopped
-- reduce the harsh braking affect while slowing down
-- set max speed to 75% power for throttle
 - update sound files
 - add notes to explain the Arduino Tools menu configuration needed to build, plus versions of all libraries used
 - figure out why the SoundProcessing status isn't printing properly - not urgent
+- add the ability to show multiple error conditions - changing color each second to cycle through error conditions - not urgent
 
  */

@@ -129,7 +129,6 @@ class Configuration {
     }
 
     bool getIsM5DialConfigurationMode() {
-      // TODO Double check the configuration mode to make sure it's not spurious data
       return m5DialConfigurationModeActive;
     }
     
@@ -160,6 +159,9 @@ class Configuration {
     int getRcThrottleMax() { return eeprom->getIntegerSetting(EEPROM_RC_THROTTLE_MAX); }
 
     boolean getReverseRcChannels() { return eeprom->getBooleanSetting(EEPROM_REVERSE_RC_CHANNELS); }
+    boolean getUseDashDirection() { return eeprom->getBooleanSetting(EEPROM_USE_DASH_DIR); }
+
+    int getThrottleCoastMs() { return eeprom->getIntegerSetting(EEPROM_COAST_MS); }
 
     float getBatteryVoltage() {
       if (!tempSensorAvailable) {
@@ -301,12 +303,12 @@ class Configuration {
     M5DialCurrentConfiguration readCurrentM5DialConfiguration() {
       M5DialCurrentConfiguration config;
 
-      if(Wire.requestFrom(M5DIAL_I2C_ADDRESS, 4)) {
+      if(Wire1.requestFrom(M5DIAL_I2C_ADDRESS, 4)) {
         config.success = true;
-        config.configMode = Wire.read();
-        config.reg = Wire.read();
-        config.firstByte = Wire.read();
-        config.secondByte = Wire.read();
+        config.configMode = Wire1.read();
+        config.reg = Wire1.read();
+        config.firstByte = Wire1.read();
+        config.secondByte = Wire1.read();
         config.validRegister = config.reg > EEPROM_VERSION && config.reg < NUMBER_OF_CONFIGURATION_ENTRIES;
       } else {
         config.success = false;
@@ -471,7 +473,7 @@ class Configuration {
       while(1) {
         if (Serial.available() > 0) {
           entry = Serial.read();
-          if (entry < 'a' || entry > 'x') {
+          if (entry < 'a' || entry > 'z') {
             Serial.print("Invalid Entry: ");
             Serial.println(entry);
           } else {

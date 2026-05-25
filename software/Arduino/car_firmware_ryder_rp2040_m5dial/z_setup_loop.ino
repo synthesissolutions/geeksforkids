@@ -103,7 +103,7 @@ void setup() {
 
   soundButtons.init(&gpioExpander);
 
-  joystick.init(PIN_JOYSTICK_STEERING, PIN_JOYSTICK_THROTTLE);
+  joystick.init(PIN_JOYSTICK_STEERING, PIN_JOYSTICK_THROTTLE, &gpioExpander);
   logger.addLogLine("joystick initialized");
 
   if (configuration.useRc()) {
@@ -116,10 +116,10 @@ void setup() {
   }
 
   led.init();
-  led.setPowerPixel(255, 0, 0);
+  led.setPowerPixel(0, 255, 0);
   led.setStatusPixel(0, 255, 0);
 
-  throttle.init(PIN_THROTTLE_DIRECTION_FRONT, PIN_THROTTLE_PWM_FRONT, PIN_THROTTLE_DIRECTION_REAR, PIN_THROTTLE_PWM_REAR);
+  throttle.init(PIN_THROTTLE_DIRECTION_FRONT, PIN_THROTTLE_PWM_FRONT, PIN_THROTTLE_DIRECTION_REAR, PIN_THROTTLE_PWM_REAR, configuration.getThrottleCoastMs());
   logger.addLogLine("throttle initialized");
   
   steering.init(PIN_STEERING_DIRECTION, PIN_STEERING_PWM, PIN_STEERING_POSITION);
@@ -138,6 +138,7 @@ void setup() {
   joystick.setYAxisRange(configuration.getJoystickThrottleMin(), configuration.getJoystickThrottleCenter(), configuration.getJoystickThrottleMax());
   joystick.setInvertXAxis(configuration.getInvertJoystickX());
   joystick.setInvertYAxis(configuration.getInvertJoystickY());
+  joystick.setUseDashShifterDirection(configuration.getUseDashDirection());
 
   checkForExtendedThrottle = configuration.getExtendThrottle() && configuration.usePwmJoystickY() && configuration.usePwmJoystickX();
   extendThrottleTimeMilliseconds = configuration.getExtendThrottleTimeMilliseconds();
@@ -221,6 +222,9 @@ void loop() {
     throttle.forceStop();
     steering.forceStop();
 
+    gpioExpander.setDacMute(true);
+    gpioExpander.setAmpSd(true);
+
     led.setStatusPixel(128, 0, 128);
     led.showPixels();
     delay(10);
@@ -281,7 +285,6 @@ void loop() {
       joystick.getXAxisScaled();
       joystick.getYAxisScaled();
     } else {
-      
       // Nope... the parent isn't controlling
       // check to see if the joystick active (e.g. has it centered at least once?)
       if (joystick.isActive()) {  
@@ -337,6 +340,18 @@ void loop() {
   // Don't need to update the configuration every time through the loop
   if (loopCount % 5 == 0) {
     configuration.update();
+  }
+
+  // Check for various error conditions and set the error neopixel
+  // check in priority order
+  if (gpioExpander.getMotorFault()) {
+    led.setErrorPixel(255, 0, 0);    
+  } else if (gpioExpander.getMotorChopping()) {
+    led.setErrorPixel(255, 153, 28);    
+  } else if (!digitalRead(PIN_ACTIVE_SWITCH)) {
+    led.setErrorPixel(128, 128, 0);    
+  } else {
+    led.setErrorPixel(0, 0, 0);
   }
 
   soundProcessingPcm.setVolume(configuration.getVolume());

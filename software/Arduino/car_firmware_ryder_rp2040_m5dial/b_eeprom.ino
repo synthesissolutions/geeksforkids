@@ -1,6 +1,6 @@
 #include <EEPROM.h>
 
-#define NUMBER_OF_CONFIGURATION_ENTRIES 25
+#define NUMBER_OF_CONFIGURATION_ENTRIES 27
 
 #define EEPROM_VERSION              0
 #define EEPROM_ACTUATOR_MIN         1
@@ -27,6 +27,8 @@
 #define EEPROM_EXTEND_THROTTLE_TIME_MS  22
 #define EEPROM_CHILD_THROTTLE_ONLY      23
 #define EEPROM_REVERSE_RC_CHANNELS      24
+#define EEPROM_COAST_MS                 25
+#define EEPROM_USE_DASH_DIR             26
 
 #define INTEGER_CONFIGURATION 1
 #define BOOLEAN_CONFIGURATION 2
@@ -36,13 +38,15 @@
 #define ACTUATOR_DEFAULT_MIN  -30
 #define ACTUATOR_DEFAULT_MAX  30
 
+#define DEFAULT_COAST_MS_BEFORE_BRAKING 100        // How many milliseconds to coast before engaging the motor controller braking to avoid a harsh stop
+
 /**
  * Eeprom Class
  * 
  * This class stores and retrievs settings from Eeprom to define the configuration for this car
  */
 
-const int CURRENT_SETTINGS_VERSION = 6;
+const int CURRENT_SETTINGS_VERSION = 1;
 
 struct ConfigurationEntry {
   String name;
@@ -77,7 +81,9 @@ ConfigurationEntry configurationEntries[] = {
   {"Extend Throttle", 88, BOOLEAN_CONFIGURATION, false, 0},
   {"Extend Throttle Milliseconds", 92, INTEGER_CONFIGURATION, false, 500},
   {"Child Throttle Only", 96, BOOLEAN_CONFIGURATION, false, 0},
-  {"Reverse RC Channels", 100, BOOLEAN_CONFIGURATION, false, 0}
+  {"Reverse RC Channels", 100, BOOLEAN_CONFIGURATION, false, 0},
+  {"Coast Milliseconds", 104, INTEGER_CONFIGURATION, false, DEFAULT_COAST_MS_BEFORE_BRAKING},
+  {"Use Dash Direction", 108, BOOLEAN_CONFIGURATION, false, 0}
 };
     
 class Eeprom {
@@ -96,29 +102,6 @@ class Eeprom {
       
       if (savedVersion == CURRENT_SETTINGS_VERSION) {
         loadConfigurationSettings();
-      } else if (savedVersion == 4 && CURRENT_SETTINGS_VERSION == 5) {
-        loadConfigurationSettings();
-        
-        setBooleanSetting(EEPROM_CHILD_THROTTLE_ONLY, false);
-        setIntegerSetting(EEPROM_VERSION, CURRENT_SETTINGS_VERSION);
-
-        saveConfiguration();
-      } else if ((savedVersion == 4 || savedVersion == 5) && CURRENT_SETTINGS_VERSION == 6) {
-        loadConfigurationSettings();
-
-        if (savedVersion == 4) {
-          setBooleanSetting(EEPROM_CHILD_THROTTLE_ONLY, false);
-        }
-        setIntegerSetting(EEPROM_VERSION, CURRENT_SETTINGS_VERSION);
-        setIntegerSetting(EEPROM_RC_STEERING_MIN, RC_DEFAULT_MIN);
-        setIntegerSetting(EEPROM_RC_STEERING_MAX, RC_DEFAULT_MAX);
-        setIntegerSetting(EEPROM_RC_THROTTLE_MIN, RC_DEFAULT_MIN);
-        setIntegerSetting(EEPROM_RC_THROTTLE_MAX, RC_DEFAULT_MAX);
-        setIntegerSetting(EEPROM_ACTUATOR_MIN, ACTUATOR_DEFAULT_MIN);
-        setIntegerSetting(EEPROM_ACTUATOR_MAX, ACTUATOR_DEFAULT_MAX);
-        setBooleanSetting(EEPROM_REVERSE_RC_CHANNELS, false);
-
-        saveConfiguration();
       } else {
         saveConfiguration(); // This will save the default values
         isConfigurationDefault = true;      
@@ -237,8 +220,11 @@ class Eeprom {
     }
 
      void getStatus(char * status) {
-      sprintf(status, "[EEprom] Version: %i Steering: %i %i %i Configuration: %s", getIntegerSetting(EEPROM_VERSION), 
-        getIntegerSetting(EEPROM_JOYSTICK_STEERING_MIN), getIntegerSetting(EEPROM_JOYSTICK_STEERING_CENTER), 
-        getIntegerSetting(EEPROM_JOYSTICK_STEERING_MAX), isConfigurationDefault ? "Default" : "Eeprom");
+      sprintf(status, "[EEprom] Version: %i Steering: %i %i %i Configuration: %s", 
+        getIntegerSetting(EEPROM_VERSION),
+        getIntegerSetting(EEPROM_JOYSTICK_STEERING_MIN),
+        getIntegerSetting(EEPROM_JOYSTICK_STEERING_CENTER),
+        getIntegerSetting(EEPROM_JOYSTICK_STEERING_MAX),
+        isConfigurationDefault ? "Default" : "Eeprom");
     }
 };

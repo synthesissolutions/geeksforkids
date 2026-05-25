@@ -9,7 +9,9 @@
  *     to help minimize jerky behavior.  
  */
  
-//TODO Talk to William to Update Motor driving code correctly from new board changes
+#define DRIVE_MOTOR_STATE_STOPPED   0
+#define DRIVE_MOTOR_STATE_COASTING  1
+#define DRIVE_MOTOR_STATE_MOVING    2
 
 class Throttle {
 
@@ -24,6 +26,10 @@ class Throttle {
     float currentThrottleScaled = 0;
     int currentPwmOut = 0;
 
+    int currentMotorState = DRIVE_MOTOR_STATE_STOPPED;
+    int motorCoastTimeMs = 0;
+    long motorCoastStartMs = 0;
+
     unsigned long lastThrottleUpdateMillis = 0;
   public: 
 
@@ -34,14 +40,15 @@ class Throttle {
     // Used during a bad start scenario or when the car is being configured
     void forceStop() {
       // Set both Pins HIGH for brake, LOW for coast
-        digitalWrite(frontForwardPin, HIGH);
-        digitalWrite(frontReversePin, HIGH);
-        digitalWrite(rearForwardPin, HIGH);
-        digitalWrite(rearReversePin, HIGH);
+      currentMotorState = DRIVE_MOTOR_STATE_STOPPED;
+      digitalWrite(frontForwardPin, HIGH);
+      digitalWrite(frontReversePin, HIGH);
+      digitalWrite(rearForwardPin, HIGH);
+      digitalWrite(rearReversePin, HIGH);
     }
     
     // initial setup
-    void init(int dirLeftPin, int pwmLeftPin, int dirRightPin, int pwmRightPin) {
+    void init(int dirLeftPin, int pwmLeftPin, int dirRightPin, int pwmRightPin, int coastMs) {
       // set the pins
       frontForwardPin = dirLeftPin;
       frontReversePin = pwmLeftPin;
@@ -53,6 +60,8 @@ class Throttle {
       pinMode(frontReversePin, OUTPUT);
       pinMode(rearForwardPin, OUTPUT);
       pinMode(rearReversePin, OUTPUT);
+
+      motorCoastTimeMs = coastMs;
 
       // make sure the motors are all off
       forceStop();
@@ -123,33 +132,58 @@ class Throttle {
       // now set the direction and the throttle
       if (int(currentThrottleScaled)==0) {
         // stop
-        // TODO decide on brake vs. coast behavior
-        // TODO decide whether or not to use the switch on dash for brake vs. coast
-        digitalWrite(frontForwardPin, HIGH);
-        digitalWrite(frontReversePin, HIGH); 
-        digitalWrite(rearForwardPin, HIGH);
-        digitalWrite(rearReversePin, HIGH);                
+        bool motorStop = true;  // set to false to coast
+
+        if (currentMotorState == DRIVE_MOTOR_STATE_MOVING) {
+          // start coasting
+          motorStop = false;
+          motorCoastStartMs = millis();
+          currentMotorState = DRIVE_MOTOR_STATE_COASTING;
+        } else if (currentMotorState == DRIVE_MOTOR_STATE_COASTING) {
+          if (millis() - motorCoastStartMs > motorCoastTimeMs) {
+            // apply brake
+            motorStop = true; 
+            currentMotorState = DRIVE_MOTOR_STATE_STOPPED;
+          }
+        }
+
+        if (motorStop) {
+          // break
+          digitalWrite(frontForwardPin, HIGH);
+          digitalWrite(frontReversePin, HIGH); 
+          digitalWrite(rearForwardPin, HIGH);
+          digitalWrite(rearReversePin, HIGH);                
+        } else {
+          // coast
+          digitalWrite(frontForwardPin, LOW);
+          digitalWrite(frontReversePin, LOW); 
+          digitalWrite(rearForwardPin, LOW);
+          digitalWrite(rearReversePin, LOW);                          
+        }
       } else if (currentThrottleScaled<0) {
         //reverse
+        currentMotorState = DRIVE_MOTOR_STATE_MOVING;
         digitalWrite(frontForwardPin, LOW);
         analogWrite(frontReversePin, currentPwmOut);   
-        digitalWrite(rearForwardPin, LOW);
-        analogWrite(rearReversePin, currentPwmOut);             
-      } else if (currentThrottleScaled>0) {
-        //forward
-        analogWrite(frontForwardPin, currentPwmOut);       
-        digitalWrite(frontReversePin, LOW);
         analogWrite(rearForwardPin, currentPwmOut);       
         digitalWrite(rearReversePin, LOW);
+      } else if (currentThrottleScaled>0) {
+        //forward
+        currentMotorState = DRIVE_MOTOR_STATE_MOVING;
+        analogWrite(frontForwardPin, currentPwmOut);       
+        digitalWrite(frontReversePin, LOW);
+        digitalWrite(rearForwardPin, LOW);
+        analogWrite(rearReversePin, currentPwmOut);             
       }
 
       lastThrottleUpdateMillis = millis();
     }
 
     void getStatus(char * status) {
-      sprintf(status, "[Throttle] target:%i current:%f PWM:%i",
+      sprintf(status, "[Throttle] target:%i current:%f PWM:%i Motor State: %s",
         throttleTargetScaled,
         currentThrottleScaled,
-        currentPwmOut);
+        currentPwmOut,
+        currentMotorState == DRIVE_MOTOR_STATE_STOPPED ? "stopped" : currentMotorState == DRIVE_MOTOR_STATE_COASTING ? "coasting" : "moving");
     }
 };

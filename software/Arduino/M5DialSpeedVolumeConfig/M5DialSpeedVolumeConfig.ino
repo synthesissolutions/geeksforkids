@@ -5,6 +5,8 @@
 // Uses Version 2.1.3 of M5Stack Board Package
 // Uses Version 1.0.2 of M5Dial Library
 
+// TODO: allow individual integer values to have a step amount other than 1 while setting
+
 #define REGISTER_VERSION              0
 #define REGISTER_ACTUATOR_MIN         1
 #define REGISTER_ACTUATOR_CENTER      2
@@ -29,7 +31,10 @@
 #define REGISTER_EXTEND_THROTTLE          21
 #define REGISTER_EXTEND_THROTTLE_TIME_MS  22
 #define REGISTER_CHILD_THROTTLE_ONLY      23
-#define EEPROM_REVERSE_RC_CHANNELS        24
+#define REGISTER_REVERSE_RC_CHANNELS      24
+#define REGISTER_COAST_MS                 25
+#define REGISTER_USE_DASH_DIR             26
+
 #define REGISTER_CAR_CODE_VERSION         98
 #define REGISTER_SPEED_VOLUME             99
 #define REGISTER_PCB_TEMPERATURE          100
@@ -50,11 +55,11 @@ struct MenuOption {
 
 MenuOption menuOptions[] = {
   {"Lin Actuator", 4, {BACK_MENU_ITEM, REGISTER_ACTUATOR_MIN, REGISTER_ACTUATOR_CENTER, REGISTER_ACTUATOR_MAX}},
-  {"Remote Ctrl", 9, {BACK_MENU_ITEM, REGISTER_USE_RC, REGISTER_RC_STEERING_MIN, REGISTER_RC_STEERING_CENTER, REGISTER_RC_STEERING_MAX, REGISTER_RC_THROTTLE_MIN, REGISTER_RC_THROTTLE_CENTER, REGISTER_RC_THROTTLE_MAX, EEPROM_REVERSE_RC_CHANNELS}},
+  {"Remote Ctrl", 9, {BACK_MENU_ITEM, REGISTER_USE_RC, REGISTER_RC_STEERING_MIN, REGISTER_RC_STEERING_CENTER, REGISTER_RC_STEERING_MAX, REGISTER_RC_THROTTLE_MIN, REGISTER_RC_THROTTLE_CENTER, REGISTER_RC_THROTTLE_MAX, REGISTER_REVERSE_RC_CHANNELS}},
   {"Analog/PWM", 3, {BACK_MENU_ITEM, REGISTER_USE_PWM_JOYSTICK_X, REGISTER_USE_PWM_JOYSTICK_Y}},
   {"Direction", 3, {BACK_MENU_ITEM, REGISTER_INVERT_JOYSTICK_X, REGISTER_INVERT_JOYSTICK_Y}},
   {"Steering", 4, {BACK_MENU_ITEM, REGISTER_JOYSTICK_STEERING_MIN, REGISTER_JOYSTICK_STEERING_CENTER, REGISTER_JOYSTICK_STEERING_MAX}},
-  {"Throttle", 7, {BACK_MENU_ITEM, REGISTER_JOYSTICK_THROTTLE_MIN, REGISTER_JOYSTICK_THROTTLE_CENTER, REGISTER_JOYSTICK_THROTTLE_MAX, REGISTER_EXTEND_THROTTLE, REGISTER_EXTEND_THROTTLE_TIME_MS, REGISTER_CHILD_THROTTLE_ONLY}}
+  {"Throttle", 9, {BACK_MENU_ITEM, REGISTER_JOYSTICK_THROTTLE_MIN, REGISTER_JOYSTICK_THROTTLE_CENTER, REGISTER_JOYSTICK_THROTTLE_MAX, REGISTER_EXTEND_THROTTLE, REGISTER_EXTEND_THROTTLE_TIME_MS, REGISTER_CHILD_THROTTLE_ONLY, REGISTER_COAST_MS, REGISTER_USE_DASH_DIR}}
 };
 
 int menuItemCount = sizeof(menuOptions) / sizeof(menuOptions[0]);
@@ -94,7 +99,9 @@ ConfigurationEntry configurationEntries[] = {
   {"Extend Throttle", false, 0, 0, BOOLEAN_CONFIGURATION, false, 0},
   {"Ext Throttle Ms", false, 0, 5000, INTEGER_CONFIGURATION, false, 500},
   {"Child Throt Only", false, 0, 0, BOOLEAN_CONFIGURATION, false, 0},
-  {"Reverse RC Channels", false, 0, 0, BOOLEAN_CONFIGURATION, false, 0} 
+  {"Reverse RC Channels", false, 0, 0, BOOLEAN_CONFIGURATION, false, 0},
+  {"Coast Milliseconds", false, 0, 2000, INTEGER_CONFIGURATION, false, 100},
+  {"Use Dash Dir", false, 0, 0, BOOLEAN_CONFIGURATION, false, 0}
 };
 
 Preferences preferences;
@@ -143,7 +150,7 @@ void requestEvent() {
   if (currentRegister == REGISTER_SPEED_VOLUME) {  
     Wire.write((uint8_t) speed);
     Wire.write((uint8_t) volume);
-  } else if (currentRegister <= EEPROM_REVERSE_RC_CHANNELS) {
+  } else if (currentRegister <= REGISTER_USE_DASH_DIR) {
     if (configurationEntries[currentRegister].dataType == BOOLEAN_CONFIGURATION) {
       Wire.write(configurationEntries[currentRegister].booleanValue);
       Wire.write(0);
@@ -231,7 +238,7 @@ void receiveEvent(int count) {
     // version of the configuration that the M5Dial is using
 
     // For now we will let the car decide what to do with a version mismatch
-  } else if (currentRegister <= EEPROM_REVERSE_RC_CHANNELS ) {
+  } else if (currentRegister <= REGISTER_USE_DASH_DIR ) {
     // In theory, the car should never set the register in read only mode
     // that should be controlled by the M5Dial
     

@@ -72,35 +72,38 @@ class GpioExpander {
       
       aw.digitalWrite(PIN_GPIO_EXP_SPARE, val);
     }
-    
+
     void setDacMute(uint8_t val) {
       if (!_gpioExpanderAvailable) return;
       
       aw.digitalWrite(PIN_GPIO_EXP_DAC_MUTE, val);
     }
-    
+
     void setAmpSd(uint8_t val) {
       if (!_gpioExpanderAvailable) return;
       
       aw.digitalWrite(PIN_GPIO_EXP_AMP_SD, val);
     }
     
+    // Invert pin since a Fault takes the pin LOW
     bool getSwitchReverse() {
       if (!_gpioExpanderAvailable) return false;
       
-      return aw.digitalRead(PIN_GPIO_EXP_SW_REVERSE);
+      return !aw.digitalRead(PIN_GPIO_EXP_SW_REVERSE);
     }
 
+    // Invert pin since a Fault takes the pin LOW
     bool getSwitchForward() {
       if (!_gpioExpanderAvailable) return false;
       
-      return aw.digitalRead(PIN_GPIO_EXP_SW_FORWARD);
+      return !aw.digitalRead(PIN_GPIO_EXP_SW_FORWARD);
     }
 
+    // Invert pin since a Fault takes the pin LOW
     bool getSwitchHighLow() {
       if (!_gpioExpanderAvailable) return false;
       
-      return aw.digitalRead(PIN_GPIO_EXP_SW_HIGH_LOW);
+      return !aw.digitalRead(PIN_GPIO_EXP_SW_HIGH_LOW);
     }
 
     bool getActionTrigger2() {
@@ -115,22 +118,25 @@ class GpioExpander {
       return aw.digitalRead(PIN_GPIO_EXP_SW_ACTION_TRIG1);
     }
 
+    // Invert pin since a Fault takes the pin LOW
     bool getMotorFault() {
       if (!_gpioExpanderAvailable) return false;
-      
-      return aw.digitalRead(PIN_GPIO_EXP_MOTOR_FAULT);
+
+      return !aw.digitalRead(PIN_GPIO_EXP_MOTOR_FAULT);
     }
 
+    // Invert pin since a Fault takes the pin LOW
     bool getMotorChopping() {
       if (!_gpioExpanderAvailable) return false;
       
-      return aw.digitalRead(PIN_GPIO_EXP_MOTOR_CHOPPING);
+      return !aw.digitalRead(PIN_GPIO_EXP_MOTOR_CHOPPING);
     }
 
+    // Invert pin since a Fault takes the pin LOW
     bool getTemperatureAlert() {
       if (!_gpioExpanderAvailable) return false;
       
-      return aw.digitalRead(PIN_GPIO_EXP_TEMP_ALERT);
+      return !aw.digitalRead(PIN_GPIO_EXP_TEMP_ALERT);
     }
 
     void getStatus(char * status) {

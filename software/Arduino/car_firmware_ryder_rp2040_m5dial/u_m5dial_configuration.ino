@@ -49,7 +49,8 @@ class M5DialConfiguration {
             Serial.println("Invalid register");
           }
         } else {
-          Serial.println("Erroring reading M5Dial Configuration");
+          Serial.println("Error reading M5Dial Configuration");
+          delay(50);
         }
 
         if (config.reg >= EEPROM_ACTUATOR_MIN && config.reg <= EEPROM_ACTUATOR_MAX) {

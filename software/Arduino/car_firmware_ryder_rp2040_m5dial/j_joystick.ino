@@ -19,6 +19,9 @@ class Joystick {
 
     boolean useSteeringPwm = false;
     boolean useThrottlePwm = false;
+
+    boolean useDashShifterDirection;
+    GpioExpander *gpioExpander;
     
     // variables to track the PWM signals
     unsigned long steeringPulseStart; // the timestamp in ms for the current PWM steering pulse
@@ -60,12 +63,13 @@ class Joystick {
     /*
      * init - initialize the joystick instance with the pins for x and y axes
      */
-    void init(int xAxisPin, int yAxisPin) {
+    void init(int xAxisPin, int yAxisPin, GpioExpander *g) {
+      gpioExpander = g;
+      
       this->xAxisPin = xAxisPin;
       this->yAxisPin = yAxisPin; 
       pinMode(xAxisPin, INPUT);
       pinMode(yAxisPin, INPUT);
-      //pinMode(PIN_REVERSE_SWITCH, INPUT_PULLUP);
     }
 
     void initAveragingArrays() {
@@ -95,6 +99,10 @@ class Joystick {
       this->yAxisMax = maxv; 
     }
 
+    void setUseDashShifterDirection(boolean setting) {
+      useDashShifterDirection = setting;
+    }
+    
     void setUseSteeringPwm(boolean setting) {
       useSteeringPwm = setting;
     }
@@ -226,11 +234,10 @@ class Joystick {
       }
 
       // Check to see if the shifter is in reverse, if so invert speed
-      // If the car doesn't have a shifter, then this will never be true because of the pull up configuration
-      //TODO: Add GPIO Expander and Check for forward/Reverse and Stop conditions
-//      if (!digitalRead(PIN_REVERSE_SWITCH)) {
-//        val = -val;
-//      }
+      // Only check if the car is configured to use the shifter on the dashboard
+      if (useDashShifterDirection && gpioExpander->getSwitchReverse()) {
+        val = -val;
+      }
       
       // apply the deadzone
       if (JOYSTICK_Y_AXIS_DEADZONE_LOW < val && val < JOYSTICK_Y_AXIS_DEADZONE_HIGH) {
