@@ -11,7 +11,7 @@
 
    Tested with the following versions
    
-   1. Test under Arduino IDE v. 1.8.19
+   1. Arduino IDE v. 1.8.19
    2. RP2040 Board Manager Earle Philhower III v. 4.5.1
    3. Adafruit NeoPixel Library v. 1.12.3
    4. Adafruit AW9523 GPIO Expander Library v. 1.0.5

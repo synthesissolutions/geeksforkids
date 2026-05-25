@@ -12,6 +12,12 @@
 // a bad RC start. Typically caused by someone holding the throttle in while turning on the remote.
 #define RC_START_LENGTH 10
 
+// We are getting small amounts of spurious data related to the I2S signal this amounts
+// to 1 or 2 bad signals per second. To avoid this appearing like the parent is taking control
+// of the car, we require a number of consecutive signals not at "center" for steering or throttle
+// before locking the child out of the car and taking action on the signal.
+#define CONSECUTIVE_SIGNALS_REQUIRED  3
+
 class RemoteControl {
   private:
 
@@ -46,8 +52,8 @@ class RemoteControl {
     int throttleScaled = -1;
 
     unsigned long lastSignificantInputMillis = 0;
-    unsigned long lastThrottleInputMillis = 0;
-    unsigned long lastSteeringInputMillis = 0;
+    unsigned long numberOfSteeringInputs = 0;
+    unsigned long numberOfThrottleInputs = 0;
 
 
     int throttleReadings[RC_THROTTLE_READINGS];
@@ -124,10 +130,13 @@ class RemoteControl {
 
       if (steeringScaled >= RC_STEERING_DEADZONE_LOW && steeringScaled <= RC_STEERING_DEADZONE_HIGH) {
         steeringScaled = 0;
-        lastSteeringInputMillis = 0; // this does not count as a significant input since it didn't leave the deadzone
+        numberOfSteeringInputs = 0;
       } else {
         if (!childThrottleOnly) {
-          lastSignificantInputMillis = millis();
+          numberOfSteeringInputs++;
+          if (numberOfSteeringInputs > CONSECUTIVE_SIGNALS_REQUIRED) {
+            lastSignificantInputMillis = millis();
+          }
         }
       }
       
@@ -159,9 +168,12 @@ class RemoteControl {
 
       if (throttleScaled >= RC_THROTTLE_DEADZONE_LOW && throttleScaled <= RC_THROTTLE_DEADZONE_HIGH) {
         throttleScaled = 0;
-        lastThrottleInputMillis = 0; // this does not count as a significant input since it didn't leave the deadzone
-      } else {        
-        lastSignificantInputMillis = millis();
+        numberOfThrottleInputs = 0;
+      } else {
+        numberOfThrottleInputs++;
+        if (numberOfThrottleInputs > CONSECUTIVE_SIGNALS_REQUIRED) {
+          lastSignificantInputMillis = millis();
+        }
       }
 
       return throttleScaled;
@@ -257,6 +269,7 @@ class RemoteControl {
         throttlePwm = micros() - throttlePulseStart;
 
         if (throttlePwmStartIndex < 10) {
+          int badPwmCount = 0;
           throttlePwmStart[throttlePwmStartIndex] = throttlePwm;
           throttlePwmStartIndex++;
 
@@ -266,7 +279,12 @@ class RemoteControl {
           // case and the car is still it will drive in that direction with the child having
           // no control via the joystick.
           if (throttlePwm < 1400 || throttlePwm > 1600) {
-            badControlStart = true;
+            badPwmCount++;
+            // Because of spurious I2S signals, we don't want to declare a bad start from
+            // a single bad reading
+            if (badPwmCount > 1) {
+              badControlStart = true;
+            }
           }
         }
 
@@ -281,11 +299,14 @@ class RemoteControl {
 
     
     void getStatus(char * status) {
-      sprintf(status, "[RemoteControl] throttleRaw:%lu throttleScaled:%i steeringRaw:%lu steeringScaled:%i isActive:%s Bad Start:%s Has Centered: %s",
+      sprintf(status, "[RemoteControl] throttleRaw:%lu throttleScaled:%i steeringRaw:%lu steeringScaled:%i last input: %lu counts: %lu %lu isActive:%s Bad Start:%s Has Centered: %s",
         throttlePwm,
         throttleScaled,
         steeringPwm,
         steeringScaled,
+        lastSignificantInputMillis,
+        numberOfSteeringInputs,
+        numberOfThrottleInputs,
         isActive() ? "true" : "false",
         badControlStart ? "true" : "false",
         hasCentered ? "true" : "false");
