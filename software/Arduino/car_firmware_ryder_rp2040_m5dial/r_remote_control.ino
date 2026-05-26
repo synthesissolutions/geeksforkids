@@ -16,7 +16,7 @@
 // to 1 or 2 bad signals per second. To avoid this appearing like the parent is taking control
 // of the car, we require a number of consecutive signals not at "center" for steering or throttle
 // before locking the child out of the car and taking action on the signal.
-#define CONSECUTIVE_SIGNALS_REQUIRED  3
+#define CONSECUTIVE_SIGNALS_REQUIRED  10
 
 class RemoteControl {
   private:
