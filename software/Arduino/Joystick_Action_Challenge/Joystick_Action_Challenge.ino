@@ -1,25 +1,37 @@
 
-#define PIN_ACTION_OUT  4
-#define PIN_JOYSTICK_X  A6
-#define PIN_JOYSTICK_Y  A5
+#include "joystick.h"
+
+#define PIN_ACTION_OUT    PIN_PB5
+#define PIN_JOYSTICK_X    PIN_PA6
+#define PIN_JOYSTICK_Y    PIN_PB4
+#define PIN_JOYSTICK_BTN  PIN_PA5
+
+void setTrigger(void);
+
+Joystick joystick(PIN_JOYSTICK_X, PIN_JOYSTICK_Y, PIN_JOYSTICK_BTN);
 
 void setup() {
   // put your setup code here, to run once:
+  joystick.begin();
   pinMode(PIN_ACTION_OUT, OUTPUT);
   digitalWrite(PIN_ACTION_OUT, LOW);
-  pinMode(PIN_JOYSTICK_X, INPUT);
-  pinMode(PIN_JOYSTICK_Y, INPUT);
 }
 
 void loop() {
-  int xPosition = analogRead(PIN_JOYSTICK_X);
-  int yPosition = analogRead(PIN_JOYSTICK_Y);
+  joystick.read();
 
-  if (xPosition > 950 || xPosition < 50) {
-    digitalWrite(PIN_ACTION_OUT, HIGH);
-  } else if (yPosition > 950 || yPosition < 50) {
-    //digitalWrite(PIN_ACTION_OUT, HIGH);
-  } else {
-    digitalWrite(PIN_ACTION_OUT, LOW);
+  if (joystick.x > 950 || joystick.x < 50) {
+    setTrigger();
+  } else if (joystick.y > 950 || joystick.y < 50) {
+    setTrigger();
   }
+  delay(50);
+}
+
+void setTrigger() {
+  // set trigger output HIGH for 1 ms (blocking)
+  // trigger output is inverted to send falling edge to action challenge
+  digitalWrite(PIN_ACTION_OUT, HIGH);
+  delay(1);
+  digitalWrite(PIN_ACTION_OUT, LOW);
 }
