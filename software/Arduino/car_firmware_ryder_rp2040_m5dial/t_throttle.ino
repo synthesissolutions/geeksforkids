@@ -10,7 +10,7 @@
  */
  
 #define DRIVE_MOTOR_STATE_STOPPED   0
-#define DRIVE_MOTOR_STATE_COASTING  1
+#define DRIVE_MOTOR_STATE_STOPPING  1
 #define DRIVE_MOTOR_STATE_MOVING    2
 
 class Throttle {
@@ -28,7 +28,8 @@ class Throttle {
 
     int currentMotorState = DRIVE_MOTOR_STATE_STOPPED;
     int motorCoastTimeMs = 0;
-    long motorCoastStartMs = 0;
+    long motorStoppingStartMs = 0;
+    int motorBrakePulseCount = 0;
 
     unsigned long lastThrottleUpdateMillis = 0;
   public: 
@@ -95,12 +96,6 @@ class Throttle {
      * This is usually not necessary to call as it will get called by setThrottleScaled().  But it is safe to call as necessary.
      */
     void updateThrottle() {
-      // check to see if it's time yet to actually update.  If not, don't do anything.
-      if (millis() - lastThrottleUpdateMillis < THROTTLE_UPDATE_MILLIS) {
-        // Note ... abs was used just in case we had a rollover in the millis() timer
-        return;
-      }
-
       // Looks like it's time to update the throttle.  Now ... figure out the new current throttle should be.
       if (lastThrottleUpdateMillis == 0 || millis() - lastThrottleUpdateMillis > THROTTLE_UPDATE_MILLIS * 3) {
         // Case 1: just starting up.  Set the throttle to 0, and get set up for further running
@@ -108,9 +103,7 @@ class Throttle {
         currentThrottleScaled = 0;
       } else {
         // Case 2: not staring up, so let's do some work
-        
-        // figure how how much to change the throttle based upon the rate and the amount of time that has elapsed
-        int throttleDelta = float(millis() - lastThrottleUpdateMillis) * THROTTLE_CHANGE_RATE / 1000.;
+        float throttleDelta = 2;
          
         // Figure out what to do with the current throttle (which direction do we apply the delta)
         /*
@@ -125,6 +118,14 @@ class Throttle {
           currentThrottleScaled += throttleDelta;
         }
       }
+      
+      if (abs(currentThrottleScaled) > 80) {
+        if (loopTimer1 == 0) {
+          loopTimer1 = millis();
+        } else if (loopTimer2 == 0) {
+          loopTimer2 = millis();
+        }
+      }
 
       // figure out the throttle pwm setting (ignoring the direction)
       currentPwmOut = map(abs(currentThrottleScaled), 0.0, 100.0, THROTTLE_PWM_MIN, THROTTLE_PWM_MAX);
@@ -137,13 +138,22 @@ class Throttle {
         if (currentMotorState == DRIVE_MOTOR_STATE_MOVING) {
           // start coasting
           motorStop = false;
-          motorCoastStartMs = millis();
-          currentMotorState = DRIVE_MOTOR_STATE_COASTING;
-        } else if (currentMotorState == DRIVE_MOTOR_STATE_COASTING) {
-          if (millis() - motorCoastStartMs > motorCoastTimeMs) {
+          motorStoppingStartMs = millis();
+          currentMotorState = DRIVE_MOTOR_STATE_STOPPING;
+          motorBrakePulseCount = 0;
+        } else if (currentMotorState == DRIVE_MOTOR_STATE_STOPPING) {
+          if (millis() - motorStoppingStartMs > motorCoastTimeMs) {
             // apply brake
             motorStop = true; 
             currentMotorState = DRIVE_MOTOR_STATE_STOPPED;
+          } else {
+            if(motorBrakePulseCount % 4 == 0) {
+              motorStop = true;
+            } else {
+              motorStop = false;
+            }
+            
+            motorBrakePulseCount++;
           }
         }
 
@@ -160,7 +170,7 @@ class Throttle {
           digitalWrite(rearForwardPin, LOW);
           digitalWrite(rearReversePin, LOW);                          
         }
-      } else if (currentThrottleScaled<0) {
+      } else if (currentThrottleScaled < 0) {
         //reverse
         currentMotorState = DRIVE_MOTOR_STATE_MOVING;
         digitalWrite(frontForwardPin, LOW);
@@ -180,10 +190,15 @@ class Throttle {
     }
 
     void getStatus(char * status) {
-      sprintf(status, "[Throttle] target:%i current:%f PWM:%i Motor State: %s",
+      sprintf(status, "[Throttle] target:%i current:%f PWM:%i Brake Pulses: %i Coast Time: %i, x: %i y: %i z: %i Motor State: %s",
         throttleTargetScaled,
         currentThrottleScaled,
         currentPwmOut,
-        currentMotorState == DRIVE_MOTOR_STATE_STOPPED ? "stopped" : currentMotorState == DRIVE_MOTOR_STATE_COASTING ? "coasting" : "moving");
+        motorBrakePulseCount,
+        motorCoastTimeMs,
+        tempX,
+        loopTimer2,
+        loopTimer2 - loopTimer1,
+        currentMotorState == DRIVE_MOTOR_STATE_STOPPED ? "stopped" : currentMotorState == DRIVE_MOTOR_STATE_STOPPING ? "*stopping*" : "moving");
     }
 };

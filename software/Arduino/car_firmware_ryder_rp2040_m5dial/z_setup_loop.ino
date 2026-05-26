@@ -190,7 +190,7 @@ void loop() {
     // We have detected a Serial connection, check to see if we want logging or configuration
     led.setStatusPixel(0, 0, 255);
     led.showPixels();
-    delay(10);
+    //delay(10);
     Serial.println("Press c to configure or any other key to run with logging");
     throttle.forceStop();
     steering.forceStop();
@@ -334,7 +334,7 @@ void loop() {
   }
 
   // Don't need to update the configuration every time through the loop
-  if (loopCount % 5 == 0) {
+  if (loopCount % 50 == 0) {
     configuration.update();
   }
 
@@ -353,6 +353,5 @@ void loop() {
   soundProcessingPcm.setVolume(configuration.getVolume());
   led.showPixels();
   soundButtons.processSoundButtons();
-  delay(LOOP_DELAY_MILLIS);
   loopCount++;
 }
