@@ -62,16 +62,18 @@ void setup1() {
 }
 
 void loop1() {
-  if (!soundProcessing.mp3Playing()) {
-    if (soundButtons.getSoundAButtonPressed()) {
-      soundProcessing.playSoundButtonA();
-    } else if (soundButtons.getSoundBButtonPressed()) {
-      soundProcessing.playSoundButtonB();
-    } else if (soundButtons.getTrigger1Activated()) {
-      soundProcessing.playActionTrigger1();
-    } else if (soundButtons.getTrigger2Activated()) {
-      soundProcessing.playActionTrigger2();
-    }
+  if (!isConfiguring) {
+    if (!soundProcessing.mp3Playing()) {
+      if (soundButtons.getSoundAButtonPressed()) {
+        soundProcessing.playSoundButtonA();
+      } else if (soundButtons.getSoundBButtonPressed()) {
+        soundProcessing.playSoundButtonB();
+      } else if (soundButtons.getTrigger1Activated()) {
+        soundProcessing.playActionTrigger1();
+      } else if (soundButtons.getTrigger2Activated()) {
+        soundProcessing.playActionTrigger2();
+      }
+    }  
   }
 
   soundProcessing.processSoundRequests();
@@ -115,7 +117,7 @@ void setup() {
   led.setPowerPixel(0, 255, 0);
   led.setStatusPixel(0, 255, 0);
 
-  throttle.init(PIN_THROTTLE_DIRECTION_FRONT, PIN_THROTTLE_PWM_FRONT, PIN_THROTTLE_DIRECTION_REAR, PIN_THROTTLE_PWM_REAR, configuration.getThrottleCoastMs());
+  throttle.init(PIN_THROTTLE_DIRECTION_FRONT, PIN_THROTTLE_PWM_FRONT, PIN_THROTTLE_DIRECTION_REAR, PIN_THROTTLE_PWM_REAR, configuration.getThrottleCoastMs(), configuration.getBrakeIntensity());
   logger.addLogLine("throttle initialized");
   
   steering.init(PIN_STEERING_DIRECTION, PIN_STEERING_PWM, PIN_STEERING_POSITION);

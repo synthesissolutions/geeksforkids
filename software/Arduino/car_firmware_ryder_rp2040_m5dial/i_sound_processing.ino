@@ -15,6 +15,8 @@ BackgroundAudioMP3Class<RawDataBuffer<16 * 1024>> BMP(audio);
 // The file we're currently playing
 File fsound;
 
+#define DEBUG_MESSAGES         0
+
 #define SOUND_BUTTON_A_FOLDER  1
 #define SOUND_BUTTON_B_FOLDER  2
 #define ACTION_TRIGGER_1_FOLDER  3
@@ -54,9 +56,10 @@ class SoundProcessing {
         soundProcessingAvailable = true;
       }
 
-      //while (!Serial) delay(1);
       setFolderFileCounts("/");
-      //printFolderCounts();
+      if (DEBUG_MESSAGES) {
+        printFolderCounts();
+      }
     }
 
     // Set volume receives a number from 1 to 100 representing the volume requested
@@ -68,13 +71,13 @@ class SoundProcessing {
       if(fsound){
         soundPlaying = true;
         playActiveSound();
-      }else{
+      } else {
         soundPlaying = false;
       }
     
       if (soundRequest){
         soundRequest = false;
-        Serial.println("C1: Sound Starting");
+        if (DEBUG_MESSAGES) Serial.println("C1: Sound Starting");
         loadSound(soundFullFilePath);
       }
     }
@@ -88,11 +91,9 @@ class SoundProcessing {
     bool mp3Playing(){
       if (BMP.done()){
         return false;
-      }else{
+      } else {
         return true;
       }
-      //return soundPlaying;
-      //return !digitalRead(BUSY_PIN); //busy when busy Pin is Low
     }
 
     void playSoundButtonA() {
@@ -113,13 +114,17 @@ class SoundProcessing {
 
     void playSound(int folderNumber) {
       if (soundProcessingAvailable) {
-        Serial.print("folderNumber: ");
-        Serial.println(folderNumber);
-        Serial.print("getFolderCount: ");
-        Serial.println(getFolderCount(folderNumber));
+        if (DEBUG_MESSAGES) {
+          Serial.print("folderNumber: ");
+          Serial.println(folderNumber);
+          Serial.print("getFolderCount: ");
+          Serial.println(getFolderCount(folderNumber));
+        }
         long randomSoundNumber = random(1, getFolderCount(folderNumber) + 1);
-        Serial.print("randomSoundNumber: ");
-        Serial.println(randomSoundNumber);
+        if (DEBUG_MESSAGES) {
+          Serial.print("randomSoundNumber: ");
+          Serial.println(randomSoundNumber);          
+        }
         playFolderSound(folderNumber, randomSoundNumber);
       }
     }
@@ -146,8 +151,10 @@ class SoundProcessing {
       itoa(fileNumber,holder,10); //Convert the file number to a string in and store it in holder
       strcat(filePart,holder); //Concat it to our currently 0 padded file number
 
-      Serial.print("path: ");
-      Serial.println(path);
+      if (DEBUG_MESSAGES) {
+        Serial.print("path: ");
+        Serial.println(path);
+      }
       root = LittleFS.openDir(path);
       
       //Loop through all the files in a folder and compare to the filepart
@@ -167,8 +174,10 @@ class SoundProcessing {
         f.close();
       }
 
-      Serial.print("fullFilePath: ");
-      Serial.println(fullFilePath);
+      if (DEBUG_MESSAGES) {
+        Serial.print("fullFilePath: ");
+        Serial.println(fullFilePath);
+      }
       
       if (fullFilePath != ""){
         strcpy(soundFullFilePath, fullFilePath);
@@ -180,8 +189,10 @@ class SoundProcessing {
 
     //Open a file from the full path and start playing the sound
     void loadSound(const char *fullpath){
-      Serial.print("loadSound fullpath: ");
-      Serial.print(fullpath);
+      if (DEBUG_MESSAGES) {
+        Serial.print("loadSound fullpath: ");
+        Serial.print(fullpath);
+      }
       fsound = LittleFS.open(fullpath, "r");
       auto p = fsound.position();
       p = p & ~511; // Ensure on a sector boundary, MP3 will resync appropriately
@@ -205,14 +216,18 @@ class SoundProcessing {
     //Prints folder counts to the serial output for testing and troubleshooting
     void printFolderCounts(){
       for(int i = 0; i < SOUND_FOLDER_COUNT; i++){
-        Serial.print("index: ");Serial.print(i);Serial.print(" folder: ");Serial.print(i+1);Serial.print(" Value: ");Serial.println(folderSounds[i]);
+        if (DEBUG_MESSAGES) {
+          Serial.print("index: ");Serial.print(i);Serial.print(" folder: ");Serial.print(i+1);Serial.print(" Value: ");Serial.println(folderSounds[i]);
+        }
       }
     }
 
     //Reads litteFS Sounds and saves values into folderSounds array. Runs once during setup.
     void setFolderFileCounts(const char *dirname){ 
-      Serial.print("Scaning Directory: ");
-      Serial.println(dirname);
+      if (DEBUG_MESSAGES) {
+        Serial.print("Scaning Directory: ");
+        Serial.println(dirname);
+      }
       Dir root = LittleFS.openDir(dirname);
       File f;
       

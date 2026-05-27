@@ -162,6 +162,7 @@ class Configuration {
     boolean getUseDashDirection() { return eeprom->getBooleanSetting(EEPROM_USE_DASH_DIR); }
 
     int getThrottleCoastMs() { return eeprom->getIntegerSetting(EEPROM_COAST_MS); }
+    int getBrakeIntensity() { return eeprom->getIntegerSetting(EEPROM_BRAKE_INTENSITY); } // 1 = least intense and 10 = most intense of hardest braking
 
     float getBatteryVoltage() {
       if (!tempSensorAvailable) {
@@ -348,7 +349,6 @@ class Configuration {
 
     void configureCar() {
       int selection;
-      int indexToEdit;
       int newIntValue;
       boolean newBooleanValue;
       
@@ -357,33 +357,32 @@ class Configuration {
       while (1) {
         printMainMenu();
         selection = readMainMenu();
-        indexToEdit = selection - 'a' + 1;
 
-        Serial.print(eeprom->getSettingName(indexToEdit));
-        Serial.print("Current Setting: ");
+        Serial.print(eeprom->getSettingName(selection));
+        Serial.print("  Current Setting: ");
 
-        if (eeprom->getSettingType(indexToEdit) == INTEGER_CONFIGURATION) {
-          Serial.print(eeprom->getIntegerSetting(indexToEdit));
-          Serial.print(" Enter new value: ");
+        if (eeprom->getSettingType(selection) == INTEGER_CONFIGURATION) {
+          Serial.println(eeprom->getIntegerSetting(selection));
+          Serial.print("Enter new value: ");
 
           newIntValue = readIntValue();
 
-          eeprom->setIntegerSetting(indexToEdit, newIntValue);
+          eeprom->setIntegerSetting(selection, newIntValue);
           Serial.println("");
           Serial.print("Saving New Value: ");
           Serial.println(newIntValue);
           eeprom->saveConfiguration();
-        } else if (eeprom->getSettingType(indexToEdit) == BOOLEAN_CONFIGURATION) {
-          if (eeprom->getBooleanSetting(indexToEdit)) {
-            Serial.print("True");
+        } else if (eeprom->getSettingType(selection) == BOOLEAN_CONFIGURATION) {
+          if (eeprom->getBooleanSetting(selection)) {
+            Serial.println("True");
           } else {
-            Serial.print("False");
+            Serial.println("False");
           }
           Serial.print(" Enter new value t/f: ");
 
           newBooleanValue = readBooleanValue();
           
-          eeprom->setBooleanSetting(indexToEdit, newBooleanValue);
+          eeprom->setBooleanSetting(selection, newBooleanValue);
           Serial.println("");
           Serial.print("Saving New Value: ");
           Serial.println(newBooleanValue);
@@ -447,8 +446,7 @@ class Configuration {
       Serial.println(RELEASE_VERSION);
       
       for (int i = 1; i < NUMBER_OF_CONFIGURATION_ENTRIES; i++) {
-        option = 'a' + i - 1;
-        Serial.print(option);
+        Serial.print(i);
         Serial.print(") ");
         Serial.print(eeprom->getSettingName(i));
         Serial.print(": ");
@@ -465,15 +463,16 @@ class Configuration {
       }
 
       Serial.println("");
-      Serial.println("Enter the letter of the item you wish to edit in lowercase.");
+      Serial.println("Enter the number of the item you wish to edit.");
     }
 
     int readMainMenu() {
       int entry;
       while(1) {
         if (Serial.available() > 0) {
-          entry = Serial.read();
-          if (entry < 'a' || entry > 'z') {
+          String entryString = Serial.readString();
+          entry = entryString.toInt();
+          if (entry < 1 || entry >= NUMBER_OF_CONFIGURATION_ENTRIES) {
             Serial.print("Invalid Entry: ");
             Serial.println(entry);
           } else {

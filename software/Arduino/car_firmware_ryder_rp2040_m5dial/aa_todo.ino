@@ -10,7 +10,6 @@
 
 /*
 
-- add config parameter for brake intensity - 1-10 sets mod for calculation
 - disable PCM when no sound is playing
 - figure out why the SoundProcessing status isn't printing properly - not urgent
 - add the ability to show multiple error conditions - changing color each second to cycle through error conditions - not urgent

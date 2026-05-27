@@ -1,6 +1,6 @@
 #include <EEPROM.h>
 
-#define NUMBER_OF_CONFIGURATION_ENTRIES 27
+#define NUMBER_OF_CONFIGURATION_ENTRIES 28
 
 #define EEPROM_VERSION              0
 #define EEPROM_ACTUATOR_MIN         1
@@ -27,18 +27,20 @@
 #define EEPROM_EXTEND_THROTTLE_TIME_MS  22
 #define EEPROM_CHILD_THROTTLE_ONLY      23
 #define EEPROM_REVERSE_RC_CHANNELS      24
-#define EEPROM_COAST_MS                 25
-#define EEPROM_USE_DASH_DIR             26
+#define EEPROM_USE_DASH_DIR             25
+#define EEPROM_COAST_MS                 26
+#define EEPROM_BRAKE_INTENSITY          27
 
 #define INTEGER_CONFIGURATION 1
 #define BOOLEAN_CONFIGURATION 2
 
 #define RC_DEFAULT_MIN        1125
 #define RC_DEFAULT_MAX        1875
-#define ACTUATOR_DEFAULT_MIN  -30
-#define ACTUATOR_DEFAULT_MAX  30
+#define ACTUATOR_DEFAULT_MIN  -50
+#define ACTUATOR_DEFAULT_MAX  50
 
-#define DEFAULT_COAST_MS_BEFORE_BRAKING 100        // How many milliseconds to coast before engaging the motor controller braking to avoid a harsh stop
+#define DEFAULT_COAST_MS_BEFORE_BRAKING 1000        // How many milliseconds to coast before engaging the motor controller braking to avoid a harsh stop
+#define DEFAULT_BRAKE_INTENSITY         7
 
 /**
  * Eeprom Class
@@ -82,8 +84,9 @@ ConfigurationEntry configurationEntries[] = {
   {"Extend Throttle Milliseconds", 92, INTEGER_CONFIGURATION, false, 500},
   {"Child Throttle Only", 96, BOOLEAN_CONFIGURATION, false, 0},
   {"Reverse RC Channels", 100, BOOLEAN_CONFIGURATION, false, 0},
-  {"Coast Milliseconds", 104, INTEGER_CONFIGURATION, false, DEFAULT_COAST_MS_BEFORE_BRAKING},
-  {"Use Dash Direction", 108, BOOLEAN_CONFIGURATION, false, 0}
+  {"Use Dash Direction", 104, BOOLEAN_CONFIGURATION, false, 0},
+  {"Coast Milliseconds", 108, INTEGER_CONFIGURATION, false, DEFAULT_COAST_MS_BEFORE_BRAKING},
+  {"Brake Intensity 1-10", 112, INTEGER_CONFIGURATION, false, DEFAULT_BRAKE_INTENSITY}
 };
     
 class Eeprom {

@@ -28,6 +28,7 @@ class Throttle {
 
     int currentMotorState = DRIVE_MOTOR_STATE_STOPPED;
     int motorCoastTimeMs = 0;
+    int brakingIntensity = 7;
     long motorStoppingStartMs = 0;
     int motorBrakePulseCount = 0;
 
@@ -49,7 +50,7 @@ class Throttle {
     }
     
     // initial setup
-    void init(int dirLeftPin, int pwmLeftPin, int dirRightPin, int pwmRightPin, int coastMs) {
+    void init(int dirLeftPin, int pwmLeftPin, int dirRightPin, int pwmRightPin, int coastMs, int bi) {
       // set the pins
       frontForwardPin = dirLeftPin;
       frontReversePin = pwmLeftPin;
@@ -63,6 +64,7 @@ class Throttle {
       pinMode(rearReversePin, OUTPUT);
 
       motorCoastTimeMs = coastMs;
+      brakingIntensity = bi;
 
       // make sure the motors are all off
       forceStop();
@@ -118,14 +120,6 @@ class Throttle {
           currentThrottleScaled += throttleDelta;
         }
       }
-      
-      if (abs(currentThrottleScaled) > 80) {
-        if (loopTimer1 == 0) {
-          loopTimer1 = millis();
-        } else if (loopTimer2 == 0) {
-          loopTimer2 = millis();
-        }
-      }
 
       // figure out the throttle pwm setting (ignoring the direction)
       currentPwmOut = map(abs(currentThrottleScaled), 0.0, 100.0, THROTTLE_PWM_MIN, THROTTLE_PWM_MAX);
@@ -147,7 +141,10 @@ class Throttle {
             motorStop = true; 
             currentMotorState = DRIVE_MOTOR_STATE_STOPPED;
           } else {
-            if(motorBrakePulseCount % 4 == 0) {
+            // brakingIntensity is a number from 1 to 10
+            // convert that into an inverted number from 1 to 10 for the modulus operation
+            // the higher the modulus number, the weaker the braking
+            if(motorBrakePulseCount % (11 - brakingIntensity) == 0) {
               motorStop = true;
             } else {
               motorStop = false;
@@ -190,15 +187,13 @@ class Throttle {
     }
 
     void getStatus(char * status) {
-      sprintf(status, "[Throttle] target:%i current:%f PWM:%i Brake Pulses: %i Coast Time: %i, x: %i y: %i z: %i Motor State: %s",
+      sprintf(status, "[Throttle] target:%i current:%f PWM:%i Brake Pulses: %i Coast Time: %i Braking Intensity: %i Motor State: %s",
         throttleTargetScaled,
         currentThrottleScaled,
         currentPwmOut,
         motorBrakePulseCount,
         motorCoastTimeMs,
-        tempX,
-        loopTimer2,
-        loopTimer2 - loopTimer1,
+        brakingIntensity,
         currentMotorState == DRIVE_MOTOR_STATE_STOPPED ? "stopped" : currentMotorState == DRIVE_MOTOR_STATE_STOPPING ? "*stopping*" : "moving");
     }
 };
