@@ -32,8 +32,9 @@
 #define REGISTER_EXTEND_THROTTLE_TIME_MS  22
 #define REGISTER_CHILD_THROTTLE_ONLY      23
 #define REGISTER_REVERSE_RC_CHANNELS      24
-#define REGISTER_COAST_MS                 25
-#define REGISTER_USE_DASH_DIR             26
+#define REGISTER_USE_DASH_DIR             25
+#define REGISTER_COAST_MS                 26
+#define REGISTER_BRAKE_INTENSITY          27
 
 #define REGISTER_CAR_CODE_VERSION         98
 #define REGISTER_SPEED_VOLUME             99
@@ -59,7 +60,7 @@ MenuOption menuOptions[] = {
   {"Analog/PWM", 3, {BACK_MENU_ITEM, REGISTER_USE_PWM_JOYSTICK_X, REGISTER_USE_PWM_JOYSTICK_Y}},
   {"Direction", 3, {BACK_MENU_ITEM, REGISTER_INVERT_JOYSTICK_X, REGISTER_INVERT_JOYSTICK_Y}},
   {"Steering", 4, {BACK_MENU_ITEM, REGISTER_JOYSTICK_STEERING_MIN, REGISTER_JOYSTICK_STEERING_CENTER, REGISTER_JOYSTICK_STEERING_MAX}},
-  {"Throttle", 9, {BACK_MENU_ITEM, REGISTER_JOYSTICK_THROTTLE_MIN, REGISTER_JOYSTICK_THROTTLE_CENTER, REGISTER_JOYSTICK_THROTTLE_MAX, REGISTER_EXTEND_THROTTLE, REGISTER_EXTEND_THROTTLE_TIME_MS, REGISTER_CHILD_THROTTLE_ONLY, REGISTER_COAST_MS, REGISTER_USE_DASH_DIR}}
+  {"Throttle", 10, {BACK_MENU_ITEM, REGISTER_JOYSTICK_THROTTLE_MIN, REGISTER_JOYSTICK_THROTTLE_CENTER, REGISTER_JOYSTICK_THROTTLE_MAX, REGISTER_EXTEND_THROTTLE, REGISTER_EXTEND_THROTTLE_TIME_MS, REGISTER_CHILD_THROTTLE_ONLY, REGISTER_USE_DASH_DIR, REGISTER_COAST_MS, REGISTER_BRAKE_INTENSITY}}
 };
 
 int menuItemCount = sizeof(menuOptions) / sizeof(menuOptions[0]);
@@ -69,39 +70,41 @@ struct ConfigurationEntry {
   boolean setByCar;
   int intMin;
   int intMax;
+  int stepSize;
   int dataType;
   boolean booleanValue;
   int16_t intValue;
 };
 
 ConfigurationEntry configurationEntries[] = {
-  {"Version", false, 1, 100, INTEGER_CONFIGURATION, false, CURRENT_SETTINGS_VERSION},
-  {"Min", false, -100, 100, INTEGER_CONFIGURATION, false, -50},  // in scaled units from -100 to 100
-  {"Center", false, -100, 100, INTEGER_CONFIGURATION, false, 0},  // in scaled units from -100 to 100
-  {"Max", false, -100, 100, INTEGER_CONFIGURATION, false, 50},   // in scaled units from -100 to 100
-  {"Use RC", false, 0, 0, BOOLEAN_CONFIGURATION, true, 0},
-  {"Steering Min", false, 800, 2200, INTEGER_CONFIGURATION, false, 1000},  // All RC values are in PWM duty cycle microseconds
-  {"Steering Center", false, 800, 2200, INTEGER_CONFIGURATION, false, 1500},
-  {"Steering Max", false, 800, 2200, INTEGER_CONFIGURATION, false, 2000},
-  {"Throttle Min", false, 800, 2200, INTEGER_CONFIGURATION, false, 1000},
-  {"Throttle Center", false, 800, 2200, INTEGER_CONFIGURATION, false, 1500},
-  {"Throttle Max", false, 800, 2200, INTEGER_CONFIGURATION, false, 2000},
-  {"Steering PWM", false, 0, 0, BOOLEAN_CONFIGURATION, true, 0},
-  {"Throttle PWM", false, 0, 0, BOOLEAN_CONFIGURATION, true, 0},
-  {"Invert Steering", false, 0, 0, BOOLEAN_CONFIGURATION, true, 0},
-  {"Invert Throttle", false, 0, 0, BOOLEAN_CONFIGURATION, true, 0},
-  {"Steering Min", false, 0, 1023, INTEGER_CONFIGURATION, false, 200}, // Joystick values are in PWM duty cycle microseconds or analog readings 0 - 1023
-  {"Steering Center", false, 0, 1023, INTEGER_CONFIGURATION, false, 500},
-  {"Steering Max", false, 0, 1023, INTEGER_CONFIGURATION, false, 800},
-  {"Throttle Min", false, 0, 1023, INTEGER_CONFIGURATION, false, 200},
+  {"Version", false, 1, 100, 1, INTEGER_CONFIGURATION, false, CURRENT_SETTINGS_VERSION},
+  {"Min", false, -100, 100, 1, INTEGER_CONFIGURATION, false, -50},  // in scaled units from -100 to 100
+  {"Center", false, -100, 100, 1, INTEGER_CONFIGURATION, false, 0},  // in scaled units from -100 to 100
+  {"Max", false, -100, 100, 1, INTEGER_CONFIGURATION, false, 50},   // in scaled units from -100 to 100
+  {"Use RC", false, 0, 0, 1, BOOLEAN_CONFIGURATION, true, 0},
+  {"Steering Min", false, 800, 2200, 1, INTEGER_CONFIGURATION, false, 1000},  // All RC values are in PWM duty cycle microseconds
+  {"Steering Center", false, 800, 2200, 1, INTEGER_CONFIGURATION, false, 1500},
+  {"Steering Max", false, 800, 2200, 1, INTEGER_CONFIGURATION, false, 2000},
+  {"Throttle Min", false, 800, 2200, 1, INTEGER_CONFIGURATION, false, 1000},
+  {"Throttle Center", false, 800, 2200, 1, INTEGER_CONFIGURATION, false, 1500},
+  {"Throttle Max", false, 800, 2200, 1, INTEGER_CONFIGURATION, false, 2000},
+  {"Steering PWM", false, 0, 0, 0, BOOLEAN_CONFIGURATION, true, 0},
+  {"Throttle PWM", false, 0, 0, 0, BOOLEAN_CONFIGURATION, true, 0},
+  {"Invert Steering", false, 0, 0, 0, BOOLEAN_CONFIGURATION, true, 0},
+  {"Invert Throttle", false, 0, 0, 0, BOOLEAN_CONFIGURATION, true, 0},
+  {"Steering Min", false, 0, 1023, 1, INTEGER_CONFIGURATION, false, 200}, // Joystick values are in PWM duty cycle microseconds or analog readings 0 - 1023
+  {"Steering Center", false, 0, 1023, 1, INTEGER_CONFIGURATION, false, 500},
+  {"Steering Max", false, 0, 1023, 1, INTEGER_CONFIGURATION, false, 800},
+  {"Throttle Min", false, 0, 1023, 1, INTEGER_CONFIGURATION, false, 200},
   {"Throttle Center", false, 0, 1023, INTEGER_CONFIGURATION, false, 500},
-  {"Throttle Max", false, 0, 1023, INTEGER_CONFIGURATION, false, 800},
-  {"Extend Throttle", false, 0, 0, BOOLEAN_CONFIGURATION, false, 0},
-  {"Ext Throttle Ms", false, 0, 5000, INTEGER_CONFIGURATION, false, 500},
-  {"Child Throt Only", false, 0, 0, BOOLEAN_CONFIGURATION, false, 0},
-  {"Reverse RC Channels", false, 0, 0, BOOLEAN_CONFIGURATION, false, 0},
-  {"Coast Milliseconds", false, 0, 2000, INTEGER_CONFIGURATION, false, 100},
-  {"Use Dash Dir", false, 0, 0, BOOLEAN_CONFIGURATION, false, 0}
+  {"Throttle Max", false, 0, 1023, 1, INTEGER_CONFIGURATION, false, 800},
+  {"Extend Throttle", false, 0, 0, 0, BOOLEAN_CONFIGURATION, false, 0},
+  {"Ext Throttle Ms", false, 0, 5000, 25, INTEGER_CONFIGURATION, false, 500},
+  {"Child Throt Only", false, 0, 0, 0, BOOLEAN_CONFIGURATION, false, 0},
+  {"Reverse RC Channels", false, 0, 0, 0, BOOLEAN_CONFIGURATION, false, 0},
+  {"Use Dash Dir", false, 0, 0, 0, BOOLEAN_CONFIGURATION, false, 0},
+  {"Coast Milliseconds", false, 0, 2000, 25, INTEGER_CONFIGURATION, false, 1000},
+  {"Brake Intensity 1-10", false, 1, 10, 1, INTEGER_CONFIGURATION, false, 7}
 };
 
 Preferences preferences;
@@ -126,7 +129,7 @@ char carVersion[30];
 
 const uint16_t currentVersion = 1;
 
-#define M5DIAL_VERSION        "d26.05.1a"
+#define M5DIAL_VERSION        "d26.05.2"
 #define PREFERENCES_VERSION   "version"
 #define PREFERENCES_NAMESPACE "settings"
 #define PREFERENCES_SPEED     "speed"
@@ -150,7 +153,7 @@ void requestEvent() {
   if (currentRegister == REGISTER_SPEED_VOLUME) {  
     Wire.write((uint8_t) speed);
     Wire.write((uint8_t) volume);
-  } else if (currentRegister <= REGISTER_USE_DASH_DIR) {
+  } else if (currentRegister <= REGISTER_BRAKE_INTENSITY) {
     if (configurationEntries[currentRegister].dataType == BOOLEAN_CONFIGURATION) {
       Wire.write(configurationEntries[currentRegister].booleanValue);
       Wire.write(0);
@@ -238,7 +241,7 @@ void receiveEvent(int count) {
     // version of the configuration that the M5Dial is using
 
     // For now we will let the car decide what to do with a version mismatch
-  } else if (currentRegister <= REGISTER_USE_DASH_DIR ) {
+  } else if (currentRegister <= REGISTER_BRAKE_INTENSITY ) {
     // In theory, the car should never set the register in read only mode
     // that should be controlled by the M5Dial
     
@@ -495,7 +498,7 @@ void configurationLoop() {
 void getInteger(ConfigurationEntry *entry) {
   drawInteger(entry);
 
-  int currentPosition = entry->intValue;
+  int currentPosition = entry->intValue / entry->stepSize;
   M5Dial.Encoder.write(currentPosition);
   
   while (true) {
@@ -506,17 +509,17 @@ void getInteger(ConfigurationEntry *entry) {
       // If the value has not be set by the car caddy,
       // show *waiting* and wait until it is set.
       if (entry->setByCar) {
-        if (newPosition < entry->intMin) {
-          currentPosition = entry->intMin;
+        if (newPosition * entry->stepSize < entry->intMin) {
+          currentPosition = entry->intMin / entry->stepSize;
           M5Dial.Encoder.write(currentPosition);
-        } else if (newPosition > entry->intMax) {
-          currentPosition = entry->intMax;
+        } else if (newPosition * entry->stepSize > entry->intMax) {
+          currentPosition = entry->intMax / entry->stepSize;
           M5Dial.Encoder.write(currentPosition);
         } else {
           currentPosition = newPosition;
         }      
 
-        entry->intValue = currentPosition;
+        entry->intValue = currentPosition * entry->stepSize;
         drawInteger(entry);
       }
     }

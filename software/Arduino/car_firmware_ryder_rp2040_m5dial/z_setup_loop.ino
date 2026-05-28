@@ -52,6 +52,9 @@ boolean rcInControl = false;
 boolean joystickInControl = false;
 boolean badStartMessageDisplayed = false;
 
+boolean muteDac = false;
+boolean dacMuted = false;
+
 long tempMillis;
 
 /*
@@ -72,8 +75,12 @@ void loop1() {
         soundProcessing.playActionTrigger1();
       } else if (soundButtons.getTrigger2Activated()) {
         soundProcessing.playActionTrigger2();
+      } else {
+        muteDac = true;
       }
-    }  
+    } else {
+      muteDac = false;
+    }
   }
 
   soundProcessing.processSoundRequests();
@@ -352,6 +359,13 @@ void loop() {
     led.setErrorPixel(0, 0, 0);
   }
 
+  if (muteDac && !dacMuted) {
+    gpioExpander.setDacMute(true);
+    dacMuted = true;
+  } else if (dacMuted) {
+    gpioExpander.setDacMute(false);
+    dacMuted = false;
+  }
   soundProcessingPcm.setVolume(configuration.getVolume());
   led.showPixels();
   soundButtons.processSoundButtons();
