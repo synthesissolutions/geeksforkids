@@ -1,5 +1,5 @@
-#include "M5Dial.h"
 #include <Wire.h>
+#include "M5Dial.h"
 #include <Preferences.h>
 
 // Uses Version 2.1.3 of M5Stack Board Package
