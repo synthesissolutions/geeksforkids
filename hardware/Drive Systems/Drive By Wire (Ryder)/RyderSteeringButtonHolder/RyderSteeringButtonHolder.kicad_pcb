@@ -379,12 +379,25 @@
 				)
 			)
 		)
-		(property "LCSC Part#" "C160389"
+		(property "LCSC Part#" "C160403"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "9442fc93-4bc6-4b6c-a6f2-58615a1383ca")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part #" "C160403"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8d2249f0-5e5e-40df-9e10-e2ccb1ea61b9")
 			(effects
 				(font
 					(size 1 1)
