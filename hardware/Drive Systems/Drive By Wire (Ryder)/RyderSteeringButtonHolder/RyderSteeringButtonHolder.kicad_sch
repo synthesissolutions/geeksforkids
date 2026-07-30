@@ -1227,7 +1227,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_SH_BM03B-SRSS-TB_1x03-1MP_P1.00mm_Vertical"
+		(property "Footprint" "Connector_JST:JST_SH_SM03B-SRSS-TB_1x03-1MP_P1.00mm_Horizontal"
 			(at 123.19 80.01 0)
 			(hide yes)
 			(show_name no)
@@ -1260,7 +1260,7 @@
 				)
 			)
 		)
-		(property "LCSC Part#" "C160389"
+		(property "LCSC Part #" "C160403"
 			(at 123.19 80.01 0)
 			(hide yes)
 			(show_name no)
